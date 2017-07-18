@@ -1,0 +1,784 @@
+<div id="grid">
+    <h2>Grid</h2>
+	<p>The eBay grid is a flexbox first layout system, used to give to structure and form to designs. It will enable building consistent layouts across multiple pages.</p>
+	<div class="grid">
+		<div class="grid__group grid__group--no-gutters grid__group--wrap">
+			<div class="grid__cell grid__cell--one-third">
+				<h3>For all Screens</h3>
+				<p>By using our grid system pages can be made to adapt to any screen size. It uses media queries in order to change the layout. However, builds will be included for <em>both adaptive and responsive use cases</em>.</p>
+			</div>
+			<div class="grid__cell grid__cell--one-third">
+				<h3>Consistent Design</h3>
+				<p>The large and medium grid layouts are based on fractions of sixteen; the small grid is fractions of eight. Each grid cell has a percentage width with fixed "gutters". Having fixed spacing allows for consistent rhythm in our vertical and horizontal spacing.</p>
+			</div>
+			<div class="grid__cell grid__cell--one-third">
+				<h3>Customizable</h3>
+				<p>Currently the maximum width of a layout is 1280 pixels, but this system can easily be customized to fit all needs.</p>
+			</div>
+		</div>
+	</div>
+
+    <h3>Lasso</h3>
+    <p>If you are using <a href="https://github.com/lasso-js/lasso">Lasso.js</a>, you can include the grid css by adding a flag to your lasso configuration. For this to work you must include the <span class="highlight">skin-ebay/grid</span> module in your <span class="highlight">browser.json</span> as a dependency. If no flags are specified the <span class="highlight">grid-core</span>
+    file will be loaded into your page.</p>
+    <ul>
+        <li>
+            <p><b>grid-core</b></p>
+            <p>Adds the core grid system to your page. This includes just includes the lg, sm, and default grid sizes. </p>
+        </li>
+        <li>
+            <p><b>grid-large</b></p>
+            <p>In order to accommodate adaptive designs the large and extra-large classes were broken up into their own file. This allows for applications to only pull in the large and extra-large classes</p>
+        </li>
+        <li>
+            <p><b>grid-small</b></p>
+            <p>In order to accommodate adaptive designs the small classes were broken up into their own file. This allows for applications to only pull in the small classes</p>
+        </li>
+        <li>
+            <p><b>grid-full</b></p>
+            <p>Adds the entire grid system to your page. This includes the lg, sm and the default grid sizes. As well as the necessary classes to utilize nested grids. </p>
+        </li>
+    </ul>
+
+    {% highlight json %}
+{
+  "lasso": {
+    "flags": ["grid-core"]
+  }
+}
+    {% endhighlight %}
+
+    <h3>CDN</h3>
+    <p>The grid system is also available via CDN: <a href="https://ir.ebaystatic.com/cr/v/c1/skin/v3.0.0-1/ds4/grid-full.min.css">https://ir.ebaystatic.com/cr/v/c1/skin/v3.0.0-1/ds4/grid-full.min.css</a></p>
+
+	<h3>Basic Grid</h3>
+	<ul>
+		<li>Create an element and apply the <span class="highlight">.grid</span> class.</li>
+		<li>The only direct children of the <span class="highlight">.grid</span> element should be <span class="highlight">.grid__group</span> elements.</li>
+		<li>Generally, the only direct children of the <span class="highlight">.grid__group</span> element should be <span class="highlight">.grid__cell</span> elements.
+			The only current exception is when you use the <span class="highlight">.grid__group--full</span> modifier.</li>
+		<li>Generally, the <span class="highlight">.grid__cell</span> element should have one block element child.</li>
+	</ul>
+
+	<p>In order to simplify the grid system classes, the default classes to layout a page are <span class="highlight">.grid__cell--*of*</span>, replacing the * with a number up to 16.</p>
+
+    <div class="demo demo--grid">
+    	<div class="grid">
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--4of16">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+                <div class="grid__cell grid__cell--12of16">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+            </div>
+    	</div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--4of16">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--12of16">
+            <div>Content....</div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+	<h3>Standard Breakpoints</h3>
+    <p>The standard <span class="highlight">.grid__cell</span> modifier classes will also have modifier classes to faciliate responsive page changes for different screen sizes. These are the same as the standard <span class="highlight">.grid__cell</span> modifier class except they have a "-lg" or "-sm" post-fix.</p>
+    <table id="gridSizes" class="infographic">
+        <thead>
+          <tr>
+            <td></td>
+            <td><div><!--0--></div><div>600</div></td>
+            <td><div><!--601--></div><div>960</div></td>
+            <td><div><!--961--></div><div>1280</div></td>
+          </tr>
+          <tr id="gridSizes__colSpecs">
+            <td></td>
+            <td>8 columns</td>
+            <td></td>
+            <td>16 columns</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Small</th>
+            <th>Medium</th>
+            <th>Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Class</th>
+            <td>.grid__cell--*of*-sm
+              <div class="example">.grid__cell--4of8-sm</div></td>
+            <td>.grid__cell--*of*
+              <div class="example">.grid__cell--5of16</div></td>
+            <td>.grid__cell--*of*-lg
+              <div class="example">.grid__cell--8of16-lg</div></td>
+          </tr>
+          <tr>
+            <th>Media query</th>
+            <td>@media(max-width: 600px)</td>
+            <td></td>
+            <td>@media(min-width: 961px)</td>
+          </tr>
+          <tr>
+            <th>Viewport size</th>
+            <td><= 600px</td>
+            <td></td>
+            <td>>= 961px</td>
+          </tr>
+          <tr>
+            <th>Gutter size</th>
+            <td>8px</td>
+            <td>16px</td>
+            <td>16px</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div class="demo demo--grid">
+    	<div class="grid">
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--16of16 grid__cell--16of16-lg grid__cell--8of8-sm">
+                	<div class="row-height">
+                		<p>16</p>
+                	</div>
+                </div>
+            </div>
+
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               		<div class="row-height">
+               		   <p>4</p>
+               		</div>
+                </div>
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               		<div class="row-height">
+               			<p>4</p>
+               		</div>
+                </div>
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               		<div class="row-height">
+               			<p>4</p>
+               		</div>
+                </div>
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               		<div class="row-height">
+               			<p>4</p>
+               		</div>
+                </div>
+            </div>
+
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               	    <div class="row-height">
+               			<p>4</p>
+               	    </div>
+                </div>
+                <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+               		<div class="row-height">
+               			<p>8</p>
+               		</div>
+                </div>
+                <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+               		<div class="row-height">
+               			<p>4</p>
+               		</div>
+                </div>
+            </div>
+
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+               	    <div class="row-height">
+               			<p>8</p>
+                	</div>
+                </div>
+                <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+               		<div class="row-height">
+               			<p>8</p>
+               		</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--16of16 grid__cell--16of16-lg grid__cell--8of8-sm">
+            <div>Content....</div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+            <div>Content....</div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+        	<div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+        	<div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--4of16 grid__cell--4of16-lg grid__cell--2of8-sm">
+        	<div>Content....</div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+        	<div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--8of16 grid__cell--8of16-lg grid__cell--4of8-sm">
+        	<div>Content....</div>
+        </div>
+    </div>
+</div>
+   {% endhighlight %}
+
+    <h3>Simple Fraction Grid Cell Classes</h3>
+	<p>
+		In order to make using the grid system easier, a set of commonly used fractions were identified.
+		These classes can be used if the percentage of the column will be staying the same regardless of the screen size.
+		This allows for less code to be written in the markup.
+	</p>
+	<p>
+	   For example, instead of using <span class="highlight"> .grid__cell--4of16 .grid__cell--2of8-sm </span>
+	   to represent one-half on both large and small screens, the class <span class="highlight"> .grid__cell--one-half </span>.
+	</p>
+
+    <div class="demo demo--grid">
+    	<div class="grid">
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--one-half">
+                	<div class="row-height">
+                	   <p>.grid__cell--one-half</p>
+                	</div>
+                </div>
+                <div class="grid__cell grid__cell--one-half">
+                	<div class="row-height">
+                	   <p>.grid__cell--one-half</p>
+                	</div>
+                </div>
+            </div>
+            <div class="grid__group">
+    	        <div class="grid__cell grid__cell--one-fourth">
+    	       		<div class="row-height"><p>.grid__cell--one-fourth</p></div>
+    	        </div>
+    	        <div class="grid__cell grid__cell--three-fourth">
+    	       		<div class="row-height"><p>.grid__cell--three-fourth</p></div>
+    	        </div>
+            </div>
+            <div class="grid__group">
+        		<div class="grid__cell grid__cell--one-third">
+        			<div class="row-height">
+        	        <p>.grid__cell--one-third</p>
+        	    </div>
+        		</div>
+        		<div class="grid__cell grid__cell--two-third">
+        			<div class="row-height">
+        			   <p>.grid__cell--two-third</p>
+        			</div>
+        		</div>
+    		</div>
+    		<div class="grid__group">
+    			<div class="grid__cell grid__cell--one-fifth">
+                    <div class="row-height"><p>.grid__cell--one-fifth</p></div>
+    			</div>
+    			<div class="grid__cell grid__cell--four-fifth">
+                    <div class="row-height"><p>.grid__cell--four-fifth</p></div>
+    			</div>
+    		</div>
+    		<div class="grid__group">
+    			<div class="grid__cell grid__cell--two-fifth">
+                    <div class="row-height"><p>.grid__cell--two-fifth</p></div>
+    			</div>
+    			<div class="grid__cell grid__cell--three-fifth">
+                    <div class="row-height"><p>.grid__cell--three-fifth</p></div>
+    			</div>
+    		</div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-half">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-half">
+            <div>Content....</div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>One Fourth</p></div>
+        </div>
+        <div class="grid__cell grid__cell--three-fourth">
+            <div><p>Three Fourth</p></div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-third">
+            <div><p>One Third</p></div>
+        </div>
+        <div class="grid__cell grid__cell--two-third">
+            <div><p>Two Third</p></div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-fifth">
+            <div><p>One Fifth</p></div>
+        </div>
+        <div class="grid__cell grid__cell--four-fifth">
+            <div><p>Four Fifth</p></div>
+        </div>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--two-fifth">
+            <div><p>Two Fifth</p></div>
+        </div>
+        <div class="grid__cell grid__cell--three-fifth">
+            <div><p>Three Fifth</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Nested Grid</h3>
+    <p>
+    	The grid__cell element's proportions are relative to their parent container.
+    	A few rules exist for the <span class="highlight">.grid .grid</span> selector and the
+    	<span class="highlight">.grid .grid > .grid__group</span> selector.  So, in order for nesting to work properly
+    	<span class="highlight">.grid__group</span> elements should have a direct parent that is a
+    	<span class="highlight">.grid</span> element.  In other words, you should not place a <span class="highlight">.grid__group</span>
+    	directly inside a <span class="highlight">.grid__cell</span>.
+    </p>
+
+    <div class="demo demo--grid">
+        <div class="grid">
+        	<div class="grid__group">
+        		<div class="grid__cell grid__cell--4of16">
+        			<div class="row-height">
+        				<ul>
+        					<li>Content....</li>
+        					<li>Content....</li>
+        					<li>Content....</li>
+        					<li>Content....</li>
+        				</ul>
+                    </div>
+        		</div>
+        		<div class="grid__cell grid__cell--12of16">
+        			<div class="grid">
+        				<div class="grid__group grid__group--no-gutters">
+        					<div class="grid__cell grid__cell--one-fourth">
+        						<div class="row-height">Content....</div>
+        					</div>
+        					<div class="grid__cell grid__cell--one-half">
+        						<div class="row-height">Content....</div>
+        					</div>
+        					<div class="grid__cell grid__cell--one-fourth">
+        						<div class="row-height">Content....</div>
+        					</div>
+        				</div>
+        				<div class="grid__group grid__group--no-gutters">
+        					<div class="grid__cell grid__cell--one-fourth">
+        						<div class="row-height">Content....</div>
+        					</div>
+        					<div class="grid__cell grid__cell--one-half">
+        						<div class="row-height">Content....</div>
+        					</div>
+        					<div class="grid__cell grid__cell--one-fourth">
+        						<div class="row-height">Content....</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--4of16">
+            <div>
+                <ul>
+                    <li>Content....</li>
+                    <li>Content....</li>
+                    <li>Content....</li>
+                    <li>Content....</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid__cell grid__cell--12of16">
+            <div class="grid">
+                <div class="grid__group grid__group--no-gutters">
+                    <div class="grid__cell grid__cell--one-fourth">
+                        <div>Content....</div>
+                    </div>
+                    <div class="grid__cell grid__cell--one-half">
+                        <div>Content....</div>
+                    </div>
+                    <div class="grid__cell grid__cell--one-fourth">
+                        <div>Content....</div>
+                    </div>
+                </div>
+                <div class="grid__group grid__group--no-gutters">
+                    <div class="grid__cell grid__cell--one-fourth">
+                        <div>Content....</div>
+                    </div>
+                    <div class="grid__cell grid__cell--one-half">
+                        <div>Content....</div>
+                    </div>
+                    <div class="grid__cell grid__cell--one-fourth">
+                        <div>Content....</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h4>Experimental Nested Grid</h4>
+    <p>Only available in grid-full.less.  Contains every possible fraction, which is the reason for the significantly larger file size.</p>
+    <div class="demo demo--grid">
+        <div class="grid">
+           <div class="grid__group">
+                <div class="grid__cell grid__cell--11of16">
+                		<div class="grid">
+                			<div class="grid__group">
+                				<div class="grid__cell grid__cell--6of11">
+                					<p class="nested">I am nested</p>
+                				</div>
+                				<div class="grid__cell grid__cell--5of11">
+                					<p class="nested">I am nested</p>
+                				</div>
+                			</div>
+                		</div>
+                </div>
+                <div class="grid__cell grid__cell--5of16">
+                	<div class="row-height">Content....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--11of16">
+            <div class="grid">
+                <div class="grid__group">
+                    <div class="grid__cell grid__cell--6of11">
+                        <div>I am nested</div>
+                    </div>
+                    <div class="grid__cell grid__cell--5of11">
+                        <div>I am nested</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid__cell grid__cell--5of16">
+            <div>Content....</div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Grid Helper Classes</h3>
+
+	<h4>.grid__group--full</h4>
+	<p>Instead of using <span class="highlight">.grid__cell--16of16</span>,  <span class="highlight">.grid__group--full</span> can be used to achieve a full width row with the cell properties. This requires one less element, which is nice.</p>
+    <div class="demo demo--grid">
+        <div class="grid">
+    		<div class="grid__group grid__group--full"><h3 class="row-height">Example of using .grid__group--full</h3></div>
+    		<div class="grid__group">
+    			<div class="grid__cell grid__cell--4of16"><div class="row-height"><p>Content....</p></div></div>
+    			<div class="grid__cell grid__cell--12of16"><div class="row-height"><p>Content....</p></div></div>
+    		</div>
+    	</div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group grid__group--full">
+        <h3>Example of using .grid__group--full</h3>
+    </div>
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--4of16">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--12of16">
+            <div><p>Content....</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+	<h4>.grid__cell--*-hidden</h4>
+	<p>
+      	In cases where you want to hide a segment of layout for a certain screen size
+      	use the <span class="highlight">.grid__cell--sm-hidden</span>, <span class="highlight">.grid__cell--md-hidden</span>, or
+				<span class="highlight">.grid__cell--lg-hidden</span> modifier class.
+    </p>
+    <div class="demo demo--grid">
+        <div class="grid">
+        	<div class="grid__group">
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--grow">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--4of16-lg grid__cell--md-hidden grid__cell--sm-hidden">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--grow">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--4of16-lg grid__cell--md-hidden grid__cell--sm-hidden">
+            <div><p>Content....</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+	<h4>.grid__group--wrap</h4>
+	<p>If there is a case where you need the content within a group to wrap, the <span class="highlight">.grid__group--wrap</span> modifier class is used.</p>
+
+	<h5>Without <span class="highlight">.grid__group--wrap</span> modifier class</h5>
+    <div class="demo demo--grid">
+        <div class="grid">
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--one-fourth">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+                <div class="grid__cell grid__cell--one-fourth">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+                <div class="grid__cell grid__cell--one-fourth">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+                <div class="grid__cell grid__cell--one-fourth">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+                <div class="grid__cell grid__cell--one-fourth">
+                    <div class="row-height"><p>Content....</p></div>
+                </div>
+            </div>
+    	</div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h5>With <span class="highlight">.grid__group--wrap</span> modifier class</h5>
+    <div class="demo demo--grid">
+        <div class="grid">
+        	<div class="grid__group grid__group--wrap">
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group grid__group--wrap">
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth">
+            <div><p>Content....</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+    <h5>Adapting to Screen Size With <span class="highlight">.grid__group--wrap</span></h5>
+    <p>Wrapping can be useful when a piece of a layout needs to adapt to different screen sizes.</p>
+    <div class="demo demo--grid">
+        <div class="grid">
+        	<div class="grid__group grid__group--wrap">
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        		<div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+        			<div class="row-height"><p>Content....</p></div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group grid__group--wrap">
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+        <div class="grid__cell grid__cell--one-fourth grid__cell--4of8-sm">
+            <div>Content....</div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+	<h4>.grid__cell--grow</h4>
+    <p>If there is a desire to have a cell fill the rest of the left-over space, use <span class="highlight">.grid__cell--grow</span>.</p>
+	<p>This can be used to make responsive choreography between <span class="highlight">.grid__cell</span> elements easier.</p>
+
+    <div class="demo demo--grid">
+        <div class="grid">
+            <div class="grid__group">
+                <div class="grid__cell grid__cell--one-fourth grid__cell--3of8-sm">
+                    <div class="row-height"><p>Has Breakpoints</p></div>
+                </div>
+                <div class="grid__cell grid__cell--grow">
+                    <div class="row-height"><p>Growth</p></div>
+                </div>
+                <div class="grid__cell grid__cell--one-third">
+                    <div class="row-height"><p>One Third</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="grid">
+    <div class="grid__group">
+        <div class="grid__cell grid__cell--one-fourth  grid__cell--3of8-sm">
+            <div><p>Has Breakpoints</p></div>
+        </div>
+        <div class="grid__cell grid__cell--grow">
+            <div><p>Growth</p></div>
+        </div>
+        <div class="grid__cell grid__cell--one-third">
+            <div><p>One Third</p></div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Grid Chrome Extension</h3>
+
+    <p>Its goals are to help:</p>
+	<ul>
+		<li>Align layouts to a common layout system.</li>
+		<li>Communicate layout requirements.</li>
+		<li>Explain the concept of flexible layouts.</li>
+	</ul>
+	<p>Currently the <a href="https://chrome.google.com/webstore/detail/design-grid-overlay/kmaadknbpdklpcommafmcboghdlopmbi">Design Grid Overlay Chrome extension</a> is available in the extensions section of Chrome Web store.</p>
+    <div id="chrome-extension">
+        <a href="https://chrome.google.com/webstore/detail/design-grid-overlay/kmaadknbpdklpcommafmcboghdlopmbi" target="_blank">
+            <img alt="Screenshot of Grid Chrome Extension" src="http://ir.ebaystatic.com/cr/v/c1/design-grid-overlay.jpg">
+        </a>
+    </div>
+</div>

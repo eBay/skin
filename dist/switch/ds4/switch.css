@@ -1,0 +1,76 @@
+.switch {
+  box-sizing: border-box;
+  height: 40px;
+  position: relative;
+  vertical-align: middle;
+}
+.switch > input {
+  opacity: 0;
+  padding: 0;
+  z-index: 1;
+  position: absolute;
+  height: 24px;
+  width: 40px;
+  top: 8px;
+  left: 0;
+}
+.switch > input + span {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background: #cccccc none repeat scroll 0 0;
+  border-radius: 400px;
+  color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-indent: 100%;
+  transition: left 0.15s ease-out 0s;
+  width: 40px;
+  height: 24px;
+}
+.switch > input + span::after {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  transition: left 0.15s ease-out 0s;
+  width: 16px;
+}
+.switch > input[disabled] + span {
+  opacity: 0.5;
+  /* csslint ignore:start */
+  filter: alpha(opacity=50);
+  /* csslint ignore:end */
+}
+span.switch {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+div.switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.switch input:checked + span {
+  background: #0654ba none repeat scroll 0 0;
+}
+.switch input:checked + span::after {
+  left: 20px;
+}
+/* Focus state */
+.switch input:focus + span {
+  outline: 1px dotted #767676;
+}
+@media screen and (-ms-high-contrast: active) {
+  .switch > input {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,79 @@
+// Switch
+//-----------------
+
+.switch {
+    box-sizing: border-box;
+    height: 40px;
+    position: relative;
+    vertical-align: middle;
+
+    > input {
+        opacity: 0;
+        padding: 0;
+        z-index: 1;
+        position: absolute;
+        height: 24px;
+        width: 40px;
+        top: 8px;
+        left: 0;
+
+        + span {
+            align-self: center;
+            background: @color-core-gray-silver none repeat scroll 0 0;
+            border-radius: 400px;
+            color: transparent;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            text-indent: 100%;
+            transition: left 0.15s ease-out 0s;
+            width: 40px;
+            height: 24px;
+
+            &::after {
+                background: @color-core-white none repeat scroll 0 0;
+                border-radius: 50%;
+                content: "";
+                display: block;
+                height: 16px;
+                left: 4px;
+                position: absolute;
+                top: 4px;
+                transform: translate3d(0, 0, 0);
+                transition: left 0.15s ease-out 0s;
+                width: 16px;
+            }
+        }
+
+        &[disabled] + span {
+            .opacity(.5);
+        }
+    }
+}
+
+span.switch {
+    display: inline-flex;
+}
+
+div.switch {
+    display: flex;
+}
+
+.switch input:checked + span {
+    background: @color-interface-cta none repeat scroll 0 0;
+
+    &::after {
+        left: 20px;
+    }
+}
+/* Focus state */
+
+.switch input:focus + span {
+    outline: @outline-dotted;
+}
+
+@media screen and (-ms-high-contrast: active) {
+    .switch > input {
+        opacity: 1;
+    }
+}

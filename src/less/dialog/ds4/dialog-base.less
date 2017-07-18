@@ -1,0 +1,243 @@
+// BLOCK
+//-----------------------------
+
+.dialog {
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+// ELEMENTS
+//-----------------------------
+
+.dialog__window {
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin: auto;
+    max-width: 980px;
+    padding: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.dialog__mask {
+    background-color: #000000;
+    box-sizing: border-box;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.dialog__header {
+    background-color: @color-core-white;
+    border-bottom: @border-grey;
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    padding: 8px;
+    text-align: center;
+
+    button,
+    input[type="text"] {
+        background: none;
+        border: 0;
+        font-size: @font-size-16;
+    }
+
+    button {
+        white-space: nowrap;
+    }
+}
+
+.dialog__title {
+    font-size: @font-size-18;
+    font-weight: @font-weight-regular;
+    margin: 0;
+    width: 100%;
+    .truncate;
+}
+
+.dialog__body {
+    background-color: @color-interface-view-background;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.dialog__cell {
+    margin: 8px;
+}
+
+.dialog__search {
+    text-align: left;
+    width: 100%;
+
+    input {
+        height: 32px;
+        padding: 0 8px;
+    }
+}
+
+.dialog__back,
+.dialog__close {
+    align-self: center;
+}
+
+.dialog__close,
+.dialog__back,
+.dialog__search button {
+    color: @color-icon-actionable-default;
+    cursor: pointer;
+    height: 1em;
+    padding: 0;
+
+    svg {
+        .svg-icon-default;
+    }
+
+    &:focus,
+    &:hover {
+        color: @color-icon-actionable-hover;
+    }
+}
+
+.dialog__search button {
+    height: 32px;
+    vertical-align: top;
+}
+
+// MODIFIERS
+//-----------------------------
+
+.dialog__window--top {
+    justify-content: flex-start;
+}
+
+.dialog__window--card .dialog__body {
+    background-color: @color-core-white;
+}
+
+.dialog__window--left,
+.dialog__window--right {
+    justify-content: flex-start;
+    margin: 0;
+    max-width: 80%;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 80%;
+
+    .dialog__body {
+        height: 100%;
+    }
+}
+
+.dialog__window--left {
+    left: 0;
+    right: auto;
+}
+
+.dialog__window--right {
+    left: auto;
+    right: 0;
+}
+
+.dialog__window--full {
+    left: 0;
+    justify-content: flex-start;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    right: auto;
+    width: 100%;
+
+    .dialog__body {
+        height: 100%;
+    }
+}
+
+// Prime the in transition
+.dialog--transition-in[hidden] {
+    display: block;
+
+    .dialog__window--fade,
+    .dialog__mask--fade,
+    .dialog__mask--fade-slow {
+        opacity: 0;
+    }
+
+    .dialog__window--slide-left {
+        transform: translateX(100%);
+    }
+
+    .dialog__window--slide-right {
+        transform: translateX(-100%);
+    }
+}
+
+// Trigger the in transition
+.dialog:not([hidden]) {
+    .dialog__window--fade {
+        opacity: 1;
+        transition: opacity 0.16s ease-out;
+    }
+
+    .dialog__window--slide-left,
+    .dialog__window--slide-right {
+        transform: translateX(0);
+        transition: transform 0.32s ease-out;
+    }
+
+    .dialog__mask--fade,
+    .dialog__mask--fade-slow {
+        opacity: 0.6;
+    }
+
+    .dialog__mask--fade {
+        transition: opacity 0.16s ease-out;
+    }
+
+    .dialog__mask--fade-slow {
+        transition: opacity 0.32s ease-out;
+    }
+}
+
+// Trigger the out transition
+.dialog--transition-out:not([hidden]) {
+    .dialog__window--fade,
+    .dialog__mask--fade {
+        opacity: 0;
+        transition: opacity 0.16s ease-in;
+    }
+
+    .dialog__mask--fade-slow {
+        opacity: 0;
+        transition: opacity 0.32s ease-in;
+    }
+
+    .dialog__window--slide-left {
+        transform: translateX(100%);
+        transition: transform 0.32s ease-in;
+    }
+
+    .dialog__window--slide-right {
+        transform: translateX(-100%);
+        transition: transform 0.32s ease-in;
+    }
+}
+
+// POLYFILL THE HIDDEN ATTRIBUTE
+[hidden] {
+    display: none;
+}

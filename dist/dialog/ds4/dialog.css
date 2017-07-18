@@ -1,0 +1,233 @@
+.dialog {
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+.dialog__window {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  max-width: 980px;
+  padding: 8px;
+  position: relative;
+  z-index: 1;
+}
+.dialog__mask {
+  background-color: #000000;
+  box-sizing: border-box;
+  height: 100%;
+  left: 0;
+  opacity: 0.6;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.dialog__header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 8px;
+  text-align: center;
+}
+.dialog__header button,
+.dialog__header input[type="text"] {
+  background: none;
+  border: 0;
+  font-size: 1rem;
+}
+.dialog__header button {
+  white-space: nowrap;
+}
+.dialog__title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dialog__body {
+  background-color: #f0eeec;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.dialog__cell {
+  margin: 8px;
+}
+.dialog__search {
+  text-align: left;
+  width: 100%;
+}
+.dialog__search input {
+  height: 32px;
+  padding: 0 8px;
+}
+.dialog__back,
+.dialog__close {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.dialog__close,
+.dialog__back,
+.dialog__search button {
+  color: #555555;
+  cursor: pointer;
+  height: 1em;
+  padding: 0;
+}
+.dialog__close svg,
+.dialog__back svg,
+.dialog__search button svg {
+  display: inline-block;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+  height: 1em;
+  width: 1em;
+}
+.dialog__close:focus,
+.dialog__back:focus,
+.dialog__search button:focus,
+.dialog__close:hover,
+.dialog__back:hover,
+.dialog__search button:hover {
+  color: rgba(153, 153, 153, 0.9);
+}
+.dialog__search button {
+  height: 32px;
+  vertical-align: top;
+}
+.dialog__window--top {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.dialog__window--card .dialog__body {
+  background-color: #ffffff;
+}
+.dialog__window--left,
+.dialog__window--right {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0;
+  max-width: 80%;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 80%;
+}
+.dialog__window--left .dialog__body,
+.dialog__window--right .dialog__body {
+  height: 100%;
+}
+.dialog__window--left {
+  left: 0;
+  right: auto;
+}
+.dialog__window--right {
+  left: auto;
+  right: 0;
+}
+.dialog__window--full {
+  left: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  right: auto;
+  width: 100%;
+}
+.dialog__window--full .dialog__body {
+  height: 100%;
+}
+.dialog--transition-in[hidden] {
+  display: block;
+}
+.dialog--transition-in[hidden] .dialog__window--fade,
+.dialog--transition-in[hidden] .dialog__mask--fade,
+.dialog--transition-in[hidden] .dialog__mask--fade-slow {
+  opacity: 0;
+}
+.dialog--transition-in[hidden] .dialog__window--slide-left {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.dialog--transition-in[hidden] .dialog__window--slide-right {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.dialog:not([hidden]) .dialog__window--fade {
+  opacity: 1;
+  transition: opacity 0.16s ease-out;
+}
+.dialog:not([hidden]) .dialog__window--slide-left,
+.dialog:not([hidden]) .dialog__window--slide-right {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  transition: -webkit-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
+}
+.dialog:not([hidden]) .dialog__mask--fade,
+.dialog:not([hidden]) .dialog__mask--fade-slow {
+  opacity: 0.6;
+}
+.dialog:not([hidden]) .dialog__mask--fade {
+  transition: opacity 0.16s ease-out;
+}
+.dialog:not([hidden]) .dialog__mask--fade-slow {
+  transition: opacity 0.32s ease-out;
+}
+.dialog--transition-out:not([hidden]) .dialog__window--fade,
+.dialog--transition-out:not([hidden]) .dialog__mask--fade {
+  opacity: 0;
+  transition: opacity 0.16s ease-in;
+}
+.dialog--transition-out:not([hidden]) .dialog__mask--fade-slow {
+  opacity: 0;
+  transition: opacity 0.32s ease-in;
+}
+.dialog--transition-out:not([hidden]) .dialog__window--slide-left {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  transition: -webkit-transform 0.32s ease-in;
+  transition: transform 0.32s ease-in;
+  transition: transform 0.32s ease-in, -webkit-transform 0.32s ease-in;
+}
+.dialog--transition-out:not([hidden]) .dialog__window--slide-right {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  transition: -webkit-transform 0.32s ease-in;
+  transition: transform 0.32s ease-in;
+  transition: transform 0.32s ease-in, -webkit-transform 0.32s ease-in;
+}
+[hidden] {
+  display: none;
+}

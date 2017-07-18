@@ -1,0 +1,86 @@
+/**
+ * Used for nested grids. This
+ * probably needs to be renamed
+ */
+.grid .grid {
+  & > hr {
+    border: 0;
+    height: 1px;
+    background-color: @color-core-gray-light;
+    width: calc(~'100% - 48px');
+    position: relative;
+    right: @grid-gutter / 2;
+    margin: @grid-gutter / 2 auto;
+  }
+}
+
+/**
+ * HIGHLY EXPERIMENTAL
+ */
+.@{group-name}--top-to-bottom {
+  flex-direction: column;
+  width: auto;
+
+  .@{item-name} {
+    width: auto;
+  }
+}
+
+
+/**
+ *Need to clean this up
+ */
+
+.create-nested-grid(@columns) {
+  .loop(@index) when (@index > 0) {
+    .nested-grid(@index, @columns);
+    .loop(@index - 1);
+  }
+
+  .loop(@columns);
+}
+
+.create-nested-grid(@columns, @type) {
+  .loop(@index) when (@index > 0) {
+    .nested-grid(@index, @columns, @type);
+    .loop(@index - 1);
+  }
+
+  .loop(@columns);
+}
+
+.nested-grid(@index, @columns) {
+
+  .nested-loop(@nested-index) when (@nested-index <= @index) and not (@index = @columns) {
+    /**
+     *   All the subgrid
+     */
+    .@{item-name}--@{nested-index}of@{index} {
+      width: percentage(@nested-index / @index);
+      max-width: percentage(@nested-index / @index);
+      flex: 0 0 percentage(@nested-index / @index);
+    }
+
+    .nested-loop(@nested-index + 1);
+  }
+
+  .nested-loop(1);
+}
+
+.nested-grid(@index, @columns, @type) {
+
+  .nested-loop(@nested-index) when (@nested-index <= @index) and not (@index = @columns) {
+    /**
+     *   All the subgrid
+     */
+    .@{item-name}--@{nested-index}of@{index}-@{type} {
+      width: percentage(@nested-index / @index);
+      max-width: percentage(@nested-index / @index);
+      flex: 0 0 percentage(@nested-index / @index);
+    }
+
+    .nested-loop(@nested-index + 1);
+  }
+
+  .nested-loop(1);
+}

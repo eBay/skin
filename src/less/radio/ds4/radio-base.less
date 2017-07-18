@@ -1,0 +1,87 @@
+.radio {
+    font-size: 1rem;
+    display: inline-flex;
+    margin-right: -4px;
+    vertical-align: text-bottom;
+}
+
+.radio__control[type="radio"],
+.radio__custom-control[type="radio"] {
+    font-size: 100%;
+    height: 1em;
+    opacity: 0;
+    position: absolute;
+    width: 1em;
+    z-index: 1;
+}
+
+.radio__custom-control[type="radio"]:not([disabled]) {
+    cursor: pointer;
+}
+
+.radio__control[type="radio"] {
+    &:checked + .radio__icon use {
+        .mixin-bounce-animation;
+        fill: @color-core-blue;
+    }
+
+    &:focus + .radio__icon {
+        outline: @outline-dotted;
+    }
+
+    &[disabled] + .radio__icon {
+        .opacity(0.5);
+    }
+}
+
+.radio__custom-control[type="radio"] {
+    &:not(:checked) {
+        & + .radio__icon .radio__checked {
+            display: none;
+        }
+
+        & + .radio__icon .radio__unchecked {
+            display: inline-block;
+        }
+    }
+
+    &:checked {
+        & + .radio__icon .radio__checked {
+            display: inline-block;
+        }
+
+        & + .radio__icon .radio__unchecked {
+            display: none;
+        }
+    }
+
+    &:focus + .radio__icon {
+        outline: @outline-dotted;
+    }
+
+    &[disabled] + .radio__icon {
+        .opacity(0.5);
+    }
+}
+
+.radio__icon {
+    color: @color-core-gray-silver;
+    display: inline-flex;
+    font-size: 1em;
+    outline-offset: 1px;
+}
+
+// progressive enhancement - over-ride hidden SVG
+.radio__icon[hidden] {
+    display: inline-flex;
+}
+
+.radio__icon svg[aria-hidden="true"] {
+    .svg-icon-default;
+}
+
+.radio__control + .radio__icon use {
+    /* csslint ignore:start */
+    fill: transparent;
+    /* csslint ignore:end */
+}

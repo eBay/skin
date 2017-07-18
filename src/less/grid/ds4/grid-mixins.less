@@ -1,0 +1,84 @@
+/**
+ * Loop for creating the columns of the
+ * grid
+ */
+.create-columns(@columns) {
+    .loop(@index) when (@index > 0) {
+        .calculate-columns(@index, @columns);
+        .loop(@index - 1);
+    }
+    .loop(@columns);
+}
+
+.create-columns(@columns, @type) {
+    .loop(@index) when (@index > 0) {
+        .calculate-columns(@index, @columns, @type);
+        .loop(@index - 1);
+    }
+    .loop(@columns);
+}
+
+/**
+ * This method will generate cells/columns postfixed with -lg, -sm, etc
+ */
+.calculate-columns(@index, @columns) {
+    .@{item-name}--@{index}of@{columns} {
+        .flex(0, 0, percentage(@index / @columns));
+    }
+}
+
+.calculate-columns(@index, @columns, @type) {
+    .@{item-name}--@{index}of@{columns}-@{type} {
+        .flex(0, 0, percentage(@index / @columns));
+    }
+}
+
+
+.flex(@grow, @shrink, @percent) {
+    width: @percent;
+    max-width: @percent;
+    flex: @grow @shrink @percent;
+}
+
+
+.common_fractions(@grow, @shrink) {
+    /**
+     * A set of short hand classes for
+     * commonly used fractions
+     */
+    .@{item-name}--one-half {
+      .flex(@grow, @shrink, percentage(1 / 2));
+    }
+
+    .@{item-name}--one-third {
+      .flex(@grow, @shrink, percentage(1 / 3));
+    }
+
+    .@{item-name}--two-third {
+      .flex(@grow, @shrink, percentage(2 / 3));
+    }
+
+    .@{item-name}--one-fourth {
+      .flex(@grow, @shrink, percentage(1 / 4));
+    }
+
+    .@{item-name}--three-fourth {
+      .flex(@grow, @shrink, percentage(3 / 4));
+    }
+
+    .@{item-name}--one-fifth {
+      .flex(@grow, @shrink, percentage(1 / 5));
+    }
+
+    .@{item-name}--two-fifth {
+      .flex(@grow, @shrink, percentage(2 / 5));
+    }
+
+    .@{item-name}--three-fifth {
+      .flex(@grow, @shrink, percentage(3 / 5));
+    }
+
+    .@{item-name}--four-fifth {
+      .flex(@grow, @shrink, percentage(4 / 5));
+    }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "skin-ebay",
+  "description": "Skin - CSS modules that represent the brand eBay",
+  "version": "2.10.1",
+  "license": "MIT",
+  "maintainers": [
+    "Ian McBurnie <ianmcburnie@hotmail.com>"
+  ],
+  "homepage": "https://ebay.github.io/skin/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eBay/skin"
+  },
+  "scripts": {
+    "start": "npm run build && gulp server",
+    "test": "npm run build:css",
+    "prebuild": "npm run clean",
+    "build": "npm run build:css && npm run lasso:docs && npm run build:site && npm run copy:lessToDist && npm run copy:svgToDist",
+    "build:css": "npm run lint:less && gulp less && npm run lint:css",
+    "build:site": "npm run jekyll:docs",
+    "clean": "rimraf _cdn _site .cache .tmp .jekyll npm-debug.log.* .DS_Store",
+    "jekyll:docs": "bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
+    "lasso:docs": "npm run lasso:ds4 && npm run lasso:ds6 && rimraf .cache docs.html.json build",
+    "lasso:ds4": "lasso ./docs/ds4.browser.json --name docs --output-dir docs/static/ds4 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds4/docs.css.*",
+    "lasso:ds6": "lasso ./docs/ds6.browser.json --name docs --output-dir docs/static/ds6 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds6/docs.css.*",
+    "lint:less": "lesshint src/less/",
+    "lint:css": "csslint dist",
+    "copy:lessToDist": "mkdirp dist/less && ncp src/less/less dist/less",
+    "copy:svgToDist": "mkdirp dist/svg && ncp src/svg dist/svg"
+  },
+  "devDependencies": {
+    "browser-sync": "^2",
+    "csslint": "^1",
+    "gulp": "^3",
+    "gulp-banner": "~0.1",
+    "gulp-flatten": "~0.3",
+    "gulp-less": "^3.3.2",
+    "gulp-rename": "^1",
+    "jekyll": "^3.0.0-beta1",
+    "jquery": "^3.2.1",
+    "lasso": "^2.11.11",
+    "lasso-autoprefixer": "^2.0.0",
+    "lasso-cli": "^2",
+    "lasso-less": "^2",
+    "less-plugin-autoprefix": "^1",
+    "less-plugin-clean-css": "^1",
+    "lesshint": "^4.0.1",
+    "makeup-ebay": "^0.26.0",
+    "mkdirp": "~0.5",
+    "ncp": "^2",
+    "rimraf": "^2",
+    "run-sequence": "^2"
+  },
+  "keywords": [
+    "eBay",
+    "CSS",
+    "BEM",
+    "LassoJS",
+    "accessibility",
+    "WAI-ARIA",
+    "eBay MIND Patterns"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

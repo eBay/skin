@@ -1,0 +1,214 @@
+<div id="button">
+    <h2>Button</h2>
+    <p>A button is typically used to trigger a JavaScript action (e.g. fetch results, open a dialog or expand a menu). In this case, the <span class="highlight">&lt;button&gt;</span> tag is <strong>required</strong>.</p>
+    <p>A button may also be used to natively (i.e. no JavaScript required) submit or reset a form. In this case use the <span class="highlight">&lt;button&gt;</span> tag with <span class="highlight">type=submit</span> or <span class="highlight">type=reset</span> respectively. Use of the <span class="highlight">&lt;input&gt;</span> tag is not currently supported.</p>
+    <p>Finally, a link may be styled to <em>look</em> like a button. In this case the <span class="highlight">&lt;a&gt;</span> tag is <strong>required</strong> with a valid HREF attribute. Please see the <a href="#button-fake">fake button</a> section below for more details.</p>
+
+    <ul class="module-toc cols">
+        <li><a href="#button-default">Default Button</a></li>
+        <li><a href="#button-fake">Fake Button</a></li>
+        <li><a href="#button-primary">Primary Button</a></li>
+        <li><a href="#button-secondary">Secondary Button</a></li>
+        <li><a href="#button-large">Large Button</a></li>
+        <li><a href="#button-extra-large">Extra Large Button</a></li>
+        <li><a href="#button-fluid">Fluid Button</a></li>
+        <li><a href="#button-disabled">Disabled Button</a></li>
+        <li><a href="#button-partially-disabled">Partially Disabled Button</a></li>
+        <li><a href="#button-text-and-icon">Text &amp; Icon Button</a></li>
+    </ul>
+
+    <h3 id="button-default">Default Button</h3>
+    <p>Use the <span class="highlight">btn</span> base class on a button element to create the default button.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn" type="button">Button</button>
+    {% endhighlight %}
+
+    <h3 id="button-fake">Fake Button</h3>
+    <p>Use the <span class="highlight">fake-btn</span> base class on an anchor element to create a link that <em>looks</em> like a button.</p>
+    <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant) is <strong>not</strong> a valid URL!</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <a class="fake-btn" href="http://www.ebay.com">Link</a>
+        </div>
+    </div>
+
+    {% highlight html %}
+<a class="fake-btn" href="http://www.ebay.com">Link</a>
+    {% endhighlight %}
+    <p><strong>NOTE:</strong> any button modifier described below can also be applied to a fake button by prefixing the class name with <span class="highlight">"fake-"</span>.</p>
+
+    <h3 id="button-primary">Primary Button</h3>
+    <p>Use the <span class="highlight">btn--primary</span> block modifier to create a primary button style.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--primary" type="button">Primary</button>
+    {% endhighlight %}
+
+    <h3 id="button-secondary">Secondary Button</h3>
+    <p>Use the <span class="highlight">btn--secondary</span> block modifier to create a secondary button style.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--secondary" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--secondary" type="button">Button</button>
+    {% endhighlight %}
+
+    <h3 id="button-large">Large Button</h3>
+    <p>Use the <span class="highlight">btn--large</span> size modifier to create a large button style.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--large" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--large" type="button">Button</button>
+    {% endhighlight %}
+
+    <h3 id="button-extra-large">Extra-Large Button</h3>
+    <p>Use the <span class="highlight">btn--extra-large</span> size modifier to create an extra large button style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--extra-large" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--extra-large" type="button">Button</button>
+    {% endhighlight %}
+
+    <h3 id="button-fluid">Fluid Button</h3>
+    <p>Use the <span class="highlight">btn--fluid</span> modifier to fill the entire width of the parent element.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--fluid" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--fluid" type="button">Button</button>
+    {% endhighlight %}
+
+    <h3 id="button-disabled">Disabled Button</h3>
+    <p>The <span class="highlight">disabled</span> attribute is <strong>required</strong> to fully disable a button tag. Remove the <span class="highlight">href</span> attribute to fully disable an anchor tag.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn" disabled type="button">Button</button>
+            <a class="fake-btn">Link</a>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn" disabled type="button">Button</button>
+<a class="btn">Link</a>
+    {% endhighlight %}
+
+    <h3 id="button-partially-disabled">Partially Disabled Button</h3>
+    <p>Partially disabled buttons are visually and aurally identifiable as disabled, but remain keyboard focusable.</p>
+    <p>Partially disabled buttons can vastly simplify keyboard focus management logic in situations where the button may frequently toggle back and forth between enabled and disabled (e.g. pagination or carousel 'bookend' buttons).</p>
+    <p>The <span class="highlight">aria-disabled</span> state is <strong>required</strong> for partially disabled buttons.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-disabled="true" class="btn" type="button">Prev</button>
+            <a aria-disabled="true" class="fake-btn" href="http://www.ebay.com">Next</a>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button aria-disabled="true" class="btn" type="button">Prev</button>
+<a aria-disabled="true" class="btn" href="http://www.ebay.com">Next</a>
+    {% endhighlight %}
+
+    <h3 id="button-text-and-icon">Text + Icon</h3>
+    <p>Use any of the available <a href="#svg">SVG icons</a> to display an icon alongside button text. Font-icons on buttons are no longer supported.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn" type="button">
+                <span class="btn__cell">
+                    <svg aria-hidden="true" class="btn__icon" focusable="false" width="16" height="16">
+                        <use xlink:href="#svg-icon-menu"></use>
+                    </svg>
+                    <span>Menu</span>
+                </span>
+            </button>
+            <a href="http://www.ebay.com" class="fake-btn">
+                <span class="fake-btn__cell">
+                    <svg aria-hidden="true" class="fake-btn__icon" focusable="false" width="16" height="16">
+                        <use xlink:href="#svg-icon-settings"></use>
+                    </svg>
+                    <span>Settings</span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn" type="button">
+    <span class="btn__cell">
+        <svg aria-hidden="true" class="btn__icon" focusable="false" width="16" height="16">
+            <use xlink:href="#svg-icon-menu"></use>
+        </svg>
+        <span>Menu</span>
+    </span>
+</button>
+<a href="http://www.ebay.com" class="btn">
+    <span class="btn__cell">
+        <svg aria-hidden="true" class="btn__icon" focusable="false" width="16" height="16">
+            <use xlink:href="#svg-icon-settings"></use>
+        </svg>
+        <span>Settings</span>
+    </span>
+</a>
+    {% endhighlight %}
+
+    <p>Because the button cell uses flex box layout, it is fairly trivial to achieve alternate layouts, as in the example below.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--fluid" type="button" style="padding: 0 16px;">
+                <span class="btn__cell" style="justify-content: space-between">
+                    <span>Select</span>
+                    <span>
+                        <span>Any</span>
+                        <svg aria-hidden="true" class="btn__icon" focusable="false" width="16" height="16">
+                            <use xlink:href="#svg-icon-chevron-down"></use>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--fluid" type="button" style="padding: 0 16px;">
+    <span class="btn__cell" style="justify-content: space-between">
+        <span>Select</span>
+        <span>
+            <span>Any</span>
+            <svg aria-hidden="true" class="btn__icon" focusable="false" width="16" height="16">
+                <use xlink:href="#svg-icon-chevron-down"></use>
+            </svg>
+        </span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p><strong>TIP</strong>: Looking for borderless icon buttons? Head over to the <a href="#actionable">actionable</a> module.</p>
+
+</div>

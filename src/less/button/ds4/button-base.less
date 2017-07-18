@@ -1,0 +1,330 @@
+// BEM blocks
+
+// base properties for all buttons
+button.btn,
+a.fake-btn,
+a.hijax-btn {
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: @font-family-base;
+    font-weight: normal;
+    line-height: 1.15; // normalized line-height
+    margin: 0; // Remove the button margin in Firefox and Safari */
+    text-align: center;
+    vertical-align: middle; // align buttons and faux buttons on same line
+}
+
+// base properties, button tag specific
+button[disabled],
+button[aria-disabled="true"] {
+    &.btn {
+        .opacity(0.5);
+    }
+}
+
+// base properties, anchor tag specific
+a.fake-btn,
+a.hijax-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+}
+
+// default button (medium, regular)
+button.btn,
+a.fake-btn,
+a.hijax-btn {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
+    color: @color-interface-cta;
+    font-size: 14px;
+    height: @height-control-medium;
+    padding: 0 48px;
+
+    &:hover,
+    &:focus {
+        border-color: @color-core-gray-spanish;
+    }
+
+    &:active {
+        border-color: @color-core-gray-davys;
+    }
+}
+
+// default button, button tag specific
+button.btn {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+
+        svg {
+            color: @color-core-gray-dim;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-silver;
+        }
+    }
+}
+
+// default button, anchor tag specific
+a.fake-btn,
+a.hijax-btn {
+    line-height: 40px;
+
+    &:not([href]),
+    &[aria-disabled="true"] {
+        background-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+        cursor: text;
+        .opacity(0.5);
+
+        svg {
+            color: @color-core-gray-dim;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-silver;
+        }
+    }
+}
+
+// BEM elements
+
+.btn__cell,
+.fake-btn__cell,
+.hijax-btn__cell {
+    display: inline-flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+
+    > span,
+    > svg {
+        align-self: center;
+        line-height: normal;
+    }
+}
+
+// BEM block modifiers
+
+.btn--fluid,
+.fake-btn--fluid,
+.hijax-btn--fluid {
+    width: 100%;
+}
+
+button.btn--primary,
+a.fake-btn--primary,
+a.hijax-btn--primary {
+    background-color: @color-interface-cta;
+    border-color: @color-interface-cta;
+    color: @color-core-white;
+
+    svg {
+        color: @color-core-white;
+        fill: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: @color-interface-cta;
+        .opacity(0.7);
+    }
+
+    &:active {
+        background-color: @color-core-blue-dark;
+    }
+}
+
+a.fake-btn--primary:visited,
+a.hijax-btn--primary:visited {
+    color: @color-core-white;
+}
+
+button.btn--primary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        color: @color-core-white;
+
+        svg {
+            color: @color-core-white;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: @color-interface-cta;
+            border-color: @color-interface-cta;
+            .opacity(0.5);
+        }
+    }
+}
+
+a.fake-btn--primary:not([href]),
+a.fake-btn--primary[aria-disabled="true"],
+a.hijax-btn--primary:not([href]),
+a.hijax-btn--primary[aria-disabled="true"] {
+    background-color: @color-interface-cta;
+    border-color: @color-interface-cta;
+    color: @color-core-white;
+
+    svg {
+        color: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        .opacity(0.5);
+    }
+}
+
+button.btn--secondary,
+a.fake-btn--secondary,
+a.hijax-btn--secondary {
+    border-color: @color-text-disabled;
+    background-color: fade(@color-interface-view-background, 50%);
+    color: @color-core-gray-davys;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: @color-core-gray-dim;
+    }
+
+    &:active {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: fade(@color-core-gray-davys, 50%);
+    }
+}
+
+a.fake-btn--secondary:visited,
+a.hijax-btn--secondary:visited {
+    color: @color-core-gray-davys;
+}
+
+button.btn--secondary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: fade(@color-interface-view-background, 50%);
+        border-color: @color-text-disabled;
+        color: @color-core-gray-davys;
+
+        svg {
+            color: @color-core-gray-davys;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: fade(@color-interface-view-background, 50%);
+            border-color: @color-text-disabled;
+        }
+    }
+}
+
+a.fake-btn--secondary:not([href]),
+a.fake-btn--secondary[aria-disabled="true"],
+a.hijax-btn--secondary:not([href]),
+a.hijax-btn--secondary[aria-disabled="true"] {
+    background-color: fade(@color-interface-view-background, 50%);
+    border-color: @color-text-disabled;
+    color: @color-core-gray-davys;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@color-interface-view-background, 50%);
+        border-color: @color-text-disabled;
+    }
+}
+
+// button text should NOT scale with root font-size,
+// so all font-sizes are defined with px
+
+button.btn--medium,
+a.fake-btn--medium,
+a.hijax-btn--medium {
+    font-size: 14px;
+    height: @height-control-medium;
+    padding: 0 48px;
+}
+
+a.fake-btn--medium,
+a.hijax-btn--medium {
+    line-height: @height-control-medium;
+}
+
+button.btn--small,
+a.fake-btn--small,
+a.hijax-btn--small {
+    font-size: 12px;
+    height: @height-control-small;
+    padding: 0 32px;
+}
+
+a.fake-btn--small,
+a.hijax-btn--small {
+    line-height: @height-control-small;
+}
+
+button.btn--large,
+a.fake-btn--large,
+a.hijax-btn--large {
+    font-size: 16px;
+    height: @height-control-large;
+    padding: 0 80px;
+}
+
+a.fake-btn--large,
+a.hijax-btn--large {
+    line-height: @height-control-large;
+}
+
+button.btn--extra-large,
+a.fake-btn--extra-large,
+a.hijax-btn--extra-large {
+    font-size: 18px;
+    height: @height-control-extra-large;
+    padding: 0 112px;
+}
+
+a.fake-btn--extra-large,
+a.hijax-btn--extra-large {
+   line-height: @height-control-extra-large;
+}
+
+// non-critical icon button
+// icons should not scale with root font-size
+//-----------------------------
+
+.btn__icon,
+.fake-btn__icon,
+.hijax-btn__icon {
+    &:first-child {
+        margin-right: 8px;
+    }
+
+    &:last-child {
+        margin-left: 8px;
+    }
+}
+
+.btn__icon,
+.fake-btn__icon,
+.hijax-btn__icon {
+    .svg-icon-default;
+}

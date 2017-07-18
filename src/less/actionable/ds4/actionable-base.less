@@ -1,0 +1,89 @@
+// icons
+//-----------------------------
+
+button.icon-btn,
+a.icon-link {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 7px 6px;
+    vertical-align: middle;
+
+    svg {
+        .svg-icon-default;
+        color: @color-icon-actionable-default;
+    }
+
+    &:focus,
+    &:hover {
+        svg {
+            .opacity(0.65);
+        }
+    }
+
+    &:active svg {
+        color: @color-icon-actionable-active;
+    }
+}
+
+a.icon-link {
+    display: inline-block; // parity with button tag
+}
+
+// disabled & partially disabled states
+button[disabled].icon-btn,
+button[aria-disabled="true"].icon-btn,
+a:not([href]).icon-link,
+a[aria-disabled="true"].icon-link {
+    cursor: default;
+
+    svg {
+        background-color: transparent;
+        .opacity(0.5);
+    }
+}
+
+// images
+//-----------------------------
+
+a.img-link,
+button.img-btn {
+    border: 1px solid transparent;
+}
+
+a.img-link {
+    display: inline-block;
+
+    &[href] {
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-spanish;
+        }
+
+        &:active {
+            border-color: @color-core-gray-dim;
+        }
+    }
+}
+
+a.img-link--visit:visited {
+    background-color: @color-core-gray-light;
+}
+
+button.img-btn {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+
+    &:not([disabled]) {
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-spanish;
+        }
+
+        &:active {
+            border-color: @color-core-gray-dim;
+        }
+    }
+}
