@@ -6,7 +6,7 @@ Please visit the [skin website](https://ebay.github.io/skin) for all end-user do
 
 ## License
 
-Skin is [MIT][LICENSE] licensed.
+Skin is [MIT](LICENSE) licensed.
 
 ## Install
 
