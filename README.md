@@ -2,7 +2,7 @@
 
 Skin is a CSS framework developed by eBay.
 
-Please visit the [skin website](https://ebay.github.io/skin) for all end-user documentation.
+Please visit the [Skin website](https://ebay.github.io/skin) for all end-user documentation.
 
 ## License
 
@@ -10,7 +10,15 @@ Skin is [MIT](LICENSE) licensed.
 
 ## Install
 
-Skin is available as the `@ebay/skin` package on [npm](https://www.npmjs.com/). It is also available on a [CDN](https://ebay.github.io/skin#cdn).
+Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on a [CDN](https://ebay.github.io/skin#cdn).
+
+**IMPORTANT! PLEASE READ:** Users of eBay's *internal* NPM repository must add the following exception to their `.npmrc` file or `.yarnrc` file, respectively, in order to support the scoped package name:
+
+For NPM: `@ebay:registry=https://registry.npmjs.org`
+
+For Yarn: `"@ebay:registry" "https://registry.npmjs.org/"`
+
+If you are using the public NPM repository, then you can safely ignore this requirement.
 
 ## Versioning
 
@@ -47,12 +55,12 @@ See the next section below for more info on how we use labels.
 
 To help track your issue, the Skin admins will likely assign it with a coloured label belonging to one or more of the following categories:
 
-* Red: Blocker (e.g. discussion, design, spec)
-* Yellow: Release (e.g. patch, minor, major)
-* Black: Issue (e.g. bug, enhancement, feature)
-* White: Resolution (e.g. wontfix, invalid, duplicate)
-* Blue: Fix (e.g. accessibility, IE9, redlines)
-* Pink: Design System (DS4 or DS6)
+* Red: Blocker Type (e.g. discussion, design, spec)
+* Yellow: Release Type (e.g. patch, minor, major)
+* Black: Issue Type (e.g. bug, enhancement, feature)
+* White: Resolution Type (e.g. wontfix, invalid, duplicate)
+* Blue: Fix Type (e.g. accessibility, IE, redlines)
+* Pink: DS Type (DS4 or DS6)
 
 Additionally, any of the following specific labels might be assigned:
 
