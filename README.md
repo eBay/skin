@@ -10,7 +10,7 @@ Skin is [MIT](LICENSE) licensed.
 
 ## Install
 
-Skin is available as the `skin-ebay` package on [npm](https://www.npmjs.com/). It is also available on a [CDN](https://ebay.github.io/skin#cdn).
+Skin is available as the `@ebay/skin` package on [npm](https://www.npmjs.com/). It is also available on a [CDN](https://ebay.github.io/skin#cdn).
 
 ## Versioning
 

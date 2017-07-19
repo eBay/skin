@@ -148,9 +148,9 @@ Workflow for interacting with the visual regression tests:
 
 ## NPM Release
 
-As of v3, the `skin-ebay` module is published to the public NPM repository at https://registry.npmjs.org/.
+As of v3, the `@ebay/skin` module is published to the public NPM repository at https://registry.npmjs.org/.
 
-Please ensure your NPM registry is set correctly and that you are on the package owners list, i.e. `npm owner ls skin-ebay`.
+Please ensure your NPM registry is set correctly and that you are on the package owners list, i.e. `npm owner ls @ebay/skin`.
 
 Please follow the steps below to publish skin to NPM:
 
