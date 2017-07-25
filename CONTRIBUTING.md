@@ -2,8 +2,8 @@
 
 ## System Requirements
 
-* NPM or Yarn
 * Node 6.9.x LTS
+* Yarn
 * Jekyll
 * Ruby
 
