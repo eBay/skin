@@ -33,19 +33,19 @@ Here is a rough overview of steps required when contributing code to skin:
 
 ## Branching Strategy
 
-**Never commit feature work directly to the master branch!** The only direct commits that are permitted are fixes to documentation (typos, syntax, etc).
+Do not attempt to commit feature work directly to the `master` branch. Pushes to the `master` branch are restricted to admins and should only be used for important corrections to documentation and example code.
 
-All other branches are "milestone" branches, and "feature work" or "bug fix" branches for those milestones.
+All other branches are "milestone" branches or "issue" branches.
 
-Every feature or bug fix must go in it's own branch. The branch name will match the issue number. For example, for issue number 202, a branch named `202` would be created.
+Work for every "issue" must go in it's own branch. The branch name will match the issue number. For example, for issue number 202, a branch named `202` would be created.
 
-Feature branches must be created from the relevant milestone branch. For example, if feature 202 will go out in the v2.6.7 milestone, then the 202 feature branch must be created from the 2.6.7 milestone branch.
+Issue branches must be created from the relevant milestone branch. For example, if issue 202 will go out in the v2.6.7 milestone, then the 202 issue branch must be created from the 2.6.7 milestone branch.
 
 Every milestone branch must be created from the `master` branch. For example, when beginning work on the 2.9.0 release, the `2.9.0` branch would be created from the `master` branch.
 
-<strike>When work on a feature branch is complete and committed to the branch, the Jenkins CI job must be run on that branch. This may result in a new commit being added to the feature branch by the CI machine. After this point, a PR should be sent.</strike>
+<strike>When work on an issue branch is complete and committed to the branch, the Jenkins CI job must be run on that branch. This may result in a new commit being added to the issue branch by the CI machine. After this point, a PR should be sent.</strike>
 
-When all milestone features are complete, and merged into the milestone branch, a Skin admin will merge the milestone branch into the `master` branch in preparation for the release.
+When all milestone issues are complete, and merged into the milestone branch, a Skin admin will merge the milestone branch into the `master` branch in preparation for the release.
 
 A milestone branch will be deleted after it has been merged into `master`. There is no need to keep these milestone branches lying around, as we can go back to any point in time using tags. See the hotfix section below for more details.
 
@@ -60,26 +60,27 @@ Guidance for pull requests:
 * Pull request must only contain changes related to the issue.
     * **Do not** be tempted to go fixing or refactoring unrelated issues - as it makes the code reviewers job a lot harder as well as increasing risk of regression
     * Think of yourself as a surgeon. Get in, fix the problem, and don't go tinkering with anything unrelated! If you do spot some other issue that bothers you, create an issue for it and it can be tackled separately.
-* After the pull request has been merged, your feature branch should be immediately deleted (by yourself or reviewer)
+* After the pull request has been merged, your issue branch should be immediately deleted (by yourself or reviewer)
 
 ## Style Guide
 
 When contributing to Skin, please bear the following in mind:
 
-* Ensure all markup adheres to our [accessibility MIND patterns](https://ebay.gitbooks.io/mindpatterns/content/)
+* Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
 * Ensure all markup is valid HTML
 * Leverage ARIA roles, states and properties for styling hooks wherever possible
 * Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
-* Use inline SVG for icons and graphics (Icon-Font is now frozen/deprecated)
-* Do not use i tag for icons, use span or div instead
-* Do not use presentational classnames, e.g. 'btn--green' should be 'btn--secondary' for example
-* Do not combine classes into a single classname, e.g. 'btn-sec' should be 'btn btn--sec', this allows cascades without advanced attribute selectors or pre-processors
-* Do not use ambigious/global classnames, e.g. 'large' should be 'btn--large'
-* Do not use class 'disabled' to disable buttons or form elements, use HTML disabled property instead
-* Do not use class active on radio buttons or checkboxes, use aria-selected or aria-checked instead
-* Do not wrap inputs with labels, use explicit labels instead (e.g. use for and id attributes)
+* Use inline SVG for icons and graphics (the icon-font is now frozen/deprecated)
+* Harness CSS margin-collapse wherever possible
+* Do not use the `<i>` tag for icons, use a `<span>` instead
+* Do not use presentational classnames, e.g. `btn--green` should be `btn--secondary` for example
+* Do not combine classes into a single classname, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
+* Do not use ambiguous/global classnames, e.g. `large` should be `btn--large`
+* Do not use class `disabled` to disable buttons or form elements, use the HTML `disabled` property instead
+* Do not use class `active` on radio buttons or checkboxes, use `aria-selected` or `aria-checked` instead
+* Do not wrap inputs with labels, use explicit labels instead (e.g. use the `for` and `id` attributes)
 * Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy url
-* All image tags must have alt attributes, with **no** exceptions
+* Every `<img>` tag must have an `alt` attribute, with **no** exceptions. The value can be an empty string for presentational images.
 * Avoid naming conflicts with other grid systems (e.g. Bootstap Grids)
 * Keep LESS pre-processor usage restricted to variables & mixins. 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
 * Avoid too much nesting/indenting of LESS selectors as it can reduce human scanability of code and can also result in sub-optimal compiled CSS. The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
@@ -90,11 +91,11 @@ When contributing to Skin, please bear the following in mind:
 
 * `npm start` - Runs a build and starts local BrowserSync server on port 3000
 * `npm test` - Runs a build and lints CSS and LESS files
-* `npm run build` - Run a full build only (no server)
+* `npm run build` - Runs a build only (no server)
 
 ## Local Server
 
-Run `npm install` to install all dependencies from NPM.
+Run `yarn install` to install all dependencies from NPM.
 
 In order to start developing test pages or documentation simply run: `npm start` which will build, bundle and run a BrowserSync server at http://localhost:3000. Test pages are available at http://localhost:3000/test.
 
@@ -173,8 +174,9 @@ The release notes should reference all issues inside the relevant milestone.
 
 ## Icon-Font Creation
 
-**The Skin Icon-Font is frozen. No new icons will be added to the font. Please use inline SVG instead.**
+The Skin Icon-Font is frozen. No new icons will be added to the font. Please use inline SVG instead.
 
+<strike>
 1. Open [icomoon app](https://icomoon.io/app/#/select) site to upload the new set of icons.
 1. Click the `Hamburger icon` to the right of icomoon to remove the existing Set (this will remove all the existing icons).
 1. Import the existing icon set (icon-font.json) from your local folder `skin/src/fonts/icon-font.json` using `Import Icons` button .
@@ -185,6 +187,7 @@ The release notes should reference all issues inside the relevant milestone.
 1. Remove the old font files and copy paste the new `eot, svg, ttf, woff and json files` to your branch with proper naming. (eg : icon-fonts.json, vq-icon-font.eot, vq-icon-font.svg, vq-icon-font.ttf and vq-icon-font.woff).
 1. Upload new font files using CDN release process as described above
 1. Update the latest @font-url path in the `core/variables.less` file.
+</strike>
 
 ## Hotfix Release
 
