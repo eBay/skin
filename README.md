@@ -42,30 +42,16 @@ Please use our publicly visible [issues page](https://github.com/eBay/skin/issue
 
 **If you are not sure whether your issue should be publicly visible, please use our internal GitHub.**
 
-The Skin admins will categorize your issue or feature request, using labels, into one of four possible states:
+To help track your issue, the Skin admins will assign it with a coloured label from one or more of the following categories:
 
-* resolved (e.g. duplicate or invalid)
-* blocked (e.g. requires further discussion or more info)
-* backlog (e.g. approved but not urgent)
-* milestone (e.g. approved and placed in a [milestone](https://github.com/eBay/skin/milestones) according to priority)
-
-See the next section below for more info on how we use labels.
-
-### Labels
-
-To help track your issue, the Skin admins will likely assign it with a coloured label belonging to one or more of the following categories:
-
-* Red: Blocker Type (e.g. discussion, design, spec)
-* Yellow: Release Type (e.g. patch, minor, major)
-* Black: Issue Type (e.g. bug, enhancement, feature)
-* White: Resolution Type (e.g. wontfix, invalid, duplicate)
-* Blue: Fix Type (e.g. accessibility, IE, redlines)
-* Pink: DS Type (DS4 or DS6)
-
-Additionally, any of the following specific labels might be assigned:
-
-* orange: backlog (awaiting milestone allocation)
-* purple: question (a question only - anyone can assign this)
+* Black: Issue Type (e.g. bug, question, test case)
+* White: Resolution (e.g. wont fix, invalid, duplicate)
+* Gray: Status (e.g. backlog, in progress, help wanted)
+* Red: Blocker (e.g. dependency, discussion, design)
+* Green: Module (e.g. button, radio, dialog)
+* Blue: Aspect (e.g. build, documentation, website)
+* Pink: Design System (e.g. DS4 or DS6)
+* Yellow: Semver Guidance (e.g. breaking change, backwards compatible)
 
 ## Developing &amp; Contributing
 
