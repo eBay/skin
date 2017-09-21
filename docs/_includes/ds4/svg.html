@@ -136,7 +136,7 @@
 <div id="svg">
     <h2>SVG</h2>
     <p>Skin is in the midst of a transition from a font-based icon system to an SVG-based icon system.</p>
-    <p>The source code for each SVG symbol is listed below. Each <span class="highlight">symbol</span> must be defined inside of an <span class="highlight">&lt;svg hidden&gt;&lt;/svg&gt;</span> block on the same page as where the symbol will be used. Alternatively, the symbols can be stored and referenced via an external SVG file, however a polyfill is required for legacy browsers.</p>
+    <p>The source code for each SVG symbol is listed below. Each symbol must be defined inside of a hidden <span class="highlight">&lt;svg&gt;</span> block before it can be referenced elsewhere on the page.</p>
 
     <ul class="module-toc cols">
         <li><a href="#svg-arrows">Arrows SVG</a></li>
@@ -152,40 +152,32 @@
 
     {% highlight html %}
 <svg hidden>
-    <symbol id="svg-icon-arrow-up" viewBox="0 0 32 32" width="16" height="16">
+    <symbol id="svg-icon-arrow-up" viewBox="0 0 32 32">
         <path d="M16.002 8.509l-14.947 13.913v1.069h29.89v-1.069z"></path>
     </symbol>
 
-    <symbol id="svg-icon-arrow-down" viewBox="0 0 32 32" width="16" height="16">
+    <symbol id="svg-icon-arrow-down" viewBox="0 0 32 32">
         <path d="M15.94 25.294l-15.473-17.229h30.953l-7.742 8.616z"></path>
     </symbol>
 </svg>
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-arrow-up" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-arrow-up"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-arrow-down" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-arrow-down"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-arrow-up"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-arrow-down"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-arrow-up" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-arrow-up"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-arrow-down" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-arrow-down"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-arrow-up"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-arrow-down"></use>
+</svg>
     {% endhighlight %}
 
     <p>Use the <span class="highlight">svg-icon</span> class on your <span class="highlight">&lt;svg&gt;</span> tag to create an icon sized version of the graphic. The <span class="highlight">height</span> and <span class="highlight">width</span> attributes are set to sensible defaults for a non-CSS state.</p>
@@ -213,49 +205,33 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-chevron-up" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-up"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-chevron-down" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-down"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-chevron-left" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-left"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-chevron-right" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-right"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-up"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-down"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-left"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-right"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-chevron-up" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-up"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-chevron-down" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-down"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-chevron-left" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-left"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-chevron-right" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-right"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-up"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-down"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-left"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-right"></use>
+</svg>
     {% endhighlight %}
 
     <h3 id="svg-light-chevrons">Light Chevrons</h3>
@@ -273,29 +249,21 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-chevron-light-left" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-light-left"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-chevron-light-right" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-chevron-light-right"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-light-left"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-chevron-light-right"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-chevron-light-left" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-light-left"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-chevron-light-right" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-chevron-light-right"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-light-left"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-chevron-light-right"></use>
+</svg>
     {% endhighlight %}
 
     <h3 id="svg-status">Status</h3>
@@ -322,39 +290,27 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-confirmation" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-confirmation"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-information" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-information"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-priority" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-priority"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-confirmation"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-information"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-priority"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-confirmation" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-confirmation"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-information" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-information"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-priority" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-priority"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-confirmation"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-information"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-priority"></use>
+</svg>
     {% endhighlight %}
 
     <h3 id="svg-view-options">View Options</h3>
@@ -383,39 +339,27 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-view-detail" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-view-detail"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-view-grid" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-view-grid"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-view-list" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-view-list"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-view-detail"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-view-grid"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-view-list"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-view-detail" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-view-detail"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-view-grid" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-view-grid"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-view-list" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-view-list"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-view-detail"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-view-grid"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-view-list"></use>
+</svg>
     {% endhighlight %}
 
     <h3 id="svg-form-controls">Form Controls</h3>
@@ -456,49 +400,33 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-checkbox-unchecked" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-checkbox-unchecked"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-checkbox-checked" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-checkbox-checked"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-radio-unchecked" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-radio-unchecked"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-radio-checked" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-radio-checked"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-checkbox-unchecked"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-checkbox-checked"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-radio-unchecked"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-radio-checked"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-checkbox-unchecked" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-checkbox-unchecked"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-checkbox-checked" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-checkbox-checked"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-radio-unchecked" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-radio-unchecked"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-radio-checked" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-radio-checked"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-checkbox-unchecked"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-checkbox-checked"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-radio-unchecked"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-radio-checked"></use>
+</svg>
     {% endhighlight %}
 
     <h3 id="svg-user-misc">Misc</h3>
@@ -562,109 +490,69 @@
     {% endhighlight %}
     <div class="demo">
         <div class="demo__inner">
-            <span aria-label="svg-icon-cart" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-cart"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-close" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-close"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-menu" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-menu"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-notifications" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-notifications"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-profile" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-profile"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-search" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-search"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-settings" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-settings"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-star" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-star"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-trash" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-trash"></use>
-                </svg>
-            </span>
-            <span aria-label="svg-icon-window" role="img">
-                <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-                    <use xlink:href="#svg-icon-window"></use>
-                </svg>
-            </span>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-cart"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-close"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-menu"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-notifications"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-profile"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-search"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-settings"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-star"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-trash"></use>
+            </svg>
+            <svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+                <use xlink:href="#svg-icon-window"></use>
+            </svg>
         </div>
     </div>
     {% highlight html %}
-<span aria-label="svg-icon-cart" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-cart"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-close" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-close"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-menu" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-menu"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-notifications" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-notifications"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-profile" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-profile"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-search" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-search"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-settings" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-settings"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-star" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-star"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-trash" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-trash"></use>
-    </svg>
-</span>
-<span aria-label="svg-icon-window" role="img">
-    <svg aria-hidden="true" class="svg-icon" width="16" height="16">
-        <use xlink:href="#svg-icon-window"></use>
-    </svg>
-</span>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-cart"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-close"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-menu"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-notifications"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-profile"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-search"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-settings"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-star"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-trash"></use>
+</svg>
+<svg aria-hidden="true" class="svg-icon" focusable="false" height="16" width="16">
+    <use xlink:href="#svg-icon-window"></use>
+</svg>
     {% endhighlight %}
 
 </div>
