@@ -162,10 +162,12 @@ Please follow the steps below to publish skin to NPM:
 1.	Run `npm run build`. This will update the top comment section of build files with the new version number. This is needed for legal.
 1. Revert the version number update you made to package.json in step 1.
 1. Commit the modified build files
-1. Run `npm version patch` or `npm version minor`. This will again update the patch or minor version number in package.json but will also commit the file change and create a Git tag at the same time
-1. Push both commits to origin.
-1. Push the git tag to origin, e.g. `git push origin v2.1.9`
-1. Run `npm publish` and you should be good to go.
+1. Merge the milestone branch into master branch in GitHub
+1. Switch to your local master branch and pull the changes
+1. Run `npm version` patch, minor or version. This will again update the version number in package.json but will also commit change and create a Git tag at the same time
+1. Push commit to origin
+1. Push the git tag to origin, e.g. `git push origin v3.1.0`
+1. Run `npm publish` to publish the package to NPM
 
 **TIP:** If you need to do an update or hotfix to an older minor release, please see the Hotfix Release section further below.
 
