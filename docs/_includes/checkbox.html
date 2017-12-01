@@ -7,7 +7,8 @@
         <li><a href="#checkbox-default">Default Checkbox</a></li>
         <li><a href="#checkbox-disabled">Disabled Checkbox</a></li>
         <li><a href="#checkbox-group">Grouped Checkbox</a></li>
-        <li><a href="#checkbox-custom">Custom Checkbox</a></li>
+        <li><a href="#checkbox-color">Custom Color Checkbox</a></li>
+        <li><a href="#checkbox-icon">Custom Icon Checkbox</a></li>
     </ul>
 
     <h3 id="checkbox-default">Default Checkbox</h3>
@@ -108,16 +109,15 @@
 </fieldset>
     {% endhighlight %}
 
-<!--
-
-    <h3 id="checkbox-svg">Inline SVG Checkbox</h3>
-    <p>Inline SVG is also supported. The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible when CSS is disabled and also helps prevent a flash of unstyled content (FOUC).</span>
+    <h3 id="checkbox-color">Custom Colour Checkbox</h3>
+    <p>The default checkbox shown above uses an SVG background image, and therefore has a fixed colour. Inline SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the checkbox icon.</p>
+    <p>The <span class="highlight">checkbox__icon</span> element requires the <span class="highlight">checkbox__icon--inherit</span> modifier.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="checkbox">
+            <span class="checkbox" style="color: #5ba71b">
                 <input aria-label="Inline SVG checkbox example" class="checkbox__control" type="checkbox" />
-                <span class="checkbox__icon" hidden>
+                <span class="checkbox__icon checkbox__icon--inherit" hidden>
                     <svg aria-hidden="true" focusable="false">
                         <use xlink:href="#svg-icon-checkbox"></use>
                     </svg>
@@ -127,9 +127,9 @@
     </div>
 
     {% highlight html %}
-<span class="checkbox">
+<span class="checkbox" style="color: #5ba71b">
     <input class="checkbox__control" type="checkbox" />
-    <span class="checkbox__icon" hidden>
+    <span class="checkbox__icon checkbox__icon--inherit" hidden>
         <svg aria-hidden="true" focusable="false">
             <use xlink:href="#svg-icon-checkbox"></use>
         </svg>
@@ -137,7 +137,9 @@
 </span>
     {% endhighlight %}
 
+    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible if the page is in a non-CSS state; it also helps prevent a flash of unstyled content (FOUC).
     <p>The following SVG symbol definition is required:</p>
+
     {% highlight html %}
 <svg hidden>
     <symbol id="svg-icon-checkbox" viewBox="0 0 32 32">
@@ -147,22 +149,20 @@
 </svg>
     {% endhighlight %}
 
--->
-
-    <h3 id="checkbox-custom">Custom Checkbox</h3>
-    <p>Use the <span class="highlight">checkbox__custom-control</span> element class to create a custom styled checkbox that can use any inline SVG for it's checked and unchecked states. An added benefit of inline SVG is that it will inherit the current text colour.</p>
-    <p>Be careful when using a custom checkbox; the icon must still give enough <em>affordance</em> to a user that it represents an interactive control.</p>
+    <h3 id="checkbox-icon">Custom Icon Checkbox</h3>
+    <p>Use the <span class="highlight">checkbox__custom-control</span> element class to create a custom styled checkbox that can use any inline SVG for it's checked and unchecked states.</p>
+    <p>Be careful when using a custom checkbox; the icon for each state must still give enough <em>affordance</em> to a user that it represents an interactive control.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="checkbox">
                 <input aria-label="Custom checkbox example" class="checkbox__custom-control" id="checkbox-custom-1" name="checkbox-custom-1" type="checkbox" />
-                <span class="checkbox__icon" hidden>
+                <span class="checkbox__icon" hidden style="color: #5ba71b">
                     <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
                         <use xlink:href="#svg-icon-checkbox-unchecked"></use>
                     </svg>
                     <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-                        <use xlink:href="#svg-icon-checkbox-checked"></use>
+                        <use xlink:href="#svg-icon-confirmation"></use>
                     </svg>
                 </span>
             </span>
@@ -172,17 +172,15 @@
     {% highlight html %}
 <span class="checkbox">
     <input class="checkbox__custom-control" id="checkbox-custom" name="checkbox-custom" type="checkbox" />
-    <span class="checkbox__icon" hidden>
+    <span class="checkbox__icon" hidden style="color: #5ba71b">
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
             <use xlink:href="#svg-icon-checkbox-unchecked"></use>
         </svg>
         <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-            <use xlink:href="#svg-icon-checkbox-checked"></use>
+            <use xlink:href="#svg-icon-confirmation"></use>
         </svg>
     </span>
 </span>
     {% endhighlight %}
-
-    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible when CSS is disabled and also helps prevent a flash of unstyled content (FOUC).
 
 </div>
