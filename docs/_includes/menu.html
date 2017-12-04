@@ -1,9 +1,9 @@
 <div id="menu">
     <h2>Menu</h2>
 
-    <p>A menu follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed. Menus are <strong>not</strong> form controls. If you wish to submit form data, please consider <a href="#checkbox">checkbox</a>, <a href="#listbox">listbox</a> or <a href="#radio">radio</a> instead.</p>
-    <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please see the <a href="#menu-fake">fake menu</a> section for more details.</p>
-    <p>Menu has a dependency on the <a href="#button">button</a> component.</p>
+    <p>A menu follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
+    <p>A menu is <strong>not</strong> a form control. If you wish to submit form data, please consider <a href="#checkbox">checkbox</a>, <a href="#listbox">listbox</a> or <a href="#radio">radio</a> instead.</p>
+    <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
 
     <ul class="module-toc cols">
         <li><a href="#menu-default">Default Menu</a></li>
@@ -11,8 +11,9 @@
         <li><a href="#menu-checkbox">Checkbox Menu</a></li>
         <li><a href="#menu-fake">Fake Menu</a></li>
         <li><a href="#menu-growth">Growth Menu</a></li>
-        <li><a href="#menu-tray">Tray Menu</a></li>
-        <li><a href="#menu-buttonless">Menu Buttonless</a></li>
+        <!-- <li><a href="#menu-static">Static Menu</a></li> -->
+        <li><a href="#menu-custom">Custom Menu</a></li>
+        <li><a href="#menu-buttonless">Buttonless Menu</a></li>
     </ul>
 
     <p><strong>NOTE:</strong> The examples below use a simple <a href="https://github.com/ianmcburnie/jquery-menu">jquery-menu</a> plugin to toggle the aria state of the menu button and menu items when clicked. The plugin also implements arrow-key navigation for keyboard accessibility.</p>
@@ -26,9 +27,7 @@
                 <button class="menu__btn btn" aria-expanded="false" aria-haspopup="true" type="button">
                     <span class="btn__cell">
                         <span>Menu</span>
-                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span class="btn__icon menu__icon"></span>
                     </span>
                 </button>
                 <div class="menu__items" role="menu">
@@ -45,9 +44,7 @@
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span>Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
     <div class="menu__items" role="menu">
@@ -101,29 +98,21 @@
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span>Radio Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true">
             <span>Radio menu item 1</span>
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
         <div class="menu__item" role="menuitemradio" aria-checked="false">
             <span>Radio menu item 2</span>
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
         <div class="menu__item" role="menuitemradio" aria-checked="false">
             <span>Radio menu item 3</span>
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
     </div>
 </span>
@@ -138,29 +127,21 @@
                 <button class="menu__btn btn" aria-expanded="false" aria-haspopup="true" type="button">
                     <span class="btn__cell">
                         <span>Checkbox Menu</span>
-                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span class="btn__icon menu__icon"></span>
                     </span>
                 </button>
                 <div class="menu__items" role="menu">
                     <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
                         <span>Checkbox menu item 1</span>
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
+                        <span class="menu__status"></span>
                     </div>
                     <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
                         <span>Checkbox menu item 2</span>
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
+                        <span class="menu__status"></span>
                     </div>
                     <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
                         <span>Checkbox menu item 3</span>
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
+                        <span class="menu__status"></span>
                     </div>
                 </div>
             </span>
@@ -172,29 +153,21 @@
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span>Checkbox Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
             <span>Checkbox menu item 1</span>
-            <svg aria-hidden="true" class="menu__status">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
         <div class="menu__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
             <span>Checkbox menu item 2</span>
-            <svg aria-hidden="true" class="menu__status">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
         <div class="menu__item" role="menuitemcheckbox" aria-checked="false" height="8" width="8">
             <span>Checkbox menu item 3</span>
-            <svg aria-hidden="true" class="menu__status">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
+            <span class="menu__status"></span>
         </div>
     </div>
 </span>
@@ -211,18 +184,14 @@
                 <button class="fake-menu__btn btn" type="button" aria-expanded="false">
                     <span class="btn__cell">
                         <span>Fake Menu</span>
-                        <svg aria-hidden="true" class="btn__icon fake-menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span class="btn__icon fake-menu__icon"></span>
                     </span>
                 </button>
                 <ul class="fake-menu__items">
                     <li>
                         <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
                             <span>Link 1</span>
-                            <svg aria-hidden="true" class="fake-menu__status" focusable="false" height="8" width="8">
-                                <use xlink:href="#svg-icon-check"></use>
-                            </svg>
+                            <span class="fake-menu__status"></span>
                         </a>
                     </li>
                     <li><a href="http://www.ebay.com" class="fake-menu__item">Link 2</a></li>
@@ -237,18 +206,14 @@
     <button aria-expanded="false" class="btn fake-menu__btn" type="button">
         <span class="btn__cell">
             <span>Fake Menu</span>
-            <svg aria-hidden="true" class="btn__icon fake-menu__icon" focusable="false">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon fake-menu__icon"></span>
         </span>
     </button>
     <ul class="fake-menu__items">
         <li>
             <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
                 <span>Link 1</span>
-                <svg aria-hidden="true" class="fake-menu__status" focusable="false">
-                    <use xlink:href="#svg-icon-check"></use>
-                </svg>
+                <span class="fake-menu__status"></span>
             </a>
         </li>
         <li>
@@ -276,9 +241,7 @@
                 <button class="menu__btn btn" aria-expanded="false" aria-haspopup="true" type="button">
                     <span class="btn__cell">
                         <span>Menu</span>
-                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span class="btn__icon menu__icon"></span>
                     </span>
                 </button>
                 <div class="menu__items menu__items--grow" role="menu">
@@ -301,9 +264,7 @@
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span>Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
     <div class="menu__items menu__items--grow" role="menu">
@@ -328,9 +289,7 @@
                 <button class="menu__btn btn" aria-expanded="false" aria-haspopup="true" type="button">
                     <span class="btn__cell">
                         <span>Menu</span>
-                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span class="btn__icon menu__icon"></span>
                     </span>
                 </button>
                 <div class="menu__items menu__items--grow-reverse" role="menu">
@@ -353,9 +312,7 @@
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span>Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
     <div class="menu__items menu__items--grow-reverse" role="menu">
@@ -372,21 +329,20 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="menu-tray">Tray Menu</h3>
-    <p>For a menu button that expands like a tray, pushing down all content below it, use the <span class="highlight">menu__items--tray</span> element modifier.</p>
+    <!--
+    <h3 id="menu-static">Static Menu</h3>
+    <p>For a statically positioned menu overlay (as opposed to an <em>absolutely positioned</em> one) use the <span class="highlight">menu__items--static</span> element modifier. When expanded, the menu will push down all content below it.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="menu">
                 <button class="menu__btn btn btn--fluid" aria-expanded="false" aria-haspopup="true" type="button">
                     <span class="btn__cell">
-                        <span>Menu</span>
-                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-arrow-down"></use>
-                        </svg>
+                        <span>Static Menu</span>
+                        <span class="btn__icon menu__icon"></span>
                     </span>
                 </button>
-                <div class="menu__items menu__items--tray" role="menu">
+                <div class="menu__items menu__items--static" role="menu">
                     <div class="menu__item" role="menuitem">Menu item 1</div>
                     <div class="menu__item" role="menuitem">Menu item 2</div>
                     <div class="menu__item" role="menuitem">Menu item 3</div>
@@ -399,13 +355,11 @@
 <div class="menu">
     <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="btn__cell">
-            <span>Menu</span>
-            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-arrow-down"></use>
-            </svg>
+            <span>Static Menu</span>
+            <span class="btn__icon menu__icon"></span>
         </span>
     </button>
-    <div class="menu__items menu__items--tray" role="menu">
+    <div class="menu__items menu__items--static" role="menu">
         <div class="menu__item" role="menuitem">Menu item 1</div>
         <div class="menu__item" role="menuitem">Menu item 2</div>
         <div class="menu__item" role="menuitem">Menu item 3</div>
@@ -413,59 +367,215 @@
 </div>
     {% endhighlight %}
 
-    <h3 id="menu-buttonless">Buttonless Menu <sup class="beta">BETA</sup></h3>
-    <p>Any menu can be presented as a buttonless menu, simply by omitting the button element.</p>
-    <p><strong>TIP:</strong> Notice that the positions of the status icon and label have been flipped in this example, simply by flipping the DOM order.</p>
+    -->
+
+    <h3 id="menu-custom">Custom Menu</h3>
+    <p>Any menu can use any kind of button hierarchy as defined in the <a href="#button">button</a> module (e.g. <span class="highlight">.btn--primary</span>).</p>
+    <p>Note, for the icon colour to be correct, be sure to add a matching modifier to the icon element (e.g. <span class="highlight">.menu__icon--primary</span>).</p>
+
     <div class="demo">
         <div class="demo__inner">
-            <div class="menu">
+            <span class="menu">
+                <button class="menu__btn btn btn--primary" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="btn__cell">
+                        <span>Primary Menu</span>
+                        <span class="btn__icon menu__icon menu__icon--primary"></span>
+                    </span>
+                </button>
                 <div class="menu__items" role="menu">
-                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
-                        <span>Checkbox menu item 1</span>
-                    </div>
-                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
-                        <span>Checkbox menu item 2</span>
-                    </div>
-                    <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
-                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                            <use xlink:href="#svg-icon-check"></use>
-                        </svg>
-                        <span>Checkbox menu item 3</span>
-                    </div>
+                    <div class="menu__item" role="menuitem">Menu item 1</div>
+                    <div class="menu__item" role="menuitem">Menu item 2</div>
+                    <div class="menu__item" role="menuitem">Menu item 3</div>
                 </div>
-            </div>
+            </span>
+            <span class="menu">
+                <button class="menu__btn btn btn--secondary" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="btn__cell">
+                        <span>Secondary Menu</span>
+                        <span class="btn__icon menu__icon menu__icon--secondary"></span>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitem">Menu item 1</div>
+                    <div class="menu__item" role="menuitem">Menu item 2</div>
+                    <div class="menu__item" role="menuitem">Menu item 3</div>
+                </div>
+            </span>
         </div>
     </div>
 
     {% highlight html %}
-<div class="menu">
-    <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
-            <span>Checkbox menu item 1</span>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
-            <span>Checkbox menu item 2</span>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
-            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
-                <use xlink:href="#svg-icon-check"></use>
-            </svg>
-            <span>Checkbox menu item 3</span>
+<span class="menu">
+    <button class="btn btn--primary menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span>Primaru Menu</span>
+            <span class="btn__icon menu__icon menu__icon--primary"></span>
+        </span>
+    </button>
+    <!-- menu items omitted from example code -->
+</span>
+
+<span class="menu">
+    <button class="btn btn--secondary menu__btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span>Secondary Menu</span>
+            <span class="btn__icon menu__icon menu__icon--secondary"></span>
+        </span>
+    </button>
+    <!-- menu items omitted from example code -->
+</span>
+    {% endhighlight %}
+
+    <p>For <em>custom</em> background and foreground colours, please replace the icon's span element with an inline SVG element:</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="menu__btn btn" aria-expanded="false" aria-haspopup="true" style="background-color: #6a29b9; color: white" type="button">
+                    <span class="btn__cell">
+                        <span>Custom Menu</span>
+                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
+                            <use xlink:href="#svg-icon-arrow-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitem">Menu item 1</div>
+                    <div class="menu__item" role="menuitem">Menu item 2</div>
+                    <div class="menu__item" role="menuitem">Menu item 3</div>
+                </div>
+            </span>
         </div>
     </div>
-</div>
+
+    {% highlight html %}
+<span class="menu">
+    <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+        <span class="btn__cell">
+            <span>Custom Menu</span>
+            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#svg-icon-arrow-down"></use>
+            </svg>
+        </span>
+    </button>
+    <!-- menu items omitted from example code -->
+</span>
     {% endhighlight %}
+
+    <p>A checkbox menu or radio menu can also leverage inline SVG for the checked state of each item:</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+                    <span class="btn__cell">
+                        <span>Custom Checkbox Menu</span>
+                        <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
+                            <use xlink:href="#svg-icon-arrow-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Menu item 1</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#svg-icon-confirmation"></use>
+                        </svg>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Menu item 2</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#svg-icon-confirmation"></use>
+                        </svg>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+                        <span>Menu item 3</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#svg-icon-confirmation"></use>
+                        </svg>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu">
+    <button class="btn menu__btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+        <span class="btn__cell">
+            <span>Custom Checkbox Menu</span>
+            <svg aria-hidden="true" class="btn__icon menu__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#svg-icon-arrow-down"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span>Menu item 1</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#svg-icon-confirmation"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span>Menu item 2</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#svg-icon-confirmation"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+            <span>Menu item 3</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#svg-icon-confirmation"></use>
+            </svg>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <p>Be careful when using a custom icon; the icon must give enough affordance to a user that it represents an interactive control.</p>
+
+    <h3 id="menu-buttonless">Buttonless Menu <sup class="beta">BETA</sup></h3>
+    <p>Finally, any menu can be presented as a buttonless menu, simply by omitting the button.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span class="menu__status"></span>
+                        <span>Menu item 1</span>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span class="menu__status"></span>
+                        <span>Menu item 2</span>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+                        <span class="menu__status"></span>
+                        <span>Menu item 3</span>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu">
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span class="menu__status"></span>
+            <span>Menu item 1</span>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span class="menu__status"></span>
+            <span>Menu item 2</span>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+            <span class="menu__status"></span>
+            <span>Menu item 3</span>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <p><strong>TIP:</strong> The positions of the status icon and label have been reversed in this example, simply by flipping their DOM order.</p>
 
 </div>
