@@ -1,0 +1,210 @@
+<div id="menu">
+    <h2>@ebay/skin/menu</h2>
+
+    <p>A menu follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
+    <p>A menu is <strong>not</strong> a form control. If you wish to submit form data, please consider <a href="#checkbox">checkbox</a>, <a href="#listbox">listbox</a> or <a href="#radio">radio</a> instead.</p>
+    <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="expand-btn" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Menu</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitem">Item 1</div>
+                    <div class="menu__item" role="menuitem">Item 2</div>
+                    <div class="menu__item" role="menuitem">Item 3</div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="menu">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn">
+            <span>Menu</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitem">Item 1</div>
+        <div class="menu__item" role="menuitem">Item 2</div>
+        <div class="menu__item" role="menuitem">Item 3</div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="menu-radio">Radio Menu</h3>
+    <p>For single-select state, use role <span class="highlight">menuitemradio</span> on each menu item.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Radio Menu</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitemradio" aria-checked="true">
+                        <span>Item 1</span>
+                        <span class="menu__status"></span>
+                    </div>
+                    <div class="menu__item" role="menuitemradio" aria-checked="false">
+                        <span>Item 2</span>
+                        <span class="menu__status"></span>
+                    </div>
+                    <div class="menu__item" role="menuitemradio" aria-checked="false">
+                        <span>Item 3</span>
+                        <span class="menu__status"></span>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span>Radio Menu</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemradio" aria-checked="true">
+            <span>Radio menu item 1</span>
+            <span class="menu__status"></span>
+        </div>
+        <div class="menu__item" role="menuitemradio" aria-checked="false">
+            <span>Radio menu item 2</span>
+            <span class="menu__status"></span>
+        </div>
+        <div class="menu__item" role="menuitemradio" aria-checked="false">
+            <span>Radio menu item 3</span>
+            <span class="menu__status"></span>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="menu-checkbox">Checkbox Menu</h3>
+    <p>For multi-select state, use role <span class="highlight">menuitemcheckbox</span> on each menu item.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Checkbox Menu</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Item 1</span>
+                        <span class="menu__status"></span>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Item 2</span>
+                        <span class="menu__status"></span>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+                        <span>Item 3</span>
+                        <span class="menu__status"></span>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span>Checkbox Menu</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
+            <span>Item 1</span>
+            <span class="menu__status"></span>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
+            <span>Item 2</span>
+            <span class="menu__status"></span>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="false" height="8" width="8">
+            <span>Item 3</span>
+            <span class="menu__status"></span>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="menu-fake">Fake Menu</h3>
+    <p>A fake menu <em>looks</em> like a normal menu widget, but it contains a list of hyperlinks (instead of a menu of menuitems) and thus behaves more like a navigational widget.</p>
+    <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant) is <strong>not</strong> a valid URL!</p>
+    <p>Use the <span class="highlight">aria-current</span> attribute to denote the link that matches the current page URL (if applicable).</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="fake-menu">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Fake Menu</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <ul class="fake-menu__items">
+                    <li>
+                        <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
+                            <span>Link 1</span>
+                            <span class="fake-menu__status"></span>
+                        </a>
+                    </li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 2</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 3</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 4</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="fake-menu">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span>Fake Menu</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <ul class="fake-menu__items">
+        <li>
+            <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
+                <span>Link 1</span>
+                <span class="fake-menu__status"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu__item">Link 2</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu__item">Link 3</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu__item">Link 4</a>
+        </li>
+    </ul>
+</span>
+    {% endhighlight %}
+
+    <p><strong>TIP:</strong> A fake menu can contain a mix of anchor tags and button tags.</p>
+
+
+</div>
