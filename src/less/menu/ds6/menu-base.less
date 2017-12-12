@@ -1,0 +1,154 @@
+// BEM block
+
+.menu,
+.fake-menu {
+    line-height: normal;
+    position: relative;
+}
+
+span.menu,
+span.fake-menu {
+    display: inline-block;
+}
+
+// BEM elements
+
+.menu .expand-btn[aria-expanded="true"],
+.fake-menu .expand-btn[aria-expanded="true"] {
+    border-bottom: 0;
+}
+
+.menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
+.fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
+    display: block;
+}
+
+.menu .expand-btn ~ .menu__items[role="menu"],
+.fake-menu .expand-btn ~ .fake-menu__items {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.menu__items[role="menu"],
+.fake-menu__items {
+    background-color: white;
+    border: 1px solid @ds6-color-g204-gray;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+span.menu__items[role="menu"],
+span.fake-menu__items {
+    display: inline-block;
+}
+
+.fake-menu__items {
+    list-style-type: none;
+    margin: 0;
+}
+
+div.menu__item[role^="menuitem"],
+a.fake-menu__item,
+button.fake-menu__item {
+    background-color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: @ds6-font-size-14;
+    height: 100%;
+    justify-content: space-between;
+    line-height: 2.5;
+    padding: 0 16px;
+    width: 100%;
+
+    span:not([class*="menu__status"]) {
+        .truncate;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: @ds6-color-g202-gray;
+    }
+
+    &:focus {
+        outline: 1px solid @ds6-color-g204-gray;
+    }
+
+    &:active {
+        font-weight: bold;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1px;
+    }
+}
+
+div.menu__item[role^="menuitem"][aria-checked="true"] {
+    .menu__status {
+        visibility: visible;
+    }
+}
+
+// anchor tag specific
+a.fake-menu__item {
+    color: @ds6-color-g206-gray;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &[aria-current="page"] .fake-menu__status {
+        visibility: visible;
+    }
+}
+
+// button tag specific
+button.fake-menu__item {
+    background-color: white;
+    border: 0;
+    color: @ds6-color-g206-gray;
+    display: block;
+    text-align: left;
+}
+
+.menu__status,
+.fake-menu__status {
+    align-self: center;
+    color: @ds6-color-g206-gray;
+    fill: currentColor;
+    height: 1em;
+    stroke: currentColor;
+    stroke-width: 0;
+    visibility: hidden;
+    width: 1em;
+}
+
+span.menu__status,
+span.fake-menu__status {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%277%27%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23111820%22%20d%3D%22M0%203.70913219%202.21049749%206%208%200%22%3E%3C/path%3E%3C/svg%3E');
+    background-position: right center;
+    background-repeat: no-repeat;
+    height: 1em;
+    flex-shrink: 0; // prevent the icon from shrinking when label is long
+    width: 1em;
+}
+
+// BEM element mods
+//-----------------------------
+
+.menu__items--grow[role="menu"],
+.menu__items--grow-reverse[role="menu"],
+.fake-menu__items--grow,
+.fake-menu__items--grow-reverse {
+    min-width: calc(100%);
+    width: auto;
+    max-width: calc(100% + 50%);
+}
+
+.menu__items--grow-reverse[role="menu"],
+.fake-menu__items--grow-reverse {
+    right: 0;
+}
