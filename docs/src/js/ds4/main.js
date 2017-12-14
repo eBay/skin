@@ -1,6 +1,6 @@
 $('#header-large .grid__cell').skipTo();
 $('.dialog-button').dialogButton();
-$('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.fake-menu__btn', overlaySelector: '.fake-menu__items'});
+$('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.expand-btn', overlaySelector: '.fake-menu__items'});
 $('.menu').menu();
 $('.tabs, .hijax-tabs').tabs();
 $('.tooltip').tooltip();
