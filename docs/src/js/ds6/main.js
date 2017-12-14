@@ -35,6 +35,7 @@ nodeListToArray(document.querySelectorAll('[role=menu]')).forEach(function(el, i
 // escape key logic on menu (closes menu)
 nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function(el, i) {
     var widget = new Expander(el, {
+        autoCollapse: true,
         click: true,
         focusManagement: 'interactive',
         hostSelector: '.expand-btn',
