@@ -10,3 +10,6 @@ $('#banner-menu').on('click', 'a', function(e) {
     target.setAttribute('tabindex', '-1');
     target.focus();
 });
+$('.expand-btn-example').on('click', function() {
+    $(this).attr('aria-expanded', ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true');
+});
