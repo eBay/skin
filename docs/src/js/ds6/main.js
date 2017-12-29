@@ -53,3 +53,31 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
 nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(el, i) {
     scrollKeyPreventer.add(el);
 });
+
+// roving tab index logic on menu items container
+nodeListToArray(document.querySelectorAll('[role=listbox]')).forEach(function(el, i) {
+    var widget = Rover.createLinear(el, '[role^=listbox__option]', {autoReset: 0});
+});
+
+// aria expanded logic on menu button and overlay
+// escape key logic on menu (closes menu)
+nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
+    var widget = new Expander(el, {
+        autoCollapse: true,
+        click: true,
+        focusManagement: 'interactive',
+        hostSelector: '.expand-btn',
+        contentSelector: '.listbox__options'
+    });
+
+    keyEmitter.addKeyDown(el);
+
+    el.addEventListener('escapeKeyDown', function() {
+        this.querySelector('.expand-btn').focus();
+    });
+});
+
+// prevent scroll keys logic on menu items
+nodeListToArray(document.querySelectorAll('[role^=listbox__option]')).forEach(function(el, i) {
+    scrollKeyPreventer.add(el);
+});
