@@ -1,45 +1,58 @@
 // BEM blocks
 
+// button text should NOT scale with root font-size,
+// so all font-sizes are defined with px
+
 // base properties for all buttons
 button.btn,
+button.expand-btn,
 a.fake-btn,
-a.hijax-btn {
+a.hijax-btn { // .hijax-btn deprecated in v3.2.0
     border-radius: 3px;
     border-style: solid;
     border-width: 1px;
-    font-family: @font-family-base;
+    height: @height-control-medium;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: normal;
-    line-height: 1.15; // normalized line-height
     margin: 0; // Remove the button margin in Firefox and Safari */
     text-align: center;
     vertical-align: middle; // align buttons and faux buttons on same line
 }
 
-// base properties, button tag specific
+button.btn,
+button.expand-btn {
+    line-height: 1.15;
+}
+
 button[disabled],
 button[aria-disabled="true"] {
-    &.btn {
+    &.btn,
+    &.expand-btn {
         .opacity(0.5);
     }
 }
 
-// base properties, anchor tag specific
 a.fake-btn,
-a.hijax-btn {
+a.hijax-btn { // .hijax-btn deprecated in v3.2.0
     box-sizing: border-box;
     display: inline-block;
+    line-height: 40px;
     text-decoration: none;
+}
+
+button.expand-btn[aria-expanded="true"] .expand-btn__icon {
+    transform: rotate(180deg);
 }
 
 // default button (medium, regular)
 button.btn,
+button.expand-btn,
 a.fake-btn,
-a.hijax-btn {
+a.hijax-btn { // .hijax-btn deprecated in v3.2.0
     background-color: @color-core-white;
     border-color: @color-core-gray-silver;
     color: @color-interface-cta;
-    font-size: 14px;
-    height: @height-control-medium;
     padding: 0 48px;
 
     &:hover,
@@ -52,8 +65,12 @@ a.hijax-btn {
     }
 }
 
-// default button, button tag specific
-button.btn {
+button.expand-btn {
+    padding: 0 16px;
+}
+
+button.btn,
+button.expand-btn {
     &[disabled],
     &[aria-disabled="true"] {
         background-color: @color-core-gray-silver;
@@ -70,11 +87,8 @@ button.btn {
     }
 }
 
-// default button, anchor tag specific
 a.fake-btn,
-a.hijax-btn {
-    line-height: 40px;
-
+a.hijax-btn { // .hijax-btn deprecated in v3.2.0
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @color-core-gray-silver;
@@ -93,34 +107,19 @@ a.hijax-btn {
     }
 }
 
-// BEM elements
-
-.btn__cell,
-.fake-btn__cell,
-.hijax-btn__cell {
-    display: inline-flex;
-    height: 100%;
-    justify-content: center;
-    width: 100%;
-
-    > span,
-    > svg {
-        align-self: center;
-        line-height: normal;
-    }
-}
-
 // BEM block modifiers
 
 .btn--fluid,
+.expand-btn--fluid,
 .fake-btn--fluid,
-.hijax-btn--fluid {
+.hijax-btn--fluid { // .hijax-btn deprecated in v3.2.0
     width: 100%;
 }
 
 button.btn--primary,
+button.expand-btn--primary,
 a.fake-btn--primary,
-a.hijax-btn--primary {
+a.hijax-btn--primary { // .hijax-btn deprecated in v3.2.0
     background-color: @color-interface-cta;
     border-color: @color-interface-cta;
     color: @color-core-white;
@@ -146,7 +145,8 @@ a.hijax-btn--primary:visited {
     color: @color-core-white;
 }
 
-button.btn--primary {
+button.btn--primary,
+button.expand-btn--primary {
     &[disabled],
     &[aria-disabled="true"] {
         background-color: @color-interface-cta;
@@ -168,8 +168,8 @@ button.btn--primary {
 
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"],
-a.hijax-btn--primary:not([href]),
-a.hijax-btn--primary[aria-disabled="true"] {
+a.hijax-btn--primary:not([href]), // .hijax-btn deprecated in v3.2.0
+a.hijax-btn--primary[aria-disabled="true"] { // .hijax-btn deprecated in v3.2.0
     background-color: @color-interface-cta;
     border-color: @color-interface-cta;
     color: @color-core-white;
@@ -187,8 +187,9 @@ a.hijax-btn--primary[aria-disabled="true"] {
 }
 
 button.btn--secondary,
+button.expand-btn--secondary,
 a.fake-btn--secondary,
-a.hijax-btn--secondary {
+a.hijax-btn--secondary { // .hijax-btn deprecated in v3.2.0
     border-color: @color-text-disabled;
     background-color: fade(@color-interface-view-background, 50%);
     color: @color-core-gray-davys;
@@ -210,11 +211,12 @@ a.hijax-btn--secondary {
 }
 
 a.fake-btn--secondary:visited,
-a.hijax-btn--secondary:visited {
+a.hijax-btn--secondary:visited { // .hijax-btn deprecated in v3.2.0
     color: @color-core-gray-davys;
 }
 
-button.btn--secondary {
+button.btn--secondary,
+button.expand-btn--secondary {
     &[disabled],
     &[aria-disabled="true"] {
         background-color: fade(@color-interface-view-background, 50%);
@@ -235,8 +237,8 @@ button.btn--secondary {
 
 a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
-a.hijax-btn--secondary:not([href]),
-a.hijax-btn--secondary[aria-disabled="true"] {
+a.hijax-btn--secondary:not([href]), // .hijax-btn deprecated in v3.2.0
+a.hijax-btn--secondary[aria-disabled="true"] { // .hijax-btn deprecated in v3.2.0
     background-color: fade(@color-interface-view-background, 50%);
     border-color: @color-text-disabled;
     color: @color-core-gray-davys;
@@ -252,68 +254,111 @@ a.hijax-btn--secondary[aria-disabled="true"] {
     }
 }
 
-// button text should NOT scale with root font-size,
-// so all font-sizes are defined with px
-
 button.btn--medium,
+button.expand-btn--medium,
 a.fake-btn--medium,
-a.hijax-btn--medium {
+a.hijax-btn--medium { // .hijax-btn deprecated in v3.2.0
     font-size: 14px;
     height: @height-control-medium;
     padding: 0 48px;
 }
 
 a.fake-btn--medium,
-a.hijax-btn--medium {
+a.hijax-btn--medium { // .hijax-btn deprecated in v3.2.0
     line-height: @height-control-medium;
 }
 
 button.btn--small,
+button.expand-btn--small,
 a.fake-btn--small,
-a.hijax-btn--small {
+a.hijax-btn--small { // .hijax-btn deprecated in v3.2.0
     font-size: 12px;
     height: @height-control-small;
     padding: 0 32px;
 }
 
 a.fake-btn--small,
-a.hijax-btn--small {
+a.hijax-btn--small { // .hijax-btn deprecated in v3.2.0
     line-height: @height-control-small;
 }
 
 button.btn--large,
+button.expand-btn--large,
 a.fake-btn--large,
-a.hijax-btn--large {
+a.hijax-btn--large { // .hijax-btn deprecated in v3.2.0
     font-size: 16px;
     height: @height-control-large;
     padding: 0 80px;
 }
 
 a.fake-btn--large,
-a.hijax-btn--large {
+a.hijax-btn--large { // .hijax-btn deprecated in v3.2.0
     line-height: @height-control-large;
 }
 
 button.btn--extra-large,
+button.expand-btn--extra-large,
 a.fake-btn--extra-large,
-a.hijax-btn--extra-large {
+a.hijax-btn--extra-large { // .hijax-btn deprecated in v3.2.0
     font-size: 18px;
     height: @height-control-extra-large;
     padding: 0 112px;
 }
 
 a.fake-btn--extra-large,
-a.hijax-btn--extra-large {
-   line-height: @height-control-extra-large;
+a.hijax-btn--extra-large { // .hijax-btn deprecated in v3.2.0
+    line-height: @height-control-extra-large;
 }
 
-// non-critical icon button
-// icons should not scale with root font-size
-//-----------------------------
+button.expand-btn--small,
+button.expand-btn--large,
+button.expand-btn--extra-large {
+    padding: 0 16px;
+}
+
+// BEM elements
+
+.btn__cell,
+.expand-btn__cell,
+.fake-btn__cell,
+.hijax-btn__cell { // .hijax-btn deprecated in v3.2.0
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.expand-btn__cell {
+    justify-content: space-between;
+}
 
 .btn__icon,
 .fake-btn__icon,
-.hijax-btn__icon {
+.expand-btn__icon,
+.hijax-btn__icon { // .hijax-btn deprecated in v3.2.0
+    align-self: center;
+    line-height: normal;
+}
+
+svg.btn__icon,
+svg.expand-btn__icon,
+svg.fake-btn__icon,
+svg.hijax-btn__icon { // .hijax-btn deprecated in v3.2.0
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
+    height: 8px;
+    width: 8px;
+}
+
+svg.expand-btn__icon {
+    height: 8px;
+    width: 8px;
+}
+
+.btn__icon,
+.expand-btn__icon,
+.fake-btn__icon,
+.hijax-btn__icon { // .hijax-btn deprecated in v3.2.0
     &:first-child {
         margin-right: 8px;
     }
@@ -323,8 +368,11 @@ a.hijax-btn--extra-large {
     }
 }
 
-.btn__icon,
-.fake-btn__icon,
-.hijax-btn__icon {
-    .svg-icon-default;
+.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%230654ba%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 8px;
+    width: 8px;
 }
