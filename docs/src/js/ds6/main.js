@@ -56,7 +56,7 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 
 // roving tab index logic on menu items container
 nodeListToArray(document.querySelectorAll('[role=listbox]')).forEach(function(el, i) {
-    var widget = Rover.createLinear(el, '[role^=listbox__option]', {autoReset: 0});
+    var widget = Rover.createLinear(el, '[role^=option]', {autoReset: 0});
 });
 
 // aria expanded logic on menu button and overlay
@@ -78,6 +78,6 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
 });
 
 // prevent scroll keys logic on menu items
-nodeListToArray(document.querySelectorAll('[role^=listbox__option]')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('[role^=option]')).forEach(function(el, i) {
     scrollKeyPreventer.add(el);
 });
