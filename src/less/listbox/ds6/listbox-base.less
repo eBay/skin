@@ -2,27 +2,28 @@
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-}
 
-.listbox .textbox {
-    background-color: white;
-    border: 1px solid @ds6-color-g204-gray;
-    box-sizing: border-box;
-    display: flex;
-    height: 40px;
-    justify-content: space-between;
-    padding: 0 16px;
-    width: 100%;
-    
-    &:focus,
-    &:hover {
+    &:focus input.textbox,
+    &:hover input.textbox{
         border-color: @ds6-color-p004-blue;
     }
-    
-    &:active {
+
+    &:active input.textbox {
         border-color: @ds6-color-p003-blue;
         color: @ds6-color-p003-blue;
     }
+}
+
+.listbox input.textbox {
+    background-color: @ds6-color-g201-gray;
+    border: 1px solid @ds6-color-g204-gray;
+    box-sizing: border-box;
+    color: @ds6-color-p002-blue;
+    cursor: default;
+    font-size: 16px;
+    height: 40px;
+    padding: 0 16px;
+    width: 100%;
     
     &[disabled],
     &[aria-disabled="true"] {
@@ -32,27 +33,23 @@
 
     &[aria-expanded="true"] {
         border-bottom: 0;
-
-        .expand-btn__icon {
-            transform: rotate(180deg);
-        }
-    }
-
-    &[disabled] {
-        span.expand-btn__icon {
-            background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%275%27%3E%3Cpath%20fill%3D%22%23c7c7c7%22%20d%3D%22M0.758714126%2C0.14644663%20C0.585147774%2C-0.048815516%200.303741117%2C-0.0488155166%200.130174765%2C0.146446629%20C-0.0433915877%2C0.341708774%20-0.0433915882%2C0.658291264%200.130174763%2C0.85355341%20L3.68573029%2C4.85355339%20C3.85929664%2C5.04881554%204.1407033%2C5.04881554%204.31426965%2C4.85355339%20L7.86982523%2C0.853553392%20C8.04339159%2C0.658291247%208.04339159%2C0.341708758%207.86982524%2C0.146446611%20C7.69625889%2C-0.0488155358%207.41485223%2C-0.0488155372%207.24128588%2C0.146446608%20L3.99999997%2C3.79289322%20L0.758714126%2C0.14644663%20Z%22%3E%3C/path%3E%3C/svg%3E');
-        }
+        padding-bottom: 1px; // fix for movement when border is removed
     }
 }
 
-.listbox input {
-    border: 0;
-    box-sizing: border-box;
-    color: @ds6-color-p002-blue;
-    cursor: default;
-    font-size: 16px;
-    height: 99%; // fix for movement when clicking
-    margin: 0; // Remove the button margin in Firefox and Safari
-    padding: 0;
-    width: 100%;
+.listbox .textbox-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%275%27%3E%3Cpath%20fill%3D%22%230654ba%22%20d%3D%22M0.758714126%2C0.14644663%20C0.585147774%2C-0.048815516%200.303741117%2C-0.0488155166%200.130174765%2C0.146446629%20C-0.0433915877%2C0.341708774%20-0.0433915882%2C0.658291264%200.130174763%2C0.85355341%20L3.68573029%2C4.85355339%20C3.85929664%2C5.04881554%204.1407033%2C5.04881554%204.31426965%2C4.85355339%20L7.86982523%2C0.853553392%20C8.04339159%2C0.658291247%208.04339159%2C0.341708758%207.86982524%2C0.146446611%20C7.69625889%2C-0.0488155358%207.41485223%2C-0.0488155372%207.24128588%2C0.146446608%20L3.99999997%2C3.79289322%20L0.758714126%2C0.14644663%20Z%22%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right center;
+    content: "";
+    height: 100%;
+    margin-left: 8px;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    width: 8px;
+}
+
+.listbox input.textbox[aria-expanded="true"] ~ .textbox-btn__icon {
+    transform: rotate(180deg);
 }
