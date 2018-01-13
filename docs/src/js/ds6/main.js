@@ -77,7 +77,7 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
     });
 });
 
-// prevent scroll keys logic on menu items
+// prevent scroll keys logic on listbox options
 nodeListToArray(document.querySelectorAll('[role^=option]')).forEach(function(el, i) {
     scrollKeyPreventer.add(el);
 });
