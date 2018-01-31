@@ -8,19 +8,17 @@
     &:hover > .listbox-btn > input.listbox-btn__control {
         border-color: @ds6-color-p004-blue;
     }
-
-    &:active > .listbox-btn > input.listbox-btn__control {
-        border-color: @ds6-color-p003-blue;
-        color: @ds6-color-p003-blue;
-    }
 }
 
 .listbox > .listbox-btn > input.listbox-btn__control {
     background-color: @ds6-color-g201-gray;
     border: 1px solid @ds6-color-g204-gray;
     box-sizing: border-box;
-    color: @ds6-color-p002-blue;
+    // fixes the cursor in firefox
+    color: transparent;
+    text-shadow: 0 0 0 @ds6-color-p002-blue;
     cursor: default;
+    font-family: inherit;
     font-size: 16px;
     height: @listbox-height;
     padding: 0 16px;
@@ -33,7 +31,9 @@
     &[disabled],
     &[aria-disabled="true"] {
         border-color: @ds6-color-disabled;
-        color: @ds6-color-disabled;
+        // fixes the cursor in firefox
+        color: transparent;
+        text-shadow: 0 0 0 @ds6-color-disabled;
     }
 
     &[aria-expanded="true"] {
