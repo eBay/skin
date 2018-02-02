@@ -66,8 +66,8 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
         autoCollapse: true,
         click: true,
         focusManagement: 'interactive',
-        hostSelector: '.listbox-btn > input',
-        hostContainerClass: 'listbox-btn',
+        hostSelector: '.listbox__control > input',
+        hostContainerClass: 'listbox__control',
         contentSelector: '.listbox__options',
         spacebar: true
     });
@@ -76,12 +76,12 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
 
     el.addEventListener('escapeKeyDown', function() {
         widget.collapse();
-        this.querySelector('.listbox-btn > input').focus();
+        this.querySelector('.listbox__control > input').focus();
     });
 });
 
 // prevent scroll keys logic on the listbox button
-nodeListToArray(document.querySelectorAll('.listbox-btn > input')).forEach(function (el, i) {
+nodeListToArray(document.querySelectorAll('.listbox__control > input')).forEach(function (el, i) {
     scrollKeyPreventer.add(el);
 });
 
