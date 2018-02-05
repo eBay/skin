@@ -1,250 +1,121 @@
-
 <div id="listbox">
     <h2>@ebay/skin/listbox</h2>
-    <p>The Skin listbox is intended for use as a custom view (or facade) for the native HTML select element. JavaScript will be required to create a 2-way binding between the two.</p>
+    <p>The Skin listbox is intended for use as a custom view (or facade) for the native HTML select element. JavaScript will be required to create 2-way binding between the two.</p>
+    <p><strong>Note:</strong> Because the listbox uses an input element, which must grow to properly display it's contents, we have chosen to have the listbox always remain fluid. It is up to the developer to contain the width, if necessary. Extra care will be needed when placing a listbox side-by-side with other controls such as buttons and textboxes.</p>
+
+    <h3>Default Listbox</h3>
+    <p>By default, the first item should be selected if the user does not specify a selection. This matches the behavior of a native HTML select element.</p>
 
     <div class="demo">
-        <div class="demo__inner">
+        <div class="demo__inner" style="max-width: 200px;">
             <span class="listbox">
-                <button class="expand-btn" aria-haspopup="listbox" type="button">
-                    <span class="expand-btn__cell">
-                        <span>Item 1</span>
-                        <span class="expand-btn__icon"></span>
-                    </span>
-                </button>
-                <div class="listbox__options" role="listbox">
-                    <div class="listbox__option" role="option">
-                        <span>Item 1</span>
+                <span class="listbox__control">
+                    <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="listbox1" />
+                    <span class="listbox__arrow" aria-hidden="true"></span>
+                </span>
+                <div id="listbox1" class="listbox__options" role="listbox">
+                    <div class="listbox__option" role="option" aria-selected="true">
+                        <span>Option 1</span>
                         <span class="listbox__status"></span>
                     </div>
                     <div class="listbox__option" role="option">
-                        <span>Item 2</span>
+                        <span>Option 2</span>
                         <span class="listbox__status"></span>
                     </div>
                     <div class="listbox__option" role="option">
-                        <span>Item 3</span>
+                        <span>Option 3</span>
                         <span class="listbox__status"></span>
                     </div>
                 </div>
                 <select name="nativeOptions" hidden>
-                    <option value="item1">Item 1</option>
-                    <option value="item2">Item 2</option>
-                    <option value="item3">Item 3</option>
+                    <option value="item1">Option 1</option>
+                    <option value="item2">Option 2</option>
+                    <option value="item3">Option 3</option>
                 </select>
             </span>
         </div>
         {% highlight html %}
 <span class="listbox">
-    <button class="expand-btn" aria-haspopup="listbox" type="button">
-        <span class="expand-btn__cell">
-            <span>Item 1</span>
-            <span class="expand-btn__icon"></span>
-        </span>
-    </button>
-    <div class="listbox__options" role="listbox">
-        <div class="listbox__option" role="option">
-            <span>Item 1</span>
+    <span class="listbox__control">
+        <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="listbox1"/>
+        <span class="listbox__arrow" aria-hidden="true"></span>
+    </span>
+    <div id="listbox1" class="listbox__options" role="listbox">
+        <div class="listbox__option" role="option" aria-selected="true">
+            <span>Option 1</span>
             <span class="listbox__status"></span>
         </div>
         <div class="listbox__option" role="option">
-            <span>Item 2</span>
+            <span>Option 2</span>
             <span class="listbox__status"></span>
         </div>
         <div class="listbox__option" role="option">
-            <span>Item 3</span>
+            <span>Option 3</span>
             <span class="listbox__status"></span>
         </div>
     </div>
     <select name="nativeOptions" hidden>
-        <option value="item1">Item 1</option>
-        <option value="item2">Item 2</option>
-        <option value="item3">Item 3</option>
+        <option value="item1">Option 1</option>
+        <option value="item2">Option 2</option>
+        <option value="item3">Option 3</option>
     </select>
 </span>
         {% endhighlight %}
     </div>
 
-    <h3>Selected Listbox Option</h3>
+    <h3>Selected Listbox</h3>
     <div class="demo">
-        <div class="demo__inner">
+        <div class="demo__inner" style="max-width: 200px;">
             <span class="listbox">
-                <button class="expand-btn" aria-haspopup="listbox" type="button">
-                    <span class="expand-btn__cell">
-                        <span>Item 2</span>
-                        <span class="expand-btn__icon"></span>
-                    </span>
-                </button>
-                <div class="listbox__options" role="listbox">
+                <span class="listbox__control">
+                    <input type="text" value="Option 2" readonly role="combobox" aria-haspopup="listbox" aria-owns="listbox2"/>
+                    <span class="listbox__arrow" aria-hidden="true"></span>
+                </span>
+                <div id="listbox2" class="listbox__options" role="listbox">
                     <div class="listbox__option" role="option">
-                        <span>Item 1</span>
+                        <span>Option 1</span>
                         <span class="listbox__status"></span>
                     </div>
                     <div class="listbox__option" role="option" aria-selected="true">
-                        <span>Item 2</span>
+                        <span>Option 2</span>
                         <span class="listbox__status"></span>
                     </div>
                     <div class="listbox__option" role="option">
-                        <span>Item 3</span>
+                        <span>Option 3</span>
                         <span class="listbox__status"></span>
                     </div>
                 </div>
                 <select name="nativeOptions" hidden>
-                    <option value="item1">Item 1</option>
-                    <option value="item2" selected>Item 2</option>
-                    <option value="item3">Item 3</option>
+                    <option value="item1">Option 1</option>
+                    <option value="item2" selected>Option 2</option>
+                    <option value="item3">Option 3</option>
                 </select>
             </span>
         </div>
         {% highlight html %}
 <span class="listbox">
-    <button class="expand-btn" aria-haspopup="listbox" type="button">
-        <span class="expand-btn__cell">
-            <span>Item 2</span>
-            <span class="expand-btn__icon"></span>
-        </span>
-    </button>
-    <div class="listbox__options" role="listbox">
+    <span class="listbox__control">
+        <input type="text" value="Option 2" readonly role="combobox" aria-haspopup="listbox" aria-owns="listbox2"/>
+        <span class="listbox__arrow" aria-hidden="true"></span>
+    </span>
+    <div id="listbox2" class="listbox__options" role="listbox">
         <div class="listbox__option" role="option">
-            <span>Item 1</span>
+            <span>Option 1</span>
             <span class="listbox__status"></span>
         </div>
         <div class="listbox__option" role="option" aria-selected="true">
-            <span>Item 2</span>
+            <span>Option 2</span>
             <span class="listbox__status"></span>
         </div>
         <div class="listbox__option" role="option">
-            <span>Item 3</span>
+            <span>Option 3</span>
             <span class="listbox__status"></span>
         </div>
     </div>
     <select name="nativeOptions" hidden>
-        <option value="item1">Item 1</option>
-        <option value="item2" selected>Item 2</option>
-        <option value="item3">Item 3</option>
-    </select>
-</span>
-        {% endhighlight %}
-    </div>
-
-    <h3>Multiple Selected Listbox Options</h3>
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="listbox">
-                <button class="expand-btn" aria-haspopup="listbox" type="button">
-                    <span class="expand-btn__cell">
-                        <span>2 selected</span>
-                        <span class="expand-btn__icon"></span>
-                    </span>
-                </button>
-                <div class="listbox__options" role="listbox" aria-multiselectable="true">
-                    <div class="listbox__option" role="option">
-                        <span>Item 1</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                    <div class="listbox__option" role="option" aria-selected="true">
-                        <span>Item 2</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                    <div class="listbox__option" role="option" aria-selected="true">
-                        <span>Item 3</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                </div>
-                <select name="nativeOptions" hidden multiple>
-                    <option value="item1">Item 1</option>
-                    <option value="item2" selected>Item 2</option>
-                    <option value="item3" selected>Item 3</option>
-                </select>
-            </span>
-        </div>
-        {% highlight html %}
-<span class="listbox">
-    <button class="expand-btn" aria-haspopup="listbox" type="button">
-        <span class="expand-btn__cell">
-            <span>2 selected</span>
-            <span class="expand-btn__icon"></span>
-        </span>
-    </button>
-    <div class="listbox__options" role="listbox" aria-multiselectable="true">
-        <div class="listbox__option" role="option">
-            <span>Item 1</span>
-            <span class="listbox__status"></span>
-        </div>
-        <div class="listbox__option" role="option" aria-selected="true">
-            <span>Item 2</span>
-            <span class="listbox__status"></span>
-        </div>
-        <div class="listbox__option" role="option" aria-selected="true">
-            <span>Item 3</span>
-            <span class="listbox__status"></span>
-        </div>
-    </div>
-    <select name="nativeOptions" hidden multiple>
-        <option value="item1">Item 1</option>
-        <option value="item2" selected>Item 2</option>
-        <option value="item3" selected>Item 3</option>
-    </select>
-</span>
-        {% endhighlight %}
-    </div>
-
-    <h3>Growth Listbox</h3>
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="listbox">
-                <button class="expand-btn" aria-haspopup="listbox" type="button">
-                    <span class="expand-btn__cell">
-                        <span>Item 2</span>
-                        <span class="expand-btn__icon"></span>
-                    </span>
-                </button>
-                <div class="listbox__options listbox__options--grow" role="listbox">
-                    <div class="listbox__option" role="option">
-                        <span>Item 1</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                    <div class="listbox__option" role="option">
-                        <span>Item 2 is really long compared to the others</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                    <div class="listbox__option" role="option">
-                        <span>Item 3</span>
-                        <span class="listbox__status"></span>
-                    </div>
-                </div>
-                <select name="nativeOptions" hidden>
-                    <option value="item1">Item 1</option>
-                    <option value="item2">Item 2 is really long compared to the others</option>
-                    <option value="item3">Item 3</option>
-                </select>
-            </span>
-        </div>
-        {% highlight html %}
-<span class="listbox">
-    <button class="expand-btn" aria-haspopup="listbox" type="button">
-        <span class="expand-btn__cell">
-            <span>Item 1</span>
-            <span class="expand-btn__icon"></span>
-        </span>
-    </button>
-    <div class="listbox__options listbox__options--grow" role="listbox">
-        <div class="listbox__option" role="option">
-            <span>Item 1</span>
-            <span class="listbox__status"></span>
-        </div>
-        <div class="listbox__option" role="option">
-            <span>Item 2 is really long compared to the others</span>
-            <span class="listbox__status"></span>
-        </div>
-        <div class="listbox__option" role="option">
-            <span>Item 3</span>
-            <span class="listbox__status"></span>
-        </div>
-    </div>
-    <select name="nativeOptions" hidden>
-        <option value="item1">Item 1</option>
-        <option value="item2">Item 2 is really long compared to the others</option>
-        <option value="item3">Item 3</option>
+        <option value="item1">Option 1</option>
+        <option value="item2" selected>Option 2</option>
+        <option value="item3">Option 3</option>
     </select>
 </span>
         {% endhighlight %}
