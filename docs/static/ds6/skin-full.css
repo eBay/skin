@@ -1,5 +1,5 @@
 /*!
-Skin v3.3.2
+Skin v3.3.1
 Copyright 2017 eBay! Inc. All rights reserved.
 Licensed under the BSD License.
 https://github.com/eBay/skin/blob/master/LICENSE.txt"
@@ -620,20 +620,11 @@ span[role="region"].page-notice {
 .page-notice--confirmation {
   border-color: #71c63e;
 }
-.page-notice--confirmation .page-notice__status {
-  background-color: #71c63e;
-}
 .page-notice--priority {
   border-color: #ff5151;
 }
-.page-notice--priority .page-notice__status {
-  background-color: #ff5151;
-}
-.page-notice--information {
+.page-notice--info {
   border-color: #4295ff;
-}
-.page-notice--information .page-notice__status {
-  background-color: #4295ff;
 }
 .page-notice__status {
   -webkit-box-align: center;
@@ -643,12 +634,19 @@ span[role="region"].page-notice {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
   padding: 16px;
 }
-.page-notice__content p,
-.page-notice__cell p {
+.page-notice__content p {
   margin: 16px;
+}
+.page-notice--confirmation .page-notice__status {
+  background-color: #71c63e;
+}
+.page-notice--priority .page-notice__status {
+  background-color: #ff5151;
+}
+.page-notice--info .page-notice__status {
+  background-color: #4295ff;
 }
 .inline-notice {
   margin: 8px 0;
@@ -669,18 +667,26 @@ span.inline-notice {
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
-.page-notice__status span,
-.inline-notice__status span {
+/*
+.inline-notice__cell--no-wrap {
+    align-self: center;
+    p {
+        margin: 0;
+    }
+}
+*/
+.page-notice__status span {
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-}
-.page-notice__status span {
   height: 28px;
   margin: -4px 0 0 0;
   width: 28px;
 }
-.inline-notice__status span {
+.inline-notice__icon span {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
   height: 24px;
   margin: 1px 8px 0 0;
   width: 24px;
@@ -688,82 +694,83 @@ span.inline-notice {
 .page-notice--confirmation .page-notice__status span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%20fill%3D%22%23ffffff%22%3E%3C/circle%3E%0A%3Cpath%20fill%3D%22%23ffffff%22%20stroke%3D%22%2371c63e%22%20stroke-width%3D%222%22%20d%3D%22M5.548%2015.01l5.773%206.286L21.522%209.824%22%3E%3C/path%3E%3C/svg%3E');
 }
-.inline-notice--confirmation .inline-notice__status span {
+.inline-notice--confirmation .inline-notice__icon span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%20fill%3D%22%2371c63e%22%3E%3C/circle%3E%0A%3Cpath%20fill%3D%22%2371c63e%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222%22%20d%3D%22M5.548%2015.01l5.773%206.286L21.522%209.824%22%3E%3C/path%3E%3C/svg%3E');
 }
 .page-notice--priority .page-notice__status span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20fill%3D%22%23ffffff%22%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%3E%3C/circle%3E%0A%3Cpath%20fill%3D%22%23ff5151%22%20d%3D%22M14.5%2C18h0A1.5%2C1.5%2C0%2C0%2C1%2C13%2C16.5v-9A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C6h0A1.5%2C1.5%2C0%2C0%2C1%2C16%2C7.5v9A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C18Z%22%3E%3C/path%3E%0A%3Cpath%20fill%3D%22%23ff5151%22%20d%3D%22M14.5%2C23h0A1.5%2C1.5%2C0%2C0%2C1%2C13%2C21.5h0A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C20h0A1.5%2C1.5%2C0%2C0%2C1%2C16%2C21.5h0A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C23Z%22%3E%3C/path%3E%3C/svg%3E');
 }
-.inline-notice--priority .inline-notice__status span {
+.inline-notice--priority .inline-notice__icon span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20fill%3D%22%23ff5151%22%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%3E%3C/circle%3E%0A%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M14.5%2C18h0A1.5%2C1.5%2C0%2C0%2C1%2C13%2C16.5v-9A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C6h0A1.5%2C1.5%2C0%2C0%2C1%2C16%2C7.5v9A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C18Z%22%3E%3C/path%3E%0A%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M14.5%2C23h0A1.5%2C1.5%2C0%2C0%2C1%2C13%2C21.5h0A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C20h0A1.5%2C1.5%2C0%2C0%2C1%2C16%2C21.5h0A1.5%2C1.5%2C0%2C0%2C1%2C14.5%2C23Z%22%3E%3C/path%3E%3C/svg%3E');
 }
-.page-notice--information .page-notice__status span {
+.page-notice--info .page-notice__status span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%20fill%3D%22%23ffffff%22%3E%3C/circle%3E%3Crect%20width%3D%223%22%20height%3D%2212%22%20x%3D%2213%22%20y%3D%2211%22%20fill%3D%22%234295ff%22%20rx%3D%221.5%22%3E%3C/rect%3E%3Crect%20width%3D%223%22%20height%3D%223%22%20x%3D%2213%22%20y%3D%226%22%20fill%3D%22%234295ff%22%20rx%3D%221.5%22%3E%3C/rect%3E%3C/svg%3E');
 }
-.inline-notice--information .inline-notice__status span {
+.inline-notice--info .inline-notice__icon span {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2729%27%20height%3D%2729%27%3E%3Ccircle%20cx%3D%2214.5%22%20cy%3D%2214.5%22%20r%3D%2214.5%22%20fill%3D%22%234295ff%22%3E%3C/circle%3E%3Crect%20width%3D%223%22%20height%3D%2212%22%20x%3D%2213%22%20y%3D%2211%22%20fill%3D%22%23ffffff%22%20rx%3D%221.5%22%3E%3C/rect%3E%3Crect%20width%3D%223%22%20height%3D%223%22%20x%3D%2213%22%20y%3D%226%22%20fill%3D%22%23ffffff%22%20rx%3D%221.5%22%3E%3C/rect%3E%3C/svg%3E');
 }
-/*
+.inline-notice__icon svg {
+  display: inline-block;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+  height: 28px;
+  margin: 0 4px;
+  width: 28px;
+}
 .flyout-notice {
-    background-color: #006efc;
-    color: white;
-    padding: 8px;
-    position: absolute;
-    word-wrap: break-word;
-
-    a {
-        color: white;
-    }
+  background-color: #006efc;
+  color: white;
+  padding: 8px;
+  position: absolute;
+  word-wrap: break-word;
 }
-
-.flyout-notice__pointer-top {
-    border-bottom-style: solid;
-    border-bottom-width: 12px;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    bottom: 100%;
-    color: #006efc;
-    left: calc(50% - 8px);
-    position: absolute;
-}
-
-.flyout-notice__pointer-bottom {
-    border-top-style: solid;
-    border-top-width: 12px;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    top: 100%;
-    color: #006efc;
-    left: calc(50% - 8px);
-    position: absolute;
-}
-
-.flyout-notice__pointer-right {
-    border-left-style: solid;
-    border-left-width: 12px;
-    border-bottom: 12px solid transparent;
-    border-top: 12px solid transparent;
-    left: 100%;
-    color: #006efc;
-    top: calc(50% - 8px);
-    position: absolute;
-}
-
-.flyout-notice__pointer-left {
-    border-right-style: solid;
-    border-right-width: 12px;
-    border-bottom: 12px solid transparent;
-    border-top: 12px solid transparent;
-    right: 100%;
-    color: #006efc;
-    top: calc(50% - 8px);
-    position: absolute;
-}
-
 .flyout-notice a {
-    outline-color: white;
+  color: white;
 }
-*/
+.flyout-notice__pointer-top {
+  border-bottom-style: solid;
+  border-bottom-width: 12px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  bottom: 100%;
+  color: #006efc;
+  left: calc(42%);
+  position: absolute;
+}
+.flyout-notice__pointer-bottom {
+  border-top-style: solid;
+  border-top-width: 12px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  top: 100%;
+  color: #006efc;
+  left: calc(42%);
+  position: absolute;
+}
+.flyout-notice__pointer-right {
+  border-left-style: solid;
+  border-left-width: 12px;
+  border-bottom: 12px solid transparent;
+  border-top: 12px solid transparent;
+  left: 100%;
+  color: #006efc;
+  top: calc(42%);
+  position: absolute;
+}
+.flyout-notice__pointer-left {
+  border-right-style: solid;
+  border-right-width: 12px;
+  border-bottom: 12px solid transparent;
+  border-top: 12px solid transparent;
+  right: 100%;
+  color: #006efc;
+  top: calc(42%);
+  position: absolute;
+}
+.flyout-notice a {
+  outline-color: white;
+}
 .giant-text-2 {
   font-size: 2.25rem;
   font-weight: 700;
