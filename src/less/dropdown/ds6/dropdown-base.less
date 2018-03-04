@@ -15,15 +15,15 @@ span.listbox {
 
 // BEM elements
 
-.menu button.btn--borderless,
-.fake-menu button.btn--borderless {
+.menu button.expand-btn--borderless,
+.fake-menu button.expand-btn--borderless {
     border: none;
     padding-left: 0;
     vertical-align: initial;
 }
 
-.menu button.btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"],
-.fake-menu button.btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"] {
+.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"],
+.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"] {
     top: 41px; // button height plus one px, to meet design guidelines
 }
 
@@ -89,11 +89,11 @@ button.fake-menu__item {
 
     &:focus,
     &:hover {
-        background-color: @ds6-color-g202-gray;
+        background-color: @ds6-color-g203-gray;
     }
 
     &:focus {
-        outline: 1px solid @ds6-color-g204-gray;
+        outline: none;
     }
 
     &:active {
@@ -113,6 +113,8 @@ button.fake-menu__item {
 
 div.menu__item[role^="menuitem"][aria-checked="true"],
 div.listbox__option[role^="option"][aria-selected="true"] {
+    font-weight: bold;
+
     .menu__status,
     .listbox__status {
         visibility: visible;
