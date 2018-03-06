@@ -91,6 +91,8 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
         // add a click handler to each el
         el.addEventListener('click', function(e) {
             updateListbox(parseInt(this.dataset.listboxIndex, 10));
+            widget.collapse();
+            inputEl.focus();
         });
     });
 

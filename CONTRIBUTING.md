@@ -158,16 +158,32 @@ Please ensure your NPM registry is set correctly and that you are on the package
 
 Please follow the steps below to publish skin to NPM:
 
-1. Build files must be stamped with the new version number. Increment the version number in package.json by hand (e.g. do **not** use `npm version` because this will create a git tag while the build files are still stamped with the *old* version number!)
-1.	Run `npm run build`. This will update the top comment section of build files with the new version number. This is needed for legal.
-1. Revert the version number update you made to package.json in step 1.
-1. Commit the modified build files
-1. Merge the milestone branch into master branch in GitHub
-1. Switch to your local master branch and pull the changes
-1. Run `npm version` patch, minor or version. This will again update the version number in package.json but will also commit change and create a Git tag at the same time
-1. Push commit to origin
-1. Push the git tag to origin, e.g. `git push origin v3.1.0`
-1. Run `npm publish` to publish the package to NPM
+1. Build files must be stamped with the new version number. Increment the version number in `package.json` by hand (e.g. do **not** use `npm version` because this will create a git tag while the build files are still stamped with the *old* version number!)
+1. Run `yarn build`. This will update the top comment section of build files with the new version number. This is needed for legal.
+1. Revert the version number update you made to `package.json` in step 1.
+1. Update any documentation references to reflect the new CDN url.
+1. Commit the modified build files with message "Stamped files with vX.x.x" and push to origin.
+
+Next, move on to pre-release or final release instructions below.
+
+### Pre-Release
+
+Pre-releases are made directly from a milestone branch. Patch releases do not need a pre-release (proceed directly to final release section below).
+
+1. Run `npm version pre-minor` or `npm version pre-major`. This command will update the version number in `package.json`, commit the change locally, and create a Git tag at the same time.
+1. Push commit to origin.
+1. Run `npm publish --tags beta` to publish the package to NPM.
+
+### Final Release
+
+Final releases are always made from the master branch. Minor and major version releases **must** be preceded by a pre-release (see above).
+
+1. Merge the milestone branch into master branch in GitHub (via a pull request).
+1. Switch to your local master branch and pull the changes from origin.
+1. Run `npm version patch`, `npm version minor` or `npm version major`. This command will update the version number in `package.json`, commit the change locally and create a Git tag at the same time.
+1. Push commit to origin.
+1. Push the git tag to origin, e.g. `git push origin v3.1.0`.
+1. Run `npm publish` to publish the package to NPM.
 
 **TIP:** If you need to do an update or hotfix to an older minor release, please see the Hotfix Release section further below.
 
