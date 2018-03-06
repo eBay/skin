@@ -12,14 +12,6 @@ Skin is [MIT](LICENSE) licensed.
 
 Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on a [CDN](https://ebay.github.io/skin#cdn).
 
-**IMPORTANT! PLEASE READ:** Users of eBay's *internal* NPM repository must add the following exception to their `.npmrc` file or `.yarnrc` file, respectively, in order to support the scoped package name:
-
-For NPM: `@ebay:registry=https://registry.npmjs.org`
-
-For Yarn: `"@ebay:registry" "https://registry.npmjs.org/"`
-
-If you are using the public NPM repository, then you can safely ignore this requirement.
-
 ## Versioning
 
 As of v3, Skin follows [Semantic Versioning](http://semver.org).

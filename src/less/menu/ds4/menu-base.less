@@ -13,29 +13,38 @@ span.fake-menu {
 
 // BEM ELEMENTS
 
-.menu__btn[aria-expanded="true"],
-.fake-menu__btn[aria-expanded="true"] {
+.menu .expand-btn[aria-expanded="true"],
+.fake-menu .expand-btn[aria-expanded="true"] {
     border-bottom: 0;
 }
 
-.menu__btn[aria-expanded="true"] .menu__icon,
-.fake-menu__btn[aria-expanded="true"] .fake-menu__icon {
+.menu__btn[aria-expanded="true"], // .menu__btn deprecated in v3.2.0
+.fake-menu__btn[aria-expanded="true"] { // .fake-menu__btn deprecated in v3.2.0
+    border-bottom: 0;
+}
+
+.menu__btn[aria-expanded="true"] .menu__icon, // .menu__btn deprecated in v3.2.0
+.fake-menu__btn[aria-expanded="true"] .fake-menu__icon { // .fake-menu__btn deprecated in v3.2.0
     transform: rotate(180deg);
 }
 
-.menu__btn[aria-expanded="true"] ~ .menu__items[role="menu"],
-.fake-menu__btn[aria-expanded="true"] ~ .fake-menu__items {
+.menu__btn[aria-expanded="true"] ~ .menu__items[role="menu"], // .menu__btn deprecated in v3.2.0
+.expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
+.expand-btn[aria-expanded="true"] ~ .fake-menu__items,
+.fake-menu__btn[aria-expanded="true"] ~ .fake-menu__items { // .fake-menu__btn deprecated in v3.2.0
     display: block;
 }
 
-.menu__icon,
-.fake-menu__icon {
+.menu__icon, // deprecated in v3.2.0
+.fake-menu__icon { // deprecated in v3.2.0
     height: 0.6em;
     width: 0.6em;
 }
 
-.menu__btn ~ .menu__items[role="menu"],
-.fake-menu__btn ~ .fake-menu__items {
+.menu__btn ~ .menu__items[role="menu"], // .menu__btn deprecated in v3.2.0
+.expand-btn ~ .menu__items[role="menu"],
+.expand-btn ~ .fake-menu__items,
+.fake-menu__btn ~ .fake-menu__items { // .fake-menu__btn deprecated in v3.2.0
     display: none;
     position: absolute;
     z-index: 1;
@@ -71,7 +80,7 @@ button.fake-menu__item {
     padding-left: 16px;
     padding-right: 16px;
 
-    span:first-child {
+    span:not([class*="menu__status"]) {
         .truncate;
         width: 100%;
     }
@@ -113,11 +122,16 @@ button.fake-menu__item {
     align-self: center;
     color: @color-core-blue;
     fill: currentColor;
-    height: 1em;
+    flex-shrink: 0;
+    height: 100%;
     stroke: currentColor;
     stroke-width: 0;
     visibility: hidden;
-    width: 1em;
+}
+
+svg.menu__status,
+svg.fake-menu__status {
+    width: 8px;
 }
 
 .menu__status,
@@ -129,6 +143,27 @@ button.fake-menu__item {
     &:last-child {
         margin-left: 8px;
     }
+}
+
+span.menu__icon, // .menu__icon deprecated in v3.2.0
+span.fake-menu__icon { // .fake-menu__icon deprecated in v3.2.0
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%230654ba%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-shrink: 0;
+    height: 8px;
+    width: 8px;
+}
+
+span.menu__status,
+span.fake-menu__status {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%230654ba%22%20d%3D%22M27.813%204.037l-17.008%2017.159-6.923-6.924-3.308%203.613%2010.232%209.934%2020.621-20.466-3.613-3.314z%22%3E%3C/path%3E%3C/svg%3E');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 8px;
+    width: 8px;
 }
 
 // BEM MODIFIERS
@@ -156,7 +191,17 @@ button.fake-menu__item {
     right: 0;
 }
 
-.menu__btn ~ .menu__items--tray[role="menu"],
-.fake-menu__btn ~ .fake-menu__items--tray {
+.menu__btn ~ .menu__items--tray[role="menu"], // deprecated
+.fake-menu__btn ~ .fake-menu__items--tray, // deprecated
+.expand-btn ~ .menu__items--static[role="menu"],
+.expand_btn ~ .fake-menu__items--static {
     position: static;
+}
+
+button.expand-btn--primary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+}
+
+button.expand-btn--secondary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
 }
