@@ -119,9 +119,11 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
     });
 });
 
+// set up initial matchMedia query
 var mobileMediaQuery = 'all and (max-width: 600px)';
 var mm = window.matchMedia(mobileMediaQuery);
 
+// debounce utility function
 function debounce(func, wait, immediate) {
     var timeout;
     return function () {
@@ -138,17 +140,19 @@ function debounce(func, wait, immediate) {
 };
 
 window.addEventListener('resize', debounce(function() {
+    // re-run matchMedia on resize
     mm = window.matchMedia(mobileMediaQuery);
 }), 250);
 
 window.addEventListener('load', function() {
     var sidebar = document.querySelector('aside .fixed-nav');
     var top = sidebar.offsetTop;
-    var isMobile = mm.matches;
     
     window.addEventListener('scroll', debounce(function(event) {
+        var isMobile = mm.matches;
         var y = window.scrollY || window.pageYOffset;
-
+        
+        // fix the navigation on scroll
         if (!isMobile && y >= top) {
             sidebar.classList.add('fixed');
         } else {
