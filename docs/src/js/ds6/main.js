@@ -138,7 +138,6 @@ function debounce(func, wait, immediate) {
 };
 
 window.addEventListener('resize', debounce(function() {
-    console.log('resized');
     mm = window.matchMedia(mobileMediaQuery);
 }), 250);
 
@@ -146,9 +145,9 @@ window.addEventListener('load', function() {
     var sidebar = document.querySelector('aside .fixed-nav');
     var top = sidebar.offsetTop;
     var isMobile = mm.matches;
-
+    
     window.addEventListener('scroll', debounce(function(event) {
-        var y = window.scrollY;
+        var y = window.scrollY || window.pageYOffset;
 
         if (!isMobile && y >= top) {
             sidebar.classList.add('fixed');
