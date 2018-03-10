@@ -118,3 +118,19 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
         }
     });
 });
+
+window.addEventListener('load', () => {
+    var sidebar = document.querySelector('aside .fixed-nav');
+    var top = sidebar.offsetTop;
+
+    window.addEventListener('scroll', (event) => {
+        var isMobile = window.matchMedia('@media all and (max-width: 600px)');
+        var y = window.scrollY;
+
+        if (!isMobile && y >= top) {
+            sidebar.classList.add('fixed');
+        } else {
+            sidebar.classList.remove('fixed');
+        }
+    });
+});
