@@ -118,3 +118,45 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
         }
     });
 });
+
+// set up initial matchMedia query
+var mobileMediaQuery = 'all and (max-width: 600px)';
+var mm = window.matchMedia(mobileMediaQuery);
+
+// debounce utility function
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+window.addEventListener('resize', debounce(function() {
+    // re-run matchMedia on resize
+    mm = window.matchMedia(mobileMediaQuery);
+}), 250);
+
+window.addEventListener('load', function() {
+    var sidebar = document.querySelector('nav .fixed-nav');
+    var top = sidebar.offsetTop;
+    
+    window.addEventListener('scroll', debounce(function(event) {
+        var isMobile = mm.matches;
+        var y = window.scrollY || window.pageYOffset;
+        
+        // fix the navigation on scroll
+        if (!isMobile && y >= top) {
+            sidebar.classList.add('fixed');
+        } else {
+            sidebar.classList.remove('fixed');
+        }
+    }), 100);
+});
