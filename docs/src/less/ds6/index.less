@@ -8,7 +8,7 @@ body {
     display: -ms-grid;
     display: grid;
     grid-template-areas: "header header"
-        "aside mainContent"
+        "nav mainContent"
         "footer footer";
     -ms-grid-rows: 100px 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -28,13 +28,13 @@ body {
         grid-column-end: span 2;
     }
 
-    > aside {
+    > nav {
         -ms-grid-column: 1;
         -ms-grid-column-span: 1;
         -ms-grid-row: 4;
         grid-column: ~"1/2";
         grid-row: 4;
-        grid-area: aside;
+        grid-area: nav;
     }
 
     > #main {
@@ -57,13 +57,13 @@ body {
 
     @media @mobile {
         grid-template-areas: "header"
-            "aside"
+            "nav"
             "mainContent"
             "footer";
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr;
 
-        > aside {
+        > nav {
             border-bottom: 1px solid @ds6-color-g203-gray;
             border-right: 0;
         }
@@ -103,7 +103,7 @@ header {
     }
 }
 
-aside {
+nav {
     background-color: @ds6-color-background-default;
     border-right: 1px solid @ds6-color-g203-gray;
 
@@ -122,7 +122,7 @@ aside {
         }
     }
 
-    nav.fixed-nav {
+    .fixed-nav {
         position: relative;
 
         &.fixed {
@@ -159,7 +159,7 @@ footer {
 }
 
 header,
-aside,
+nav,
 #main,
 footer {
     padding: 2rem;

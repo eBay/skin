@@ -145,7 +145,7 @@ window.addEventListener('resize', debounce(function() {
 }), 250);
 
 window.addEventListener('load', function() {
-    var sidebar = document.querySelector('aside .fixed-nav');
+    var sidebar = document.querySelector('nav .fixed-nav');
     var top = sidebar.offsetTop;
     
     window.addEventListener('scroll', debounce(function(event) {
