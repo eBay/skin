@@ -27,7 +27,7 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'adaptive', 'grid', 'grid-full', 'megabundles', 'ds6-src']);
+gulp.task('less', ['modules', 'adaptive', 'grid', 'grid-full', 'megabundles']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
@@ -79,31 +79,6 @@ gulp.task('megabundles', function () {
         path.extname = cdnFileExtensionName;
     }))
     .pipe(gulp.dest(cdnTarget))
-});
-
-// Provide LESS src files for scoping
-gulp.task('ds6-src', function (cb) {
-    runSequence('ds6-main-less', 'ds6-common-mixins', 'ds6-common-utility', 'ds6-gh', cb);
-});
-
-gulp.task('ds6-main-less', function(){
-    return gulp.src(['./src/less/**/ds6/*.less'])
-        .pipe(gulp.dest('./dist/src'));
-});
-
-gulp.task('ds6-common-mixins', function(){
-    return gulp.src(['./src/less/less/*.less'])
-        .pipe(gulp.dest('./dist/src/less/'));
-});
-
-gulp.task('ds6-common-utility', function(){
-    return gulp.src(['./src/less/utility/*.less'])
-        .pipe(gulp.dest('./dist/src/utility/'));
-});
-
-gulp.task('ds6-gh', function(){
-    return gulp.src(['./src/less/*.less'])
-        .pipe(gulp.dest('./dist/src/'));
 });
 
 // Static Server + watching src & docs files
