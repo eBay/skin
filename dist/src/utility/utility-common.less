@@ -1,0 +1,34 @@
+@import "../less/variables-common.less";
+@import "../less/mixins-common.less";
+
+.clearfix {
+    &::before,
+    &::after {
+        display: table;
+        content: " ";
+        line-height: 0;
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+.clipped {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.clipped--stealth:focus {
+    clip: auto;
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+    width: auto;
+}
