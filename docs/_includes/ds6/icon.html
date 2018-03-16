@@ -1,6 +1,9 @@
 <div id="icon">
     <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
-    <p>The icon module allows direct access to the Skin iconography via inline SVG. Although Skin itself also utilises background SVG in some cases (via data uri), the benefit of inline SVG is that the icon will inherit the color of it's containing element. This behaviour can be useful when crafting custom buttons and controls.</p>
+    <p>The icon module allows direct access to the Skin iconography via inline SVG or background SVG.</p>
+    <p><strong>NOTE:</strong> inline SVG will inherit the color of it's containing element; this behaviour can be useful when crafting custom buttons and controls.</p>
+
+    <h3>Inline SVG</h3>
     <p>To avoid gigantic SVG icons when in a non-CSS (edge-case) state, we use the SVG width and height attributes to override the default 300x150 size.</p>
     <p>See the <a href="#svg">@ebay/skin/svg</a> module for instructions on how to import SVG symbols, and yes, we will be adding more icons in an upcoming release!</p>
 
@@ -32,6 +35,18 @@
 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="17" width="17">
     <use xlink:href="#icon-close"></use>
 </svg>
+        {% endhighlight %}
+    </div>
+
+    <h3>Background SVG</h3>
+    <p>Background SVGs have a fixed stroke colour. This colour cannot be changed via CSS.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="icon icon--close"></span>
+        </div>
+        {% highlight html %}
+<span class="icon icon--close"></span>
         {% endhighlight %}
     </div>
 
