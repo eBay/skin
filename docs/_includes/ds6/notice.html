@@ -2,6 +2,9 @@
 
     <h2><span class="secondary-text">@ebay/skin/</span>notice</h2>
 
+    <p>The purpose of a notice is to convey the next course of action for a task or flow. The notice must be clear and concise, with minimum cognitive load.</p>
+    <p>A notice may appear at page-level or inline-level, with a status of priority, confirmation, or information.</p>
+
     <h3>Page Notice</h3>
     <p>A page-level notice typically appears prominently at the top of the page or directly above a module. To aid discoverabilty of such important content for assistive technology, we make each page notice a landmark region with heading.</p>
 
@@ -64,6 +67,63 @@
     </div>
 </section>
     {% endhighlight %}
+
+    <h3>Dismissable Page Notice</h3>
+     <p>Append a button with class <span class="highlight">page-notice__close</span> to create a dismissable page notice.</p>
+        <div class="demo">
+            <div class="demo__inner">
+                <section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation">
+                    <h4 class="page-notice__status" id="confirmation-status">
+                        <span aria-label="Confirmation" role="img"></span>
+                    </h4>
+                    <div class="page-notice__content">
+                        <p><strong>Congrats!</strong> You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
+                        <p>You can check <a href="#">your listing</a> or <a href="#">sell another item</a></p>
+                    </div>
+                    <button aria-label="Dismiss notice" class="page-notice__close">
+                        <span></span>
+                    </button>
+                </section>
+
+                <section aria-labelledby="information-status" class="page-notice page-notice--information" role="region">
+                    <h4 class="page-notice__status" id="information-status">
+                        <span aria-label="Information" role="img"></span>
+                    </h4>
+                    <div class="page-notice__content">
+                        <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
+                    </div>
+                    <button aria-label="Dismiss notice" class="page-notice__close">
+                        <span></span>
+                    </button>
+                </section>
+            </div>
+        </div>
+     {% highlight html %}
+<section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation">
+    <h4 class="page-notice__status" id="confirmation-status">
+        <span aria-label="Confirmation" role="img"></span>
+    </h4>
+    <div class="page-notice__content">
+        <p><strong>Congrats!</strong> You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
+        <p>You can check <a href="#">your listing</a> or <a href="#">sell another item</a></p>
+    </div>
+    <button aria-label="Dismiss notice" class="page-notice__close">
+        <span></span>
+    </button>
+</section>
+
+<section aria-labelledby="information-status" class="page-notice page-notice--information" role="region">
+    <h4 class="page-notice__status" id="information-status">
+        <span aria-label="Information" role="img"></span>
+    </h4>
+    <div class="page-notice__content">
+        <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
+    </div>
+    <button aria-label="Dismiss notice" class="page-notice__close">
+        <span></span>
+    </button>
+</section>
+     {% endhighlight %}
 
     <h3>Inline Notice</h3>
     <p>An inline-level notice is typically located near a form field or user interface control.</p>
