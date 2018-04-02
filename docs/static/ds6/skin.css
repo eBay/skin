@@ -1,5 +1,5 @@
 /*!
-Skin v3.4.0
+Skin v3.5.0
 Copyright 2017 eBay! Inc. All rights reserved.
 Licensed under the BSD License.
 https://github.com/eBay/skin/blob/master/LICENSE.txt"
@@ -27,7 +27,7 @@ https://github.com/eBay/skin/blob/master/LICENSE.txt"
 body {
   background-color: #ffffff;
   color: #111820;
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 0.875rem;
 }
 a {
@@ -37,7 +37,7 @@ a:visited {
   color: #6a4fcc;
 }
 body {
-  font-family: "Market Sans", "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
+  font-family: "Market Sans", Arial, sans-serif;
 }
 button.btn,
 button.expand-btn,
@@ -354,6 +354,23 @@ svg.icon--hamburger {
   height: 14px;
   width: 12px;
 }
+svg.icon--close {
+  height: 17px;
+  width: 17px;
+}
+span.icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+span.icon--close {
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2717%27%20height%3D%2717%27%3E%3Cpath%20fill=%22none%22%20stroke=%22currentColor%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20stroke-width=%222%22%20d=%22M1.11%201.78l14.15%2014.15m-14.09-.07L15.32%201.72%22%3E%3C/path%3E%3C/svg%3E');
+  height: 17px;
+  width: 17px;
+}
 .menu,
 .fake-menu,
 .listbox {
@@ -453,12 +470,6 @@ a.fake-menu__item:focus,
 button.fake-menu__item:focus {
   background-color: #e5e5e5;
   outline: none;
-}
-div.menu__item[role^="menuitem"]:active,
-div.listbox__option[role^="option"]:active,
-a.fake-menu__item:active,
-button.fake-menu__item:active {
-  font-weight: bold;
 }
 div.menu__item[role^="menuitem"]:active .menu__status,
 div.listbox__option[role^="option"]:active .menu__status,
@@ -659,9 +670,29 @@ span[role="region"].page-notice {
   margin: 0;
   padding: 12px 16px 12px 12px;
 }
+.page-notice__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 .page-notice__content p,
 .page-notice__cell p {
   margin: 16px;
+}
+.page-notice__close {
+  border: 0;
+  background: none;
+  width: 50px;
+  height: 48px;
+  cursor: pointer;
+}
+.page-notice__close span {
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2717%27%20height%3D%2717%27%3E%3Cpath%20fill=%22none%22%20stroke=%22currentColor%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20stroke-width=%222%22%20d=%22M1.11%201.78l14.15%2014.15m-14.09-.07L15.32%201.72%22%3E%3C/path%3E%3C/svg%3E');
+  height: 17px;
+  width: 17px;
 }
 .inline-notice {
   margin: 8px 0;
@@ -838,4 +869,49 @@ span.inline-notice {
   overflow: visible;
   white-space: normal;
   width: auto;
+}
+.breadcrumb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  list-style: none;
+  margin: 16px 0;
+}
+.breadcrumb ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li {
+  display: inline-block;
+}
+.breadcrumb li a {
+  color: #111820;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+.breadcrumb li a:hover {
+  color: #006efc;
+}
+.breadcrumb li span[aria-current] {
+  color: #767676;
+  cursor: text;
+  font-size: 0.75rem;
+}
+.breadcrumb li:not(:last-of-type)::after {
+  content: '';
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNHB4IiBoZWlnaHQ9IjhweCIgdmlld0JveD0iMCAwIDQgOCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDkuMSAoNTExNDcpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPkNoZXZyb24gUmlnaHQ8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBkPSJNMC4xMTcsMC42MTQgQzAuMDQxNSwwLjY4NzUgMC4wMDI1LDAuNzgzIDAsMC44Nzk1IEwwLDAuODk4IEMwLjAwMjUsMC45OTQ1IDAuMDQxNSwxLjA5MDUgMC4xMTcsMS4xNjQgTDMuMDM0LDQgTDAuMTE3LDYuODM2IEMwLjA0MTUsNi45MDk1IDAuMDAyNSw3LjAwNTUgMCw3LjEwMiBMMCw3LjEyMDUgQzAuMDAyNSw3LjIxNyAwLjA0MTUsNy4zMTI1IDAuMTE3LDcuMzg2IEMwLjE5Miw3LjQ1OSAwLjI4OSw3LjQ5NjUgMC4zODcsNy41IEwwLjQxMyw3LjUgQzAuNTExLDcuNDk2NSAwLjYwOCw3LjQ1OSAwLjY4Myw3LjM4NiBMMy44ODMsNC4yNzUgQzMuOTU4NSw0LjIwMTUgMy45OTc1LDQuMTA1NSA0LDQuMDA5IEw0LDMuOTkxIEMzLjk5NzUsMy44OTQ1IDMuOTU4NSwzLjc5ODUgMy44ODMsMy43MjQ1IEwwLjY4MywwLjYxNCBDMC42MDQ1LDAuNTM4IDAuNTAyNSwwLjUgMC40LDAuNSBDMC4yOTc1LDAuNSAwLjE5NSwwLjUzOCAwLjExNywwLjYxNCBaIiBpZD0icGF0aC0xIj48L3BhdGg+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iYnJlYWRjcnVtYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU1LjAwMDAwMCwgLTI4LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iTmF2aWdhdGlvbi9CcmVhZGNydW1iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTUuMDAwMDAwLCAxMi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8bWFzayBpZD0ibWFzay0yIiBmaWxsPSJ3aGl0ZSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+CiAgICAgICAgICAgICAgICAgICAgPC9tYXNrPgogICAgICAgICAgICAgICAgICAgIDx1c2UgaWQ9IkNoZXZyb24tUmlnaHQiIGZpbGw9IiM3Njc2NzYiIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 8px;
+  margin: 0 5px 0 10px;
+  width: 8px;
 }
