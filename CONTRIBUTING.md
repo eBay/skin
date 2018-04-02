@@ -38,7 +38,7 @@ Do not attempt to commit feature work directly to the `master` branch. Pushes to
 
 All other branches are "milestone" branches or "issue" branches.
 
-Work for every "issue" must go in it's own branch. The branch name will match the issue number. For example, for issue number 202, a branch named `202` would be created.
+Work for every "issue" must go in it's own branch. The branch name will reflect the issue number and issue type. For example, for an issue number 202, related to the pagination module, a branch named `202-pagination` would be created.
 
 Issue branches must be created from the relevant milestone branch. For example, if issue 202 will go out in the v2.6.7 milestone, then the 202 issue branch must be created from the 2.6.7 milestone branch.
 
