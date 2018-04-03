@@ -1,15 +1,13 @@
-
 .pagination {
     align-items: center;
-    display: flex;
     font-family: inherit;
     font-size: 16px;
     margin: 8px 0;
+    max-width: 640px;
+    min-width: 462px;
 }
 
 .pagination__items {
-    display: flex;
-    flex-wrap: wrap;
     height: 48px;
     list-style-type: none;
     margin: 0;
@@ -25,6 +23,7 @@
     color: @ds6-color-link-default;
     line-height: 48px;
     width: 48px;
+    margin: 0 8px;
 
     &:visited {
         color: @ds6-color-text-default;
@@ -80,11 +79,35 @@
 
 .pagination__item__container {
     width: 48px;
-    flex: 1 0 48px;
+    flex: 0 0 48px;
     margin-right: 8px;
 
-    &:first-child {
-        margin-left: 8px;
+    &:last-child {
+        margin-right: 0;
     }
 
+}
+/* csslint ignore:start */
+@supports (grid: auto-flow) {
+    .pagination {
+        display: grid;
+        grid-template-columns: 1px 58px 1fr 58px;
+    }
+    .pagination__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+    }
+}
+/* csslint ignore:end */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pagination__items {
+        display: flex;
+    }
+    .pagination__item__container {
+        flex: 1 0 48px;
+    }
 }
