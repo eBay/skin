@@ -20,28 +20,29 @@
 
 .pagination__next,
 .pagination__previous {
-    color: @ds6-color-link-default;
+    fill: @ds6-color-text-default;
     line-height: 48px;
     width: 48px;
-    margin: 0 8px;
+    margin: 0 4px;
+    text-align: center;
 
     &:visited {
-        color: @ds6-color-text-default;
+        fill: @ds6-color-text-default;
     }
 
     &:focus,
     &:hover {
-        color: @ds6-color-link-default;
+        fill:  @ds6-color-link-default;
     }
 
     &[aria-disabled="true"] {
-        color: @ds6-color-g205-gray;
+        fill: @ds6-color-g205-gray;
     }
 
     &:not([aria-disabled="true"]) {
         &:focus,
         &:hover {
-            color: @ds6-color-link-default;
+            fill: @ds6-color-link-default;
         }
     }
 }
@@ -51,7 +52,7 @@
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 44px;
     padding: 0 17px;
     text-align: center;
     text-decoration: none;
@@ -66,8 +67,6 @@
         color: @ds6-color-link-default;
         text-decoration: none;
     }
-
-
 }
 
 .pagination__item[aria-current="page"] {
@@ -79,15 +78,9 @@
 
 .pagination__item__container {
     width: 48px;
-    flex: 0 0 48px;
-    margin-right: 8px;
-
-    &:last-child {
-        margin-right: 0;
-    }
-
+    margin:0 4px;
 }
-/* csslint ignore:start */
+
 @supports (grid: auto-flow) {
     .pagination {
         display: grid;
@@ -98,14 +91,14 @@
         grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
     }
 }
-/* csslint ignore:end */
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .pagination {
         display: flex;
-        flex-wrap: wrap;
     }
     .pagination__items {
         display: flex;
+        flex-wrap: wrap;
     }
     .pagination__item__container {
         flex: 1 0 48px;
