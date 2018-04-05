@@ -2,29 +2,28 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: inherit;
+  font-size: 0;
+}
+.pagination a {
   font-size: 16px;
-  margin: 8px 0;
-  max-width: 640px;
-  min-width: 462px;
 }
 .pagination__items {
-  height: 48px;
+  display: inline-block;
   list-style-type: none;
   margin: 0;
-  max-width: 512px;
-  min-width: 288px;
-  overflow: hidden;
   padding: 0;
   text-align: center;
+  vertical-align: middle;
 }
 .pagination__next,
 .pagination__previous {
+  display: inline-block;
   fill: #111820;
   line-height: 48px;
+  margin-right: 8px;
   width: 48px;
-  margin: 0 4px;
   text-align: center;
+  vertical-align: middle;
 }
 .pagination__next:visited,
 .pagination__previous:visited {
@@ -51,8 +50,8 @@
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 44px;
-  padding: 0 17px;
+  line-height: 48px;
+  padding: 0 19px;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -69,45 +68,31 @@
   border: 5px solid #006efc;
   color: #006efc;
   line-height: 38px;
-  padding: 0 17px;
+  padding: 0 16px;
 }
 .pagination__item__container {
+  display: inline-block;
+  margin-right: 8px;
   width: 48px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 48px;
-          flex: 0 0 48px;
-  margin: 0 4px;
 }
-@supports (grid: auto-flow) {
-  .pagination {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1px 58px 1fr 58px;
-        grid-template-columns: 1px 58px 1fr 58px;
-  }
-  .pagination__items {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(58px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
-  }
+.pagination--fluid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .pagination {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .pagination__items {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .pagination__item__container {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 48px;
-            flex: 1 0 48px;
-  }
+.pagination--fluid .pagination__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 48px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 512px;
+  min-width: 288px;
+  overflow: hidden;
+}
+.pagination--fluid .pagination__item__container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 48px;
+          flex: 1 0 48px;
 }
