@@ -38,7 +38,7 @@ Do not attempt to commit feature work directly to the `master` branch. Pushes to
 
 All other branches are "milestone" branches or "issue" branches.
 
-Work for every "issue" must go in it's own branch. The branch name will match the issue number. For example, for issue number 202, a branch named `202` would be created.
+Work for every "issue" must go in it's own branch. The branch name will reflect the issue number and issue type. For example, for an issue number 202, related to the pagination module, a branch named `202-pagination` would be created.
 
 Issue branches must be created from the relevant milestone branch. For example, if issue 202 will go out in the v2.6.7 milestone, then the 202 issue branch must be created from the 2.6.7 milestone branch.
 
@@ -161,7 +161,7 @@ Please follow the steps below to publish skin to NPM:
 1. Build files must be stamped with the new version number. Increment the version number in `package.json` by hand (e.g. do **not** use `npm version` because this will create a git tag while the build files are still stamped with the *old* version number!)
 1. Run `yarn build`. This will update the top comment section of build files with the new version number. This is needed for legal.
 1. Revert the version number update you made to `package.json` in step 1.
-1. Update any documentation references to reflect the new CDN url.
+1. Update any documentation references to reflect the new CDN url. [**Final release only**]
 1. Commit the modified build files with message "Stamped files with vX.x.x" and push to origin.
 
 Next, move on to pre-release or final release instructions below.
@@ -170,7 +170,7 @@ Next, move on to pre-release or final release instructions below.
 
 Pre-releases are made directly from a milestone branch. Patch releases do not need a pre-release (proceed directly to final release section below).
 
-1. Run `npm version pre-minor` or `npm version pre-major`. This command will update the version number in `package.json`, commit the change locally, and create a Git tag at the same time.
+1. Run `npm version preminor` or `npm version premajor`. This command will update the version number in `package.json`, commit the change locally, and create a Git tag at the same time.
 1. Push commit to origin.
 1. Run `npm publish --tags beta` to publish the package to NPM.
 
