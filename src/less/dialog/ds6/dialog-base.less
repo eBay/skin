@@ -1,0 +1,226 @@
+// MIXINS
+//-----------------------------
+
+// Element width in percentage - (No of gutters * gutter width / number of elements)px
+.create-grid(@cols, @gutter: 0, @size: 0, @min: 0, @max: 0) {
+    & when not (@size = 0) {
+        width: calc(round(@size / @cols * 100%) ~"-" round((@size - 1) * @gutter / @size));
+    }
+
+    & when not (@min = 0) {
+        min-width: calc(round(@min / @cols * 100%) ~"-" round((@min - 1) * @gutter / @min));
+    }
+
+    & when not (@max = 0) {
+        max-width: calc(round(@max / @cols * 100%) ~"-" round((@max - 1) * @gutter / @max));
+    }
+}
+
+// BLOCK
+//-----------------------------
+
+.dialog {
+    &[role="dialog"] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    // ELEMENTS
+    //-----------------------------
+
+    &__window {
+        position: absolute;
+        margin: auto;
+        top: 15%;
+        left: 0;
+        right: 0;
+        margin-bottom: 15vh;
+        background-color: @ds6-color-g201-gray;
+        will-change: opacity, transform;
+        .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 6, @max: 8);
+
+        // MODIFIERS
+        //-----------------------------
+
+        &--full,
+        &--left,
+        &--right {
+            top: 0;
+            height: 100%;
+            margin-bottom: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+
+            .dialog__close {
+                /* csslint ignore:start */
+                position: sticky;
+                /* csslint ignore:end */
+                float: right;
+            }
+        }
+
+        &--fill {
+            min-height: 70%;
+        }
+
+        &--full {
+            max-width: 100%;
+            width: 100%;
+            bottom: 0;
+        }
+
+        &--left,
+        &--right {
+            .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
+        }
+
+        &--left {
+            right: auto;
+            border-right: 1px solid rgba(153, 153, 153, 0.18);
+        }
+
+        &--right {
+            left: auto;
+            border-left: 1px solid rgba(153, 153, 153, 0.18);
+        }
+    }
+
+    &__mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.7;
+        background-color: @ds6-color-text-default;
+        will-change: opacity;
+    }
+
+    &__body {
+        padding: 16px;
+        width: 100%;
+        min-height: 100%;
+        box-sizing: border-box;
+
+        & :first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        & :last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 16px;
+        border: 0;
+        cursor: pointer;
+        color: @ds6-color-text-default;
+        background: @ds6-color-g201-gray;
+
+        &:hover,
+        &:focus {
+            color: @ds6-color-link-default;
+        }
+    }
+
+    // TRANSITIONS
+    //-----------------------------
+
+    // Prime transitions.
+    &--show,
+    &--hide {
+        .dialog {
+            &__window--fade,
+            &__mask--fade {
+                transition: opacity 0.16s ease-out;
+            }
+
+            &__window--slide {
+                transition: transform 0.32s ease-out;
+            }
+
+            &__mask--fade-slow {
+                transition: opacity 0.32s ease-out;
+            }
+        }
+    }
+
+    // Apply hide animation.
+    &--hide,
+    &--show-init {
+        && {
+            display: block;
+        }
+
+        .dialog {
+            &__window--fade,
+            &__mask--fade,
+            &__mask--fade-slow {
+                opacity: 0;
+            }
+
+            &__window--slide {
+                &.dialog__window--left {
+                    transform: translateX(-100%);
+                }
+
+                &.dialog__window--right {
+                    transform: translateX(100%);
+                }
+            }
+        }
+    }
+
+    // Apply show animation.
+    &--show,
+    &--hide-init {
+        && {
+            display: block;
+        }
+
+        .dialog {
+            &__window--fade {
+                opacity: 1;
+            }
+
+            &__window--slide {
+                transform: translateX(0);
+            }
+
+            &__mask {
+                &--fade,
+                &--fade-slow {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+// MEDIA QUERIES
+//-----------------------------
+
+@media(min-width: 601px) {
+    .dialog__window {
+        &:not(&--full) {
+            .create-grid(@cols: 16, @gutter: 16px, @size: 8, @min: 8, @max: 14);
+        }
+    }
+}
+
+// POLYFILL THE HIDDEN ATTRIBUTE
+[hidden] {
+    display: none;
+}
