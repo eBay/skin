@@ -5,6 +5,7 @@ var Expander = require('makeup-expander');
 var Rover = require('makeup-roving-tabindex');
 var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
+var transition = require("./transition");
 
 // util function
 function nodeListToArray(nodeList) {
@@ -14,7 +15,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"])')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -85,6 +86,10 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
     };
 
     optionEls.forEach(function(el, i) {
+        if (!el.dataset) {
+            el.dataset = {};
+        }
+
         // assign an index data attribute to each el
         el.dataset.listboxIndex = i;
 
@@ -117,6 +122,44 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
             updateListbox(currentIndex - 1);
         }
     });
+});
+
+// DIALOG WIDGET
+nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
+    var cancel;
+    var dialog = btn.nextElementSibling;
+    var closeTargets = nodeListToArray(dialog.querySelectorAll('.dialog__close, .dialog__mask'));
+    btn.addEventListener('click', handleOpen);
+
+    function handleOpen () {
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
+        dialog.removeAttribute('hidden');
+        btn.removeEventListener('click', handleOpen);
+        closeTargets.forEach(function (el) {
+            el.addEventListener('click', handleClose);
+        });
+    }
+
+    function handleClose () {
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
+        dialog.setAttribute('hidden', '');
+        btn.addEventListener('click', handleOpen);
+        closeTargets.forEach(function (el) {
+            el.removeEventListener('click', handleClose);
+        });
+    }
+
+    function handleTransitionEnd () {
+        cancel = undefined;
+    }
 });
 
 // set up initial matchMedia query
