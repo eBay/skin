@@ -17,7 +17,7 @@ span.combobox {
 
 .menu button.expand-btn--borderless,
 .fake-menu button.expand-btn--borderless {
-    border: 0;
+    border-color: transparent;
     vertical-align: initial;
 }
 
@@ -33,13 +33,13 @@ span.combobox {
 }
 
 .menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
-.combobox .expand-btn[aria-expanded="true"] ~ .combobox__options[role="listbox"],
+.combobox .combobox__control.combobox__control--expanded + .combobox__options[role="listbox"],
 .fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
     display: block;
 }
 
 .menu .expand-btn ~ .menu__items[role="menu"],
-.combobox .expand-btn ~ .combobox__options[role="listbox"],
+.combobox .combobox__control + .combobox__options[role="listbox"],
 .fake-menu .expand-btn ~ .fake-menu__items {
     display: none;
     position: absolute;
@@ -51,6 +51,7 @@ span.combobox {
 .fake-menu__items {
     background-color: @ds6-color-g201-gray;
     border: 1px solid @ds6-color-g204-gray;
+    box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
     box-sizing: border-box;
     width: 100%;
 }

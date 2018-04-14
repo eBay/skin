@@ -163,8 +163,11 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
 });
 
 // set up initial matchMedia query
-var mobileMediaQuery = 'all and (max-width: 600px)';
-var mm = window.matchMedia(mobileMediaQuery);
+window.mobileMediaQuery = 'all and (max-width: 600px)';
+window.mm = window.matchMedia(window.mobileMediaQuery);
+
+window.sidebar = document.querySelector('nav .fixed-nav');
+window.sidebar_top = sidebar.offsetTop;
 
 // debounce utility function
 function debounce(func, wait, immediate) {
@@ -182,24 +185,25 @@ function debounce(func, wait, immediate) {
     };
 };
 
+function fixTheSidebar() {
+    var isMobile = window.mm.matches;
+    var y = window.scrollY || window.pageYOffset;
+
+    // fix the navigation on scroll
+    if (!isMobile && y >= window.sidebar_top) {
+        window.sidebar.classList.add('fixed');
+    } else {
+        window.sidebar.classList.remove('fixed');
+    }
+}
+
 window.addEventListener('resize', debounce(function() {
     // re-run matchMedia on resize
     mm = window.matchMedia(mobileMediaQuery);
-}), 250);
+}, 50));
 
 window.addEventListener('load', function() {
-    var sidebar = document.querySelector('nav .fixed-nav');
-    var top = sidebar.offsetTop;
-    
-    window.addEventListener('scroll', debounce(function(event) {
-        var isMobile = mm.matches;
-        var y = window.scrollY || window.pageYOffset;
-        
-        // fix the navigation on scroll
-        if (!isMobile && y >= top) {
-            sidebar.classList.add('fixed');
-        } else {
-            sidebar.classList.remove('fixed');
-        }
-    }), 100);
+    fixTheSidebar();
+
+    window.addEventListener('scroll', fixTheSidebar);
 });
