@@ -4,10 +4,12 @@
 // so all font-sizes are defined with px
 
 // base properties for all buttons
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
+    border: 1px solid;
     font-family: inherit;
     font-size: 16px;
     height: 40px;
@@ -27,8 +29,6 @@ a.cta-btn {
 
 a.cta-btn {
     background-color: @ds6-color-background-default;
-    border-style: solid;
-    border-width: 1px;
     color: @ds6-color-p003-blue;
 
     &:focus,
@@ -49,6 +49,7 @@ a.cta-btn {
 button.btn--small,
 button.expand-btn--small,
 a.fake-btn--small {
+    font-size: 14px;
     height: 32px;
     line-height: 32px;
 }
@@ -64,16 +65,12 @@ a.cta-btn--large {
 button.btn--primary,
 a.fake-btn--primary {
     background-color: @ds6-color-p002-blue;
-    border: 1px solid @ds6-color-p002-blue;
-    color: white;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-g201-gray;
     font-weight: bold;
 
     &:focus,
-    &:hover {
-        background-color: @ds6-color-p004-blue;
-        border-color: @ds6-color-p004-blue;
-    }
-
+    &:hover,
     &:active {
         background-color: @ds6-color-p003-blue;
         border-color: @ds6-color-p003-blue;
@@ -85,47 +82,45 @@ button.btn--primary {
     &[aria-disabled="true"] {
         background-color: @ds6-color-disabled;
         border-color: @ds6-color-disabled;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 }
 
 a.fake-btn--primary {
     &:visited {
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @ds6-color-disabled;
         border-color: @ds6-color-disabled;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 }
 
 button.btn--secondary,
-button.expand-btn,
 a.fake-btn--secondary {
-    background-color: white;
-    border: 1px solid @ds6-color-g204-gray;
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-p002-blue;
 
+    &:focus,
+    &:hover,
     &:active {
         border-color: @ds6-color-p003-blue;
         color: @ds6-color-p003-blue;
     }
 }
 
-button.btn-secondary,
-a.fake-btn--secondary {
-    color: @ds6-color-p002-blue;
-
-    &:focus,
-    &:hover {
-        border-color: @ds6-color-p004-blue;
-    }
-}
-
 button.expand-btn {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-g204-gray;
     color: @ds6-color-g206-gray;
+
+    &:active {
+        border-color: @ds6-color-g206-gray;
+    }
 
     &[aria-expanded="true"] {
         .expand-btn__icon {
@@ -180,7 +175,7 @@ a.cta-btn--p002-blue {
     &:active {
         background-color: @ds6-color-p002-blue;
         border-color: @ds6-color-p002-blue;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]) {
@@ -237,7 +232,7 @@ a.cta-btn--purple {
     &:active {
         background-color: #3c0085;
         border-color: #3c0085;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]) {
