@@ -53,7 +53,8 @@ span.combobox {
     border: 1px solid @ds6-color-g204-gray;
     box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
     box-sizing: border-box;
-    width: 100%;
+    min-width: calc(100%);
+    width: auto;
 }
 
 span.menu__items[role="menu"],
@@ -151,11 +152,12 @@ button.fake-menu__item {
     align-self: center;
     color: @ds6-color-g206-gray;
     fill: currentColor;
-    height: 1em;
+    height: 8px;
+    margin-left: 8px;
     stroke: currentColor;
     stroke-width: 0;
     visibility: hidden;
-    width: 1em;
+    width: 8px;
 }
 
 span.menu__status,
@@ -164,7 +166,6 @@ span.fake-menu__status {
     background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%277%27%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23111820%22%20d%3D%22M0%203.70913219%202.21049749%206%208%200%22%3E%3C/path%3E%3C/svg%3E');
     background-position: right center;
     background-repeat: no-repeat;
-    height: 1em;
     flex-shrink: 0; // prevent the icon from shrinking when label is long
     pointer-events: none;
     width: 1em;
@@ -173,18 +174,14 @@ span.fake-menu__status {
 // BEM element mods
 //-----------------------------
 
-.menu__items--grow[role="menu"],
-.menu__items--grow-reverse[role="menu"],
-.combobox__options--grow[role="listbox"],
-.combobox__options--grow-reverse[role="listbox"],
-.fake-menu__items--grow,
-.fake-menu__items--grow-reverse {
-    min-width: calc(100%);
-    width: auto;
+.menu__items--fix-width[role="menu"],
+.combobox__options--fix-width[role="listbox"],
+.fake-menu__items--fix-width {
+    width: 100%;
 }
 
-.menu__items--grow-reverse[role="menu"],
-.combobox__options--grow-reverse[role="listbox"],
-.fake-menu__items--grow-reverse {
+.menu__items--reverse[role="menu"],
+.combobox__options--reverse[role="listbox"],
+.fake-menu__items--reverse {
     right: 0;
 }
