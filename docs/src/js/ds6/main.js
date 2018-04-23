@@ -128,7 +128,7 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
 nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
     var cancel;
     var dialog = btn.nextElementSibling;
-    var closeTargets = nodeListToArray(dialog.querySelectorAll('.dialog__close, .dialog__mask'));
+    var dialogBody = dialog.querySelector('.dialog__body');
     btn.addEventListener('click', handleOpen);
 
     function handleOpen () {
@@ -139,12 +139,15 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
         dialog.removeAttribute('hidden');
         btn.removeEventListener('click', handleOpen);
-        closeTargets.forEach(function (el) {
-            el.addEventListener('click', handleClose);
-        });
+        dialog.addEventListener('click', handleClose, true);
+        document.body.setAttribute("style", "overflow:hidden");
     }
 
-    function handleClose () {
+    function handleClose (ev) {
+        if (dialogBody.contains(ev.target)) {
+            return;
+        }
+
         if (cancel) {
             cancel();
         }
@@ -152,9 +155,8 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
         dialog.setAttribute('hidden', '');
         btn.addEventListener('click', handleOpen);
-        closeTargets.forEach(function (el) {
-            el.removeEventListener('click', handleClose);
-        });
+        dialog.removeEventListener('click', handleClose, true);
+        document.body.removeAttribute("style");
     }
 
     function handleTransitionEnd () {

@@ -376,6 +376,7 @@ span.expand-btn__icon {
   background-color: #ffe7ec;
 }
 .dialog[role="dialog"] {
+  background-color: rgba(17, 24, 32, 0.7);
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
@@ -383,6 +384,7 @@ span.expand-btn__icon {
   position: fixed;
   right: 0;
   top: 0;
+  will-change: background-color;
   z-index: 1000;
 }
 .dialog__window {
@@ -390,6 +392,7 @@ span.expand-btn__icon {
   left: 0;
   margin: auto;
   margin-bottom: 15vh;
+  min-height: 55px;
   position: absolute;
   right: 0;
   top: 15%;
@@ -401,11 +404,16 @@ span.expand-btn__icon {
 .dialog__window--full,
 .dialog__window--left,
 .dialog__window--right {
-  height: 100%;
+  bottom: 0;
   margin-bottom: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   top: 0;
+}
+.dialog__window--full .dialog__body,
+.dialog__window--left .dialog__body,
+.dialog__window--right .dialog__body {
+  min-height: auto;
 }
 .dialog__window--full .dialog__close,
 .dialog__window--left .dialog__close,
@@ -413,9 +421,10 @@ span.expand-btn__icon {
   float: right;
   position: -webkit-sticky;
   position: sticky;
+  z-index: 1;
 }
 .dialog__window--fill {
-  min-height: 70%;
+  min-height: 70vh;
 }
 .dialog__window--full {
   bottom: 0;
@@ -436,26 +445,17 @@ span.expand-btn__icon {
   border-left: 1px solid rgba(153, 153, 153, 0.18);
   left: auto;
 }
-.dialog__mask {
-  background-color: #111820;
-  bottom: 0;
-  left: 0;
-  opacity: 0.7;
-  position: fixed;
-  right: 0;
-  top: 0;
-  will-change: opacity;
-}
 .dialog__body {
   box-sizing: border-box;
   margin: 16px;
   min-height: 100%;
 }
 .dialog__close {
-  background: #fff;
+  background-color: #fff;
   border: 0;
   color: #111820;
   cursor: pointer;
+  margin: 0;
   padding: 16px;
   position: absolute;
   right: 0;
@@ -474,10 +474,16 @@ span.expand-btn__icon {
   height: 17px;
   width: 17px;
 }
+.dialog--show.dialog--mask-fade,
+.dialog--hide.dialog--mask-fade {
+  transition: background-color 0.16s ease-out;
+}
+.dialog--show.dialog--mask-fade-slow,
+.dialog--hide.dialog--mask-fade-slow {
+  transition: background-color 0.32s ease-out;
+}
 .dialog--show .dialog__window--fade,
-.dialog--hide .dialog__window--fade,
-.dialog--show .dialog__mask--fade,
-.dialog--hide .dialog__mask--fade {
+.dialog--hide .dialog__window--fade {
   transition: opacity 0.16s ease-out;
 }
 .dialog--show .dialog__window--slide,
@@ -486,22 +492,20 @@ span.expand-btn__icon {
   transition: transform 0.32s ease-out;
   transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
 }
-.dialog--show .dialog__mask--fade-slow,
-.dialog--hide .dialog__mask--fade-slow {
-  transition: opacity 0.32s ease-out;
-}
 .dialog--hide.dialog--hide,
 .dialog--hide.dialog--show-init,
 .dialog--show-init.dialog--hide,
 .dialog--show-init.dialog--show-init {
   display: block;
 }
+.dialog--hide.dialog--mask-fade,
+.dialog--show-init.dialog--mask-fade,
+.dialog--hide.dialog--mask-fade-slow,
+.dialog--show-init.dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0);
+}
 .dialog--hide .dialog__window--fade,
-.dialog--show-init .dialog__window--fade,
-.dialog--hide .dialog__mask--fade,
-.dialog--show-init .dialog__mask--fade,
-.dialog--hide .dialog__mask--fade-slow,
-.dialog--show-init .dialog__mask--fade-slow {
+.dialog--show-init .dialog__window--fade {
   opacity: 0;
 }
 .dialog--hide .dialog__window--slide.dialog__window--left,
@@ -520,6 +524,12 @@ span.expand-btn__icon {
 .dialog--hide-init.dialog--hide-init {
   display: block;
 }
+.dialog--show.dialog--mask-fade,
+.dialog--hide-init.dialog--mask-fade,
+.dialog--show.dialog--mask-fade-slow,
+.dialog--hide-init.dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0.7);
+}
 .dialog--show .dialog__window--fade,
 .dialog--hide-init .dialog__window--fade {
   opacity: 1;
@@ -528,12 +538,6 @@ span.expand-btn__icon {
 .dialog--hide-init .dialog__window--slide {
   -webkit-transform: translateX(0);
           transform: translateX(0);
-}
-.dialog--show .dialog__mask--fade,
-.dialog--hide-init .dialog__mask--fade,
-.dialog--show .dialog__mask--fade-slow,
-.dialog--hide-init .dialog__mask--fade-slow {
-  opacity: 0.7;
 }
 @media (min-width: 601px) {
   .dialog__window:not(.dialog__window--full) {

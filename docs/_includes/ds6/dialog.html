@@ -15,7 +15,6 @@
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
             <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask"></div>
                 <div class="dialog__window" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -35,7 +34,6 @@
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
     <div class="dialog__window" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -61,7 +59,6 @@
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
             <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask"></div>
                 <div class="dialog__window dialog__window--fill" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -81,7 +78,6 @@
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
     <div class="dialog__window dialog__window--fill" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -107,7 +103,6 @@
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
             <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask"></div>
                 <div class="dialog__window dialog__window--left" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -127,7 +122,6 @@
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
     <div class="dialog__window dialog__window--left" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -153,7 +147,6 @@
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
             <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask"></div>
                 <div class="dialog__window dialog__window--right" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -173,7 +166,6 @@
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
     <div class="dialog__window dialog__window--right" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -199,7 +191,6 @@
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
             <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask"></div>
                 <div class="dialog__window dialog__window--full" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -219,7 +210,6 @@
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
     <div class="dialog__window dialog__window--full" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -278,7 +268,7 @@ openBtnEl.addEventListener("click", () => {
     }));
 });
 
-// Trigger dialog hide animation. (In the real world the .dialog__mask) should also be handled.
+// Trigger dialog hide animation. (In the real world the dialog mask) should also be handled.
 closeBtnEl.addEventListener("click", () => {
     dialogEl.classList.add("dialog--hide-init");
     dialogEl.setAttribute("hidden", "");
@@ -301,13 +291,12 @@ closeBtnEl.addEventListener("click", () => {
     {% endhighlight %}
 
     <h3>Fade Transition</h3>
-    <p>Any dialog window and mask can be faded in and out, using the <span class="highlight">dialog__window--fade</span> and <span class="highlight">dialog__mask--fade</span> modifiers.</p>
+    <p>Any dialog window and mask can be faded in and out, using the <span class="highlight">dialog__window--fade</span> modifier on the <span class="highlight">dialog__window</span> and a <span class="highlight">dialog--mask-fade</span> modifier on the <span class="highlight">dialog</span>.</p>
     <p>The default fade duration is 16ms.<p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Lightbox</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask dialog__mask--fade" role="button"></div>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
                 <div class="dialog__window dialog__window--fade" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -326,8 +315,7 @@ closeBtnEl.addEventListener("click", () => {
             </div>
 
             <button class="btn btn--primary dialog-button" type="button">Fullscreen</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask dialog__mask--fade" role="button"></div>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
                 <div class="dialog__window dialog__window--full dialog__window--fade" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -346,8 +334,7 @@ closeBtnEl.addEventListener("click", () => {
             </div>
         </div>
         {% highlight html %}
-<div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask"></div>
+<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
     <div class="dialog__window dialog__window--full" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -365,8 +352,7 @@ closeBtnEl.addEventListener("click", () => {
     </div>
 </div>
 
-<div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-    <div class="dialog__mask dialog__mask--fade" role="button"></div>
+<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
     <div class="dialog__window dialog__window--full dialog__window--fade" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -387,13 +373,12 @@ closeBtnEl.addEventListener("click", () => {
     </div>
 
     <h3>Slide Transition</h3>
-    <p>Any panel or fullscreen dialog can slide in and out, using the <span class="highlight">dialog__window--slide</span> modifier.</p>
-    <p>The slide transition duration is 32ms. An accompanying <span class="highlight">dialog__mask--fade-slow</span> modifier can be applied to a dialog panel's mask. This slower fade matches the 32ms of the slide transition.<p>
+    <p>Any panel or fullscreen dialog can slide in and out, using the <span class="highlight">dialog__window--slide</span> modifier on the <span class="highlight">dialog__window</span>.</p>
+    <p>The slide transition duration is 32ms. An accompanying <span class="highlight">dialog--mask-fade-slow</span> modifier on the <span class="highlight">dialog</span> should also be applied. This slower fade matches the 32ms of the slide transition.<p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Left Panel</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask dialog__mask--fade-slow" role="button"></div>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade-slow" hidden>
                 <div class="dialog__window dialog__window--left dialog__window--slide" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -412,8 +397,7 @@ closeBtnEl.addEventListener("click", () => {
             </div>
 
             <button class="btn btn--primary dialog-button" type="button">Right Panel</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-                <div class="dialog__mask dialog__mask--fade-slow" role="button"></div>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade-slow" hidden>
                 <div class="dialog__window dialog__window--right dialog__window--slide" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -432,8 +416,7 @@ closeBtnEl.addEventListener("click", () => {
             </div>
         </div>
         {% highlight html %}
-<div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
-        <div class="dialog__mask dialog__mask--fade-slow" role="button"></div>
+<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade-slow" hidden>
         <div class="dialog__window dialog__window--left dialog__window--slide" role="document">
             <button aria-label="Close dialog" class="dialog__close" type="button">
                 <span></span>
