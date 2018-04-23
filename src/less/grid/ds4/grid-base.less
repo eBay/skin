@@ -55,10 +55,11 @@
  * This class extends .grid--gutters
  */
 .@{group-name} {
+  &:extend(.grid--gutters);
+
   box-sizing: border-box;
   list-style: none;
   width: 100%;
-  &:extend(.grid--gutters);
   margin-right: -@grid-gutter; //This allows the percentage widths to work
   display: flex;
   align-items: flex-start;
@@ -71,11 +72,12 @@
  * This class extends .grid--gutters
  */
 .@{group-name}--full {
-  display: block;
   &:extend(.grid--gutters);
+
+  display: block;
   padding-right: @grid-gutter;
 
-  @media(max-width: @screen-sm-max) {
+  @media (max-width: @screen-sm-max) {
     padding-left: @small-grid-gutter;
     padding-right: @small-grid-gutter;
   }
@@ -130,18 +132,17 @@
 
 .common_fractions(0, 0);
 
-@media(min-width: @screen-lg-min) {
+@media (min-width: @screen-lg-min) {
   .@{item-name}--lg-hidden {
     display: none;
   }
 }
 
-@media(min-width: @screen-md-min) and (max-width: @screen-md-max) {
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
   .@{item-name}--md-hidden {
     display: none;
   }
 }
-
 
 //Don't think we need this with flexbox
 .@{item-name}--offset--one-eighth {

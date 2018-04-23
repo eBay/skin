@@ -112,7 +112,9 @@
 
 .icon-base() {
     color: @color-icon;
+    /* stylelint-disable font-family-no-missing-generic-family-keyword */
     font-family: @iconfont-name;
+    /* stylelint-enable */
     font-weight: normal;
     font-style: normal;
     text-transform: none;
@@ -580,11 +582,10 @@
 //-----------------------------
 
 .opacity(@opacity: 0.5) {
-    opacity: @opacity;
     @opperc: @opacity * 100;
-    /* csslint ignore:start */
+
+    opacity: @opacity;
     filter: ~"alpha(opacity=@{opperc})";
-    /* csslint ignore:end */
 }
 
 .placeholder() {
@@ -623,7 +624,8 @@
     transform-origin: center;
 
     @keyframes bounce {
-        0%, 100% { // lesshint singleLinePerSelector: false
+        0%,
+        100% {
             transform: scale(1);
         }
 
@@ -632,7 +634,6 @@
         }
     }
 }
-
 
 // SVG
 //-----------------------------
