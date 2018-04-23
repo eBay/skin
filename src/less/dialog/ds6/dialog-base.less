@@ -21,27 +21,27 @@
 
 .dialog {
     &[role="dialog"] {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
         bottom: 0;
-        z-index: 1000;
-        overflow-y: auto;
+        left: 0;
         -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 1000;
     }
 
     // ELEMENTS
     //-----------------------------
 
     &__window {
-        position: absolute;
-        margin: auto;
-        top: 15%;
-        left: 0;
-        right: 0;
-        margin-bottom: 15vh;
         background-color: @ds6-color-g201-gray;
+        left: 0;
+        margin: auto;
+        margin-bottom: 15vh;
+        position: absolute;
+        right: 0;
+        top: 15%;
         will-change: opacity, transform;
         .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 6, @max: 8);
 
@@ -51,15 +51,15 @@
         &--full,
         &--left,
         &--right {
-            top: 0;
             height: 100%;
             margin-bottom: 0;
-            overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            top: 0;
 
             .dialog__close {
-                position: sticky;
                 float: right;
+                position: sticky;
             }
         }
 
@@ -68,9 +68,9 @@
         }
 
         &--full {
+            bottom: 0;
             max-width: 100%;
             width: 100%;
-            bottom: 0;
         }
 
         &--left,
@@ -79,32 +79,32 @@
         }
 
         &--left {
-            right: auto;
             border-right: 1px solid rgba(153, 153, 153, 0.18);
+            right: auto;
         }
 
         &--right {
-            left: auto;
             border-left: 1px solid rgba(153, 153, 153, 0.18);
+            left: auto;
         }
     }
 
     &__mask {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.7;
         background-color: @ds6-color-text-default;
+        bottom: 0;
+        left: 0;
+        opacity: 0.7;
+        position: fixed;
+        right: 0;
+        top: 0;
         will-change: opacity;
     }
 
     &__body {
+        box-sizing: border-box;
+        min-height: 100%;
         padding: 16px;
         width: 100%;
-        min-height: 100%;
-        box-sizing: border-box;
 
         & > :first-child {
             margin-top: 0;
@@ -118,14 +118,14 @@
     }
 
     &__close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 16px;
-        border: 0;
-        cursor: pointer;
-        color: @ds6-color-text-default;
         background: @ds6-color-g201-gray;
+        border: 0;
+        color: @ds6-color-text-default;
+        cursor: pointer;
+        padding: 16px;
+        position: absolute;
+        right: 0;
+        top: 0;
 
         &:hover,
         &:focus {

@@ -3,6 +3,8 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
 
+/* stylelint-disable indentation, order/properties-alphabetical-order */
+
 /**
  * Base class for creating a container that
  * holds a grid
@@ -11,29 +13,29 @@
  * a separate class
  */
 .grid {
-  box-sizing: border-box;
-  max-width: 1280px;
-  padding-left: 0;
-  padding-right: 0;
+    box-sizing: border-box;
+    max-width: 1280px;
+    padding-left: 0;
+    padding-right: 0;
 
-  /**
-   * Core nesting features
-   */
-  .grid {
-    margin-right: -@grid-gutter; //This allows the percentage widths to work
+    /**
+    * Core nesting features
+    */
+    .grid {
+        margin-right: -@grid-gutter; //This allows the percentage widths to work
 
-    .@{group-name} {
-      padding-left: 0;
+        .@{group-name} {
+            padding-left: 0;
+        }
     }
-  }
 
-  .grid--ignore-nesting {
-    margin-right: 0;
+    .grid--ignore-nesting {
+        margin-right: 0;
 
-   & > .@{group-name} {
-      padding-left: @grid-gutter;
+        & > .@{group-name} {
+            padding-left: @grid-gutter;
+        }
     }
-  }
 }
 
 /**
@@ -46,7 +48,7 @@
  * remove the extend in those classes?
  */
 .grid--gutters {
-  padding-left: @grid-gutter;
+    padding-left: @grid-gutter;
 }
 
 /**
@@ -55,14 +57,14 @@
  * This class extends .grid--gutters
  */
 .@{group-name} {
-  &:extend(.grid--gutters);
+    &:extend(.grid--gutters);
 
-  box-sizing: border-box;
-  list-style: none;
-  width: 100%;
-  margin-right: -@grid-gutter; //This allows the percentage widths to work
-  display: flex;
-  align-items: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    display: flex;
+    list-style: none;
+    margin-right: -@grid-gutter; //This allows the percentage widths to work
+    width: 100%;
 }
 
 /**
@@ -72,29 +74,29 @@
  * This class extends .grid--gutters
  */
 .@{group-name}--full {
-  &:extend(.grid--gutters);
+    &:extend(.grid--gutters);
 
-  display: block;
-  padding-right: @grid-gutter;
+    display: block;
+    padding-right: @grid-gutter;
 
-  @media (max-width: @screen-sm-max) {
-    padding-left: @small-grid-gutter;
-    padding-right: @small-grid-gutter;
-  }
+    @media (max-width: @screen-sm-max) {
+        padding-left: @small-grid-gutter;
+        padding-right: @small-grid-gutter;
+    }
 }
 
 //element
 //TODO: This needs to float when we aren't using flexbox
 
 .@{item-name} {
-  box-sizing: border-box;
-  min-height: 1px;
-  padding-right: @grid-gutter;
+    box-sizing: border-box;
+    min-height: 1px;
+    padding-right: @grid-gutter;
 }
 
 //modifier
 .@{item-name}--grow {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 /**
@@ -103,7 +105,7 @@
  * screen gets smaller
  */
 .@{group-name}--wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 /**
@@ -111,7 +113,7 @@
  * Don't think we need this anymore
  */
 .@{group-name}--no-gutters {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 /**
@@ -119,7 +121,7 @@
  * Don't know if we need these
  */
 .@{group-name}--collapse-top {
-  padding-top: 0;
+    padding-top: 0;
 }
 
 /**
@@ -127,24 +129,25 @@
  * Don't know if we need these
  */
 .@{group-name}--collapse-bottom {
-  padding-bottom: 0;
+    padding-bottom: 0;
 }
 
 .common_fractions(0, 0);
 
 @media (min-width: @screen-lg-min) {
-  .@{item-name}--lg-hidden {
-    display: none;
-  }
+    .@{item-name}--lg-hidden {
+        display: none;
+    }
 }
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-  .@{item-name}--md-hidden {
-    display: none;
-  }
+    .@{item-name}--md-hidden {
+        display: none;
+    }
 }
 
 //Don't think we need this with flexbox
 .@{item-name}--offset--one-eighth {
-  margin-left: 12.5%;
+    margin-left: 12.5%;
 }
+/* stylelint-enable */
