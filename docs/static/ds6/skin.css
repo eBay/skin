@@ -388,11 +388,10 @@ span.expand-btn__icon {
   z-index: 1000;
 }
 .dialog__window {
-  background-color: #fff;
   left: 0;
   margin: auto;
-  margin-bottom: 15vh;
   min-height: 55px;
+  padding-bottom: 15vh;
   position: absolute;
   right: 0;
   top: 15%;
@@ -401,14 +400,28 @@ span.expand-btn__icon {
   min-width: calc(75% - 7px);
   max-width: calc(100% - 7px);
 }
+.dialog__window::before {
+  background-color: #fff;
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .dialog__window--full,
 .dialog__window--left,
 .dialog__window--right {
   bottom: 0;
-  margin-bottom: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
+  padding-bottom: 0;
   top: 0;
+}
+.dialog__window--full::before,
+.dialog__window--left::before,
+.dialog__window--right::before {
+  bottom: 0;
 }
 .dialog__window--full .dialog__body,
 .dialog__window--left .dialog__body,
@@ -421,7 +434,6 @@ span.expand-btn__icon {
   float: right;
   position: -webkit-sticky;
   position: sticky;
-  z-index: 1;
 }
 .dialog__window--fill {
   min-height: 70vh;
@@ -449,6 +461,7 @@ span.expand-btn__icon {
   box-sizing: border-box;
   margin: 16px;
   min-height: 100%;
+  position: relative;
 }
 .dialog__close {
   background-color: #fff;
@@ -460,6 +473,7 @@ span.expand-btn__icon {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 1;
 }
 .dialog__close:hover,
 .dialog__close:focus {
