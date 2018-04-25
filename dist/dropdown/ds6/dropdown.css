@@ -1,18 +1,17 @@
 .menu,
 .fake-menu,
-.listbox {
+.combobox {
   line-height: normal;
   position: relative;
 }
 span.menu,
 span.fake-menu,
-span.listbox {
+span.combobox {
   display: inline-block;
 }
 .menu button.expand-btn--borderless,
 .fake-menu button.expand-btn--borderless {
-  border: 0;
-  padding-left: 0;
+  border-color: transparent;
   vertical-align: initial;
 }
 .menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"],
@@ -21,31 +20,33 @@ span.listbox {
 }
 .menu .expand-btn[aria-expanded="true"],
 .fake-menu .expand-btn[aria-expanded="true"],
-.listbox .expand-btn[aria-expanded="true"] {
+.combobox .expand-btn[aria-expanded="true"] {
   border-bottom: 0;
 }
 .menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
-.listbox .expand-btn[aria-expanded="true"] ~ .listbox__options[role="listbox"],
+.combobox .combobox__control.combobox__control--expanded + .combobox__options[role="listbox"],
 .fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
   display: block;
 }
 .menu .expand-btn ~ .menu__items[role="menu"],
-.listbox .expand-btn ~ .listbox__options[role="listbox"],
+.combobox .combobox__control + .combobox__options[role="listbox"],
 .fake-menu .expand-btn ~ .fake-menu__items {
   display: none;
   position: absolute;
   z-index: 1;
 }
 .menu__items[role="menu"],
-.listbox__options[role="listbox"],
+.combobox__options[role="listbox"],
 .fake-menu__items {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #c7c7c7;
+  box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
   box-sizing: border-box;
-  width: 100%;
+  min-width: calc(100%);
+  width: auto;
 }
 span.menu__items[role="menu"],
-div.listbox__options[role="listbox"],
+div.combobox__options[role="listbox"],
 span.fake-menu__items {
   display: inline-block;
 }
@@ -55,11 +56,11 @@ span.fake-menu__items {
   padding: 0;
 }
 div.menu__item[role^="menuitem"],
-div.listbox__option[role^="option"],
+div.combobox__option[role^="option"],
 a.fake-menu__item,
 button.fake-menu__item {
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
+  background-color: #fff;
+  border: 1px solid #fff;
   box-sizing: border-box;
   cursor: pointer;
   display: -webkit-inline-box;
@@ -75,58 +76,58 @@ button.fake-menu__item {
   width: 100%;
 }
 div.menu__item[role^="menuitem"] span:not([class*="menu__status"]),
-div.listbox__option[role^="option"] span:not([class*="menu__status"]),
+div.combobox__option[role^="option"] span:not([class*="menu__status"]),
 a.fake-menu__item span:not([class*="menu__status"]),
 button.fake-menu__item span:not([class*="menu__status"]),
 div.menu__item[role^="menuitem"] span:not([class*="listbox__status"]),
-div.listbox__option[role^="option"] span:not([class*="listbox__status"]),
+div.combobox__option[role^="option"] span:not([class*="listbox__status"]),
 a.fake-menu__item span:not([class*="listbox__status"]),
 button.fake-menu__item span:not([class*="listbox__status"]) {
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 div.menu__item[role^="menuitem"]:hover,
-div.listbox__option[role^="option"]:hover,
+div.combobox__option[role^="option"]:hover,
 a.fake-menu__item:hover,
 button.fake-menu__item:hover {
   background-color: #e5e5e5;
 }
 div.menu__item[role^="menuitem"]:focus,
-div.listbox__option[role^="option"]:focus,
+div.combobox__option[role^="option"]:focus,
 a.fake-menu__item:focus,
 button.fake-menu__item:focus {
   background-color: #e5e5e5;
   outline: none;
 }
 div.menu__item[role^="menuitem"]:active .menu__status,
-div.listbox__option[role^="option"]:active .menu__status,
+div.combobox__option[role^="option"]:active .menu__status,
 a.fake-menu__item:active .menu__status,
 button.fake-menu__item:active .menu__status,
-div.menu__item[role^="menuitem"]:active .listbox__status,
-div.listbox__option[role^="option"]:active .listbox__status,
-a.fake-menu__item:active .listbox__status,
-button.fake-menu__item:active .listbox__status,
+div.menu__item[role^="menuitem"]:active .combobox__status,
+div.combobox__option[role^="option"]:active .combobox__status,
+a.fake-menu__item:active .combobox__status,
+button.fake-menu__item:active .combobox__status,
 div.menu__item[role^="menuitem"]:active .fake-menu__status,
-div.listbox__option[role^="option"]:active .fake-menu__status,
+div.combobox__option[role^="option"]:active .fake-menu__status,
 a.fake-menu__item:active .fake-menu__status,
 button.fake-menu__item:active .fake-menu__status {
   color: #c7c7c7;
 }
 div.menu__item[role^="menuitem"]:not(:last-child),
-div.listbox__option[role^="option"]:not(:last-child),
+div.combobox__option[role^="option"]:not(:last-child),
 a.fake-menu__item:not(:last-child),
 button.fake-menu__item:not(:last-child) {
   margin-bottom: 1px;
 }
 div.menu__item[role^="menuitem"][aria-checked="true"],
-div.listbox__option[role^="option"][aria-selected="true"] {
+div.combobox__option[role^="option"][aria-selected="true"] {
   font-weight: bold;
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
-div.listbox__option[role^="option"][aria-selected="true"] .menu__status,
-div.menu__item[role^="menuitem"][aria-checked="true"] .listbox__status,
-div.listbox__option[role^="option"][aria-selected="true"] .listbox__status {
+div.combobox__option[role^="option"][aria-selected="true"] .menu__status,
+div.menu__item[role^="menuitem"][aria-checked="true"] .combobox__status,
+div.combobox__option[role^="option"][aria-selected="true"] .combobox__status {
   visibility: visible;
 }
 a.fake-menu__item {
@@ -141,59 +142,63 @@ a.fake-menu__item[aria-current="page"] .fake-menu__status {
   visibility: visible;
 }
 button.fake-menu__item {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 0;
   color: #111820;
   display: block;
   text-align: left;
 }
 .menu__status,
-.listbox__status,
+.combobox__status,
 .fake-menu__status {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   color: #111820;
   fill: currentColor;
-  height: 1em;
+  height: 8px;
+  margin-left: 8px;
   stroke: currentColor;
   stroke-width: 0;
   visibility: hidden;
-  width: 1em;
+  width: 8px;
 }
 span.menu__status,
-span.listbox__status,
+span.combobox__status,
 span.fake-menu__status {
-  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%277%27%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23111820%22%20d%3D%22M0%203.70913219%202.21049749%206%208%200%22%3E%3C/path%3E%3C/svg%3E');
-  background-position: right center;
   background-repeat: no-repeat;
-  height: 1em;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOSIgaGVpZ2h0PSI4Ij48ZGVmcz48cGF0aCBpZD0iYSIgZD0iTTEuMDk4IDMuMzE1YS42MjIuNjIyIDAgMCAwLS45MSAwIC42OTkuNjk5IDAgMCAwIDAgLjk1NGwyLjU3IDIuNTgzYS42MjIuNjIyIDAgMCAwIC45MSAwbDUuMTQ0LTUuNGEuNjk5LjY5OSAwIDAgMCAwLS45NTQuNjIyLjYyMiAwIDAgMC0uOTEgMEwzLjIxMyA1LjQyIDEuMDk4IDMuMzE1eiIvPjwvZGVmcz48dXNlIGZpbGw9IiMwMDAiIHhsaW5rOmhyZWY9IiNhIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=');
+  height: 8px;
+  width: 8px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 1em;
+  pointer-events: none;
 }
-.menu__items--grow[role="menu"],
-.menu__items--grow-reverse[role="menu"],
-.listbox__options--grow[role="listbox"],
-.listbox__options--grow-reverse[role="listbox"],
-.fake-menu__items--grow,
-.fake-menu__items--grow-reverse {
-  min-width: calc(100%);
-  width: auto;
-}
-.menu__items--grow-reverse[role="menu"],
-.listbox__options--grow-reverse[role="listbox"],
-.fake-menu__items--grow-reverse {
-  right: 0;
-}
-.listbox {
-  display: inline-block;
-  box-sizing: border-box;
+.menu__items--fix-width[role="menu"],
+.combobox__options--fix-width[role="listbox"],
+.fake-menu__items--fix-width {
   width: 100%;
 }
-.listbox__control > input {
-  background-color: #ffffff;
+.menu__items--reverse[role="menu"],
+.combobox__options--reverse[role="listbox"],
+.fake-menu__items--reverse {
+  right: 0;
+}
+.combobox {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+}
+.combobox__control > input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #fff;
   border: 1px solid #c7c7c7;
+  border-radius: 0;
   box-sizing: border-box;
   color: transparent;
   cursor: default;
@@ -205,46 +210,42 @@ span.fake-menu__status {
   vertical-align: middle;
   width: 100%;
 }
-.listbox__control > input:focus {
+.combobox__control > input:focus {
   border-color: #4295ff;
 }
-.listbox__control > input[disabled],
-.listbox__control > input[aria-disabled="true"] {
+.combobox__control > input[disabled],
+.combobox__control > input[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: transparent;
   text-shadow: 0 0 0 #c7c7c7;
 }
-.listbox__control > input[aria-expanded="true"] {
+.combobox__control > input[aria-expanded="true"] {
   border-bottom: 0;
   padding-bottom: 1px;
 }
-.listbox__control > input::-moz-selection {
-  background: #ffffff;
+.combobox__control > input::-moz-selection {
+  background: #fff;
 }
-.listbox__control > input::selection {
-  background: #ffffff;
+.combobox__control > input::selection {
+  background: #fff;
 }
-.listbox__control + div.listbox__options {
-  display: none;
-  position: absolute;
-  z-index: 1;
-}
-.listbox__control--expanded + div.listbox__options {
-  display: block;
-}
-span.listbox__arrow {
+span.combobox__icon {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%275%27%3E%3Cpath%20fill%3D%22%2311820%22%20d%3D%22M0.758714126%2C0.14644663%20C0.585147774%2C-0.048815516%200.303741117%2C-0.0488155166%200.130174765%2C0.146446629%20C-0.0433915877%2C0.341708774%20-0.0433915882%2C0.658291264%200.130174763%2C0.85355341%20L3.68573029%2C4.85355339%20C3.85929664%2C5.04881554%204.1407033%2C5.04881554%204.31426965%2C4.85355339%20L7.86982523%2C0.853553392%20C8.04339159%2C0.658291247%208.04339159%2C0.341708758%207.86982524%2C0.146446611%20C7.69625889%2C-0.0488155358%207.41485223%2C-0.0488155372%207.24128588%2C0.146446608%20L3.99999997%2C3.79289322%20L0.758714126%2C0.14644663%20Z%22%3E%3C/path%3E%3C/svg%3E');
-  background-repeat: no-repeat;
   background-position: right center;
+  background-repeat: no-repeat;
   content: "";
   height: 40px;
   margin-left: 8px;
+  pointer-events: none;
   position: absolute;
-  right: 16px;
+  right: 17px;
   top: 0;
   width: 8px;
 }
-.listbox__control--expanded span.listbox__arrow {
+.combobox__control--expanded span.combobox__icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+.combobox__control--borderless > input {
+  border-color: transparent;
 }

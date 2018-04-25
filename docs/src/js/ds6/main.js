@@ -1,10 +1,12 @@
-// Most of this is code for the menu and listbox logic, which will be abstracted away into their own modules at some point
+// Most of this is code for the menu and combobox logic, which will be abstracted away into their own modules at some point
 
 // makeup-js accessibility modules
 var Expander = require('makeup-expander');
 var Rover = require('makeup-roving-tabindex');
 var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
+var modal = require('makeup-modal');
+var transition = require("./transition");
 
 // util function
 function nodeListToArray(nodeList) {
@@ -14,7 +16,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"])')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -58,15 +60,15 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
     scrollKeyPreventer.add(el);
 });
 
-// LISTBOX WIDGET (basic interactivity only)
+// COMBOBOX WIDGET (basic interactivity only)
 
-nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
     var widget = new Expander(el, {
         autoCollapse: true,
         click: true,
         hostSelector: 'input[role=combobox]',
-        hostContainerClass: 'listbox__control',
-        contentSelector: '.listbox__options',
+        hostContainerClass: 'combobox__control',
+        contentSelector: '.combobox__options',
         spacebar: true
     });
 
@@ -76,7 +78,7 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
     var size = optionEls.length;
     var currentIndex;
 
-    var updateListbox = function(newIndex) {
+    var updateCombobox = function(newIndex) {
         selectedOptionEl.setAttribute('aria-selected', 'false');
         currentIndex = newIndex;
         inputEl.value = 'Option ' + (currentIndex + 1);
@@ -85,18 +87,22 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
     };
 
     optionEls.forEach(function(el, i) {
+        if (!el.dataset) {
+            el.dataset = {};
+        }
+
         // assign an index data attribute to each el
-        el.dataset.listboxIndex = i;
+        el.dataset.comboboxIndex = i;
 
         // add a click handler to each el
         el.addEventListener('click', function(e) {
-            updateListbox(parseInt(this.dataset.listboxIndex, 10));
+            updateCombobox(parseInt(this.dataset.comboboxIndex, 10));
             widget.collapse();
             inputEl.focus();
         });
     });
 
-    currentIndex = parseInt(selectedOptionEl.dataset.listboxIndex, 10);
+    currentIndex = parseInt(selectedOptionEl.dataset.comboboxIndex, 10);
 
     keyEmitter.addKeyDown(el);
     scrollKeyPreventer.add(el);
@@ -108,20 +114,68 @@ nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(el, i) {
 
     el.addEventListener('arrowDownKeyDown', function(e) {
         if (currentIndex < (size - 1)) {
-            updateListbox(currentIndex + 1);
+            updateCombobox(currentIndex + 1);
         }
     });
 
     el.addEventListener('arrowUpKeyDown', function(e) {
         if (currentIndex > 0) {
-            updateListbox(currentIndex - 1);
+            updateCombobox(currentIndex - 1);
         }
     });
 });
 
+// DIALOG WIDGET
+nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
+    var cancel;
+    var dialog = btn.nextElementSibling;
+    var dialogBody = dialog.querySelector('.dialog__body');
+    var dialogClose = dialog.querySelector('.dialog__close');
+    btn.addEventListener('click', handleOpen);
+
+    function handleOpen () {
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
+        dialog.removeAttribute('hidden');
+        btn.removeEventListener('click', handleOpen);
+        dialog.addEventListener('click', handleClose, true);
+        document.body.setAttribute("style", "overflow:hidden");
+        dialogClose.focus();
+        modal.modal(dialog);
+    }
+
+    function handleClose (ev) {
+        if (dialogBody.contains(ev.target)) {
+            return;
+        }
+
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
+        dialog.setAttribute('hidden', '');
+        btn.addEventListener('click', handleOpen);
+        dialog.removeEventListener('click', handleClose, true);
+        document.body.removeAttribute("style");
+        modal.unmodal();
+        btn.focus();
+    }
+
+    function handleTransitionEnd () {
+        cancel = undefined;
+    }
+});
+
 // set up initial matchMedia query
-var mobileMediaQuery = 'all and (max-width: 600px)';
-var mm = window.matchMedia(mobileMediaQuery);
+window.mobileMediaQuery = 'all and (max-width: 600px)';
+window.mm = window.matchMedia(window.mobileMediaQuery);
+
+window.sidebar = document.querySelector('nav .fixed-nav');
+window.sidebar_top = sidebar.offsetTop;
 
 // debounce utility function
 function debounce(func, wait, immediate) {
@@ -139,24 +193,25 @@ function debounce(func, wait, immediate) {
     };
 };
 
+function fixTheSidebar() {
+    var isMobile = window.mm.matches;
+    var y = window.scrollY || window.pageYOffset;
+
+    // fix the navigation on scroll
+    if (!isMobile && y >= window.sidebar_top) {
+        window.sidebar.classList.add('fixed');
+    } else {
+        window.sidebar.classList.remove('fixed');
+    }
+}
+
 window.addEventListener('resize', debounce(function() {
     // re-run matchMedia on resize
     mm = window.matchMedia(mobileMediaQuery);
-}), 250);
+}, 50));
 
 window.addEventListener('load', function() {
-    var sidebar = document.querySelector('nav .fixed-nav');
-    var top = sidebar.offsetTop;
-    
-    window.addEventListener('scroll', debounce(function(event) {
-        var isMobile = mm.matches;
-        var y = window.scrollY || window.pageYOffset;
-        
-        // fix the navigation on scroll
-        if (!isMobile && y >= top) {
-            sidebar.classList.add('fixed');
-        } else {
-            sidebar.classList.remove('fixed');
-        }
-    }), 100);
+    fixTheSidebar();
+
+    window.addEventListener('scroll', fixTheSidebar);
 });

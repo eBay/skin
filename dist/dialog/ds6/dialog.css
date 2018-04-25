@@ -1,0 +1,174 @@
+.dialog[role="dialog"] {
+  background-color: rgba(17, 24, 32, 0.7);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 1000;
+}
+.dialog__window {
+  background-color: #fff;
+  left: 0;
+  margin: auto;
+  margin-bottom: 15vh;
+  min-height: 55px;
+  position: absolute;
+  right: 0;
+  top: 15%;
+  will-change: opacity, transform;
+  width: calc(88% - 7px);
+  min-width: calc(75% - 7px);
+  max-width: calc(100% - 7px);
+}
+.dialog__window--full,
+.dialog__window--left,
+.dialog__window--right {
+  bottom: 0;
+  margin-bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  top: 0;
+}
+.dialog__window--full .dialog__body,
+.dialog__window--left .dialog__body,
+.dialog__window--right .dialog__body {
+  min-height: auto;
+}
+.dialog__window--full .dialog__close,
+.dialog__window--left .dialog__close,
+.dialog__window--right .dialog__close {
+  float: right;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+}
+.dialog__window--fill {
+  min-height: 70vh;
+}
+.dialog__window--full {
+  bottom: 0;
+  max-width: 100%;
+  width: 100%;
+}
+.dialog__window--left,
+.dialog__window--right {
+  width: calc(88% - 7px);
+  min-width: calc(88% - 7px);
+  max-width: calc(100% - 7px);
+}
+.dialog__window--left {
+  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  right: auto;
+}
+.dialog__window--right {
+  border-left: 1px solid rgba(153, 153, 153, 0.18);
+  left: auto;
+}
+.dialog__body {
+  box-sizing: border-box;
+  margin: 16px;
+  min-height: 100%;
+}
+.dialog__close {
+  background-color: #fff;
+  border: 0;
+  color: #111820;
+  cursor: pointer;
+  margin: 0;
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.dialog__close:hover,
+.dialog__close:focus {
+  color: #006efc;
+}
+.dialog__close span {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMTMuNzg4IDEuNTdjLjM0OC0uMzY5LjIwNC0uOTI5LS4xNTYtMS4yOTEtLjM2LS4zNjItLjk1NS0uMzUtMS4yMTctLjA5LS4yNjIuMjU4LTUuNDQ1IDUuNDc4LTUuNDQ1IDUuNDc4UzEuODE3LjQzNiAxLjUyNi4xODhDMS4yMzQtLjA1OS42NzQtLjA3OC4zMTkuMjgtLjAzNi42MzYtLjA5OSAxLjI4Ny4xNTIgMS41N2MuMjUyLjI4MyA1LjQ0NSA1LjQ4IDUuNDQ1IDUuNDhTLjM2NCAxMi4yOTEuMTUyIDEyLjUyN2MtLjIxMS4yMzctLjIyNi44OS4xNjcgMS4yMDQuMzk0LjMxMy44MjcuMzA0IDEuMjA3IDAgLjM3OS0uMzA0IDUuNDQ0LTUuMyA1LjQ0NC01LjNsNS40NDUgNS4yNGMuNDk4LjQ4IDEuMDAyLjM3NCAxLjMwNi4wNi4zMDUtLjMxNS40MDYtLjg0Ni4wNjctMS4yMDQtLjMzOS0uMzU3LTUuNDQ0LTUuNDc5LTUuNDQ0LTUuNDc5czUuMDk2LTUuMTEgNS40NDQtNS40Nzl6Ii8+PC9kZWZzPjx1c2UgZmlsbD0iIzAwMCIgeGxpbms6aHJlZj0iI2EiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==');
+  height: 17px;
+  width: 17px;
+}
+.dialog--show.dialog--mask-fade,
+.dialog--hide.dialog--mask-fade {
+  transition: background-color 0.16s ease-out;
+}
+.dialog--show.dialog--mask-fade-slow,
+.dialog--hide.dialog--mask-fade-slow {
+  transition: background-color 0.32s ease-out;
+}
+.dialog--show .dialog__window--fade,
+.dialog--hide .dialog__window--fade {
+  transition: opacity 0.16s ease-out;
+}
+.dialog--show .dialog__window--slide,
+.dialog--hide .dialog__window--slide {
+  transition: -webkit-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
+}
+.dialog--hide.dialog--hide,
+.dialog--hide.dialog--show-init,
+.dialog--show-init.dialog--hide,
+.dialog--show-init.dialog--show-init {
+  display: block;
+}
+.dialog--hide.dialog--mask-fade,
+.dialog--show-init.dialog--mask-fade,
+.dialog--hide.dialog--mask-fade-slow,
+.dialog--show-init.dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0);
+}
+.dialog--hide .dialog__window--fade,
+.dialog--show-init .dialog__window--fade {
+  opacity: 0;
+}
+.dialog--hide .dialog__window--slide.dialog__window--left,
+.dialog--show-init .dialog__window--slide.dialog__window--left {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.dialog--hide .dialog__window--slide.dialog__window--right,
+.dialog--show-init .dialog__window--slide.dialog__window--right {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.dialog--show.dialog--show,
+.dialog--show.dialog--hide-init,
+.dialog--hide-init.dialog--show,
+.dialog--hide-init.dialog--hide-init {
+  display: block;
+}
+.dialog--show.dialog--mask-fade,
+.dialog--hide-init.dialog--mask-fade,
+.dialog--show.dialog--mask-fade-slow,
+.dialog--hide-init.dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0.7);
+}
+.dialog--show .dialog__window--fade,
+.dialog--hide-init .dialog__window--fade {
+  opacity: 1;
+}
+.dialog--show .dialog__window--slide,
+.dialog--hide-init .dialog__window--slide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+@media (min-width: 601px) {
+  .dialog__window:not(.dialog__window--full) {
+    width: calc(50% - 14px);
+    min-width: calc(50% - 14px);
+    max-width: calc(88% - 15px);
+  }
+}
+[hidden] {
+  display: none;
+}

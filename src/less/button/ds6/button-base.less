@@ -4,10 +4,12 @@
 // so all font-sizes are defined with px
 
 // base properties for all buttons
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
+    border: 1px solid;
     font-family: inherit;
     font-size: 16px;
     height: 40px;
@@ -27,8 +29,6 @@ a.cta-btn {
 
 a.cta-btn {
     background-color: @ds6-color-background-default;
-    border-style: solid;
-    border-width: 1px;
     color: @ds6-color-p003-blue;
 
     &:focus,
@@ -49,6 +49,7 @@ a.cta-btn {
 button.btn--small,
 button.expand-btn--small,
 a.fake-btn--small {
+    font-size: 14px;
     height: 32px;
     line-height: 32px;
 }
@@ -64,16 +65,12 @@ a.cta-btn--large {
 button.btn--primary,
 a.fake-btn--primary {
     background-color: @ds6-color-p002-blue;
-    border: 1px solid @ds6-color-p002-blue;
-    color: white;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-g201-gray;
     font-weight: bold;
 
     &:focus,
-    &:hover {
-        background-color: @ds6-color-p004-blue;
-        border-color: @ds6-color-p004-blue;
-    }
-
+    &:hover,
     &:active {
         background-color: @ds6-color-p003-blue;
         border-color: @ds6-color-p003-blue;
@@ -85,47 +82,45 @@ button.btn--primary {
     &[aria-disabled="true"] {
         background-color: @ds6-color-disabled;
         border-color: @ds6-color-disabled;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 }
 
 a.fake-btn--primary {
     &:visited {
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @ds6-color-disabled;
         border-color: @ds6-color-disabled;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 }
 
 button.btn--secondary,
-button.expand-btn,
 a.fake-btn--secondary {
-    background-color: white;
-    border: 1px solid @ds6-color-g204-gray;
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-p002-blue;
 
+    &:focus,
+    &:hover,
     &:active {
         border-color: @ds6-color-p003-blue;
         color: @ds6-color-p003-blue;
     }
 }
 
-button.btn-secondary,
-a.fake-btn--secondary {
-    color: @ds6-color-p002-blue;
-
-    &:focus,
-    &:hover {
-        border-color: @ds6-color-p004-blue;
-    }
-}
-
 button.expand-btn {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-g204-gray;
     color: @ds6-color-g206-gray;
+
+    &:active {
+        border-color: @ds6-color-g206-gray;
+    }
 
     &[aria-expanded="true"] {
         .expand-btn__icon {
@@ -135,7 +130,7 @@ button.expand-btn {
 
     &[disabled] {
         span.expand-btn__icon {
-            background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%275%27%3E%3Cpath%20fill%3D%22%23c7c7c7%22%20d%3D%22M0.758714126%2C0.14644663%20C0.585147774%2C-0.048815516%200.303741117%2C-0.0488155166%200.130174765%2C0.146446629%20C-0.0433915877%2C0.341708774%20-0.0433915882%2C0.658291264%200.130174763%2C0.85355341%20L3.68573029%2C4.85355339%20C3.85929664%2C5.04881554%204.1407033%2C5.04881554%204.31426965%2C4.85355339%20L7.86982523%2C0.853553392%20C8.04339159%2C0.658291247%208.04339159%2C0.341708758%207.86982524%2C0.146446611%20C7.69625889%2C-0.0488155358%207.41485223%2C-0.0488155372%207.24128588%2C0.146446608%20L3.99999997%2C3.79289322%20L0.758714126%2C0.14644663%20Z%22%3E%3C/path%3E%3C/svg%3E');
+            .icon-chevron-down-disabled(8px, 100%);
         }
     }
 }
@@ -180,7 +175,7 @@ a.cta-btn--p002-blue {
     &:active {
         background-color: @ds6-color-p002-blue;
         border-color: @ds6-color-p002-blue;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]) {
@@ -237,7 +232,7 @@ a.cta-btn--purple {
     &:active {
         background-color: #3c0085;
         border-color: #3c0085;
-        color: white;
+        color: @ds6-color-g201-gray;
     }
 
     &:not([href]) {
@@ -306,11 +301,11 @@ svg.cta-btn__icon {
 }
 
 span.expand-btn__icon {
-    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%278%27%20height%3D%275%27%3E%3Cpath%20fill%3D%22%2311820%22%20d%3D%22M0.758714126%2C0.14644663%20C0.585147774%2C-0.048815516%200.303741117%2C-0.0488155166%200.130174765%2C0.146446629%20C-0.0433915877%2C0.341708774%20-0.0433915882%2C0.658291264%200.130174763%2C0.85355341%20L3.68573029%2C4.85355339%20C3.85929664%2C5.04881554%204.1407033%2C5.04881554%204.31426965%2C4.85355339%20L7.86982523%2C0.853553392%20C8.04339159%2C0.658291247%208.04339159%2C0.341708758%207.86982524%2C0.146446611%20C7.69625889%2C-0.0488155358%207.41485223%2C-0.0488155372%207.24128588%2C0.146446608%20L3.99999997%2C3.79289322%20L0.758714126%2C0.14644663%20Z%22%3E%3C/path%3E%3C/svg%3E');
-    background-repeat: no-repeat;
+    .icon-chevron-down(8px, 100%);
+
     background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     flex-shrink: 0;
-    height: 100%;
     margin-left: 8px;
-    width: 8px;
 }

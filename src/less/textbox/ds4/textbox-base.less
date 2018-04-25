@@ -1,4 +1,4 @@
- // Textbox text should NOT scale with root font-size. All font-size defined with px.
+// Textbox text should NOT scale with root font-size. All font-size defined with px.
 
 .textbox {
     position: relative;
@@ -11,10 +11,11 @@ span.textbox {
 input.textbox__control,
 textarea.textbox__control {
     .placeholder;
+
     appearance: none;
+    background: @color-core-white;
     border: 1px solid @color-core-gray-silver;
     border-radius: 3px;
-    background: @color-core-white;
     box-sizing: border-box;
     color: @color-core-gray-davys;
     font-family: @font-family-base;
@@ -26,6 +27,7 @@ textarea.textbox__control {
 
     &[disabled] {
         .placeholder-disabled;
+
         background-color: @color-core-gray-light;
         border: 0;
         color: @color-core-gray-silver;
@@ -33,8 +35,8 @@ textarea.textbox__control {
 
     &[readonly] {
         background-color: @color-core-gray-light;
-        color: @color-core-gray-dim;
         border-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
     }
 
     &[aria-invalid="true"] {
@@ -74,14 +76,15 @@ span.textbox__icon {
     font-size: 14px; // icon shouldn't scale with font-size cascade
 
     &::before {
+        /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
         font-family: @iconfont-name;
     }
 }
 
 .textbox__icon {
-    width: 1em;
     fill: @color-core-gray-spanish;
     stroke-width: 0.5;
+    width: 1em;
 }
 
 // BLOCK MODIFIERS
