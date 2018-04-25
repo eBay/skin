@@ -172,7 +172,7 @@ Pre-releases are made directly from a milestone branch. Patch releases do not ne
 
 1. Run `npm version preminor` or `npm version premajor`. This command will update the version number in `package.json`, commit the change locally, and create a Git tag at the same time.
 1. Push commit to origin.
-1. Run `npm publish --tags beta` to publish the package to NPM.
+1. Run `npm publish --tag beta` to publish the package to NPM.
 
 ### Final Release
 
