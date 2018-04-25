@@ -5,6 +5,7 @@ var Expander = require('makeup-expander');
 var Rover = require('makeup-roving-tabindex');
 var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
+var modal = require('makeup-modal');
 var transition = require("./transition");
 
 // util function
@@ -129,6 +130,7 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
     var cancel;
     var dialog = btn.nextElementSibling;
     var dialogBody = dialog.querySelector('.dialog__body');
+    var dialogClose = dialog.querySelector('.dialog__close');
     btn.addEventListener('click', handleOpen);
 
     function handleOpen () {
@@ -141,6 +143,8 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
+        dialogClose.focus();
+        modal.modal(dialog);
     }
 
     function handleClose (ev) {
@@ -157,6 +161,8 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
         document.body.removeAttribute("style");
+        modal.unmodal();
+        btn.focus();
     }
 
     function handleTransitionEnd () {
