@@ -33,7 +33,7 @@ body {
         -ms-grid-column-span: 1;
         -ms-grid-row: 4;
         grid-column: ~"1/2";
-        grid-row: 4;
+        grid-row: 2;
         grid-area: nav;
     }
 
@@ -41,7 +41,7 @@ body {
         -ms-grid-column: 2;
         -ms-grid-row: 4;
         grid-column: 2;
-        grid-row: 4;
+        grid-row: 2;
         grid-area: mainContent;
     }
 
@@ -153,10 +153,17 @@ body > nav {
     }
 }
 
-body > main,
 body > #main {
     > div:first-child h2 {
         margin-top: 0;
+    }
+
+    > main {
+        max-width: calc(100vw ~"-" 19rem); // 19rem = 15rem nav + 2 rem margin (each side)
+
+        @media @mobile {
+            max-width: calc(100vw ~"-" 4rem); // 4rem = 2 rem margin (each side)
+        }
     }
 }
 
