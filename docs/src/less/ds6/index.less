@@ -33,7 +33,7 @@ body {
         -ms-grid-column-span: 1;
         -ms-grid-row: 4;
         grid-column: ~"1/2";
-        grid-row: 4;
+        grid-row: 2;
         grid-area: nav;
     }
 
@@ -41,7 +41,7 @@ body {
         -ms-grid-column: 2;
         -ms-grid-row: 4;
         grid-column: 2;
-        grid-row: 4;
+        grid-row: 2;
         grid-area: mainContent;
     }
 
@@ -153,10 +153,17 @@ body > nav {
     }
 }
 
-body > main,
 body > #main {
     > div:first-child h2 {
         margin-top: 0;
+    }
+
+    > main {
+        max-width: calc(100vw ~"-" 19rem); // 19rem = 15rem nav + 2 rem margin (each side)
+
+        @media @mobile {
+            max-width: calc(100vw ~"-" 4rem); // 4rem = 2 rem margin (each side)
+        }
     }
 }
 
@@ -181,13 +188,14 @@ body > header > h1 {
     }
 }
 
-body > main > div > h2 {
+body > nav > div > h2,
+#main > main > div > h2 {
     .ds6-typography-large-2-bold;
     margin-top: 3rem;
     padding-top: 1rem;
 }
 
-body > main > div > h3 {
+#main > main > div > h3 {
     .ds6-typography-medium-bold;
 }
 
@@ -435,3 +443,9 @@ body > main > div > h3 {
 
 @import "../highlight.less";
 @import "../pygments.less";
+
+/* HIGHLIGHT OVERRIDES */
+/* fix for long strings that don't wrap right */
+.highlight .s {
+    word-break: break-all;
+}
