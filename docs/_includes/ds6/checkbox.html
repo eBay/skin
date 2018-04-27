@@ -1,0 +1,183 @@
+<div id="checkbox">
+    <h2><span class="secondary-text">@ebay/skin/</span>checkbox</h2>
+    <p>A checkbox is a form control that allows the user to toggle a choice on or off.</p>
+    <p>The purpose of a checkbox is to collect form data; therefore a checkbox should always be used in conjunction with a form, label and submit button.</p>
+
+    <h3 id="checkbox-default">Default Checkbox</h3>
+    <p>Use the <span class="highlight">checkbox</span> base class to create a checkbox.</p>
+    <p>The checkbox is decoupled from it's real text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" />
+                <span class="checkbox__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__control" type="checkbox" />
+    <span class="checkbox__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="checkbox-disabled">Disabled Checkbox</h3>
+    <p>Use the <span class="highlight">disabled</span> attribute to disable any checkbox input.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Disabled checkbox example" class="checkbox__control" disabled type="checkbox" />
+                <span class="checkbox__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__control" disabled type="checkbox" />
+    <span class="checkbox__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="checkbox-group">Grouped Checkboxes</h3>
+    <p>A group of checkboxes allows multi-select (unlike a group of radio buttons which enforces single-select).</p>
+    <p>A <span class="highlight">fieldset</span> and <span class="highlight">legend</span> are <strong>required</strong> in order to create the correct grouping semantics. Note that the Skin <span class="highlight">global</span> module removes the default fieldset border and padding.</p>
+    <p><strong>TIP:</strong> To stack checkboxes vertically instead of side-by-side, simply replace the span wrapper with a div wrapper.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <fieldset>
+                <legend>Choose an Option</legend>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-1">Option 1</label>
+                </span>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-2">Option 2</label>
+                </span>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-3">Option 3</label>
+                </span>
+            </fieldset>
+        </div>
+    </div>
+
+    {% highlight html %}
+<fieldset>
+    <legend>Choose an Option</legend>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-1">Option 1</label>
+    </span>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-2">Option 2</label>
+    </span>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-3">Option 3</label>
+    </span>
+</fieldset>
+    {% endhighlight %}
+
+    <h3 id="checkbox-color">Custom Colour Checkbox</h3>
+    <p>The default checkbox shown above uses an SVG background image, and therefore has a fixed colour. Inline SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the checkbox icon.</p>
+    <p>The <span class="highlight">checkbox__icon</span> element requires the <span class="highlight">checkbox__icon--inherit</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox" style="color: #5ba71b">
+                <input aria-label="Inline SVG checkbox example" class="checkbox__control" type="checkbox" />
+                <span class="checkbox__icon checkbox__icon--inherit" hidden>
+                    <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
+                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                    </svg>
+                    <svg aria-hidden="true" class="checkbox__checked" focusable="false">
+                        <use xlink:href="#icon-checkbox-checked"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox" style="color: #5ba71b">
+    <input class="checkbox__control" type="checkbox" />
+    <span class="checkbox__icon checkbox__icon--inherit" hidden>
+        <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
+            <use xlink:href="#icon-checkbox-unchecked"></use>
+        </svg>
+        <svg aria-hidden="true" class="checkbox__checked" focusable="false">
+            <use xlink:href="#icon-checkbox-checked"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible if the page is in a non-CSS state; it also helps prevent a flash of unstyled content (FOUC).
+
+    <h3 id="checkbox-icon">Custom Icon Checkbox</h3>
+    <p>Use the <span class="highlight">checkbox__custom-control</span> element class to create a custom styled checkbox that can use any inline SVG for it's checked and unchecked states.</p>
+    <p>Be careful when using a custom checkbox; the icon for each state must still give enough <em>affordance</em> to a user that it represents an interactive control.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Custom checkbox example" class="checkbox__custom-control" id="checkbox-custom-1" name="checkbox-custom-1" type="checkbox" />
+                <span class="checkbox__icon" hidden style="color: #5ba71b">
+                    <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
+                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                    </svg>
+                    <svg aria-hidden="true" class="checkbox__checked" focusable="false">
+                        <use xlink:href="#icon-confirmation"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__custom-control" id="checkbox-custom" name="checkbox-custom" type="checkbox" />
+    <span class="checkbox__icon" hidden style="color: #5ba71b">
+        <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
+            <use xlink:href="#icon-checkbox-unchecked"></use>
+        </svg>
+        <svg aria-hidden="true" class="checkbox__checked" focusable="false">
+            <use xlink:href="#icon-confirmation"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+    <p>The following SVG symbol definition is required:</p>
+
+    {% highlight html %}
+<svg hidden>
+    <symbol id="icon-confirmation" viewBox="0 0 32 32">
+        <path fill="#5ba71b" d="M16.009 32c-8.842 0-16.009-7.168-16.009-16.009s7.168-16.009 16.009-16.009c8.842 0 16.009 7.168 16.009 16.009 0 0.007 0 0.013 0 0.020-0.011 8.833-7.174 15.99-16.009 15.99 0 0 0 0 0 0zM16.009 2.319c0 0 0 0 0 0-7.561 0-13.69 6.129-13.69 13.69s6.129 13.69 13.69 13.69c7.561 0 13.69-6.129 13.69-13.69s-6.129-13.69-13.69-13.69z"></path>
+        <path fill="#5ba71b" d="M14.841 23.448c-0.001 0-0.003 0-0.004 0-0.247 0-0.473-0.091-0.646-0.242l-6.232-5.305c-0.213-0.182-0.347-0.451-0.347-0.751 0-0.545 0.442-0.987 0.987-0.987 0.245 0 0.469 0.089 0.641 0.237l5.434 4.637 8.181-10.741c0.183-0.238 0.468-0.39 0.788-0.39 0.548 0 0.992 0.444 0.992 0.992 0 0.228-0.077 0.438-0.206 0.605l-8.81 11.573c-0.137 0.199-0.39 0.358-0.682 0.389l-0.116 0z"></path>
+    </symbol>
+</svg>
+    {% endhighlight %}
+</div>
