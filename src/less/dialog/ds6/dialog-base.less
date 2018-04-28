@@ -37,16 +37,27 @@
     //-----------------------------
 
     &__window {
-        background-color: @ds6-color-g201-gray;
         left: 0;
         margin: auto;
-        margin-bottom: 15vh;
         min-height: 55px;
+        padding-bottom: 15vh;
         position: absolute;
         right: 0;
         top: 15%;
         will-change: opacity, transform;
         .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 6, @max: 8);
+
+        // The background for the dialog window is on this pseudo element.
+        // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
+        &::before {
+            background-color: @ds6-color-g201-gray;
+            bottom: 15vh;
+            content: "";
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
 
         // MODIFIERS
         //-----------------------------
@@ -55,10 +66,14 @@
         &--left,
         &--right {
             bottom: 0;
-            margin-bottom: 0;
             -webkit-overflow-scrolling: touch;
             overflow-y: auto;
+            padding-bottom: 0;
             top: 0;
+
+            &::before {
+                bottom: 0;
+            }
 
             .dialog {
                 &__body {
@@ -68,7 +83,6 @@
                 &__close {
                     float: right;
                     position: sticky;
-                    z-index: 1;
                 }
             }
         }
@@ -103,6 +117,7 @@
         box-sizing: border-box;
         margin: 16px;
         min-height: 100%;
+        position: relative;
     }
 
     &__close {
@@ -115,6 +130,7 @@
         position: absolute;
         right: 0;
         top: 0;
+        z-index: 1;
 
         &:hover,
         &:focus {
