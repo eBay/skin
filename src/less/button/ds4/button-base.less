@@ -7,50 +7,20 @@
 button.btn,
 button.expand-btn,
 a.fake-btn {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
     border-radius: 3px;
     border-style: solid;
     border-width: 1px;
+    color: @color-interface-cta;
     font-family: inherit;
     font-size: 14px;
     font-weight: normal;
     height: @height-control-medium;
     margin: 0; // Remove the button margin in Firefox and Safari */
+    padding: 0 48px;
     text-align: center;
     vertical-align: middle; // align buttons and faux buttons on same line
-}
-
-button.btn,
-button.expand-btn {
-    line-height: 1.15;
-}
-
-button[disabled],
-button[aria-disabled="true"] {
-    &.btn,
-    &.expand-btn {
-        .opacity(0.5);
-    }
-}
-
-a.fake-btn {
-    box-sizing: border-box;
-    display: inline-block;
-    line-height: 40px;
-    text-decoration: none;
-}
-
-button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    transform: rotate(180deg);
-}
-
-// default button (medium, regular)
-button.btn,
-button.expand-btn,
-a.fake-btn {
-    background-color: @color-core-white;
-    border-color: @color-core-gray-silver;
-    color: @color-interface-cta;
-    padding: 0 48px;
 
     &:hover,
     &:focus {
@@ -62,12 +32,10 @@ a.fake-btn {
     }
 }
 
-button.expand-btn {
-    padding: 0 16px;
-}
-
 button.btn,
 button.expand-btn {
+    line-height: 1.15;
+
     &[disabled],
     &[aria-disabled="true"] {
         background-color: @color-core-gray-silver;
@@ -84,7 +52,20 @@ button.expand-btn {
     }
 }
 
+button[disabled],
+button[aria-disabled="true"] {
+    &.btn,
+    &.expand-btn {
+        .opacity(0.5);
+    }
+}
+
 a.fake-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @color-core-gray-silver;
@@ -101,6 +82,14 @@ a.fake-btn {
             border-color: @color-core-gray-silver;
         }
     }
+}
+
+button.expand-btn[aria-expanded="true"] .expand-btn__icon {
+    transform: rotate(180deg);
+}
+
+button.expand-btn {
+    padding: 0 16px;
 }
 
 // BEM block modifiers
@@ -314,6 +303,14 @@ button.expand-btn--extra-large {
 .expand-btn__icon {
     align-self: center;
     line-height: normal;
+
+    &:first-child {
+        margin-right: 8px;
+    }
+
+    &:last-child {
+        margin-left: 8px;
+    }
 }
 
 svg.btn__icon,
@@ -329,18 +326,6 @@ svg.fake-btn__icon {
 svg.expand-btn__icon {
     height: 8px;
     width: 8px;
-}
-
-.btn__icon,
-.expand-btn__icon,
-.fake-btn__icon {
-    &:first-child {
-        margin-right: 8px;
-    }
-
-    &:last-child {
-        margin-left: 8px;
-    }
 }
 
 .expand-btn__icon {
