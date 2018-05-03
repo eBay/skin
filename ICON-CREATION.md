@@ -86,7 +86,7 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 }
 ```
 
-- Add the CSS class and reference the new mixin
+- Add the CSS class and reference the new mixin in `/src/less/icon/ds6/icon.less`
 
 ```less
 .icon--following {
