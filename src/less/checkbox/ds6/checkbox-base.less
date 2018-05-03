@@ -7,10 +7,10 @@
 .checkbox__control[type="checkbox"],
 .checkbox__custom-control[type="checkbox"] {
     font-size: 100%;
-    height: 1em;
+    height: 1.125em;
     opacity: 0;
     position: absolute;
-    width: 1em;
+    width: 1.125em;
     z-index: 1;
 }
 
@@ -31,8 +31,13 @@
         fill: inherit;
     }
 
+    &:checked + .checkbox__icon:not([hidden]) {
+        .background-icon-base;
+        .icon-checkbox-checked();
+    }
+
     &:focus + .checkbox__icon {
-        outline: @outline-dotted;
+        outline: @ds6-outline-dotted;
     }
 
     &[disabled] + .checkbox__icon {
@@ -86,7 +91,7 @@
     }
 
     &:focus + .checkbox__icon {
-        outline: @outline-dotted;
+        outline: @ds6-outline-dotted;
     }
 
     &[disabled] + .checkbox__icon {
@@ -107,7 +112,7 @@
 }
 
 .checkbox__icon svg[aria-hidden="true"] {
-    .inline-icon-base;
+    .inline-icon-base(1.125rem, 1.125rem);
 }
 
 .checkbox__control + .checkbox__icon use {
@@ -116,12 +121,5 @@
 
 .checkbox__icon:not([hidden]) {
     .background-icon-base;
-    .icon-checkbox-unchecked();
-}
-
-.checkbox__control[type="checkbox"] {
-    &:checked + .checkbox__icon:not([hidden]) {
-        .background-icon-base;
-        .icon-checkbox-checked();
-    }
+    .icon-checkbox-unchecked(1.125rem, 1.125rem);
 }
