@@ -20,7 +20,7 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 
 ## Step 3: Create the symbol in the SVG definition
 
-- Open `icons.svg` and add the generated SVG code from SVGOMG
+- Open `/src/svg/ds6/icons.svg` and add the generated SVG code from SVGOMG
 
 **For icons with a `<use>` with a fill color (e.g. those which were created with a mask)**
 
@@ -35,10 +35,11 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 </symbol>
 ```
 
+- Ensure the `fill` is set to the correct color (this is set to black as an example, but could be different based on design)
 - Be sure to remove any `transform="translate(x, x)"` which may be in the `<use>` tag
 - Edit the `id` of the `<path>` and the `xlink:href` in the `<use>` to match, as this is a unique ID with which they will be tied within the document. Use the convention `icon-name-path`
 
-** For icons *without* a fill color provided in a `<use>` tag
+**For icons *without* a fill color provided in a `<use>` tag**
 
 - Copy the `<path>` from SVGOMG
 
@@ -50,7 +51,50 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 
 - Remove the `id` from the path, as it is unnecessary
 
-** For all types of icons
+**For all types of icons**
 
 - Add the `viewbox` to the `<symbol>` using the information provided in Sketch (top right corner of the window)
 
+## Step 4: Create the SVG in Base64
+
+- Use the following template to add your path definition:
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="17.57" viewBox="0.5 0.23 21 17.57"><defs><path id="a" d="[ ... your path info here ... ]"/></defs><use fill="#000" fill-rule="evenodd" transform="translate(-1 -3)" xlink:href="#a" /></svg>
+```
+
+- Ensure you have the `viewBox`, `width`, and `height` on the `<svg>` tag
+- Navigate to the [encoder site](https://www.base64encode.org/) and paste in the SVG code
+  - Remove all new lines and extra white space
+  - Make sure the fill is set correctly (if it has a `<use>` tag)
+- Copy the encoded string
+
+## Step 5: Create the SVG in CSS
+
+- Create two new variables in `/src/less/less/ds6/variables.less` for the width and height of your icon
+
+```less
+@ds6-icon-following-width: 15px;
+@ds6-icon-following-height: 19.7px;
+```
+
+- Add a mixin for your icon in `/src/less/less/ds6/mixins.less`
+
+```less
+.icon-following(@width: @ds6-icon-following-width; @height: @ds6-icon-following-height) {
+    .background-icon-image(@width; @height; 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAuNSAwLjI1IDE1IDE5LjUiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMTcuMzU3IDE4LjVMMTIgMTYuMTM4IDYuNjQzIDE4LjVWNC40MTdoMTAuNzE0VjE4LjV6bTAtMTYuMjVINi42NDNjLTEuMTc5IDAtMi4xMzIuOTc1LTIuMTMyIDIuMTY3TDQuNSAyMS43NSAxMiAxOC41bDcuNSAzLjI1VjQuNDE3YzAtMS4xOTItLjk2NC0yLjE2Ny0yLjE0My0yLjE2N3oiLz48L2RlZnM+PHVzZSBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00IC0yKSIgeGxpbms6aHJlZj0iI2EiLz48L3N2Zz4=');
+}
+```
+
+- Add the CSS class and reference the new mixin
+
+```less
+.icon--following {
+    .icon-mixin('icon-following', { .icon-following() });
+}
+```
+
+## Step 6: Update documentation
+
+- Update `/docs/ds6/index.html` using the same symbol defintion as in `/src/svg/ds6/icons.svg`
+- Add an example of the icon in the appropriate place in `/docs/_includes/ds6/icon.html`
