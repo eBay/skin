@@ -60,7 +60,8 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 - Use the following template to add your path definition:
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="17.57" viewBox="0.5 0.23 21 17.57"><defs><path id="a" d="[ ... your path info here ... ]"/></defs><use fill="#000" fill-rule="evenodd" transform="translate(-1 -3)" xlink:href="#a" /></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+  width="13.36" height="21.34" viewBox="0.58 0.08 13.36 21.34"><path d="[ ... icon path info ...]"/></svg>
 ```
 
 - Ensure you have the `viewBox`, `width`, and `height` on the `<svg>` tag
