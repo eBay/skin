@@ -42,7 +42,7 @@ nodeListToArray(document.querySelectorAll('[role=menu]')).forEach(function(el, i
 nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function(el, i) {
     var widget = new Expander(el, {
         autoCollapse: true,
-        click: true,
+        expandOnClick: true,
         focusManagement: 'interactive',
         hostSelector: '.expand-btn',
         contentSelector: '.menu__items, .fake-menu__items'
@@ -52,6 +52,7 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
 
     el.addEventListener('escapeKeyDown', function() {
         this.querySelector('.expand-btn').focus();
+        widget.collapse();
     });
 });
 
@@ -65,11 +66,11 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
     var widget = new Expander(el, {
         autoCollapse: true,
-        click: true,
+        expandOnClick: true,
         hostSelector: 'input[role=combobox]',
         hostContainerClass: 'combobox__control',
         contentSelector: '.combobox__options',
-        spacebar: true
+        simulateSpacebarClick: true
     });
 
     var inputEl = el.querySelector('input[role=combobox]');
