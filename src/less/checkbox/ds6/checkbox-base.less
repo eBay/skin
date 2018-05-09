@@ -1,10 +1,10 @@
-.radio {
+.checkbox {
     display: inline-flex;
     font-size: @ds6-font-size-16;
-    vertical-align: text-bottom;
+    vertical-align: middle;
 }
 
-.radio__control[type="radio"] {
+.checkbox__control[type="checkbox"] {
     font-size: 100%;
     height: 1.125em;
     opacity: 0;
@@ -13,52 +13,52 @@
     z-index: 1;
 
     &:not(:checked) {
-        & + .radio__icon svg.radio__checked {
+        & + .checkbox__icon svg.checkbox__checked {
             display: none;
         }
 
-        & + .radio__icon svg.radio__unchecked {
+        & + .checkbox__icon svg.checkbox__unchecked {
             display: inline-block;
         }
     }
 
     &:checked {
-        & + .radio__icon:not([hidden]) {
+        & + .checkbox__icon:not([hidden]) {
             .background-icon-base;
-            .icon-radio-checked();
+            .icon-checkbox-checked(1.125rem, 1.125rem);
         }
 
-        & + .radio__icon svg.radio__checked {
+        & + .checkbox__icon svg.checkbox__checked {
             display: inline-block;
         }
 
-        & + .radio__icon svg.radio__unchecked {
+        & + .checkbox__icon svg.checkbox__unchecked {
             display: none;
         }
     }
 
-    &:focus + .radio__icon {
+    &:focus + .checkbox__icon {
         outline: @ds6-outline-dotted;
     }
 
-    &[disabled] + .radio__icon {
+    &[disabled] + .checkbox__icon {
         opacity: 0.5;
     }
 }
 
-.radio__icon {
+.checkbox__icon {
     display: inline-flex;
     font-size: 1em;
     outline-offset: 1px;
 
-    // progressive enhancement - override hidden SVG
+    // progressive enhancement - over-ride hidden SVG
     &[hidden] {
         display: inline-flex;
     }
 
     &:not([hidden]) {
         .background-icon-base;
-        .icon-radio-unchecked();
+        .icon-checkbox-unchecked(1.125rem, 1.125rem);
     }
 
     & svg {
