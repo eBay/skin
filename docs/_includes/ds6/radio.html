@@ -1,23 +1,15 @@
 <div id="radio">
-    <h2>Radio</h2>
-    <p>A radio button is a form control thats allow a user to select a single option from a group of choices.</p>
-    <p>The purpose of a radio button is to collect form data; therefore radios should always be used in conjunction with a form, label and submit button.</p>
+    <h2><span class="secondary-text">@ebay/skin/</span>radio</h2>
+    <p>A radio button is a form control that allows a user to select a single option from a group of choices.</p>
+    <p>The purpose of a radio button is to collect form data. Therefore, radio buttons should always be used in conjunction with a form, label and submit button.</p>
 
-    <ul class="module-toc cols">
-        <li><a href="#radio-default">Default Radio</a></li>
-        <li><a href="#radio-disabled">Disabled Radio</a></li>
-        <li><a href="#radio-group">Grouped Radio</a></li>
-        <li><a href="#radio-color">Custom Color Radio</a></li>
-        <li><a href="#radio-icon">Custom Icon Radio</a></li>
-    </ul>
-
-    <h3 id="radio-default">Default Radio</h3>
-    <p>Use the <span class="highlight">radio</span> base class to create a radio.</p>
+    <h3>Default Radio</h3>
+    <p>Use the <span class="highlight">radio</span> base class to create a styled radio.</p>
     <p>The radio is decoupled from it's real text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
     <div class="demo">
         <div class="demo__inner">
             <span class="radio">
-                <input aria-label="Default radio example" class="radio__control" type="radio" />
+                <input aria-label="Default radio example" class="radio__control" name="radio-default" type="radio" />
                 <span class="radio__icon"></span>
             </span>
         </div>
@@ -35,7 +27,7 @@
     <div class="demo">
         <div class="demo__inner">
             <span class="radio">
-                <input aria-label="Default radio example" class="radio__control" disabled type="radio" />
+                <input aria-label="Default radio example" class="radio__control" name="radio-disabled" type="radio" checked disabled />
                 <span class="radio__icon"></span>
             </span>
         </div>
@@ -43,7 +35,7 @@
 
     {% highlight html %}
 <span class="radio">
-    <input class="radio__control" disabled type="radio" />
+    <input class="radio__control" type="radio" checked disabled />
     <span class="radio__icon"></span>
 </span>
     {% endhighlight %}
@@ -110,15 +102,17 @@
 
     <h3 id="radio-color">Custom Colour Radio</h3>
     <p>The default radio shown above uses an SVG background image, and therefore has a fixed colour. Inline SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the radio icon.</p>
-    <p>The <span class="highlight">radio__icon</span> element requires the <span class="highlight">radio__icon--inherit</span> modifier.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="radio" style="color: #5ba71b">
-                <input aria-label="Default radio example" class="radio__control" type="radio" />
-                <span class="radio__icon radio__icon--inherit" hidden>
-                    <svg aria-hidden="true" focusable="false">
-                        <use xlink:href="#svg-icon-radio"></use>
+            <span class="radio" style="color: #71c63e">
+                <input aria-label="Custom colour radio example" class="radio__control" name="radio-custom-colour" type="radio" />
+                <span class="radio__icon" hidden>
+                    <svg aria-hidden="true" class="radio__unchecked" focusable="false">
+                        <use xlink:href="#icon-radio-unchecked"></use>
+                    </svg>
+                    <svg aria-hidden="true" class="radio__checked" focusable="false">
+                        <use xlink:href="#icon-radio-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -126,43 +120,35 @@
     </div>
 
     {% highlight html %}
-<span class="radio" style="color: #5ba71b">
+<span class="radio" style="color: #71c63e">
     <input class="radio__control" type="radio" />
-    <span class="radio__icon radio__icon--inherit" hidden>
-        <svg aria-hidden="true" focusable="false">
-            <use xlink:href="#svg-icon-radio"></use>
+    <span class="radio__icon" hidden>
+        <svg aria-hidden="true" class="radio__unchecked" focusable="false">
+            <use xlink:href="#icon-radio-unchecked"></use>
+        </svg>
+        <svg aria-hidden="true" class="radio__checked" focusable="false">
+            <use xlink:href="#icon-radio-checked"></use>
         </svg>
     </span>
 </span>
     {% endhighlight %}
 
     <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible if the page is in a non-CSS state; it also helps prevent a flash of unstyled content (FOUC).</p>
-    <p>The following SVG symbol definition is required:</p>
-
-    {% highlight html %}
-<svg hidden>
-    <symbol id="svg-icon-radio" viewBox="0 0 32 32">
-        <path class="unchecked" fill="currentColor" d="M16 31.6c-8.667 0-15.719-6.999-15.719-15.6s7.052-15.6 15.719-15.6 15.719 6.999 15.719 15.6c0 8.604-7.052 15.6-15.719 15.6zM16 2.178c-7.687 0-13.941 6.201-13.941 13.822s6.254 13.822 13.941 13.822 13.941-6.201 13.941-13.822-6.254-13.822-13.941-13.822z"></path>
-        <path class="checked-outer" d="M16 31.6c-8.667 0-15.719-6.997-15.719-15.6 0-8.601 7.052-15.6 15.719-15.6s15.719 6.999 15.719 15.6c0 8.604-7.052 15.6-15.719 15.6zM16 2.178c-7.687 0-13.941 6.201-13.941 13.822s6.254 13.822 13.941 13.822 13.941-6.201 13.941-13.822-6.254-13.822-13.941-13.822z"></path>
-        <path class="checked-inner" d="M24.139 15.803c0 4.406-3.715 7.979-8.299 7.979s-8.299-3.572-8.299-7.979c0-4.407 3.715-7.979 8.299-7.979s8.299 3.572 8.299 7.979z"></path>
-    </symbol>
-</svg>
-    {% endhighlight %}
 
     <h3 id="radio-custom">Custom Icon Radio</h3>
-    <p>Use the <span class="highlight">radio__custom-control</span> element class to create a custom styled radio that can use any inline SVG for it's checked and unchecked states.</p>
+    <p>The radio module can use any inline SVG for it's checked and unchecked states.</p>
     <p>Be careful when using a custom radio; the icon for each state must still give enough <em>affordance</em> to a user that it represents an interactive control.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="field__control radio" style="color: #5ba71b">
-                <input aria-label="Custom radio example" class="radio__custom-control" id="custom-radio-1" type="radio" value="1" name="radio-custom" />
-                <span class="radio__icon radio__icon--inherit" hidden>
+            <span class="field__control radio" style="color: #ff5151">
+                <input aria-label="Custom icon radio example" class="radio__control" name="radio-custom-icon" type="radio" />
+                <span class="radio__icon" hidden>
                     <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-                        <use xlink:href="#svg-icon-radio-unchecked"></use>
+                        <use xlink:href="#icon-save"></use>
                     </svg>
                     <svg aria-hidden="true" class="radio__checked" focusable="false">
-                        <use xlink:href="#svg-icon-confirmation"></use>
+                        <use xlink:href="#icon-save-selected"></use>
                     </svg>
                 </span>
             </span>
@@ -170,14 +156,14 @@
     </div>
 
     {% highlight html %}
-<span class="field__control radio" style="color: #5ba71b">
-    <input class="radio__custom-control" id="custom-radio-1" type="radio" value="1" name="radio-custom" />
-    <span class="radio__icon radio__icon--inherit" hidden>
+<span class="field__control radio" style="color: #ff5151">
+    <input class="radio__control" type="radio" />
+    <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-            <use xlink:href="#svg-icon-radio-unchecked"></use>
+            <use xlink:href="#icon-radio-unchecked"></use>
         </svg>
         <svg aria-hidden="true" class="radio__checked" focusable="false">
-            <use xlink:href="#svg-icon-confirmation"></use>
+            <use xlink:href="#icon-confirmation"></use>
         </svg>
     </span>
 </span>

@@ -167,10 +167,11 @@
 
     <h3>Fullscreen Panel Dialog</h3>
     <p>Apply the <span class="highlight">dialog__window--full</span> modifier to have the dialog take up the entire viewport.</p>
+    <p>Having a mask on a fullscreen dialog doesn't typically make sense and can cause the animations to look a bit strange. You can disable the default background mask of the dialog by applying the <span class="highlight">dialog--no-mask</span> modifier on the <span class="highlight">dialog</span> element.</p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-button" type="button">Preview</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--no-mask" hidden>
                 <div class="dialog__window dialog__window--full" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -187,7 +188,7 @@
             </div>
         </div>
         {% highlight html %}
-<div role="dialog" aria-labelledby="dialog-title" class="dialog" hidden>
+<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--no-mask" hidden>
     <div class="dialog__window dialog__window--full" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
@@ -291,7 +292,7 @@ closeBtnEl.addEventListener("click", () => {
             </div>
 
             <button class="btn btn--primary dialog-button" type="button">Fullscreen</button>
-            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
+            <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--no-mask" hidden>
                 <div class="dialog__window dialog__window--full dialog__window--fade" role="document">
                     <button aria-label="Close dialog" class="dialog__close" type="button">
                         <span></span>
@@ -309,7 +310,7 @@ closeBtnEl.addEventListener("click", () => {
         </div>
         {% highlight html %}
 <div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
-    <div class="dialog__window dialog__window--full" role="document">
+    <div class="dialog__window dialog__window--fade" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>
         </button>
@@ -319,12 +320,14 @@ closeBtnEl.addEventListener("click", () => {
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p><a href="http://www.ebay.com">www.ebay.com</a></p>
+            <p>
+                <a href="http://www.ebay.com">www.ebay.com</a>
+            </p>
         </div>
     </div>
 </div>
 
-<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--mask-fade" hidden>
+<div role="dialog" aria-labelledby="dialog-title" class="dialog dialog--no-mask" hidden>
     <div class="dialog__window dialog__window--full dialog__window--fade" role="document">
         <button aria-label="Close dialog" class="dialog__close" type="button">
             <span></span>

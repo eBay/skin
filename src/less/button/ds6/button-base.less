@@ -15,6 +15,7 @@ a.cta-btn {
     height: 40px;
     line-height: 40px;
     margin: 0; // Remove the button margin in Firefox and Safari */
+    max-width: 100%;
     padding: 0 16px;
     text-align: center;
     vertical-align: middle;
@@ -130,7 +131,7 @@ button.expand-btn {
 
     &[disabled] {
         span.expand-btn__icon {
-            .icon-chevron-down-disabled(8px, 100%);
+            .icon-chevron-down-disabled(9px, 100%);
         }
     }
 }
@@ -258,6 +259,14 @@ a.cta-btn--fluid {
     display: flex;
     height: 100%;
     width: 100%;
+
+    > span {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
 }
 
 .btn__cell,
@@ -276,6 +285,14 @@ a.cta-btn--fluid {
 .expand-btn__icon {
     align-self: center;
     line-height: normal;
+
+    &:first-child {
+        margin-right: 8px;
+    }
+
+    &:last-child {
+        margin-left: 8px;
+    }
 }
 
 svg.cta-btn__icon {
@@ -287,25 +304,16 @@ svg.cta-btn__icon {
     width: 9.75px;
 }
 
-.btn__icon,
-.fake-btn__icon,
-.cta-btn__icon,
-.expand-btn__icon {
-    &:first-child {
-        margin-right: 8px;
-    }
-
-    &:last-child {
-        margin-left: 8px;
-    }
-}
-
 span.expand-btn__icon {
-    .icon-chevron-down(8px, 100%);
+    .background-icon-base;
+    .icon-chevron-down-bold(9px, 5.2px);
 
     background-position-y: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     flex-shrink: 0;
     margin-left: 8px;
+
+    &:only-child {
+        display: flex;
+        margin: 0;
+    }
 }

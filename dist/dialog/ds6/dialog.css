@@ -8,14 +8,16 @@
   right: 0;
   top: 0;
   will-change: background-color;
-  z-index: 1000;
+  z-index: 100000;
+}
+.dialog--no-mask[role="dialog"] {
+  background-color: transparent;
 }
 .dialog__window {
-  background-color: #fff;
   left: 0;
   margin: auto;
-  margin-bottom: 15vh;
   min-height: 55px;
+  padding-bottom: 15vh;
   position: absolute;
   right: 0;
   top: 15%;
@@ -24,14 +26,29 @@
   min-width: calc(75% - 7px);
   max-width: calc(100% - 7px);
 }
+.dialog__window::before {
+  background-color: #fff;
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .dialog__window--full,
 .dialog__window--left,
 .dialog__window--right {
+  background-color: #fff;
   bottom: 0;
-  margin-bottom: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
+  padding-bottom: 0;
   top: 0;
+}
+.dialog__window--full::before,
+.dialog__window--left::before,
+.dialog__window--right::before {
+  display: none;
 }
 .dialog__window--full .dialog__body,
 .dialog__window--left .dialog__body,
@@ -44,7 +61,6 @@
   float: right;
   position: -webkit-sticky;
   position: sticky;
-  z-index: 1;
 }
 .dialog__window--fill {
   min-height: 70vh;
@@ -72,6 +88,7 @@
   box-sizing: border-box;
   margin: 16px;
   min-height: 100%;
+  position: relative;
 }
 .dialog__close {
   background-color: #fff;
@@ -83,6 +100,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 1;
 }
 .dialog__close:hover,
 .dialog__close:focus {
