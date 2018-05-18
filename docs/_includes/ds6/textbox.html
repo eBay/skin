@@ -3,7 +3,7 @@
     <p>A textbox (also known as an <em>input</em>) allows the user to enter data.</p>
     <p>The purpose of a textbox is to collect form data. Therefore, textbox should always be used in conjunction with a form, label and submit button.</p>
 
-    <p><strong>IMPORTANT:</strong> The examples below show the textbox in isolation, without any label. Please see the <a href="#field">field</a> module for details on labelling controls. Remember: every textbox requires a label!</p>
+    <p><strong>IMPORTANT:</strong> The examples below show the textbox in isolation, without any label. Remember: every textbox requires a label!</p>
 
     <h3>Single-Line Textbox</h3>
     <p>Use an input tag for a single-line textbox.</p>
@@ -18,6 +18,38 @@
     {% highlight html %}
 <span class="textbox">
     <input class="textbox__control" type="text" placeholder="placeholder text" />
+</span>
+    {% endhighlight %}
+
+    <h3>Disabled Textbox</h3>
+    <p>Use the <span class="highlight">disabled</span> attribute to disable any input.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <input aria-label="Demo Textbox" class="textbox__control" type="text" placeholder="placeholder text" disabled />
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <input class="textbox__control" type="text" placeholder="placeholder text" disabled />
+</span>
+    {% endhighlight %}
+
+    <h3>Textbox with error</h3>
+    <p>Use the <span class="highlight">aria-invalid</span> attribute to highlight any input with error.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <input aria-label="Demo Textbox" class="textbox__control" type="text" placeholder="placeholder text" aria-invalid="true" />
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <input class="textbox__control" type="text" placeholder="placeholder text" aria-invalid="true" />
 </span>
     {% endhighlight %}
 
@@ -76,6 +108,29 @@
     <input class="textbox__control" type="text" placeholder="placeholder text" />
 </span>
     {% endhighlight %}
+
+    <p>Use <span class="highlight">textbox--icon-end</span> modifier to position the icon after the control.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox textbox--icon-end">
+                <input class="textbox__control" type="text" placeholder="placeholder text" />
+                <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+                    <use xlink:href="#icon-messages"></use>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox textbox--icon-end">
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
+    <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+        <use xlink:href="#icon-messages"></use>
+    </svg>
+</span>
+    {% endhighlight %}
+
 
     <p><strong>NOTE:</strong> The icon is presentational, and therefore hidden from assistive technology using <span class="highlight">aria-hidden</span>. Remember, the purpose of the field must be conveyed using a label.</p>
 
