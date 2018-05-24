@@ -1,0 +1,169 @@
+<div id="floated-label">
+    <h2><span class="secondary-text">@ebay/skin/</span>floated-label</h2>
+    <p>The floating label module facilitates the layout of a floating label for textbox.</p>
+
+    <h3>Default input</h3>
+    <p>Use the <span class="highlight">floated-label</span> &amp; <span class="highlight">floated-label__label--floated</span> classes to enable the floating label behavior.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floated-label">
+                <label class="floated-label__label floated-label__label--floated" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--floated" id="firstName" type="text" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floated-label">
+    <label class="floated-label__label floated-label__label--floated" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--floated" id="firstName" type="text" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Input with default value</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floated-label">
+                <label class="floated-label__label floated-label__label--floated" for="lastName">Last Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--floated" id="lastName" type="text" value="Smith" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floated-label">
+    <label class="floated-label__label floated-label__label--floated" for="lastName">Last Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--floated" id="lastName" type="text" value="Smith" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Input with placeholder</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floated-label">
+                <label class="floated-label__label floated-label__label--floated" for="dob">Date Of Birth</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--floated" id="dob" type="text" placeholder="MM/DD/YYYY" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floated-label">
+    <label class="floated-label__label floated-label__label--floated" for="dob">Date Of Birth</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--floated" id="dob" type="text" placeholder="MM/DD/YYYY" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Disabled input</h3>
+    <p>Use the <span class="highlight">disabled</span> &amp; <span class="hightlight">floated-label__label--disabled</span> attribute on the input element and the label element respectively to disable the input.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floated-label">
+                <label class="floated-label__label floated-label__label--floated floated-label__label--disabled" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--floated" id="firstName" type="text" disabled />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floated-label">
+    <label class="floated-label__label floated-label__label--floated floated-label__label--disabled" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--floated" id="firstName" type="text" disabled />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Invalid input</h3>
+    <p>Use the <span class="highlight">[aria-invalid="true"]</span> attribute to highlight any input with error.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floated-label">
+                <label class="floated-label__label floated-label__label--floated" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--floated" id="firstName" type="text" aria-invalid="true" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floated-label">
+    <label class="floated-label__label floated-label__label--floated" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--floated" id="firstName" type="text" aria-invalid="true" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="floated-label-js">Required JavaScript</h3>
+    <p>There are 2 ways to implement floating labels, via. CSS or JS. The CSS solution had two constraints, <span class="highlight">label</span> had to come after <span class="highlight">input</span> tags
+    and required hacks to make it work in IE/Edge. So Skin decided to use the JavaScript option.
+    </p>
+    <p>First the <span class="highlight">--floated</span> modifier must be applied to label tag. This was done to support the case where JavaScript is disabled. In this case, the label would always be floated
+    to allow users to interact with the input. In case JavaScript is enabled, on page load, the above modifier would be kept if the input has a default value or removed if the input had none.
+    The <span class="highlight">--floated</span> modifier is then toggled using event listeners for <span class="highlight">focus</span> &amp; <span class="highlight">blur</span>.
+    </p>
+
+    <p>An example implementation is shown below.</p>
+
+    {% highlight js %}
+window.addEventListener('load', function() {
+    toggleFloatingLabels();
+});
+
+function toggleFloatingLabels() {
+    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
+    inputEls.forEach(function(input) {
+        const siblingLabel = input.parentNode.parentNode.querySelector('.floated-label__label');
+        if (!input.value) {
+            siblingLabel.classList.remove('floated-label__label--floated');
+        }
+    });
+}
+
+const inputWrapper = document.querySelector('#floated-label');
+inputWrapper.addEventListener('focus', function (event) {
+    const inputEl = event.target;
+    if (!inputEl.classList.contains('textbox__control')) {
+        event.stopPropagation();
+    }
+
+    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    siblingLabel.classList.add('floated-label__label--floated');
+}, true);
+
+inputWrapper.addEventListener('blur', function (event) {
+    const inputEl = event.target;
+    if (!inputEl.classList.contains('textbox__control')) {
+        event.stopPropagation();
+    }
+
+    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    if (inputEl.value !== '') {
+        siblingLabel.classList.add('floated-label__label--floated');
+    } else {
+        siblingLabel.classList.remove('floated-label__label--floated');
+    }
+}, true);
+    {% endhighlight %}
+</div>

@@ -213,6 +213,50 @@ window.addEventListener('resize', debounce(function() {
 
 window.addEventListener('load', function() {
     fixTheSidebar();
-
+    toggleFloatingLabels();
     window.addEventListener('scroll', fixTheSidebar);
 });
+
+function toggleFloatingLabels() {
+    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
+
+    for (var index = 0; index < inputEls.length; index++) {
+        const element = inputEls[index];
+        const siblingLabel = element.parentNode.parentNode.querySelector('.floated-label__label');
+        if (!element.value) {
+            siblingLabel.classList.remove('floated-label__label--floated');
+        }
+    }
+    // IE 11 doesn't support forEach on NodeList
+    // inputEls.forEach(function(input) {
+    //     const siblingLabel = input.parentNode.parentNode.querySelector('.floated-label__label');
+    //     if (!input.value) {
+    //         siblingLabel.classList.remove('floated-label__label--floated');
+    //     }
+    // });
+}
+
+const inputWrapper = document.querySelector('#floated-label');
+inputWrapper.addEventListener('focus', function (event) {
+    const inputEl = event.target;
+    if (!inputEl.classList.contains('textbox__control')) {
+        event.stopPropagation();
+    }
+
+    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    siblingLabel.classList.add('floated-label__label--floated');
+}, true);
+
+inputWrapper.addEventListener('blur', function (event) {
+    const inputEl = event.target;
+    if (!inputEl.classList.contains('textbox__control')) {
+        event.stopPropagation();
+    }
+
+    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    if (inputEl.value !== '') {
+        siblingLabel.classList.add('floated-label__label--floated');
+    } else {
+        siblingLabel.classList.remove('floated-label__label--floated');
+    }
+}, true);
