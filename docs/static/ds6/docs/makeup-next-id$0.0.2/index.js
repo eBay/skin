@@ -1,0 +1,1 @@
+$_mod.def("/makeup-next-id$0.0.2/index",function(i,t,d,e,n){"use strict";var o={};d.exports=function(i){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"nid",d=""===t?"nid":t;o[d]=o[d]||0,i.id||i.setAttribute("id",d+"-"+o[d]++)}});

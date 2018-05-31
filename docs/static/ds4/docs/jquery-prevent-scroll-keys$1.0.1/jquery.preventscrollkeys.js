@@ -1,0 +1,1 @@
+!function(e,n,o,t){e.fn.preventScrollKeys=function(n){return this.each(function(){e(this).on("keydown",n,function(e){(e.keyCode>=32&&e.keyCode<=36||38===e.keyCode||40===e.keyCode)&&e.preventDefault()})})}}(jQuery,window,document);

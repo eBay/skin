@@ -1,0 +1,1 @@
+$_mod.def("/makeup-prevent-scroll-keys$0.0.2/index",function(e,n,o,t,d){"use strict";function r(e){(e.keyCode>=32&&e.keyCode<=36||38===e.keyCode||40===e.keyCode)&&e.preventDefault()}function i(e){e.addEventListener("keydown",r)}function k(e){e.removeEventListener("keydown",r)}o.exports={add:i,remove:k}});
