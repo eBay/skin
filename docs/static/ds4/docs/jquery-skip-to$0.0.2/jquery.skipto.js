@@ -1,0 +1,1 @@
+!function(n,t,i,o){n.fn.skipTo=function(){return this.each(function(){var i=n(this),o=i.find("a"),e=o.attr("href"),u=n(e);o.on("click",function(){u.attr("tabindex","-1"),t.setTimeout(function(){u.focus()},5),u.one("blur",function(){u.removeAttr("tabindex")})})})}}(jQuery,window,document);

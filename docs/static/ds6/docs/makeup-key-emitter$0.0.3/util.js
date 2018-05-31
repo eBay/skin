@@ -1,0 +1,1 @@
+$_mod.def("/makeup-key-emitter$0.0.3/util",function(e,r,t,o,a){"use strict";function i(e){return e.charAt(0).toLowerCase()+e.slice(1)}var n={13:"Enter",27:"Escape",32:"Spacebar",33:"PageUp",34:"PageDown",35:"End",36:"Home",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown"};t.exports={keyCodeToKeyMap:n,uncapitalizeFirstLetter:i}});

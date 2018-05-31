@@ -1,0 +1,1 @@
+!function(e){e.fn.tooltip=function(t){return t=e.extend({overlaySelector:".tooltip__overlay, [role=tooltip]",triggerSelector:".tooltip__trigger, [aria-describedby]"},t),this.each(function(){var o=e(this),r={expandedClass:"tooltip--expanded",triggerSelector:t.triggerSelector,overlaySelector:t.overlaySelector};o.hoverFlyout(r).focusFlyout(r),o.addClass("tooltip--js")})}}(jQuery);

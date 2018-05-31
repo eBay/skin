@@ -1,0 +1,1 @@
+$_mod.run("/custom-event-polyfill$0.3.0/custom-event-polyfill");

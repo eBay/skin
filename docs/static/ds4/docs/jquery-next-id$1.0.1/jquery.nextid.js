@@ -1,0 +1,1 @@
+!function(n,t,e,f){var i={};n.fn.nextId=function(t){return t=t||n.fn.nextId.defaults.prefix,i[t]=i[t]||0,this.filter(function(){return!this.id}).each(function(){n(this).prop("id",t+n.fn.nextId.defaults.separator+i[t]++)})}}(jQuery,window,document),$.fn.nextId.defaults={prefix:"nid",separator:"-"};
