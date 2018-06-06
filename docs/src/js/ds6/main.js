@@ -213,47 +213,67 @@ window.addEventListener('resize', debounce(function() {
 
 window.addEventListener('load', function() {
     fixTheSidebar();
+
+    // On page load, float the label based on whether the input has default value or not.
     toggleFloatingLabels();
     window.addEventListener('scroll', fixTheSidebar);
 });
 
-function toggleFloatingLabels() {
-    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
-
-    for (var index = 0; index < inputEls.length; index++) {
-        const element = inputEls[index];
-        const siblingLabel = element.parentNode.parentNode.querySelector('.floated-label__label');
-        if (!element.value) {
-            siblingLabel.classList.remove('floated-label__label--floated');
-        }
+/*
+    <span.2ndParent>
+        <label>
+        <span.1stParent>
+            <input>
+        </span>
+    </span>
+    Since the floated class needs to be applied to label,
+    which is one level up the input tag, in order to get the label,
+    we need to go 2 levels up from the input, hence the code to parentNode.parentNode
+*/
+function getParentContainer(el) {
+    if (!el) {
+        return null;
     }
-    // IE 11 doesn't support forEach on NodeList
-    // inputEls.forEach(function(input) {
-    //     const siblingLabel = input.parentNode.parentNode.querySelector('.floated-label__label');
-    //     if (!input.value) {
-    //         siblingLabel.classList.remove('floated-label__label--floated');
-    //     }
-    // });
+
+    return el.parentNode ? el.parentNode.parentNode : null;
 }
 
+// This method 'floats' the label if the input tag has a default value else places it on top of the input.
+function toggleFloatingLabels() {
+    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
+    nodeListToArray(inputEls).forEach(function(input) {
+        const siblingLabel = getParentContainer(input).querySelector('.floated-label__label');
+        if (!input.value) {
+            siblingLabel.classList.remove('floated-label__label--floated');
+        }
+    });
+}
+
+// Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
 const inputWrapper = document.querySelector('#floated-label');
+// This event listener adds the floated class to the label when the focus event gets fired.
 inputWrapper.addEventListener('focus', function (event) {
     const inputEl = event.target;
     if (!inputEl.classList.contains('textbox__control')) {
         event.stopPropagation();
     }
 
-    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
     siblingLabel.classList.add('floated-label__label--floated');
 }, true);
 
+/*
+* When the blur event gets fired, this event listener checks:-
+* 1. if input has a value, the floated class is applied to the label
+* 2. if input has no value, the floated class is removed from the label
+*/
 inputWrapper.addEventListener('blur', function (event) {
     const inputEl = event.target;
     if (!inputEl.classList.contains('textbox__control')) {
         event.stopPropagation();
     }
 
-    const siblingLabel = inputEl.parentNode.parentNode.querySelector('.floated-label__label');
+    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
     if (inputEl.value !== '') {
         siblingLabel.classList.add('floated-label__label--floated');
     } else {
