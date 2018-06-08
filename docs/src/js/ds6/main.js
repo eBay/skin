@@ -214,7 +214,7 @@ window.addEventListener('resize', debounce(function() {
 window.addEventListener('load', function() {
     fixTheSidebar();
 
-    // On page load, float the label based on whether the input has default value or not.
+    // On page load, inline the label based on whether the input has value or not.
     toggleFloatingLabels();
     window.addEventListener('scroll', fixTheSidebar);
 });
@@ -226,8 +226,7 @@ window.addEventListener('load', function() {
             <input>
         </span>
     </span>
-    Since the floated class needs to be applied to label,
-    which is one level up the input tag, in order to get the label,
+    The event listeners are on the input, so in order to get the label,
     we need to go 2 levels up from the input, hence the code to parentNode.parentNode
 */
 function getParentContainer(el) {
@@ -238,20 +237,21 @@ function getParentContainer(el) {
     return el.parentNode ? el.parentNode.parentNode : null;
 }
 
-// This method 'floats' the label if the input tag has a default value else places it on top of the input.
+// This method inlines the label if the input tag has no default value else keeps it floated it on top of the input.
 function toggleFloatingLabels() {
     const inputEls = document.querySelectorAll('.floated-label .textbox__control');
     nodeListToArray(inputEls).forEach(function(input) {
         const siblingLabel = getParentContainer(input).querySelector('.floated-label__label');
         if (!input.value) {
-            siblingLabel.classList.remove('floated-label__label--floated');
+            siblingLabel.classList.add('floated-label__label--inline');
         }
     });
 }
 
 // Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
 const inputWrapper = document.querySelector('#floated-label');
-// This event listener adds the floated class to the label when the focus event gets fired.
+
+// This event listener removes the inline class from the label when the focus event gets fired.
 inputWrapper.addEventListener('focus', function (event) {
     const inputEl = event.target;
     if (!inputEl.classList.contains('textbox__control')) {
@@ -259,13 +259,13 @@ inputWrapper.addEventListener('focus', function (event) {
     }
 
     const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
-    siblingLabel.classList.add('floated-label__label--floated');
+    siblingLabel.classList.remove('floated-label__label--inline');
 }, true);
 
 /*
 * When the blur event gets fired, this event listener checks:-
-* 1. if input has a value, the floated class is applied to the label
-* 2. if input has no value, the floated class is removed from the label
+* 1. if input has a value, the inline class is removed from the label
+* 2. if input has no value, the inline class is added to the label
 */
 inputWrapper.addEventListener('blur', function (event) {
     const inputEl = event.target;
@@ -275,8 +275,8 @@ inputWrapper.addEventListener('blur', function (event) {
 
     const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
     if (inputEl.value !== '') {
-        siblingLabel.classList.add('floated-label__label--floated');
+        siblingLabel.classList.remove('floated-label__label--inline');
     } else {
-        siblingLabel.classList.remove('floated-label__label--floated');
+        siblingLabel.classList.add('floated-label__label--inline');
     }
 }, true);
