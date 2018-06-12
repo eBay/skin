@@ -240,7 +240,7 @@ function toggleFloatingLabels() {
 }
 
 // Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
-const inputWrapper = document.querySelector('#floated-label');
+const inputWrapper = document.querySelector('#label');
 
 // This event listener removes the inline class from the label when the focus event gets fired.
 inputWrapper.addEventListener('focus', function (event) {
