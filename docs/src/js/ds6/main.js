@@ -219,16 +219,7 @@ window.addEventListener('load', function() {
     window.addEventListener('scroll', fixTheSidebar);
 });
 
-/*
-    <span.2ndParent>
-        <label>
-        <span.1stParent>
-            <input>
-        </span>
-    </span>
-    The event listeners are on the input, so in order to get the label,
-    we need to go 2 levels up from the input, hence the code to parentNode.parentNode
-*/
+// Trying to get the label which is input's ancestor
 function getParentContainer(el) {
     if (!el) {
         return null;
@@ -259,6 +250,12 @@ inputWrapper.addEventListener('focus', function (event) {
     }
 
     const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
+
+    // In order to avoid animating the label on page, the animate class is added later
+    if (!siblingLabel.classList.contains('floated-label__label--animate')) {
+        siblingLabel.classList.add('floated-label__label--animate');
+    }
+
     siblingLabel.classList.remove('floated-label__label--inline');
 }, true);
 

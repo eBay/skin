@@ -116,12 +116,10 @@
     {% endhighlight %}
 
     <h3 id="floated-label-js">Required JavaScript</h3>
-    <p>There are 2 ways to implement floating labels, via. CSS or JS. The CSS solution had two constraints, <span class="highlight">label</span> had to come after <span class="highlight">input</span> tags
-    and required hacks to make it work in IE/Edge. So Skin decided to use the JavaScript option.
-    </p>
     <p>Apply the <span class="highlight">floated-label__label</span> class to the label tag. This was done to support the case where JavaScript is disabled. This would ensure that the label is always floated by default,
     to allow users to interact with the input. In case JavaScript is enabled, on page load, the <span class="highlight">--inline</span> modifier would be added if the input has no default value to make the label inline.
     The <span class="highlight">--inline</span> modifier is then toggled using event listeners for <span class="highlight">focus</span> &amp; <span class="highlight">blur</span>.
+    The <span class="highlight">--animate</span> modifier is added on focus to animate the floating behavior.
     </p>
 
     <p>An example implementation is shown below.</p>
@@ -132,16 +130,7 @@ window.addEventListener('load', function() {
     toggleFloatingLabels();
 });
 
-/*
-    <span.2ndParent>
-        <label>
-        <span.1stParent>
-            <input>
-        </span>
-    </span>
-    The event listeners are on the input, so in order to get the label,
-    we need to go 2 levels up from the input, hence the code to parentNode.parentNode
-*/
+// Trying to get the label which is input's ancestor
 function getParentContainer(el) {
     if (!el) {
         return null;
@@ -163,6 +152,7 @@ function toggleFloatingLabels() {
 
 // Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
 const inputWrapper = document.querySelector('#floated-label');
+
 // This event listener removes the inline class from the label when the focus event gets fired.
 inputWrapper.addEventListener('focus', function (event) {
     const inputEl = event.target;
@@ -171,6 +161,12 @@ inputWrapper.addEventListener('focus', function (event) {
     }
 
     const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
+
+    // In order to avoid animating the label on page, the animate class is added later
+    if (!siblingLabel.classList.contains('floated-label__label--animate')) {
+        siblingLabel.classList.add('floated-label__label--animate');
+    }
+
     siblingLabel.classList.remove('floated-label__label--inline');
 }, true);
 
