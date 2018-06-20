@@ -7,6 +7,7 @@ var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 var modal = require('makeup-modal');
 var transition = require("./transition");
+var FloatingLabel = require('makeup-floating-label');
 
 // util function
 function nodeListToArray(nodeList) {
@@ -214,66 +215,9 @@ window.addEventListener('resize', debounce(function() {
 window.addEventListener('load', function() {
     fixTheSidebar();
 
-    // On page load, inline the label based on whether the input has value or not.
-    toggleFloatingLabels();
     window.addEventListener('scroll', fixTheSidebar);
 });
 
-// Trying to get the label which is input's ancestor
-function getParentContainer(el) {
-    if (!el) {
-        return null;
-    }
-
-    return el.parentNode ? el.parentNode.parentNode : null;
-}
-
-// This method inlines the label if the input tag has no default value else keeps it floated it on top of the input.
-function toggleFloatingLabels() {
-    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
-    nodeListToArray(inputEls).forEach(function(input) {
-        const siblingLabel = getParentContainer(input).querySelector('.floated-label__label');
-        if (!input.value) {
-            siblingLabel.classList.add('floated-label__label--inline');
-        }
-    });
-}
-
-// Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
-const inputWrapper = document.querySelector('#label');
-
-// This event listener removes the inline class from the label when the focus event gets fired.
-inputWrapper.addEventListener('focus', function (event) {
-    const inputEl = event.target;
-    if (!inputEl.classList.contains('textbox__control')) {
-        event.stopPropagation();
-    }
-
-    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
-
-    // In order to avoid animating the label on page, the animate class is added later
-    if (!siblingLabel.classList.contains('floated-label__label--animate')) {
-        siblingLabel.classList.add('floated-label__label--animate');
-    }
-
-    siblingLabel.classList.remove('floated-label__label--inline');
-}, true);
-
-/*
-* When the blur event gets fired, this event listener checks:-
-* 1. if input has a value, the inline class is removed from the label
-* 2. if input has no value, the inline class is added to the label
-*/
-inputWrapper.addEventListener('blur', function (event) {
-    const inputEl = event.target;
-    if (!inputEl.classList.contains('textbox__control')) {
-        event.stopPropagation();
-    }
-
-    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
-    if (inputEl.value !== '') {
-        siblingLabel.classList.remove('floated-label__label--inline');
-    } else {
-        siblingLabel.classList.add('floated-label__label--inline');
-    }
-}, true);
+nodeListToArray(document.querySelectorAll('.floating-label')).forEach(function(el) {
+    var floatingLabel = new FloatingLabel(el);
+});
