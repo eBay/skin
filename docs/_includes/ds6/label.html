@@ -1,14 +1,14 @@
 <div id="label">
     <h2><span class="secondary-text">@ebay/skin/</span>label</h2>
-    <p>The floating label module facilitates the layout of a floating label for textbox.</p>
+    <p>The label module consists of a "floating label" for textbox. Floating labels appear to sit <em>inside</em> the textbox when it has no value or focus, and sit <em>above</em> the textbox otherwise.</p>
 
-    <h3>Default input</h3>
-    <p>Use the <span class="highlight">floated-label</span> class to enable the floating label behavior.</p>
+    <h3>Floating Label with no Value</h3>
+    <p>If the textbox has no value, the label can be positioned inside the textbox.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floated-label">
-                <label class="floated-label__label" for="firstName">First Name</label>
+            <span class="floating-label">
+                <label class="floating-label__label" for="firstName">First Name</label>
                 <span class="textbox">
                     <input class="textbox__control textbox__control--underline" id="firstName" type="text" />
                 </span>
@@ -17,20 +17,21 @@
     </div>
 
     {% highlight html %}
-<span class="floated-label">
-    <label class="floated-label__label" for="firstName">First Name</label>
+<span class="floating-label">
+    <label class="floating-label__label" for="firstName">First Name</label>
     <span class="textbox">
         <input class="textbox__control textbox__control--underline" id="firstName" type="text" />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Input with default value</h3>
+    <h3>Floating Label with Value</h3>
+    <p>If the textbox has a value, the label must be positioned above the textbox.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floated-label">
-                <label class="floated-label__label" for="lastName">Last Name</label>
+            <span class="floating-label">
+                <label class="floating-label__label" for="lastName">Last Name</label>
                 <span class="textbox">
                     <input class="textbox__control textbox__control--underline" id="lastName" type="text" value="Smith" />
                 </span>
@@ -39,20 +40,21 @@
     </div>
 
     {% highlight html %}
-<span class="floated-label">
-    <label class="floated-label__label" for="lastName">Last Name</label>
+<span class="floating-label">
+    <label class="floating-label__label" for="lastName">Last Name</label>
     <span class="textbox">
         <input class="textbox__control textbox__control--underline" id="lastName" type="text" value="Smith" />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Input with placeholder</h3>
+    <h3>Floating Label with Placeholder</h3>
+    <p>The placeholder always remains obscured until the textbox gains focus.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floated-label">
-                <label class="floated-label__label" for="dob">Date Of Birth</label>
+            <span class="floating-label">
+                <label class="floating-label__label" for="dob">Date Of Birth</label>
                 <span class="textbox">
                     <input class="textbox__control textbox__control--underline" id="dob" type="text" placeholder="MM/DD/YYYY" />
                 </span>
@@ -61,21 +63,21 @@
     </div>
 
     {% highlight html %}
-<span class="floated-label">
-    <label class="floated-label__label" for="dob">Date Of Birth</label>
+<span class="floating-label">
+    <label class="floating-label__label" for="dob">Date Of Birth</label>
     <span class="textbox">
         <input class="textbox__control textbox__control--underline" id="dob" type="text" placeholder="MM/DD/YYYY" />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Disabled input</h3>
-    <p>Use the <span class="highlight">disabled</span> &amp; <span class="hightlight">floated-label__label--disabled</span> attribute on the input element and the label element respectively to disable the input.</p>
+    <h3>Floating Label with Disabled Textbox</h3>
+    <p>Use the <span class="highlight">disabled</span> property &amp; <span class="highlight">floating-label__label--disabled</span> modifier on the input element and the label element respectively to disable the input.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floated-label">
-                <label class="floated-label__label floated-label__label--disabled" for="firstName">First Name</label>
+            <span class="floating-label">
+                <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
                 <span class="textbox">
                     <input class="textbox__control textbox__control--underline" id="firstName" type="text" disabled />
                 </span>
@@ -84,21 +86,21 @@
     </div>
 
     {% highlight html %}
-<span class="floated-label">
-    <label class="floated-label__label floated-label__label--disabled" for="firstName">First Name</label>
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
     <span class="textbox">
         <input class="textbox__control textbox__control--underline" id="firstName" type="text" disabled />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Invalid input</h3>
-    <p>Use the <span class="highlight">[aria-invalid="true"]</span> attribute to highlight any input with error.</p>
+    <h3>Floating Label with Invalid Textbox</h3>
+    <p>Set the <span class="highlight">aria-invalid</span> property to <span class="highlight">true</span> to semantically and visually highlight the invalid state.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floated-label">
-                <label class="floated-label__label" for="firstName">First Name</label>
+            <span class="floating-label">
+                <label class="floating-label__label" for="firstName">First Name</label>
                 <span class="textbox">
                     <input class="textbox__control textbox__control--underline" id="firstName" type="text" aria-invalid="true" />
                 </span>
@@ -107,86 +109,17 @@
     </div>
 
     {% highlight html %}
-<span class="floated-label">
-    <label class="floated-label__label" for="firstName">First Name</label>
+<span class="floating-label">
+    <label class="floating-label__label" for="firstName">First Name</label>
     <span class="textbox">
         <input class="textbox__control textbox__control--underline" id="firstName" type="text" aria-invalid="true" />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3 id="floated-label-js">Required JavaScript</h3>
-    <p>Apply the <span class="highlight">floated-label__label</span> class to the label tag. This was done to support the case where JavaScript is disabled. This would ensure that the label is always floated by default,
-    to allow users to interact with the input. In case JavaScript is enabled, on page load, the <span class="highlight">--inline</span> modifier would be added if the input has no default value to make the label inline.
-    The <span class="highlight">--inline</span> modifier is then toggled using event listeners for <span class="highlight">focus</span> &amp; <span class="highlight">blur</span>.
-    The <span class="highlight">--animate</span> modifier is added on focus to animate the floating behavior.
-    </p>
-
-    <p>An example implementation is shown below.</p>
-
-    {% highlight js %}
-window.addEventListener('load', function() {
-    // On page load, inline the label based on whether the input has value or not.
-    toggleFloatingLabels();
-});
-
-// Trying to get the label which is input's ancestor
-function getParentContainer(el) {
-    if (!el) {
-        return null;
-    }
-
-    return el.parentNode ? el.parentNode.parentNode : null;
-}
-
-// This method inlines the label if the input tag has no default value else keeps it floated it on top of the input.
-function toggleFloatingLabels() {
-    const inputEls = document.querySelectorAll('.floated-label .textbox__control');
-    nodeListToArray(inputEls).forEach(function(input) {
-        const siblingLabel = getParentContainer(input).querySelector('.floated-label__label');
-        if (!input.value) {
-            siblingLabel.classList.add('floated-label__label--inline');
-        }
-    });
-}
-
-// Make sure to attach event listeners to the parent container of the inputs, which usually would be the <form> tag
-const inputWrapper = document.querySelector('#floated-label');
-
-// This event listener removes the inline class from the label when the focus event gets fired.
-inputWrapper.addEventListener('focus', function (event) {
-    const inputEl = event.target;
-    if (!inputEl.classList.contains('textbox__control')) {
-        event.stopPropagation();
-    }
-
-    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
-
-    // In order to avoid animating the label on page, the animate class is added later
-    if (!siblingLabel.classList.contains('floated-label__label--animate')) {
-        siblingLabel.classList.add('floated-label__label--animate');
-    }
-
-    siblingLabel.classList.remove('floated-label__label--inline');
-}, true);
-
-/*
-* When the blur event gets fired, this event listener checks:-
-* 1. if input has a value, the inline class is removed from the label
-* 2. if input has no value, the inline class is added to the label
-*/
-inputWrapper.addEventListener('blur', function (event) {
-    const inputEl = event.target;
-    if (!inputEl.classList.contains('textbox__control')) {
-        event.stopPropagation();
-    }
-
-    const siblingLabel = getParentContainer(inputEl).querySelector('.floated-label__label');
-    if (inputEl.value !== '') {
-        siblingLabel.classList.remove('floated-label__label--inline');
-    } else {
-        siblingLabel.classList.add('floated-label__label--inline');
-    }
-}, true);
-    {% endhighlight %}
+    <h3 id="floating-label-transitions">Floating Label Transitions</h3>
+    <p>By default, with only the base markup shown above, the label remains in a floating state above the input. This default state ensures that the label does not obscure the textbox value while we wait for JavaScript.</p>
+    <p>When JavaScript is ready, the label can be re-positioned inside the textbox by adding the <span class="highlight">floating-label__label--inline</span> modifier class. By default, this re-positioning of label happens instantly, without a transition. Typically, we do not want to show transitions on the initial page render, as this might be too jarring and distracting for some users.</p>
+    <p>To opt into transitions after the initial render is complete, add the  <span class="highlight">floating-label__label--animate</span> modifier when the textbox receives focus.</p>
+    <p>The examples above use <a href="https://github.com/makeup-js/makeup-floating-label">makeup-floating-label</a>, a simple JavaScript module that adds the aforementioned logic. Feel free to use this module or use it as the basis to roll your own.</p>
 </div>
