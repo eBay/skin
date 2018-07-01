@@ -54,6 +54,18 @@
     }
 }
 
+// Bug #229 in ebayui-core: adding a pseudo-element fixes the second click/touch to close the menu
+.combobox__control::after {
+    content: '';
+    background-color: transparent;
+    display: inline-block;
+    height: @combobox-height;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 span.combobox__icon {
     .background-icon-base;
     .icon-chevron-down-bold(9px, @combobox-height);
