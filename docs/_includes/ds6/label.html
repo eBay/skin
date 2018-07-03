@@ -1,0 +1,125 @@
+<div id="label">
+    <h2><span class="secondary-text">@ebay/skin/</span>label</h2>
+    <p>The label module consists of a "floating label" for textbox. Floating labels appear to sit <em>inside</em> the textbox when it has no value or focus, and sit <em>above</em> the textbox otherwise.</p>
+
+    <h3>Floating Label with no Value</h3>
+    <p>If the textbox has no value, the label can be positioned inside the textbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--underline" id="firstName" type="text" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--underline" id="firstName" type="text" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Value</h3>
+    <p>If the textbox has a value, the label must be positioned above the textbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="lastName">Last Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--underline" id="lastName" type="text" value="Smith" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="lastName">Last Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--underline" id="lastName" type="text" value="Smith" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Placeholder</h3>
+    <p>The placeholder always remains obscured until the textbox gains focus.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="dob">Date Of Birth</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--underline" id="dob" type="text" placeholder="MM/DD/YYYY" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="dob">Date Of Birth</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--underline" id="dob" type="text" placeholder="MM/DD/YYYY" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Disabled Textbox</h3>
+    <p>Use the <span class="highlight">disabled</span> property &amp; <span class="highlight">floating-label__label--disabled</span> modifier on the input element and the label element respectively to disable the input.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--underline" id="firstName" type="text" disabled />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--underline" id="firstName" type="text" disabled />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Invalid Textbox</h3>
+    <p>Set the <span class="highlight">aria-invalid</span> property to <span class="highlight">true</span> to semantically and visually highlight the invalid state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="firstName">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--underline" id="firstName" type="text" aria-invalid="true" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control textbox__control--underline" id="firstName" type="text" aria-invalid="true" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="floating-label-transitions">Floating Label Transitions</h3>
+    <p>By default, with only the base markup shown above, the label remains in a floating state above the input. This default state ensures that the label does not obscure the textbox value while we wait for JavaScript.</p>
+    <p>When JavaScript is ready, the label can be re-positioned inside the textbox by adding the <span class="highlight">floating-label__label--inline</span> modifier class. By default, this re-positioning of label happens instantly, without a transition. Typically, we do not want to show transitions on the initial page render, as this might be too jarring and distracting for some users.</p>
+    <p>To opt into transitions after the initial render is complete, add the  <span class="highlight">floating-label__label--animate</span> modifier when the textbox receives focus.</p>
+    <p>The examples above use <a href="https://github.com/makeup-js/makeup-floating-label">makeup-floating-label</a>, a simple JavaScript module that adds the aforementioned logic. Feel free to use this module or use it as the basis to roll your own.</p>
+</div>

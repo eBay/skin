@@ -7,6 +7,7 @@ var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 var modal = require('makeup-modal');
 var transition = require("./transition");
+var FloatingLabel = require('makeup-floating-label');
 
 // util function
 function nodeListToArray(nodeList) {
@@ -215,4 +216,8 @@ window.addEventListener('load', function() {
     fixTheSidebar();
 
     window.addEventListener('scroll', fixTheSidebar);
+});
+
+nodeListToArray(document.querySelectorAll('.floating-label')).forEach(function(el) {
+    var floatingLabel = new FloatingLabel(el);
 });
