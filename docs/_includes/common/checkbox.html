@@ -3,6 +3,13 @@
     <p>A checkbox is a form control that allows the user to toggle a choice on or off.</p>
     <p>The purpose of a checkbox is to collect form data; therefore a checkbox should always be used in conjunction with a form, label and submit button.</p>
 
+    <ul class="module-toc cols">
+        <li><a href="#checkbox-default">Default<span class="clipped">Checkbox</span></a></li>
+        <li><a href="#checkbox-disabled">Disabled<span class="clipped">Checkbox</span></a></li>
+        <li><a href="#checkbox-group">Grouped<span class="clipped">Checkbox</span></a></li>
+        <li><a href="#checkbox-custom">Custom<span class="clipped">Checkbox</span></a></li>
+    </ul>
+
     <h3 id="checkbox-default">Default Checkbox</h3>
     <p>Use the <span class="highlight">checkbox</span> base class to create a checkbox.</p>
     <p>The checkbox is decoupled from it's real text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
@@ -28,7 +35,7 @@
     <div class="demo">
         <div class="demo__inner">
             <span class="checkbox">
-                <input aria-label="Disabled checkbox example" class="checkbox__control" disabled type="checkbox" name="checkbox-disabled" checked />
+                <input aria-label="Disabled checkbox example" class="checkbox__control" type="checkbox" name="checkbox-disabled" checked disabled />
                 <span class="checkbox__icon"></span>
             </span>
         </div>
@@ -101,72 +108,5 @@
 </fieldset>
     {% endhighlight %}
 
-    <h3 id="checkbox-color">Custom Colour Checkbox</h3>
-    <p>The default checkbox shown above uses an SVG background image, and therefore has a fixed colour. Inline SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the checkbox icon.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="checkbox" style="color: #71c63e">
-                <input aria-label="Custom color checkbox example" class="checkbox__control" type="checkbox" name="checkbox-custom-color" />
-                <span class="checkbox__icon" hidden>
-                    <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-                        <use xlink:href="#icon-checkbox-checked"></use>
-                    </svg>
-                </span>
-            </span>
-        </div>
-    </div>
-
-    {% highlight html %}
-<span class="checkbox" style="color: #71c63e">
-    <input class="checkbox__control" type="checkbox" />
-    <span class="checkbox__icon" hidden>
-        <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
-            <use xlink:href="#icon-checkbox-unchecked"></use>
-        </svg>
-        <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-            <use xlink:href="#icon-checkbox-checked"></use>
-        </svg>
-    </span>
-</span>
-    {% endhighlight %}
-
-    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> attribute ensures that the SVG icon is not visible if the page is in a non-CSS state; it also helps prevent a flash of unstyled content (FOUC).
-
-    <h3 id="checkbox-icon">Custom Icon Checkbox</h3>
-    <p>The checkbox module can use any inline SVG for it's checked and unchecked states.</p>
-    <p>Be careful when using a custom checkbox; the icon for each state must still give enough <em>affordance</em> to a user that it represents an interactive control.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="checkbox" style="color: #71c63e">
-                <input aria-label="Custom checkbox example" class="checkbox__control" name="checkbox-custom-icon" type="checkbox" />
-                <span class="checkbox__icon" hidden>
-                    <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
-                        <use xlink:href="#icon-save"></use>
-                    </svg>
-                    <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-                        <use xlink:href="#icon-save-selected"></use>
-                    </svg>
-                </span>
-            </span>
-        </div>
-    </div>
-
-    {% highlight html %}
-<span class="checkbox" style="color: #71c63e">
-    <input class="checkbox__control" name="checkbox-custom-icon" type="checkbox" />
-    <span class="checkbox__icon" hidden>
-        <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
-            <use xlink:href="#icon-save"></use>
-        </svg>
-        <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-            <use xlink:href="#icon-save-selected"></use>
-        </svg>
-    </span>
-</span>
-    {% endhighlight %}
+    {% include ds{{ page.ds}}/checkbox-custom.html %}
 </div>
