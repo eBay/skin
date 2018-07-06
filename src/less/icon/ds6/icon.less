@@ -1,9 +1,10 @@
+@import "../../less/mixins-common.less";
 @import "../../less/ds6/mixins.less";
 @import "../../less/ds6/variables.less";
 
 .icon {
     svg& {
-        .inline-icon-base;
+        .foreground-icon-base;
     }
 
     span& {
@@ -13,7 +14,8 @@
 
 .icon-mixin(@icon-string, @icon-mixin) {
     svg& {
-        .dimensions(~"@{ds6-@{icon-string}-width}", ~"@{ds6-@{icon-string}-height}");
+        height: ~"@{ds6-@{icon-string}-height}";
+        width: ~"@{ds6-@{icon-string}-width}";
     }
 
     span& {
@@ -62,11 +64,11 @@
 }
 
 .icon--checkbox-unchecked {
-    .icon-mixin('icon-checkbox-unchecked', { .icon-checkbox-unchecked() });
+    .icon-mixin('icon-checkbox-unchecked', { .ds6-icon-checkbox-unchecked() });
 }
 
 .icon--checkbox-checked {
-    .icon-mixin('icon-checkbox-checked', { .icon-checkbox-checked() });
+    .icon-mixin('icon-checkbox-checked', { .ds6-icon-checkbox-checked() });
 }
 
 .icon--radio-unchecked {
