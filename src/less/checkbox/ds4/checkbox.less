@@ -1,4 +1,28 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
 
-@import "checkbox-base.less";
+@import "../base/checkbox.less";
+
+.checkbox__control[type="checkbox"] {
+    &:checked {
+        & + .checkbox__icon:not([hidden]) {
+            .ds4-icon-checkbox-checked(1.125rem, 1.125rem);
+        }
+    }
+}
+
+.checkbox__icon {
+    &:not([hidden]) {
+        .ds4-icon-checkbox-unchecked(1.125rem, 1.125rem);
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-checkbox-checked-base64-light}');
+    }
+
+    .checkbox__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-checkbox-unchecked-base64-light}');
+    }
+}
