@@ -1,22 +1,41 @@
-// listbox text should NOT scale with root font-size, so all font-size defined with px
+// **************
+// SELECTORS ARE TRANSLATED FOR EBAYUI-CORE COMPONENTS, THEREFORE THIS ".listbox" IS ACTUALLY ".select"
+// **************
 
 // BEM blocks
 //-----------------------------
 
-.listbox {
+.select {
+    height: 40px;
     position: relative;
+
+    &::after {
+        .background-icon-base;
+        .icon-arrow-down(9px, 40px);
+
+        background-position: right calc(50% ~"-" 1px);
+        content: "";
+        margin-left: 8px;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 1px;
+    }
 }
 
-span.listbox {
+span.select {
     display: inline-block;
 }
 
-// BEM elements
-//-----------------------------
+@media screen and (-ms-high-contrast: white-on-black) {
+    .select::after {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64-light}');
+    }
+}
 
-select.listbox__control {
+.select > select {
     appearance: none;
-    background: @color-core-white;
+    background-color: @color-core-white;
     border: 1px solid @color-core-gray-silver;
     border-radius: 3px;
     box-sizing: border-box;
@@ -63,50 +82,29 @@ select.listbox__control {
     }
 }
 
-.listbox__icon {
-    // override "hidden" property/attribute
-    // we use hidden attribute to prevent SVG icon appearing alongside browser default icon in a non-CSS state
-    &[hidden] {
-        display: inline;
-    }
-
-    // also provide a sensible fallback incase hidden attribute is forgotten or removed
-    display: inline;
-
-    svg {
-        .foreground-icon-base(0.6em,100%);
-
-        color: @color-core-gray-davys;
-        pointer-events: none;
-        position: absolute;
-        right: 16px;
-        top: 0;
-    }
-}
-
 // BEM block modifiers
 //-----------------------------
 
-.listbox--small {
+.select--small {
     font-size: 12px;
 
-    select.listbox__control {
+    .select > select {
         height: @height-control-small;
     }
 }
 
-.listbox--large {
+.select--large {
     font-size: 16px;
 
-    select.listbox__control {
+    .select > select {
         height: @height-control-large;
     }
 }
 
-.listbox--extra-large {
+.select--extra-large {
     font-size: 18px;
 
-    select.listbox__control {
+    .select > select {
         height: @height-control-extra-large;
     }
 }
@@ -114,18 +112,16 @@ select.listbox__control {
 // BEM element modifiers
 //-----------------------------
 
-select.listbox__control--fluid {
+.select.select--fluid > select {
     width: 100%;
 }
 
-select.listbox__control--borderless {
+.select.select--borderless > select {
     background-color: transparent;
-    border: 0;
-    padding-left: 0;
-    width: auto;
+    border-color: transparent;
 
     &:focus {
-        text-decoration: underline;
+        border: 1px solid @color-core-blue;
     }
 }
 
@@ -133,12 +129,12 @@ select.listbox__control--borderless {
 //-----------------------------
 
 [dir="rtl"] {
-    select.listbox__control {
+    .select > select {
         padding-left: 40px;
         padding-right: 8px;
     }
 
-    .listbox__icon {
+    .select__icon {
         left: 16px;
         right: auto;
     }
