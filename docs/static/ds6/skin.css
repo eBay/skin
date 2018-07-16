@@ -2114,7 +2114,6 @@ span.inline-notice {
   }
 }
 .select {
-  display: inline-block;
   height: 40px;
   position: relative;
 }
@@ -2123,9 +2122,6 @@ span.inline-notice {
   background-size: contain;
   display: inline-block;
   vertical-align: middle;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
-  height: 40px;
-  width: 9px;
   background-position: right calc(50% - 1px);
   content: "";
   margin-left: 8px;
@@ -2134,27 +2130,22 @@ span.inline-notice {
   right: 16px;
   top: 1px;
 }
-@media screen and (-ms-high-contrast: white-on-black) {
-  .select::after {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LjAwNi4zNTFMMTAuNSA5LjEwNCAxLjk5Mi4zNWExLjE0OSAxLjE0OSAwIDAgMC0xLjY1MSAwQTEuMjI2IDEuMjI2IDAgMCAwIDAgMS4xNTJ2LjA5NmMuMDEyLjI5MS4xMjYuNTc5LjM0LjgwMWw5LjMzNSA5LjZjLjIyLjIyNy41MDguMzQ0Ljc5Ni4zNTFoLjA1N2MuMjg4LS4wMDguNTc2LS4xMjQuNzk3LS4zNTFsOS4zMzMtOS42YTEuMjEgMS4yMSAwIDAgMCAuMzQyLS44MXYtLjA3OGExLjIxIDEuMjEgMCAwIDAtLjM0Mi0uODEgMS4xNDggMS4xNDggMCAwIDAtMS42NTIgMHoiLz48L3N2Zz4=');
-  }
+span.select {
+  display: inline-block;
 }
 .select > select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #fff;
-  border: 1px solid #c7c7c7;
-  border-radius: 0;
-  font-family: "Market Sans", Arial, sans-serif;
-  font-size: 16px;
+  border: 1px solid;
+  font-size: inherit;
   height: 40px;
-  margin: 0;
-  padding: 0 30px 0 16px;
 }
 .select > select:focus {
-  border-color: #4295ff;
-  outline: none;
+  outline: 0;
+}
+.select > select[disabled] {
+  border: 0;
 }
 .select > select::-ms-expand {
   display: none;
@@ -2164,7 +2155,39 @@ span.inline-notice {
   border-color: transparent;
 }
 .select.select--borderless > select:focus {
-  border: 1px solid #4295ff;
+  border: 1px solid;
+}
+.select::after {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
+  height: 40px;
+  width: 9px;
+}
+@media screen and (-ms-high-contrast: white-on-black) {
+  .select::after {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LjAwNi4zNTFMMTAuNSA5LjEwNCAxLjk5Mi4zNWExLjE0OSAxLjE0OSAwIDAgMC0xLjY1MSAwQTEuMjI2IDEuMjI2IDAgMCAwIDAgMS4xNTJ2LjA5NmMuMDEyLjI5MS4xMjYuNTc5LjM0LjgwMWw5LjMzNSA5LjZjLjIyLjIyNy41MDguMzQ0Ljc5Ni4zNTFoLjA1N2MuMjg4LS4wMDguNTc2LS4xMjQuNzk3LS4zNTFsOS4zMzMtOS42YTEuMjEgMS4yMSAwIDAgMCAuMzQyLS44MXYtLjA3OGExLjIxIDEuMjEgMCAwIDAtLjM0Mi0uODEgMS4xNDggMS4xNDggMCAwIDAtMS42NTIgMHoiLz48L3N2Zz4=');
+  }
+}
+.select > select {
+  background-color: #fff;
+  border-color: #c7c7c7;
+  border-radius: 0;
+  font-family: "Market Sans", Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0 30px 0 16px;
+}
+.select > select:focus {
+  border-color: #4295ff;
+}
+.select > select[disabled] {
+  background-color: #e5e5e5;
+  color: #c7c7c7;
+}
+.select.select--borderless > select:focus {
+  border-color: #4295ff;
+}
+.select.select--borderless > select[disabled] {
+  background-color: #fff;
+  color: #c7c7c7;
 }
 .textbox {
   position: relative;

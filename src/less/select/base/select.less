@@ -1,0 +1,49 @@
+.select {
+    height: 40px;
+    position: relative;
+
+    &::after {
+        .background-icon-base;
+
+        background-position: right calc(50% ~"-" 1px);
+        content: "";
+        margin-left: 8px;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 1px;
+    }
+}
+
+span.select {
+    display: inline-block;
+}
+
+.select > select {
+    appearance: none;
+    border: 1px solid;
+    font-size: inherit;
+    height: 40px;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &[disabled] {
+        border: 0;
+    }
+
+    // custom IE pseudo selector for the arrow
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.select.select--borderless > select {
+    background-color: transparent;
+    border-color: transparent;
+
+    &:focus {
+        border: 1px solid;
+    }
+}

@@ -1,0 +1,46 @@
+@import "../../less/ds4/variables.less";
+@import "../../less/ds4/mixins.less";
+
+@import "../base/select.less";
+
+.select::after {
+    .icon-arrow-down(9px, 40px);
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .select::after {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64-light}');
+    }
+}
+
+.select > select {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
+    border-radius: 3px;
+    color: @color-core-gray-davys;
+    font-family: @font-family-base;
+    padding: 0 40px 0 16px;
+
+    &:focus {
+        border-color: @color-core-blue;
+    }
+
+    &[disabled] {
+        background-color: @color-core-gray-light;
+        color: @color-core-gray-silver;
+    }
+
+    &[readonly] {
+        background-color: @color-core-gray-light;
+        border-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+    }
+
+    &[aria-invalid="true"] {
+        border: 1px solid @color-core-red;
+    }
+}
+
+.select.select--borderless > select:focus {
+    border-color: @color-core-blue;
+}
