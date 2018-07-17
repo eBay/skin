@@ -1,36 +1,14 @@
-.select {
-  height: 40px;
+.listbox {
   position: relative;
 }
-.select::after {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  vertical-align: middle;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iIzc2NzY3NiIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
-  height: 40px;
-  width: 9px;
-  background-position: right calc(50% - 1px);
-  content: "";
-  margin-left: 8px;
-  pointer-events: none;
-  position: absolute;
-  right: 16px;
-  top: 1px;
-}
-span.select {
+span.listbox {
   display: inline-block;
 }
-@media screen and (-ms-high-contrast: white-on-black) {
-  .select::after {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
-  }
-}
-.select > select {
+select.listbox__control {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #fff;
+  background: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
   box-sizing: border-box;
@@ -38,68 +16,90 @@ span.select {
   font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
   font-size: inherit;
   height: 40px;
+  line-height: 1.15;
   margin: 0;
   padding: 0 40px 0 16px;
 }
-.select > select:focus {
+select.listbox__control:focus {
   border-color: #0654ba;
   outline: 0;
 }
-.select > select[disabled] {
+select.listbox__control[disabled] {
   background-color: #eee;
   border: 0;
   color: #ccc;
 }
-.select > select[disabled] + .listbox__icon svg {
+select.listbox__control[disabled] + .listbox__icon svg {
   color: rgba(0, 0, 0, 0.3);
 }
-.select > select[readonly] {
+select.listbox__control[readonly] {
   background-color: #eee;
   border-color: #ccc;
   color: #767676;
 }
-.select > select[aria-invalid="true"] {
+select.listbox__control[aria-invalid="true"] {
   border: 1px solid #dd1e31;
 }
-.select > select[aria-invalid="true"]:focus {
+select.listbox__control[aria-invalid="true"]:focus {
   border-color: #0654ba;
 }
-.select > select::-ms-expand {
+select.listbox__control::-ms-expand {
   display: none;
 }
-.select--small {
+.listbox__icon {
+  display: inline;
+}
+.listbox__icon[hidden] {
+  display: inline;
+}
+.listbox__icon svg {
+  display: inline-block;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+  color: #555;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  width: 0.6em;
+}
+.listbox--small {
   font-size: 12px;
 }
-.select.select--small > select {
+.listbox--small select.listbox__control {
   height: 32px;
 }
-.select--large {
+.listbox--large {
   font-size: 16px;
 }
-.select.select--large > select {
+.listbox--large select.listbox__control {
   height: 48px;
 }
-.select--extra-large {
+.listbox--extra-large {
   font-size: 18px;
 }
-.select.select--extra-large > select {
+.listbox--extra-large select.listbox__control {
   height: 56px;
 }
-.select.select--fluid > select {
+select.listbox__control--fluid {
   width: 100%;
 }
-.select.select--borderless > select {
+select.listbox__control--borderless {
   background-color: transparent;
-  border-color: transparent;
+  border: 0;
+  padding-left: 0;
+  width: auto;
 }
-.select.select--borderless > select:focus {
-  border: 1px solid #0654ba;
+select.listbox__control--borderless:focus {
+  text-decoration: underline;
 }
-[dir="rtl"] .select > select {
+[dir="rtl"] select.listbox__control {
   padding-left: 40px;
   padding-right: 8px;
 }
-[dir="rtl"] .select__icon {
+[dir="rtl"] .listbox__icon {
   left: 16px;
   right: auto;
 }

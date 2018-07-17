@@ -1,0 +1,148 @@
+// listbox text should NOT scale with root font-size, so all font-size defined with px
+
+// BEM blocks
+//-----------------------------
+
+.listbox {
+    position: relative;
+}
+
+span.listbox {
+    display: inline-block;
+}
+
+// BEM elements
+//-----------------------------
+
+select.listbox__control {
+    appearance: none;
+    background: @color-core-white;
+    border: 1px solid @color-core-gray-silver;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: @color-core-gray-davys;
+    font-family: @font-family-base;
+    font-size: inherit;
+    height: @height-control-medium;
+    line-height: 1.15; // normalized line-height
+    margin: 0;
+    padding: 0 40px 0 16px;
+
+    // STATES
+
+    &:focus {
+        border-color: @color-core-blue;
+        outline: 0;
+    }
+
+    &[disabled] {
+        background-color: @color-core-gray-light;
+        border: 0;
+        color: @color-core-gray-silver;
+
+        + .listbox__icon svg {
+            color: @color-transparent-gray-silver;
+        }
+    }
+
+    &[readonly] {
+        background-color: @color-core-gray-light;
+        border-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+    }
+
+    &[aria-invalid="true"] {
+        border: 1px solid @color-core-red;
+
+        &:focus {
+            border-color: @color-interface-cta;
+        }
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.listbox__icon {
+    // override "hidden" property/attribute
+    // we use hidden attribute to prevent SVG icon appearing alongside browser default icon in a non-CSS state
+    &[hidden] {
+        display: inline;
+    }
+
+    // also provide a sensible fallback incase hidden attribute is forgotten or removed
+    display: inline;
+
+    svg {
+        .svg-icon-base;
+
+        color: @color-core-gray-davys;
+        height: 100%;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+        width: 0.6em;
+    }
+}
+
+// BEM block modifiers
+//-----------------------------
+
+.listbox--small {
+    font-size: 12px;
+
+    select.listbox__control {
+        height: @height-control-small;
+    }
+}
+
+.listbox--large {
+    font-size: 16px;
+
+    select.listbox__control {
+        height: @height-control-large;
+    }
+}
+
+.listbox--extra-large {
+    font-size: 18px;
+
+    select.listbox__control {
+        height: @height-control-extra-large;
+    }
+}
+
+// BEM element modifiers
+//-----------------------------
+
+select.listbox__control--fluid {
+    width: 100%;
+}
+
+select.listbox__control--borderless {
+    background-color: transparent;
+    border: 0;
+    padding-left: 0;
+    width: auto;
+
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+// RTL
+//-----------------------------
+
+[dir="rtl"] {
+    select.listbox__control {
+        padding-left: 40px;
+        padding-right: 8px;
+    }
+
+    .listbox__icon {
+        left: 16px;
+        right: auto;
+    }
+}
