@@ -3,8 +3,8 @@
 
 @import "../base/select.less";
 
-.select::after {
-    .icon-chevron-down-bold(9px, 40px);
+.select__icon:empty {
+    .icon-chevron-down-bold(9px, 100%);
 }
 
 @media screen and (-ms-high-contrast: white-on-black) {
@@ -39,5 +39,17 @@
     &[disabled] {
         background-color: @ds6-color-g201-gray;
         color: @ds6-color-g204-gray;
+    }
+}
+
+[dir="rtl"] {
+    .select& > select {
+        padding-left: 30px;
+        padding-right: 16px;
+    }
+
+    .select__icon:empty {
+        left: 16px;
+        right: auto;
     }
 }

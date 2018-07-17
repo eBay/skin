@@ -1,18 +1,5 @@
 .select {
-    height: 40px;
     position: relative;
-
-    &::after {
-        .background-icon-base;
-
-        background-position: right calc(50% ~"-" 1px);
-        content: "";
-        margin-left: 8px;
-        pointer-events: none;
-        position: absolute;
-        right: 16px;
-        top: 1px;
-    }
 }
 
 span.select {
@@ -38,6 +25,43 @@ span.select {
         display: none;
     }
 }
+
+.select__icon {
+    &[hidden] {
+        display: inline;
+    }
+
+    display: inline;
+
+    &:empty {
+        .background-icon-base;
+
+        background-position: right 50%;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+}
+
+svg.select__icon {
+    .foreground-icon-base(9px, 100%);
+
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 0;
+}
+
+.select.fluid,
+.select.select--fluid {
+    width: 100%;
+
+    > select {
+        width: 100%;
+    }
+}
+
 
 .select.select--borderless > select {
     background-color: transparent;
