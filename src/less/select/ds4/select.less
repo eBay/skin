@@ -3,12 +3,12 @@
 
 @import "../base/select.less";
 
-.select__icon:empty {
+span.select__icon {
     .icon-arrow-down(9px, 100%);
 }
 
 @media screen and (-ms-high-contrast: white-on-black) {
-    .select__icon:empty {
+    span.select__icon {
         background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64-light}');
     }
 }
@@ -65,18 +65,17 @@
     }
 }
 
-.select.select--borderless > select:focus {
-    border-color: @color-core-blue;
+.select.select--borderless > select {
+    padding-left: 0;
+
+    &:focus {
+        border-color: @color-core-blue;
+    }
 }
 
 [dir="rtl"] {
     .select& > select {
         padding-left: 40px;
         padding-right: 16px;
-    }
-
-    .select__icon:empty {
-        left: 16px;
-        right: auto;
     }
 }
