@@ -3,6 +3,12 @@
 
 @import "../base/radio.less";
 
+.radio__icon {
+    &:not([hidden]) {
+        .ds6-icon-radio-unchecked(18px, 18px);
+    }
+}
+
 .radio__control[type="radio"] {
     &:checked {
         & + .radio__icon:not([hidden]) {
@@ -11,18 +17,12 @@
     }
 }
 
-.radio__icon {
-    &:not([hidden]) {
-        .ds6-icon-radio-unchecked(18px, 18px);
-    }
-}
-
 @media screen and (-ms-high-contrast: white-on-black) {
-    .radio__control[type="radio"]:checked + .radio__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-radio-checked-base64-light}');
-    }
-
     .radio__icon:not([hidden]) {
         background-image: url('data:image/svg+xml;base64,@{ds6-icon-radio-unchecked-base64-light}');
+    }
+
+    .radio__control[type="radio"]:checked + .radio__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-radio-checked-base64-light}');
     }
 }
