@@ -1,0 +1,83 @@
+.select {
+    position: relative;
+}
+
+span.select {
+    display: inline-block;
+}
+
+.select > select {
+    appearance: none;
+    border: 1px solid;
+    font-size: inherit;
+    height: 40px;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &[disabled] {
+        border: 0;
+
+        + .select__icon {
+            opacity: 0.5;
+        }
+    }
+
+    // custom IE pseudo selector for the arrow
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+.select__icon {
+    &[hidden] {
+        display: inline;
+    }
+
+    display: inline;
+
+    span& {
+        .background-icon-base;
+
+        background-position: right 50%;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+
+    svg& {
+        .foreground-icon-base(11px, 100%);
+
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+}
+
+.select.fluid,
+.select.select--fluid {
+    width: 100%;
+
+    > select {
+        width: 100%;
+    }
+}
+
+.select.select--borderless > select {
+    background-color: transparent;
+    border-color: transparent;
+
+    &:focus {
+        border: 1px solid;
+    }
+}
+
+[dir="rtl"] {
+    span.select__icon {
+        left: 16px;
+        right: auto;
+    }
+}

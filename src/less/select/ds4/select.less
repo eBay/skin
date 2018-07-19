@@ -1,0 +1,81 @@
+@import "../../less/ds4/variables.less";
+@import "../../less/ds4/mixins.less";
+
+@import "../base/select.less";
+
+span.select__icon {
+    .icon-arrow-down(9px, 100%);
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.select__icon {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64-light}');
+    }
+}
+
+.select > select {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
+    border-radius: 3px;
+    color: @color-core-gray-davys;
+    font-family: @font-family-base;
+    padding: 0 40px 0 16px;
+
+    &:focus {
+        border-color: @color-core-blue;
+    }
+
+    &[disabled] {
+        background-color: @color-core-gray-light;
+        color: @color-core-gray-silver;
+    }
+
+    &[readonly] {
+        background-color: @color-core-gray-light;
+        border-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+    }
+
+    &[aria-invalid="true"] {
+        border: 1px solid @color-core-red;
+    }
+}
+
+.select--small {
+    font-size: 12px;
+
+    > select {
+        height: @height-control-small;
+    }
+}
+
+.select--large {
+    font-size: 16px;
+
+    > select {
+        height: @height-control-large;
+    }
+}
+
+.select--extra-large {
+    font-size: 18px;
+
+    > select {
+        height: @height-control-extra-large;
+    }
+}
+
+.select.select--borderless > select {
+    padding-left: 0;
+
+    &:focus {
+        border-color: @color-core-blue;
+    }
+}
+
+[dir="rtl"] {
+    .select& > select {
+        padding-left: 40px;
+        padding-right: 16px;
+    }
+}

@@ -1,4 +1,50 @@
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
 
-@import "select-base.less";
+@import "../base/select.less";
+
+span.select__icon {
+    .icon-chevron-down-bold(11px, 100%);
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.select__icon {
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-chevron-down-bold-base64-light}');
+    }
+}
+
+.select > select {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-g204-gray;
+    border-radius: 0;
+    font-family: @ds6-font-family-custom;
+    font-size: 16px;
+    padding: 0 32px 0 16px;
+
+    &:focus {
+        border-color: @ds6-color-p004-blue;
+    }
+
+    &[disabled] {
+        background-color: @ds6-color-g203-gray;
+        color: @ds6-color-g204-gray;
+    }
+}
+
+.select.select--borderless > select {
+    &:focus {
+        border-color: @ds6-color-p004-blue;
+    }
+
+    &[disabled] {
+        background-color: @ds6-color-g201-gray;
+        color: @ds6-color-g204-gray;
+    }
+}
+
+[dir="rtl"] {
+    .select& > select {
+        padding-left: 30px;
+        padding-right: 16px;
+    }
+}
