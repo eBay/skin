@@ -3,6 +3,12 @@
 
 @import "../base/checkbox.less";
 
+.checkbox__icon {
+    &:not([hidden]) {
+        .ds6-icon-checkbox-unchecked(18px, 18px);
+    }
+}
+
 .checkbox__control[type="checkbox"] {
     &:checked {
         & + .checkbox__icon:not([hidden]) {
@@ -11,18 +17,12 @@
     }
 }
 
-.checkbox__icon {
-    &:not([hidden]) {
-        .ds6-icon-checkbox-unchecked(18px, 18px);
-    }
-}
-
 @media screen and (-ms-high-contrast: white-on-black) {
-    .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-checkbox-checked-base64-light}');
-    }
-
     .checkbox__icon:not([hidden]) {
         background-image: url('data:image/svg+xml;base64,@{ds6-icon-checkbox-unchecked-base64-light}');
+    }
+
+    .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-checkbox-checked-base64-light}');
     }
 }
