@@ -6,11 +6,25 @@
 .breadcrumb {
     li {
         &:not(:last-of-type)::after {
-            .ds4-icon-chevron-light-right(8px,8px);
+            .ds4-icon-chevron-right(8px,8px);
+        }
+    }
+
+    a {
+        color: @color-text-default;
+
+        &:hover {
+            color: @color-core-blue;
         }
     }
 
     a[aria-current] {
         color: @color-core-gray-dim;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .breadcrumb li:not(:last-of-type)::after {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-right-base64-light}');
     }
 }
