@@ -4,14 +4,16 @@
 // so all font-sizes are defined with px
 
 // base properties for all buttons
-
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
     align-items: center;
+    background-color: transparent;
     border: 1px solid;
+    border-color: inherit;
     box-sizing: border-box;
+    color: inherit;
     display: inline-flex;
     font-family: inherit;
     font-size: 16px;
@@ -21,15 +23,12 @@ a.cta-btn {
     max-width: 100%;
     padding: 0 16px;
     text-align: center;
-}
-
-a.fake-btn,
-a.cta-btn {
     text-decoration: none;
 }
 
 a.cta-btn {
     background-color: @ds6-color-background-default;
+    border-color: currentColor;
     color: @ds6-color-p003-blue;
 
     &:focus,
@@ -46,14 +45,6 @@ a.cta-btn {
 }
 
 button.expand-btn {
-    background-color: @ds6-color-g201-gray;
-    border-color: @ds6-color-g204-gray;
-    color: @ds6-color-g206-gray;
-
-    &:active {
-        border-color: @ds6-color-g206-gray;
-    }
-
     &[aria-expanded="true"] {
         .expand-btn__icon {
             transform: rotate(180deg);
@@ -62,12 +53,17 @@ button.expand-btn {
 
     &[disabled],
     &[aria-disabled="true"] {
-        border-color: @ds6-color-disabled;
-        color: @ds6-color-disabled;
-
         span.expand-btn__icon {
             .icon-chevron-down-disabled(9px, 100%);
         }
+    }
+}
+
+button.expand-btn--regular {
+    &[disabled],
+    &[aria-disabled="true"] {
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-disabled;
     }
 }
 
@@ -85,6 +81,25 @@ button.expand-btn--large,
 a.fake-btn--large,
 a.cta-btn--large {
     height: 48px;
+}
+
+button.btn--extra-large,
+button.expand-btn--extra-large,
+a.fake-btn--extra-large,
+a.cta-btn--extra-large {
+    height: 64px;
+}
+
+button.btn--regular,
+button.expand-btn--regular,
+a.fake-btn--regular {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-g204-gray;
+    color: @ds6-color-g206-gray;
+
+    &:active {
+        border-color: @ds6-color-g206-gray;
+    }
 }
 
 button.btn--primary,
@@ -114,10 +129,6 @@ button.expand-btn--primary {
 }
 
 a.fake-btn--primary {
-    &:visited {
-        color: @ds6-color-g201-gray;
-    }
-
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @ds6-color-disabled;
@@ -150,10 +161,6 @@ button.btn--secondary {
 }
 
 a.fake-btn--secondary {
-    &:visited {
-        color: @ds6-color-p002-blue;
-    }
-
     &:not([href]),
     &[aria-disabled="true"] {
         border-color: @ds6-color-disabled;
@@ -270,7 +277,6 @@ a.cta-btn--fluid {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 100%;
     }
 }
 
@@ -297,6 +303,11 @@ a.cta-btn--fluid {
     &:last-child {
         margin-left: 8px;
     }
+}
+
+svg.btn__icon,
+svg.fake-btn__icon {
+    .foreground-icon-base;
 }
 
 svg.cta-btn__icon,

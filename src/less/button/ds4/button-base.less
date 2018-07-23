@@ -8,33 +8,41 @@ button.btn,
 button.expand-btn,
 a.fake-btn {
     align-items: center;
-    background-color: @color-core-white;
-    border-color: @color-core-gray-silver;
+    background-color: transparent;
+    border-color: inherit;
     border-radius: 3px;
     border-style: solid;
     border-width: 1px;
-    color: @color-interface-cta;
+    box-sizing: border-box;
+    color: inherit;
     display: inline-flex;
     font-family: inherit;
     font-size: 14px;
     font-weight: normal;
     height: @height-control-medium;
     justify-content: center;
-    margin: 0; // Remove the button margin in Firefox and Safari */
+    margin: 0; // Remove the button margin in Firefox and Safari
     padding: 0 48px;
     text-align: center;
-
-    &:hover,
-    &:focus {
-        border-color: @color-core-gray-spanish;
-    }
-
-    &:active {
-        border-color: @color-core-gray-davys;
-    }
+    text-decoration: none;
 }
 
 button.btn,
+button.expand-btn {
+    &[disabled],
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+a.fake-btn {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+button.btn--regular,
 button.expand-btn {
     &[disabled],
     &[aria-disabled="true"] {
@@ -52,23 +60,11 @@ button.expand-btn {
     }
 }
 
-button[disabled],
-button[aria-disabled="true"] {
-    &.btn,
-    &.expand-btn {
-        .opacity(0.5);
-    }
-}
-
-a.fake-btn {
-    box-sizing: border-box;
-    text-decoration: none;
-
+a.fake-btn--regular {
     &:not([href]),
     &[aria-disabled="true"] {
         background-color: @color-core-gray-silver;
         color: @color-core-gray-dim;
-        cursor: text;
         .opacity(0.5);
 
         svg {
@@ -82,12 +78,14 @@ a.fake-btn {
     }
 }
 
-button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    transform: rotate(180deg);
-}
-
 button.expand-btn {
     padding: 0 16px;
+
+    &[aria-expanded="true"] {
+        .expand-btn__icon {
+            transform: rotate(180deg);
+        }
+    }
 }
 
 // BEM block modifiers
@@ -96,6 +94,23 @@ button.expand-btn {
 .expand-btn--fluid,
 .fake-btn--fluid {
     width: 100%;
+}
+
+button.btn--regular,
+button.expand-btn--regular,
+a.fake-btn--regular {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
+    color: @color-interface-cta;
+
+    &:hover,
+    &:focus {
+        border-color: @color-core-gray-spanish;
+    }
+
+    &:active {
+        border-color: @color-core-gray-davys;
+    }
 }
 
 button.btn--primary,
@@ -298,10 +313,8 @@ svg.btn__icon,
 svg.expand-btn__icon,
 svg.fake-btn__icon {
     fill: currentColor;
-    height: 8px;
     stroke: currentColor;
     stroke-width: 0;
-    width: 8px;
 }
 
 svg.expand-btn__icon {
@@ -309,11 +322,23 @@ svg.expand-btn__icon {
     width: 8px;
 }
 
-.expand-btn__icon {
-    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%230654ba%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+span.expand-btn__icon {
+    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64}');
     background-position: right center;
     background-repeat: no-repeat;
     background-size: contain;
     height: 8px;
     width: 8px;
+}
+
+span.expand-btn--regular .expand-btn__icon {
+    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64}');
+}
+
+span.expand-btn--secondary .expand-btn__icon {
+    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64}');
+}
+
+span.expand-btn--primary .expand-btn__icon {
+    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-base64}');
 }
