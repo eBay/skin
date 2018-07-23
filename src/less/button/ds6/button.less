@@ -1,4 +1,282 @@
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
 
-@import "button-base.less";
+@import "../base/button.less";
+
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    font-size: 16px;
+    padding: 0 16px;
+}
+
+// regular type
+
+button.btn--regular,
+button.expand-btn--regular,
+a.fake-btn--regular {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-g204-gray;
+    color: @ds6-color-g206-gray;
+
+    &:active {
+        border-color: @ds6-color-g206-gray;
+    }
+}
+
+button.btn--regular,
+button.expand-btn--regular {
+    &[disabled],
+    &[aria-disabled="true"] {
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-disabled;
+    }
+}
+
+a.fake-btn--regular {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-disabled;
+    }
+}
+
+button.expand-btn--regular {
+    &[disabled],
+    &[aria-disabled="true"] {
+        span.expand-btn__icon {
+            .icon-chevron-down-disabled(9px, 100%);
+        }
+    }
+}
+
+button.btn--small,
+button.expand-btn--small,
+a.fake-btn--small {
+    font-size: 14px;
+    height: 32px;
+}
+
+button.btn--medium,
+button.expand-btn--medium,
+a.fake-btn--medium {
+    font-size: 14px;
+    padding: 0 48px;
+}
+
+a.cta-btn {
+    background-color: @ds6-color-background-default;
+    border-color: currentColor;
+    color: @ds6-color-p003-blue;
+
+    &:focus,
+    &:hover {
+        background-color: @ds6-color-p003-blue;
+        border-color: @ds6-color-p003-blue;
+        color: @ds6-color-background-default;
+    }
+
+    // the focus styles above are a sufficient focus indicator
+    &:focus {
+        outline: 0 none;
+    }
+}
+
+button.btn--primary,
+button.expand-btn--primary,
+a.fake-btn--primary {
+    background-color: @ds6-color-p002-blue;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-g201-gray;
+    font-weight: bold;
+
+    &:focus,
+    &:hover:not([disabled]):not([aria-disabled="true"]),
+    &:active {
+        background-color: @ds6-color-p003-blue;
+        border-color: @ds6-color-p003-blue;
+    }
+}
+
+button.btn--primary,
+button.expand-btn--primary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: @ds6-color-disabled;
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-g201-gray;
+    }
+}
+
+a.fake-btn--primary {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        background-color: @ds6-color-disabled;
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-g201-gray;
+    }
+}
+
+button.btn--secondary,
+button.expand-btn--secondary,
+a.fake-btn--secondary {
+    background-color: @ds6-color-g201-gray;
+    border-color: @ds6-color-p002-blue;
+    color: @ds6-color-p002-blue;
+
+    &:focus,
+    &:hover:not([disabled]):not([aria-disabled="true"]),
+    &:active {
+        border-color: @ds6-color-p003-blue;
+        color: @ds6-color-p003-blue;
+    }
+}
+
+button.btn--secondary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-disabled;
+    }
+}
+
+a.fake-btn--secondary {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-disabled;
+    }
+}
+
+a.cta-btn--p002-blue {
+    background-color: @ds6-color-p002-blue;
+    border-color: @ds6-color-p001-blue;
+    color: @ds6-color-p001-blue;
+
+    &:visited {
+        color: @ds6-color-p001-blue;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: @ds6-color-p001-blue;
+        border-color: @ds6-color-p001-blue;
+        color: @ds6-color-p002-blue;
+    }
+
+    &:active {
+        background-color: @ds6-color-p002-blue;
+        border-color: @ds6-color-p002-blue;
+        color: @ds6-color-g201-gray;
+    }
+
+    &:not([href]) {
+        background-color: @ds6-color-disabled;
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-g202-gray;
+    }
+}
+
+a.cta-btn--p012-red {
+    background-color: @ds6-color-p012-red;
+    border-color: @ds6-color-p011-red;
+    color: @ds6-color-p011-red;
+
+    &:visited {
+        color: @ds6-color-p011-red;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: @ds6-color-p011-red;
+        border-color: @ds6-color-p011-red;
+        color: @ds6-color-p012-red;
+    }
+
+    &:active {
+        background-color: @ds6-color-p013-red;
+        border-color: @ds6-color-p013-red;
+        color: @ds6-color-p011-red;
+    }
+
+    &:not([href]) {
+        background-color: @ds6-color-disabled;
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-g202-gray;
+    }
+}
+
+a.cta-btn--purple {
+    background-color: #6a4fcc;
+    color: #ecefff;
+
+    &:visited {
+        color: #ecefff;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: @ds6-color-g203-gray;
+        border-color: @ds6-color-g203-gray;
+        color: #6a4fcc;
+    }
+
+    &:active {
+        background-color: #3c0085;
+        border-color: #3c0085;
+        color: @ds6-color-g201-gray;
+    }
+
+    &:not([href]) {
+        background-color: @ds6-color-disabled;
+        border-color: @ds6-color-disabled;
+        color: @ds6-color-g202-gray;
+    }
+}
+
+svg.btn__icon,
+svg.fake-btn__icon {
+    .foreground-icon-base;
+}
+
+svg.cta-btn__icon {
+    height: 10px;
+    width: 9.75px;
+}
+
+svg.expand-btn__icon {
+    height: 5.2px;
+    width: 9px;
+}
+
+span.expand-btn__icon {
+    .icon-chevron-down-bold(9px, 5.2px);
+}
+
+button.expand-btn--primary,
+button.expand-btn--primary[disabled],
+button.expand-btn--primary[aria-disabled="true"] {
+    span.expand-btn__icon {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
+    }
+}
+
+button.expand-btn--secondary {
+    span.expand-btn__icon {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiANCiAgd2lkdGg9IjIxLjYiIGhlaWdodD0iMTIuNTgiIHZpZXdCb3g9IjEuMzUgNS43IDIxLjYgMTIuNTgiPjxwYXRoIGZpbGw9IiMwMDZlZmMiIGQ9Ik0xMi4xODYgMTguMjg1Yy0uNDUxLS4wMDktLjgwOS0uMTY3LTEuMDc1LS40NDFsLTkuMzM3LTkuNmExLjUyNyAxLjUyNyAwIDAgMS0uNDI0LS45OTl2LS4xMDhjLjAxNS0uMzg2LjE2Ni0uNzQxLjQyNC0xLjAwOC41Ni0uNTczIDEuNTI5LS41NyAyLjA4MiAwbDguMjk0IDguNTMgOC4yOTItOC41MzJjLjU1OC0uNTcgMS41MjYtLjU3IDIuMDggMCAuMjY1LjI3LjQxNi42MjkuNDI4IDEuMDF2LjA4N2MtLjAxMi4zOTEtLjE2NS43NS0uNDI3IDEuMDJsLTkuMzMzIDkuNmExLjQ0MyAxLjQ0MyAwIDAgMS0xLjAwNC40NDEiLz48L3N2Zz4=');
+    }
+
+    &:focus:not([aria-disabled="true"]),
+    &:hover:not([disabled]):not([aria-disabled="true"]) {
+        span.expand-btn__icon {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiANCiAgd2lkdGg9IjIxLjYiIGhlaWdodD0iMTIuNTgiIHZpZXdCb3g9IjEuMzUgNS43IDIxLjYgMTIuNTgiPjxwYXRoIGZpbGw9IiMxMDI5OWMiIGQ9Ik0xMi4xODYgMTguMjg1Yy0uNDUxLS4wMDktLjgwOS0uMTY3LTEuMDc1LS40NDFsLTkuMzM3LTkuNmExLjUyNyAxLjUyNyAwIDAgMS0uNDI0LS45OTl2LS4xMDhjLjAxNS0uMzg2LjE2Ni0uNzQxLjQyNC0xLjAwOC41Ni0uNTczIDEuNTI5LS41NyAyLjA4MiAwbDguMjk0IDguNTMgOC4yOTItOC41MzJjLjU1OC0uNTcgMS41MjYtLjU3IDIuMDggMCAuMjY1LjI3LjQxNi42MjkuNDI4IDEuMDF2LjA4N2MtLjAxMi4zOTEtLjE2NS43NS0uNDI3IDEuMDJsLTkuMzMzIDkuNmExLjQ0MyAxLjQ0MyAwIDAgMS0xLjAwNC40NDEiLz48L3N2Zz4=');
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.expand-btn__icon {
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-chevron-down-bold-base64-light}');
+    }
+}

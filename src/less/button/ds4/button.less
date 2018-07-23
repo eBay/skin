@@ -1,4 +1,275 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
 
-@import "button-base.less";
+@import "../base/button.less";
+
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button.btn,
+a.fake-btn,
+a.cta-btn {
+    padding: 0 48px;
+}
+
+button.expand-btn {
+    padding: 0 16px;
+}
+
+button.btn,
+button.expand-btn {
+    &[disabled],
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+a.fake-btn {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+button.btn--regular,
+button.expand-btn--regular,
+a.fake-btn--regular {
+    background-color: @color-core-white;
+    border-color: @color-core-gray-silver;
+    color: @color-interface-cta;
+
+    &:hover,
+    &:focus {
+        border-color: @color-core-gray-spanish;
+    }
+
+    &:active {
+        border-color: @color-core-gray-davys;
+    }
+}
+
+button.btn--regular,
+button.expand-btn--regular {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+
+        svg {
+            color: @color-core-gray-dim;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-silver;
+        }
+    }
+}
+
+a.fake-btn--regular {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        background-color: @color-core-gray-silver;
+        color: @color-core-gray-dim;
+        opacity: 0.5;
+
+        svg {
+            color: @color-core-gray-dim;
+        }
+
+        &:hover,
+        &:focus {
+            border-color: @color-core-gray-silver;
+        }
+    }
+}
+
+button.btn--primary,
+button.expand-btn--primary,
+a.fake-btn--primary {
+    background-color: @color-interface-cta;
+    border-color: @color-interface-cta;
+    color: @color-core-white;
+
+    svg {
+        color: @color-core-white;
+        fill: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: @color-interface-cta;
+        opacity: 0.7;
+    }
+
+    &:active {
+        background-color: @color-core-blue-dark;
+    }
+}
+
+button.btn--primary,
+button.expand-btn--primary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        color: @color-core-white;
+
+        svg {
+            color: @color-core-white;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: @color-interface-cta;
+            border-color: @color-interface-cta;
+            opacity: 0.5;
+        }
+    }
+}
+
+a.fake-btn--primary {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        color: @color-core-white;
+
+        svg {
+            color: @color-core-white;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: @color-interface-cta;
+            border-color: @color-interface-cta;
+            opacity: 0.5;
+        }
+    }
+
+    &:visited {
+        color: @color-core-white;
+    }
+}
+
+button.btn--secondary,
+button.expand-btn--secondary,
+a.fake-btn--secondary {
+    background-color: fade(@color-interface-view-background, 50%);
+    border-color: @color-text-disabled;
+    color: @color-core-gray-davys;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: @color-core-gray-dim;
+    }
+
+    &:active {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: fade(@color-core-gray-davys, 50%);
+    }
+}
+
+button.btn--secondary,
+button.expand-btn--secondary {
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: fade(@color-interface-view-background, 50%);
+        border-color: @color-text-disabled;
+        color: @color-core-gray-davys;
+
+        svg {
+            color: @color-core-gray-davys;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: fade(@color-interface-view-background, 50%);
+            border-color: @color-text-disabled;
+        }
+    }
+}
+
+a.fake-btn--secondary {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        background-color: fade(@color-interface-view-background, 50%);
+        border-color: @color-text-disabled;
+        color: @color-core-gray-davys;
+
+        svg {
+            color: @color-core-gray-davys;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: fade(@color-interface-view-background, 50%);
+            border-color: @color-text-disabled;
+        }
+    }
+
+    &:visited {
+        color: @color-core-gray-davys;
+    }
+}
+
+button.btn--small,
+button.expand-btn--small,
+a.fake-btn--small {
+    font-size: 12px;
+    padding: 0 32px;
+}
+
+button.btn--medium,
+button.expand-btn--medium,
+a.fake-btn--medium {
+    font-size: 14px;
+    padding: 0 48px;
+}
+
+button.btn--large,
+button.expand-btn--large,
+a.fake-btn--large {
+    font-size: 16px;
+    padding: 0 80px;
+}
+
+button.btn--extra-large,
+button.expand-btn--extra-large,
+a.fake-btn--extra-large {
+    font-size: 18px;
+    padding: 0 112px;
+}
+
+button.expand-btn--small,
+button.expand-btn--large,
+button.expand-btn--extra-large {
+    padding: 0 16px;
+}
+
+svg.expand-btn__icon {
+    height: 8px;
+    width: 8px;
+}
+
+span.expand-btn__icon {
+    .icon-arrow-down(8px, 8px);
+}
+
+button.expand-btn--primary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+}
+
+button.expand-btn--secondary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+}
