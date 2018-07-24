@@ -65,6 +65,12 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 // COMBOBOX WIDGET (basic interactivity only)
 
 nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
+    var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
+    
+    if (!inputEl) {
+        return;
+    }
+
     var widget = new Expander(el, {
         autoCollapse: true,
         expandOnClick: true,
@@ -74,7 +80,6 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
         simulateSpacebarClick: true
     });
 
-    var inputEl = el.querySelector('input[role=combobox]');
     var optionEls = nodeListToArray(el.querySelectorAll('[role=option]'));
     var selectedOptionEl = el.querySelector('[role=option][aria-selected=true]');
     var size = optionEls.length;
