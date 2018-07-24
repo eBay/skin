@@ -13,3 +13,12 @@ $('#banner-menu').on('click', 'a', function(e) {
 $('.expand-btn-example').on('click', function() {
     $(this).attr('aria-expanded', ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true');
 });
+$('.combobox__control').on('click', function() {
+    if ($(this).hasClass('combobox__control--expanded')) {
+        $(this).removeClass('combobox__control--expanded');
+        $(this).find('input').attr('aria-expanded', 'false');
+    } else {
+        $(this).addClass('combobox__control--expanded');
+        $(this).find('input').attr('aria-expanded', 'true');
+    }
+});
