@@ -14,13 +14,15 @@ $('.expand-btn-example').on('click', function() {
     $(this).attr('aria-expanded', ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true');
 });
 $('.combobox__control').on('click', function() {
-    if (!$(this).find('input').prop('disabled')){
-        if ($(this).hasClass('combobox__control--expanded')) {
-            $(this).removeClass('combobox__control--expanded');
-            $(this).find('input').attr('aria-expanded', 'false');
+    const $this = $(this);
+    const $input = $this.find('input');
+    if (!$this.find('input').prop('disabled')){
+        if ($this.hasClass('combobox__control--expanded')) {
+            $this.removeClass('combobox__control--expanded');
+            $input.attr('aria-expanded', 'false');
         } else {
-            $(this).addClass('combobox__control--expanded');
-            $(this).find('input').attr('aria-expanded', 'true');
+            $this.addClass('combobox__control--expanded');
+            $input.attr('aria-expanded', 'true');
         }
     }
 });
