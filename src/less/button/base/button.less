@@ -21,12 +21,23 @@ a.cta-btn {
     text-decoration: none;
 }
 
-button.expand-btn {
-    &[aria-expanded="true"] {
-        .expand-btn__icon {
-            transform: rotate(180deg);
-        }
+.btn__icon,
+.fake-btn__icon,
+.cta-btn__icon,
+.expand-btn__icon {
+    align-self: center;
+
+    &:first-child {
+        margin-right: 8px;
     }
+
+    &:last-child {
+        margin-left: 8px;
+    }
+}
+
+button.expand-btn[aria-expanded="true"] .expand-btn__icon {
+    transform: rotate(180deg);
 }
 
 button.btn--small,
@@ -57,9 +68,9 @@ a.cta-btn--extra-large {
     height: @height-control-extra-large;
 }
 
-.btn--fluid,
-.expand-btn--fluid,
-.fake-btn--fluid,
+button.btn--fluid,
+button.expand-btn--fluid,
+a.fake-btn--fluid,
 a.cta-btn--fluid {
     width: 100%;
 }
@@ -89,21 +100,6 @@ a.cta-btn--fluid {
 
 .expand-btn__cell {
     justify-content: space-between;
-}
-
-.btn__icon,
-.fake-btn__icon,
-.cta-btn__icon,
-.expand-btn__icon {
-    align-self: center;
-
-    &:first-child {
-        margin-right: 8px;
-    }
-
-    &:last-child {
-        margin-left: 8px;
-    }
 }
 
 svg.btn__icon,
