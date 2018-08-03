@@ -1,139 +1,13 @@
-// BEM BLOCKS
-
-.menu,
-.fake-menu {
-    line-height: normal;
-    position: relative;
-}
-
-span.menu,
-span.fake-menu {
-    display: inline-block;
-}
-
-// BEM ELEMENTS
-
-.menu .expand-btn[aria-expanded="true"],
-.fake-menu .expand-btn[aria-expanded="true"] {
-    border-bottom: 0;
-}
-
-.menu__btn[aria-expanded="true"], // .menu__btn deprecated in v3.2.0
-.fake-menu__btn[aria-expanded="true"] { // .fake-menu__btn deprecated in v3.2.0
-    border-bottom: 0;
-}
-
-.menu__btn[aria-expanded="true"] .menu__icon, // .menu__btn deprecated in v3.2.0
-.fake-menu__btn[aria-expanded="true"] .fake-menu__icon { // .fake-menu__btn deprecated in v3.2.0
-    transform: rotate(180deg);
-}
-
-.menu__btn[aria-expanded="true"] ~ .menu__items[role="menu"], // .menu__btn deprecated in v3.2.0
-.expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
-.expand-btn[aria-expanded="true"] ~ .fake-menu__items,
-.fake-menu__btn[aria-expanded="true"] ~ .fake-menu__items { // .fake-menu__btn deprecated in v3.2.0
-    display: block;
-}
-
-.menu__icon, // deprecated in v3.2.0
-.fake-menu__icon { // deprecated in v3.2.0
-    height: 0.6em;
-    width: 0.6em;
-}
-
-.menu__btn ~ .menu__items[role="menu"], // .menu__btn deprecated in v3.2.0
-.expand-btn ~ .menu__items[role="menu"],
-.expand-btn ~ .fake-menu__items,
-.fake-menu__btn ~ .fake-menu__items { // .fake-menu__btn deprecated in v3.2.0
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-
-.menu__items[role="menu"],
-.fake-menu__items {
-    border: 1px solid;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-span.menu__items[role="menu"],
-span.fake-menu__items {
-    display: inline-block;
-}
-
-.fake-menu__items {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-div.menu__item[role^="menuitem"],
-a.fake-menu__item,
-button.fake-menu__item {
-    display: flex;
-    font-size: 14px;
-    line-height: 2.5;
-    padding-left: 16px;
-    padding-right: 16px;
-
-    span:not([class*="menu__status"]) {
-        .truncate;
-
-        width: 100%;
-    }
-}
-
-div.menu__item[role^="menuitem"][aria-checked="true"] {
-    .menu__status {
-        visibility: visible;
-    }
-}
-
-// anchor tag specific
-a.fake-menu__item {
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-        text-decoration: underline;
-    }
-
-    &[aria-current="page"] .fake-menu__status {
-        visibility: visible;
-    }
-}
-
-// button tag specific
-button.fake-menu__item {
-    border: 0;
-    display: block;
-    text-align: left;
-    width: 100%;
-}
-
 .menu__status,
 .fake-menu__status {
-    align-self: center;
-    fill: currentColor;
-    flex-shrink: 0;
-    height: 100%;
-    stroke: currentColor;
-    stroke-width: 0;
-    visibility: hidden;
-
     &:first-child {
+        margin-left: 0;
         margin-right: 8px;
     }
 
     &:last-child {
         margin-left: 8px;
     }
-}
-
-svg.menu__status,
-svg.fake-menu__status {
-    width: 8px;
 }
 
 span.menu__status,
@@ -145,29 +19,8 @@ span.fake-menu__status {
     width: 8px;
 }
 
-// BEM MODIFIERS
-//-----------------------------
-
-// show scroll bars. useful for fixed-height overlays.
-// bear in mind however, that depending on OS system preferences,
-// scrollbar might only appear on mouseover
-
 .menu__items--scroll[role="menu"] {
     overflow-y: scroll;
-}
-
-.menu__items--grow[role="menu"],
-.menu__items--grow-reverse[role="menu"],
-.fake-menu__items--grow,
-.fake-menu__items--grow-reverse {
-    max-width: calc(100% + 50%);
-    min-width: calc(100%);
-    width: auto;
-}
-
-.menu__items--grow-reverse[role="menu"],
-.fake-menu__items--grow-reverse {
-    right: 0;
 }
 
 .expand-btn ~ .menu__items--static[role="menu"],
