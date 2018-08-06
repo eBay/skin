@@ -81,7 +81,9 @@ button.fake-menu__item:not(:last-child) {
   margin-bottom: 1px;
 }
 div.menu__item[role^="menuitem"] span:not([class*="menu__status"]),
-div.combobox__option[role^="option"] span:not([class*="combobox__status"]) {
+div.combobox__option[role^="option"] span:not([class*="combobox__status"]),
+a.fake-menu__item span:not([class*="fake-menu__status"]),
+button.fake-menu__item span:not([class*="fake-menu__status"]) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -89,10 +91,10 @@ div.combobox__option[role^="option"] span:not([class*="combobox__status"]) {
       -ms-flex: 1;
           flex: 1;
 }
-div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status {
-  visibility: visible;
-}
-div.combobox__option[role^="option"][aria-selected="true"] .combobox__status {
+div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
+div.combobox__option[role^="option"][aria-selected="true"] .combobox__status,
+a.fake-menu__item[aria-current="page"] .fake-menu__status,
+button.fake-menu__item[aria-current="page"] .fake-menu__status {
   visibility: visible;
 }
 a.fake-menu__item {
@@ -101,9 +103,6 @@ a.fake-menu__item {
 a.fake-menu__item:hover,
 a.fake-menu__item:focus {
   text-decoration: underline;
-}
-a.fake-menu__item[aria-current="page"] .fake-menu__status {
-  visibility: visible;
 }
 button.fake-menu__item {
   border: 0;
