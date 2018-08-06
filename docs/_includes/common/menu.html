@@ -2,7 +2,7 @@
     <h2><span class="secondary-text">@ebay/skin/</span>menu</h2>
 
     <p>A menu follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
-    <p>A menu is <strong>not</strong> a form control. If you wish to submit form data, please consider <a href="#checkbox">checkbox</a>, <a href="#select">select</a>, <a href="#combobox">combobox</a> or <a href="#radio">radio</a> instead.</p>
+    <p>A menu is <strong>not</strong> a form control. If you wish to submit form data, please consider <a href="#checkbox">checkbox</a>, <a href="#combobox">combobox</a>, <a href="#select">select</a>, or <a href="#radio">radio</a> instead.</p>
     <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
 
     <div class="demo">
@@ -42,8 +42,7 @@
         {% endhighlight %}
     </div>
 
-    <p><strong>TIP:</strong> Use the
-        <span class="highlight">menu__items--reverse</span> or
+    <p><strong>TIP:</strong> Use the <span class="highlight">menu__items--reverse</span> or 
         <span class="highlight">fake-menu__items--reverse</span> element modifier to fly out the menu overlay in reverse direction.</p>
 
     <h3 id="menu-radio">Radio Menu</h3>
@@ -157,7 +156,7 @@
     {% endhighlight %}
 
     <h3 id="menu-fake">Fake Menu</h3>
-    <p>A fake menu <em>looks</em> like a normal menu widget, but it contains a list of hyperlinks (instead of a menu of menuitems) and thus behaves more like a navigational widget.</p>
+    <p>A fake menu <em>looks</em> like a normal menu component, but it contains a list of hyperlinks (instead of a menu of menuitems) and thus behaves more like a navigational component.</p>
     <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant) is <strong>not</strong> a valid URL!</p>
     <p>Use the <span class="highlight">aria-current</span> attribute to denote the link that matches the current page URL (if applicable).</p>
 
@@ -380,7 +379,7 @@
                     <span class="expand-btn__cell">
                         <span>Custom Menu</span>
                         <svg aria-hidden="true" class="expand-btn__icon" focusable="false">
-                            <use xlink:href="#icon-chevron-down-bold"></use>
+                            <use xlink:href="#icon-chevron-down"></use>
                         </svg>
                     </span>
                 </button>
@@ -407,4 +406,76 @@
 
     </div>
 
+    <p>A checkbox menu or radio menu can also leverage inline SVG for the checked state of each item:</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Custom Checkbox Menu</span>
+                        <svg aria-hidden="true" class="expand-btn__icon" focusable="false" height="8" width="8">
+                            <use xlink:href="#icon-chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Menu item 1</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#icon-confirmation"></use>
+                        </svg>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+                        <span>Menu item 2</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#icon-confirmation"></use>
+                        </svg>
+                    </div>
+                    <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+                        <span>Menu item 3</span>
+                        <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                            <use xlink:href="#icon-confirmation"></use>
+                        </svg>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        {% highlight html %}
+<span class="menu">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+        <span class="expand-btn__cell">
+            <span>Custom Checkbox Menu</span>
+            <svg aria-hidden="true" class="expand-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span>Menu item 1</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-confirmation"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
+            <span>Menu item 2</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-confirmation"></use>
+            </svg>
+        </div>
+        <div class="menu__item" role="menuitemcheckbox" aria-checked="false">
+            <span>Menu item 3</span>
+            <svg aria-hidden="true" class="menu__status" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-confirmation"></use>
+            </svg>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+
+    </div>
+
+    {% include ds{{ page.ds}}/menu-custom.html %}
 </div>
