@@ -49,6 +49,27 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
         contentSelector: '.menu__items, .fake-menu__items'
     });
 
+    var optionEls = nodeListToArray(el.querySelectorAll('[role=menuitem], [role=menuitemradio], [role=menuitemcheckbox]'));
+
+    var updateRadios = function(newSelection) {
+        optionEls.forEach(function(el) {
+            el.setAttribute('aria-checked', el === newSelection);
+        });
+    }
+
+    optionEls.forEach(function(el, i) {
+        // add a click handler to each el
+        el.addEventListener('click', function(e) {
+            var role = this.getAttribute('role');
+            widget.collapse();
+            if (role === 'menuitemradio') {
+                updateRadios(this);
+            } else if (role === 'menuitemcheckbox') {
+                el.setAttribute('aria-checked', el.getAttribute('aria-checked') !== 'true');
+            }
+        });
+    });
+
     keyEmitter.addKeyDown(el);
 
     el.addEventListener('escapeKeyDown', function() {
@@ -66,7 +87,7 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 
 nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
     var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
-    
+
     if (!inputEl) {
         return;
     }
