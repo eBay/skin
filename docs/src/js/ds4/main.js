@@ -1,5 +1,5 @@
 $('#header-large .grid__cell').skipTo();
-$('.dialog-button').dialogButton();
+// $('.dialog-button').dialogButton();
 $('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.expand-btn', overlaySelector: '.fake-menu__items'});
 $('.menu').menu();
 $('.tabs, .hijax-tabs').tabs();
@@ -25,4 +25,48 @@ $('.combobox__control').on('click', function() {
             $input.attr('aria-expanded', 'true');
         }
     }
+});
+
+document.querySelectorAll('.dialog-button').forEach(function(btn){
+    // var cancel;
+    var dialog = btn.nextElementSibling;
+    var dialogBody = dialog.querySelector('.dialog__body');
+    var dialogClose = dialog.querySelector('.dialog__close');
+    btn.addEventListener('click', handleOpen);
+
+    function handleOpen() {
+        // if (cancel) {
+        //     cancel();
+        // }
+
+        // cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
+        dialog.removeAttribute('hidden');
+        btn.removeEventListener('click', handleOpen);
+        dialog.addEventListener('click', handleClose, true);
+        document.body.setAttribute("style", "overflow:hidden");
+        dialogClose.focus();
+        // modal.modal(dialog);
+    }
+
+    function handleClose(ev) {
+        if (dialogBody.contains(ev.target)) {
+            return;
+        }
+
+        // if (cancel) {
+        //     cancel();
+        // }
+
+        // cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
+        dialog.setAttribute('hidden', '');
+        btn.addEventListener('click', handleOpen);
+        dialog.removeEventListener('click', handleClose, true);
+        document.body.removeAttribute("style");
+        // modal.unmodal();
+        btn.focus();
+    }
+
+    // function handleTransitionEnd() {
+    //     cancel = undefined;
+    // }
 });
