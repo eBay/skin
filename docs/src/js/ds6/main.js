@@ -164,12 +164,11 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
             cancel();
         }
 
-        cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
+        cancel = transition(dialog, 'dialog--show', handleTransitionEnd(true));
         dialog.removeAttribute('hidden');
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
-        dialogClose.focus();
         modal.modal(dialog);
     }
 
@@ -182,7 +181,7 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
             cancel();
         }
 
-        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
+        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd(false));
         dialog.setAttribute('hidden', '');
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
@@ -191,7 +190,12 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         btn.focus();
     }
 
-    function handleTransitionEnd () {
+    function handleTransitionEnd (isOpening) {
+        // focus on the close button
+        if (isOpening) {
+            dialogClose.focus();
+        }
+
         cancel = undefined;
     }
 });

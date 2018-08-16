@@ -21,7 +21,6 @@
 
 .dialog {
     &[role="dialog"] {
-        background-color: fade(@ds6-color-text-default, 70%);
         bottom: 0;
         left: 0;
         -webkit-overflow-scrolling: touch;
@@ -56,7 +55,6 @@
         // The background for the dialog window is on this pseudo element.
         // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
         &::before {
-            background-color: @ds6-color-g201-gray;
             bottom: 15vh;
             content: "";
             left: 0;
@@ -71,7 +69,6 @@
         &--full,
         &--left,
         &--right {
-            background-color: @ds6-color-g201-gray;
             bottom: 0;
             -webkit-overflow-scrolling: touch;
             overflow-y: auto;
@@ -127,26 +124,26 @@
         position: relative;
     }
 
+    &__back,
     &__close {
-        background-color: @ds6-color-g201-gray;
         border: 0;
-        color: @ds6-color-text-default;
         margin: 0;
         padding: 16px;
         position: absolute;
-        right: 0;
         top: 0;
         z-index: 1;
 
-        &:hover,
-        &:focus {
-            color: @ds6-color-link-default;
-        }
-
         span {
             .background-icon-base;
-            .icon-close(17px, 17px);
         }
+    }
+
+    &__close {
+        right: 0;
+    }
+
+    &__back {
+        left: 0;
     }
 
     // TRANSITIONS
@@ -156,28 +153,24 @@
     &--show,
     &--hide {
         // Root animations.
-        &.dialog {
-            &--mask {
-                &-fade {
-                    transition: background-color 0.16s ease-out;
-                }
+        &.dialog--mask {
+            &-fade {
+                transition: background-color 0.16s ease-out;
+            }
 
-                &-fade-slow {
-                    transition: background-color 0.32s ease-out;
-                }
+            &-fade-slow {
+                transition: background-color 0.32s ease-out;
             }
         }
 
         // Child animations.
-        .dialog {
-            &__window {
-                &--fade {
-                    transition: opacity 0.16s ease-out;
-                }
+        .dialog__window {
+            &--fade {
+                transition: opacity 0.16s ease-out;
+            }
 
-                &--slide {
-                    transition: transform 0.32s ease-out;
-                }
+            &--slide {
+                transition: transform 0.32s ease-out;
             }
         }
     }
@@ -189,31 +182,19 @@
             display: block;
         }
 
-        // Root animations.
-        &.dialog {
-            &--mask {
-                &-fade,
-                &-fade-slow {
-                    background-color: fade(@ds6-color-text-default, 0%);
-                }
-            }
-        }
-
         // Child animations.
-        .dialog {
-            &__window {
-                &--fade {
-                    opacity: 0;
+        .dialog__window {
+            &--fade {
+                opacity: 0;
+            }
+
+            &--slide {
+                &.dialog__window--left {
+                    transform: translateX(-100%);
                 }
 
-                &--slide {
-                    &.dialog__window--left {
-                        transform: translateX(-100%);
-                    }
-
-                    &.dialog__window--right {
-                        transform: translateX(100%);
-                    }
+                &.dialog__window--right {
+                    transform: translateX(100%);
                 }
             }
         }
@@ -226,26 +207,14 @@
             display: block;
         }
 
-        // Root animations.
-        &.dialog {
-            &--mask {
-                &-fade,
-                &-fade-slow {
-                    background-color: fade(@ds6-color-text-default, 70%);
-                }
-            }
-        }
-
         // Child animations.
-        .dialog {
-            &__window {
-                &--fade {
-                    opacity: 1;
-                }
+        .dialog__window {
+            &--fade {
+                opacity: 1;
+            }
 
-                &--slide {
-                    transform: translateX(0);
-                }
+            &--slide {
+                transform: translateX(0);
             }
         }
     }
@@ -265,10 +234,4 @@
 // POLYFILL THE HIDDEN ATTRIBUTE
 [hidden] {
     display: none;
-}
-
-@media screen and (-ms-high-contrast: white-on-black) {
-    .dialog__close span {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-close-base64-light}');
-    }
 }
