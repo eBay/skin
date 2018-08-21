@@ -21,7 +21,7 @@
                                 <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2" class="pagination__item">2</a>
                             </li>
                             <li>
-                                <button data-action="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=3" class="pagination__item">3</a>
+                                <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=3" class="pagination__item">3</a>
                             </li>
                             <li>
                                 <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=4" class="pagination__item">4</a>
@@ -49,7 +49,7 @@
             <a aria-current="page" href="http://www.ebay.com/sch/i.html?_nkw=guitars" class="pagination__item">1</a>
         </li>
         <li>
-            <button data-action="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2" class="pagination__item">2</a>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2" class="pagination__item">2</a>
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=3" class="pagination__item">3</a>
@@ -61,6 +61,66 @@
     </a>
 </nav>
             {% endhighlight html %}
+
+            <p>When performing client side navigation prefer using buttons instead of links like so.
+                <p>
+                    <div class="demo">
+                        <div class="demo__inner">
+                            <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">
+                                <span aria-live="polite" role="status">
+                                    <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
+                                </span>
+                                <button aria-disabled="true" aria-label="Previous Page" class="pagination__previous">
+                                    <span></span>
+                                </button>
+                                <ol class="pagination__items">
+                                    <li>
+                                        <button aria-current="page" class="pagination__item">1</button>
+                                    </li>
+                                    <li>
+                                        <button class="pagination__item">2</button>
+                                    </li>
+                                    <li>
+                                        <button class="pagination__item">3</button>
+                                    </li>
+                                    <li>
+                                        <button class="pagination__item">4</button>
+                                    </li>
+                                    <li>
+                                        <button class="pagination__item">5</button>
+                                    </li>
+                                </ol>
+                                <button aria-label="Next Page" class="pagination__next">
+                                    <span></span>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                    {% highlight html %}
+        <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">
+            <span aria-live="polite" role="status">
+                <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
+            </span>
+            <button aria-disabled="true" aria-label="Previous Page" class="pagination__previous">
+                <span></span>
+            </button>
+            <ol class="pagination__items">
+                <li>
+                    <button aria-current="page" class="pagination__item">1</a>
+                </li>
+                <li>
+                    <button class="pagination__item">2</a>
+                </li>
+                <li>
+                    <button class="pagination__item">3</a>
+                </li>
+                ...
+            </ol>
+            <button aria-label="Next Page" class="pagination__next">
+                <span></span>
+            </button>
+        </nav>
+                    {% endhighlight html %}
 
             <h3 id="pagination-fluid">Fluid Pagination</h3>
             <p>Apply the <span class="highlight">pagination--fluid</span> modifier class to fill all available horizontal space. Horizontal space will be distributed around each pagination item as necessary.</p>
