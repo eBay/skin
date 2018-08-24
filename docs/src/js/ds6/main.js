@@ -169,7 +169,7 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
-        modal.modal(dialog);
+        modal.modal(dialog.querySelector('.dialog__window'));
     }
 
     function handleClose (ev) {
