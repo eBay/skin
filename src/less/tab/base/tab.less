@@ -1,0 +1,47 @@
+span.tabs,
+span.fake-tabs {
+    display: inline-block;
+}
+
+div.tabs__items[role="tablist"],
+ul.fake-tabs__items {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.tabs__item[role="tab"] {
+    cursor: default; // needed to override text cursor
+}
+
+div.tabs__item[role="tab"],
+li.fake-tabs__item {
+    .tab-outer;
+}
+
+div.tabs__item[role="tab"] > span,
+li.fake-tabs__item > a {
+    .tab-inner;
+}
+
+div.tabs__item[role="tab"][aria-selected="true"],
+li.fake-tabs__item--current {
+    .selected-tab-outer;
+}
+
+div.tabs__item[role="tab"][aria-selected="true"] > span,
+li.fake-tabs__item--current > a[aria-current="page"] {
+    .selected-tab-inner;
+}
+
+.tabs__cell,
+.fake-tabs__cell {
+    margin: 16px;
+}
+
+// POLYFILL THE HIDDEN ATTRIBUTE
+[hidden] {
+    display: none;
+}

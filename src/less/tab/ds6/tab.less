@@ -1,0 +1,22 @@
+@import "../../less/ds6/variables.less";
+@import "../../less/ds6/mixins.less";
+@import "tab-mixins.less";
+@import "../base/tab.less";
+
+.tabs,
+.fake-tabs {
+    background-color: @ds6-color-g201-gray;
+    border-bottom: 1px solid @ds6-color-g201-gray; // prevent margin-collapse on next element
+}
+
+div.tabs__item[role="tab"],
+li.fake-tabs__item {
+    &:hover {
+        .hovered-tab-outer;
+    }
+}
+
+div.tabs__item[role="tab"]:hover > span,
+li.fake-tabs__item:hover > a {
+    .hovered-tab-inner;
+}
