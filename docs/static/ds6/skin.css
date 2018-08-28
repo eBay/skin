@@ -2736,6 +2736,9 @@ span.textbox__icon:first-child,
 .tooltip {
   cursor: pointer;
   position: relative;
+  /* tooltip directional arrow */
+  /* tooltip content area */
+  /* show tooltip on hover and focus */
 }
 .tooltip::before,
 .tooltip::after {
@@ -2746,14 +2749,12 @@ span.textbox__icon:first-child,
           transform: translate3d(0, 0, 0);
   visibility: hidden;
 }
-/* tooltip directional arrow */
 .tooltip::before {
   background: transparent;
   border: 6px solid transparent;
   content: "";
   z-index: 1001;
 }
-/* tooltip content area */
 .tooltip::after {
   background-color: #006efc;
   color: #fff;
@@ -2763,7 +2764,6 @@ span.textbox__icon:first-child,
   width: 250px;
   z-index: 1000;
 }
-/* show tooltip on hover and focus */
 .tooltip:hover::before,
 .tooltip:hover::after,
 .tooltip:focus::before,
@@ -2772,6 +2772,9 @@ span.textbox__icon:first-child,
   visibility: visible;
 }
 /* Top (default) */
+.tooltip-top {
+  /* Horizontally align top/bottom tooltips */
+}
 .tooltip-top::before,
 .tooltip-top::after {
   bottom: 100%;
@@ -2789,9 +2792,7 @@ span.textbox__icon:first-child,
   -webkit-transform: translateY(-12px);
           transform: translateY(-12px);
 }
-/* Horizontally align top/bottom tooltips */
-.tooltip-top::after,
-.tooltip-bottom::after {
+.tooltip-top::after {
   margin-left: -125px;
 }
 /* Bottom */
@@ -2800,6 +2801,9 @@ span.textbox__icon:first-child,
   bottom: auto;
   left: 30%;
   top: 100%;
+}
+.tooltip-bottom::after {
+  margin-left: -125px;
 }
 .tooltip-bottom::before {
   border-bottom-color: #006efc;
@@ -2827,6 +2831,11 @@ span.textbox__icon:first-child,
   margin-bottom: 0;
   margin-left: 0;
   margin-right: -12px;
+  top: 3px;
+}
+.tooltip-left::after {
+  margin-bottom: -16px;
+  margin-left: 0;
 }
 .tooltip-left:hover::before,
 .tooltip-left:hover::after,
@@ -2836,6 +2845,9 @@ span.textbox__icon:first-child,
           transform: translateX(-12px);
 }
 /* Right */
+.tooltip-right {
+  /* Vertically center tooltip content for left/right tooltips */
+}
 .tooltip-right::before,
 .tooltip-right::after {
   bottom: 20%;
@@ -2846,6 +2858,7 @@ span.textbox__icon:first-child,
   border-top-color: transparent;
   margin-bottom: 0;
   margin-left: -12px;
+  top: 3px;
 }
 .tooltip-right:hover::before,
 .tooltip-right:hover::after,
@@ -2854,13 +2867,6 @@ span.textbox__icon:first-child,
   -webkit-transform: translateX(12px);
           transform: translateX(12px);
 }
-/* Move directional arrows down a bit for left/right tooltips */
-.tooltip-left::before,
-.tooltip-right::before {
-  top: 3px;
-}
-/* Vertically center tooltip content for left/right tooltips */
-.tooltip-left::after,
 .tooltip-right::after {
   margin-bottom: -16px;
   margin-left: 0;
