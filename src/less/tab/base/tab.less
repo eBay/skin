@@ -16,24 +16,28 @@ div.tabs__item[role="tab"] {
     cursor: default; // needed to override text cursor
 }
 
+// outer
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
-    .tab-outer;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    margin: 0 2px;
+    min-height: 40px;
 }
 
+// inner
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
-    .tab-inner;
-}
-
-div.tabs__item[role="tab"][aria-selected="true"],
-li.fake-tabs__item--current {
-    .selected-tab-outer;
-}
-
-div.tabs__item[role="tab"][aria-selected="true"] > span,
-li.fake-tabs__item--current > a[aria-current="page"] {
-    .selected-tab-inner;
+    display: flex;
+    flex: 1;
+    font-size: 14px; // font-size should not scale with REM
+    justify-content: center;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .tabs__cell,

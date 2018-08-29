@@ -1,6 +1,5 @@
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
-@import "tab-mixins.less";
 @import "../base/tab.less";
 
 .tabs,
@@ -9,14 +8,38 @@
     border-bottom: 1px solid @ds6-color-g201-gray; // prevent margin-collapse on next element
 }
 
+// outer
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
+    -webkit-tap-highlight-color: @ds6-color-g204-gray;
+
+    // hover outer
     &:hover {
-        .hovered-tab-outer;
+        border-bottom: 2px solid @ds6-color-p002-blue;
     }
 }
 
+// hover inner
 div.tabs__item[role="tab"]:hover > span,
 li.fake-tabs__item:hover > a {
-    .hovered-tab-inner;
+    color: @ds6-color-p002-blue;
+}
+
+// inner
+div.tabs__item[role="tab"] > span,
+li.fake-tabs__item > a {
+    color: @ds6-color-text-default;
+}
+
+// selected outer
+div.tabs__item[role="tab"][aria-selected="true"],
+li.fake-tabs__item--current {
+    border-bottom: 2px solid @ds6-color-p002-blue;
+}
+
+// selected inner
+div.tabs__item[role="tab"][aria-selected="true"] > span,
+li.fake-tabs__item--current > a[aria-current="page"] {
+    color: @ds6-color-p002-blue;
+    font-weight: bold;
 }
