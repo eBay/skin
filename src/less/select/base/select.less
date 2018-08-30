@@ -6,10 +6,14 @@ span.select {
     display: inline-block;
 }
 
-.select > select {
+.select > select,
+.select__control > input {
     appearance: none;
     border: 1px solid;
-    font-size: inherit;
+    font-family: inherit;
+}
+
+.select > select {
     height: 40px;
 
     // custom IE pseudo selector for the arrow
@@ -20,6 +24,11 @@ span.select {
     &:focus {
         outline: 0;
     }
+}
+
+.select__control > input[aria-expanded="true"] {
+    border-bottom: 0;
+    padding-bottom: 1px; // fix for movement when border is removed
 }
 
 .select__icon {
@@ -61,7 +70,8 @@ span.select {
 .select.select--fluid {
     width: 100%;
 
-    > select {
+    > select,
+    .select__control > input {
         width: 100%;
     }
 }
@@ -73,6 +83,18 @@ span.select {
     width: auto;
 
     &:focus {
+        text-decoration: underline;
+    }
+}
+
+.select--borderless .select__control > input {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+
+    &:focus {
+        border-color: transparent;
+        outline: none;
         text-decoration: underline;
     }
 }
