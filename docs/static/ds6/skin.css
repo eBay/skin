@@ -2091,10 +2091,11 @@ button.page-notice__close span {
 .pagination {
   font-size: 0;
   max-width: 100%;
-  min-width: 400px;
 }
 .pagination__items {
   display: inline;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
   text-align: center;
@@ -2150,29 +2151,40 @@ button.page-notice__close span {
   display: -ms-flexbox;
   display: flex;
   min-width: 288px;
-  overflow: hidden;
 }
 .pagination--fluid .pagination__items > li {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 48px;
           flex: 1 0 48px;
 }
+.pagination {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-width: 376px;
+}
 .pagination a,
 .pagination button {
   color: #111820;
   font-size: 1rem;
 }
-.pagination__items > li:not([hidden]) {
-  margin-right: 8px;
+.pagination__items {
+  height: 48px;
+  overflow: hidden;
+  padding: 4px 0;
 }
-.pagination__items > li:last-child {
-  margin-right: 0;
+.pagination__items > li:not([hidden]) {
+  width: 56px;
 }
 .pagination__item {
   box-sizing: border-box;
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 48px;
+  margin: 0 4px;
   width: 48px;
 }
 .pagination__item:visited {
@@ -2190,7 +2202,12 @@ button.page-notice__close span {
 }
 .pagination__next,
 .pagination__previous {
-  line-height: 48px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  line-height: 56px;
   width: 48px;
 }
 .pagination__next span {
@@ -2225,16 +2242,14 @@ button.page-notice__close span {
   height: 17px;
   width: 17px;
 }
+.pagination--fluid {
+  width: 100%;
+}
 .pagination--fluid .pagination__items {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  height: 3rem;
-  max-width: 512px;
-  padding: 4px 0 4px 8px;
-}
-.pagination--fluid .pagination__items > li {
-  line-height: 3rem;
+  max-width: none;
 }
 .pagination--fluid .pagination__next,
 .pagination--fluid .pagination__previous {
