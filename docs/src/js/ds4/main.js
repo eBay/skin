@@ -26,7 +26,19 @@ $('.combobox__control').on('click', function() {
         }
     }
 });
-
+$('.select__control').on('click', function () {
+    const $this = $(this);
+    const $input = $this.find('input');
+    if (!$this.find('input').prop('disabled')) {
+        if ($this.hasClass('select__control--expanded')) {
+            $this.removeClass('select__control--expanded');
+            $input.attr('aria-expanded', 'false');
+        } else {
+            $this.addClass('select__control--expanded');
+            $input.attr('aria-expanded', 'true');
+        }
+    }
+});
 document.querySelectorAll('.dialog-button').forEach(function(btn){
     // var cancel;
     var dialog = btn.nextElementSibling;

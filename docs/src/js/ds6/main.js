@@ -79,7 +79,7 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
     el.addEventListener('expander-expand', function() {
         // TODO: normalize code with combobox
         var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
-        
+
         if (!firstSelectedOptionEl) {
             return;
         }
@@ -105,21 +105,33 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 
 // COMBOBOX WIDGET (basic interactivity only)
 
-nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
-    var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
+nodeListToArray(document.querySelectorAll('.combobox, .select.select--listbox')).forEach(function(el, i) {
+    var inputEl = el.querySelector('input:not([disabled])');
 
     if (!inputEl) {
         return;
     }
 
-    var widget = new Expander(el, {
-        autoCollapse: true,
-        expandOnClick: true,
-        hostSelector: 'input[role=combobox]',
-        hostContainerClass: 'combobox__control',
-        contentSelector: '.combobox__options',
-        simulateSpacebarClick: true
-    });
+    var widget;
+    if (el.classList.contains('select--listbox')) {
+        widget = new Expander(el, {
+            autoCollapse: true,
+            expandOnClick: true,
+            hostSelector: 'input',
+            hostContainerClass: 'select__control',
+            contentSelector: '.select__options',
+            simulateSpacebarClick: true
+        });
+    } else if (el.classList.contains('combobox')) {
+        widget = new Expander(el, {
+            autoCollapse: true,
+            expandOnClick: true,
+            hostSelector: 'input',
+            hostContainerClass: 'combobox__control',
+            contentSelector: '.combobox__options',
+            simulateSpacebarClick: true
+        });
+    }
 
     var optionEls = nodeListToArray(el.querySelectorAll('[role=option]'));
     var selectedOptionEl = el.querySelector('[role=option][aria-selected=true]');

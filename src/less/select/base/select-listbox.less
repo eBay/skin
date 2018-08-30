@@ -1,0 +1,59 @@
+.select--listbox {
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.select__control > input {
+    appearance: none;
+    border: 1px solid;
+    box-sizing: border-box;
+    cursor: default;
+    font-family: inherit;
+    text-align: left;
+
+    &[aria-expanded="true"] {
+        border-bottom: 0;
+        padding-bottom: 1px; // fix for movement when border is removed
+    }
+}
+
+span.select__icon {
+    .background-icon-base;
+
+    background-position: right center;
+    margin-left: 8px;
+    pointer-events: none;
+    position: absolute;
+    right: 17px; // +1 px for the border on the input box
+    top: 0;
+}
+
+.select__control--expanded span.select__icon {
+    transform: rotate(180deg);
+}
+
+.select--listbox .select__control--borderless > input {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+
+    &:focus {
+        border-color: transparent;
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+.select--listbox.select--fluid {
+    width: 100%;
+
+    .select__control > input {
+        width: 100%;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.select__icon {
+        background-color: transparent;
+    }
+}
