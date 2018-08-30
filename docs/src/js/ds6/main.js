@@ -151,6 +151,33 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
     });
 });
 
+// INFOTIP WIDGET
+nodeListToArray(document.querySelectorAll('.icon--info')).forEach(function(icon) {
+    var cancel;
+    var infotipWindow = icon.nextElementSibling;
+    icon.addEventListener('click', handleOpen);
+
+    function handleOpen () {
+        if (!infotipWindow.hasAttribute('hidden')) {
+            infotipWindow.setAttribute('hidden', '');
+        } else {
+            infotipWindow.removeAttribute('hidden');
+            var infotipClose = infotipWindow.querySelector('.infotip__close');
+            infotipClose.addEventListener('click', handleClose, true);
+            infotipClose.focus();
+        }
+    }
+
+    function handleClose () {
+        infotipWindow.setAttribute('hidden', '');
+        icon.addEventListener('click', handleOpen);
+        var infotipClose = infotipWindow.querySelector('.infotip__close');
+        infotipClose.removeEventListener('click', handleClose, true);
+        icon.focus();
+    }
+});
+
+
 // DIALOG WIDGET
 nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
     var cancel;
