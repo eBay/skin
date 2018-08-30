@@ -152,15 +152,22 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
 });
 
 // INFOTIP WIDGET
-nodeListToArray(document.querySelectorAll('.icon--info')).forEach(function(icon) {
+nodeListToArray(document.querySelectorAll('.infotip-action')).forEach(function(icon) {
     var cancel;
     var infotipWindow = icon.nextElementSibling;
     icon.addEventListener('click', handleOpen);
+
+    if (!infotipWindow.hasAttribute('hidden')) {
+        var infotipClose = infotipWindow.querySelector('.infotip__close');
+        infotipClose.addEventListener('click', handleClose, true);
+        infotipClose.focus();
+    }
 
     function handleOpen () {
         if (!infotipWindow.hasAttribute('hidden')) {
             infotipWindow.setAttribute('hidden', '');
         } else {
+            icon.classList.add('icon-background');
             infotipWindow.removeAttribute('hidden');
             var infotipClose = infotipWindow.querySelector('.infotip__close');
             infotipClose.addEventListener('click', handleClose, true);

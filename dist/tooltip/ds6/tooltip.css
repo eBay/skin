@@ -10,14 +10,23 @@ svg.icon--close {
   height: 18px;
   width: 18px;
 }
-.label-line-hgt {
-  line-height: 24px;
+#tourtip-icon .icon--close {
+  color: #fff;
+}
+.label-tourtip {
+  border: 1px solid #ccc;
+  color: #006efc;
+  display: inline-block;
+  padding: 15px 50px 15px 50px;
+}
+.label-tourtip:hover {
+  cursor: pointer;
 }
 .margin-left-20 {
   margin-left: 20px;
 }
-.margin-left-150 {
-  margin-left: 150px;
+.div-tourtip-margin {
+  margin: 160px 150px 5px 105px;
 }
 /* Default style */
 .tooltip,
@@ -33,13 +42,15 @@ svg.icon--close {
   visibility: visible;
 }
 .tooltip__window,
-.infotip__window {
+.infotip__window,
+.tourtip__window {
   position: absolute;
   width: 350px;
   z-index: 1;
 }
 .tooltip__window::after,
-.infotip__window::after {
+.infotip__window::after,
+.tourtip__window::after {
   border-style: solid;
   border-width: 8px;
   content: "";
@@ -53,16 +64,12 @@ svg.icon--close {
   visibility: hidden;
 }
 /* The actual popup (appears on top) */
-.infotip__window {
-  background-color: #fff;
-  box-shadow: 0 1px 5px 1px #767676;
-  color: #111820;
+.infotip__window,
+.tourtip__window {
   margin-bottom: 15px;
 }
-.infotip__window::after {
-  border-color: #fff;
-  box-shadow: -2px 2px 2px 0 #767676;
-  box-sizing: border-box;
+.infotip__window::after,
+.tourtip__window::after {
   left: 50%;
   margin-left: -5px;
   top: 100%;
@@ -70,6 +77,23 @@ svg.icon--close {
           transform: rotate(-45deg);
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
+}
+.infotip__window {
+  background-color: #fff;
+  box-shadow: 0 1px 5px 1px #767676;
+  color: #111820;
+}
+.infotip__window::after {
+  border-color: #fff;
+  box-shadow: -2px 2px 2px 0 #767676;
+  box-sizing: border-box;
+}
+.tourtip__window {
+  background-color: #006efc;
+  color: #fff;
+}
+.tourtip__window::after {
+  border-color: #006efc;
 }
 .infotip__top {
   bottom: 125%;
@@ -125,7 +149,6 @@ svg.icon--close {
   border-color: transparent transparent transparent #006efc;
   left: 100%;
 }
-/* Infotip component */
 .infotip__close {
   background-color: inherit;
   border: 0;
@@ -142,4 +165,8 @@ svg.icon--close {
   background-size: contain;
   display: inline-block;
   vertical-align: middle;
+}
+.tooltip-body {
+  padding-left: 10px;
+  width: 90%;
 }

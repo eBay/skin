@@ -23,7 +23,8 @@
 }
 
 .tooltip__window,
-.infotip__window {
+.infotip__window,
+.tourtip__window {
     position: absolute;
     width: 350px;
     z-index: 1;
@@ -45,21 +46,37 @@
 }
 
 /* The actual popup (appears on top) */
-.infotip__window {
-    background-color: @ds6-color-g201-gray;
-    box-shadow: 0 1px 5px 1px @ds6-color-g205-gray;
-    color: @ds6-color-g206-gray;
+.infotip__window,
+.tourtip__window {
     margin-bottom: 15px;
 
     &::after {
-        border-color: #fff;
-        box-shadow: -2px 2px 2px 0 #767676;
-        box-sizing: border-box;
         left: 50%;
         margin-left: -5px;
         top: 100%;
         transform: rotate(-45deg);
         transform-origin: 0 0;
+    }
+}
+
+.infotip__window {
+    background-color: @ds6-color-g201-gray;
+    box-shadow: 0 1px 5px 1px @ds6-color-g205-gray;
+    color: @ds6-color-g206-gray;
+
+    &::after {
+        border-color: #fff;
+        box-shadow: -2px 2px 2px 0 #767676;
+        box-sizing: border-box;
+    }
+}
+
+.tourtip__window {
+    background-color: @ds6-color-p002-blue;
+    color: @ds6-color-g201-gray;
+
+    &::after {
+        border-color: @ds6-color-p002-blue;
     }
 }
 
@@ -128,7 +145,6 @@
     }
 }
 
-/* Infotip component */
 .infotip {
     &__close {
         background-color: inherit;
@@ -145,4 +161,9 @@
             .background-icon-base;
         }
     }
+}
+
+.tooltip-body {
+    padding-left: 10px;
+    width: 90%;
 }
