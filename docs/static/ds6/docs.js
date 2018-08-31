@@ -2125,7 +2125,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tourtip-button):not(.tourtip--link-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -2260,16 +2260,13 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
 });
 
 // INFOTIP WIDGET
-nodeListToArray(document.querySelectorAll('.infotip-icon, .tourtip-button')).forEach(function(el) {
+nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
     var customTooltipWindow = el.nextElementSibling;
     el.addEventListener('click', handleOpen);
 
     if (!customTooltipWindow.hasAttribute('hidden')) {
         var btnClose = customTooltipWindow.querySelector('.tooltip-close');
         btnClose.addEventListener('click', handleClose, true);
-        if (el.className.indexOf('infotip-span') !== -1) {
-            btnClose.focus();
-        }
     }
 
     function handleOpen () {
