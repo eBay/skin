@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -151,7 +151,7 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
     });
 });
 
-// INFOTIP WIDGET
+// TOOLTIP WIDGET
 nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
     var customTooltipWindow = el.nextElementSibling;
     el.addEventListener('click', handleOpen);
