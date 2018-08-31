@@ -591,7 +591,7 @@ https://github.com/joyent/node/blob/master/lib/module.js
     }
 })();
 
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-expander", "0.4.0");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-expander", "0.4.0");
 $_mod.main("/makeup-expander$0.4.0", "");
 $_mod.installed("makeup-expander$0.4.0", "custom-event-polyfill", "0.3.0");
 $_mod.main("/custom-event-polyfill$0.3.0", "custom-event-polyfill");
@@ -1040,7 +1040,7 @@ module.exports = function () {
 }();
 
 });
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-floating-label", "0.0.2");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-floating-label", "0.0.2");
 $_mod.main("/makeup-floating-label$0.0.2", "");
 $_mod.def("/makeup-floating-label$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
@@ -1106,7 +1106,7 @@ module.exports = function () {
 }();
 
 });
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-roving-tabindex", "0.0.5");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-roving-tabindex", "0.0.5");
 $_mod.main("/makeup-roving-tabindex$0.0.5", "");
 $_mod.installed("makeup-roving-tabindex$0.0.5", "makeup-navigation-emitter", "0.0.6");
 $_mod.main("/makeup-navigation-emitter$0.0.6", "");
@@ -1590,8 +1590,8 @@ module.exports = {
 };
 
 });
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-key-emitter", "0.0.3");
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-prevent-scroll-keys", "0.0.2");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-key-emitter", "0.0.3");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-prevent-scroll-keys", "0.0.2");
 $_mod.main("/makeup-prevent-scroll-keys$0.0.2", "");
 $_mod.def("/makeup-prevent-scroll-keys$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
@@ -1615,7 +1615,7 @@ module.exports = {
 };
 
 });
-$_mod.installed("@ebay/skin$6.0.0-2", "makeup-modal", "0.0.4");
+$_mod.installed("@ebay/skin$6.0.0-6", "makeup-modal", "0.0.4");
 $_mod.main("/makeup-modal$0.0.4", "");
 $_mod.installed("makeup-modal$0.0.4", "makeup-keyboard-trap", "0.0.9");
 $_mod.main("/makeup-keyboard-trap$0.0.9", "");
@@ -1974,7 +1974,7 @@ module.exports = {
 };
 
 });
-$_mod.def("/@ebay/skin$6.0.0-2/docs/src/js/ds6/transition", function(require, exports, module, __filename, __dirname) { /**
+$_mod.def("/@ebay/skin$6.0.0-6/docs/src/js/ds6/transition", function(require, exports, module, __filename, __dirname) { /**
  * This module should be shared with ebayui-core and potentially extracted into it's own package.
  */
 
@@ -2106,7 +2106,7 @@ function nextFrame(fn) {
 }
 
 });
-$_mod.def("/@ebay/skin$6.0.0-2/docs/src/js/ds6/main", function(require, exports, module, __filename, __dirname) { // Most of this is code for the menu and combobox logic, which will be abstracted away into their own modules at some point
+$_mod.def("/@ebay/skin$6.0.0-6/docs/src/js/ds6/main", function(require, exports, module, __filename, __dirname) { // Most of this is code for the menu and combobox logic, which will be abstracted away into their own modules at some point
 
 // makeup-js accessibility modules
 var Expander = require('/makeup-expander$0.4.0/index'/*'makeup-expander'*/);
@@ -2114,7 +2114,7 @@ var Rover = require('/makeup-roving-tabindex$0.0.5/index'/*'makeup-roving-tabind
 var keyEmitter = require('/makeup-key-emitter$0.0.3/index'/*'makeup-key-emitter'*/);
 var scrollKeyPreventer = require('/makeup-prevent-scroll-keys$0.0.2/index'/*'makeup-prevent-scroll-keys'*/);
 var modal = require('/makeup-modal$0.0.4/index'/*'makeup-modal'*/);
-var transition = require('/@ebay/skin$6.0.0-2/docs/src/js/ds6/transition'/*"./transition"*/);
+var transition = require('/@ebay/skin$6.0.0-6/docs/src/js/ds6/transition'/*"./transition"*/);
 var FloatingLabel = require('/makeup-floating-label$0.0.2/index'/*'makeup-floating-label'*/);
 
 // util function
@@ -2157,12 +2157,13 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
         contentSelector: '.menu__items, .fake-menu__items'
     });
 
-    var optionEls = nodeListToArray(el.querySelectorAll('[role=menuitem], [role=menuitemradio], [role=menuitemcheckbox]'));
+    var optionEls = nodeListToArray(el.querySelectorAll('[role^=menuitem]'));
     var updateRadios = function(newSelection) {
         optionEls.forEach(function(el) {
             el.setAttribute('aria-checked', el === newSelection);
         });
     }
+
     optionEls.forEach(function(el, i) {
         // add a click handler to each el
         el.addEventListener('click', function(e) {
@@ -2181,6 +2182,27 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
     el.addEventListener('escapeKeyDown', function() {
         this.querySelector('.expand-btn').focus();
         widget.collapse();
+    });
+
+    el.addEventListener('expander-expand', function() {
+        // TODO: normalize code with combobox
+        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
+        
+        if (!firstSelectedOptionEl) {
+            return;
+        }
+
+        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
+
+        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
+            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
+        } else {
+            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
+            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
+            if (offsetBottom > scrollBottom) {
+                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
+            }
+        }
     });
 });
 
@@ -2255,6 +2277,27 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
     el.addEventListener('arrowUpKeyDown', function(e) {
         if (currentIndex > 0) {
             updateCombobox(currentIndex - 1);
+        }
+    });
+
+    el.addEventListener('expander-expand', function() {
+        // TODO: normalize code with menu
+        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role=option][aria-selected=true]'))[0];
+
+        if (!firstSelectedOptionEl) {
+            return;
+        }
+
+        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
+
+        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
+            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
+        } else {
+            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
+            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
+            if (offsetBottom > scrollBottom) {
+                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
+            }
         }
     });
 });
@@ -2394,4 +2437,4 @@ nodeListToArray(document.querySelectorAll('.floating-label')).forEach(function(e
 });
 
 });
-$_mod.run("/@ebay/skin$6.0.0-2/docs/src/js/ds6/main");
+$_mod.run("/@ebay/skin$6.0.0-6/docs/src/js/ds6/main");

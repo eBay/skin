@@ -1,0 +1,42 @@
+    <h3>Scrollable menu</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu">
+                <button class="expand-btn expand-btn--regular" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span>Menu</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu__items" role="menu">
+                    {% for number in (1...100) %}
+                    <div class="menu__item" role="menuitemradio" aria-checked="{% if number == 25 %}true{% else %}false{% endif %}">
+                        <span>Menu item {{number}}</span>
+                        <span class="menu__status"></span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="menu">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span>Menu</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitemradio">
+            <span>Item 1 with a long string</span>
+        </div>
+        <div class="menu__item" role="menuitemradio"><span>Menu item 2</span></div>
+        <div class="menu__item" role="menuitemradio"><span>Menu item 3</span></div>
+        
+        <!-- you get the idea -->
+        
+        <div class="menu__item" role="menuitemradio"><span>Menu item N</span></div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
