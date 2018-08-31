@@ -49,13 +49,12 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
         contentSelector: '.menu__items, .fake-menu__items'
     });
 
-    var optionEls = nodeListToArray(el.querySelectorAll('[role^=menuitem]'));
+    var optionEls = nodeListToArray(el.querySelectorAll('[role=menuitem], [role=menuitemradio], [role=menuitemcheckbox]'));
     var updateRadios = function(newSelection) {
         optionEls.forEach(function(el) {
             el.setAttribute('aria-checked', el === newSelection);
         });
     }
-
     optionEls.forEach(function(el, i) {
         // add a click handler to each el
         el.addEventListener('click', function(e) {
@@ -74,27 +73,6 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
     el.addEventListener('escapeKeyDown', function() {
         this.querySelector('.expand-btn').focus();
         widget.collapse();
-    });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with combobox
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
-        
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
-        } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
-        }
     });
 });
 
@@ -169,27 +147,6 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
     el.addEventListener('arrowUpKeyDown', function(e) {
         if (currentIndex > 0) {
             updateCombobox(currentIndex - 1);
-        }
-    });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with menu
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role=option][aria-selected=true]'))[0];
-
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
-        } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
         }
     });
 });

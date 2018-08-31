@@ -3,26 +3,18 @@
 
 @import "../base/pagination.less";
 
-.pagination {
-    align-items: center;
-    display: inline-flex;
-    min-width: 376px;
-}
-
 .pagination a,
 .pagination button {
     color: @ds6-color-text-default;
     font-size: @ds6-font-size-16;
 }
 
-.pagination__items {
-    height: 3rem;
-    padding: 4px 0;
+.pagination__items > li:not([hidden]) {
+    margin-right: 8px;
+}
 
-    > li:not([hidden]) {
-        line-height: 3rem;
-        width: 56px;
-    }
+.pagination__items > li:last-child {
+    margin-right: 0;
 }
 
 .pagination__item {
@@ -30,7 +22,6 @@
     font-size: @ds6-font-size-14;
     font-weight: 700;
     line-height: 48px;
-    margin: 0 4px;
     width: 48px;
 
     &:visited {
@@ -52,9 +43,7 @@
 
 .pagination__next,
 .pagination__previous {
-    flex-grow: 0;
-    flex-shrink: 0;
-    line-height: 56px;
+    line-height: 48px;
     width: 48px;
 }
 
@@ -96,18 +85,14 @@
     }
 }
 
-.pagination--fluid {
-    width: 100%;
+.pagination--fluid .pagination__items {
+    height: 3rem; // a11y: needs to be relative to the text zoom level
+    margin: -4px 0;
+    max-width: 512px;
+    padding: 4px 4px 4px 0;
 
-    .pagination__items {
-        flex-grow: 1;
-        max-width: none;
-    }
-
-    .pagination__next,
-    .pagination__previous {
-        flex-grow: 0;
-        flex-shrink: 0;
+    > li {
+        line-height: 3rem; // a11y: needs to be relative to the text zoom level
     }
 }
 
