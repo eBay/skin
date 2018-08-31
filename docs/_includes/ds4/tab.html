@@ -1,0 +1,196 @@
+<div id="tab">
+    <h2>Tab</h2>
+    <p>A tab is a control that allows the user to select and display a single panel of content from a group of choices. By decluttering the user-interface in this way, we say that a tab follows the principals of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>.</p>
+    <p>Selecting a tab should update the visible panel <strong>without</strong> a full page reload. If a full page load is required instead (i.e. acting like a link), please see the <a href="#tab-fake">fake tab</a> section below for more details.</p>
+    <p><strong>NOTE:</strong> The non-fake examples below use a simple <a href="https://github.com/ianmcburnie/jquery-tabs">jquery-tabs</a> plugin to toggle the aria state of the tabs when clicked. The plugin also implements <em>roving-tabindex</em> based arrow-key navigation for keyboard accessibility.</p>
+
+    <h3 id="tab-default">Default Tab</h3>
+    <p>When a tab is selected, the <span class="highlight">aria-selected</span> state of all tabs in the list must be updated in order for the CSS to reflect the change. Only one tab can be selected and in the tab order at any moment in time. Likewise, only one tabpanel can be visible at any time, and it must correspond to the currently selected tab.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="tabs">
+                <div class="tabs__items">
+                    <div class="tabs__item">
+                        <span>Tab 1</span>
+                    </div>
+                    <div class="tabs__item">
+                        <span>Tab 2</span>
+                    </div>
+                    <div class="tabs__item">
+                        <span>Tab 3</span>
+                    </div>
+                </div>
+                <div class="tabs__content">
+                    <div class="tabs__panel">
+                        <div class="tabs__cell">
+                            <h4>Panel 1 Content</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                        </div>
+                    </div>
+                    <div class="tabs__panel">
+                        <div class="tabs__cell">
+                            <h4>Panel 2 Content</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                        </div>
+                    </div>
+                    <div class="tabs__panel">
+                        <div class="tabs__cell">
+                            <h4>Panel 3 Content</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="tabs">
+    <div class="tabs__items" role="tablist">
+        <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab" tabindex="0">
+            <span>Tab 1</span>
+        </div>
+        <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab" tabindex="-1">
+            <span>Tab 2</span>
+        </div>
+        <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab" tabindex="-1">
+            <span>Tab 3</span>
+        </div>
+    </div>
+    <div class="tabs__content">
+        <div aria-labelledby="default-tab-1" class="tabs__panel" id="default-tabpanel-1" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 1 Content</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+            </div>
+        </div>
+        <div aria-labelledby="default-tab-2" class="tabs__panel" hidden id="default-tabpanel-2" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 2 Content</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+            </div>
+        </div>
+        <div aria-labelledby="default-tab-3" class="tabs__panel" hidden id="default-tabpanel-3" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 1 Content</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3 id="tab-fake">Fake Tab</h3>
+    <p>A fake tab <em>looks</em> like a normal tab, but is actually a hyperlink to a new page. Therefore a set of fake tabs behaves more like a simple navigational widget, rather than a dynamic user interface control.</p>
+    <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant) is <strong>not</strong> a valid URL!</p>
+    <p>The <span class="highlight">fake-tabs__item--current</span> class is used to visually denote the current link. The <span class="highlight">aria-current</span> attribute is used to programmatically denote the current page state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="fake-tabs">
+                <ul class="fake-tabs__items">
+                    <li class="fake-tabs__item fake-tabs__item--current">
+                        <a aria-current="page" href="http://www.ebay.com">Page 1</a>
+                    </li>
+                    <li class="fake-tabs__item">
+                        <a href="http://www.ebay.com">Page 2</a>
+                    </li>
+                    <li class="fake-tabs__item">
+                        <a href="http://www.ebay.com">Page 3</a>
+                    </li>
+                </ul>
+                <div class="fake-tabs__content">
+                    <div class="fake-tabs__cell">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="fake-tabs">
+    <ul class="fake-tabs__items">
+        <li class="fake-tabs__item fake-tabs__item--current">
+            <a aria-current="page" href="http://www.ebay.com">Page 1</a>
+        </li>
+        <li class="fake-tabs__item">
+            <a href="http://www.ebay.com">Page 2</a>
+        </li>
+        <li class="fake-tabs__item">
+            <a href="http://www.ebay.com">Page 3</a>
+        </li>
+    </ul>
+    <div class="fake-tabs__content">
+        <div class="fake-tabs__cell">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <!--
+    <h4 id="tab-hijax">Hijax Tab</h4>
+    <p>Although something of an edge case for most people, our fake tabs can be progressively enhanced into real tabs by adding the necessary ARIA roles, states &amp; properties. The default link behaviour must be prevented by removing the href attribute. The default link semantics must be removed by applying role="presentation".</p>
+    <p>JavaScript must then be used to replace all instances of the <span class="highlight">fake-tabs</span> classname with <span class="highlight">hijax-tabs</span>.</p>
+
+    <div class="demo">
+        <div class="hijax-tabs">
+            <ul class="hijax-tabs__items">
+                <li class="hijax-tabs__item">
+                    <a href="#">Tab 1</a>
+                </li>
+                <li class="hijax-tabs__item">
+                    <a href="#">Tab 2</a>
+                </li>
+                <li class="hijax-tabs__item">
+                    <a href="#">Tab 3</a>
+                </li>
+            </ul>
+            <div class="hijax-tabs__content">
+                <div>
+                    <p>Panel 1 Content</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                </div>
+                <div>
+                    <p>Panel 2 Content</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                </div>
+                <div>
+                    <p>Panel 3 Content</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="hijax-tabs">
+    <ul class="hijax-tabs__items" role="tablist">
+        <li aria-controls="hijax-tabpanel-1" aria-selected="true" class="hijax-tabs__item" id="hijax-tab-1" role="tab" tabindex="0">
+            <a role="presentation">Tab 1</a>
+        </li>
+        <li aria-controls="hijax-tabpanel-2" aria-selected="false" class="hijax-tabs__item" id="hijax-tab-2" role="tab" tabindex="-1">
+            <a role="presentation">Tab 2</a>
+        </li>
+        <li aria-controls="hijax-tabpanel-3" aria-selected="false" class="hijax-tabs__item" id="hijax-tab-3" role="tab" tabindex="-1">
+            <a role="presentation">Tab 3</a>
+        </li>
+    </ul>
+    <div class="hijax-tabs__content">
+        <div aria-labelledby="hijax-tab-1" id="hijax-tabpanel-1" role="tabpanel">
+            <p>Panel 1 Content</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+        </div>
+        <div aria-labelledby="hijax-tab-2" hidden id="hijax-tabpanel-2" role="tabpanel">
+            <p>Panel 2 Content</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+        </div>
+        <div aria-labelledby="hijax-tab-3" hidden id="hijax-tabpanel-3" role="tabpanel">
+            <p>Panel 3 Content</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?</p>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+    -->
+</div>
