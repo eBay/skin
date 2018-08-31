@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -192,6 +192,38 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
             }
         }
     });
+});
+
+
+// TOOLTIP WIDGET
+nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
+    var customTooltipWindow = el.nextElementSibling;
+    el.addEventListener('click', handleOpen);
+
+    if (!customTooltipWindow.hasAttribute('hidden')) {
+        var btnClose = customTooltipWindow.querySelector('.tooltip-close');
+        btnClose.addEventListener('click', handleClose, true);
+    }
+
+    function handleOpen () {
+        if (!customTooltipWindow.hasAttribute('hidden')) {
+            customTooltipWindow.setAttribute('hidden', '');
+        } else {
+            el.classList.add('icon-background');
+            customTooltipWindow.removeAttribute('hidden');
+            var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
+            infotipClose.addEventListener('click', handleClose, true);
+            infotipClose.focus();
+        }
+    }
+
+    function handleClose () {
+        customTooltipWindow.setAttribute('hidden', '');
+        el.addEventListener('click', handleOpen);
+        var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
+        infotipClose.removeEventListener('click', handleClose, true);
+        el.focus();
+    }
 });
 
 // DIALOG WIDGET
