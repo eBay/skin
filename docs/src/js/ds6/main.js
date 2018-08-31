@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -49,13 +49,12 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
         contentSelector: '.menu__items, .fake-menu__items'
     });
 
-    var optionEls = nodeListToArray(el.querySelectorAll('[role^=menuitem]'));
+    var optionEls = nodeListToArray(el.querySelectorAll('[role=menuitem], [role=menuitemradio], [role=menuitemcheckbox]'));
     var updateRadios = function(newSelection) {
         optionEls.forEach(function(el) {
             el.setAttribute('aria-checked', el === newSelection);
         });
     }
-
     optionEls.forEach(function(el, i) {
         // add a click handler to each el
         el.addEventListener('click', function(e) {
@@ -74,27 +73,6 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
     el.addEventListener('escapeKeyDown', function() {
         this.querySelector('.expand-btn').focus();
         widget.collapse();
-    });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with combobox
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
-        
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
-        } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
-        }
     });
 });
 
@@ -171,28 +149,39 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
             updateCombobox(currentIndex - 1);
         }
     });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with menu
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role=option][aria-selected=true]'))[0];
-
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
-        } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
-        }
-    });
 });
+
+// TOOLTIP WIDGET
+nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
+    var customTooltipWindow = el.nextElementSibling;
+    el.addEventListener('click', handleOpen);
+
+    if (!customTooltipWindow.hasAttribute('hidden')) {
+        var btnClose = customTooltipWindow.querySelector('.tooltip-close');
+        btnClose.addEventListener('click', handleClose, true);
+    }
+
+    function handleOpen () {
+        if (!customTooltipWindow.hasAttribute('hidden')) {
+            customTooltipWindow.setAttribute('hidden', '');
+        } else {
+            el.classList.add('icon-background');
+            customTooltipWindow.removeAttribute('hidden');
+            var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
+            infotipClose.addEventListener('click', handleClose, true);
+            infotipClose.focus();
+        }
+    }
+
+    function handleClose () {
+        customTooltipWindow.setAttribute('hidden', '');
+        el.addEventListener('click', handleOpen);
+        var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
+        infotipClose.removeEventListener('click', handleClose, true);
+        el.focus();
+    }
+});
+
 
 // DIALOG WIDGET
 nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
