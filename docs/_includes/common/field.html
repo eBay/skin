@@ -1,0 +1,571 @@
+<div id="field">
+    <h2>@ebay/skin/field</h2>
+    <p>The field module facilitates the layout of a form control and it's associated label, plus any other applicable text or sub-controls (e.g. error text or help button).</p>
+
+    <h3 id="field-unstacked">Unstacked Field</h3>
+    <p>The <span class="highlight">field__label</span> &amp; <span class="highlight">field__control</span> elements are inline by default, taking up only as much horizontal space as they need.</p>
+    <p>Multiple fields can be laid out inline by using the span tag with <span class="highlight">field</span> class, as per the example below.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-unstacked-1">Field 1</label>
+                <span class="field__control textbox">
+                    <input class="textbox__control" id="field-unstacked-1" type="text" placeholder="placeholder text" />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-unstacked-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-unstacked-2" id="field-unstacked-2">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-unstacked-3">Field 3</label>
+                <span class="field__control switch">
+                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-unstacked-3" />
+                    <span class="switch__button"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="field1">Field 1</label>
+    <span class="field__control textbox">
+        <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
+    </span>
+</span>
+<span class="field">
+    <label class="field__label" for="field2">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="field2" id="field2">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+<span class="field">
+    <label class="field__label" for="field3">Field 3</label>
+    <span class="field__control switch">
+        <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+        <span class="switch__button"></span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <p>Replace the span tag with a div tag to layout fields in blocks, as per the following example.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="field" style="margin-top: 0">
+                <label class="field__label" for="field-unstacked-4">Field 1</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="field-unstacked-4" type="text" placeholder="placeholder text" />
+                </span>
+            </div>
+            <div class="field">
+                <label class="field__label" for="field-unstacked-5">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-unstacked-5" id="field-unstacked-5">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </div>
+            <div class="field" style="margin-bottom: 0">
+                <label class="field__label" for="field-unstacked-6">Field 3</label>
+                <span class="field__control switch">
+                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-unstacked-6" />
+                    <span class="switch__button"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <h3 id="field-stacked">Stacked Field</h3>
+    <p>For a label stacked above the control, use the <span class="highlight">field__label--stacked</span> element modifier.</p>
+    <p>Again, multiple fields can be laid out inline by using a span tag, as per the example below.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-stacked-1">Field 1</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="field-stacked-1" type="text" placeholder="placeholder text" />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-stacked-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-stacked-2" id="field-stacked-2">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-stacked-3">Field 3</label>
+                <span class="field__control switch">
+                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-stacked-3" />
+                    <span class="switch__button"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="field">
+    <label class="field__label field__label--stacked" for="field1">Field 1</label>
+    <span class="textbox">
+        <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
+    </span>
+</span>
+<span class="field">
+    <label class="field__label field__label--stacked" for="field2">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="field2" id="field2">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+<span class="field">
+    <label class="field__label field__label--stacked">Field 3</label>
+    <span class="field__control switch">
+        <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+        <span class="switch__button"></span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <p>Replace the span tag with a div tag to layout the stacked fields in blocks, as per the example below.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="field" style="margin-top: 0">
+                <label class="field__label field__label--stacked" for="field-stacked-4">Field 1</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="field-stacked-4" type="text" placeholder="placeholder text" />
+                </span>
+            </div>
+            <div class="field">
+                <label class="field__label field__label--stacked" for="field-stacked-5">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-stacked-5" id="field-stacked-5">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </div>
+            <div class="field" style="margin-bottom: 0">
+                <label class="field__label field__label--stacked" for="field-stacked-6">Field 3</label>
+                <span class="field__control switch">
+                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-stacked-6" />
+                    <span class="switch__button"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <h3 id="field-fontsize">Field Font-Size</h3>
+    <p>The field label will honour any font-size cascade (so be careful if this is not your intention!).</p>
+    <p>Notice that form controls do not inherit the cascade. This is default browser behaviour.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field" style="font-size: 18px;">
+                <label class="field__label" for="field-fontsize-1">Field 1</label>
+                <span class="field__control textbox textbox--large">
+                    <input class="textbox__control" id="field-fontsize-1" type="text" placeholder="placeholder text" />
+                </span>
+            </span>
+            <span class="field" style="font-size: 18px;">
+                <label class="field__label" for="field-fontsize-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-fontsize-2" id="field-fontsize-2">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+            <span class="field" style="font-size: 18px;">
+                <label class="field__label" for="field-fontsize-3">Field 3</label>
+                <span class="field__control switch">
+                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-fontsize-3" />
+                    <span class="switch__button"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field" style="font-size: 18px;">
+    <label class="field__label" for="email">Field 1</label>
+    <span class="field__control textbox textbox--large">
+        <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
+    </span>
+</span>
+<span class="field" style="font-size: 18px;">
+    <label class="field__label" for="size">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="size" id="size">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+<span class="field" style="font-size: 18px;">
+    <label class="field__label" for="field3">Field 3</label>
+    <span class="field__control switch">
+        <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+        <span class="switch__button"></span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="field-disabled">Disabled Field</h3>
+    <p>The disabled control is conveyed using the <span class="highlight">disabled</span> attribute. The value of a disabled control is <strong>not</strong> passed to the server.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-disabled-1">Field 1</label>
+                <span class="field__control textbox">
+                    <input class="textbox__control" id="field-disabled-1" type="text" value="placeholder text" disabled />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-disabled-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-disabled-2" id="field-disabled-2" disabled>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-disabled-3">Field 3</label>
+                <span class="field__control switch">
+                    <input disabled aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-disabled-3" />
+                    <span class="switch__button"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="email">Field 1</label>
+    <span class="field__control textbox">
+        <input class="textbox__control" id="field1" type="text" value="placeholder text" disabled />
+    </span>
+</span>
+<span class="field">
+    <label class="field__label" for="size">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="field2" id="field2" disabled>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+<span class="field">
+    <label class="field__label" for="field3">Field 3</label>
+    <span class="field__control switch">
+        <input disabled aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+        <span class="switch__button"></span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <p><strong>TIP:</strong> Disabled controls are exempt from <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">WCAG colour contrast requirements</a>.</p>
+
+    <h3 id="field-readonly">Readonly Field</h3>
+    <p>A readonly control is conveyed using the <span class="highlight">readonly</span> attribute. The value of a readonly control is passed to the server.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-readonly-1">Field 1</label>
+                <span class="field__control textbox">
+                    <input class="textbox__control" id="field-readonly-1" type="text" name="disabled-textbox" value="placeholder text" readonly />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-readonly-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select name="field-readonly-2" id="field-readonly-2" readonly>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="email">Field 1</label>
+    <span class="field__control textbox">
+        <input class="textbox__control" id="field1" type="text" value="placeholder text" readonly />
+    </span>
+</span>
+<span class="field">
+    <label class="field__label" for="size">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="field2" id="field2" readonly>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="field-required">Required Field</h3>
+    <p>A required field is conveyed visually with an asterisk, and non-visually using the <span class="highlight">aria-required</span> property.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-required-1">Field 1 <sup>*</sup></label>
+                <span class="field__control textbox">
+                    <input aria-required="true" class="textbox__control" id="field-required-1" type="text" placeholder="placeholder text" />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-required-2">Field 2 <sup>*</sup></label>
+                <span class="field__control">
+                    <span class="select">
+                        <select aria-required="true" id="field-required-2">
+                            <option value="0" disabled selected>-select-</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="email">Field 1 <sup>*</sup></label>
+    <span class="field__control textbox">
+        <input aria-required="true" class="textbox__control" id="field1" type="text" placeholder="placeholder text">
+    </span>
+</div>
+<span class="field">
+    <label class="field__label" for="size">Field 2 <sup>*</sup></label>
+    <span class="field__control">
+        <span class="select">
+            <select aria-required="true" id="field2">
+                <option value="0" disabled selected>-select-</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="field-invalid">Invalid Field</h3>
+    <p>An invalid control is conveyed <em>visually</em> via a combination of red outline and some other indicator (usually either text and/or an icon). The invalid state is conveyed <em>non-visually</em> using the <span class="highlight">aria-invalid</span> state.</p>
+    <p><strong>IMPORTANT:</strong> The example below shows the field with red border only. Do not forget that <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html">colour should not be used as the only visual means of conveying information</a>. A description and/or icon is also required. See next section for more details.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-required-1">Field 1</label>
+                <span class="field__control textbox">
+                    <input aria-invalid="true" class="textbox__control" id="field-required-1" type="text" placeholder="placeholder text" value="foobar" />
+                </span>
+            </span>
+            <span class="field">
+                <label class="field__label" for="field-required-2">Field 2</label>
+                <span class="field__control">
+                    <span class="select">
+                        <select aria-invalid="true" id="field-required-2">
+                            <option value="0" disabled selected>-select-</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <span class="select__icon"></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="email">Field 1</label>
+    <span class="field__control textbox">
+        <input aria-invalid="true" class="textbox__control" id="field1" type="text" placeholder="placeholder text">
+    </span>
+</div>
+<span class="field">
+    <label class="field__label" for="size">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select aria-invalid="true" id="field2">
+                <option value="0" disabled selected>-select-</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <span class="select__icon"></span>
+        </span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="field-description">Field Description</h3>
+    <p>A field may have nearby text to describe additional instructions, status or validation error of the control.</p>
+    <p>The <span class="highlight">field__description</span> element defines some minimal styling, but does not dictate location or layout. This element has modifiers for <span class="positive">confirmation</span>, <span style="color: #0654ba;">information</span> and <span class="emphasis">priority</span>, depending on the type of descriptive text (or icon).</p>
+    <p><strong>TIP:</strong> The description element can be designated as an ARIA <a href="https://ebay.gitbooks.io/mindpatterns/content/techniques/liveregions.html">live-region</a> if client-side updates occur.</p>
+
+    <h4>Text on Side of Field</h4>
+    <p>A description can be placed adjacent to any stacked or unstacked field simply by using an inline-level tag, such as span.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label" for="field-description-1">Field Label</label>
+                <span class="field__control textbox">
+                    <input aria-describedby="field-status-1" class="textbox__control" id="field-description-1" type="text" />
+                </span>
+                <span class="field__description">
+                    <span>Field description or error</span>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field">
+    <label class="field__label" for="field1">Field Label</label>
+    <span class="field__control textbox">
+        <input aria-describedby="field1-description" class="textbox__control" id="field1" type="text" />
+    </span>
+    <span class="field__description" id="field1-description">
+        <span>Field description or error</span>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h4>Text Below Stacked Field</h4>
+    <p>A description can be placed underneath a stacked field simply by using a block-level tag, such as div.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-description-4">Field Label</label>
+                <div class="field__control textbox">
+                    <input aria-describedby="field1-description" class="textbox__control" id="field-description-4" type="text" />
+                </div>
+                <div class="field__description" id="field1-description">
+                    <span>Field description or error</span>
+                </div>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field">
+    <label class="field__label field__label--stacked" for="field1">Field Label</label>
+    <div class="field__control textbox">
+        <input aria-describedby="field1-description" class="textbox__control" id="field1" type="text" />
+    </div>
+    <div class="field__description" id="field1-description">
+        <span>Field description or error</span>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h4>Text Above or Below Unstacked Field</h4>
+    <p>A description can be added directly above and/or below the control by utlising CSS table-layout via the <span class="highlight">field--table</span> modifier and <span class="highlight">field__row</span> elements.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field field--table">
+                <div class="field__row">
+                    <span><!-- empty cell--></span>
+                    <span class="field__description">
+                        <span>Field description or error</span>
+                    </span>
+                </div>
+                <div class="field__row">
+                    <label class="field__label" for="field-description-2">Field Label</label>
+                    <span class="textbox">
+                        <input aria-describedby="field-status-1" class="textbox__control" id="field-description-2" type="text" />
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field field--table">
+    <div class="field__row">
+        <span><!-- empty cell--></span>
+        <span class="field__description" id="field1-description">
+            <span>Field description or error</span>
+        </span>
+    </div>
+    <div class="field__row">
+        <label class="field__label" for="field1">Field Label</label>
+        <span class="textbox">
+            <input aria-describedby="field1-description" class="textbox__control" id="field1" type="text" />
+        </span>
+    </div>
+</span>
+    {% endhighlight %}
+
+    {% include ds{{ page.ds}}/field-custom.html %}
+
+</div>

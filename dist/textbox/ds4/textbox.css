@@ -9,15 +9,8 @@ textarea.textbox__control {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border: 1px solid;
   box-sizing: border-box;
-  color: #555;
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
-  font-size: inherit;
-  height: 40px;
-  line-height: 1.15;
   margin: 0;
   padding: 0 16px 0 16px;
 }
@@ -36,12 +29,6 @@ textarea.textbox__control:-ms-input-placeholder {
   color: #767676;
   font-weight: 200;
 }
-input.textbox__control[disabled],
-textarea.textbox__control[disabled] {
-  background-color: #eee;
-  border: 0;
-  color: #ccc;
-}
 input.textbox__control[disabled]::-webkit-input-placeholder,
 textarea.textbox__control[disabled]::-webkit-input-placeholder {
   color: #ccc;
@@ -54,19 +41,8 @@ input.textbox__control[disabled]:-ms-input-placeholder,
 textarea.textbox__control[disabled]:-ms-input-placeholder {
   color: #ccc;
 }
-input.textbox__control[readonly],
-textarea.textbox__control[readonly] {
-  background-color: #eee;
-  border-color: #ccc;
-  color: #767676;
-}
-input.textbox__control[aria-invalid="true"],
-textarea.textbox__control[aria-invalid="true"] {
-  border-color: #dd1e31;
-}
 input.textbox__control:focus,
 textarea.textbox__control:focus {
-  border-color: #0654ba;
   outline: 0;
 }
 textarea.textbox__control {
@@ -93,23 +69,6 @@ span.textbox__icon::before,
       -ms-grid-row-align: center;
       align-self: center;
 }
-span.textbox__icon {
-  color: #999;
-  font-size: 14px;
-}
-span.textbox__icon::before {
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: "vq-icon-font";
-}
-.textbox__icon {
-  fill: #999;
-  stroke-width: 0.5;
-  width: 1em;
-}
-span.textbox__icon:first-child,
-.textbox__icon:first-child {
-  left: 16px;
-}
 span.textbox__icon:first-child + input.textbox__control,
 .textbox__icon:first-child + input.textbox__control,
 span.textbox__icon:first-child + textarea.textbox__control,
@@ -120,37 +79,96 @@ span.textbox__icon:first-child + textarea.textbox__control,
 .textbox--icon-end textarea.textbox__control {
   padding-right: 40px;
 }
-.textbox--icon-end span.textbox__icon:last-child,
-.textbox--icon-end .textbox__icon:last-child {
-  right: 16px;
-}
-.textbox--small {
-  font-size: 12px;
-}
-.textbox--small input.textbox__control,
-.textbox--small textarea.textbox__control {
-  height: 32px;
-}
-.textbox--large {
-  font-size: 16px;
-}
-.textbox--large input.textbox__control,
-.textbox--large textarea.textbox__control {
-  height: 48px;
-}
-.textbox--extra-large {
-  font-size: 18px;
-}
-.textbox--extra-large input.textbox__control,
-.textbox--extra-large textarea.textbox__control {
-  height: 56px;
-}
 .textbox__control--fluid {
   width: 100%;
 }
 [dir="rtl"] span.textbox__icon:first-child::before,
 [dir="rtl"] .textbox__icon:first-child {
   left: auto;
+}
+[dir="rtl"] span.textbox__icon:first-child::before + input.textbox__control,
+[dir="rtl"] .textbox__icon:first-child + input.textbox__control,
+[dir="rtl"] span.textbox__icon:first-child::before + textarea.textbox__control,
+[dir="rtl"] .textbox__icon:first-child + textarea.textbox__control {
+  padding-right: 40px;
+}
+[dir="rtl"] .textbox--icon-end input.textbox__control,
+[dir="rtl"] .textbox--icon-end textarea.textbox__control {
+  padding-left: 40px;
+}
+[dir="rtl"] .textbox--icon-end span.textbox__icon:last-child::before,
+[dir="rtl"] .textbox--icon-end .textbox__icon:last-child {
+  right: auto;
+}
+input.textbox__control,
+textarea.textbox__control {
+  background: #fff;
+  border-color: #ccc;
+  border-radius: 3px;
+  color: #555;
+  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
+  font-size: inherit;
+  height: 40px;
+}
+input.textbox__control[disabled],
+textarea.textbox__control[disabled] {
+  background-color: #eee;
+  border: 0;
+  color: #ccc;
+}
+input.textbox__control[readonly],
+textarea.textbox__control[readonly] {
+  background-color: #eee;
+  border-color: #ccc;
+  color: #767676;
+}
+input.textbox__control[aria-invalid="true"],
+textarea.textbox__control[aria-invalid="true"] {
+  border-color: #dd1e31;
+}
+input.textbox__control:focus,
+textarea.textbox__control:focus {
+  border-color: #0654ba;
+}
+span.textbox__icon {
+  color: #999;
+}
+.textbox__icon {
+  fill: #999;
+  stroke-width: 0.5;
+  width: 1em;
+}
+span.textbox__icon:first-child,
+.textbox__icon:first-child {
+  left: 16px;
+}
+.textbox--icon-end span.textbox__icon:last-child,
+.textbox--icon-end .textbox__icon:last-child {
+  right: 16px;
+}
+.textbox--small {
+  font-size: 0.75rem;
+}
+.textbox--small input.textbox__control,
+.textbox--small textarea.textbox__control {
+  height: 32px;
+}
+.textbox--large {
+  font-size: 1rem;
+}
+.textbox--large input.textbox__control,
+.textbox--large textarea.textbox__control {
+  height: 48px;
+}
+.textbox--extra-large {
+  font-size: 1.125rem;
+}
+.textbox--extra-large input.textbox__control,
+.textbox--extra-large textarea.textbox__control {
+  height: 56px;
+}
+[dir="rtl"] span.textbox__icon:first-child::before,
+[dir="rtl"] .textbox__icon:first-child {
   right: 16px;
 }
 [dir="rtl"] span.textbox__icon:first-child::before + input.textbox__control,
@@ -158,15 +176,12 @@ span.textbox__icon:first-child + textarea.textbox__control,
 [dir="rtl"] span.textbox__icon:first-child::before + textarea.textbox__control,
 [dir="rtl"] .textbox__icon:first-child + textarea.textbox__control {
   padding-left: 16px;
-  padding-right: 40px;
 }
 [dir="rtl"] .textbox--icon-end input.textbox__control,
 [dir="rtl"] .textbox--icon-end textarea.textbox__control {
-  padding-left: 40px;
   padding-right: 16px;
 }
 [dir="rtl"] .textbox--icon-end span.textbox__icon:last-child::before,
 [dir="rtl"] .textbox--icon-end .textbox__icon:last-child {
   left: 16px;
-  right: auto;
 }

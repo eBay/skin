@@ -1,0 +1,70 @@
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
+.radio {
+    display: inline-flex;
+    font-size: @font-size-16;
+    vertical-align: text-bottom;
+}
+
+.radio__icon {
+    display: inline-flex;
+    font-size: 1em;
+    outline-offset: 1px;
+
+    // progressive enhancement - over-ride hidden SVG
+    &[hidden] {
+        display: inline-flex;
+    }
+
+    &:not([hidden]) {
+        .background-icon-base;
+    }
+
+    & svg {
+        .foreground-icon-base(18px, 18px);
+    }
+}
+
+.radio__control[type="radio"] {
+    font-size: 100%;
+    height: 18px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 18px;
+    z-index: 1;
+
+    &:not(:checked) {
+        & + .radio__icon svg.radio__checked {
+            display: none;
+        }
+
+        & + .radio__icon svg.radio__unchecked {
+            display: inline-block;
+        }
+    }
+
+    &:focus + .radio__icon {
+        outline: 1px dotted #767676;
+    }
+
+    &[disabled] + .radio__icon {
+        opacity: 0.5;
+    }
+
+    &:checked {
+        & + .radio__icon:not([hidden]) {
+            .background-icon-base;
+        }
+
+        & + .radio__icon svg.radio__checked {
+            display: inline-block;
+        }
+
+        & + .radio__icon svg.radio__unchecked {
+            display: none;
+        }
+    }
+}

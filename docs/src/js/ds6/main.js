@@ -49,11 +49,52 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
         contentSelector: '.menu__items, .fake-menu__items'
     });
 
+    var optionEls = nodeListToArray(el.querySelectorAll('[role^=menuitem]'));
+    var updateRadios = function(newSelection) {
+        optionEls.forEach(function(el) {
+            el.setAttribute('aria-checked', el === newSelection);
+        });
+    }
+
+    optionEls.forEach(function(el, i) {
+        // add a click handler to each el
+        el.addEventListener('click', function(e) {
+            var role = this.getAttribute('role');
+            widget.collapse();
+            if (role === 'menuitemradio') {
+                updateRadios(this);
+            } else if (role === 'menuitemcheckbox') {
+                el.setAttribute('aria-checked', el.getAttribute('aria-checked') !== 'true');
+            }
+        });
+    });
+
     keyEmitter.addKeyDown(el);
 
     el.addEventListener('escapeKeyDown', function() {
         this.querySelector('.expand-btn').focus();
         widget.collapse();
+    });
+
+    el.addEventListener('expander-expand', function() {
+        // TODO: normalize code with combobox
+        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
+        
+        if (!firstSelectedOptionEl) {
+            return;
+        }
+
+        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
+
+        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
+            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
+        } else {
+            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
+            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
+            if (offsetBottom > scrollBottom) {
+                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
+            }
+        }
     });
 });
 
@@ -65,6 +106,12 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
 // COMBOBOX WIDGET (basic interactivity only)
 
 nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
+    var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
+
+    if (!inputEl) {
+        return;
+    }
+
     var widget = new Expander(el, {
         autoCollapse: true,
         expandOnClick: true,
@@ -74,7 +121,6 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
         simulateSpacebarClick: true
     });
 
-    var inputEl = el.querySelector('input[role=combobox]');
     var optionEls = nodeListToArray(el.querySelectorAll('[role=option]'));
     var selectedOptionEl = el.querySelector('[role=option][aria-selected=true]');
     var size = optionEls.length;
@@ -125,6 +171,27 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
             updateCombobox(currentIndex - 1);
         }
     });
+
+    el.addEventListener('expander-expand', function() {
+        // TODO: normalize code with menu
+        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role=option][aria-selected=true]'))[0];
+
+        if (!firstSelectedOptionEl) {
+            return;
+        }
+
+        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
+
+        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
+            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
+        } else {
+            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
+            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
+            if (offsetBottom > scrollBottom) {
+                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
+            }
+        }
+    });
 });
 
 // DIALOG WIDGET
@@ -140,13 +207,12 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
             cancel();
         }
 
-        cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
+        cancel = transition(dialog, 'dialog--show', handleTransitionEnd(true));
         dialog.removeAttribute('hidden');
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
-        dialogClose.focus();
-        modal.modal(dialog);
+        modal.modal(dialog.querySelector('.dialog__window'));
     }
 
     function handleClose (ev) {
@@ -158,7 +224,7 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
             cancel();
         }
 
-        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
+        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd(false));
         dialog.setAttribute('hidden', '');
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
@@ -167,7 +233,12 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         btn.focus();
     }
 
-    function handleTransitionEnd () {
+    function handleTransitionEnd (isOpening) {
+        // focus on the close button
+        if (isOpening) {
+            dialogClose.focus();
+        }
+
         cancel = undefined;
     }
 });

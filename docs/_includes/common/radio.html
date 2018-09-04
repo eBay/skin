@@ -1,0 +1,111 @@
+<div id="radio">
+    <h2><span class="secondary-text">@ebay/skin/</span>radio</h2>
+    <p>A radio button is a form control that allows a user to select a single option from a group of choices.</p>
+    <p>The purpose of a radio button is to collect form data. Therefore, radio buttons should always be used in conjunction with a form, label and submit button.</p>
+
+    <ul class="module-toc cols">
+        <li><a href="#radio-default">Default<span class="clipped"> Radio</span></a></li>
+        <li><a href="#radio-disabled">Disabled<span class="clipped"> Radio</span></a></li>
+        <li><a href="#radio-group">Grouped<span class="clipped"> Radio</span></a></li>
+        <li><a href="#radio-custom">Custom<span class="clipped"> Radio</span></a></li>
+    </ul>
+
+    <h3>Default Radio</h3>
+    <p>Use the <span class="highlight">radio</span> base class to create a styled radio.</p>
+    <p>The radio is decoupled from it's text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="radio">
+                <input aria-label="Default radio example" class="radio__control" name="radio-default" type="radio" />
+                <span class="radio__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="radio">
+    <input class="radio__control" type="radio" />
+    <span class="radio__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="radio-disabled">Disabled Radio</h3>
+    <p>Use the <span class="highlight">disabled</span> attribute to disable any radio input.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="radio">
+                <input aria-label="Default radio example" class="radio__control" name="radio-disabled" type="radio" checked disabled />
+                <span class="radio__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="radio">
+    <input class="radio__control" type="radio" checked disabled />
+    <span class="radio__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="radio-group">Grouped Radio</h3>
+    <p>A group of radios enforces single-select (unlike a group of checkboxes which allows multi-select).</p>
+    <p>A <span class="highlight">fieldset</span> and <span class="highlight">legend</span> are <strong>required</strong> in order to create the correct grouping semantics. Note that the Skin <span class="highlight">global</span> module removes the default fieldset border and padding.</p>
+    <p><strong>TIP:</strong> To stack radio buttons vertically instead of side-by-side, simply replace the <span class="highlight">span</span> wrapper with a <span class="highlight">div</span> wrapper.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <fieldset>
+                <legend>Choose an Option</legend>
+                <span class="field">
+                    <span class="field__control radio">
+                        <input class="radio__control" id="group-radio-1" type="radio" value="1" name="radio-group" />
+                        <span class="radio__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-radio-1">Option 1</label>
+                </span>
+                <span class="field">
+                    <span class="field__control radio">
+                        <input class="radio__control" id="group-radio-2" type="radio" value="3" name="radio-group" />
+                        <span class="radio__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-radio-2">Option 2</label>
+                </span>
+                <span class="field">
+                    <span class="field__control radio">
+                        <input class="radio__control" id="group-radio-3" type="radio" value="3" name="radio-group" />
+                        <span class="radio__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-radio-3">Option 3</label>
+                </span>
+            </fieldset>
+        </div>
+    </div>
+
+    {% highlight html %}
+<fieldset>
+    <legend>Choose an Option</legend>
+    <span class="field">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-1" type="radio" value="1" name="radio-group" />
+            <span class="radio__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-1">Option 1</label>
+    </span>
+    <span class="field">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-2" type="radio" value="2" name="radio-group" />
+            <span class="radio__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-2">Option 2</label>
+    </span>
+    <span class="field">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-3" type="radio" value="3" name="radio-group" />
+            <span class="radio__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-3">Option 3</label>
+    </span>
+</fieldset>
+    {% endhighlight %}
+
+    {% include ds{{ page.ds}}/radio-custom.html %}
+</div>

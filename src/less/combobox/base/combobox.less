@@ -1,0 +1,71 @@
+.combobox {
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.combobox__control > input {
+    appearance: none;
+    border: 1px solid;
+    box-sizing: border-box;
+    // fixes the cursor in firefox (1 of 2)
+    color: transparent;
+    cursor: default;
+    font-family: inherit;
+    text-align: left;
+
+    &[readonly] {
+        -webkit-user-select: none; // Fix to get rid of unintended cursor in iOS mobile
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+        // fixes the cursor in firefox
+        color: transparent;
+    }
+
+    &[aria-expanded="true"] {
+        border-bottom: 0;
+        padding-bottom: 1px; // fix for movement when border is removed
+    }
+}
+
+span.combobox__icon {
+    .background-icon-base;
+
+    background-position: right center;
+    margin-left: 8px;
+    pointer-events: none;
+    position: absolute;
+    right: 17px; // +1 px for the border on the input box
+    top: 0;
+}
+
+.combobox__control--expanded span.combobox__icon {
+    transform: rotate(180deg);
+}
+
+.combobox .combobox__control--borderless > input {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+
+    &:focus {
+        border-color: transparent;
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+.combobox.combobox--fluid {
+    width: 100%;
+
+    .combobox__control > input {
+        width: 100%;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.combobox__icon {
+        background-color: transparent;
+    }
+}

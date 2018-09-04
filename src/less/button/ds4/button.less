@@ -1,4 +1,92 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
 
-@import "button-base.less";
+@import "../base/button.less";
+
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    border-radius: 3px;
+    font-size: @ds4-font-size-14;
+    height: @ds4-height-control-medium;
+}
+
+button.btn,
+a.fake-btn,
+a.cta-btn {
+    padding: 0 48px;
+}
+
+button.expand-btn {
+    padding: 0 16px;
+}
+
+button.btn,
+button.expand-btn {
+    &[disabled],
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+a.fake-btn {
+    &:not([href]),
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+@import "button-regular.less";
+@import "button-primary.less";
+@import "button-secondary.less";
+@import "button-sizes.less";
+
+svg.expand-btn__icon {
+    height: 8px;
+    width: 8px;
+}
+
+span.expand-btn__icon {
+    .icon-arrow-down(8px, 8px);
+}
+
+button.expand-btn--regular span.expand-btn__icon {
+    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-blue-base64}');
+}
+
+button.expand-btn--primary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+}
+
+button.expand-btn--secondary span.expand-btn__icon {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
+}
+
+button.btn--small,
+button.expand-btn--small,
+a.fake-btn--small,
+a.cta-btn--small {
+    height: @ds4-height-control-small;
+}
+
+button.btn--medium,
+button.expand-btn--medium,
+a.fake-btn--medium,
+a.cta-btn--medium {
+    height: @ds4-height-control-medium;
+}
+
+button.btn--large,
+button.expand-btn--large,
+a.fake-btn--large,
+a.cta-btn--large {
+    height: @ds4-height-control-large;
+}
+
+button.btn--extra-large,
+button.expand-btn--extra-large,
+a.fake-btn--extra-large,
+a.cta-btn--extra-large {
+    height: @ds4-height-control-extra-large;
+}

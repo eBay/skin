@@ -1,4 +1,105 @@
 @import "../../less/ds6/variables.less";
 
 @import "textbox-mixins.less";
-@import "textbox-base.less";
+@import "../base/textbox.less";
+
+input.textbox__control,
+textarea.textbox__control {
+    background: @ds6-color-g201-gray;
+    border-color: @ds6-color-g205-gray;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: @ds6-color-g206-gray;
+    font-family: inherit;
+    font-size: @ds6-font-size-14; // for Market Sans to align with buttons and select, it needs same font-size
+    height: 40px;
+
+    &[disabled] {
+        border-color: @ds6-color-g203-gray;
+        color: @ds6-color-g203-gray;
+    }
+
+    &[readonly] {
+        border-color: @ds6-color-g206-gray;
+    }
+
+    &[aria-invalid="true"] {
+        border-color: @ds6-color-p013-red;
+    }
+
+    &:focus {
+        border-color: @ds6-color-p002-blue;
+    }
+}
+
+input.textbox__control--underline {
+    .placeholder-floated;
+
+    .placeholder-floated--focus;
+
+    &[disabled] {
+        .placeholder-floated;
+    }
+
+    border: none;
+    border-bottom: 1px solid @ds6-color-g205-gray;
+    height: 1.875rem;  // a11y: has to be relative to the text zoom level
+    padding: 0;
+}
+
+span.textbox__icon {
+    color: @ds6-color-g204-gray;
+}
+
+.textbox__icon {
+    fill: @ds6-color-g204-gray;
+    width: 14px;
+}
+
+// BLOCK MODIFIERS
+
+span.textbox__icon:first-child,
+.textbox__icon:first-child {
+    left: 17px;
+}
+
+.textbox--icon-end {
+    span.textbox__icon:last-child,
+    .textbox__icon:last-child {
+        right: 17px;
+    }
+}
+
+.textbox--large {
+    input.textbox__control,
+    textarea.textbox__control {
+        font-size: @ds6-font-size-18; // for Market Sans to align with buttons and select, it needs same font-size
+        height: 48px;
+    }
+}
+
+// RTL
+
+[dir="rtl"] {
+    span.textbox__icon:first-child::before,
+    .textbox__icon:first-child {
+        right: 17px;
+
+        + input.textbox__control,
+        + textarea.textbox__control {
+            padding-left: 17px;
+        }
+    }
+
+    .textbox--icon-end {
+        input.textbox__control,
+        textarea.textbox__control {
+            padding-right: 17px;
+        }
+
+        span.textbox__icon:last-child::before,
+        .textbox__icon:last-child {
+            left: 17px;
+        }
+    }
+}

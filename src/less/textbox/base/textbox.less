@@ -1,0 +1,99 @@
+// Textbox text should NOT scale with root font-size. All font-size defined with px.
+
+.textbox {
+    position: relative;
+}
+
+span.textbox {
+    display: inline-block;
+}
+
+input.textbox__control,
+textarea.textbox__control {
+    .placeholder;
+
+    appearance: none;
+    border: 1px solid;
+    box-sizing: border-box;
+    margin: 0; // Remove the margin in Firefox and Safari.
+    padding: 0 16px 0 16px;
+
+    &[disabled] {
+        .placeholder-disabled;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+textarea.textbox__control {
+    min-height: 200px;
+    overflow: auto;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    resize: vertical;
+    vertical-align: middle;
+}
+
+span.textbox__icon,
+.textbox__icon {
+    display: inline-flex;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+
+    &::before {
+        align-self: center;
+    }
+}
+
+// BLOCK MODIFIERS
+
+span.textbox__icon:first-child,
+.textbox__icon:first-child {
+    + input.textbox__control,
+    + textarea.textbox__control {
+        padding-left: 40px;
+    }
+}
+
+.textbox--icon-end {
+    input.textbox__control,
+    textarea.textbox__control {
+        padding-right: 40px;
+    }
+}
+
+// ELEMENT MODIFIERS
+
+.textbox__control--fluid {
+    width: 100%;
+}
+
+// RTL
+
+[dir="rtl"] {
+    span.textbox__icon:first-child::before,
+    .textbox__icon:first-child {
+        left: auto;
+
+        + input.textbox__control,
+        + textarea.textbox__control {
+            padding-right: 40px;
+        }
+    }
+
+    .textbox--icon-end {
+        input.textbox__control,
+        textarea.textbox__control {
+            padding-left: 40px;
+        }
+
+        span.textbox__icon:last-child::before,
+        .textbox__icon:last-child {
+            right: auto;
+        }
+    }
+}

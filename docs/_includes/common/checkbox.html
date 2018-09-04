@@ -1,0 +1,112 @@
+<div id="checkbox">
+    <h2><span class="secondary-text">@ebay/skin/</span>checkbox</h2>
+    <p>A checkbox is a form control that allows the user to toggle a choice on or off.</p>
+    <p>The purpose of a checkbox is to collect form data; therefore a checkbox should always be used in conjunction with a form, label and submit button.</p>
+
+    <ul class="module-toc cols">
+        <li><a href="#checkbox-default">Default<span class="clipped"> Checkbox</span></a></li>
+        <li><a href="#checkbox-disabled">Disabled<span class="clipped"> Checkbox</span></a></li>
+        <li><a href="#checkbox-group">Grouped<span class="clipped"> Checkbox</span></a></li>
+        <li><a href="#checkbox-custom">Custom<span class="clipped"> Checkbox</span></a></li>
+    </ul>
+
+    <h3 id="checkbox-default">Default Checkbox</h3>
+    <p>Use the <span class="highlight">checkbox</span> base class to create a checkbox.</p>
+    <p>The checkbox is decoupled from it's text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"/>
+                <span class="checkbox__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__control" type="checkbox" name="checkbox-default" />
+    <span class="checkbox__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="checkbox-disabled">Disabled Checkbox</h3>
+    <p>Use the <span class="highlight">disabled</span> attribute to disable any checkbox input.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Disabled checkbox example" class="checkbox__control" type="checkbox" name="checkbox-disabled" checked disabled />
+                <span class="checkbox__icon"></span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__control" type="checkbox" name="checkbox-disabled" checked disabled  />
+    <span class="checkbox__icon"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="checkbox-group">Grouped Checkboxes</h3>
+    <p>A group of checkboxes allows multi-select (unlike a group of radio buttons which enforces single-select).</p>
+    <p>A <span class="highlight">fieldset</span> and <span class="highlight">legend</span> are <strong>required</strong> in order to create the correct grouping semantics. Note that the Skin <span class="highlight">global</span> module removes the default fieldset border and padding.</p>
+    <p><strong>TIP:</strong> To stack checkboxes vertically instead of side-by-side, simply replace the span wrapper with a div wrapper.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <fieldset>
+                <legend>Choose an Option</legend>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-1">Option 1</label>
+                </span>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-2">Option 2</label>
+                </span>
+                <span class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
+                        <span class="checkbox__icon"></span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-3">Option 3</label>
+                </span>
+            </fieldset>
+        </div>
+    </div>
+
+    {% highlight html %}
+<fieldset>
+    <legend>Choose an Option</legend>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-1">Option 1</label>
+    </span>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-2">Option 2</label>
+    </span>
+    <span class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
+            <span class="checkbox__icon"></span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-3">Option 3</label>
+    </span>
+</fieldset>
+    {% endhighlight %}
+
+    {% include ds{{ page.ds}}/checkbox-custom.html %}
+</div>

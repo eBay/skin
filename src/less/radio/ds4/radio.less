@@ -1,4 +1,28 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
 
-@import "radio-base.less";
+@import "../base/radio.less";
+
+.radio__icon {
+    &:not([hidden]) {
+        .ds4-icon-radio-unchecked(18px, 18px);
+    }
+}
+
+.radio__control[type="radio"] {
+    &:checked {
+        & + .radio__icon:not([hidden]) {
+            .ds4-icon-radio-checked(18px, 18px);
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .radio__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-radio-unchecked-base64-light}');
+    }
+
+    .radio__control[type="radio"]:checked + .radio__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-radio-checked-base64-light}');
+    }
+}

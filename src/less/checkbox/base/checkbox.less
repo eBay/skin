@@ -1,0 +1,70 @@
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
+.checkbox {
+    display: inline-flex;
+    font-size: @font-size-16;
+    vertical-align: text-bottom;
+}
+
+.checkbox__icon {
+    display: inline-flex;
+    font-size: 1em;
+    outline-offset: 1px;
+
+    // progressive enhancement - over-ride hidden SVG
+    &[hidden] {
+        display: inline-flex;
+    }
+
+    &:not([hidden]) {
+        .background-icon-base;
+    }
+
+    & svg {
+        .foreground-icon-base(18px, 18px);
+    }
+}
+
+.checkbox__control[type="checkbox"] {
+    font-size: 100%;
+    height: 18px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 18px;
+    z-index: 1;
+
+    &:not(:checked) {
+        & + .checkbox__icon svg.checkbox__checked {
+            display: none;
+        }
+
+        & + .checkbox__icon svg.checkbox__unchecked {
+            display: inline-block;
+        }
+    }
+
+    &:focus + .checkbox__icon {
+        outline: 1px dotted #767676;
+    }
+
+    &[disabled] + .checkbox__icon {
+        opacity: 0.5;
+    }
+
+    &:checked {
+        & + .checkbox__icon:not([hidden]) {
+            .background-icon-base;
+        }
+
+        & + .checkbox__icon svg.checkbox__checked {
+            display: inline-block;
+        }
+
+        & + .checkbox__icon svg.checkbox__unchecked {
+            display: none;
+        }
+    }
+}
