@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tool-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -196,32 +196,58 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
 
 
 // TOOLTIP WIDGET
-nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
-    var customTooltipWindow = el.nextElementSibling;
+nodeListToArray(document.querySelectorAll('.infotip-button, .tourtip-button')).forEach(function(el) {
+    var tooltipWindow = el.nextElementSibling;
     el.addEventListener('click', handleOpen);
 
-    if (!customTooltipWindow.hasAttribute('hidden')) {
-        var btnClose = customTooltipWindow.querySelector('.tooltip-close');
+    if (!tooltipWindow.hasAttribute('hidden')) {
+        var btnClose = tooltipWindow.querySelector('.tooltip-close');
         btnClose.addEventListener('click', handleClose, true);
     }
 
     function handleOpen () {
-        if (!customTooltipWindow.hasAttribute('hidden')) {
-            customTooltipWindow.setAttribute('hidden', '');
+        if (!tooltipWindow.hasAttribute('hidden')) {
+            tooltipWindow.setAttribute('hidden', '');
         } else {
-            el.classList.add('icon-background');
-            customTooltipWindow.removeAttribute('hidden');
-            var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
-            infotipClose.addEventListener('click', handleClose, true);
-            infotipClose.focus();
+            tooltipWindow.removeAttribute('hidden');
+            var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+            tooltipClose.addEventListener('click', handleClose, true);
+            tooltipClose.focus();
         }
     }
 
     function handleClose () {
-        customTooltipWindow.setAttribute('hidden', '');
+        tooltipWindow.setAttribute('hidden', '');
         el.addEventListener('click', handleOpen);
-        var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
-        infotipClose.removeEventListener('click', handleClose, true);
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        tooltipClose.removeEventListener('click', handleClose, true);
+        el.focus();
+    }
+});
+
+nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(el) {
+    var tooltipWindow = el.nextElementSibling;
+    el.addEventListener('click', handleOpen);
+
+    if (!tooltipWindow.hasAttribute('hidden')) {
+        el.addEventListener('focusout', handleClose, true);
+    }
+
+    function handleOpen () {
+        if (!tooltipWindow.hasAttribute('hidden')) {
+            tooltipWindow.setAttribute('hidden', '');
+        } else {
+            tooltipWindow.removeAttribute('hidden');
+            el.classList.add('tooltip--fade');
+            el.addEventListener('focusout', handleClose, true);
+            el.focus();
+        }
+    }
+
+    function handleClose () {
+        tooltipWindow.setAttribute('hidden', '');
+        el.addEventListener('click', handleOpen);
+        el.removeEventListener('focusout', handleClose, true);
         el.focus();
     }
 });

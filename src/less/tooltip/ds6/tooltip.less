@@ -38,27 +38,14 @@
     &__right-bottom-arrow {
         width: 400px;
     }
+
+    &--fade {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .tooltip {
-    &:hover {
-        .tooltip__top-arrow,
-        .tooltip__top-left-arrow,
-        .tooltip__top-right-arrow,
-        .tooltip__bottom-arrow,
-        .tooltip__bottom-left-arrow,
-        .tooltip__bottom-right-arrow,
-        .tooltip__left-arrow,
-        .tooltip__left-top-arrow,
-        .tooltip__left-bottom-arrow,
-        .tooltip__right-arrow,
-        .tooltip__right-top-arrow,
-        .tooltip__right-bottom-arrow {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-
     &__bottom-arrow,
     &__bottom-left-arrow,
     &__bottom-right-arrow,
@@ -71,8 +58,6 @@
     &__right-arrow,
     &__right-top-arrow,
     &__right-bottom-arrow {
-        opacity: 0;
-        transition: opacity 1s;
 
         &::after {
             border-color: @ds6-color-p002-blue;
@@ -105,11 +90,11 @@
     &__left-arrow,
     &__left-top-arrow,
     &__left-bottom-arrow {
-        left: 110%;
+        left: 100%;
         margin-left: 16px;
 
         &::after {
-            margin-left: -10px;
+            margin-left: -11px;
         }
     }
 
@@ -120,15 +105,15 @@
         right: 100%;
 
         &::after {
-            right: 0%;
             margin-right: -5px;
+            right: 0%;
         }
     }
 
     &__bottom-arrow,
     &__top-arrow {
-        margin-left: -196px;
         left: 50%;
+        margin-left: -196px;
 
         &::after {
             left: 45%;
@@ -139,7 +124,7 @@
     &__bottom-left-arrow,
     &__top-left-arrow {
         left: 0%;
-        margin-left: -9px;
+        margin-left: -3px;
 
         &::after {
             left: 8px;
@@ -148,7 +133,7 @@
 
     &__bottom-right-arrow,
     &__top-right-arrow {
-        margin-right: -10px;
+        margin-right: -4px;
         right: 0%;
 
         &::after {
@@ -158,7 +143,7 @@
 
     &__left-arrow,
     &__right-arrow {
-        top: -100%;
+        top: -50%;
 
         &::after {
             top: 50%;
@@ -167,7 +152,7 @@
 
     &__left-top-arrow,
     &__right-top-arrow {
-        top: -5px;
+        top: 0;
 
         &::after {
             top: 19px;
@@ -176,7 +161,7 @@
 
     &__left-bottom-arrow,
     &__right-bottom-arrow {
-        top: -40px;
+        bottom: 0;
 
         &::after {
             bottom: 3px;
@@ -186,7 +171,6 @@
     &__window {
         background-color: @ds6-color-p002-blue;
         color: @ds6-color-g201-gray;
-        visibility: hidden;
 
         &::after {
             transform: rotate(-45deg);
@@ -224,8 +208,8 @@
 
         &::after {
             box-shadow: -2px 2px 2px 0 @ds6-color-g205-gray;
-            top: 100%;
             margin-top: -1px;
+            top: 100%;
         }
     }
 
@@ -236,7 +220,7 @@
 
         &::after {
             box-shadow: 2px -2px 2px 0 @ds6-color-g205-gray;
-            top: 2%;
+            top: 0;
         }
     }
 
@@ -248,7 +232,7 @@
 
         &::after {
             box-shadow: -2px -2px 2px 0 @ds6-color-g205-gray;
-            margin-left: -10px;
+            margin-left: -11px;
         }
     }
 
@@ -260,15 +244,15 @@
 
         &::after {
             box-shadow: 2px 2px 2px 0 @ds6-color-g205-gray;
-            right: 0%;
             margin-right: -3px;
+            right: 0%;
         }
     }
 
     &__bottom-arrow,
     &__top-arrow {
-        margin-left: -196px;
         left: 50%;
+        margin-left: -196px;
 
         &::after {
             left: 45%;
@@ -361,8 +345,8 @@
         margin-bottom: 16px;
 
         &::after {
-            top: 100%;
             margin-top: -1px;
+            top: 100%;
         }
     }
 
@@ -401,8 +385,8 @@
 
     &__bottom-arrow,
     &__top-arrow {
-        margin-left: -196px;
         left: 50%;
+        margin-left: -196px;
 
         &::after {
             left: 45%;
@@ -532,9 +516,12 @@
     width: 100%;
 }
 
-div.tooltip__body {
-    p {
-        width: 90%;
+div {
+    .infotip__body,
+    .tourtip__body {
+        p {
+            width: 90%;
+        }
     }
 }
 
@@ -542,7 +529,6 @@ div.tooltip__body {
     margin: 0 auto;
     width: 100%;
 }
-
 
 @media (max-width: 768px) {
     .tooltip,
@@ -567,8 +553,8 @@ div.tooltip__body {
     .tooltip {
         &__bottom-arrow,
         &__top-arrow {
-            margin-left: -172px;
             left: 50%;
+            margin-left: -172px;
 
             &::after {
                 left: 45%;
