@@ -1,73 +1,131 @@
 // BEM blocks
-
-.flyout-notice {
-    font-size: @ds4-font-size-14;
-}
-
 .flyout-notice {
     background-color: @ds4-color-core-white;
     border-bottom: 1px solid @ds4-color-core-gray-silver;
     border-top: 1px solid @ds4-color-core-gray-silver;
-    min-height: 32px;
-    padding: 8px 8px 8px 0;
-}
-
-.flyout-notice {
     box-shadow: 0 3px 7px @ds4-color-transparent-gray-gainsboro;
     display: flex;
+    font-size: @ds4-font-size-14;
+    min-height: 32px;
     min-width: 320px;
+    padding: 8px 8px 8px 0;
     position: absolute;
     z-index: 1;
+
+    &--confirmation {
+        border-top: 2px solid @ds4-color-interface-positive;
+    }
+
+    &--information {
+        border-top: 2px solid @ds4-color-interface-cta;
+    }
+
+    &--priority {
+        border-top: 2px solid @ds4-color-text-critical;
+        color: @ds4-color-text-critical;
+    }
+
+    &--information &__status {
+        color: @ds4-color-core-blue;
+    }
+
+    &--confirmation &__status {
+        color: @ds4-color-core-green;
+    }
+
+    &--priority &__pointer-top-left,
+    &--priority &__pointer-top-center,
+    &--priority &__pointer-top-right {
+        border-bottom-color: @ds4-color-text-critical;
+    }
+
+    &--confirmation &__pointer-top-left,
+    &--confirmation &__pointer-top-center,
+    &--confirmation &__pointer-top-right {
+        border-bottom-color: @ds4-color-core-green;
+    }
+
+    &--information &__pointer-top-left,
+    &--information &__pointer-top-center,
+    &--information &__pointer-top-right {
+        border-bottom-color: @ds4-color-interface-cta;
+    }
+
+    &__content {
+        margin: 8px 0;
+        padding-left: 8px;
+    }
+
+    &__cta {
+        .background-icon-base;
+
+        color: @ds4-color-icon-actionable-default;
+        height: 16px;
+        margin-left: 8px;
+        margin-top: 8px;
+        width: 32px;
+    }
+
+    &__close {
+        margin-top: 1px;
+    }
+
+    &__pointer-top-left {
+        .flyout-notice-arrow-top;
+
+        left: 12px;
+    }
+
+    &__pointer-top-center {
+        .flyout-notice-arrow-top;
+
+        left: calc(50% - 8px);
+    }
+
+    &__pointer-top-right {
+        .flyout-notice-arrow-top;
+
+        right: 12px;
+    }
+
+    &__pointer-bottom-left {
+        .flyout-notice-arrow-bottom;
+
+        left: 16px;
+    }
+
+    &__pointer-bottom-center {
+        .flyout-notice-arrow-bottom;
+
+        left: calc(50% - 8px);
+    }
+
+    &__pointer-bottom-right {
+        .flyout-notice-arrow-bottom;
+
+        right: 16px;
+    }
+
+    &__pointer-left {
+        .flyout-notice-arrow-side;
+
+        box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+        left: -6px;
+    }
+
+    &__pointer-right {
+        .flyout-notice-arrow-side;
+
+        box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
+        right: -6px;
+    }
 }
 
-.flyout-notice--confirmation {
-    border-top: 2px solid @ds4-color-interface-positive;
+.inline-notice {
+    &--priority {
+        font-weight: 500;
+    }
 }
-
-.flyout-notice--information {
-    border-top: 2px solid @ds4-color-interface-cta;
-}
-
-.flyout-notice--priority {
-    border-top: 2px solid @ds4-color-text-critical;
-}
-
-.inline-notice--priority {
-    font-weight: 500;
-}
-
-.flyout-notice--priority {
-    color: @ds4-color-text-critical;
-}
-
-// BEM block mod cascades
-.flyout-notice--information .flyout-notice__status {
-    color: @ds4-color-core-blue;
-}
-
-.flyout-notice--confirmation .flyout-notice__status {
-    color: @ds4-color-core-green;
-}
-
-.flyout-notice--priority .flyout-notice__pointer-top-left,
-.flyout-notice--priority .flyout-notice__pointer-top-center,
-.flyout-notice--priority .flyout-notice__pointer-top-right {
-    border-bottom-color: @ds4-color-text-critical;
-}
-
-.flyout-notice--confirmation .flyout-notice__pointer-top-left,
-.flyout-notice--confirmation .flyout-notice__pointer-top-center,
-.flyout-notice--confirmation .flyout-notice__pointer-top-right {
-    border-bottom-color: @ds4-color-core-green;
-}
-
-.flyout-notice--information .flyout-notice__pointer-top-left,
-.flyout-notice--information .flyout-notice__pointer-top-center,
-.flyout-notice--information .flyout-notice__pointer-top-right {
-    border-bottom-color: @ds4-color-interface-cta;
-}
-
-// BEM elements
 
 .flyout-notice__content,
 .inline-notice__content {
@@ -78,21 +136,6 @@
             margin-top: 4px;
         }
     }
-}
-
-.flyout-notice__content {
-    margin: 8px 0;
-    padding-left: 8px;
-}
-
-.flyout-notice__cta {
-    .background-icon-base;
-
-    color: @ds4-color-icon-actionable-default;
-    height: 16px;
-    margin-left: 8px;
-    margin-top: 8px;
-    width: 32px;
 }
 
 button.flyout-notice__close {
@@ -127,62 +170,6 @@ button.flyout-notice__close {
     }
 }
 
-.flyout-notice__close {
-    margin-top: 1px;
-}
-
-.flyout-notice__pointer-top-left {
-    .flyout-notice-arrow-top;
-
-    left: 12px;
-}
-
-.flyout-notice__pointer-top-center {
-    .flyout-notice-arrow-top;
-
-    left: calc(50% - 8px);
-}
-
-.flyout-notice__pointer-top-right {
-    .flyout-notice-arrow-top;
-
-    right: 12px;
-}
-
-.flyout-notice__pointer-bottom-left {
-    .flyout-notice-arrow-bottom;
-
-    left: 16px;
-}
-
-.flyout-notice__pointer-bottom-center {
-    .flyout-notice-arrow-bottom;
-
-    left: calc(50% - 8px);
-}
-
-.flyout-notice__pointer-bottom-right {
-    .flyout-notice-arrow-bottom;
-
-    right: 16px;
-}
-
-.flyout-notice__pointer-left {
-    .flyout-notice-arrow-side;
-
-    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
-    left: -6px;
-}
-
-.flyout-notice__pointer-right {
-    .flyout-notice-arrow-side;
-
-    box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
-    right: -6px;
-}
-
-// BEM element mods
-
 @media (min-width: 601px) {
     .flyout-notice {
         padding-right: 16px;
@@ -200,3 +187,4 @@ button.flyout-notice__close {
         margin-left: 16px;
     }
 }
+
