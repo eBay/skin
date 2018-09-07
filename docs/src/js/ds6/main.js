@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tool-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.infotip-button):not(.tourtip-button):not(.tourtip-callout-button)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -230,7 +230,7 @@ nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(e
     el.addEventListener('click', handleOpen);
 
     if (!tooltipWindow.hasAttribute('hidden')) {
-        el.addEventListener('focusout', handleClose, true);
+        el.addEventListener('blur', handleClose, true);
     }
 
     function handleOpen () {
@@ -238,8 +238,7 @@ nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(e
             tooltipWindow.setAttribute('hidden', '');
         } else {
             tooltipWindow.removeAttribute('hidden');
-            el.classList.add('tooltip--fade');
-            el.addEventListener('focusout', handleClose, true);
+            el.addEventListener('blur', handleClose, true);
             el.focus();
         }
     }
@@ -247,7 +246,7 @@ nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(e
     function handleClose () {
         tooltipWindow.setAttribute('hidden', '');
         el.addEventListener('click', handleOpen);
-        el.removeEventListener('focusout', handleClose, true);
+        el.removeEventListener('blur', handleClose, true);
         el.focus();
     }
 });
