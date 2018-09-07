@@ -195,15 +195,10 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
 });
 
 
-// TOOLTIP WIDGET
+// INFOTIP/TOURTIP WIDGET
 nodeListToArray(document.querySelectorAll('.infotip-button, .tourtip-button')).forEach(function(el) {
     var tooltipWindow = el.nextElementSibling;
     el.addEventListener('click', handleOpen);
-
-    if (!tooltipWindow.hasAttribute('hidden')) {
-        var btnClose = tooltipWindow.querySelector('.tooltip-close');
-        btnClose.addEventListener('click', handleClose, true);
-    }
 
     function handleOpen () {
         if (!tooltipWindow.hasAttribute('hidden')) {
@@ -225,20 +220,17 @@ nodeListToArray(document.querySelectorAll('.infotip-button, .tourtip-button')).f
     }
 });
 
+// TOOLTIP WIDGET
 nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(el) {
     var tooltipWindow = el.nextElementSibling;
     el.addEventListener('click', handleOpen);
-
-    if (!tooltipWindow.hasAttribute('hidden')) {
-        el.addEventListener('blur', handleClose, true);
-    }
 
     function handleOpen () {
         if (!tooltipWindow.hasAttribute('hidden')) {
             tooltipWindow.setAttribute('hidden', '');
         } else {
             tooltipWindow.removeAttribute('hidden');
-            el.addEventListener('blur', handleClose, true);
+            el.addEventListener('focusout', handleClose, true);
             el.focus();
         }
     }
@@ -246,7 +238,7 @@ nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(e
     function handleClose () {
         tooltipWindow.setAttribute('hidden', '');
         el.addEventListener('click', handleOpen);
-        el.removeEventListener('blur', handleClose, true);
+        el.removeEventListener('focusout', handleClose, true);
         el.focus();
     }
 });

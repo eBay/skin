@@ -1,6 +1,3 @@
-@import "../../less/ds6/variables.less";
-@import "../../less/ds6/mixins.less";
-
 /* Default style */
 .tooltip,
 .infotip,
@@ -17,6 +14,8 @@
             border-width: 8px;
             content: "";
             position: absolute;
+            transform: rotate(-45deg);
+            transform-origin: 0 0;
         }
     }
 
@@ -38,66 +37,29 @@
     &__right-bottom-arrow {
         width: 400px;
     }
-}
-
-.tooltip {
-    &__bottom-arrow,
-    &__bottom-left-arrow,
-    &__bottom-right-arrow,
-    &__top-arrow,
-    &__top-left-arrow,
-    &__top-right-arrow,
-    &__left-arrow,
-    &__left-top-arrow,
-    &__left-bottom-arrow,
-    &__right-arrow,
-    &__right-top-arrow,
-    &__right-bottom-arrow {
-        &::after {
-            border-color: @ds6-color-p002-blue;
-            box-shadow: 0 0 0 @ds6-color-p002-blue;
-            box-sizing: border-box;
-        }
-    }
 
     &__bottom-arrow,
     &__bottom-left-arrow,
     &__bottom-right-arrow {
         bottom: calc(200% - 22px);
-
-        &::after {
-            top: 100%;
-        }
     }
 
     &__top-arrow,
     &__top-left-arrow,
     &__top-right-arrow {
         top: calc(200% - 22px);
-
-        &::after {
-            top: 0%;
-        }
     }
 
     &__left-arrow,
     &__left-top-arrow,
     &__left-bottom-arrow {
         left: calc(200% - 19px);
-
-        &::after {
-            left: calc(0% - 11px);
-        }
     }
 
     &__right-arrow,
     &__right-top-arrow,
     &__right-bottom-arrow {
         right: calc(200% - 19px);
-
-        &::after {
-            right: calc(0% - 5px);
-        }
     }
 
     &__bottom-arrow,
@@ -147,20 +109,44 @@
 
     &__left-bottom-arrow,
     &__right-bottom-arrow {
-        bottom: 0;
+        bottom: calc(0% - 5px);
 
         &::after {
             bottom: 4px;
         }
     }
+}
 
-    &__window {
-        background-color: @ds6-color-p002-blue;
-        color: @ds6-color-g201-gray;
-
+.tooltip {
+    &__bottom-arrow,
+    &__bottom-left-arrow,
+    &__bottom-right-arrow {
         &::after {
-            transform: rotate(-45deg);
-            transform-origin: 0 0;
+            top: 100%;
+        }
+    }
+
+    &__top-arrow,
+    &__top-left-arrow,
+    &__top-right-arrow {
+        &::after {
+            top: 0%;
+        }
+    }
+
+    &__left-arrow,
+    &__left-top-arrow,
+    &__left-bottom-arrow {
+        &::after {
+            left: calc(0% - 11px);
+        }
+    }
+
+    &__right-arrow,
+    &__right-top-arrow,
+    &__right-bottom-arrow {
+        &::after {
+            right: calc(0% - 5px);
         }
     }
 }
@@ -178,10 +164,7 @@
     &__right-arrow,
     &__right-top-arrow,
     &__right-bottom-arrow {
-        box-shadow: 0 0 5px 1px @ds6-color-g205-gray;
-
         &::after {
-            border-color: @ds6-color-g201-gray;
             box-sizing: border-box;
         }
     }
@@ -189,158 +172,14 @@
     &__bottom-arrow,
     &__bottom-left-arrow,
     &__bottom-right-arrow {
-        bottom: 100%;
-        margin-bottom: 16px;
-
         &::after {
-            box-shadow: -2px 2px 2px 0 @ds6-color-g205-gray;
-            margin-top: -1px;
-            top: 100%;
+            top: 98%;
         }
     }
 
     &__top-arrow,
     &__top-left-arrow,
     &__top-right-arrow {
-        margin-top: 16px;
-
-        &::after {
-            box-shadow: 2px -2px 2px 0 @ds6-color-g205-gray;
-            top: 0;
-        }
-    }
-
-    &__left-arrow,
-    &__left-top-arrow,
-    &__left-bottom-arrow {
-        left: 110%;
-        margin-left: 16px;
-
-        &::after {
-            box-shadow: -2px -2px 2px 0 @ds6-color-g205-gray;
-            margin-left: -11px;
-        }
-    }
-
-    &__right-arrow,
-    &__right-top-arrow,
-    &__right-bottom-arrow {
-        margin-right: 16px;
-        right: 100%;
-
-        &::after {
-            box-shadow: 2px 2px 2px 0 @ds6-color-g205-gray;
-            margin-right: -3px;
-            right: 0%;
-        }
-    }
-
-    &__bottom-arrow,
-    &__top-arrow {
-        left: 50%;
-        margin-left: -196px;
-
-        &::after {
-            left: 45%;
-            margin-left: 5px;
-        }
-    }
-
-    &__bottom-left-arrow,
-    &__top-left-arrow {
-        left: 0%;
-        margin-left: -3px;
-
-        &::after {
-            left: 8px;
-        }
-    }
-
-    &__bottom-right-arrow,
-    &__top-right-arrow {
-        margin-right: -4px;
-        right: 0%;
-
-        &::after {
-            right: 16px;
-        }
-    }
-
-    &__left-arrow,
-    &__right-arrow {
-        top: -50%;
-
-        &::after {
-            top: 50%;
-        }
-    }
-
-    &__left-top-arrow,
-    &__right-top-arrow {
-        top: -1px;
-
-        &::after {
-            top: 19px;
-        }
-    }
-
-    &__left-bottom-arrow,
-    &__right-bottom-arrow {
-        top: -35px;
-
-        &::after {
-            bottom: 3px;
-        }
-    }
-
-    &__window {
-        background-color: @ds6-color-g201-gray;
-        color: @ds6-color-g206-gray;
-
-        &::after {
-            transform: rotate(-45deg);
-            transform-origin: 0 0;
-        }
-    }
-}
-
-.tourtip {
-    &__bottom-arrow,
-    &__bottom-left-arrow,
-    &__bottom-right-arrow,
-    &__top-arrow,
-    &__top-left-arrow,
-    &__top-right-arrow,
-    &__left-arrow,
-    &__left-top-arrow,
-    &__left-bottom-arrow,
-    &__right-arrow,
-    &__right-top-arrow,
-    &__right-bottom-arrow {
-        &::after {
-            border-color: @ds6-color-p002-blue;
-            box-shadow: 0 0 0 @ds6-color-p002-blue;
-            box-sizing: border-box;
-        }
-    }
-
-    &__bottom-arrow,
-    &__bottom-left-arrow,
-    &__bottom-right-arrow {
-        bottom: 100%;
-        margin-bottom: 16px;
-
-        &::after {
-            margin-top: -1px;
-            top: 100%;
-        }
-    }
-
-    &__top-arrow,
-    &__top-left-arrow,
-    &__top-right-arrow {
-        margin-top: 16px;
-
         &::after {
             top: 1%;
         }
@@ -349,109 +188,50 @@
     &__left-arrow,
     &__left-top-arrow,
     &__left-bottom-arrow {
-        left: 110%;
-        margin-left: 16px;
-
         &::after {
-            margin-left: -10px;
+            left: calc(0% - 10px);
         }
     }
 
     &__right-arrow,
     &__right-top-arrow,
     &__right-bottom-arrow {
-        margin-right: 16px;
-        right: 100%;
-
         &::after {
-            left: 95%;
-            margin-left: 5px;
+            right: calc(0% - 4px);
         }
     }
+}
 
+.tourtip {
     &__bottom-arrow,
-    &__top-arrow {
-        left: -200%;
-        margin-left: -68px;
-
-        &::after {
-            left: 45%;
-            margin-left: 5px;
-        }
-    }
-
     &__bottom-left-arrow,
-    &__top-left-arrow {
-        left: 0%;
-        margin-left: 12px;
-
+    &__bottom-right-arrow {
         &::after {
-            left: 8px;
+            top: 100%;
         }
     }
 
-    &__bottom-right-arrow,
+    &__top-arrow,
+    &__top-left-arrow,
     &__top-right-arrow {
-        margin-right: -4px;
-        right: 0%;
-
         &::after {
-            right: 16px;
+            top: 0%;
         }
     }
 
     &__left-arrow,
-    &__right-arrow {
-        top: -50%;
-
-        &::after {
-            top: 50%;
-        }
-    }
-
     &__left-top-arrow,
-    &__right-top-arrow {
-        top: -1px;
-
+    &__left-bottom-arrow {
         &::after {
-            top: 19px;
+            left: calc(0% - 11px);
         }
     }
 
-    &__left-bottom-arrow,
+    &__right-arrow,
+    &__right-top-arrow,
     &__right-bottom-arrow {
-        top: -35px;
-
         &::after {
-            top: 3px;
-        }
-    }
-
-    &__window {
-        background-color: @ds6-color-p002-blue;
-        color: @ds6-color-g201-gray;
-
-        &::after {
-            transform: rotate(-45deg);
-            transform-origin: 0 0;
-        }
-    }
-
-    &__link-btn {
-        color: @ds6-color-p002-blue;
-        margin-left: 150px;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    &__content {
-        display: inline-block;
-        margin: 10px 0 10px 10px;
-
-        ul {
-            padding-left: 18px;
+            right: calc(0% - 5px);
         }
     }
 }
@@ -478,10 +258,6 @@
     &:focus {
         color: @ds6-color-link-default;
     }
-}
-
-.div--width-100 {
-    width: 100%;
 }
 
 div {
@@ -516,18 +292,10 @@ div {
         &__right-bottom-arrow {
             width: 344px;
         }
-    }
 
-    .tooltip {
         &__bottom-arrow,
         &__top-arrow {
-            left: 50%;
-            margin-left: -172px;
-
-            &::after {
-                left: 45%;
-                margin-left: 5px;
-            }
+            left: calc(0% - 145px);
         }
     }
 }
