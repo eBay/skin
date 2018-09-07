@@ -1,127 +1,110 @@
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
 
+@import "tooltip-mixins.less";
 @import "../base/tooltip.less";
 
-// .tooltip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow,
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow,
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow,
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             border-color: @ds6-color-p002-blue;
-//             box-shadow: 0 0 0 @ds6-color-p002-blue;
-//             box-sizing: border-box;
-//         }
-//     }
+.tooltip {
+    background-color: @ds6-color-p002-blue;
+    color: @ds6-color-g201-gray;
+}
 
-//     &__window {
-//         background-color: @ds6-color-p002-blue;
-//         color: @ds6-color-g201-gray;
-//     }
-// }
+.infotip {
+    background-color: @ds6-color-g201-gray;
+    color: @ds6-color-g206-gray;
+}
 
-// .infotip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow,
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow,
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow,
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         box-shadow: 0 0 5px 1px @ds6-color-g205-gray;
+.tooltip,
+.infotip {
+    display: flex;
+    font-size: @ds6-font-size-14;
+    min-height: 32px;
+    min-width: 320px;
+    padding: 8px 8px 8px 0;
+    position: absolute;
+    z-index: 1;
 
-//         &::after {
-//             border-color: @ds6-color-g201-gray;
-//         }
-//     }
+    &__arrow-top-left,
+    &__arrow-top-center,
+    &__arrow-top-right {
+        border-bottom-color: @ds6-color-p002-blue;
+    }
 
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow {
-//         &::after {
-//             box-shadow: -2px 2px 2px @ds6-color-g205-gray;
-//         }
-//     }
+    &__content {
+        margin: 8px 0;
+        padding-left: 8px;
 
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow {
-//         &::after {
-//             box-shadow: 2px -2px 2px @ds6-color-g205-gray;
-//         }
-//     }
+        p {
+            margin: 0;
 
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow {
-//         &::after {
-//             box-shadow: -2px -2px 2px @ds6-color-g205-gray;
-//         }
-//     }
+            &:not(:first-of-type) {
+                margin-top: 4px;
+            }
+        }
+    }
 
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             box-shadow: 2px 2px 2px @ds6-color-g205-gray;
-//         }
-//     }
+    &__arrow-left-top {
+        .tooltip-arrow-side;
 
-//     &__window {
-//         background-color: @ds6-color-g201-gray;
-//         color: @ds6-color-g206-gray;
-//     }
-// }
+        left: -6px;
+        top: calc(50% - 18px);
+    }
 
-// .tourtip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow,
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow,
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow,
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             border-color: @ds6-color-p002-blue;
-//             box-shadow: 0 0 0 @ds6-color-p002-blue;
-//             box-sizing: border-box;
-//         }
-//     }
+    &__arrow-left-center {
+        .tooltip-arrow-side;
 
-//     &__window {
-//         background-color: @ds6-color-p002-blue;
-//         color: @ds6-color-g201-gray;
-//     }
-// }
+        left: -6px;
+        top: calc(50% - 8px);
+    }
 
-// .tooltip__close {
-//     span {
-//         background-image: url('data:image/svg+xml;base64,@{ds6-icon-close-base64-light}');
-//         height: 16px;
-//         width: 16px;
-//     }
+    &__arrow-left-bottom {
+        .tooltip-arrow-side;
 
-//     &:hover,
-//     &:focus {
-//         color: @ds6-color-link-default;
-//     }
-// }
+        left: -6px;
+        top: calc(50% - 28px);
+    }
+
+    &__arrow-right-top {
+        .tooltip-arrow-side;
+
+        right: -6px;
+        top: calc(50% - 18px);
+    }
+
+    &__arrow-right-center {
+        .tooltip-arrow-side;
+
+        right: -6px;
+    }
+
+    &__arrow-right-bottom {
+        .tooltip-arrow-side;
+
+        right: -6px;
+        top: calc(50% - 28px);
+    }
+}
+
+button.tooltip__close {
+    color: black;
+
+    &:focus,
+    &:hover {
+        color: blue;
+
+        span {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iIzk5OSIgZD0iTTMxLjQyNyAyLjg0NkwyOS4wNC40NTkgMTUuOTU2IDEzLjU0MSAyLjg3NC40NTkuNDg4IDIuODQ2IDEzLjU3IDE1LjkyOC40ODggMjkuMDEybDIuMzg2IDIuMzg2IDEzLjA4Mi0xMy4wODJMMjkuMDQgMzEuMzk4bDIuMzg2LTIuMzg2LTEzLjA4NC0xMy4wODR6Ii8+PC9zdmc+');
+        }
+    }
+
+    &:active {
+        color: grey;
+    }
+}
+
+@media (min-width: 601px) {
+    .tooltip,
+    .infotip {
+        padding-right: 16px;
+    }
+}

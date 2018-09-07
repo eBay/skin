@@ -1,292 +1,114 @@
-/* Default style */
-// .tooltip,
-// .infotip,
-// .tourtip {
-//     display: inline-block;
-//     //position: relative;
+// BEM blocks
+.flyout-notice,
+.tooltip,
+.infotip {
+    &__content {
+        margin: 8px 0;
+        padding-left: 8px;
 
-//     &__window {
-//         position: absolute;
-//         z-index: 1;
+        p {
+            margin: 0;
 
-//         &::after {
-//             border-style: solid;
-//             border-width: 8px;
-//             content: "";
-//             position: absolute;
-//             transform: rotate(-45deg);
-//             transform-origin: 0 0;
-//         }
-//     }
+            &:not(:first-of-type) {
+                margin-top: 4px;
+            }
+        }
+    }
 
-//     &__body {
-//         margin: 16px 16px 16px 16px;
-//     }
+    &__close {
+        margin-top: 1px;
+    }
 
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow,
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow,
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow,
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         width: 400px;
-//     }
+    &__pointer-top-left,
+    &__arrow-top-left {
+        .tooltip-arrow-top;
 
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow {
-//         bottom: calc(160% - 8px);
-//     }
+        left: 12px;
+    }
 
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow {
-//         top: calc(160% - 8px);
-//     }
+    &__pointer-top-center,
+    &__arrow-top-center {
+        .tooltip-arrow-top;
 
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow {
-//         left: calc(170% - 8px);
-//     }
+        left: calc(50% - 8px);
+    }
 
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         right: calc(170% - 8px);
-//     }
+    &__pointer-top-right,
+    &__arrow-top-right {
+        .tooltip-arrow-top;
 
-//     &__bottom-arrow,
-//     &__top-arrow {
-//         left: calc(0% - 187px);
+        right: 12px;
+    }
 
-//         &::after {
-//             left: calc(50% - 8px);
-//         }
-//     }
+    &__pointer-bottom-left,
+    &__arrow-bottom-left {
+        .tooltip-arrow-bottom;
 
-//     &__bottom-left-arrow,
-//     &__top-left-arrow {
-//         left: calc(0% - 3px);
+        left: 16px;
+    }
 
-//         &::after {
-//             left: 8px;
-//         }
-//     }
+    &__pointer-bottom-center,
+    &__arrow-bottom-center {
+        .tooltip-arrow-bottom;
 
-//     &__bottom-right-arrow,
-//     &__top-right-arrow {
-//         right: calc(0% - 3px);
+        left: calc(50% - 8px);
+    }
 
-//         &::after {
-//             right: 14px;
-//         }
-//     }
+    &__pointer-bottom-right,
+    &__arrow-bottom-right {
+        .tooltip-arrow-bottom;
 
-//     &__left-arrow,
-//     &__right-arrow {
-//         top: -50%;
+        right: 16px;
+    }
+}
 
-//         &::after {
-//             top: 50%;
-//         }
-//     }
+button.tooltip__close,
+button.flyout-notice__close {
+    background: none;
+    border: 0;
+    height: 32px;
+    margin-left: 8px;
+    padding: 0;
+    white-space: nowrap;
+    width: 32px;
 
-//     &__left-top-arrow,
-//     &__right-top-arrow {
-//         top: 0;
+    svg {
+        .foreground-icon-base(12px,12px);
+    }
 
-//         &::after {
-//             top: 19px;
-//         }
-//     }
+    span {
+        .icon-close(12px, 12px);
+    }
+}
 
-//     &__left-bottom-arrow,
-//     &__right-bottom-arrow {
-//         bottom: calc(0% - 5px);
+.tooltip__overlay,
+.bubblehelp__overlay,
+.infotip__overlay,
+.tourtip__overlay {
+    display: block;
+    position: relative;
+}
 
-//         &::after {
-//             bottom: 4px;
-//         }
-//     }
-// }
+.tooltip--expanded .tooltip__overlay,
+.infotip--expanded .infotip__overlay,
+.tourtip--expanded .tourtip__overlay,
+.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__overlay,
+.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__live-region .bubblehelp__overlay {
+    display: block;
+}
 
-// .tooltip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow {
-//         &::after {
-//             top: 100%;
-//         }
-//     }
+@media (min-width: 601px) {
+    .tooltip,
+    .infotip,
+    .flyout-notice {
+        &__content {
+            padding-left: 16px;
+        }
+    }
 
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow {
-//         &::after {
-//             top: 0%;
-//         }
-//     }
+    button.tooltip__close,
+    button.flyout-notice__close {
+        margin-left: 16px;
+    }
+}
 
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow {
-//         &::after {
-//             left: calc(0% - 11px);
-//         }
-//     }
-
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             right: calc(0% - 5px);
-//         }
-//     }
-// }
-
-// .infotip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow,
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow,
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow,
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             box-sizing: border-box;
-//         }
-//     }
-
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow {
-//         &::after {
-//             top: 98%;
-//         }
-//     }
-
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow {
-//         &::after {
-//             top: 1%;
-//         }
-//     }
-
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow {
-//         &::after {
-//             left: calc(0% - 10px);
-//         }
-//     }
-
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             right: calc(0% - 4px);
-//         }
-//     }
-// }
-
-// .tourtip {
-//     &__bottom-arrow,
-//     &__bottom-left-arrow,
-//     &__bottom-right-arrow {
-//         &::after {
-//             top: 100%;
-//         }
-//     }
-
-//     &__top-arrow,
-//     &__top-left-arrow,
-//     &__top-right-arrow {
-//         &::after {
-//             top: 0%;
-//         }
-//     }
-
-//     &__left-arrow,
-//     &__left-top-arrow,
-//     &__left-bottom-arrow {
-//         &::after {
-//             left: calc(0% - 11px);
-//         }
-//     }
-
-//     &__right-arrow,
-//     &__right-top-arrow,
-//     &__right-bottom-arrow {
-//         &::after {
-//             right: calc(0% - 5px);
-//         }
-//     }
-// }
-
-// .tooltip__close {
-//     background-color: inherit;
-//     border: 0;
-//     margin: 0;
-//     padding: 16px;
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-//     z-index: 1;
-
-//     span {
-//         .background-icon-base;
-//     }
-// }
-
-// div {
-//     .infotip__body,
-//     .tourtip__body {
-//         p {
-//             width: 90%;
-//         }
-//     }
-// }
-
-// .div--link-callout {
-//     margin: 0 auto;
-//     width: 100%;
-// }
-
-// @media (max-width: 768px) {
-//     .tooltip,
-//     .infotip,
-//     .tourtip {
-//         &__bottom-arrow,
-//         &__bottom-left-arrow,
-//         &__bottom-right-arrow,
-//         &__top-arrow,
-//         &__top-left-arrow,
-//         &__top-right-arrow,
-//         &__left-arrow,
-//         &__left-top-arrow,
-//         &__left-bottom-arrow,
-//         &__right-arrow,
-//         &__right-top-arrow,
-//         &__right-bottom-arrow {
-//             width: 344px;
-//         }
-
-//         &__bottom-arrow,
-//         &__top-arrow {
-//             left: calc(0% - 145px);
-//         }
-//     }
-// }
