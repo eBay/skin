@@ -45,15 +45,13 @@
     .infotip {
         display: flex;
         font-size: @ds6-font-size-14;
-        min-height: 32px;
-        min-width: 320px;
-        padding: 8px 8px 8px 0;
         position: absolute;
         z-index: 1;
 
         &__content {
-            margin: 8px 0;
-            padding-left: 8px;
+            align-items: center;
+            display: inline-flex;
+            max-width: 344px;
 
             p {
                 margin: 0;
@@ -116,5 +114,16 @@ button.tooltip__close {
 
     &:active {
         color: grey;
+    }
+}
+
+@media (min-width: 601px) {
+    .tooltip {
+        .tooltip,
+        .infotip {
+            &__content {
+                max-width: 400px;
+            }
+        }
     }
 }

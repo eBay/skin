@@ -1,9 +1,14 @@
+.flyout-notice .tooltip,
+.tooltip .tooltip,
+.flyout-notice .infotip,
+.tooltip .infotip {
+  padding: 16px 16px 16px 16px;
+}
 .flyout-notice .tooltip__content,
 .tooltip .tooltip__content,
 .flyout-notice .infotip__content,
 .tooltip .infotip__content {
-  margin: 8px 0;
-  padding-left: 8px;
+  padding-right: 16px;
 }
 .flyout-notice .tooltip__content p,
 .tooltip .tooltip__content p,
@@ -166,11 +171,6 @@ button.flyout-notice__close span {
   display: block;
 }
 @media (min-width: 601px) {
-  .tooltip__content,
-  .infotip__content,
-  .flyout-notice__content {
-    padding-left: 16px;
-  }
   button.tooltip__close,
   button.flyout-notice__close {
     margin-left: 16px;
@@ -212,16 +212,18 @@ button.flyout-notice__close span {
   display: -ms-flexbox;
   display: flex;
   font-size: 0.875rem;
-  min-height: 32px;
-  min-width: 320px;
-  padding: 8px 8px 8px 0;
   position: absolute;
   z-index: 1;
 }
 .tooltip .tooltip__content,
 .tooltip .infotip__content {
-  margin: 8px 0;
-  padding-left: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 344px;
 }
 .tooltip .tooltip__content p,
 .tooltip .infotip__content p {
@@ -310,4 +312,10 @@ button.tooltip__close:hover span {
 }
 button.tooltip__close:active {
   color: grey;
+}
+@media (min-width: 601px) {
+  .tooltip .tooltip__content,
+  .tooltip .infotip__content {
+    max-width: 400px;
+  }
 }
