@@ -5,83 +5,100 @@
 @import "../base/tooltip.less";
 
 .tooltip {
-    background-color: @ds6-color-p002-blue;
-    color: @ds6-color-g201-gray;
-}
-
-.infotip {
-    background-color: @ds6-color-g201-gray;
-    color: @ds6-color-g206-gray;
-}
-
-.tooltip,
-.infotip {
-    display: flex;
-    font-size: @ds6-font-size-14;
-    min-height: 32px;
-    min-width: 320px;
-    padding: 8px 8px 8px 0;
-    position: absolute;
-    z-index: 1;
-
-    &__arrow-top-left,
-    &__arrow-top-center,
-    &__arrow-top-right {
-        border-bottom-color: @ds6-color-p002-blue;
+    .tooltip,
+    .tourtip {
+        background-color: @ds6-color-p002-blue;
+        color: @ds6-color-g201-gray;
     }
 
-    &__content {
-        margin: 8px 0;
-        padding-left: 8px;
+    .infotip {
+        background-color: @ds6-color-g201-gray;
+        box-shadow: 0 0 5px 1px @ds6-color-g205-gray;
+        color: @ds6-color-g206-gray;
 
-        p {
-            margin: 0;
+        &__arrow-top-left,
+        &__arrow-top-center,
+        &__arrow-top-right {
+            box-shadow: -2px -2px 2px @ds6-color-g205-gray;
+        }
 
-            &:not(:first-of-type) {
-                margin-top: 4px;
-            }
+        &__arrow-bottom-left,
+        &__arrow-bottom-center,
+        &__arrow-bottom-right {
+            box-shadow: 2px 2px 2px @ds6-color-g205-gray;
+        }
+
+        &__arrow-left-top,
+        &__arrow-left-center,
+        &__arrow-left-bottom {
+            box-shadow: -2px 2px 2px @ds6-color-g205-gray;
+        }
+
+        &__arrow-right-top,
+        &__arrow-right-center,
+        &__arrow-right-bottom {
+            box-shadow: 2px -2px 2px @ds6-color-g205-gray;
         }
     }
 
-    &__arrow-left-top {
-        .tooltip-arrow-side;
+    .tooltip,
+    .infotip {
+        display: flex;
+        font-size: @ds6-font-size-14;
+        min-height: 32px;
+        min-width: 320px;
+        padding: 8px 8px 8px 0;
+        position: absolute;
+        z-index: 1;
 
-        left: -6px;
-        top: calc(50% - 18px);
-    }
+        &__content {
+            margin: 8px 0;
+            padding-left: 8px;
 
-    &__arrow-left-center {
-        .tooltip-arrow-side;
+            p {
+                margin: 0;
 
-        left: -6px;
-        top: calc(50% - 8px);
-    }
+                &:not(:first-of-type) {
+                    margin-top: 4px;
+                }
+            }
+        }
 
-    &__arrow-left-bottom {
-        .tooltip-arrow-side;
+        &__arrow-left-top {
+            .tooltip-arrow-left;
 
-        left: -6px;
-        top: calc(50% - 28px);
-    }
+            top: 12px;
+        }
 
-    &__arrow-right-top {
-        .tooltip-arrow-side;
+        &__arrow-left-center {
+            .tooltip-arrow-left;
 
-        right: -6px;
-        top: calc(50% - 18px);
-    }
+            top: calc(50% - 8px);
+        }
 
-    &__arrow-right-center {
-        .tooltip-arrow-side;
+        &__arrow-left-bottom {
+            .tooltip-arrow-left;
 
-        right: -6px;
-    }
+            bottom: 12px;
+        }
 
-    &__arrow-right-bottom {
-        .tooltip-arrow-side;
+        &__arrow-right-top {
+            .tooltip-arrow-right;
 
-        right: -6px;
-        top: calc(50% - 28px);
+            top: 12px;
+        }
+
+        &__arrow-right-center {
+            .tooltip-arrow-right;
+
+            top: calc(50% - 8px);
+        }
+
+        &__arrow-right-bottom {
+            .tooltip-arrow-right;
+
+            bottom: 12px;
+        }
     }
 }
 
@@ -99,12 +116,5 @@ button.tooltip__close {
 
     &:active {
         color: grey;
-    }
-}
-
-@media (min-width: 601px) {
-    .tooltip,
-    .infotip {
-        padding-right: 16px;
     }
 }
