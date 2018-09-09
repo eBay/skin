@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.infotip-button):not(.tourtip-button):not(.tourtip-callout-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-close)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -101,6 +101,44 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
 // prevent scroll keys logic on menu items
 nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(el, i) {
     scrollKeyPreventer.add(el);
+});
+
+// TOOLTIP WIDGET
+nodeListToArray(document.querySelectorAll('.tooltip-comp')).forEach(function(el, i) {
+    // var widget = new Expander(el, {
+    //     autoCollapse: true,
+    //     expandOnClick: true,
+    //     hostSelector: 'tooltip__host',
+    //     contentSelector: '[role=tooltip]'
+    // });
+
+    var inputEl = el.querySelector('.tooltip__host');
+    var tooltipWindow = inputEl.nextElementSibling;
+    inputEl.addEventListener('click', handleOpen);
+
+    function handleOpen () {
+        tooltipWindow.removeAttribute('hidden');
+        inputEl.removeEventListener('click', handleOpen);
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        if (tooltipClose) {
+            tooltipClose.addEventListener('click', handleClose, true);
+            tooltipClose.focus();
+        } else {
+            inputEl.addEventListener('blur', handleClose, true);
+        }
+    }
+
+    function handleClose () {
+        tooltipWindow.setAttribute('hidden', '');
+        inputEl.addEventListener('click', handleOpen);
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        if (tooltipClose) {
+            tooltipClose.removeEventListener('click', handleClose, true);
+        } else {
+            inputEl.removeEventListener('blur', handleClose, true);
+        }
+        inputEl.focus();
+    }
 });
 
 // COMBOBOX WIDGET (basic interactivity only)
@@ -192,55 +230,6 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
             }
         }
     });
-});
-
-
-// INFOTIP/TOURTIP WIDGET
-nodeListToArray(document.querySelectorAll('.infotip-button, .tourtip-button')).forEach(function(el) {
-    var tooltipWindow = el.nextElementSibling;
-    el.addEventListener('click', handleOpen);
-
-    function handleOpen () {
-        if (!tooltipWindow.hasAttribute('hidden')) {
-            tooltipWindow.setAttribute('hidden', '');
-        } else {
-            tooltipWindow.removeAttribute('hidden');
-            var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
-            tooltipClose.addEventListener('click', handleClose, true);
-            tooltipClose.focus();
-        }
-    }
-
-    function handleClose () {
-        tooltipWindow.setAttribute('hidden', '');
-        el.addEventListener('click', handleOpen);
-        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
-        tooltipClose.removeEventListener('click', handleClose, true);
-        el.focus();
-    }
-});
-
-// TOOLTIP WIDGET
-nodeListToArray(document.querySelectorAll('.tooltip-button')).forEach(function(el) {
-    var tooltipWindow = el.nextElementSibling;
-    el.addEventListener('click', handleOpen);
-
-    function handleOpen () {
-        if (!tooltipWindow.hasAttribute('hidden')) {
-            tooltipWindow.setAttribute('hidden', '');
-        } else {
-            tooltipWindow.removeAttribute('hidden');
-            el.addEventListener('focusout', handleClose, true);
-            el.focus();
-        }
-    }
-
-    function handleClose () {
-        tooltipWindow.setAttribute('hidden', '');
-        el.addEventListener('click', handleOpen);
-        el.removeEventListener('focusout', handleClose, true);
-        el.focus();
-    }
 });
 
 // DIALOG WIDGET

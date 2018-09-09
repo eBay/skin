@@ -4,7 +4,7 @@
 @import "tooltip-mixins.less";
 @import "../base/tooltip.less";
 
-.tooltip {
+.tooltip-comp {
     .tooltip,
     .tourtip {
         background-color: @ds6-color-p002-blue;
@@ -42,24 +42,57 @@
     }
 
     .tooltip,
-    .infotip {
-        display: flex;
+    .infotip,
+    .tourtip {
         font-size: @ds6-font-size-14;
+        padding: 16px 16px 16px 16px;
         position: absolute;
         z-index: 1;
 
-        &__content {
-            align-items: center;
-            display: inline-flex;
-            max-width: 344px;
+        &__close {
+            margin-top: 1px;
+        }
 
-            p {
-                margin: 0;
+        &__pointer-top-left,
+        &__arrow-top-left {
+            .tooltip-arrow-top;
 
-                &:not(:first-of-type) {
-                    margin-top: 4px;
-                }
-            }
+            left: 12px;
+        }
+
+        &__pointer-top-center,
+        &__arrow-top-center {
+            .tooltip-arrow-top;
+
+            left: calc(50% - 8px);
+        }
+
+        &__pointer-top-right,
+        &__arrow-top-right {
+            .tooltip-arrow-top;
+
+            right: 12px;
+        }
+
+        &__pointer-bottom-left,
+        &__arrow-bottom-left {
+            .tooltip-arrow-bottom;
+
+            left: 16px;
+        }
+
+        &__pointer-bottom-center,
+        &__arrow-bottom-center {
+            .tooltip-arrow-bottom;
+
+            left: calc(50% - 8px);
+        }
+
+        &__pointer-bottom-right,
+        &__arrow-bottom-right {
+            .tooltip-arrow-bottom;
+
+            right: 16px;
         }
 
         &__arrow-left-top {
@@ -100,27 +133,66 @@
     }
 }
 
-button.tooltip__close {
-    color: black;
-
-    &:focus,
-    &:hover {
-        color: blue;
-
-        span {
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iIzk5OSIgZD0iTTMxLjQyNyAyLjg0NkwyOS4wNC40NTkgMTUuOTU2IDEzLjU0MSAyLjg3NC40NTkuNDg4IDIuODQ2IDEzLjU3IDE1LjkyOC40ODggMjkuMDEybDIuMzg2IDIuMzg2IDEzLjA4Mi0xMy4wODJMMjkuMDQgMzEuMzk4bDIuMzg2LTIuMzg2LTEzLjA4NC0xMy4wODR6Ii8+PC9zdmc+');
-        }
+.tooltip {
+    &__overlay {
+        position: relative;
     }
 
-    &:active {
-        color: grey;
+    &__content {
+        align-items: center;
+        display: inline-flex;
+        max-width: 344px;
+        padding-right: 16px;
+
+        &-heading {
+            margin: 0 0 16px 0;
+        }
+
+        p {
+            margin: 0;
+
+            &:not(:first-of-type) {
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+button.tourtip__callout-close {
+    display: inherit;
+    margin-top: 16px;
+}
+
+button.infotip__close {
+    color: @ds6-color-g206-gray;
+
+    span {
+        .background-icon-base;
+    }
+}
+
+button.tourtip__close {
+    color: @ds6-color-g201-gray;
+
+    span {
+        .background-icon-base;
+
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-close-base64-light}');
+    }
+}
+
+button.infotip__close,
+button.tourtip__close {
+    &:focus,
+    &:hover {
+        color: @ds6-color-link-default;
+        cursor: pointer;
     }
 }
 
 @media (min-width: 601px) {
-    .tooltip {
-        .tooltip,
-        .infotip {
+    .tooltip-comp {
+        .tooltip {
             &__content {
                 max-width: 400px;
             }
