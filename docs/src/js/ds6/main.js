@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-button):not(.tourtip--link-callout)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip-close)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -101,6 +101,44 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
 // prevent scroll keys logic on menu items
 nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(el, i) {
     scrollKeyPreventer.add(el);
+});
+
+// TOOLTIP WIDGET
+nodeListToArray(document.querySelectorAll('.tooltip-comp')).forEach(function(el, i) {
+    // var widget = new Expander(el, {
+    //     autoCollapse: true,
+    //     expandOnClick: true,
+    //     hostSelector: 'tooltip__host',
+    //     contentSelector: '[role=tooltip]'
+    // });
+
+    var inputEl = el.querySelector('.tooltip__host');
+    var tooltipWindow = inputEl.nextElementSibling;
+    inputEl.addEventListener('click', handleOpen);
+
+    function handleOpen () {
+        tooltipWindow.removeAttribute('hidden');
+        inputEl.removeEventListener('click', handleOpen);
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        if (tooltipClose) {
+            tooltipClose.addEventListener('click', handleClose, true);
+            tooltipClose.focus();
+        } else {
+            inputEl.addEventListener('blur', handleClose, true);
+        }
+    }
+
+    function handleClose () {
+        tooltipWindow.setAttribute('hidden', '');
+        inputEl.addEventListener('click', handleOpen);
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        if (tooltipClose) {
+            tooltipClose.removeEventListener('click', handleClose, true);
+        } else {
+            inputEl.removeEventListener('blur', handleClose, true);
+        }
+        inputEl.focus();
+    }
 });
 
 // COMBOBOX WIDGET (basic interactivity only)
@@ -192,38 +230,6 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) 
             }
         }
     });
-});
-
-
-// TOOLTIP WIDGET
-nodeListToArray(document.querySelectorAll('.tooltip-icon, .tooltip-button')).forEach(function(el) {
-    var customTooltipWindow = el.nextElementSibling;
-    el.addEventListener('click', handleOpen);
-
-    if (!customTooltipWindow.hasAttribute('hidden')) {
-        var btnClose = customTooltipWindow.querySelector('.tooltip-close');
-        btnClose.addEventListener('click', handleClose, true);
-    }
-
-    function handleOpen () {
-        if (!customTooltipWindow.hasAttribute('hidden')) {
-            customTooltipWindow.setAttribute('hidden', '');
-        } else {
-            el.classList.add('icon-background');
-            customTooltipWindow.removeAttribute('hidden');
-            var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
-            infotipClose.addEventListener('click', handleClose, true);
-            infotipClose.focus();
-        }
-    }
-
-    function handleClose () {
-        customTooltipWindow.setAttribute('hidden', '');
-        el.addEventListener('click', handleOpen);
-        var infotipClose = customTooltipWindow.querySelector('.tooltip-close');
-        infotipClose.removeEventListener('click', handleClose, true);
-        el.focus();
-    }
 });
 
 // DIALOG WIDGET
