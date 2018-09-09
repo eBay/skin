@@ -116,6 +116,14 @@ nodeListToArray(document.querySelectorAll('.tooltip-comp')).forEach(function(el,
     var tooltipWindow = inputEl.nextElementSibling;
     inputEl.addEventListener('click', handleOpen);
 
+    if (!tooltipWindow.hasAttribute('hidden')) {
+        var tooltipClose = tooltipWindow.querySelector('.tooltip-close');
+        if (tooltipClose) {
+            tooltipClose.addEventListener('click', handleClose, true);
+            tooltipClose.focus();
+        }
+    }
+
     function handleOpen () {
         tooltipWindow.removeAttribute('hidden');
         inputEl.removeEventListener('click', handleOpen);
