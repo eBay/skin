@@ -4,151 +4,153 @@
 @import "tooltip-mixins.less";
 @import "../base/tooltip.less";
 
-.tooltip-comp {
-    .tooltip,
-    .tourtip {
+.tooltip {
+    &--tooltip,
+    &--tourtip {
         background-color: @ds6-color-p002-blue;
         color: @ds6-color-g201-gray;
     }
 
-    .infotip {
+    &--infotip {
         background-color: @ds6-color-g201-gray;
-        box-shadow: 0 0 5px 1px @ds6-color-g205-gray;
+        box-shadow: 0 0 3px 1px @ds6-color-g205-gray;
         color: @ds6-color-g206-gray;
 
-        &__arrow-top-left,
-        &__arrow-top-center,
-        &__arrow-top-right {
-            box-shadow: -2px -2px 2px @ds6-color-g205-gray;
-        }
+        .infotip {
+            &__arrow-top {
+                &-left,
+                &-center,
+                &-right {
+                    box-shadow: -2px -2px 2px @ds6-color-g205-gray;
+                }
+            }
 
-        &__arrow-bottom-left,
-        &__arrow-bottom-center,
-        &__arrow-bottom-right {
-            box-shadow: 2px 2px 2px @ds6-color-g205-gray;
-        }
+            &__arrow-bottom {
+                &-left,
+                &-center,
+                &-right {
+                    box-shadow: 2px 2px 2px @ds6-color-g205-gray;
+                }
+            }
 
-        &__arrow-left-top,
-        &__arrow-left-center,
-        &__arrow-left-bottom {
-            box-shadow: -2px 2px 2px @ds6-color-g205-gray;
-        }
+            &__arrow-left {
+                &-top,
+                &-center,
+                &-bottom {
+                    box-shadow: -2px 2px 2px @ds6-color-g205-gray;
+                }
+            }
 
-        &__arrow-right-top,
-        &__arrow-right-center,
-        &__arrow-right-bottom {
-            box-shadow: 2px -2px 2px @ds6-color-g205-gray;
+            &__arrow-right {
+                &-top,
+                &-center,
+                &-bottom {
+                    box-shadow: 2px -2px 2px @ds6-color-g205-gray;
+                }
+            }
         }
     }
 
-    .tooltip,
-    .infotip,
-    .tourtip {
+    &--tooltip,
+    &--infotip,
+    &--tourtip {
         font-size: @ds6-font-size-14;
         padding: 16px;
         position: absolute;
         z-index: 1;
 
-        &__pointer-top-left,
-        &__arrow-top-left {
-            .tooltip-arrow-top;
+        .tooltip,
+        .infotip,
+        .tourtip {
+            &__arrow-top-left {
+                .tooltip-arrow-top;
 
-            left: 12px;
-        }
+                left: 12px;
+            }
 
-        &__pointer-top-center,
-        &__arrow-top-center {
-            .tooltip-arrow-top;
+            &__arrow-top-center {
+                .tooltip-arrow-top;
 
-            left: calc(50% - 8px);
-        }
+                left: calc(50% - 8px);
+            }
 
-        &__pointer-top-right,
-        &__arrow-top-right {
-            .tooltip-arrow-top;
+            &__arrow-top-right {
+                .tooltip-arrow-top;
 
-            right: 12px;
-        }
+                right: 12px;
+            }
 
-        &__pointer-bottom-left,
-        &__arrow-bottom-left {
-            .tooltip-arrow-bottom;
+            &__arrow-bottom-left {
+                .tooltip-arrow-bottom;
 
-            left: 16px;
-        }
+                left: 16px;
+            }
 
-        &__pointer-bottom-center,
-        &__arrow-bottom-center {
-            .tooltip-arrow-bottom;
+            &__arrow-bottom-center {
+                .tooltip-arrow-bottom;
 
-            left: calc(50% - 8px);
-        }
+                left: calc(50% - 8px);
+            }
 
-        &__pointer-bottom-right,
-        &__arrow-bottom-right {
-            .tooltip-arrow-bottom;
+            &__arrow-bottom-right {
+                .tooltip-arrow-bottom;
 
-            right: 16px;
-        }
+                right: 16px;
+            }
 
-        &__arrow-left-top {
-            .tooltip-arrow-left;
+            &__arrow-left-top {
+                .tooltip-arrow-left;
 
-            top: 12px;
-        }
+                top: 12px;
+            }
 
-        &__arrow-left-center {
-            .tooltip-arrow-left;
+            &__arrow-left-center {
+                .tooltip-arrow-left;
 
-            top: calc(50% - 8px);
-        }
+                top: calc(50% - 8px);
+            }
 
-        &__arrow-left-bottom {
-            .tooltip-arrow-left;
+            &__arrow-left-bottom {
+                .tooltip-arrow-left;
 
-            bottom: 12px;
-        }
+                bottom: 12px;
+            }
 
-        &__arrow-right-top {
-            .tooltip-arrow-right;
+            &__arrow-right-top {
+                .tooltip-arrow-right;
 
-            top: 12px;
-        }
+                top: 12px;
+            }
 
-        &__arrow-right-center {
-            .tooltip-arrow-right;
+            &__arrow-right-center {
+                .tooltip-arrow-right;
 
-            top: calc(50% - 8px);
-        }
+                top: calc(50% - 8px);
+            }
 
-        &__arrow-right-bottom {
-            .tooltip-arrow-right;
+            &__arrow-right-bottom {
+                .tooltip-arrow-right;
 
-            bottom: 12px;
+                bottom: 12px;
+            }
         }
     }
 }
 
-.tooltip {
-    &__overlay {
-        position: relative;
+.tooltip__content {
+    align-items: center;
+    display: inline-flex;
+    max-width: 344px;
+
+    &-heading {
+        margin: 0 0 16px 0;
     }
 
-    &__content {
-        align-items: center;
-        display: inline-flex;
-        max-width: 344px;
+    p {
+        margin: 0;
 
-        &-heading {
-            margin: 0 0 16px 0;
-        }
-
-        p {
-            margin: 0;
-
-            &:not(:first-of-type) {
-                margin-top: 4px;
-            }
+        &:not(:first-of-type) {
+            margin-top: 4px;
         }
     }
 }
@@ -173,11 +175,6 @@ button.tourtip__close {
     }
 }
 
-button.tourtip__callout-close {
-    display: inherit;
-    margin-top: 16px;
-}
-
 button.infotip__close {
     color: @ds6-color-g206-gray;
 
@@ -196,12 +193,13 @@ button.tourtip__close {
     }
 }
 
+button.tourtip__cta {
+    display: inherit;
+    margin-top: 16px;
+}
+
 @media (min-width: 601px) {
-    .tooltip-comp {
-        .tooltip {
-            &__content {
-                max-width: 400px;
-            }
-        }
+    .tooltip__content {
+        max-width: 400px;
     }
 }
