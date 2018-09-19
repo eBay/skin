@@ -17,7 +17,7 @@ function nodeListToArray(nodeList) {
 // BUTTON WIDGET
 
 // simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(el, i) {
+nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip__close)')).forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         alert('You clicked ' + this);
     });
@@ -103,8 +103,40 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
     scrollKeyPreventer.add(el);
 });
 
-// COMBOBOX WIDGET (basic interactivity only)
+// TOOLTIP WIDGET
+nodeListToArray(document.querySelectorAll('.tooltip.tooltip--hover')).forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.tooltip__overlay',
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        expandOnClick: true,
+        expandOnFocus: true,
+        expandOnHover: true,
+        focusManagement: 'focusable',
+        hostSelector: '.tooltip__host'
+    });
+});
 
+nodeListToArray(document.querySelectorAll('.tooltip:not(.tooltip--hover)')).forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.tooltip__overlay',
+        expandOnClick: true,
+        hostSelector: '.tooltip__host'
+    });
+
+    var inputEl = el.querySelector('.tooltip__host');
+    var tooltipWindow = inputEl.nextElementSibling;
+    var tooltipClose = tooltipWindow.querySelector('.tooltip__close');
+
+    if (tooltipClose) {
+        tooltipClose.addEventListener('click', function(e) {
+            widget.collapse();
+            inputEl.focus();
+        });
+    }
+});
+
+// COMBOBOX WIDGET (basic interactivity only)
 nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
     var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
 
