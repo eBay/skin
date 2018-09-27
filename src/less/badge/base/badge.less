@@ -1,14 +1,64 @@
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
 
+@badge-size: 0.875em;
+@badge-position: @badge-size * -1;
+
 .badge {
-    // border-radius: 15px;
-    border-radius: 15rem;
-    display: inline-block;
-    font-size: @ds6-font-size-10;
-    // padding: 0.25em 0.6em 0.25em 0.6em;
-    line-height: 1.2;
-    padding: 0.35em 0.6em;
+    align-items: center;
+    border-radius: @badge-size * 2;
+    display: inline-flex;
+    justify-content: center;
+    margin: auto 5px;
+    min-height: @badge-size;
+    min-width: @badge-size;
+    padding: 0.25em 0.45em;
     text-align: center;
-    vertical-align: baseline;
+    vertical-align: top;
+
+    &__container {
+        position: relative;
+
+        .badge {
+            margin: auto;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__top-right {
+        right: @badge-position;
+        top: @badge-position;
+    }
+
+    &__top-left {
+        left: @badge-position;
+        top: @badge-position;
+    }
+
+    &__bottom-left {
+        bottom: @badge-position;
+        left: @badge-position;
+    }
+
+    &__bottom-right {
+        bottom: @badge-position;
+        right: @badge-position;
+    }
+
+    &__right {
+        right: @badge-position;
+    }
+
+    &__bottom {
+        bottom: @badge-position;
+    }
+
+    &__left {
+        left: @badge-position;
+    }
+
+    &__top {
+        top: @badge-position;
+    }
 }
