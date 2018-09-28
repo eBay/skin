@@ -1,41 +1,68 @@
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small {
-    font-size: @ds4-font-size-12;
-    padding: 0 32px;
-}
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    &[class*="-fixed"] {
+        height: 40px;
 
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium {
-    font-size: @ds4-font-size-14;
-    padding: 0 48px;
-}
+        svg[class*="icon"] {
+            height: 1rem;
+            width: 1rem;
+        }
 
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large {
-    font-size: @ds4-font-size-16;
-    padding: 0 80px;
-}
+        > span {
+            max-width: calc(100% - 32px);
+        }
+    }
 
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large {
-    font-size: @ds4-font-size-18;
-    padding: 0 112px;
-}
+    &[class*="--small"] {
+        font-size: @ds4-font-size-12;
+        padding: 8px 32px;
 
-button.expand-btn--small {
-    padding: 0 12px 0 16px;
+        &[class*="-fixed"] {
+            height: 32px;
+        }
+    }
 
-    &.expand-btn--no-text {
-        padding: 0 12px;
+    &[class*="--medium"] {
+        font-size: @ds4-font-size-14;
+        padding: 11px 48px;
+
+        &[class*="-fixed"] {
+            height: 40px;
+        }
+    }
+
+    &[class*="--large"] {
+        font-size: @ds4-font-size-16;
+        padding: 14px 80px;
+
+        &[class*="-fixed"] {
+            height: 48px;
+        }
+    }
+
+    &[class*="--extra-large"] {
+        font-size: @ds4-font-size-18;
+        padding: 15.875px 112px; // chrome and firefox disagree on calculations, so this is a compromise
+
+        &[class*="-fixed"] {
+            height: 56px;
+        }
     }
 }
 
-button.expand-btn--medium,
-button.expand-btn--large,
-button.expand-btn--extra-large {
-    padding: 0 16px;
+button.expand-btn[class*="--small"] {
+    padding: 8px 12px 8px 16px;
+
+    &.expand-btn--no-text {
+        padding: 11px 12px;
+    }
+}
+
+button.expand-btn[class*="--medium"],
+button.expand-btn[class*="--large"],
+button.expand-btn[class*="--extra-large"] {
+    padding-left: 16px;
+    padding-right: 16px;
 }

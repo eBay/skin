@@ -18,6 +18,15 @@ a.cta-btn {
     max-width: 100%;
     text-align: center;
     text-decoration: none;
+    vertical-align: top; // with text wrapping, this helps with form control alignment amongts other controls
+
+    &[class*='-fixed'],
+    &[class*='-fixed'] > span {
+        line-height: 1.4em; // fixes fake and cta buttons
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 .btn__icon,
@@ -54,13 +63,6 @@ a.cta-btn--fluid {
     display: flex;
     height: 100%;
     width: 100%;
-
-    > span {
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
 }
 
 .btn__cell,

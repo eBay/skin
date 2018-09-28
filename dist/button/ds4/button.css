@@ -21,6 +21,20 @@ a.cta-btn {
   max-width: 100%;
   text-align: center;
   text-decoration: none;
+  vertical-align: top;
+}
+button.btn[class*='-fixed'],
+button.expand-btn[class*='-fixed'],
+a.fake-btn[class*='-fixed'],
+a.cta-btn[class*='-fixed'],
+button.btn[class*='-fixed'] > span,
+button.expand-btn[class*='-fixed'] > span,
+a.fake-btn[class*='-fixed'] > span,
+a.cta-btn[class*='-fixed'] > span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .btn__icon,
 .fake-btn__icon,
@@ -65,15 +79,6 @@ a.cta-btn--fluid {
   height: 100%;
   width: 100%;
 }
-.btn__cell > span,
-.expand-btn__cell > span,
-.fake-btn__cell > span,
-.cta-btn__cell > span {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .btn__cell,
 .fake-btn__cell,
 .cta-btn__cell {
@@ -117,15 +122,14 @@ a.fake-btn,
 a.cta-btn {
   border-radius: 3px;
   font-size: 0.875rem;
-  height: 40px;
 }
 button.btn,
 a.fake-btn,
 a.cta-btn {
-  padding: 0 48px;
+  padding: 11px 48px;
 }
 button.expand-btn {
-  padding: 0 16px;
+  padding: 11px 16px;
 }
 button.btn[disabled],
 button.expand-btn[disabled],
@@ -136,6 +140,10 @@ button.expand-btn[aria-disabled="true"] {
 a.fake-btn:not([href]),
 a.fake-btn[aria-disabled="true"] {
   opacity: 0.5;
+}
+button.expand-btn.expand-btn--no-text {
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 button.btn--regular,
 button.expand-btn--regular,
@@ -342,40 +350,87 @@ a.fake-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small {
+button.btn[class*="-fixed"],
+button.expand-btn[class*="-fixed"],
+a.fake-btn[class*="-fixed"],
+a.cta-btn[class*="-fixed"] {
+  height: 40px;
+}
+button.btn[class*="-fixed"] svg[class*="icon"],
+button.expand-btn[class*="-fixed"] svg[class*="icon"],
+a.fake-btn[class*="-fixed"] svg[class*="icon"],
+a.cta-btn[class*="-fixed"] svg[class*="icon"] {
+  height: 1rem;
+  width: 1rem;
+}
+button.btn[class*="-fixed"] > span,
+button.expand-btn[class*="-fixed"] > span,
+a.fake-btn[class*="-fixed"] > span,
+a.cta-btn[class*="-fixed"] > span {
+  max-width: calc(100% - 32px);
+}
+button.btn[class*="--small"],
+button.expand-btn[class*="--small"],
+a.fake-btn[class*="--small"],
+a.cta-btn[class*="--small"] {
   font-size: 0.75rem;
-  padding: 0 32px;
+  padding: 8px 32px;
 }
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium {
+button.btn[class*="--small"][class*="-fixed"],
+button.expand-btn[class*="--small"][class*="-fixed"],
+a.fake-btn[class*="--small"][class*="-fixed"],
+a.cta-btn[class*="--small"][class*="-fixed"] {
+  height: 32px;
+}
+button.btn[class*="--medium"],
+button.expand-btn[class*="--medium"],
+a.fake-btn[class*="--medium"],
+a.cta-btn[class*="--medium"] {
   font-size: 0.875rem;
-  padding: 0 48px;
+  padding: 11px 48px;
 }
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large {
+button.btn[class*="--medium"][class*="-fixed"],
+button.expand-btn[class*="--medium"][class*="-fixed"],
+a.fake-btn[class*="--medium"][class*="-fixed"],
+a.cta-btn[class*="--medium"][class*="-fixed"] {
+  height: 40px;
+}
+button.btn[class*="--large"],
+button.expand-btn[class*="--large"],
+a.fake-btn[class*="--large"],
+a.cta-btn[class*="--large"] {
   font-size: 1rem;
-  padding: 0 80px;
+  padding: 14px 80px;
 }
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large {
+button.btn[class*="--large"][class*="-fixed"],
+button.expand-btn[class*="--large"][class*="-fixed"],
+a.fake-btn[class*="--large"][class*="-fixed"],
+a.cta-btn[class*="--large"][class*="-fixed"] {
+  height: 48px;
+}
+button.btn[class*="--extra-large"],
+button.expand-btn[class*="--extra-large"],
+a.fake-btn[class*="--extra-large"],
+a.cta-btn[class*="--extra-large"] {
   font-size: 1.125rem;
-  padding: 0 112px;
+  padding: 15.875px 112px;
 }
-button.expand-btn--small {
-  padding: 0 12px 0 16px;
+button.btn[class*="--extra-large"][class*="-fixed"],
+button.expand-btn[class*="--extra-large"][class*="-fixed"],
+a.fake-btn[class*="--extra-large"][class*="-fixed"],
+a.cta-btn[class*="--extra-large"][class*="-fixed"] {
+  height: 56px;
 }
-button.expand-btn--small.expand-btn--no-text {
-  padding: 0 12px;
+button.expand-btn[class*="--small"] {
+  padding: 8px 12px 8px 16px;
 }
-button.expand-btn--medium,
-button.expand-btn--large,
-button.expand-btn--extra-large {
-  padding: 0 16px;
+button.expand-btn[class*="--small"].expand-btn--no-text {
+  padding: 11px 12px;
+}
+button.expand-btn[class*="--large"],
+button.expand-btn[class*="--extra-large"] {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 svg.expand-btn__icon {
   height: 8px;
@@ -395,28 +450,4 @@ button.expand-btn--primary span.expand-btn__icon {
 }
 button.expand-btn--secondary span.expand-btn__icon {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
-}
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small,
-a.cta-btn--small {
-  height: 32px;
-}
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium,
-a.cta-btn--medium {
-  height: 40px;
-}
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large,
-a.cta-btn--large {
-  height: 48px;
-}
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large,
-a.cta-btn--extra-large {
-  height: 56px;
 }
