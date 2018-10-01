@@ -336,15 +336,14 @@ a.cta-btn {
   border-color: inherit;
   box-sizing: border-box;
   color: inherit;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
   font-family: inherit;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0;
   max-width: 100%;
+  overflow: hidden;
   text-align: center;
   text-decoration: none;
   vertical-align: top;
@@ -353,14 +352,40 @@ button.btn[class*='-truncated'],
 button.expand-btn[class*='-truncated'],
 a.fake-btn[class*='-truncated'],
 a.cta-btn[class*='-truncated'],
-button.btn[class*='-truncated'] > span,
-button.expand-btn[class*='-truncated'] > span,
-a.fake-btn[class*='-truncated'] > span,
-a.cta-btn[class*='-truncated'] > span {
+button.btn[class*='-truncated'] span,
+button.expand-btn[class*='-truncated'] span,
+a.fake-btn[class*='-truncated'] span,
+a.cta-btn[class*='-truncated'] span {
   line-height: 1.4em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+button.btn[class*="-fixed"],
+button.expand-btn[class*="-fixed"],
+a.fake-btn[class*="-fixed"],
+a.cta-btn[class*="-fixed"] {
+  height: 40px;
+}
+button.btn[class*="-fixed"] > [class*="__cell"],
+button.expand-btn[class*="-fixed"] > [class*="__cell"],
+a.fake-btn[class*="-fixed"] > [class*="__cell"],
+a.cta-btn[class*="-fixed"] > [class*="__cell"] {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+button.btn[class*="-fixed"] > [class*="__cell"] > span,
+button.expand-btn[class*="-fixed"] > [class*="__cell"] > span,
+a.fake-btn[class*="-fixed"] > [class*="__cell"] > span,
+a.cta-btn[class*="-fixed"] > [class*="__cell"] > span,
+button.btn[class*="-fixed"] > [class*="__cell"] > svg,
+button.expand-btn[class*="-fixed"] > [class*="__cell"] > svg,
+a.fake-btn[class*="-fixed"] > [class*="__cell"] > svg,
+a.cta-btn[class*="-fixed"] > [class*="__cell"] > svg {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  max-width: calc(100% - 32px);
 }
 .btn__icon,
 .fake-btn__icon,
@@ -676,24 +701,12 @@ a.fake-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
-button.btn[class*="-fixed"],
-button.expand-btn[class*="-fixed"],
-a.fake-btn[class*="-fixed"],
-a.cta-btn[class*="-fixed"] {
-  height: 40px;
-}
 button.btn[class*="-fixed"] svg[class*="icon"],
 button.expand-btn[class*="-fixed"] svg[class*="icon"],
 a.fake-btn[class*="-fixed"] svg[class*="icon"],
 a.cta-btn[class*="-fixed"] svg[class*="icon"] {
   height: 1rem;
   width: 1rem;
-}
-button.btn[class*="-fixed"] > span,
-button.expand-btn[class*="-fixed"] > span,
-a.fake-btn[class*="-fixed"] > span,
-a.cta-btn[class*="-fixed"] > span {
-  max-width: calc(100% - 32px);
 }
 button.btn[class*="--small"],
 button.expand-btn[class*="--small"],

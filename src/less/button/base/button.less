@@ -11,21 +11,36 @@ a.cta-btn {
     border-color: inherit;
     box-sizing: border-box;
     color: inherit;
-    display: inline-flex;
+    display: inline-block;
     font-family: inherit;
     justify-content: center;
     margin: 0; // Remove the button margin in Firefox and Safari
     max-width: 100%;
+    overflow: hidden;
     text-align: center;
     text-decoration: none;
     vertical-align: top; // with text wrapping, this helps with form control alignment amongts other controls
 
     &[class*='-truncated'],
-    &[class*='-truncated'] > span {
+    &[class*='-truncated'] span {
         line-height: 1.4em; // fixes fake and cta buttons
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    &[class*="-fixed"] {
+        height: 40px;
+
+        > [class*="__cell"] {
+            display: inline-flex;
+
+            > span,
+            > svg {
+                align-self: baseline;
+                max-width: calc(100% - 32px);
+            }
+        }
     }
 }
 
