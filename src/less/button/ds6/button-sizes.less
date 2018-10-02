@@ -1,3 +1,16 @@
+.button-fixed-height(@height) {
+    &[class*="-fixed"] {
+        height: @height;
+    }
+}
+
+.button-size-rules(@paddingBottom, @paddingTop, @height) {
+    padding-bottom: @paddingBottom;
+    padding-top: @paddingTop;
+
+    .button-fixed-height(@height);
+}
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
@@ -8,38 +21,21 @@ a.cta-btn {
     }
 
     &[class*="--small"] {
-        padding-bottom: 5.5px;
-        padding-top: 5.5px;
-
-        &[class*="-fixed"] {
-            height: 32px;
-        }
+        .button-size-rules(5.5px, 5.5px, 32px);
     }
 
     &[class*="--medium"] {
-        padding-bottom: 9.5px;
-        padding-top: 9.5px;
-
-        &[class*="-fixed"] {
-            height: 40px;
-        }
+        .button-size-rules(9.5px, 9.5px, 40px);
     }
 
     &[class*="--large"] {
-        padding-bottom: 11px;
-        padding-top: 11px;
-
-        &[class*="-fixed"] {
-            height: 48px;
-        }
+        .button-size-rules(11px, 11px, 48px);
     }
 
     &[class*="--extra-large"] {
         padding: 13.5px 24px;
 
-        &[class*="-fixed"] {
-            height: 56px;
-        }
+        .button-fixed-height(56px);
     }
 
     &[class*="--large"],

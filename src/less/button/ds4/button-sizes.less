@@ -1,3 +1,16 @@
+.button-fixed-height(@height) {
+    &[class*="-fixed"] {
+        height: @height;
+    }
+}
+
+.button-size-rules(@fontSize, @padding, @height) {
+    font-size: @fontSize;
+    padding: @padding;
+
+    .button-fixed-height(@height);
+}
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
@@ -19,39 +32,20 @@ a.cta-btn {
     }
 
     &[class*="--small"] {
-        font-size: @ds4-font-size-12;
-        padding: 8px 32px;
-
-        &[class*="-fixed"] {
-            height: 32px;
-        }
+        .button-size-rules(@ds4-font-size-12, 8px 32px, 32px);
     }
 
     &[class*="--medium"] {
-        font-size: @ds4-font-size-14;
-        padding: 11px 48px;
-
-        &[class*="-fixed"] {
-            height: 40px;
-        }
+        .button-size-rules(@ds4-font-size-14, 11px 48px, 40px);
     }
 
     &[class*="--large"] {
-        font-size: @ds4-font-size-16;
-        padding: 14px 80px;
-
-        &[class*="-fixed"] {
-            height: 48px;
-        }
+        .button-size-rules(@ds4-font-size-16, 14px 80px, 48px);
     }
 
     &[class*="--extra-large"] {
-        font-size: @ds4-font-size-18;
-        padding: 15.875px 112px; // chrome and firefox disagree on calculations, so this is a compromise
-
-        &[class*="-fixed"] {
-            height: 56px;
-        }
+        // chrome and firefox disagree on calculations, so 15.875px is a compromise
+        .button-size-rules(@ds4-font-size-18, 15.875px 112px, 56px);
     }
 }
 
