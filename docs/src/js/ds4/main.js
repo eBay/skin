@@ -1,3 +1,12 @@
+function nodeListToArray(nodeList) {
+    return Array.prototype.slice.call(nodeList);
+}
+
+function querySelectorAllToArray(selector, parentNode) {
+    parentNode = parentNode || document;
+    return nodeListToArray(parentNode.querySelectorAll(selector));
+}
+
 $('#header-large .grid__cell').skipTo();
 // $('.dialog-button').dialogButton();
 $('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.expand-btn', overlaySelector: '.fake-menu__items'});
@@ -27,7 +36,17 @@ $('.combobox__control').on('click', function() {
     }
 });
 
-document.querySelectorAll('.dialog-button').forEach(function(btn){
+// LISTBOX WIDGET - Expand/Collapse only
+querySelectorAllToArray('.listbox').forEach(function(el, index) {
+    var $buttonEl = $(el.querySelector('button'));
+
+    $buttonEl.on('click', function(e) {
+        var isExpanded = $buttonEl.attr('aria-expanded');
+        $buttonEl.attr(isExpanded === 'true') ? 'false' : 'true';
+    });
+});
+
+querySelectorAllToArray('.dialog-button').forEach(function(btn) {
     // var cancel;
     var dialog = btn.nextElementSibling;
     var dialogBody = dialog.querySelector('.dialog__body');
