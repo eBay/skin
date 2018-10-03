@@ -5,7 +5,6 @@ button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-    align-items: center;
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
@@ -13,12 +12,12 @@ a.cta-btn {
     color: inherit;
     display: inline-block;
     font-family: inherit;
-    justify-content: center;
     margin: 0; // Remove the button margin in Firefox and Safari
     max-width: 100%;
+    // overflow: hidden; // normalizing buttons across browsers
     text-align: center;
     text-decoration: none;
-    vertical-align: top; // with text wrapping, this helps with form control alignment amongts other controls
+    vertical-align: top;
 
     &[class*='-truncated'],
     &[class*='-truncated'] span {
@@ -28,7 +27,8 @@ a.cta-btn {
         white-space: nowrap;
     }
 
-    &[class*="-fixed"] {
+    &--fixed-height,
+    &[class*="-fixed-height"] {
         height: 40px;
 
         > [class*="__cell"] {
@@ -41,6 +41,10 @@ a.cta-btn {
             }
         }
     }
+}
+
+a.fake-btn {
+    vertical-align: top;
 }
 
 .btn__icon,

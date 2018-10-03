@@ -1,5 +1,5 @@
 .button-fixed-height(@height) {
-    &[class*="-fixed"] {
+    &-fixed-height {
         height: @height;
     }
 }
@@ -15,31 +15,33 @@ button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-    &[class*="-fixed"] svg[class*="icon"] {
+    .button-size-rules(10px, 10px, 40px);
+
+    &--fixed-height svg.icon {
         height: 1rem;
         width: 1rem;
     }
 
-    &[class*="--small"] {
-        .button-size-rules(5.5px, 5.5px, 32px);
+    &--small {
+        .button-size-rules(6px, 6px, 32px);
     }
 
-    &[class*="--medium"] {
-        .button-size-rules(9.5px, 9.5px, 40px);
+    &--medium {
+        .button-size-rules(10px, 10px, 40px);
     }
 
-    &[class*="--large"] {
-        .button-size-rules(11px, 11px, 48px);
+    &--large {
+        .button-size-rules(13px, 13px, 48px);
     }
 
-    &[class*="--extra-large"] {
-        padding: 13.5px 24px;
+    &--extra-large {
+        padding: 16px 24px;
 
         .button-fixed-height(56px);
     }
 
-    &[class*="--large"],
-    &[class*="--extra-large"] {
+    &--large,
+    &--extra-large {
         font-size: @ds6-font-size-18;
     }
 }
