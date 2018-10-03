@@ -1,31 +1,39 @@
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
 
-.badge {
+.badge() {
     align-items: center;
     border-radius: 20px;
     box-sizing: border-box;
     display: inline-flex;
-    font-size: 0.625em;
-    height: 20px;
     justify-content: center;
+    padding: 0 7px;
+}
+
+.text-badge {
+    .badge();
+
+    font-size: 0.75em;
+    height: 20px;
     margin-left: 8px;
     min-width: 20px;
-    padding: 0 7px;
-    vertical-align: middle;
+    position: relative;
+    top: calc(50% - 20px);
+}
+
+.icon-badge {
+    .badge();
+
+    border: 2px solid;
+    height: 24px;
+    left: 12px;
+    margin: auto;
+    min-width: 24px;
+    position: absolute;
+    top: -8px;
+    z-index: 1;
 
     &-container {
         position: relative;
-
-        .badge {
-            border: 2px solid;
-            height: 24px;
-            margin: auto;
-            min-width: 24px;
-            position: absolute;
-            right: -6px;
-            top: -6px;
-            z-index: 1;
-        }
     }
 }
