@@ -341,24 +341,24 @@ a.cta-btn {
   text-decoration: none;
   vertical-align: top;
 }
-button.btn[class*='-truncated'],
-button.expand-btn[class*='-truncated'],
-a.fake-btn[class*='-truncated'],
-a.cta-btn[class*='-truncated'],
-button.btn[class*='-truncated'] span,
-button.expand-btn[class*='-truncated'] span,
-a.fake-btn[class*='-truncated'] span,
-a.cta-btn[class*='-truncated'] span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 button.btn--fixed-height,
 button.expand-btn--fixed-height,
 a.fake-btn--fixed-height,
 a.cta-btn--fixed-height {
   height: 40px;
+}
+button.btn--truncated,
+button.expand-btn--truncated,
+a.fake-btn--truncated,
+a.cta-btn--truncated,
+button.btn--truncated span,
+button.expand-btn--truncated span,
+a.fake-btn--truncated span,
+a.cta-btn--truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 a.fake-btn {
   vertical-align: top;
@@ -383,26 +383,6 @@ a.fake-btn {
 .expand-btn__icon:last-child {
   margin-left: 8px;
 }
-.btn__icon__cell--fixed-height,
-.fake-btn__icon__cell--fixed-height,
-.cta-btn__icon__cell--fixed-height,
-.expand-btn__icon__cell--fixed-height {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-.btn__icon__cell--fixed-height > span,
-.fake-btn__icon__cell--fixed-height > span,
-.cta-btn__icon__cell--fixed-height > span,
-.expand-btn__icon__cell--fixed-height > span,
-.btn__icon__cell--fixed-height > svg,
-.fake-btn__icon__cell--fixed-height > svg,
-.cta-btn__icon__cell--fixed-height > svg,
-.expand-btn__icon__cell--fixed-height > svg {
-  -ms-flex-item-align: baseline;
-      align-self: baseline;
-  max-width: calc(100% - 32px);
-}
 button.expand-btn[aria-expanded="true"] .expand-btn__icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -425,6 +405,46 @@ a.cta-btn--fluid {
   display: flex;
   height: 100%;
   width: 100%;
+}
+.btn__cell--fixed-height,
+.expand-btn__cell--fixed-height,
+.fake-btn__cell--fixed-height,
+.cta-btn__cell--fixed-height {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.btn__cell--fixed-height > span,
+.expand-btn__cell--fixed-height > span,
+.fake-btn__cell--fixed-height > span,
+.cta-btn__cell--fixed-height > span,
+.btn__cell--fixed-height > svg,
+.expand-btn__cell--fixed-height > svg,
+.fake-btn__cell--fixed-height > svg,
+.cta-btn__cell--fixed-height > svg {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  max-width: calc(100% - 32px);
+}
+.btn__cell--truncated,
+.expand-btn__cell--truncated,
+.fake-btn__cell--truncated,
+.cta-btn__cell--truncated {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.btn__cell--truncated > span,
+.expand-btn__cell--truncated > span,
+.fake-btn__cell--truncated > span,
+.cta-btn__cell--truncated > span,
+.btn__cell--truncated > svg,
+.expand-btn__cell--truncated > svg,
+.fake-btn__cell--truncated > svg,
+.cta-btn__cell--truncated > svg {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  max-width: calc(100% - 32px);
 }
 .btn__cell,
 .fake-btn__cell,
@@ -697,29 +717,64 @@ a.fake-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
-button.btn--fixed-height [class*="__icon"],
-button.expand-btn--fixed-height [class*="__icon"],
-a.fake-btn--fixed-height [class*="__icon"],
-a.cta-btn--fixed-height [class*="__icon"] {
+button.btn__cell--fixed-height button.btn__icon,
+button.btn__cell--fixed-height button.expand-btn__icon,
+button.btn__cell--fixed-height a.fake-btn__icon,
+button.btn__cell--fixed-height a.cta-btn__icon,
+button.expand-btn__cell--fixed-height button.btn__icon,
+button.expand-btn__cell--fixed-height button.expand-btn__icon,
+button.expand-btn__cell--fixed-height a.fake-btn__icon,
+button.expand-btn__cell--fixed-height a.cta-btn__icon,
+a.fake-btn__cell--fixed-height button.btn__icon,
+a.fake-btn__cell--fixed-height button.expand-btn__icon,
+a.fake-btn__cell--fixed-height a.fake-btn__icon,
+a.fake-btn__cell--fixed-height a.cta-btn__icon,
+a.cta-btn__cell--fixed-height button.btn__icon,
+a.cta-btn__cell--fixed-height button.expand-btn__icon,
+a.cta-btn__cell--fixed-height a.fake-btn__icon,
+a.cta-btn__cell--fixed-height a.cta-btn__icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   overflow: visible;
 }
-button.btn--fixed-height svg.icon,
-button.expand-btn--fixed-height svg.icon,
-a.fake-btn--fixed-height svg.icon,
-a.cta-btn--fixed-height svg.icon {
+button.btn__cell--fixed-height > span.btn__icon,
+button.expand-btn__cell--fixed-height > span.btn__icon,
+a.fake-btn__cell--fixed-height > span.btn__icon,
+a.cta-btn__cell--fixed-height > span.btn__icon,
+button.btn__cell--fixed-height > svg.btn__icon,
+button.expand-btn__cell--fixed-height > svg.btn__icon,
+a.fake-btn__cell--fixed-height > svg.btn__icon,
+a.cta-btn__cell--fixed-height > svg.btn__icon,
+button.btn__cell--fixed-height > span.expan-btn__icon,
+button.expand-btn__cell--fixed-height > span.expan-btn__icon,
+a.fake-btn__cell--fixed-height > span.expan-btn__icon,
+a.cta-btn__cell--fixed-height > span.expan-btn__icon,
+button.btn__cell--fixed-height > svg.expan-btn__icon,
+button.expand-btn__cell--fixed-height > svg.expan-btn__icon,
+a.fake-btn__cell--fixed-height > svg.expan-btn__icon,
+a.cta-btn__cell--fixed-height > svg.expan-btn__icon,
+button.btn__cell--fixed-height > span.fake-btn__icon,
+button.expand-btn__cell--fixed-height > span.fake-btn__icon,
+a.fake-btn__cell--fixed-height > span.fake-btn__icon,
+a.cta-btn__cell--fixed-height > span.fake-btn__icon,
+button.btn__cell--fixed-height > svg.fake-btn__icon,
+button.expand-btn__cell--fixed-height > svg.fake-btn__icon,
+a.fake-btn__cell--fixed-height > svg.fake-btn__icon,
+a.cta-btn__cell--fixed-height > svg.fake-btn__icon,
+button.btn__cell--fixed-height > span.cta-btn__icon,
+button.expand-btn__cell--fixed-height > span.cta-btn__icon,
+a.fake-btn__cell--fixed-height > span.cta-btn__icon,
+a.cta-btn__cell--fixed-height > span.cta-btn__icon,
+button.btn__cell--fixed-height > svg.cta-btn__icon,
+button.expand-btn__cell--fixed-height > svg.cta-btn__icon,
+a.fake-btn__cell--fixed-height > svg.cta-btn__icon,
+a.cta-btn__cell--fixed-height > svg.cta-btn__icon {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   height: 1rem;
   width: 1rem;
-}
-button.btn--fixed-height [class*="__cell"] [class*="__icon"],
-button.expand-btn--fixed-height [class*="__cell"] [class*="__icon"],
-a.fake-btn--fixed-height [class*="__cell"] [class*="__icon"],
-a.cta-btn--fixed-height [class*="__cell"] [class*="__icon"] {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 button.btn--small,
 button.expand-btn--small,
@@ -734,12 +789,38 @@ a.fake-btn--small-fixed-height,
 a.cta-btn--small-fixed-height {
   height: 32px;
 }
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated {
+  font-size: 0.75rem;
+  padding: 8px 32px;
+}
+button.btn--small-truncated-fixed-height,
+button.expand-btn--small-truncated-fixed-height,
+a.fake-btn--small-truncated-fixed-height,
+a.cta-btn--small-truncated-fixed-height {
+  height: 32px;
+}
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated,
+button.btn--small-truncated span,
+button.expand-btn--small-truncated span,
+a.fake-btn--small-truncated span,
+a.cta-btn--small-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 button.btn--medium,
 button.expand-btn--medium,
 a.fake-btn--medium,
 a.cta-btn--medium {
   font-size: 0.875rem;
-  padding: 11px 48px;
+  padding: 11px 40px;
 }
 button.btn--medium-fixed-height,
 button.expand-btn--medium-fixed-height,
@@ -747,12 +828,38 @@ a.fake-btn--medium-fixed-height,
 a.cta-btn--medium-fixed-height {
   height: 40px;
 }
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated {
+  font-size: 0.875rem;
+  padding: 11px 40px;
+}
+button.btn--medium-truncated-fixed-height,
+button.expand-btn--medium-truncated-fixed-height,
+a.fake-btn--medium-truncated-fixed-height,
+a.cta-btn--medium-truncated-fixed-height {
+  height: 40px;
+}
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated,
+button.btn--medium-truncated span,
+button.expand-btn--medium-truncated span,
+a.fake-btn--medium-truncated span,
+a.cta-btn--medium-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 button.btn--large,
 button.expand-btn--large,
 a.fake-btn--large,
 a.cta-btn--large {
   font-size: 1rem;
-  padding: 14px 80px;
+  padding: 14px 48px;
 }
 button.btn--large-fixed-height,
 button.expand-btn--large-fixed-height,
@@ -760,18 +867,70 @@ a.fake-btn--large-fixed-height,
 a.cta-btn--large-fixed-height {
   height: 48px;
 }
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated {
+  font-size: 1rem;
+  padding: 14px 48px;
+}
+button.btn--large-truncated-fixed-height,
+button.expand-btn--large-truncated-fixed-height,
+a.fake-btn--large-truncated-fixed-height,
+a.cta-btn--large-truncated-fixed-height {
+  height: 48px;
+}
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated,
+button.btn--large-truncated span,
+button.expand-btn--large-truncated span,
+a.fake-btn--large-truncated span,
+a.cta-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 button.btn--extra-large,
 button.expand-btn--extra-large,
 a.fake-btn--extra-large,
 a.cta-btn--extra-large {
   font-size: 1.125rem;
-  padding: 15.875px 112px;
+  padding: 15.875px 56px;
 }
 button.btn--extra-large-fixed-height,
 button.expand-btn--extra-large-fixed-height,
 a.fake-btn--extra-large-fixed-height,
 a.cta-btn--extra-large-fixed-height {
   height: 56px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated {
+  font-size: 1.125rem;
+  padding: 15.875px 56px;
+}
+button.btn--extra-large-truncated-fixed-height,
+button.expand-btn--extra-large-truncated-fixed-height,
+a.fake-btn--extra-large-truncated-fixed-height,
+a.cta-btn--extra-large-truncated-fixed-height {
+  height: 56px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated,
+button.btn--extra-large-truncated span,
+button.expand-btn--extra-large-truncated span,
+a.fake-btn--extra-large-truncated span,
+a.cta-btn--extra-large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.expand-btn--small {
   padding: 8px 12px 8px 16px;
@@ -783,6 +942,25 @@ button.expand-btn--large,
 button.expand-btn--extra-large {
   padding-left: 16px;
   padding-right: 16px;
+}
+.btn__cell--fixed-height span.btn__icon,
+.expan-btn__cell--fixed-height span.expan-btn__icon,
+.fake-btn__cell--fixed-height span.fake-btn__icon,
+.cta-btn__cell--fixed-height span.cta-btn__icon,
+.btn__cell--fixed-height svg.icon,
+.expan-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.btn__cell--fixed-height svg.icon,
+.expan-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  height: 1rem;
+  width: 1rem;
 }
 svg.expand-btn__icon {
   height: 8px;

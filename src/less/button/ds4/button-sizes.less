@@ -15,37 +15,59 @@ button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-    &--fixed-height {
-        [class*="__icon"] {
-            overflow: visible;
-        }
+    &__cell--fixed-height &__icon {
+        align-self: center;
+        overflow: visible;
+    }
 
-        svg.icon {
+    &__cell--fixed-height > span,
+    &__cell--fixed-height > svg {
+        &.btn__icon,
+        &.expan-btn__icon,
+        &.fake-btn__icon,
+        &.cta-btn__icon {
             align-self: center;
             height: 1rem;
             width: 1rem;
         }
-
-        [class*="__cell"] [class*="__icon"] {
-            align-self: center;
-        }
     }
+
 
     &--small {
         .button-size-rules(@ds4-font-size-12, 8px 32px, 32px);
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-12, 8px 32px, 32px);
+            .truncate-button();
+        }
     }
 
     &--medium {
-        .button-size-rules(@ds4-font-size-14, 11px 48px, 40px);
+        .button-size-rules(@ds4-font-size-14, 11px 40px, 40px);
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-14, 11px 40px, 40px);
+            .truncate-button();
+        }
     }
 
     &--large {
-        .button-size-rules(@ds4-font-size-16, 14px 80px, 48px);
+        .button-size-rules(@ds4-font-size-16, 14px 48px, 48px);
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-16, 14px 48px, 48px);
+            .truncate-button();
+        }
     }
 
     &--extra-large {
         // chrome and firefox disagree on calculations, so 15.875px is a compromise
-        .button-size-rules(@ds4-font-size-18, 15.875px 112px, 56px);
+        .button-size-rules(@ds4-font-size-18, 15.875px 56px, 56px);
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-18, 15.875px 56px, 56px);
+            .truncate-button();
+        }
     }
 }
 
@@ -62,4 +84,23 @@ button.expand-btn[class*="--large"],
 button.expand-btn[class*="--extra-large"] {
     padding-left: 16px;
     padding-right: 16px;
+}
+
+.btn__cell--fixed-height span.btn__icon,
+.expan-btn__cell--fixed-height span.expan-btn__icon,
+.fake-btn__cell--fixed-height span.fake-btn__icon,
+.cta-btn__cell--fixed-height span.cta-btn__icon,
+.btn__cell--fixed-height svg.icon,
+.expan-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+    align-self: center;
+}
+
+.btn__cell--fixed-height svg.icon,
+.expan-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+    height: 1rem;
+    width: 1rem;
 }

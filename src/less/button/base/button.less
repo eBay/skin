@@ -1,6 +1,26 @@
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
 
+.fixed-height-button() {
+    display: inline-flex;
+
+    > span,
+    > svg {
+        align-self: baseline;
+        max-width: calc(100% - 32px);
+    }
+}
+
+.truncate-button() {
+    &,
+    & span {
+        line-height: 1.4em; // fixes fake and cta buttons
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
@@ -19,16 +39,12 @@ a.cta-btn {
     text-decoration: none;
     vertical-align: top;
 
-    &[class*='-truncated'],
-    &[class*='-truncated'] span {
-        line-height: 1.4em; // fixes fake and cta buttons
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    
     &--fixed-height {
         height: 40px;
+    }
+
+    &--truncated {
+        .truncate-button();
     }
 }
 
@@ -48,16 +64,6 @@ a.fake-btn {
 
     &:last-child {
         margin-left: 8px;
-    }
-
-    &__cell--fixed-height {
-        display: inline-flex;
-
-        > span,
-        > svg {
-            align-self: baseline;
-            max-width: calc(100% - 32px);
-        }
     }
 }
 
@@ -80,6 +86,14 @@ a.cta-btn--fluid {
     display: flex;
     height: 100%;
     width: 100%;
+
+    &--fixed-height {
+        .fixed-height-button();
+    }
+
+    &--truncated {
+        .fixed-height-button();
+    }
 }
 
 .btn__cell,
