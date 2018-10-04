@@ -227,18 +227,52 @@
 
 <h3>Button wrapping and overflow behavior</h3>
 
-<p>Text of buttons will wrap and overflow like their plain HTML companions.</p>
+<p>Text of buttons will wrap and overflow like their plain HTML companions, even when a fixed width is applied.</p>
 
 <div class="demo">
     <div class="demo__inner" style="max-width: 200px; word-break: normal;">
-        <a class="fake-btn" href="http://www.ebay.com">
+        <button type="button" class="btn">
             Button with a lot of text that will wrap
-        </a>
+        </button>
     </div>
     {% highlight html %}
-<a class="fake-btn" href="http://www.ebay.com">
-    Button with a lot of text that will wrap
-</a>
+<div style="max-width 200px;">
+    <button class="btn">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+</div>
+
+<p>To apply a fixed height to a button use the following pattern: <span class="highlight">btn--medium-fixed-height</span>.</p>
+
+<div class="demo">
+    <div class="demo__inner" style="max-width: 200px;">
+        <button class="btn btn--medium-fixed-height">
+            Button with a lot of text that will wrap
+        </button>
+    </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn btn--medium-fixed-height">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+</div>
+
+<p>A fixed height applied to a button <em>without a fixed width</em> should still not wrap.</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <button class="btn btn--medium-fixed-height">
+            Button with a lot of text that won't wrap
+        </button>
+    </div>
+    {% highlight html %}
+<button class="btn btn--medium-fixed-height">
+    Button with a lot of text that won't wrap
+</button>
     {% endhighlight %}
 </div>
 
@@ -246,14 +280,16 @@
 
 <div class="demo">
     <div class="demo__inner" style="max-width: 200px;">
-        <a class="fake-btn fake-btn--medium-truncated" href="http://www.ebay.com">
+        <button class="btn btn--medium-truncated">
             Button with a lot of text that will wrap
-        </a>
+        </button>
     </div>
     {% highlight html %}
-<a class="fake-btn fake-btn--medium-truncated" href="http://www.ebay.com">
-    Button with a lot of text that will wrap
-</a>
+<div style="max-width 200px;">
+    <button class="btn btn--medium-truncated">
+        Button with a lot of text that will wrap
+    </button>
+</div>
     {% endhighlight %}
 </div>
 
