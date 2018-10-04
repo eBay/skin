@@ -1,14 +1,6 @@
-.button-fixed-height(@height) {
-    &-fixed-height {
-        height: @height;
-    }
-}
-
-.button-size-rules(@paddingBottom, @paddingTop, @height) {
+.button-size-rules(@paddingBottom, @paddingTop) {
     padding-bottom: @paddingBottom;
     padding-top: @paddingTop;
-
-    .button-fixed-height(@height);
 }
 
 button.btn,
@@ -27,21 +19,62 @@ a.cta-btn {
     }
 
     &--small {
-        .button-size-rules(6px, 6px, 32px);
+        .button-size-rules(6px, 6px);
+
+        &-fixed-height {
+            height: 32px;
+        }
+
+        &-truncated {
+            .button-size-rules(6px, 6px);
+            .truncate-button();
+
+            height: 32px;
+        }
     }
 
     &--medium {
-        .button-size-rules(10px, 10px, 40px);
+        .button-size-rules(10px, 10px);
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .button-size-rules(10px, 10px);
+            .truncate-button();
+
+            height: 40px;
+        }
     }
 
     &--large {
-        .button-size-rules(13px, 13px, 48px);
+        .button-size-rules(13px, 13px);
+
+        &-fixed-height {
+            height: 48px;
+        }
+
+        &-truncated {
+            .button-size-rules(13px, 13px);
+            .truncate-button();
+
+            height: 48px;
+        }
     }
 
     &--extra-large {
         padding: 16px 24px;
 
-        .button-fixed-height(56px);
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .truncate-button();
+
+            height: 56px;
+        }
     }
 
     &--large,
