@@ -41,6 +41,11 @@ nodeListToArray(document.querySelectorAll('[role=menu]')).forEach(function(el, i
 // aria expanded logic on menu button and overlay
 // escape key logic on menu (closes menu)
 nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function(el, i) {
+
+    if (!el.querySelector('.expand-btn')) {
+        return;
+    }
+
     var widget = new Expander(el, {
         autoCollapse: true,
         expandOnClick: true,
@@ -79,7 +84,7 @@ nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function
     el.addEventListener('expander-expand', function() {
         // TODO: normalize code with combobox
         var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
-        
+
         if (!firstSelectedOptionEl) {
             return;
         }
