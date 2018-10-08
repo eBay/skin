@@ -42,7 +42,7 @@ querySelectorAllToArray('.listbox').forEach(function(el, index) {
 
     $buttonEl.on('click', function(e) {
         var isExpanded = $buttonEl.attr('aria-expanded');
-        $buttonEl.attr(isExpanded === 'true') ? 'false' : 'true';
+        $buttonEl.attr('aria-expanded', isExpanded === 'true' ? 'false' : 'true');
     });
 });
 
