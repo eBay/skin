@@ -108,6 +108,16 @@ nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(
     scrollKeyPreventer.add(el);
 });
 
+// LISTBOX WIDGET - EXPAND/COLLAPSE ONLY
+nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(widgetEl, widgetIndex) {
+    var buttonEl = widgetEl.querySelector('button');
+
+    buttonEl.addEventListener('click', function(e) {
+        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true';
+        buttonEl.setAttribute('aria-expanded', !isExpanded);
+    });
+});
+
 // TOOLTIP WIDGET
 nodeListToArray(document.querySelectorAll('.tooltip.tooltip--hover')).forEach(function(el, i) {
     var widget = new Expander(el, {
