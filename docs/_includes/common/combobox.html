@@ -1,20 +1,143 @@
 <div id="combobox">
     <h2><span class="secondary-text">@ebay/skin/</span>combobox</h2>
-    <p>The Skin combobox is intended for use as a custom view (or facade) for the native HTML select element. JavaScript will be required to create 2-way binding between the two.</p>
-    <p>This version of the combobox is read-only. In the near future we will launch a true combobox, with type-ahead and type-to-add capabilities.</p>
-    <p><strong>Note:</strong> Because the combobox uses an input element, which must grow to properly display it's contents, we have chosen to have the combobox always remain fluid. It is up to the developer to contain the width, if necessary. Extra care will be needed when placing a combobox side-by-side with other controls such as buttons and textboxes.</p>
+    <p>An enhanced <a href="#textbox">textbox</a> that allows free text input, or selection from a predefined list of values, or a combination of both. Hence the term 'combo'.</p>
+    <p>Only limited expand &amp; collapse behaviour has been implemented in these combobox examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/combobox/index.html">eBay MIND Pattern for Combobox</a>.</p>
 
-    <h3>Default read-only combobox</h3>
-    <p>By default, the first item should be selected if the user does not specify a selection. This matches the behavior of a native HTML select element.</p>
+    <h3>Default Combobox</h3>
+    <p>By default, no option in the list should be selected.</p>
 
     <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
+        <div class="demo__inner">
             <span class="combobox">
                 <span class="combobox__control">
-                    <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox1" />
+                    <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox1" />
                     <span class="combobox__icon" aria-hidden="true"></span>
                 </span>
-                <div id="combobox1" class="combobox__options" role="listbox">
+                <div id="listbox1" class="combobox__options" role="listbox">
+                    <div class="combobox__option" role="option">
+                        <span>Option 1</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                    <div class="combobox__option" role="option">
+                        <span>Option 2</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                    <div class="combobox__option" role="option">
+                        <span>Option 3</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="combobox">
+    <span class="combobox__control">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox1" />
+        <span class="combobox__icon" aria-hidden="true"></span>
+    </span>
+    <div id="listbox1" class="combobox__options" role="listbox">
+        <div class="combobox__option" role="option">
+            <span>Option 1</span>
+            <span class="combobox__status"></span>
+        </div>
+        <div class="combobox__option" role="option">
+            <span>Option 2</span>
+            <span class="combobox__status"></span>
+        </div>
+        <div class="combobox__option" role="option">
+            <span>Option 3</span>
+            <span class="combobox__status"></span>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <p>The combobox overlay becomes automatically scrollable at a height of 400px.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="combobox">
+                <span class="combobox__control">
+                    <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox2" />
+                    <span class="combobox__icon" aria-hidden="true"></span>
+                </span>
+                <div id="listbox2" class="combobox__options" role="listbox">
+                    {% for number in (1...50) %}
+                    <div class="combobox__option" role="option" aria-selected="{% if number == 25 %}true{% else %}false{% endif %}">
+                        <span>Option {{number}}</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <h3 id="combobox-disabled">Disabled Combobox</h3>
+
+    <p>Apply the <span class="highlight">disabled</span> property to disable the combobox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="combobox">
+                <span class="combobox__control">
+                    <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox3" disabled />
+                    <span class="combobox__icon" aria-hidden="true"></span>
+                </span>
+                <div id="listbox3" class="combobox__options" role="listbox">
+                    <div class="combobox__option" role="option">
+                        <span>Option 1</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                    <div class="combobox__option" role="option">
+                        <span>Option 2</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                    <div class="combobox__option" role="option">
+                        <span>Option 3</span>
+                        <span class="combobox__status"></span>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="combobox">
+    <span class="combobox__control">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox2" disabled />
+        <span class="combobox__icon" aria-hidden="true"></span>
+    </span>
+    <div id="listbox2" class="combobox__options" role="listbox">
+        <div class="combobox__option" role="option">
+            <span>Option 1</span>
+            <span class="combobox__status"></span>
+        </div>
+        <div class="combobox__option" role="option">
+            <span>Option 2</span>
+            <span class="combobox__status"></span>
+        </div>
+        <div class="combobox__option" role="option">
+            <span>Option 3</span>
+            <span class="combobox__status"></span>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="combobox-readonly">Readonly Combobox</h3>
+    <p>A readonly combobox is intended for use as a custom implementation of the native HTML select element. Unfortunately, a readonly combobox exhibits some UX issues on iOS, which is why for now we recommend using the <a href="#listbox">listbox</a> instead.</p>
+    <p>Apply the <span class="highlight">readonly</span> property to create a readonly combobox.</p>
+    <p>By default, the first item should be selected if the user does not specify a selection. This matches the behaviour of a native HTML select element.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="combobox">
+                <span class="combobox__control">
+                    <input role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-owns="listbox4" readonly />
+                    <span class="combobox__icon" aria-hidden="true"></span>
+                </span>
+                <div id="listbox4" class="combobox__options" role="listbox">
                     <div class="combobox__option" role="option" aria-selected="true">
                         <span>Option 1</span>
                         <span class="combobox__status"></span>
@@ -33,10 +156,10 @@
         {% highlight html %}
 <span class="combobox">
     <span class="combobox__control">
-        <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox1"/>
+        <input role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-owns="listbox4" readonly />
         <span class="combobox__icon" aria-hidden="true"></span>
     </span>
-    <div id="combobox1" class="combobox__options" role="listbox">
+    <div id="listbox4" class="combobox__options" role="listbox">
         <div class="combobox__option" role="option" aria-selected="true">
             <span>Option 1</span>
             <span class="combobox__status"></span>
@@ -54,149 +177,4 @@
         {% endhighlight %}
     </div>
 
-    <h3>Selected read-only combobox</h3>
-    <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
-            <span class="combobox">
-                <span class="combobox__control">
-                    <input type="text" value="Option 2" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox2"/>
-                    <span class="combobox__icon" aria-hidden="true"></span>
-                </span>
-                <div id="combobox2" class="combobox__options" role="listbox">
-                    <div class="combobox__option" role="option">
-                        <span>Option 1</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option" aria-selected="true">
-                        <span>Option 2</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option">
-                        <span>Option 3</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                </div>
-            </span>
-        </div>
-        {% highlight html %}
-<span class="combobox">
-    <span class="combobox__control">
-        <input type="text" value="Option 2" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox2"/>
-        <span class="combobox__icon" aria-hidden="true"></span>
-    </span>
-    <div id="combobox2" class="combobox__options" role="listbox">
-        <div class="combobox__option" role="option">
-            <span>Option 1</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option" aria-selected="true">
-            <span>Option 2</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option">
-            <span>Option 3</span>
-            <span class="combobox__status"></span>
-        </div>
-    </div>
-</span>
-        {% endhighlight %}
-    </div>
-
-    <h3>Borderless read-only combobox</h3>
-    <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
-            <span class="combobox">
-                <span class="combobox__control combobox__control--borderless">
-                    <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox3" />
-                    <span class="combobox__icon" aria-hidden="true"></span>
-                </span>
-                <div id="combobox3" class="combobox__options" role="listbox">
-                    <div class="combobox__option" role="option" aria-selected="true">
-                        <span>Option 1</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option">
-                        <span>Option 2</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option">
-                        <span>Option 3</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                </div>
-            </span>
-        </div>
-        {% highlight html %}
-<span class="combobox">
-    <span class="combobox__control combobox__control--borderless">
-        <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox3" />
-        <span class="combobox__icon" aria-hidden="true"></span>
-    </span>
-    <div id="combobox3" class="combobox__options" role="listbox">
-        <div class="combobox__option" role="option" aria-selected="true">
-            <span>Option 1</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option">
-            <span>Option 2</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option">
-            <span>Option 3</span>
-            <span class="combobox__status"></span>
-        </div>
-    </div>
-</span>
-        {% endhighlight %}
-    </div>
-
-    <h3>Disabled read-only combobox</h3>
-    <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
-            <span class="combobox">
-                <span class="combobox__control">
-                    <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox4" disabled />
-                    <span class="combobox__icon" aria-hidden="true"></span>
-                </span>
-                <div id="combobox4" class="combobox__options" role="listbox">
-                    <div class="combobox__option" role="option" aria-selected="true">
-                        <span>Option 1</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option">
-                        <span>Option 2</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                    <div class="combobox__option" role="option">
-                        <span>Option 3</span>
-                        <span class="combobox__status"></span>
-                    </div>
-                </div>
-            </span>
-        </div>
-        {% highlight html %}
-<span class="combobox">
-    <span class="combobox__control">
-        <input type="text" value="Option 1" readonly role="combobox" aria-haspopup="listbox" aria-owns="combobox4" disabled />
-        <span class="combobox__icon" aria-hidden="true"></span>
-    </span>
-    <div id="combobox4" class="combobox__options" role="listbox">
-        <div class="combobox__option" role="option" aria-selected="true">
-            <span>Option 1</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option">
-            <span>Option 2</span>
-            <span class="combobox__status"></span>
-        </div>
-        <div class="combobox__option" role="option">
-            <span>Option 3</span>
-            <span class="combobox__status"></span>
-        </div>
-    </div>
-</span>
-        {% endhighlight %}
-    </div>
-
-    {% include ds{{ page.ds}}/combobox-custom.html %}
 </div>

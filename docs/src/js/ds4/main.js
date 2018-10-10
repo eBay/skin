@@ -22,18 +22,26 @@ $('#banner-menu').on('click', 'a', function(e) {
 $('.expand-btn-example').on('click', function() {
     $(this).attr('aria-expanded', ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true');
 });
-$('.combobox__control').on('click', function() {
-    const $this = $(this);
-    const $input = $this.find('input');
-    if (!$this.find('input').prop('disabled')){
-        if ($this.hasClass('combobox__control--expanded')) {
-            $this.removeClass('combobox__control--expanded');
-            $input.attr('aria-expanded', 'false');
+
+// COMBOBOX WIDGET - Expand/Collapse only
+querySelectorAllToArray('.combobox').forEach(function(el, index) {
+    var $inputWrapperEl = $(el.querySelector('.combobox__control'));
+    var $inputEl = $(el.querySelector('input'));
+
+    $inputEl.on('focus', function(e) {
+        var isExpanded = $inputEl.attr('aria-expanded') === 'true';
+        if (isExpanded) {
+            $inputWrapperEl.removeClass('combobox__control--expanded');
         } else {
-            $this.addClass('combobox__control--expanded');
-            $input.attr('aria-expanded', 'true');
+            $inputWrapperEl.addClass('combobox__control--expanded');
         }
-    }
+        $inputEl.attr('aria-expanded', isExpanded === true ? 'false' : 'true');
+    });
+
+    $inputEl.on('blur', function(e) {
+        $inputEl.attr('aria-expanded', 'false');
+        $inputWrapperEl.removeClass('combobox__control--expanded');
+    });
 });
 
 // LISTBOX WIDGET - Expand/Collapse only
