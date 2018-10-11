@@ -2,7 +2,6 @@
 
 // makeup-js accessibility modules
 var Expander = require('makeup-expander');
-var Rover = require('makeup-roving-tabindex');
 var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 var modal = require('makeup-modal');
@@ -31,91 +30,20 @@ nodeListToArray(document.querySelectorAll('.expand-btn-example')).forEach(functi
     })
 });
 
-// MENU WIDGET (basic interactivity only)
-
-// roving tab index logic on menu items container
-nodeListToArray(document.querySelectorAll('[role=menu]')).forEach(function(el, i) {
-    var widget = Rover.createLinear(el, '[role^=menuitem]', {autoReset: 0});
-});
-
-// aria expanded logic on menu button and overlay
-// escape key logic on menu (closes menu)
-nodeListToArray(document.querySelectorAll('.menu, .fake-menu')).forEach(function(el, i) {
-
-    if (!el.querySelector('.expand-btn')) {
-        return;
-    }
-
-    var widget = new Expander(el, {
-        autoCollapse: true,
-        expandOnClick: true,
-        focusManagement: 'interactive',
-        hostSelector: '.expand-btn',
-        contentSelector: '.menu__items, .fake-menu__items'
-    });
-
-    var optionEls = nodeListToArray(el.querySelectorAll('[role^=menuitem]'));
-    var updateRadios = function(newSelection) {
-        optionEls.forEach(function(el) {
-            el.setAttribute('aria-checked', el === newSelection);
-        });
-    }
-
-    optionEls.forEach(function(el, i) {
-        // add a click handler to each el
-        el.addEventListener('click', function(e) {
-            var role = this.getAttribute('role');
-            widget.collapse();
-            if (role === 'menuitemradio') {
-                updateRadios(this);
-            } else if (role === 'menuitemcheckbox') {
-                el.setAttribute('aria-checked', el.getAttribute('aria-checked') !== 'true');
-            }
-        });
-    });
-
-    keyEmitter.addKeyDown(el);
-
-    el.addEventListener('escapeKeyDown', function() {
-        this.querySelector('.expand-btn').focus();
-        widget.collapse();
-    });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with combobox
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role^=menuitem][aria-checked=true]'))[0];
-
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
-        } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
-        }
-    });
-});
-
-// prevent scroll keys logic on menu items
-nodeListToArray(document.querySelectorAll('[role^=menuitem]')).forEach(function(el, i) {
-    scrollKeyPreventer.add(el);
-});
-
-// LISTBOX WIDGET - EXPAND/COLLAPSE ONLY
-nodeListToArray(document.querySelectorAll('.listbox')).forEach(function(widgetEl, widgetIndex) {
+// LISTBOX, MENU & FAKE MENU WIDGETS - EXPAND/COLLAPSE ONLY
+nodeListToArray(document.querySelectorAll('.listbox, .menu, .fake-menu')).forEach(function(widgetEl, widgetIndex) {
     var buttonEl = widgetEl.querySelector('button');
 
-    buttonEl.addEventListener('click', function(e) {
-        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true';
-        buttonEl.setAttribute('aria-expanded', !isExpanded);
-    });
+    if (buttonEl) {
+        buttonEl.addEventListener('click', function(e) {
+            var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true';
+            buttonEl.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        buttonEl.addEventListener('blur', function(e) {
+            buttonEl.setAttribute('aria-expanded', 'false');
+        });
+    }
 });
 
 // TOOLTIP WIDGET
