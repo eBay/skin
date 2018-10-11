@@ -151,93 +151,26 @@ nodeListToArray(document.querySelectorAll('.tooltip:not(.tooltip--hover)')).forE
     }
 });
 
-// COMBOBOX WIDGET (basic interactivity only)
-nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(el, i) {
-    var inputEl = el.querySelector('input:not([disabled])[role=combobox]');
+// COMBOBOX WIDGET (basic expand/collapse only)
+nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(widgetEl, widgetIndex) {
+    var inputWrapperEl = widgetEl.querySelector('.combobox__control');
+    var inputEl = widgetEl.querySelector('input');
 
-    if (!inputEl) {
-        return;
-    }
+    inputEl.addEventListener('focus', function(e) {
+        var isExpanded = inputEl.getAttribute('aria-expanded') === 'true';
 
-    var widget = new Expander(el, {
-        autoCollapse: true,
-        expandOnClick: true,
-        hostSelector: 'input[role=combobox]',
-        hostContainerClass: 'combobox__control',
-        contentSelector: '.combobox__options',
-        simulateSpacebarClick: true
-    });
-
-    var optionEls = nodeListToArray(el.querySelectorAll('[role=option]'));
-    var selectedOptionEl = el.querySelector('[role=option][aria-selected=true]');
-    var size = optionEls.length;
-    var currentIndex;
-
-    var updateCombobox = function(newIndex) {
-        selectedOptionEl.setAttribute('aria-selected', 'false');
-        currentIndex = newIndex;
-        inputEl.value = 'Option ' + (currentIndex + 1);
-        selectedOptionEl = optionEls[currentIndex];
-        selectedOptionEl.setAttribute('aria-selected', 'true');
-    };
-
-    optionEls.forEach(function(el, i) {
-        if (!el.dataset) {
-            el.dataset = {};
-        }
-
-        // assign an index data attribute to each el
-        el.dataset.comboboxIndex = i;
-
-        // add a click handler to each el
-        el.addEventListener('click', function(e) {
-            updateCombobox(parseInt(this.dataset.comboboxIndex, 10));
-            widget.collapse();
-            inputEl.focus();
-        });
-    });
-
-    currentIndex = parseInt(selectedOptionEl.dataset.comboboxIndex, 10);
-
-    keyEmitter.addKeyDown(el);
-    scrollKeyPreventer.add(el);
-
-    el.addEventListener('escapeKeyDown', function() {
-        widget.collapse();
-        inputEl.focus();
-    });
-
-    el.addEventListener('arrowDownKeyDown', function(e) {
-        if (currentIndex < (size - 1)) {
-            updateCombobox(currentIndex + 1);
-        }
-    });
-
-    el.addEventListener('arrowUpKeyDown', function(e) {
-        if (currentIndex > 0) {
-            updateCombobox(currentIndex - 1);
-        }
-    });
-
-    el.addEventListener('expander-expand', function() {
-        // TODO: normalize code with menu
-        var firstSelectedOptionEl = nodeListToArray(el.querySelectorAll('[role=option][aria-selected=true]'))[0];
-
-        if (!firstSelectedOptionEl) {
-            return;
-        }
-
-        var firstSelectedOptionParent = firstSelectedOptionEl && firstSelectedOptionEl.parentElement;
-
-        if (firstSelectedOptionEl.offsetTop < firstSelectedOptionParent.scrollTop) {
-            firstSelectedOptionParent.scrollTop = firstSelectedOptionEl.offsetTop;
+        if (isExpanded) {
+            inputWrapperEl.classList.remove('combobox__control--expanded');
         } else {
-            var offsetBottom = firstSelectedOptionEl.offsetTop + firstSelectedOptionEl.offsetHeight;
-            var scrollBottom = firstSelectedOptionParent.scrollTop + firstSelectedOptionParent.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-                firstSelectedOptionParent.scrollTop = offsetBottom - firstSelectedOptionParent.offsetHeight;
-            }
+            inputWrapperEl.classList.add('combobox__control--expanded');
         }
+
+        inputEl.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    inputEl.addEventListener('blur', function(e) {
+        inputEl.setAttribute('aria-expanded', 'false');
+        inputWrapperEl.classList.remove('combobox__control--expanded');
     });
 });
 
