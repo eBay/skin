@@ -1,29 +1,27 @@
 <div id="badge">
     <h2><span class="secondary-text">@ebay/skin/</span>badge</h2>
-    <p>Badges are normally used to display an indication to the user about some important notification information.</p>
+    <p>A badge is a visual indicator added to an element to convey quantity, newness or both. Badges are intended to remind a user of previous actions taken or alert them to new actions that they should consider.</p>
 
-    <p>Badges can be displayed individually</p>
+    <h3 id="badge-default">Default Badge</h3>
+
     <div class="demo">
         <div class="demo__inner">
-            <p>
-                <span class="badge">1</span>
-            </p>
+            <span class="badge" role="img" aria-label="1 notification">1</span>
         </div>
     </div>
     {% highlight html %}
-<p>
-    <span class="badge">1</span>
-</p>
+<span class="badge" role="img" aria-label="1 notification">1</span>
     {% endhighlight %}
 
-    <p>Or together with a label</p>
+    <h3 id="badge-menu">Menu Badge</h3>
+
     <div class="demo">
         <div class="demo__inner">
             <span class="menu">
                 <div class="menu__items" role="menu">
-                    <div class="menu__item" role="menuitem"><span>Messages<span class="menu-badge">3</span></span></div>
-                    <div class="menu__item" role="menuitem"><span>Notifications<span class="menu-badge">77</span></span></div>
-                    <div class="menu__item" role="menuitem"><span>Other</span></div>
+                    <div aria-label="Item 1 (3 notifications)" class="menu__item" role="menuitem"><span aria-hidden="true">Item 1<span class="menu-badge">3</span></span></div>
+                    <div aria-label="Item 2 (77 notifications)" class="menu__item" role="menuitem"><span aria-hidden="true">Item 2<span class="menu-badge">77</span></span></div>
+                    <div class="menu__item" role="menuitem"><span>Item 3</span></div>
                 </div>
             </span>
         </div>
@@ -31,29 +29,37 @@
     {% highlight html %}
 <span class="menu">
     <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitem"><span>Messages<span class="menu-badge">3</span></span></div>
-        <div class="menu__item" role="menuitem"><span>Notification<span class="menu-badge">77</span></span></div>
-        <div class="menu__item" role="menuitem"><span>Other</span></div>
+        <div aria-label="Item 1 (3 notifications)" class="menu__item" role="menuitem">
+            <span aria-hidden="true">Item 1<span class="menu-badge">3</span></span>
+        </div>
+        <div aria-label="Item 2 (77 notifications)" class="menu__item" role="menuitem">
+            <span aria-hidden="true">Item 2<span class="menu-badge">77</span></span>
+        </div>
+        <div class="menu__item" role="menuitem">
+            <span>Item 3</span>
+        </div>
     </div>
 </span>
     {% endhighlight %}
-    <p>Or you can put them on icons</p>
+
+    <h3 id="badge-icon">Icon Badge</h3>
+
     <div class="demo">
         <div class="demo__inner">
-            <button aria-label="Menu" class="icon-btn icon-badge-container" type="button">
+            <button aria-label="Menu (4 notifications)" class="icon-btn icon-badge-container" type="button">
                 <svg aria-hidden="true" focusable="false" width="16" height="16">
                     <use xlink:href="#icon-menu"></use>
                 </svg>
-                <span class="icon-badge">4</span>
+                <span aria-hidden="true" class="icon-badge">4</span>
             </button>
         </div>
     </div>
     {% highlight html %}
-<button aria-label="Menu" class="icon-btn icon-badge-container" type="button">
+<button aria-label="Menu (4 notifications)" class="icon-btn icon-badge-container" type="button">
     <svg aria-hidden="true" focusable="false" width="16" height="16">
         <use xlink:href="#icon-menu"></use>
     </svg>
-    <span class="icon-badge">4</span>
+    <span aria-hidden="true" class="icon-badge">4</span>
 </button>
 
     {% endhighlight %}
