@@ -1,41 +1,113 @@
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small {
-    font-size: @ds4-font-size-12;
-    padding: 0 32px;
+.button-size-rules(@fontSize, @padding) {
+    font-size: @fontSize;
+    padding: @padding;
 }
 
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium {
-    font-size: @ds4-font-size-14;
-    padding: 0 48px;
-}
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    &__cell--fixed-height &__icon {
+        align-self: center;
+        overflow: visible;
+    }
 
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large {
-    font-size: @ds4-font-size-16;
-    padding: 0 80px;
-}
+    &--small {
+        .button-size-rules(@ds4-font-size-12, 8px 32px);
 
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large {
-    font-size: @ds4-font-size-18;
-    padding: 0 112px;
-}
+        &-fixed-height {
+            height: 32px;
+        }
 
-button.expand-btn--small {
-    padding: 0 12px 0 16px;
+        &-truncated {
+            .button-size-rules(@ds4-font-size-12, 8px 32px);
+            .truncate-button();
 
-    &.expand-btn--no-text {
-        padding: 0 12px;
+            height: 32px;
+        }
+    }
+
+    &--medium {
+        .button-size-rules(@ds4-font-size-14, 11px 40px);
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-14, 11px 40px);
+            .truncate-button();
+
+            height: 40px;
+        }
+    }
+
+    &--large {
+        .button-size-rules(@ds4-font-size-16, 14px 48px);
+
+        &-fixed-height {
+            height: 48px;
+        }
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-16, 14px 48px);
+            .truncate-button();
+
+            height: 48px;
+        }
+    }
+
+    &--extra-large {
+        // chrome and firefox disagree on calculations, so 15.875px is a compromise
+        .button-size-rules(@ds4-font-size-18, 15.875px 56px);
+
+        &-fixed-height {
+            height: 56px;
+        }
+
+        &-truncated {
+            .button-size-rules(@ds4-font-size-18, 15.875px 56px);
+            .truncate-button();
+
+            height: 56px;
+        }
     }
 }
 
-button.expand-btn--medium,
-button.expand-btn--large,
-button.expand-btn--extra-large {
-    padding: 0 16px;
+button.expand-btn--small {
+    padding: 8px 12px 8px 16px;
+
+    &.expand-btn--no-text {
+        padding: 8px 12px;
+    }
+}
+
+button.btn,
+button.expand-btn {
+    &.expand-btn--no-text {
+        height: 40px;
+
+        &.expand-btn--small {
+            height: 32px;
+        }
+
+        &.expand-btn--medium, {
+            height: 40px;
+        }
+
+        &.expand-btn--large {
+            height: 48px;
+        }
+
+        &.expand-btn--extra-large {
+            height: 56px;
+        }
+    }
+}
+
+button.expand-btn[class*="--medium"],
+button.expand-btn[class*="--large"],
+button.expand-btn[class*="--extra-large"] {
+    padding-left: 16px;
+    padding-right: 16px;
 }

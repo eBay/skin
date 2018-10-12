@@ -1,23 +1,8 @@
 <div id="button">
-    <h2>Button</h2>
+    <h2><span class="secondary-text">@ebay/skin/</span>button</h2>
     <p>A button is typically used to trigger a JavaScript action (e.g. fetch results, open a dialog or expand a menu). In this case, the <span class="highlight">&lt;button&gt;</span> tag is <strong>required</strong>.</p>
     <p>A button may also be used to submit or reset a form. In this case use the <span class="highlight">&lt;button&gt;</span> tag with <span class="highlight">type=submit</span> or <span class="highlight">type=reset</span> respectively. Use of the <span class="highlight">&lt;input&gt;</span> tag is not currently supported.</p>
     <p>Finally, a link may be styled to <em>look</em> like a button. We call this a fake button. In this case the <span class="highlight">&lt;a&gt;</span> tag is <strong>required</strong> with a valid HREF attribute.</p>
-
-    <ul class="module-toc cols">
-        <li><a href="#button-raw">Raw Button</a></li>
-        <li><a href="#button-regular">Regular Button</a></li>
-        <li><a href="#button-primary">Primary Button</a></li>
-        <li><a href="#button-secondary">Secondary Button</a></li>
-        <li><a href="#button-small">Small Button</a></li>
-        <li><a href="#button-large">Large Button</a></li>
-        <li><a href="#button-extra-large">Extra Large Button</a></li>
-        <li><a href="#button-fluid">Fluid Button</a></li>
-        <li><a href="#button-disabled">Disabled Button</a></li>
-        <li><a href="#button-partially-disabled">Partially Disabled Button</a></li>
-        <li><a href="#button-icon">Icon Button</a></li>
-        <li><a href="#button-expand">Expand Button</a></li>
-    </ul>
 
     <h3 id="button-raw">Raw Button</h3>
     <p>Use the raw button as the base to build custom modifiers. The raw button does not define any styles for states such as disabled, invalid, readonly, etc.</p>
@@ -197,7 +182,7 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn btn--primary btn--fluid" type="button" style="padding: 0 16px;">
+            <button class="btn btn--primary btn--fluid" type="button" style="padding-left: 16px; padding-right: 16px;">
                 <span class="btn__cell" style="justify-content: space-between">
                     <span>Select</span>
                     <span style="display: inline-flex;">
@@ -212,7 +197,7 @@
     </div>
 
     {% highlight html %}
-<button class="btn btn--primary btn--fluid" type="button" style="padding: 0 16px;">
+<button class="btn btn--primary btn--fluid" type="button" style="padding-left: 16px; padding-right: 16px;">
     <span class="btn__cell" style="justify-content: space-between">
         <span>Select</span>
         <span style="display: inline-flex;">
@@ -225,6 +210,72 @@
 </button>
     {% endhighlight %}
 
+<h3 id="button-wrapping">Button wrapping and overflow behavior</h3>
+
+<p>Text of buttons will wrap when the button fills it's constrained width (if any).</p>
+
+<div class="demo">
+    <div class="demo__inner" style="max-width: 200px; word-break: normal;">
+        <button type="button" class="btn">
+            Button with a lot of text that will wrap
+        </button>
+    </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+</div>
+
+<p>To apply a fixed height to a button use the following pattern: <span class="highlight">btn--medium-fixed-height</span>.</p>
+
+<div class="demo">
+    <div class="demo__inner" style="max-width: 200px;">
+        <button class="btn btn--medium-fixed-height">
+            Button with a lot of text that will wrap
+        </button>
+    </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn btn--medium-fixed-height">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+</div>
+
+<div class="demo">
+    <div class="demo__inner">
+        <button class="btn btn--medium-fixed-height">
+            Button with a lot of text that won't wrap
+        </button>
+    </div>
+    {% highlight html %}
+<button class="btn btn--medium-fixed-height">
+    Button with a lot of text that won't wrap
+</button>
+    {% endhighlight %}
+</div>
+
+<p>To apply truncation to text use the following pattern: <span class="highlight">btn--medium-truncated</span>.</p>
+
+<div class="demo">
+    <div class="demo__inner" style="max-width: 200px;">
+        <button class="btn btn--medium-truncated">
+            Button with a lot of text that will wrap
+        </button>
+    </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn btn--medium-truncated">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+</div>
+
     <!-- Deviation! DS4 uses arrow down icon. DS6 uses a chevron icon. DS6 uses legacy for small button -->
     {% include ds{{ page.ds}}/button-expand.html %}
     </div>
@@ -232,4 +283,6 @@
     <!-- Deviation! DS6 has CTA button -->
     {% include ds{{ page.ds}}/button-cta.html %}
 
+    <!-- Deviation! DS6 has pill button -->
+    {% include ds{{ page.ds}}/button-pill.html %}
 </div>
