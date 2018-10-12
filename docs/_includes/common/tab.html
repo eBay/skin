@@ -1,14 +1,15 @@
 <div id="tab">
     <h2>Tab</h2>
-    <p>A tab is a control that allows the user to select and display a single panel of content from a group of choices. By
-        decluttering the user-interface in this way, we say that a tab follows the principals of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive
-            disclosure</a>.</p>
+    <p>A tab allows the user to switch between multiple <em>panels</em> of content. By decluttering the user-interface in
+        this way, we say that tabs follow the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>.</p>
     <p>Selecting a tab should update the visible panel <strong>without</strong> a full page reload. If a full page load is
         required instead (i.e. acting like a link), please see the <a href="#tab-fake">fake tab</a> section below for more
         details.</p>
-    <p><strong>NOTE:</strong> Javascript will be needed to handle tab selection, panel visibility, roving tab-index, and  arrow-key navigation.</p>
+    <p><strong>NOTE:</strong> JavaScript is required to handle tab selection, panel visibility, focus management and
+        arrow-key navigation. For detailed behaviour requirements, please visit the
+        <a href="https://ebay.github.io/mindpatterns/disclosure/tabs/index.html">eBay MIND Pattern for Tabs</a>.</p>
 
-    <h3 id="tab-default">Default Tab</h3>
+    <h3 id="tab-default">Default Tabs</h3>
     <p>When a tab is selected, the <span class="highlight">aria-selected</span> state of all tabs in the list must be updated
         in order for the CSS to reflect the change. Only one tab can be selected and in the tab order at any moment in time.
         Likewise, only one tabpanel can be visible at any time, and it must correspond to the currently selected tab.</p>
@@ -17,13 +18,13 @@
         <div class="demo__inner">
             <div class="tabs">
                 <div class="tabs__items" role="tablist">
-                    <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab" tabindex="0">
-                        <span>Tab 1 with lots of text that could easily take up several lines</span>
+                    <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab">
+                        <span>Tab 1</span>
                     </div>
-                    <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab" tabindex="-1">
+                    <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab">
                         <span>Tab 2</span>
                     </div>
-                    <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab" tabindex="-1">
+                    <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab">
                         <span>Tab 3</span>
                     </div>
                 </div>
@@ -59,13 +60,13 @@
     {% highlight html %}
     <div class="tabs">
         <div class="tabs__items" role="tablist">
-            <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab" tabindex="0">
-                <span>Tab 1 with lots of text that could easily take up several lines</span>
+            <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab">
+                <span>Tab 1</span>
             </div>
-            <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab" tabindex="-1">
+            <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab">
                 <span>Tab 2</span>
             </div>
-            <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab" tabindex="-1">
+            <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab">
                 <span>Tab 3</span>
             </div>
         </div>
@@ -98,7 +99,7 @@
     </div>
     {% endhighlight %}
 
-    <h3 id="tab-fake">Fake Tab</h3>
+    <h3 id="tab-fake">Fake Tabs</h3>
     <p>A fake tab <em>looks</em> like a normal tab, but is actually a hyperlink to a new page. Therefore a set of fake tabs
         behaves more like a simple navigational widget, rather than a dynamic user interface control.</p>
     <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant)
