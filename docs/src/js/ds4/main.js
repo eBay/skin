@@ -9,7 +9,6 @@ function querySelectorAllToArray(selector, parentNode) {
 
 $('#header-large .grid__cell').skipTo();
 // $('.dialog-button').dialogButton();
-$('.tabs').tabs();
 $('.tooltip').tooltip();
 $('.bubblehelp').clickFlyout({triggerSelector: '.bubblehelp__host', overlaySelector: '.bubblehelp__overlay', autoCollapse: false});
 $('#banner-menu').on('click', 'a', function(e) {
