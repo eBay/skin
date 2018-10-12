@@ -9,8 +9,6 @@ function querySelectorAllToArray(selector, parentNode) {
 
 $('#header-large .grid__cell').skipTo();
 // $('.dialog-button').dialogButton();
-$('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.expand-btn', overlaySelector: '.fake-menu__items'});
-$('.menu').menu();
 $('.tabs').tabs();
 $('.tooltip').tooltip();
 $('.bubblehelp').clickFlyout({triggerSelector: '.bubblehelp__host', overlaySelector: '.bubblehelp__overlay', autoCollapse: false});
@@ -44,13 +42,17 @@ querySelectorAllToArray('.combobox').forEach(function(el, index) {
     });
 });
 
-// LISTBOX WIDGET - Expand/Collapse only
-querySelectorAllToArray('.listbox').forEach(function(el, index) {
+// LISTBOX, MENU AND FAKE MENU WIDGETS - Expand/Collapse only
+querySelectorAllToArray('.listbox, .menu, .fake-menu').forEach(function(el) {
     var $buttonEl = $(el.querySelector('button'));
 
     $buttonEl.on('click', function(e) {
         var isExpanded = $buttonEl.attr('aria-expanded');
         $buttonEl.attr('aria-expanded', isExpanded === 'true' ? 'false' : 'true');
+    });
+
+    $buttonEl.on('blur', function(e) {
+        $buttonEl.attr('aria-expanded', 'false');
     });
 });
 
