@@ -328,25 +328,46 @@ button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: transparent;
   border: 1px solid;
   border-color: inherit;
   box-sizing: border-box;
   color: inherit;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
   font-family: inherit;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 0;
   max-width: 100%;
   text-align: center;
   text-decoration: none;
+  vertical-align: top;
+}
+button.btn--fixed-height,
+button.expand-btn--fixed-height,
+a.fake-btn--fixed-height,
+a.cta-btn--fixed-height {
+  height: 40px;
+}
+button.btn--truncated,
+button.expand-btn--truncated,
+a.fake-btn--truncated,
+a.cta-btn--truncated {
+  height: 40px;
+}
+button.btn--truncated,
+button.expand-btn--truncated,
+a.fake-btn--truncated,
+a.cta-btn--truncated,
+button.btn--truncated span,
+button.expand-btn--truncated span,
+a.fake-btn--truncated span,
+a.cta-btn--truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+a.fake-btn {
+  vertical-align: top;
 }
 .btn__icon,
 .fake-btn__icon,
@@ -391,14 +412,45 @@ a.cta-btn--fluid {
   height: 100%;
   width: 100%;
 }
-.btn__cell > span,
-.expand-btn__cell > span,
-.fake-btn__cell > span,
-.cta-btn__cell > span {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.btn__cell--fixed-height,
+.expand-btn__cell--fixed-height,
+.fake-btn__cell--fixed-height,
+.cta-btn__cell--fixed-height {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.btn__cell--fixed-height > span,
+.expand-btn__cell--fixed-height > span,
+.fake-btn__cell--fixed-height > span,
+.cta-btn__cell--fixed-height > span,
+.btn__cell--fixed-height > svg,
+.expand-btn__cell--fixed-height > svg,
+.fake-btn__cell--fixed-height > svg,
+.cta-btn__cell--fixed-height > svg {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  max-width: calc(100% - 32px);
+}
+.btn__cell--truncated,
+.expand-btn__cell--truncated,
+.fake-btn__cell--truncated,
+.cta-btn__cell--truncated {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.btn__cell--truncated > span,
+.expand-btn__cell--truncated > span,
+.fake-btn__cell--truncated > span,
+.cta-btn__cell--truncated > span,
+.btn__cell--truncated > svg,
+.expand-btn__cell--truncated > svg,
+.fake-btn__cell--truncated > svg,
+.cta-btn__cell--truncated > svg {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  max-width: calc(100% - 32px);
 }
 .btn__cell,
 .fake-btn__cell,
@@ -437,21 +489,39 @@ svg.expand-btn__icon:only-child {
   display: flex;
   margin: 0;
 }
+.btn__cell--fixed-height span.btn__icon,
+.expand-btn__cell--fixed-height span.expand-btn__icon,
+.fake-btn__cell--fixed-height span.fake-btn__icon,
+.cta-btn__cell--fixed-height span.cta-btn__icon,
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  height: 1rem;
+  width: 1rem;
+}
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
   border-radius: 3px;
   font-size: 0.875rem;
-  height: 40px;
 }
 button.btn,
 a.fake-btn,
 a.cta-btn {
-  padding: 0 48px;
+  padding: 11px 48px;
 }
 button.expand-btn {
-  padding: 0 16px;
+  padding: 11px 16px;
 }
 button.btn[disabled],
 button.expand-btn[disabled],
@@ -668,40 +738,194 @@ a.fake-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
+button.btn__cell--fixed-height button.btn__icon,
+button.btn__cell--fixed-height button.expand-btn__icon,
+button.btn__cell--fixed-height a.fake-btn__icon,
+button.btn__cell--fixed-height a.cta-btn__icon,
+button.expand-btn__cell--fixed-height button.btn__icon,
+button.expand-btn__cell--fixed-height button.expand-btn__icon,
+button.expand-btn__cell--fixed-height a.fake-btn__icon,
+button.expand-btn__cell--fixed-height a.cta-btn__icon,
+a.fake-btn__cell--fixed-height button.btn__icon,
+a.fake-btn__cell--fixed-height button.expand-btn__icon,
+a.fake-btn__cell--fixed-height a.fake-btn__icon,
+a.fake-btn__cell--fixed-height a.cta-btn__icon,
+a.cta-btn__cell--fixed-height button.btn__icon,
+a.cta-btn__cell--fixed-height button.expand-btn__icon,
+a.cta-btn__cell--fixed-height a.fake-btn__icon,
+a.cta-btn__cell--fixed-height a.cta-btn__icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  overflow: visible;
+}
 button.btn--small,
 button.expand-btn--small,
-a.fake-btn--small {
+a.fake-btn--small,
+a.cta-btn--small {
   font-size: 0.75rem;
-  padding: 0 32px;
+  padding: 8px 32px;
+}
+button.btn--small-fixed-height,
+button.expand-btn--small-fixed-height,
+a.fake-btn--small-fixed-height,
+a.cta-btn--small-fixed-height {
+  height: 32px;
+}
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated {
+  font-size: 0.75rem;
+  padding: 8px 32px;
+  height: 32px;
+}
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated,
+button.btn--small-truncated span,
+button.expand-btn--small-truncated span,
+a.fake-btn--small-truncated span,
+a.cta-btn--small-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.btn--medium,
 button.expand-btn--medium,
-a.fake-btn--medium {
+a.fake-btn--medium,
+a.cta-btn--medium {
   font-size: 0.875rem;
-  padding: 0 48px;
+  padding: 11px 40px;
+}
+button.btn--medium-fixed-height,
+button.expand-btn--medium-fixed-height,
+a.fake-btn--medium-fixed-height,
+a.cta-btn--medium-fixed-height {
+  height: 40px;
+}
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated {
+  font-size: 0.875rem;
+  padding: 11px 40px;
+  height: 40px;
+}
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated,
+button.btn--medium-truncated span,
+button.expand-btn--medium-truncated span,
+a.fake-btn--medium-truncated span,
+a.cta-btn--medium-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.btn--large,
 button.expand-btn--large,
-a.fake-btn--large {
+a.fake-btn--large,
+a.cta-btn--large {
   font-size: 1rem;
-  padding: 0 80px;
+  padding: 14px 48px;
+}
+button.btn--large-fixed-height,
+button.expand-btn--large-fixed-height,
+a.fake-btn--large-fixed-height,
+a.cta-btn--large-fixed-height {
+  height: 48px;
+}
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated {
+  font-size: 1rem;
+  padding: 14px 48px;
+  height: 48px;
+}
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated,
+button.btn--large-truncated span,
+button.expand-btn--large-truncated span,
+a.fake-btn--large-truncated span,
+a.cta-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.btn--extra-large,
 button.expand-btn--extra-large,
-a.fake-btn--extra-large {
+a.fake-btn--extra-large,
+a.cta-btn--extra-large {
   font-size: 1.125rem;
-  padding: 0 112px;
+  padding: 15.875px 56px;
+}
+button.btn--extra-large-fixed-height,
+button.expand-btn--extra-large-fixed-height,
+a.fake-btn--extra-large-fixed-height,
+a.cta-btn--extra-large-fixed-height {
+  height: 56px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated {
+  font-size: 1.125rem;
+  padding: 15.875px 56px;
+  height: 56px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated,
+button.btn--extra-large-truncated span,
+button.expand-btn--extra-large-truncated span,
+a.fake-btn--extra-large-truncated span,
+a.cta-btn--extra-large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.expand-btn--small {
-  padding: 0 12px 0 16px;
+  padding: 8px 12px 8px 16px;
 }
 button.expand-btn--small.expand-btn--no-text {
-  padding: 0 12px;
+  padding: 8px 12px;
 }
-button.expand-btn--medium,
-button.expand-btn--large,
-button.expand-btn--extra-large {
-  padding: 0 16px;
+button.btn.expand-btn--no-text,
+button.expand-btn.expand-btn--no-text {
+  height: 40px;
+}
+button.btn.expand-btn--no-text.expand-btn--small,
+button.expand-btn.expand-btn--no-text.expand-btn--small {
+  height: 32px;
+}
+button.btn.expand-btn--no-text.expand-btn--medium,
+button.expand-btn.expand-btn--no-text.expand-btn--medium {
+  height: 40px;
+}
+button.btn.expand-btn--no-text.expand-btn--large,
+button.expand-btn.expand-btn--no-text.expand-btn--large {
+  height: 48px;
+}
+button.btn.expand-btn--no-text.expand-btn--extra-large,
+button.expand-btn.expand-btn--no-text.expand-btn--extra-large {
+  height: 56px;
+}
+button.expand-btn[class*="--medium"],
+button.expand-btn[class*="--large"],
+button.expand-btn[class*="--extra-large"] {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 svg.expand-btn__icon {
   height: 8px;
@@ -721,30 +945,6 @@ button.expand-btn--primary span.expand-btn__icon {
 }
 button.expand-btn--secondary span.expand-btn__icon {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%3E%3Cpath%20fill%3D%22%23555555%22%20d%3D%22M15.94%2025.294l-15.473-17.229h30.953l-7.742%208.616z%22%3E%3C/path%3E%3C/svg%3E');
-}
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small,
-a.cta-btn--small {
-  height: 32px;
-}
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium,
-a.cta-btn--medium {
-  height: 40px;
-}
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large,
-a.cta-btn--large {
-  height: 48px;
-}
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large,
-a.cta-btn--extra-large {
-  height: 56px;
 }
 .card {
   background-color: #fff;
