@@ -1,15 +1,26 @@
 // BEM blocks
+
+.flyout-notice,
 .inline-notice,
 .page-notice {
     font-size: @ds4-font-size-14;
 }
 
+.flyout-notice,
 .page-notice {
     background-color: @ds4-color-core-white;
     border-bottom: 1px solid @ds4-color-core-gray-silver;
     border-top: 1px solid @ds4-color-core-gray-silver;
     min-height: 32px;
     padding: 8px 8px 8px 0;
+}
+
+.flyout-notice {
+    box-shadow: 0 3px 7px @ds4-color-transparent-gray-gainsboro;
+    display: flex;
+    min-width: 320px;
+    position: absolute;
+    z-index: 1;
 }
 
 .inline-notice {
@@ -40,10 +51,23 @@ button.page-notice {
     width: 100%;
 }
 
+.flyout-notice--confirmation {
+    border-top: 2px solid @ds4-color-interface-positive;
+}
+
+.flyout-notice--information {
+    border-top: 2px solid @ds4-color-interface-cta;
+}
+
+.flyout-notice--priority {
+    border-top: 2px solid @ds4-color-text-critical;
+}
+
 .inline-notice--priority {
     font-weight: 500;
 }
 
+.flyout-notice--priority,
 .inline-notice--priority,
 .page-notice--priority,
 a.page-notice--priority {
@@ -76,12 +100,32 @@ a.page-notice--priority {
 
 // BEM block mod cascades
 
+.flyout-notice--information .flyout-notice__status,
 .page-notice--information .page-notice__status {
     color: @ds4-color-core-blue;
 }
 
+.flyout-notice--confirmation .flyout-notice__status,
 .page-notice--confirmation .page-notice__status {
     color: @ds4-color-core-green;
+}
+
+.flyout-notice--priority .flyout-notice__pointer-top-left,
+.flyout-notice--priority .flyout-notice__pointer-top-center,
+.flyout-notice--priority .flyout-notice__pointer-top-right {
+    border-bottom-color: @ds4-color-text-critical;
+}
+
+.flyout-notice--confirmation .flyout-notice__pointer-top-left,
+.flyout-notice--confirmation .flyout-notice__pointer-top-center,
+.flyout-notice--confirmation .flyout-notice__pointer-top-right {
+    border-bottom-color: @ds4-color-core-green;
+}
+
+.flyout-notice--information .flyout-notice__pointer-top-left,
+.flyout-notice--information .flyout-notice__pointer-top-center,
+.flyout-notice--information .flyout-notice__pointer-top-right {
+    border-bottom-color: @ds4-color-interface-cta;
 }
 
 .inline-notice--information .inline-notice__status {
@@ -94,6 +138,7 @@ a.page-notice--priority {
 
 // BEM elements
 
+.flyout-notice__content,
 .inline-notice__content,
 .page-notice__content {
     p {
@@ -106,6 +151,11 @@ a.page-notice--priority {
 }
 
 .inline-notice__content {
+    padding-left: 8px;
+}
+
+.flyout-notice__content {
+    margin: 8px 0;
     padding-left: 8px;
 }
 
@@ -149,7 +199,8 @@ a.page-notice--priority {
     }
 }
 
-.page-notice__cta {
+.page-notice__cta,
+.flyout-notice__cta {
     .background-icon-base;
 
     color: @ds4-color-icon-actionable-default;
@@ -164,6 +215,7 @@ a.page-notice--priority {
     margin-top: 0;
 }
 
+button.flyout-notice__close,
 button.page-notice__close {
     background: none;
     border: 0;
@@ -196,6 +248,60 @@ button.page-notice__close {
     }
 }
 
+.flyout-notice__close {
+    margin-top: 1px;
+}
+
+.flyout-notice__pointer-top-left {
+    .flyout-notice-arrow-top;
+
+    left: 12px;
+}
+
+.flyout-notice__pointer-top-center {
+    .flyout-notice-arrow-top;
+
+    left: calc(50% - 8px);
+}
+
+.flyout-notice__pointer-top-right {
+    .flyout-notice-arrow-top;
+
+    right: 12px;
+}
+
+.flyout-notice__pointer-bottom-left {
+    .flyout-notice-arrow-bottom;
+
+    left: 16px;
+}
+
+.flyout-notice__pointer-bottom-center {
+    .flyout-notice-arrow-bottom;
+
+    left: calc(50% - 8px);
+}
+
+.flyout-notice__pointer-bottom-right {
+    .flyout-notice-arrow-bottom;
+
+    right: 16px;
+}
+
+.flyout-notice__pointer-left {
+    .flyout-notice-arrow-side;
+
+    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+    left: -6px;
+}
+
+.flyout-notice__pointer-right {
+    .flyout-notice-arrow-side;
+
+    box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
+    right: -6px;
+}
+
 // BEM element mods
 
 .page-notice__content--align-middle {
@@ -213,9 +319,13 @@ button.page-notice__close {
         margin: 16px 0;
     }
 
+    .flyout-notice,
     .page-notice {
-        border: 1px solid @ds4-color-core-gray-silver;
         padding-right: 16px;
+    }
+
+    .flyout-notice__content {
+        padding-left: 16px;
     }
 
     .page-notice__content {
@@ -230,12 +340,18 @@ button.page-notice__close {
         margin-left: 16px;
     }
 
-    .page-notice__cta {
+    .page-notice__cta,
+    .flyout-notice__cta {
         margin-left: 16px;
     }
 
+    button.flyout-notice__close,
     button.page-notice__close {
         margin-left: 16px;
+    }
+
+    .page-notice {
+        border: 1px solid @ds4-color-core-gray-silver;
     }
 
     .page-notice--information {
