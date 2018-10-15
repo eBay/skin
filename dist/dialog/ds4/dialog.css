@@ -15,15 +15,14 @@
 .dialog__window {
   left: 0;
   margin: auto;
+  max-width: 616px;
   min-height: 55px;
   padding-bottom: 15vh;
   position: absolute;
   right: 0;
   top: 15%;
+  width: calc(100% - 32px);
   will-change: opacity, transform;
-  width: calc(88% - 7px);
-  min-width: calc(75% - 7px);
-  max-width: calc(100% - 7px);
 }
 .dialog__window::before {
   bottom: 15vh;
@@ -69,9 +68,9 @@
 }
 .dialog__window--left,
 .dialog__window--right {
-  width: calc(88% - 7px);
-  min-width: calc(88% - 7px);
-  max-width: calc(100% - 7px);
+  width: calc(88% - 32px);
+  min-width: calc(88% - 32px);
+  max-width: calc(100% - 32px);
 }
 .dialog__window--left {
   border-right: 1px solid rgba(153, 153, 153, 0.18);
@@ -162,11 +161,24 @@
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
-@media (min-width: 768px) {
+@media (max-width: 600px) {
   .dialog__window:not(.dialog__window--full) {
-    width: calc(50% - 14px);
-    min-width: calc(50% - 14px);
-    max-width: calc(88% - 15px);
+    width: calc(100% - 32px);
+    min-width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  .dialog__window:not(.dialog__window--full) {
+    width: calc(88% - 32px);
+    min-width: calc(88% - 32px);
+    max-width: calc(88% - 32px);
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dialog__window:not(.dialog__window--full) {
+    width: calc(75% - 32px);
+    max-width: 616px;
   }
 }
 [hidden] {
