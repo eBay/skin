@@ -1,0 +1,159 @@
+<h3 id="notice-flyout">Flyout Notice</h3>
+<p>A flyout-level notice <em>points</em> to a specific section or element of the page. We can also says this element <em>hosts</em> the flyout.</p>
+<p>The DOM order of the notice and it's host is important! To avoid keyboard and screen reader accessibility issues, the flyout element's DOM position should be adjacent to it's host.</p>
+<p>Flyout notices are absolutely positioned by default. The flyout will be positioned relatively to the nearest ancestor with <span class="highlight">position:relative</span>.</p>
+<p>The flyout pointer can be positioned using any one of the following elements: <span class="highlight">flyout-notice__pointer-top-left</span>, <span class="highlight">flyout-notice__pointer-top-center</span>, <span class="highlight">flyout-notice__pointer-top-right</span>, <span class="highlight">flyout-notice__pointer-bottom-right</span>, <span class="highlight">flyout-notice__pointer-bottom-center</span>, <span class="highlight">flyout-notice__pointer-bottom-left</span>, <span class="highlight">flyout-notice__pointer-left</span> or <span class="highlight">flyout-notice__pointer-right</span>.</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <div style="height:80px">
+            <div class="flyout-notice flyout-notice--priority">
+                <span class="flyout-notice__content">
+                    <p>We had trouble connecting to PayPal. Please make your payment later.</p>
+                </span>
+                <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+                    <span aria-hidden="true" role="img"></span>
+                </button>
+                <span class="flyout-notice__pointer-top-left"></span>
+            </div>
+        </div>
+        <div style="height:80px">
+            <div class="flyout-notice flyout-notice--confirmation">
+                <span class="flyout-notice__content">
+                    <p>Congrats! You are currently the high bidder, but you are close to getting outbid.</p>
+                </span>
+                <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+                    <span aria-hidden="true" role="img"></span>
+                </button>
+                <span class="flyout-notice__pointer-bottom-left"></span>
+            </div>
+        </div>
+        <div style="height:80px">
+            <div class="flyout-notice flyout-notice--information">
+                <span class="flyout-notice__content">
+                    <p>We could not find any items that match your search. Try expanding your search to find more items.</p>
+                    <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                </span>
+                <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+                    <span aria-hidden="true" role="img"></span>
+                </button>
+                <span class="flyout-notice__pointer-right"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% highlight html %}
+<div class="flyout-notice flyout-notice--priority">
+    <span class="flyout-notice__content">
+        <p>We had trouble connecting to PayPal. Please make your payment later.</p>
+    </span>
+    <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+        <span aria-hidden="true" role="img"></span>
+    </button>
+    <span class="flyout-notice__pointer-top-left"></span>
+    </div>
+    <div class="flyout-notice flyout-notice--confirmation">
+    <span class="flyout-notice__content">
+        <p>Congrats! You are currently the high bidder, but you are close to getting outbid.</p>
+    </span>
+    <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+        <span aria-hidden="true" role="img"></span>
+    </button>
+    <span class="flyout-notice__pointer-bottom-left"></span>
+    </div>
+    <div class="flyout-notice flyout-notice--information">
+    <span class="flyout-notice__content">
+        <p>We could not find any items that match your search. Try expanding your search to find more items.</p>
+        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+    </span>
+    <button aria-label="Dismiss notice" class="flyout-notice__close" type="button">
+        <span aria-hidden="true" role="img"></span>
+    </button>
+    <span class="flyout-notice__pointer-right"></span>
+</div>
+{% endhighlight %}
+
+<h4 id="notice-tooltip">Tooltip</h4>
+<p>A flyout-notice can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a> pattern.</p>
+<p>Apply modifier class <span class="highlight">tooltip--expanded</span> to the widget to display the overlay.</p>
+<div class="demo">
+    <div class="demo__inner">
+        <span class="tooltip">
+            <button accesskey="s" aria-label="Settings" onclick="notice('You clicked settings. Good for you.');" class="tooltip__host icon-btn" aria-describedby="tooltip-0">
+                <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+                    <use xlink:href="#icon-settings"></use>
+                </svg>
+            </button>
+            <div id="tooltip-0" class="tooltip__overlay" role="tooltip">
+                <div class="flyout-notice flyout-notice--information">
+                    <span class="flyout-notice__content">
+                        <p>Use Access Key 'S' to display settings.</p>
+                    </span>
+                    <span class="flyout-notice__pointer-bottom-left"></span>
+                </div>
+            </div>
+        </span>
+    </div>
+</div>
+{% highlight html %}
+<span class="tooltip">
+    <button aria-label="Settings" accesskey="s" class="tooltip__host icon-btn" aria-describedby="tooltip-0">
+        <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+            <use xlink:href="#icon-settings"></use>
+        </svg>
+    </button>
+    <div id="tooltip-0" class="tooltip__overlay flyout-notice flyout-notice--information" role="tooltip">
+        <div class="flyout-notice flyout-notice--information">
+            <span class="flyout-notice__content">
+                <p>Use Access Key 'S' to display settings.</p>
+            </span>
+            <span class="flyout-notice__pointer-bottom-left"></span>
+        </div>
+    </div>
+</span>
+{% endhighlight %}
+<p><strong>NOTE:</strong> This example uses a simple jQuery <a href="https://github.com/ianmcburnie/jquery-tooltip">jquery-tooltip</a> plugin to toggle the <span class="highlight">tooltip--expanded</span> class on hover and focus.</p>
+
+<h4 id="notice-bubblehelp">Bubble-Help</h4>
+<p>A flyout-notice can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">bubble help</a> pattern.</p>
+<p>Apply an <span class="highlight">aria-expanded</span> state of true to the help button to display the overlay.</p>
+<div class="demo">
+    <div class="demo__inner">
+        <span class="bubblehelp">
+            <button aria-label="Help" class="icon-btn bubblehelp__host" type="button" aria-expanded="false">
+                <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+                    <use xlink:href="#icon-information"></use>
+                </svg>
+            </button>
+            <div class="bubblehelp__overlay">
+                <div class="flyout-notice flyout-notice--information">
+                    <span class="flyout-notice__content">
+                        <p>Here's a tip to help you be successful at your task:</p>
+                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                    </span>
+                    <span class="flyout-notice__pointer-top-left"></span>
+                </div>
+            </div>
+        </span>
+    </div>
+</div>
+{% highlight html %}
+<span class="bubblehelp">
+    <button aria-label="Help" class="icon-btn bubblehelp__host" type="button" aria-expanded="false">
+        <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+            <use xlink:href="#icon-information"></use>
+        </svg>
+    </button>
+    <div class="bubblehelp__overlay">
+        <div class="flyout-notice flyout-notice--information">
+            <span class="flyout-notice__content">
+                <p>Here's a tip to help you be successful at your task:</p>
+                <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+            </span>
+            <span class="flyout-notice__pointer-top-left"></span>
+        </div>
+    </div>
+</span>
+{% endhighlight %}
+<p><strong>NOTE:</strong> This example uses a simple <a href="https://github.com/ianmcburnie/jquery-click-flyout">jquery-click-flyout</a> plugin to toggle the aria-expanded state of the button when clicked.</p>
