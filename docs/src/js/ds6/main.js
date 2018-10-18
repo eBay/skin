@@ -2,28 +2,23 @@
 
 // makeup-js accessibility modules
 var Expander = require('makeup-expander');
-var keyEmitter = require('makeup-key-emitter');
 var scrollKeyPreventer = require('makeup-prevent-scroll-keys');
 var modal = require('makeup-modal');
 var transition = require("./transition");
 var FloatingLabel = require('makeup-floating-label');
 
-// util function
+// util functions
 function nodeListToArray(nodeList) {
     return Array.prototype.slice.call(nodeList);
 }
 
-// BUTTON WIDGET
+function querySelectorAllToArray(selector, parentNode) {
+    parentNode = parentNode || document;
+    return nodeListToArray(parentNode.querySelectorAll(selector));
+}
 
-// simple button logic on buttons
-nodeListToArray(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip__close)')).forEach(function(el, i) {
-    el.addEventListener('click', function(e) {
-        alert('You clicked ' + this);
-    });
-});
-
-// simple aria-expanded logic on expand button example
-nodeListToArray(document.querySelectorAll('.expand-btn-example')).forEach(function(el, i) {
+// EXPAND BUTTONS - Toggle state
+querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
@@ -31,7 +26,7 @@ nodeListToArray(document.querySelectorAll('.expand-btn-example')).forEach(functi
 });
 
 // LISTBOX, MENU & FAKE MENU WIDGETS - EXPAND/COLLAPSE ONLY
-nodeListToArray(document.querySelectorAll('.listbox, .menu, .fake-menu')).forEach(function(widgetEl, widgetIndex) {
+querySelectorAllToArray('.listbox, .menu, .fake-menu').forEach(function(widgetEl, widgetIndex) {
     var buttonEl = widgetEl.querySelector('button');
 
     if (buttonEl) {
@@ -46,8 +41,8 @@ nodeListToArray(document.querySelectorAll('.listbox, .menu, .fake-menu')).forEac
     }
 });
 
-// TOOLTIP WIDGET
-nodeListToArray(document.querySelectorAll('.tooltip.tooltip--hover')).forEach(function(el, i) {
+// TOOLTIP WIDGETS
+querySelectorAllToArray('.tooltip.tooltip--hover').forEach(function(el, i) {
     var widget = new Expander(el, {
         contentSelector: '.tooltip__overlay',
         collapseOnFocusOut: true,
@@ -60,7 +55,8 @@ nodeListToArray(document.querySelectorAll('.tooltip.tooltip--hover')).forEach(fu
     });
 });
 
-nodeListToArray(document.querySelectorAll('.tooltip:not(.tooltip--hover)')).forEach(function(el, i) {
+// INFOTIP WIDGETS
+querySelectorAllToArray('.tooltip:not(.tooltip--hover)').forEach(function(el, i) {
     var widget = new Expander(el, {
         contentSelector: '.tooltip__overlay',
         expandOnClick: true,
@@ -79,8 +75,8 @@ nodeListToArray(document.querySelectorAll('.tooltip:not(.tooltip--hover)')).forE
     }
 });
 
-// COMBOBOX WIDGET (basic expand/collapse only)
-nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(widgetEl, widgetIndex) {
+// COMBOBOX WIDGETS (basic expand/collapse only)
+querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
     var inputWrapperEl = widgetEl.querySelector('.combobox__control');
     var inputEl = widgetEl.querySelector('input');
 
@@ -102,8 +98,8 @@ nodeListToArray(document.querySelectorAll('.combobox')).forEach(function(widgetE
     });
 });
 
-// DIALOG WIDGET
-nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (btn) {
+// DIALOG WIDGETS
+querySelectorAllToArray('.dialog-button').forEach(function (btn) {
     var cancel;
     var dialog = btn.nextElementSibling;
     var dialogBody = dialog.querySelector('.dialog__body');
@@ -121,6 +117,7 @@ nodeListToArray(document.querySelectorAll('.dialog-button')).forEach(function (b
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
         modal.modal(dialog.querySelector('.dialog__window'));
+        dialogClose.focus();
     }
 
     function handleClose (ev) {
@@ -197,6 +194,6 @@ window.addEventListener('load', function() {
     window.addEventListener('scroll', fixTheSidebar);
 });
 
-nodeListToArray(document.querySelectorAll('.floating-label')).forEach(function(el) {
+querySelectorAllToArray('.floating-label').forEach(function(el) {
     var floatingLabel = new FloatingLabel(el);
 });
