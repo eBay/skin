@@ -7,8 +7,36 @@ function querySelectorAllToArray(selector, parentNode) {
     return nodeListToArray(parentNode.querySelectorAll(selector));
 }
 
-$('.tooltip').tooltip();
-$('.bubblehelp').clickFlyout({triggerSelector: '.bubblehelp__host', overlaySelector: '.bubblehelp__overlay', autoCollapse: false});
+// TOOLTIP WIDGETS - Expand/Collapse only
+querySelectorAllToArray('.tooltip').forEach(function(el, index) {
+    var $widgetEl = $(el);
+    var $buttonEl = $(el.querySelector('button'));
+
+    $buttonEl.on('focus', function(e) {
+        $buttonEl.attr('aria-expanded', ($buttonEl.attr('aria-expanded') === 'true') ? 'false' : 'true');
+    });
+
+    $buttonEl.blur('blur', function(e) {
+        $buttonEl.attr('aria-expanded', 'false');
+    });
+
+    $buttonEl.on('mouseover', function(e) {
+        $buttonEl.attr('aria-expanded', 'true');
+    });
+
+    $widgetEl.on('mouseleave', function(e) {
+        $buttonEl.attr('aria-expanded', 'false');
+    });
+});
+
+// BUBBLE HELP WIDGETS - Expand/Collapse only
+querySelectorAllToArray('.bubblehelp').forEach(function(el, index) {
+    var $buttonEl = $(el.querySelector('button'));
+
+    $buttonEl.on('click', function(e) {
+        $buttonEl.attr('aria-expanded', ($buttonEl.attr('aria-expanded') === 'true') ? 'false' : 'true');
+    });
+});
 
 // EXPAND BUTTONS - Toggle state
 querySelectorAllToArray('.expand-btn-example').forEach(function(el, index) {
