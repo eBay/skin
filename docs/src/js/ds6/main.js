@@ -1,41 +1,6 @@
-var Expander = require('makeup-expander');
 var FloatingLabel = require('makeup-floating-label');
 
-// TOOLTIP WIDGETS
-querySelectorAllToArray('.tooltip.tooltip--hover').forEach(function(el, i) {
-    var widget = new Expander(el, {
-        contentSelector: '.tooltip__overlay',
-        collapseOnFocusOut: true,
-        collapseOnMouseOut: true,
-        expandOnClick: true,
-        expandOnFocus: true,
-        expandOnHover: true,
-        focusManagement: 'focusable',
-        hostSelector: '.tooltip__host'
-    });
-});
-
-// INFOTIP WIDGETS
-querySelectorAllToArray('.tooltip:not(.tooltip--hover)').forEach(function(el, i) {
-    var widget = new Expander(el, {
-        contentSelector: '.tooltip__overlay',
-        expandOnClick: true,
-        hostSelector: '.tooltip__host'
-    });
-
-    var inputEl = el.querySelector('.tooltip__host');
-    var tooltipWindow = inputEl.nextElementSibling;
-    var tooltipClose = tooltipWindow.querySelector('.tooltip__close');
-
-    if (tooltipClose) {
-        tooltipClose.addEventListener('click', function(e) {
-            widget.collapse();
-            inputEl.focus();
-        });
-    }
-});
-
-querySelectorAllToArray('.floating-label').forEach(function(el) {
+querySelectorAllToArray('.floating-label').forEach(function(el, i) {
     var floatingLabel = new FloatingLabel(el);
 });
 

@@ -1,30 +1,23 @@
-// TOOLTIP WIDGETS - Expand/Collapse only
-querySelectorAllToArray('.tooltip').forEach(function(el, index) {
+var Expander = require('makeup-expander');
 
-    var buttonEl = el.querySelector('button');
-
-    buttonEl.addEventListener('focus', function(e) {
-        buttonEl.setAttribute('aria-expanded', (buttonEl.getAttribute('aria-expanded') === 'true') ? 'false' : 'true');
-    });
-
-    buttonEl.addEventListener('blur', function(e) {
-        buttonEl.setAttribute('aria-expanded', 'false');
-    });
-
-    buttonEl.addEventListener('mouseover', function(e) {
-        buttonEl.setAttribute('aria-expanded', 'true');
-    });
-
-    el.addEventListener('mouseleave', function(e) {
-        buttonEl.setAttribute('aria-expanded', 'false');
+// TOOLTIP WIDGETS
+querySelectorAllToArray('.tooltip').forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.tooltip__overlay',
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        expandOnFocus: true,
+        expandOnHover: true,
+        focusManagement: 'focusable',
+        hostSelector: '.tooltip__host'
     });
 });
 
-// BUBBLE HELP WIDGETS - Expand/Collapse only
-querySelectorAllToArray('.bubblehelp').forEach(function(el, index) {
-    var buttonEl = el.querySelector('button');
-
-    buttonEl.addEventListener('click', function(e) {
-        buttonEl.setAttribute('aria-expanded', (buttonEl.getAttribute('aria-expanded') === 'true') ? 'false' : 'true');
+// BUBBLEHELP WIDGETS
+querySelectorAllToArray('.bubblehelp').forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.bubblehelp__overlay',
+        expandOnClick: true,
+        hostSelector: '.bubblehelp__host'
     });
 });
