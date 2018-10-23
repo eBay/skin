@@ -68,7 +68,6 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
         modal.modal(dialog.querySelector('.dialog__window'));
-        dialogClose.focus();
     }
 
     function handleClose (ev) {
@@ -92,7 +91,10 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
     function handleTransitionEnd (isOpening) {
         // focus on the close button
         if (isOpening) {
-            dialogClose.focus();
+            // hack: safari needs an additional timeout
+            window.setTimeout(function() {
+                dialogClose.focus();
+            }, 250);
         }
 
         cancel = undefined;
