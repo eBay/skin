@@ -50,8 +50,43 @@ legend {
 body {
   font-family: "Market Sans", Arial, sans-serif;
 }
-.badge,
-.menu-badge {
+.icon-btn,
+.icon-link {
+  background-color: transparent;
+  border: 0 none;
+  font-size: 24px;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0;
+}
+.icon-btn svg,
+.icon-link svg {
+  display: inline-block;
+  fill: currentColor;
+  height: 1rem;
+  stroke: currentColor;
+  stroke-width: 0;
+  vertical-align: middle;
+  width: 1rem;
+}
+.icon-btn--badged,
+.icon-link--badged {
+  position: relative;
+}
+.icon-btn--badged .badge,
+.icon-link--badged .badge {
+  border: 2px solid;
+  border-color: #fff;
+  font-size: 0.75rem;
+  height: 24px;
+  left: 12px;
+  margin: auto;
+  min-width: 24px;
+  position: absolute;
+  top: -8px;
+  z-index: 1;
+}
+.badge {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -72,45 +107,9 @@ body {
   position: relative;
   top: calc(50% - 20px);
 }
-.menu-badge {
-  margin-left: 8px;
-}
-.icon-badge {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 20px;
-  box-sizing: border-box;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0 7px;
-  vertical-align: middle;
-  white-space: nowrap;
-  border: 2px solid;
-  height: 24px;
-  left: 12px;
-  margin: auto;
-  min-width: 24px;
-  position: absolute;
-  top: -8px;
-  z-index: 1;
-}
-.icon-badge-container {
-  position: relative;
-}
-.badge,
-.menu-badge,
-.icon-badge {
+.badge {
   background-color: #e62048;
   color: #fff;
-}
-.icon-badge {
-  border-color: #fff;
-  font-size: 0.75rem;
 }
 .breadcrumb {
   margin: 16px 0;
@@ -2071,6 +2070,9 @@ span.fake-menu__status {
 .expand-btn ~ .menu__items--static[role="menu"],
 .expand_btn ~ .fake-menu__items--static {
   position: static;
+}
+.menu__item .badge {
+  margin-left: 8px;
 }
 .page-notice {
   -webkit-box-align: stretch;
