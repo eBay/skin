@@ -13,11 +13,11 @@ querySelectorAllToArray('.tooltip').forEach(function(el, i) {
     });
 });
 
-// BUBBLEHELP WIDGETS
-querySelectorAllToArray('.bubblehelp').forEach(function(el, i) {
+// INFOTIP/BUBBLEHELP WIDGETS
+querySelectorAllToArray('.infotip').forEach(function(el, i) {
     var widget = new Expander(el, {
-        contentSelector: '.bubblehelp__overlay',
+        contentSelector: '.infotip__overlay',
         expandOnClick: true,
-        hostSelector: '.bubblehelp__host'
+        hostSelector: '.infotip__host'
     });
 });
