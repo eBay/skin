@@ -1,6 +1,6 @@
 <div id="tooltip">
     <h2><span class="secondary-text">@ebay/skin/</span>tooltip</h2>
-    <p>A <a href="#notice-flyout">flyout notice</a> can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a>, <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">infotip</a> or tourtip. In each case, it is the flyout notice element that has absolute positioning.</p>
+    <p>A <a href="#flyout">flyout</a> or <a href="#notice-flyout">flyout notice</a> can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a>, <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">infotip</a> or tourtip. In each case, it is the flyout element that has absolute positioning.</p>
 
     <h4 id="tooltip-default">Default Tooltip</h4>
     <p>The default tooltip, is the classic desktop tooltip that activate it's flyout notice on focus and hover of a clickable element (typically an icon button or link). The purpose of the classic tooltip is to inform the user about the clickable element.</p>
@@ -15,11 +15,17 @@
                     </svg>
                 </button>
                 <div id="tooltip-0" class="tooltip__overlay" role="tooltip">
-                    <div class="flyout-notice flyout-notice--information" style="top: -90px; left: -8px;">
-                        <span class="flyout-notice__content">
-                            <p>Use Access Key 'S' to display settings.</p>
-                        </span>
-                        <span class="flyout-notice__pointer-bottom-left"></span>
+                    <div class="flyout-notice flyout-notice--information">
+                        <div class="flyout" style="top: -90px; left: -8px;">
+                            <span class="flyout__pointer flyout__pointer--bottom-left"></span>
+                            <div class="flyout__mask">
+                                <div class="flyout__cell">
+                                    <span class="flyout-notice__content">
+                                        <p>Use Access Key 'S' to display settings.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </span>
@@ -33,11 +39,17 @@
         </svg>
     </button>
     <div id="tooltip-0" class="tooltip__overlay" role="tooltip">
-        <div class="flyout-notice flyout-notice--information" style="top: -90px; left: -8px;">
-            <span class="flyout-notice__content">
-                <p>Use Access Key 'S' to display settings.</p>
-            </span>
-            <span class="flyout-notice__pointer-bottom-left"></span>
+        <div class="flyout-notice flyout-notice--information">
+            <div class="flyout" style="top: -90px; left: -8px;">
+                <span class="flyout__pointer flyout__pointer--bottom-left"></span>
+                <div class="flyout__mask">
+                    <div class="flyout__cell">
+                        <span class="flyout-notice__content">
+                            <p>Use Access Key 'S' to display settings.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </span>
@@ -55,15 +67,21 @@
                     </svg>
                 </button>
                 <div class="infotip__overlay">
-                    <div class="flyout-notice flyout-notice--information" style="top: 8px; left: -8px;">
-                        <span class="flyout-notice__content">
-                            <p>Here's a tip to help you be successful at your task:</p>
-                            <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
-                        </span>
-                        <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
-                            <span aria-hidden="true" role="img"></span>
-                        </button>
-                        <span class="flyout-notice__pointer-top-left"></span>
+                    <div class="flyout-notice flyout-notice--information">
+                        <div class="flyout" style="top: 8px; left: -4px;">
+                            <span class="flyout__pointer flyout__pointer--top-left"></span>
+                            <div class="flyout__mask">
+                                <div class="flyout__cell">
+                                    <span class="flyout-notice__content">
+                                        <p>Here's a tip to help you be successful at your task:</p>
+                                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                                    </span>
+                                    <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
+                                        <span aria-hidden="true" role="img"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </span>
@@ -76,16 +94,22 @@
             <use xlink:href="#icon-information"></use>
         </svg>
     </button>
-    <div class="infotip__overlay" style="top: 8px; left: -8px;">
+    <div class="infotip__overlay">
         <div class="flyout-notice flyout-notice--information">
-            <span class="flyout-notice__content">
-                <p>Here's a tip to help you be successful at your task:</p>
-                <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
-            </span>
-            <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
-                <span aria-hidden="true" role="img"></span>
-            </button>
-            <span class="flyout-notice__pointer-top-left"></span>
+            <div class="flyout" style="top: 8px; left: 0px;">
+                <span class="flyout__pointer flyout__pointer--top-left"></span>
+                <div class="flyout__mask">
+                    <div class="flyout__cell">
+                        <span class="flyout-notice__content">
+                            <p>Here's a tip to help you be successful at your task:</p>
+                            <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                        </span>
+                        <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
+                            <span aria-hidden="true" role="img"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </span>
@@ -100,14 +124,20 @@
                 <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <div class="tourtip__overlay">
                     <div class="flyout-notice flyout-notice--information">
-                        <span class="flyout-notice__content">
-                            <p>Here's a tip to help you be successful at your task:</p>
-                            <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
-                        </span>
-                        <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
-                            <span aria-hidden="true" role="img"></span>
-                        </button>
-                        <span class="flyout-notice__pointer-top-left"></span>
+                        <div class="flyout">
+                            <span class="flyout__pointer flyout__pointer--top-left"></span>
+                            <div class="flyout__mask">
+                                <div class="flyout__cell">
+                                    <span class="flyout-notice__content">
+                                        <p>Here's a tip to help you be successful at your task:</p>
+                                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                                    </span>
+                                    <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
+                                        <span aria-hidden="true" role="img"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,14 +148,20 @@
     <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <div class="tourtip__overlay">
         <div class="flyout-notice flyout-notice--information">
-            <span class="flyout-notice__content">
-                <p>Here's a tip to help you be successful at your task:</p>
-                <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
-            </span>
-            <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
-                <span aria-hidden="true" role="img"></span>
-            </button>
-            <span class="flyout-notice__pointer-top-left"></span>
+            <div class="flyout">
+                <span class="flyout__pointer flyout__pointer--top-left"></span>
+                <div class="flyout__mask">
+                    <div class="flyout__cell">
+                        <span class="flyout-notice__content">
+                            <p>Here's a tip to help you be successful at your task:</p>
+                            <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                        </span>
+                        <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
+                            <span aria-hidden="true" role="img"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
