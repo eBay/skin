@@ -2917,6 +2917,7 @@ span.inline-notice {
 .flyout {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
   font-size: 14px;
+  max-width: 344px;
   min-width: 320px;
   position: absolute;
 }
@@ -2990,15 +2991,11 @@ span.inline-notice {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  line-height: 1rem;
 }
-.flyout-notice__close {
+button.flyout-notice__close {
   -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
+      align-self: flex-start;
   background: none;
-  font-size: 14px;
-  line-height: 1rem;
   margin: 0 0 0 16px;
   padding: 0;
 }
@@ -3007,6 +3004,11 @@ span.inline-notice {
 }
 .flyout-notice__content p:not(:first-of-type) {
   margin-top: 4px;
+}
+@media (min-width: 601px) {
+  .flyout {
+    max-width: 400px;
+  }
 }
 .page-notice {
   background-color: #fff;
@@ -3231,39 +3233,36 @@ button.page-notice__close span {
 }
 .flyout-notice .flyout {
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-  font-size: 0.875rem;
 }
-.flyout-notice--confirmation .flyout__mask {
+.flyout-notice--confirmation .flyout .flyout__mask {
   border-top: 2px solid #5ba71b;
 }
-.flyout-notice--confirmation .flyout__pointer--top-left,
-.flyout-notice--confirmation .flyout__pointer--top,
-.flyout-notice--confirmation .flyout__pointer--top-right {
+.flyout-notice--confirmation .flyout .flyout__pointer--top-left,
+.flyout-notice--confirmation .flyout .flyout__pointer--top,
+.flyout-notice--confirmation .flyout .flyout__pointer--top-right {
   background-color: #5ba71b;
 }
-.flyout-notice--information .flyout__mask {
+.flyout-notice--information .flyout .flyout__mask {
   border-top: 2px solid #0654ba;
 }
-.flyout-notice--information .flyout__pointer--top-left,
-.flyout-notice--information .flyout__pointer--top,
-.flyout-notice--information .flyout__pointer--top-right {
+.flyout-notice--information .flyout .flyout__pointer--top-left,
+.flyout-notice--information .flyout .flyout__pointer--top,
+.flyout-notice--information .flyout .flyout__pointer--top-right {
   background-color: #0654ba;
 }
 .flyout-notice--priority {
   color: #dd1e31;
 }
-.flyout-notice--priority .flyout__mask {
+.flyout-notice--priority .flyout .flyout__mask {
   border-top: 2px solid #dd1e31;
 }
-.flyout-notice--priority .flyout__pointer--top-left,
-.flyout-notice--priority .flyout__pointer--top,
-.flyout-notice--priority .flyout__pointer--top-right {
+.flyout-notice--priority .flyout .flyout__pointer--top-left,
+.flyout-notice--priority .flyout .flyout__pointer--top,
+.flyout-notice--priority .flyout .flyout__pointer--top-right {
   background-color: #dd1e31;
 }
 button.flyout-notice__close {
-  background: none;
   border: 0;
   color: #555;
   padding: 0;
@@ -3879,21 +3878,43 @@ div.tabs__item[role="tab"][aria-selected="true"] > span,
 li.fake-tabs__item--current > a[aria-current="page"] {
   color: #333;
 }
+.tooltip,
+.infotip,
+.tourtip {
+  position: relative;
+}
 .tooltip__overlay,
-.bubblehelp__overlay,
 .infotip__overlay,
 .tourtip__overlay {
   display: none;
-  position: relative;
 }
-.tooltip--expanded .tooltip__overlay,
-.tourtip--expanded .tourtip__overlay,
-.tooltip__host[aria-expanded="true"] ~ .tooltip__overlay,
-.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__overlay,
-.infotip__host[aria-expanded="true"] ~ .infotip__overlay,
-.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__live-region .bubblehelp__overlay,
-.infotip__host[aria-expanded="true"] ~ .infotip__live-region .infotip__overlay {
+span.tooltip,
+span.infotip,
+span.tourtip {
+  display: inline-block;
+}
+.tourtip--expanded .tourtip__overlay {
   display: block;
+}
+.tooltip__host[aria-expanded="true"] ~ .tooltip__overlay,
+.infotip__host[aria-expanded="true"] ~ .infotip__overlay {
+  display: block;
+}
+.tooltip .flyout__mask,
+.infotip .flyout__mask,
+.tourtip .flyout__mask {
+  border-top: 2px solid #0654ba;
+}
+.tooltip .flyout__pointer--top-left,
+.infotip .flyout__pointer--top-left,
+.tourtip .flyout__pointer--top-left,
+.tooltip .flyout__pointer--top,
+.infotip .flyout__pointer--top,
+.tourtip .flyout__pointer--top,
+.tooltip .flyout__pointer--top-right,
+.infotip .flyout__pointer--top-right,
+.tourtip .flyout__pointer--top-right {
+  background-color: #0654ba;
 }
 .textbox {
   position: relative;
