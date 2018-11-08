@@ -1,10 +1,10 @@
 <div id="tooltip">
     <h2><span class="secondary-text">@ebay/skin/</span>tooltip</h2>
-    <p>A <a href="#flyout">flyout</a> or <a href="#notice-flyout">flyout notice</a> (deprecated) can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a>, <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">infotip</a> or tourtip. In each case, the flyout element is positioned relatively to the nearest ancestor with <em>relative</em> positioning.</p>
+    <p>A <a href="#bubble">bubble</a> or <a href="#notice-flyout">flyout notice</a> (deprecated) can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a>, <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">infotip</a> or tourtip. In each case, the flyout element is positioned relatively to the nearest ancestor with <em>relative</em> positioning.</p>
     <p><strong>NOTE: </strong> The default tooltip is the only tooltip with the ARIA tooltip role. Please do not use this role with the infotip or tourtip.</p>
 
     <h4 id="tooltip-default">Default Tooltip</h4>
-    <p>The default tooltip, is the classic desktop tooltip that activate it's flyout on focus and hover of a clickable element (typically an icon button or link). The purpose of the classic tooltip is to inform the user about the clickable element.</p>
+    <p>The default tooltip, is the classic desktop tooltip that activates on focus and hover of a clickable element (typically an icon button or link). The purpose of the classic tooltip is to inform the user about the clickable element.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the clickable element to expand or collapse it's tooltip.</p>
 
     <div class="demo">
@@ -16,13 +16,11 @@
                     </svg>
                 </button>
                 <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
-                    <div class="flyout" style="top: -60px; left: -8px;">
-                        <span class="flyout__pointer flyout__pointer--bottom-left"></span>
-                        <div class="flyout__mask">
-                            <div class="flyout__cell">
-                                <span class="flyout-notice__content">
-                                    <p>Use Access Key 'S' to display settings.</p>
-                                </span>
+                    <div class="bubble" style="top: -60px; left: -8px;">
+                        <span class="bubble__pointer bubble__pointer--bottom-left"></span>
+                        <div class="bubble__mask">
+                            <div class="bubble__cell">
+                                <p>Use Access Key 'S' to display settings.</p>
                             </div>
                         </div>
                     </div>
@@ -38,13 +36,11 @@
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
-        <div class="flyout" style="top: -60px; left: -8px;">
-            <span class="flyout__pointer flyout__pointer--bottom-left"></span>
-            <div class="flyout__mask">
-                <div class="flyout__cell">
-                    <span class="flyout-notice__content">
-                        <p>Use Access Key 'S' to display settings.</p>
-                    </span>
+        <div class="bubble" style="top: -60px; left: -8px;">
+            <span class="bubble__pointer bubble__pointer--bottom-left"></span>
+            <div class="bubble__mask">
+                <div class="bubble__cell">
+                    <p>Use Access Key 'S' to display settings.</p>
                 </div>
             </div>
         </div>
@@ -52,8 +48,8 @@
 </span>
     {% endhighlight %}
 
-    <h4 id="tooltip-info">Infotip</h4>
-    <p>An infotip is a standalone button that activates it's flyout on click (not on hover or focus!). The purpose of the infotip is to inform the user about a non-clickable element or page section.</p>
+    <h4 id="tooltip-infotip">Infotip</h4>
+    <p>An infotip is a standalone button that activates on click (not on hover or focus!). The purpose of the infotip is to inform the user about a non-clickable element or page section.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the button to expand or collapse the infotip.</p>
     <div class="demo">
         <div class="demo__inner">
@@ -64,15 +60,15 @@
                     </svg>
                 </button>
                 <div class="infotip__overlay">
-                    <div class="flyout" style="top: 45px; left: -4px;">
-                        <span class="flyout__pointer flyout__pointer--top-left"></span>
-                        <div class="flyout__mask">
-                            <div class="flyout__cell">
-                                <span class="flyout-notice__content">
+                    <div class="bubble" style="top: 45px; left: -4px;">
+                        <span class="bubble__pointer bubble__pointer--top-left"></span>
+                        <div class="bubble__mask">
+                            <div class="bubble__cell">
+                                <span class="bubble__content">
                                     <p>Here's a tip to help you be successful at your task:</p>
                                     <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                                 </span>
-                                <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
+                                <button aria-label="Dismiss infotip" class="bubble__close" type="button">
                                     <span aria-hidden="true" role="img"></span>
                                 </button>
                             </div>
@@ -90,15 +86,15 @@
         </svg>
     </button>
     <div class="infotip__overlay">
-        <div class="flyout" style="top: 45px; left: -4px;">
-            <span class="flyout__pointer flyout__pointer--top-left"></span>
-            <div class="flyout__mask">
-                <div class="flyout__cell">
-                    <span class="flyout-notice__content">
+        <div class="bubble" style="top: 45px; left: -4px;">
+            <span class="bubble__pointer bubble__pointer--top-left"></span>
+            <div class="bubble__mask">
+                <div class="bubble__cell">
+                    <span class="bubble__content">
                         <p>Here's a tip to help you be successful at your task:</p>
                         <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                     </span>
-                    <button aria-label="Dismiss infotip" class="flyout-notice__close" type="button">
+                    <button aria-label="Dismiss infotip" class="bubble__close" type="button">
                         <span aria-hidden="true" role="img"></span>
                     </button>
                 </div>
@@ -109,21 +105,21 @@
     {% endhighlight %}
 
     <h4 id="tooltip-tour">Tourtip</h4>
-    <p>A tourtip has it's flyout open by default and must be explcitly closed using a button. Once closed, it cannot be reopened. The purpose of the tourtip is to inform the user of some new feature or section on the page.</p>
+    <p>A tourtip is open by default and must be explcitly closed using a button. Once closed, it cannot be reopened. The purpose of the tourtip is to inform the user of some new feature or section on the page.</p>
     <p>Toggle the <span class="highlight">tourtip--expanded</span> modifier to expand or collapse the tourtip.</p>
     <div class="demo">
         <div class="demo__inner">
             <div class="tourtip tourtip--expanded">
                 <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <div class="tourtip__overlay flyout" style="right: 0; top: 50%">
-                    <span class="flyout__pointer flyout__pointer--left"></span>
-                    <div class="flyout__mask">
-                        <div class="flyout__cell">
-                            <span class="flyout-notice__content">
+                <div class="tourtip__overlay bubble" style="right: 0; top: 50%">
+                    <span class="bubble__pointer bubble__pointer--left"></span>
+                    <div class="bubble__mask">
+                        <div class="bubble__cell">
+                            <span class="bubble__content">
                                 <p>Here's a tip to help you be successful at your task:</p>
                                 <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                             </span>
-                            <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
+                            <button aria-label="Dismiss tourtip" class="bubble__close" type="button">
                                 <span aria-hidden="true" role="img"></span>
                             </button>
                         </div>
@@ -135,15 +131,15 @@
     {% highlight html %}
 <div class="tourtip tourtip--expanded">
     <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <div class="tourtip__overlay flyout">
-        <span class="flyout__pointer flyout__pointer--left"></span>
-        <div class="flyout__mask">
-            <div class="flyout__cell">
-                <span class="flyout-notice__content">
+    <div class="tourtip__overlay bubble">
+        <span class="bubble__pointer bubble__pointer--left"></span>
+        <div class="bubble__mask">
+            <div class="bubble__cell">
+                <span class="bubble__content">
                     <p>Here's a tip to help you be successful at your task:</p>
                     <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                 </span>
-                <button aria-label="Dismiss tourtip" class="flyout-notice__close" type="button">
+                <button aria-label="Dismiss tourtip" class="bubble__close" type="button">
                     <span aria-hidden="true" role="img"></span>
                 </button>
             </div>
