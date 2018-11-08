@@ -1,33 +1,35 @@
-.flyout-notice .flyout {
-    border-bottom: 1px solid @ds4-color-core-gray-silver;
-    box-shadow: 0 3px 7px @ds4-color-transparent-gray-gainsboro;
+.flyout-notice {
+    .bubble {
+        border-bottom: 1px solid @ds4-color-core-gray-silver;
+        box-shadow: 0 3px 7px @ds4-color-transparent-gray-gainsboro;
+    }
 }
 
 .flyout-notice--confirmation {
-    // additional level of specificity needed over .tooltip .flyout__*
-    .flyout {
-        .flyout__mask {
+    // additional level of specificity needed over ".tooltip .bubble__mask"
+    .bubble {
+        .bubble__mask {
             border-top: 2px solid @ds4-color-interface-positive;
         }
 
-        .flyout__pointer--top-left,
-        .flyout__pointer--top,
-        .flyout__pointer--top-right {
+        .bubble__pointer--top-left,
+        .bubble__pointer--top,
+        .bubble__pointer--top-right {
             background-color: @ds4-color-interface-positive;
         }
     }
 }
 
 .flyout-notice--information {
-    // additional level of specificity needed over .tooltip .flyout__*
-    .flyout {
-        .flyout__mask {
+    // additional level of specificity needed over ".tooltip .bubble__mask"
+    .bubble {
+        .bubble__mask {
             border-top: 2px solid @ds4-color-interface-cta;
         }
 
-        .flyout__pointer--top-left,
-        .flyout__pointer--top,
-        .flyout__pointer--top-right {
+        .bubble__pointer--top-left,
+        .bubble__pointer--top,
+        .bubble__pointer--top-right {
             background-color: @ds4-color-interface-cta;
         }
     }
@@ -36,48 +38,16 @@
 .flyout-notice--priority {
     color: @ds4-color-text-critical;
 
-    // additional level of specificity needed over .tooltip .flyout__*
-    .flyout {
-        .flyout__mask {
+    // additional level of specificity needed over ".tooltip .bubble__mask"
+    .bubble {
+        .bubble__mask {
             border-top: 2px solid @ds4-color-text-critical;
         }
 
-        .flyout__pointer--top-left,
-        .flyout__pointer--top,
-        .flyout__pointer--top-right {
+        .bubble__pointer--top-left,
+        .bubble__pointer--top,
+        .bubble__pointer--top-right {
             background-color: @ds4-color-text-critical;
         }
-    }
-}
-
-button.flyout-notice__close {
-    border: 0;
-    color: @ds4-color-icon-actionable-default;
-    padding: 0;
-    white-space: nowrap;
-
-    &:focus,
-    &:hover {
-        color: @ds4-color-icon-actionable-hover;
-
-        span {
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iIzk5OSIgZD0iTTMxLjQyNyAyLjg0NkwyOS4wNC40NTkgMTUuOTU2IDEzLjU0MSAyLjg3NC40NTkuNDg4IDIuODQ2IDEzLjU3IDE1LjkyOC40ODggMjkuMDEybDIuMzg2IDIuMzg2IDEzLjA4Mi0xMy4wODJMMjkuMDQgMzEuMzk4bDIuMzg2LTIuMzg2LTEzLjA4NC0xMy4wODR6Ii8+PC9zdmc+');
-        }
-    }
-
-    &:active {
-        color: @ds4-color-icon-actionable-active;
-    }
-
-    svg {
-        .foreground-icon-base(12px,12px);
-    }
-
-    span {
-        .icon-close(12px, 12px);
-
-        background-repeat: no-repeat;
-        display: inline-block;
-        vertical-align: middle;
     }
 }

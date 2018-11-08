@@ -1,0 +1,95 @@
+@import "bubble-mixins.less";
+
+.bubble {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    max-width: 344px;
+    min-width: 320px;
+    position: absolute;
+}
+
+// masks one half of pointer and sets background colour
+.bubble__mask {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+// creates basic layout
+.bubble__cell {
+    display: flex;
+    padding: 16px;
+}
+
+.bubble__content {
+    flex-grow: 1;
+}
+
+button.bubble__close {
+    align-self: flex-start;
+    background: none;
+    margin: 0 0 0 16px;
+    padding: 0;
+}
+
+// base class is a top, center pointer
+.bubble__pointer {
+    .pointer-base;
+}
+
+.bubble__pointer--top-left {
+    .pointer-top;
+
+    left: 12px;
+}
+
+.bubble__pointer--top {
+    .pointer-top;
+
+    left: calc(50% - 8px);
+}
+
+.bubble__pointer--top-right {
+    .pointer-top;
+
+    left: auto;
+    right: 12px;
+}
+
+.bubble__pointer--bottom-left {
+    .pointer-bottom;
+
+    left: 16px;
+}
+
+.bubble__pointer--bottom {
+    .pointer-bottom;
+
+    left: calc(50% - 8px);
+}
+
+.bubble__pointer--bottom-right {
+    .pointer-bottom;
+
+    left: auto;
+    right: 16px;
+}
+
+.bubble__pointer--left {
+    .pointer-side;
+
+    left: -7px;
+}
+
+.bubble__pointer--right {
+    .pointer-side;
+
+    left: auto;
+    right: -7px;
+}
+
+@media (min-width: 601px) {
+    .bubble {
+        max-width: 400px;
+    }
+}
