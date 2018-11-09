@@ -1,0 +1,295 @@
+diff --git a/badge.browser.json b/badge.browser.json
+new file mode 100644
+index 0000000..82fef5d
+--- /dev/null
++++ b/badge.browser.json
+@@ -0,0 +1,12 @@
++{
++    "dependencies": [
++        {
++            "path": "./dist/badge/ds4/badge.css",
++            "if-not-flag": "skin-ds6"
++        },
++        {
++            "path": "./dist/badge/ds6/badge.css",
++            "if-flag": "skin-ds6"
++        }
++    ]
++}
+diff --git a/browser.json b/browser.json
+index ad7cc6f..1f21945 100644
+--- a/browser.json
++++ b/browser.json
+@@ -3,6 +3,7 @@
+         "@ebay/skin/global",
+         "@ebay/skin/utility",
+         "@ebay/skin/actionable",
++        "@ebay/skin/badge",
+         "@ebay/skin/breadcrumb",
+         "@ebay/skin/button",
+         "@ebay/skin/card",
+diff --git a/dist/badge/ds4/badge.css b/dist/badge/ds4/badge.css
+new file mode 100644
+index 0000000..195ae89
+--- /dev/null
++++ b/dist/badge/ds4/badge.css
+@@ -0,0 +1,3 @@
++.badge {
++  display: block;
++}
+diff --git a/dist/badge/ds6/badge.css b/dist/badge/ds6/badge.css
+new file mode 100644
+index 0000000..195ae89
+--- /dev/null
++++ b/dist/badge/ds6/badge.css
+@@ -0,0 +1,3 @@
++.badge {
++  display: block;
++}
+diff --git a/dist/less/ds6/variables.less b/dist/less/ds6/variables.less
+index e45af1a..dfba79d 100644
+--- a/dist/less/ds6/variables.less
++++ b/dist/less/ds6/variables.less
+@@ -38,6 +38,8 @@
+ @ds6-color-item-tile-background-visited: @ds6-color-g202-gray;
+ @ds6-color-button-disabled-background: @ds6-color-g204-gray;
+ @ds6-color-disabled: @ds6-color-g204-gray;
++@ds6-color-badge-text: @ds6-color-g202-gray;
++@ds6-color-badge-background: @ds6-color-p013-red;
+ 
+ // Typography
+ //----------------------------
+diff --git a/docs/_includes/common/badge.html b/docs/_includes/common/badge.html
+new file mode 100644
+index 0000000..19028b6
+--- /dev/null
++++ b/docs/_includes/common/badge.html
+@@ -0,0 +1,12 @@
++<div id="badge">
++    <h2><span class="secondary-text">@ebay/skin/</span>badge</h2>
++    <p></p>
++    <div class="demo">
++        <div class="demo__inner">
++            <span class="badge">6</span>
++        </div>
++    </div>
++    {% highlight html %}
++    <span class="badge">6</span>
++    {% endhighlight %}
++
+diff --git a/docs/_layouts/ds6/default.html b/docs/_layouts/ds6/default.html
+index 678e8dd..c1c1230 100644
+--- a/docs/_layouts/ds6/default.html
++++ b/docs/_layouts/ds6/default.html
+@@ -45,6 +45,7 @@
+                 <ul>
+                     <li><a href="#global">global</a></li>
+                     <li><a href="#less">less</a></li>
++                    <li><a href="#badge">badge</a></li>
+                     <li><a href="#breadcrumb">breadcrumb</a></li>
+                     <li><a href="#button">button</a></li>
+                     <li><a href="#checkbox">checkbox</a></li>
+diff --git a/docs/ds6/index.html b/docs/ds6/index.html
+index 480a039..4e58f96 100644
+--- a/docs/ds6/index.html
++++ b/docs/ds6/index.html
+@@ -10,6 +10,7 @@ ds: 6
+     {% include ds6/install.html %}
+     {% include ds6/global.html %}
+     {% include ds6/less.html %}
++    {% include common/badge.html %}
+     {% include common/breadcrumb.html %}
+     {% include common/button.html %}
+     {% include common/checkbox.html %}
+diff --git a/docs/index.html b/docs/index.html
+index c1f73fc..b0eae05 100644
+--- a/docs/index.html
++++ b/docs/index.html
+@@ -15,6 +15,7 @@ ds: 4
+ {% include ds4/fonts.html %}
+ 
+ {% include ds4/actionable.html %}
++{% include common/badge.html %}
+ {% include common/breadcrumb.html %}
+ {% include common/button.html %}
+ {% include ds4/card.html %}
+diff --git a/docs/static/ds4/docs.js b/docs/static/ds4/docs.js
+index 425b8c3..1711af2 100644
+--- a/docs/static/ds4/docs.js
++++ b/docs/static/ds4/docs.js
+@@ -48,4 +48,4 @@ $_mod.installed("jquery-tabs$0.5.1","jquery","3.2.1");
+ !function(t){t.fn.tabs=function(a){return a=t.extend({},a),this.each(function(){var e=t(this),r=e.find(".tabs__items"),i=r.find(".tabs__item"),n=r.find("a"),d=e.find(".tabs__content"),l=d.find(".tabs__panel");e.nextId("tabs"),r.attr("role","tablist"),i.attr("role","tab").attr("aria-selected","false").first().attr("aria-selected","true"),l.attr("role","tabpanel").prop("hidden",!0).first().prop("hidden",!1),n.attr("role","presentation").removeAttr("href"),!0===a.livePanels&&d.attr("aria-live","polite"),i.each(function(a,r){var i=t(r),n=e.attr("id")+"-tab-"+a,d=e.attr("id")+"-panel-"+a;i.attr("id",n).attr("aria-controls",d),l.eq(a).attr("id",d).attr("aria-labelledby",n)}),r.rovingTabindex("[role=tab]",{autoWrap:!0,disableHomeAndEndKeys:!0}),r.on("rovingTabindexChange","[role=tab]",function(a,e){var i=t(this),n=r.find("[aria-selected=true]"),l=d.find("[aria-labelledby={0}]".replace("{0}",n.attr("id"))),s=d.find("[aria-labelledby={0}]".replace("{0}",i.attr("id")));i[0]!==n[0]&&(l.prop("hidden",!0),s.prop("hidden",!1),i.attr("aria-selected","true"),setTimeout(function(){n.attr("aria-selected","false"),i.trigger("tabsSelect",e)},0))}),e.addClass("tabs--js")})}}(jQuery);
+ $_mod.installed("jquery-tooltip$0.2.1","jquery","3.2.1");
+ !function(e){e.fn.tooltip=function(t){return t=e.extend({overlaySelector:".tooltip__overlay, [role=tooltip]",triggerSelector:".tooltip__trigger, [aria-describedby]"},t),this.each(function(){var o=e(this),r={expandedClass:"tooltip--expanded",triggerSelector:t.triggerSelector,overlaySelector:t.overlaySelector};o.hoverFlyout(r).focusFlyout(r),o.addClass("tooltip--js")})}}(jQuery);
+-$("#header-large .grid__cell").skipTo(),$(".fake-menu").clickFlyout({closeOnEsc:!0,focusManagement:"first",triggerSelector:".expand-btn",overlaySelector:".fake-menu__items"}),$(".menu").menu(),$(".tabs").tabs(),$(".tooltip").tooltip(),$(".bubblehelp").clickFlyout({triggerSelector:".bubblehelp__host",overlaySelector:".bubblehelp__overlay",autoCollapse:!1}),$("#banner-menu").on("click","a",function(e){var t=document.querySelector(this.href.substring(this.href.indexOf("#")));t.setAttribute("tabindex","-1"),t.focus()}),$(".expand-btn-example").on("click",function(){$(this).attr("aria-expanded","true"===$(this).attr("aria-expanded")?"false":"true")}),$(".combobox__control").on("click",function(){const e=$(this),t=e.find("input");e.find("input").prop("disabled")||(e.hasClass("combobox__control--expanded")?(e.removeClass("combobox__control--expanded"),t.attr("aria-expanded","false")):(e.addClass("combobox__control--expanded"),t.attr("aria-expanded","true")))}),document.querySelectorAll(".dialog-button").forEach(function(e){function t(){n.removeAttribute("hidden"),e.removeEventListener("click",t),n.addEventListener("click",o,!0),document.body.setAttribute("style","overflow:hidden"),i.focus()}function o(i){r.contains(i.target)||(n.setAttribute("hidden",""),e.addEventListener("click",t),n.removeEventListener("click",o,!0),document.body.removeAttribute("style"),e.focus())}var n=e.nextElementSibling,r=n.querySelector(".dialog__body"),i=n.querySelector(".dialog__close");e.addEventListener("click",t)});
++$("#header-large .grid__cell").skipTo(),$(".fake-menu").clickFlyout({closeOnEsc:!0,focusManagement:"first",triggerSelector:".expand-btn",overlaySelector:".fake-menu__items"}),$(".menu").menu(),$(".tabs").tabs(),$(".tooltip").tooltip(),$(".bubblehelp").clickFlyout({triggerSelector:".bubblehelp__host",overlaySelector:".bubblehelp__overlay",autoCollapse:!1}),$("#banner-menu").on("click","a",function(e){var t=document.querySelector(this.href.substring(this.href.indexOf("#")));t.setAttribute("tabindex","-1"),t.focus()}),$(".expand-btn-example").on("click",function(){$(this).attr("aria-expanded","true"===$(this).attr("aria-expanded")?"false":"true")}),$(".combobox__control").on("click",function(){const e=$(this),t=e.find("input");e.find("input").prop("disabled")||(e.hasClass("combobox__control--expanded")?(e.removeClass("combobox__control--expanded"),t.attr("aria-expanded","false")):(e.addClass("combobox__control--expanded"),t.attr("aria-expanded","true")))}),document.querySelectorAll(".dialog-button").forEach(function(e){function t(){n.removeAttribute("hidden"),e.removeEventListener("click",t),n.addEventListener("click",o,!0),document.body.setAttribute("style","overflow:hidden"),i.focus()}function o(i){r.contains(i.target)||(n.setAttribute("hidden",""),e.addEventListener("click",t),n.removeEventListener("click",o,!0),document.body.removeAttribute("style"),e.focus())}var n=e.nextElementSibling,r=n.querySelector(".dialog__body"),i=n.querySelector(".dialog__close");e.addEventListener("click",t)});
+\ No newline at end of file
+diff --git a/docs/static/ds4/skin-full.css b/docs/static/ds4/skin-full.css
+index 63963e0..bb5dca7 100644
+--- a/docs/static/ds4/skin-full.css
++++ b/docs/static/ds4/skin-full.css
+@@ -199,6 +199,9 @@ button.img-btn:not([disabled]):focus {
+ button.img-btn:not([disabled]):active {
+   border-color: #767676;
+ }
++.badge {
++  display: block;
++}
+ .breadcrumb {
+   margin: 16px 0;
+ }
+diff --git a/docs/static/ds4/skin.css b/docs/static/ds4/skin.css
+index def4cfc..77717fe 100644
+--- a/docs/static/ds4/skin.css
++++ b/docs/static/ds4/skin.css
+@@ -199,6 +199,9 @@ button.img-btn:not([disabled]):focus {
+ button.img-btn:not([disabled]):active {
+   border-color: #767676;
+ }
++.badge {
++  display: block;
++}
+ .breadcrumb {
+   margin: 16px 0;
+ }
+diff --git a/docs/static/ds6/docs.js b/docs/static/ds6/docs.js
+index c2c609a..8d17ba9 100644
+--- a/docs/static/ds6/docs.js
++++ b/docs/static/ds6/docs.js
+@@ -53,5 +53,5 @@ $_mod.def("/makeup-screenreader-trap$0.0.5/util",function(n,t,e,r,o){"use strict
+ $_mod.def("/makeup-screenreader-trap$0.0.5/index",function(e,t,n,r,a){"use strict";function i(e,t){return{el:e,cleanValue:e.getAttribute("aria-hidden"),dirtyValue:t}}function u(e){e.el.setAttribute("aria-hidden",e.dirtyValue)}function c(e){e.cleanValue?e.el.setAttribute("aria-hidden",e.cleanValue):e.el.removeAttribute("aria-hidden")}function o(){f&&(p.forEach(function(e){return c(e)}),p=[],d&&d.setAttribute("role","main"),f.dispatchEvent(new CustomEvent("screenreaderUntrap",{bubbles:!0})),f=null)}function s(e){o(),f=e,(d=document.querySelector('main, [role="main"]'))&&d.setAttribute("role","presentation");var t=l.getAncestors(f),n=l.getSiblings(f),r=l.getSiblingsOfAncestors(f);p=[i(f,"false")].concat(t.map(function(e){return i(e,"false")})).concat(n.map(function(e){return i(e,"true")})).concat(r.map(function(e){return i(e,"true")})),p.forEach(function(e){return u(e)}),f.dispatchEvent(new CustomEvent("screenreaderTrap",{bubbles:!0}))}var l=e("/makeup-screenreader-trap$0.0.5/util"),d=void 0,f=void 0,p=void 0;n.exports={trap:s,untrap:o}});
+ $_mod.def("/makeup-modal$0.0.4/index",function(e,t,n,a,r){"use strict";function d(){if(p){o.untrap(p),i.untrap(p);var e=document.createEvent("Event");e.initEvent("unmodal",!1,!0),p.dispatchEvent(e),p=null}return p}function u(e){d(),p=e,o.trap(p),i.trap(p);var t=document.createEvent("Event");return t.initEvent("modal",!1,!0),p.dispatchEvent(t),p}var i=e("/makeup-keyboard-trap$0.0.9/index"),o=e("/makeup-screenreader-trap$0.0.5/index"),p=void 0;n.exports={modal:u,unmodal:d}});
+ $_mod.def("/@ebay/skin$6.0.3/docs/src/js/ds6/transition",function(e,n,t,i,r){function o(e){for(var n=window.getComputedStyle(e).transitionDuration.replace(s,"")?1:0,t=e.firstElementChild;t;)n+=o(t),t=t.nextElementSibling;return n}function a(e){var n,t;return window.requestAnimationFrame?(n=requestAnimationFrame(function(){n=requestAnimationFrame(e)}),t=cancelAnimationFrame):(n=setTimeout(e,26),t=clearTimeout),function(){n&&(t(n),n=void 0)}}var m="transitionend",s=/0m?s(?:, )?/g;t.exports=function(e,n,t){function i(){s||(s=!0,e.removeEventListener(m,r,!0),f?(f(),c.remove(v)):c.remove(n))}function r(){++d===u&&(s=!0,e.removeEventListener(m,r,!0),c.remove(n),t&&t())}var s,u,d=0,c=e.classList,v=n+"-init",f=a(function(){e.addEventListener(m,r,!0),c.add(n),c.remove(v),u=o(e),f=void 0,0===u&&i()});return c.add(v),i}});
+-$_mod.def("/@ebay/skin$6.0.3/docs/src/js/ds6/main",function(e,t,o,n,i){function r(e){return Array.prototype.slice.call(e)}function a(){var e=window.mm.matches,t=window.scrollY||window.pageYOffset;!e&&t>=window.sidebar_top?window.sidebar.classList.add("fixed"):window.sidebar.classList.remove("fixed")}var c=e("/makeup-expander$0.4.0/index"),l=e("/makeup-roving-tabindex$0.0.5/index"),d=e("/makeup-key-emitter$0.0.3/index"),s=e("/makeup-prevent-scroll-keys$0.0.2/index"),u=e("/makeup-modal$0.0.4/index"),f=e("/@ebay/skin$6.0.3/docs/src/js/ds6/transition"),m=e("/makeup-floating-label$0.0.2/index");r(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button)')).forEach(function(e,t){e.addEventListener("click",function(e){alert("You clicked "+this)})}),r(document.querySelectorAll(".expand-btn-example")).forEach(function(e,t){e.addEventListener("click",function(e){var t="true"===this.getAttribute("aria-expanded");this.setAttribute("aria-expanded",!t)})}),r(document.querySelectorAll("[role=menu]")).forEach(function(e,t){l.createLinear(e,"[role^=menuitem]",{autoReset:0})}),r(document.querySelectorAll(".menu, .fake-menu")).forEach(function(e,t){var o=new c(e,{autoCollapse:!0,expandOnClick:!0,focusManagement:"interactive",hostSelector:".expand-btn",contentSelector:".menu__items, .fake-menu__items"}),n=r(e.querySelectorAll("[role^=menuitem]")),i=function(e){n.forEach(function(t){t.setAttribute("aria-checked",t===e)})};n.forEach(function(e,t){e.addEventListener("click",function(t){var n=this.getAttribute("role");o.collapse(),"menuitemradio"===n?i(this):"menuitemcheckbox"===n&&e.setAttribute("aria-checked","true"!==e.getAttribute("aria-checked"))})}),d.addKeyDown(e),e.addEventListener("escapeKeyDown",function(){this.querySelector(".expand-btn").focus(),o.collapse()}),e.addEventListener("expander-expand",function(){var t=r(e.querySelectorAll("[role^=menuitem][aria-checked=true]"))[0];if(t){var o=t&&t.parentElement;if(t.offsetTop<o.scrollTop)o.scrollTop=t.offsetTop;else{var n=t.offsetTop+t.offsetHeight;n>o.scrollTop+o.offsetHeight&&(o.scrollTop=n-o.offsetHeight)}}})}),r(document.querySelectorAll("[role^=menuitem]")).forEach(function(e,t){s.add(e)}),r(document.querySelectorAll(".combobox")).forEach(function(e,t){var o=e.querySelector("input:not([disabled])[role=combobox]");if(o){var n,i=new c(e,{autoCollapse:!0,expandOnClick:!0,hostSelector:"input[role=combobox]",hostContainerClass:"combobox__control",contentSelector:".combobox__options",simulateSpacebarClick:!0}),a=r(e.querySelectorAll("[role=option]")),l=e.querySelector("[role=option][aria-selected=true]"),u=a.length,f=function(e){l.setAttribute("aria-selected","false"),n=e,o.value="Option "+(n+1),l=a[n],l.setAttribute("aria-selected","true")};a.forEach(function(e,t){e.dataset||(e.dataset={}),e.dataset.comboboxIndex=t,e.addEventListener("click",function(e){f(parseInt(this.dataset.comboboxIndex,10)),i.collapse(),o.focus()})}),n=parseInt(l.dataset.comboboxIndex,10),d.addKeyDown(e),s.add(e),e.addEventListener("escapeKeyDown",function(){i.collapse(),o.focus()}),e.addEventListener("arrowDownKeyDown",function(e){n<u-1&&f(n+1)}),e.addEventListener("arrowUpKeyDown",function(e){n>0&&f(n-1)}),e.addEventListener("expander-expand",function(){var t=r(e.querySelectorAll("[role=option][aria-selected=true]"))[0];if(t){var o=t&&t.parentElement;if(t.offsetTop<o.scrollTop)o.scrollTop=t.offsetTop;else{var n=t.offsetTop+t.offsetHeight;n>o.scrollTop+o.offsetHeight&&(o.scrollTop=n-o.offsetHeight)}}})}}),r(document.querySelectorAll(".dialog-button")).forEach(function(e){function t(){i&&i(),i=f(r,"dialog--show",n(!0)),r.removeAttribute("hidden"),e.removeEventListener("click",t),r.addEventListener("click",o,!0),document.body.setAttribute("style","overflow:hidden"),u.modal(r.querySelector(".dialog__window"))}function o(c){a.contains(c.target)||(i&&i(),i=f(r,"dialog--hide",n(!1)),r.setAttribute("hidden",""),e.addEventListener("click",t),r.removeEventListener("click",o,!0),document.body.removeAttribute("style"),u.unmodal(),e.focus())}function n(e){e&&c.focus(),i=void 0}var i,r=e.nextElementSibling,a=r.querySelector(".dialog__body"),c=r.querySelector(".dialog__close");e.addEventListener("click",t)}),window.mobileMediaQuery="all and (max-width: 600px)",window.mm=window.matchMedia(window.mobileMediaQuery),window.sidebar=document.querySelector("nav .fixed-nav"),window.sidebar_top=sidebar.offsetTop,window.addEventListener("resize",function(e,t,o){var n;return function(){var i=this,r=arguments,a=function(){n=null,o||e.apply(i,r)},c=o&&!n;clearTimeout(n),n=setTimeout(a,t),c&&e.apply(i,r)}}(function(){mm=window.matchMedia(mobileMediaQuery)},50)),window.addEventListener("load",function(){a(),window.addEventListener("scroll",a)}),r(document.querySelectorAll(".floating-label")).forEach(function(e){new m(e)})});
+-$_mod.run("/@ebay/skin$6.0.3/docs/src/js/ds6/main");
++$_mod.def("/@ebay/skin$6.0.3/docs/src/js/ds6/main",function(e,t,o,n,i){function r(e){return Array.prototype.slice.call(e)}function l(){var e=window.mm.matches,t=window.scrollY||window.pageYOffset;!e&&t>=window.sidebar_top?window.sidebar.classList.add("fixed"):window.sidebar.classList.remove("fixed")}var a=e("/makeup-expander$0.4.0/index"),c=e("/makeup-roving-tabindex$0.0.5/index"),d=e("/makeup-key-emitter$0.0.3/index"),s=e("/makeup-prevent-scroll-keys$0.0.2/index"),u=e("/makeup-modal$0.0.4/index"),f=e("/@ebay/skin$6.0.3/docs/src/js/ds6/transition"),p=e("/makeup-floating-label$0.0.2/index");r(document.querySelectorAll('.btn:not([aria-disabled="true"]):not(.dialog-button):not(.tooltip__close)')).forEach(function(e,t){e.addEventListener("click",function(e){alert("You clicked "+this)})}),r(document.querySelectorAll(".expand-btn-example")).forEach(function(e,t){e.addEventListener("click",function(e){var t="true"===this.getAttribute("aria-expanded");this.setAttribute("aria-expanded",!t)})}),r(document.querySelectorAll("[role=menu]")).forEach(function(e,t){c.createLinear(e,"[role^=menuitem]",{autoReset:0})}),r(document.querySelectorAll(".menu, .fake-menu")).forEach(function(e,t){var o=new a(e,{autoCollapse:!0,expandOnClick:!0,focusManagement:"interactive",hostSelector:".expand-btn",contentSelector:".menu__items, .fake-menu__items"}),n=r(e.querySelectorAll("[role^=menuitem]")),i=function(e){n.forEach(function(t){t.setAttribute("aria-checked",t===e)})};n.forEach(function(e,t){e.addEventListener("click",function(t){var n=this.getAttribute("role");o.collapse(),"menuitemradio"===n?i(this):"menuitemcheckbox"===n&&e.setAttribute("aria-checked","true"!==e.getAttribute("aria-checked"))})}),d.addKeyDown(e),e.addEventListener("escapeKeyDown",function(){this.querySelector(".expand-btn").focus(),o.collapse()}),e.addEventListener("expander-expand",function(){var t=r(e.querySelectorAll("[role^=menuitem][aria-checked=true]"))[0];if(t){var o=t&&t.parentElement;if(t.offsetTop<o.scrollTop)o.scrollTop=t.offsetTop;else{var n=t.offsetTop+t.offsetHeight;n>o.scrollTop+o.offsetHeight&&(o.scrollTop=n-o.offsetHeight)}}})}),r(document.querySelectorAll("[role^=menuitem]")).forEach(function(e,t){s.add(e)}),r(document.querySelectorAll(".tooltip.tooltip--hover")).forEach(function(e,t){new a(e,{contentSelector:".tooltip__overlay",collapseOnFocusOut:!0,collapseOnMouseOut:!0,expandOnClick:!0,expandOnFocus:!0,expandOnHover:!0,focusManagement:"focusable",hostSelector:".tooltip__host"})}),r(document.querySelectorAll(".tooltip:not(.tooltip--hover)")).forEach(function(e,t){var o=new a(e,{contentSelector:".tooltip__overlay",expandOnClick:!0,hostSelector:".tooltip__host"}),n=e.querySelector(".tooltip__host"),i=n.nextElementSibling,r=i.querySelector(".tooltip__close");r&&r.addEventListener("click",function(e){o.collapse(),n.focus()})}),r(document.querySelectorAll(".combobox")).forEach(function(e,t){var o=e.querySelector("input:not([disabled])[role=combobox]");if(o){var n,i=new a(e,{autoCollapse:!0,expandOnClick:!0,hostSelector:"input[role=combobox]",hostContainerClass:"combobox__control",contentSelector:".combobox__options",simulateSpacebarClick:!0}),l=r(e.querySelectorAll("[role=option]")),c=e.querySelector("[role=option][aria-selected=true]"),u=l.length,f=function(e){c.setAttribute("aria-selected","false"),n=e,o.value="Option "+(n+1),c=l[n],c.setAttribute("aria-selected","true")};l.forEach(function(e,t){e.dataset||(e.dataset={}),e.dataset.comboboxIndex=t,e.addEventListener("click",function(e){f(parseInt(this.dataset.comboboxIndex,10)),i.collapse(),o.focus()})}),n=parseInt(c.dataset.comboboxIndex,10),d.addKeyDown(e),s.add(e),e.addEventListener("escapeKeyDown",function(){i.collapse(),o.focus()}),e.addEventListener("arrowDownKeyDown",function(e){n<u-1&&f(n+1)}),e.addEventListener("arrowUpKeyDown",function(e){n>0&&f(n-1)}),e.addEventListener("expander-expand",function(){var t=r(e.querySelectorAll("[role=option][aria-selected=true]"))[0];if(t){var o=t&&t.parentElement;if(t.offsetTop<o.scrollTop)o.scrollTop=t.offsetTop;else{var n=t.offsetTop+t.offsetHeight;n>o.scrollTop+o.offsetHeight&&(o.scrollTop=n-o.offsetHeight)}}})}}),r(document.querySelectorAll(".dialog-button")).forEach(function(e){function t(){i&&i(),i=f(r,"dialog--show",n(!0)),r.removeAttribute("hidden"),e.removeEventListener("click",t),r.addEventListener("click",o,!0),document.body.setAttribute("style","overflow:hidden"),u.modal(r.querySelector(".dialog__window"))}function o(a){l.contains(a.target)||(i&&i(),i=f(r,"dialog--hide",n(!1)),r.setAttribute("hidden",""),e.addEventListener("click",t),r.removeEventListener("click",o,!0),document.body.removeAttribute("style"),u.unmodal(),e.focus())}function n(e){e&&a.focus(),i=void 0}var i,r=e.nextElementSibling,l=r.querySelector(".dialog__body"),a=r.querySelector(".dialog__close");e.addEventListener("click",t)}),window.mobileMediaQuery="all and (max-width: 600px)",window.mm=window.matchMedia(window.mobileMediaQuery),window.sidebar=document.querySelector("nav .fixed-nav"),window.sidebar_top=sidebar.offsetTop,window.addEventListener("resize",function(e,t,o){var n;return function(){var i=this,r=arguments,l=function(){n=null,o||e.apply(i,r)},a=o&&!n;clearTimeout(n),n=setTimeout(l,t),a&&e.apply(i,r)}}(function(){mm=window.matchMedia(mobileMediaQuery)},50)),window.addEventListener("load",function(){l(),window.addEventListener("scroll",l)}),r(document.querySelectorAll(".floating-label")).forEach(function(e){new p(e)})});
++$_mod.run("/@ebay/skin$6.0.3/docs/src/js/ds6/main");
+\ No newline at end of file
+diff --git a/docs/static/ds6/skin.css b/docs/static/ds6/skin.css
+index b01d5b5..78999b0 100644
+--- a/docs/static/ds6/skin.css
++++ b/docs/static/ds6/skin.css
+@@ -50,6 +50,19 @@ legend {
+ body {
+   font-family: "Market Sans", Arial, sans-serif;
+ }
++.badge {
++  border-radius: 20rem;
++  display: inline-block;
++  font-size: 0.6125rem;
++  padding: 0.25em 0.6em 0.25em 0.6em;
++  text-align: center;
++  vertical-align: baseline;
++}
++.badge {
++  background-color: #c9002c;
++  border: 2px solid #f5f5f5;
++  color: #f5f5f5;
++}
+ .breadcrumb {
+   margin: 16px 0;
+ }
+diff --git a/gh.browser.json b/gh.browser.json
+index 0d4621d..13007af 100644
+--- a/gh.browser.json
++++ b/gh.browser.json
+@@ -4,6 +4,7 @@
+         "less-import: ./src/less/less/ds6/mixins.less",
+         "less-import: ./src/less/utility/ds6/utility-mixin.less",
+         "less-import: ./src/less/actionable/ds6/actionable-mixin.less",
++        "less-import: ./src/less/badge/ds6/badge-mixin.less",
+         "less-import: ./src/less/breadcrumb/ds6/breadcrumb-mixin.less",
+         "less-import: ./src/less/button/ds6/button-mixin.less",
+         "less-import: ./src/less/checkbox/ds6/checkbox-mixin.less",
+diff --git a/src/less/badge/base/badge.less b/src/less/badge/base/badge.less
+new file mode 100644
+index 0000000..768575a
+--- /dev/null
++++ b/src/less/badge/base/badge.less
+@@ -0,0 +1,14 @@
++@import "../../less/variables-common.less";
++@import "../../less/mixins-common.less";
++
++.badge {
++    // border-radius: 15px;
++    border-radius: 15rem;
++    display: inline-block;
++    font-size: @ds6-font-size-10;
++    // padding: 0.25em 0.6em 0.25em 0.6em;
++    line-height: 1.2;
++    padding: 0.35em 0.6em;
++    text-align: center;
++    vertical-align: baseline;
++}
+diff --git a/src/less/badge/ds4/badge.less b/src/less/badge/ds4/badge.less
+new file mode 100644
+index 0000000..97e84c9
+--- /dev/null
++++ b/src/less/badge/ds4/badge.less
+@@ -0,0 +1,7 @@
++@import '../base/badge.less';
++
++.badge {
++    background: @ds4-color;
++    border: 1px solid @ds4-color-core-gray-gainsboro;
++    color: @ds4-color-text-default;
++}
+diff --git a/src/less/badge/ds6/badge-mixin.less b/src/less/badge/ds6/badge-mixin.less
+new file mode 100644
+index 0000000..31a4d5b
+--- /dev/null
++++ b/src/less/badge/ds6/badge-mixin.less
+@@ -0,0 +1,3 @@
++.badge-mixin() {
++    @import "../../../../dist/badge/ds6/badge.css";
++}
+diff --git a/src/less/badge/ds6/badge.less b/src/less/badge/ds6/badge.less
+new file mode 100644
+index 0000000..d87c240
+--- /dev/null
++++ b/src/less/badge/ds6/badge.less
+@@ -0,0 +1,7 @@
++@import '../base/badge.less';
++
++.badge {
++    background-color: @ds6-color-badge-background;
++    border: 2px solid @ds6-color-badge-text;
++    color: @ds6-color-badge-text;
++}
+diff --git a/src/less/bundles/skin/ds4/skin.less b/src/less/bundles/skin/ds4/skin.less
+index 153f087..631d57f 100644
+--- a/src/less/bundles/skin/ds4/skin.less
++++ b/src/less/bundles/skin/ds4/skin.less
+@@ -4,6 +4,7 @@
+ @import "../../../utility/ds4/utility.less";
+ 
+ @import "../../../actionable/ds4/actionable.less";
++@import "../../../badge/ds4/badge.less";
+ @import "../../../breadcrumb/ds4/breadcrumb.less";
+ @import "../../../button/ds4/button.less";
+ @import "../../../card/ds4/card.less";
+diff --git a/src/less/bundles/skin/ds6/skin.less b/src/less/bundles/skin/ds6/skin.less
+index 83b1b13..5cafda4 100644
+--- a/src/less/bundles/skin/ds6/skin.less
++++ b/src/less/bundles/skin/ds6/skin.less
+@@ -2,6 +2,7 @@
+ 
+ @import "../../../marketsans/marketsans.less";
+ @import "../../../global/ds6/global-static.less";
++@import "../../../badge/ds6/badge.less";
+ @import "../../../breadcrumb/ds6/breadcrumb.less";
+ @import "../../../button/ds6/button.less";
+ @import "../../../checkbox/ds6/checkbox.less";
+diff --git a/src/less/less/ds6/variables.less b/src/less/less/ds6/variables.less
+index e45af1a..dfba79d 100644
+--- a/src/less/less/ds6/variables.less
++++ b/src/less/less/ds6/variables.less
+@@ -38,6 +38,8 @@
+ @ds6-color-item-tile-background-visited: @ds6-color-g202-gray;
+ @ds6-color-button-disabled-background: @ds6-color-g204-gray;
+ @ds6-color-disabled: @ds6-color-g204-gray;
++@ds6-color-badge-text: @ds6-color-g202-gray;
++@ds6-color-badge-background: @ds6-color-p013-red;
+ 
+ // Typography
+ //----------------------------

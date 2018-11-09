@@ -146,35 +146,35 @@ The Skin Icon-Font is frozen. No new icons will be added to the font. Please use
 
 ## Releases
 
-As of v3, the `@ebay/skin` module is published to the public NPM repository at https://registry.npmjs.org/.
+The `@ebay/skin` module is published to the public NPM repository at https://registry.npmjs.org/.
 
 Please ensure your NPM registry is set correctly and that you are on the package owners list, i.e. `npm owner ls @ebay/skin`.
 
-Please follow the steps below to publish skin to NPM:
-
-1. Build files must be stamped with the new version number. Increment the version number in `package.json` by hand (e.g. do **not** use `npm version` because this will create a git tag while the build files are still stamped with the *old* version number!)
-1. Run `yarn build`. This will update the top comment section of build files with the new version number. This is needed for legal.
-1. Revert the version number update you made to `package.json` in step 1.
-1. Commit the modified build files with message "Stamped files with vX.x.x" and push to origin.
-
-Next, move on to pre-release or final release instructions below.
-
 ### Pre-Release
 
-Pre-releases are made directly from a milestone branch. Patch releases do not need a pre-release (proceed directly to final release section below).
+A pre-release is always made from a milestone branch.
 
-1. Run `npm version preminor` or `npm version premajor`. This command will update the version number in `package.json`, commit the change locally, and create a Git tag at the same time.
+1. Run `npm version prepatch`, `npm version preminor`, or `npm version premajor`. This command will automatically:
+    * update the version number in css build files
+    * update the version number in `package.json`
+    * commit all changes locally
+    * create a Git tag
 1. Push commit to origin.
 1. Run `npm publish --tag beta` to publish the package to NPM.
 
 ### Final Release
 
-Final releases are always made from the master branch. Minor and major version releases **must** be preceded by a pre-release (see above).
+A final release is always made from the master branch.
 
-1. Update documentation references to reflect the new CDN url.
-1. Merge the milestone branch into master branch in GitHub (via a pull request).
+1. Manually update all CDN url paths in documentation and push the change
+1. Create a GitHub PR to merge the milestone branch into master branch.
+1. Merge the PR after approval (do not squash!)
 1. Switch to your local master branch and pull the changes from origin.
-1. Run `npm version patch`, `npm version minor` or `npm version major`. This command will update the version number in `package.json`, commit the change locally and create a Git tag at the same time.
+1. Run `npm version patch`, `npm version minor`, or `npm version major`. This command will automatically:
+    * update the version number in css build files
+    * update the version number in `package.json`
+    * commit all changes locally
+    * create a Git tag
 1. Push commit to origin.
 1. Push the git tag to origin, e.g. `git push origin v3.1.0`.
 1. Run `npm publish` to publish the package to NPM.

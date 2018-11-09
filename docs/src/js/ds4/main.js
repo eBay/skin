@@ -1,72 +1,23 @@
-$('#header-large .grid__cell').skipTo();
-// $('.dialog-button').dialogButton();
-$('.fake-menu').clickFlyout({closeOnEsc: true, focusManagement: 'first', triggerSelector: '.expand-btn', overlaySelector: '.fake-menu__items'});
-$('.menu').menu();
-$('.tabs').tabs();
-$('.tooltip').tooltip();
-$('.bubblehelp').clickFlyout({triggerSelector: '.bubblehelp__host', overlaySelector: '.bubblehelp__overlay', autoCollapse: false});
-$('#banner-menu').on('click', 'a', function(e) {
-    var target = document.querySelector(this.href.substring(this.href.indexOf('#')));
-    target.setAttribute('tabindex', '-1');
-    target.focus();
-});
-$('.expand-btn-example').on('click', function() {
-    $(this).attr('aria-expanded', ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true');
-});
-$('.combobox__control').on('click', function() {
-    const $this = $(this);
-    const $input = $this.find('input');
-    if (!$this.find('input').prop('disabled')){
-        if ($this.hasClass('combobox__control--expanded')) {
-            $this.removeClass('combobox__control--expanded');
-            $input.attr('aria-expanded', 'false');
-        } else {
-            $this.addClass('combobox__control--expanded');
-            $input.attr('aria-expanded', 'true');
-        }
-    }
+var Expander = require('makeup-expander');
+
+// TOOLTIP WIDGETS
+querySelectorAllToArray('.tooltip').forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.tooltip__overlay',
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        expandOnFocus: true,
+        expandOnHover: true,
+        focusManagement: 'focusable',
+        hostSelector: '.tooltip__host'
+    });
 });
 
-document.querySelectorAll('.dialog-button').forEach(function(btn){
-    // var cancel;
-    var dialog = btn.nextElementSibling;
-    var dialogBody = dialog.querySelector('.dialog__body');
-    var dialogClose = dialog.querySelector('.dialog__close');
-    btn.addEventListener('click', handleOpen);
-
-    function handleOpen() {
-        // if (cancel) {
-        //     cancel();
-        // }
-
-        // cancel = transition(dialog, 'dialog--show', handleTransitionEnd);
-        dialog.removeAttribute('hidden');
-        btn.removeEventListener('click', handleOpen);
-        dialog.addEventListener('click', handleClose, true);
-        document.body.setAttribute("style", "overflow:hidden");
-        dialogClose.focus();
-        // modal.modal(dialog);
-    }
-
-    function handleClose(ev) {
-        if (dialogBody.contains(ev.target)) {
-            return;
-        }
-
-        // if (cancel) {
-        //     cancel();
-        // }
-
-        // cancel = transition(dialog, 'dialog--hide', handleTransitionEnd);
-        dialog.setAttribute('hidden', '');
-        btn.addEventListener('click', handleOpen);
-        dialog.removeEventListener('click', handleClose, true);
-        document.body.removeAttribute("style");
-        // modal.unmodal();
-        btn.focus();
-    }
-
-    // function handleTransitionEnd() {
-    //     cancel = undefined;
-    // }
+// BUBBLEHELP WIDGETS
+querySelectorAllToArray('.bubblehelp').forEach(function(el, i) {
+    var widget = new Expander(el, {
+        contentSelector: '.bubblehelp__overlay',
+        expandOnClick: true,
+        hostSelector: '.bubblehelp__host'
+    });
 });

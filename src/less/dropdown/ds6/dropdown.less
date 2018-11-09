@@ -4,64 +4,69 @@
 @import "../base/dropdown.less";
 
 .menu__items[role="menu"],
+.listbox__options[role="listbox"],
 .combobox__options[role="listbox"],
 .fake-menu__items {
-    background-color: @ds6-color-g201-gray;
-    border-color: @ds6-color-g204-gray;
-    max-height: calc(10 * 40px);
-    overflow-y: auto;
+    background-color: @ds6-color-white;
+    border-color: @ds6-color-grey2;
 }
 
 div.menu__item[role^="menuitem"],
+div.listbox__option[role="option"],
 div.combobox__option[role^="option"],
 a.fake-menu__item,
 button.fake-menu__item {
-    background-color: @ds6-color-g201-gray;
-    border-color: @ds6-color-g201-gray;
+    background-color: @ds6-color-white;
+    border-color: @ds6-color-white;
     display: inline-flex;
     justify-content: space-between;
 
     &:hover {
-        background-color: @ds6-color-g203-gray;
+        background-color: @ds6-color-grey1;
     }
 
     &:focus {
-        background-color: @ds6-color-g203-gray;
+        background-color: @ds6-color-grey1;
         outline: none;
     }
 
     &:active {
         .menu__status,
+        .listbox__status,
         .combobox__status,
         .fake-menu__status {
-            color: @ds6-color-g204-gray;
+            color: @ds6-color-grey2;
         }
     }
 }
 
 div.menu__item[role^="menuitem"][aria-checked="true"],
+div.listbox__option--active-descendant[role="option"],
+div.listbox__option[role="option"][aria-selected="true"],
 div.combobox__option[role^="option"][aria-selected="true"] {
     font-weight: bold;
 }
 
 // anchor tag specific
 a.fake-menu__item {
-    color: @ds6-color-g206-gray;
+    color: @ds6-color-black;
 }
 
 // button tag specific
 button.fake-menu__item {
-    background-color: @ds6-color-g201-gray;
-    color: @ds6-color-g206-gray;
+    background-color: @ds6-color-white;
+    color: @ds6-color-black;
 }
 
 .menu__status,
+.listbox__status,
 .combobox__status,
 .fake-menu__status {
-    color: @ds6-color-g206-gray;
+    color: @ds6-color-black;
 }
 
 span.menu__status,
+span.listbox__status,
 span.combobox__status,
 span.fake-menu__status {
     .icon-tick(9px, 9px);
@@ -71,6 +76,7 @@ span.fake-menu__status {
 
 @media screen and (-ms-high-contrast: white-on-black) {
     span.menu__status,
+    span.listbox__status,
     span.combobox__status,
     span.fake-menu__status {
         background-image: url('data:image/svg+xml;base64,@{ds6-icon-tick-base64-light}');

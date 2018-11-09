@@ -4,6 +4,7 @@
 @import "../base/dropdown.less";
 
 .menu__items[role="menu"],
+.listbox__options[role="listbox"],
 .combobox__options[role="listbox"],
 .fake-menu__items {
     background-color: @ds4-color-core-white;
@@ -11,6 +12,7 @@
 }
 
 div.menu__item[role^="menuitem"],
+div.listbox__option[role^="option"],
 div.combobox__option[role^="option"],
 a.fake-menu__item,
 button.fake-menu__item {
@@ -19,6 +21,7 @@ button.fake-menu__item {
 
     &:active {
         .menu__status,
+        .listbox__status,
         .combobox__status,
         .fake-menu__status {
             color: @ds4-color-core-gray-silver;
@@ -38,12 +41,14 @@ button.fake-menu__item {
 }
 
 .menu__status,
+.listbox__status,
 .combobox__status,
 .fake-menu__status {
     color: @ds4-color-core-gray-dim;
 }
 
 span.menu__status,
+span.listbox__status,
 span.combobox__status,
 span.fake-menu__status {
     .icon-check(9px, 9px);
@@ -51,6 +56,7 @@ span.fake-menu__status {
 
 @media screen and (-ms-high-contrast: white-on-black) {
     span.menu__status,
+    span.listbox__status,
     span.combobox__status,
     span.fake-menu__status {
         background-image: url('data:image/svg+xml;base64,@{ds4-icon-check-base64-light}');

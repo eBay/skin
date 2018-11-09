@@ -1,10 +1,7 @@
+@mobile: ~"only screen and (max-width: 600px)";
+
 body {
     margin: 0;
-}
-
-/* class added by jquery-screenreader-trap */
-body.has-dialog {
-    overflow: hidden;
 }
 
 .ds6-banner {
@@ -274,6 +271,82 @@ figure.highlight {
 .note-list li {
     margin-bottom: 1em;
 }
+
+.demo-typography,
+.demo-colors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 1rem 0;
+    }
+}
+
+.demo-colors li::before {
+    content: '';
+    display: inline-block;
+    height: 1.25rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 10rem;
+
+    @media @mobile {
+        display: block;
+        margin-bottom: 0.25rem;
+        width: 100%;
+    }
+}
+
+.demo-colors__info {
+    margin-left: 1rem;
+
+    @media @mobile {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+.demo-color-text-default::before {
+    background-color: @ds4-color-text-default;
+}
+
+.demo-color-text-secondary::before {
+    background-color: @ds4-color-text-secondary;
+}
+
+.demo-color-link-default::before {
+    background-color: @ds4-color-link-default;
+}
+
+.demo-color-link-visited::before {
+    background-color: @ds4-color-link-visited;
+}
+
+.demo-color-information-background::before {
+    background-color: @ds4-color-information-background;
+}
+
+.demo-color-warning-background::before {
+    background-color: @ds4-color-warning-background;
+}
+
+.demo-color-confirmation-text::before {
+    background-color: @ds4-color-confirmation-text;
+}
+
+.demo-color-confirmation-background::before {
+    background-color: @ds4-color-confirmation-background;
+}
+
+.demo-color-critical-text::before {
+    background-color: @ds4-color-critical-text;
+}
+
+.demo-color-critical-background::before {
+    background-color: @ds4-color-critical-background;
+}
+
 
 @import "grid.less";
 @import "colors.less";
