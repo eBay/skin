@@ -169,7 +169,6 @@ body {
   }
 }
 .bubble {
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
@@ -200,7 +199,6 @@ button.bubble__close {
 }
 .bubble__pointer {
   background-color: white;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   height: 16px;
   left: calc(50% - 8px);
   position: absolute;
@@ -225,30 +223,25 @@ button.bubble__close {
 }
 .bubble__pointer--bottom-left {
   bottom: -7px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
   top: auto;
   left: 16px;
 }
 .bubble__pointer--bottom {
   bottom: -7px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
   top: auto;
   left: calc(50% - 8px);
 }
 .bubble__pointer--bottom-right {
   bottom: -7px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
   top: auto;
   left: auto;
   right: 16px;
 }
 .bubble__pointer--left {
-  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.15);
   top: calc(50% - 8px);
   left: -7px;
 }
 .bubble__pointer--right {
-  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.15);
   top: calc(50% - 8px);
   left: auto;
   right: -7px;
@@ -257,6 +250,32 @@ button.bubble__close {
   .bubble {
     max-width: 400px;
   }
+}
+.bubble {
+  border-bottom: 1px solid rgba(199, 199, 199, 0.5);
+  border-top: 1px solid rgba(199, 199, 199, 0.5);
+  box-shadow: 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer,
+.bubble__pointer--top,
+.bubble__pointer--top-left,
+.bubble__pointer--top-right {
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--bottom,
+.bubble__pointer--bottom-left,
+.bubble__pointer--bottom-right {
+  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--left,
+.bubble__pointer--left--bottom,
+.bubble__pointer--left--top {
+  box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--right,
+.bubble__pointer--right--bottom,
+.bubble__pointer--right--top {
+  box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
 }
 button.bubble__close {
   border: 0;
@@ -2677,6 +2696,7 @@ svg.page-notice__cta {
   outline: 1px dashed #fff;
   outline-offset: 4px;
 }
+.flyout-notice--information .bubble,
 .flyout-notice--information .bubble__mask {
   background-color: #3665f3;
   color: #fff;
@@ -3474,14 +3494,14 @@ span.textbox__icon:first-child,
 .tourtip {
   position: relative;
 }
-.tooltip p,
-.infotip p,
-.tourtip p {
+.tooltip .bubble__content p,
+.infotip .bubble__content p,
+.tourtip .bubble__content p {
   margin: 0;
 }
-.tooltip p:not(:first-of-type),
-.infotip p:not(:first-of-type),
-.tourtip p:not(:first-of-type) {
+.tooltip .bubble__content p:not(:first-of-type),
+.infotip .bubble__content p:not(:first-of-type),
+.tourtip .bubble__content p:not(:first-of-type) {
   margin-top: 4px;
 }
 .tooltip__overlay,
