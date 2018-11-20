@@ -1,29 +1,108 @@
+@import "../../less/ds4/variables.less";
+@import "../../less/ds4/mixins.less";
+
+@import "../../mixins/bubble/base/bubble.less";
+
+.tooltip__overlay,
+.infotip__overlay,
+.tourtip__overlay {
+    .bubble;
+
+    display: none;
+    position: absolute;
+}
+
+.tooltip__mask,
+.infotip__mask,
+.tourtip__mask {
+    .bubble-mask;
+}
+
+.tooltip__cell,
+.infotip__cell,
+.tourtip__cell {
+    .bubble-cell;
+}
+
+.tooltip__content,
+.infotip__content,
+.tourtip__content {
+    .bubble-content;
+}
+
+button.tooltip__close,
+button.infotip__close,
+button.tourtip__close {
+    .bubble-close;
+}
+
+.tooltip__pointer,
+.infotip__pointer,
+.tourtip__pointer {
+    .pointer-base;
+    .pointer-top;
+    .pointer-center;
+}
+
+.tooltip__pointer--top-left,
+.infotip__pointer--top-left,
+.tourtip__pointer--top-left {
+    .pointer-top-left;
+}
+
+.tooltip__pointer--top,
+.infotip__pointer--top,
+.tourtip__pointer--top {
+    .pointer-top-center;
+}
+
+.tooltip__pointer--top-right,
+.infotip__pointer--top-right,
+.tourtip__pointer--top-right {
+    .pointer-top-right;
+}
+
+.tooltip__pointer--bottom-left,
+.infotip__pointer--bottom-left,
+.tourtip__pointer--bottom-left {
+    .pointer-bottom-left;
+}
+
+.tooltip__pointer--bottom,
+.infotip__pointer--bottom,
+.tourtip__pointer--bottom {
+    .pointer-bottom-center;
+}
+
+.tooltip__pointer--bottom-right,
+.infotip__pointer--bottom-right,
+.tourtip__pointer--bottom-right {
+    .pointer-bottom-right;
+}
+
+.tooltip__pointer--left,
+.infotip__pointer--left,
+.tourtip__pointer--left {
+    .pointer-left;
+}
+
+.tooltip__pointer--right,
+.infotip__pointer--right,
+.tourtip__pointer--right {
+    .pointer-right;
+}
+
 .tooltip,
 .infotip,
 .tourtip {
     position: relative;
-
-    .bubble__content {
-        p {
-            margin: 0;
-        }
-
-        p:not(:first-of-type) {
-            margin-top: 4px;
-        }
-    }
 }
 
 .infotip__heading,
 .tourtip__heading {
     font-size: 1em;
+    font-weight: bold;
     margin: 0 0 4px 0;
-}
-
-.tooltip__overlay,
-.infotip__overlay,
-.tourtip__overlay {
-    display: none;
 }
 
 span.tooltip,
@@ -36,4 +115,12 @@ span.tourtip {
 .infotip__host[aria-expanded="true"] ~ .infotip__overlay,
 .tourtip--expanded .tourtip__overlay {
     display: block;
+}
+
+@media (min-width: 601px) {
+    .tooltip__overlay,
+    .infotip__overlay,
+    .tourtip__overlay {
+        .bubble-large-screen;
+    }
 }

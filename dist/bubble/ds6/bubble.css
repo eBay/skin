@@ -2,7 +2,10 @@
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
-  position: absolute;
+  border-bottom: 1px solid rgba(199, 199, 199, 0.5);
+  border-top: 1px solid rgba(199, 199, 199, 0.5);
+  box-shadow: 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5);
+  position: relative;
 }
 .bubble__mask {
   background-color: white;
@@ -20,100 +23,88 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-button.bubble__close {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  background: none;
-  margin: 0 0 0 16px;
-  padding: 0;
+.bubble__content p {
+  margin: 0;
+}
+.bubble__content p:not(:first-of-type) {
+  margin-top: 4px;
 }
 .bubble__pointer {
-  background-color: white;
   height: 16px;
-  left: calc(50% - 8px);
   position: absolute;
-  top: -7px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   width: 16px;
   z-index: 0;
+  top: -7px;
+  background-color: white;
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+  left: calc(50% - 8px);
 }
 .bubble__pointer--top-left {
   top: -7px;
+  background-color: white;
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
   left: 12px;
 }
 .bubble__pointer--top {
   top: -7px;
+  background-color: white;
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
   left: calc(50% - 8px);
 }
 .bubble__pointer--top-right {
   top: -7px;
+  background-color: white;
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
   left: auto;
   right: 12px;
 }
 .bubble__pointer--bottom-left {
+  background-color: white;
   bottom: -7px;
   top: auto;
+  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
   left: 16px;
 }
 .bubble__pointer--bottom {
+  background-color: white;
   bottom: -7px;
   top: auto;
+  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
   left: calc(50% - 8px);
 }
 .bubble__pointer--bottom-right {
+  background-color: white;
   bottom: -7px;
   top: auto;
+  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
   left: auto;
   right: 16px;
 }
 .bubble__pointer--left {
+  background-color: white;
   top: calc(50% - 8px);
   left: -7px;
+  box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
 }
 .bubble__pointer--right {
+  background-color: white;
   top: calc(50% - 8px);
   left: auto;
   right: -7px;
-}
-@media (min-width: 601px) {
-  .bubble {
-    max-width: 400px;
-  }
-}
-.bubble {
-  border-bottom: 1px solid rgba(199, 199, 199, 0.5);
-  border-top: 1px solid rgba(199, 199, 199, 0.5);
-  box-shadow: 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5);
-}
-.bubble__pointer,
-.bubble__pointer--top,
-.bubble__pointer--top-left,
-.bubble__pointer--top-right {
-  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
-}
-.bubble__pointer--bottom,
-.bubble__pointer--bottom-left,
-.bubble__pointer--bottom-right {
-  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
-}
-.bubble__pointer--left,
-.bubble__pointer--left--bottom,
-.bubble__pointer--left--top {
-  box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
-}
-.bubble__pointer--right,
-.bubble__pointer--right--bottom,
-.bubble__pointer--right--top {
   box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
 }
 button.bubble__close {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  background: none;
   border: 0;
-  color: #111820;
-  height: 32px;
-  margin-top: -6px;
   padding: 0;
   white-space: nowrap;
+  color: #111820;
+  height: 32px;
+  margin: -6px 0 0 16px;
   width: 32px;
 }
 button.bubble__close span {
@@ -128,4 +119,41 @@ button.bubble__close span {
 button.bubble__close:focus,
 button.bubble__close:hover {
   color: #3665f3;
+}
+@media (min-width: 601px) {
+  .bubble {
+    max-width: 400px;
+  }
+}
+.bubble__pointer--top,
+.bubble__pointer--top-left,
+.bubble__pointer--top-right {
+  top: -7px;
+  background-color: white;
+  box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--bottom,
+.bubble__pointer--bottom-left,
+.bubble__pointer--bottom-right {
+  background-color: white;
+  bottom: -7px;
+  top: auto;
+  box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--left,
+.bubble__pointer--left--bottom,
+.bubble__pointer--left--top {
+  background-color: white;
+  top: calc(50% - 8px);
+  left: -7px;
+  box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
+}
+.bubble__pointer--right,
+.bubble__pointer--right--bottom,
+.bubble__pointer--right--top {
+  background-color: white;
+  top: calc(50% - 8px);
+  left: auto;
+  right: -7px;
+  box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
 }

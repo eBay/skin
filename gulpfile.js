@@ -31,7 +31,7 @@ gulp.task('less', ['modules', 'adaptive', 'grid', 'grid-full', 'megabundles']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
-   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
+   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
 });

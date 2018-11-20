@@ -3,55 +3,30 @@
 
 @import "../base/bubble.less";
 
+@import "../../mixins/bubble/ds6/bubble.less";
+
 @box-shadow-color: rgba(199, 199, 199, 0.5);
 
-.bubble {
-    border-bottom: 1px solid @box-shadow-color;
-    border-top: 1px solid @box-shadow-color;
-    box-shadow: 0 -2px 2px @box-shadow-color, 2px 0 2px @box-shadow-color, 0 2px 2px @box-shadow-color, -2px 0 2px @box-shadow-color,;
-}
-
-.bubble__pointer,
 .bubble__pointer--top,
 .bubble__pointer--top-left,
 .bubble__pointer--top-right {
-    box-shadow: -2px -2px 2px @box-shadow-color;
+    .pointer-top;
 }
 
 .bubble__pointer--bottom,
 .bubble__pointer--bottom-left,
 .bubble__pointer--bottom-right {
-    box-shadow: 2px 2px 2px @box-shadow-color;
+    .pointer-bottom;
 }
 
 .bubble__pointer--left,
 .bubble__pointer--left--bottom,
 .bubble__pointer--left--top {
-    box-shadow: -2px 2px 2px @box-shadow-color;
+    .pointer-left;
 }
 
 .bubble__pointer--right,
 .bubble__pointer--right--bottom,
 .bubble__pointer--right--top {
-    box-shadow: 2px -2px 2px @box-shadow-color;
-}
-
-button.bubble__close {
-    border: 0;
-    color: @ds6-color-black;
-    height: 32px;
-    margin-top: -6px;
-    padding: 0;
-    white-space: nowrap;
-    width: 32px;
-
-    span {
-        .background-icon-base;
-        .icon-close(16px, 16px);
-    }
-
-    &:focus,
-    &:hover {
-        color: @ds6-color-link-default;
-    }
+    .pointer-right;
 }
