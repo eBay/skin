@@ -3,26 +3,29 @@
 
 @import "../base/tooltip.less";
 
-.tooltip,
-.infotip,
-.tourtip {
-    .bubble__mask {
-        border-top: 2px solid @ds4-color-interface-cta;
-    }
+@import "../../mixins/bubble/ds4/bubble.less";
 
-    .bubble__pointer--top-left,
-    .bubble__pointer--top,
-    .bubble__pointer--top-right {
-        background-color: @ds4-color-interface-cta;
-    }
+.tooltip__mask,
+.infotip__mask,
+.tourtip__mask {
+    border-top: 2px solid @ds4-color-interface-cta;
+}
+
+.tooltip__pointer--top-left,
+.tooltip__pointer--top,
+.tooltip__pointer--top-right,
+.infotip__pointer--top-left,
+.infotip__pointer--top,
+.infotip__pointer--top-right,
+.tourtip__pointer--top-left,
+.tourtip__pointer--top,
+.tourtip__pointer--top-right {
+    background-color: @ds4-color-interface-cta;
 }
 
 button.infotip__close,
 button.tourtip__close {
-    border: 0;
     color: @ds4-color-icon-actionable-default;
-    padding: 0;
-    white-space: nowrap;
 
     &:focus,
     &:hover {
@@ -35,17 +38,5 @@ button.tourtip__close {
 
     &:active {
         color: @ds4-color-icon-actionable-active;
-    }
-
-    svg {
-        .foreground-icon-base(12px,12px);
-    }
-
-    span {
-        .icon-close(12px, 12px);
-
-        background-repeat: no-repeat;
-        display: inline-block;
-        vertical-align: middle;
     }
 }

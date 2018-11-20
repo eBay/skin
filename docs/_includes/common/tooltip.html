@@ -1,10 +1,10 @@
 <div id="tooltip">
     <h2><span class="secondary-text">@ebay/skin/</span>tooltip</h2>
-    <p>A <a href="#bubble">bubble</a> or <a href="#notice-flyout">flyout notice</a> (deprecated) can be used as the overlay of a <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/tooltip.html">tooltip</a>, <a href="https://ebay.gitbooks.io/mindpatterns/content/disclosure/bubblehelp.html">infotip</a> or tourtip. In each case, the flyout element is positioned relatively to the nearest ancestor with <em>relative</em> positioning.</p>
-    <p><strong>NOTE: </strong> The default tooltip is the only tooltip with the ARIA tooltip role. Please do not use this role with the infotip or tourtip.</p>
+    <p>A tooltip is a flyout that visually <em>points</em> to a specific section or element of the page.</p>
 
     <h4 id="tooltip-default">Default Tooltip</h4>
     <p>The default tooltip, is the classic desktop tooltip that activates on focus and hover of a clickable element (typically an icon button or link). The purpose of the classic tooltip is to inform the user about the clickable element.</p>
+    <p>The default tooltip must be programmatically associated with it's clickable element by using the <span class="highlight">aria-describedby</span> property and <span class="highlight">tooltip</span> role.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the clickable element to expand or collapse it's tooltip.</p>
 
     <div class="demo">
@@ -15,13 +15,11 @@
                         <use xlink:href="#icon-settings"></use>
                     </svg>
                 </button>
-                <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
-                    <div class="bubble" style="top: -85px; left: -8px;">
-                        <span class="bubble__pointer bubble__pointer--bottom-left"></span>
-                        <div class="bubble__mask">
-                            <div class="bubble__cell">
-                                <p>Use Access Key 'S' to display settings.</p>
-                            </div>
+                <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: -85px; left: -8px;">
+                    <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
+                    <div class="tooltip__mask">
+                        <div class="tooltip__cell">
+                            <p>Use Access Key 'S' to display settings.</p>
                         </div>
                     </div>
                 </div>
@@ -35,13 +33,11 @@
             <use xlink:href="#icon-settings"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
-        <div class="bubble" style="top: -85px; left: -8px;">
-            <span class="bubble__pointer bubble__pointer--bottom-left"></span>
-            <div class="bubble__mask">
-                <div class="bubble__cell">
-                    <p>Use Access Key 'S' to display settings.</p>
-                </div>
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: -85px; left: -8px;">
+        <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
+        <div class="tooltip__mask">
+            <div class="tooltip__cell">
+                <p>Use Access Key 'S' to display settings.</p>
             </div>
         </div>
     </div>
@@ -49,7 +45,7 @@
     {% endhighlight %}
 
     <h4 id="tooltip-infotip">Infotip</h4>
-    <p>An infotip is a standalone button that activates on click (not on hover or focus!). The purpose of the infotip is to inform the user about a non-clickable element or page section.</p>
+    <p>An infotip is a standalone button that activates only on click. The purpose of the infotip is to inform the user about a non-clickable element or page section.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the button to expand or collapse the infotip.</p>
     <div class="demo">
         <div class="demo__inner">
@@ -59,19 +55,17 @@
                         <use xlink:href="#icon-information"></use>
                     </svg>
                 </button>
-                <div class="infotip__overlay">
-                    <div class="bubble" style="top: 45px; left: -4px;">
-                        <span class="bubble__pointer bubble__pointer--top-left"></span>
-                        <div class="bubble__mask">
-                            <div class="bubble__cell">
-                                <span class="bubble__content">
-                                    <h3 class="infotip__heading">Infotip</h3>
-                                    <p>Here's a tip to help you be successful at your task.</p>
-                                </span>
-                                <button aria-label="Dismiss infotip" class="bubble__close" type="button">
-                                    <span aria-hidden="true" role="img"></span>
-                                </button>
-                            </div>
+                <div class="infotip__overlay" style="top: 45px; left: -4px;">
+                    <span class="infotip__pointer infotip__pointer--top-left"></span>
+                    <div class="infotip__mask">
+                        <div class="infotip__cell">
+                            <span class="infotip__content">
+                                <h3 class="infotip__heading">Infotip</h3>
+                                <p>Here's a tip to help you be successful at your task.</p>
+                            </span>
+                            <button aria-label="Dismiss infotip" class="infotip__close" type="button">
+                                <span aria-hidden="true" role="img"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -86,18 +80,16 @@
         </svg>
     </button>
     <div class="infotip__overlay">
-        <div class="bubble" style="top: 45px; left: -4px;">
-            <span class="bubble__pointer bubble__pointer--top-left"></span>
-            <div class="bubble__mask">
-                <div class="bubble__cell">
-                    <span class="bubble__content">
-                        <h3 class="infotip__heading">Infotip</h3>
-                        <p>Here's a tip to help you be successful at your task.</p>
-                    </span>
-                    <button aria-label="Dismiss infotip" class="bubble__close" type="button">
-                        <span aria-hidden="true" role="img"></span>
-                    </button>
-                </div>
+        <span class="infotip__pointer infotip__pointer--top-left"></span>
+        <div class="infotip__mask">
+            <div class="infotip__cell">
+                <span class="infotip__content">
+                    <h3 class="infotip__heading">Infotip</h3>
+                    <p>Here's a tip to help you be successful at your task.</p>
+                </span>
+                <button aria-label="Dismiss infotip" class="infotip__close" type="button">
+                    <span aria-hidden="true" role="img"></span>
+                </button>
             </div>
         </div>
     </div>
@@ -111,19 +103,17 @@
         <div class="demo__inner">
             <div class="tourtip tourtip--expanded">
                 <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <div class="tourtip__overlay">
-                    <div class="bubble" style="right: 0; top: 50%">
-                        <span class="bubble__pointer bubble__pointer--left"></span>
-                        <div class="bubble__mask">
-                            <div class="bubble__cell">
-                                <span class="bubble__content">
-                                    <h2 class="tourtip__heading">Tourtip</h2>
-                                    <p>Here's something new to help you be successful at your task.</p>
-                                </span>
-                                <button aria-label="Dismiss tourtip" class="bubble__close" type="button">
-                                    <span aria-hidden="true" role="img"></span>
-                                </button>
-                            </div>
+                <div class="tourtip__overlay" style="right: 0; top: 50%">
+                    <span class="tourtip__pointer tourtip__pointer--left"></span>
+                    <div class="tourtip__mask">
+                        <div class="tourtip__cell">
+                            <span class="tourtip__content">
+                                <h2 class="tourtip__heading">Tourtip</h2>
+                                <p>Here's something new to help you be successful at your task.</p>
+                            </span>
+                            <button aria-label="Dismiss tourtip" class="tourtip__close" type="button">
+                                <span aria-hidden="true" role="img"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -134,18 +124,16 @@
 <div class="tourtip tourtip--expanded">
     <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <div class="tourtip__overlay">
-        <div class="bubble" style="right: 0; top: 50%">
-            <span class="bubble__pointer bubble__pointer--left"></span>
-            <div class="bubble__mask">
-                <div class="bubble__cell">
-                    <span class="bubble__content">
-                        <h2 class="tourtip__heading">Tourtip</h2>
-                        <p>Here's something new to help you be successful at your task.</p>
-                    </span>
-                    <button aria-label="Dismiss tourtip" class="bubble__close" type="button">
-                        <span aria-hidden="true" role="img"></span>
-                    </button>
-                </div>
+        <span class="tourtip__pointer tourtip__pointer--left"></span>
+        <div class="tourtip__mask">
+            <div class="tourtip__cell">
+                <span class="tourtip__content">
+                    <h2 class="tourtip__heading">Tourtip</h2>
+                    <p>Here's something new to help you be successful at your task.</p>
+                </span>
+                <button aria-label="Dismiss tourtip" class="tourtip__close" type="button">
+                    <span aria-hidden="true" role="img"></span>
+                </button>
             </div>
         </div>
     </div>

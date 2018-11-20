@@ -1,94 +1,67 @@
-@import "bubble-mixins.less";
+@import "../../mixins/bubble/base/bubble.less";
 
 .bubble {
-    font-size: 14px;
-    max-width: 344px;
-    min-width: 320px;
-    position: absolute;
-}
+    .bubble;
 
-// masks one half of pointer and sets background colour
-.bubble__mask {
-    background-color: white;
     position: relative;
-    z-index: 1;
 }
 
-// creates basic layout
+.bubble__mask {
+    .bubble-mask;
+}
+
 .bubble__cell {
-    display: flex;
-    padding: 16px;
+    .bubble-cell;
 }
 
 .bubble__content {
-    flex-grow: 1;
+    .bubble-content;
 }
 
-button.bubble__close {
-    align-self: flex-start;
-    background: none;
-    margin: 0 0 0 16px;
-    padding: 0;
-}
-
-// base class is a top, center pointer
 .bubble__pointer {
     .pointer-base;
+    .pointer-top;
+    .pointer-center;
 }
 
 .bubble__pointer--top-left {
-    .pointer-top;
-
-    left: 12px;
+    .pointer-top-left;
 }
 
 .bubble__pointer--top {
-    .pointer-top;
-
-    left: calc(50% - 8px);
+    .pointer-top-center;
 }
 
 .bubble__pointer--top-right {
-    .pointer-top;
-
-    left: auto;
-    right: 12px;
+    .pointer-top-right;
 }
 
 .bubble__pointer--bottom-left {
-    .pointer-bottom;
-
-    left: 16px;
+    .pointer-bottom-left;
 }
 
 .bubble__pointer--bottom {
-    .pointer-bottom;
-
-    left: calc(50% - 8px);
+    .pointer-bottom-center;
 }
 
 .bubble__pointer--bottom-right {
-    .pointer-bottom;
-
-    left: auto;
-    right: 16px;
+    .pointer-bottom-right;
 }
 
 .bubble__pointer--left {
-    .pointer-side;
-
-    left: -7px;
+    .pointer-left;
 }
 
 .bubble__pointer--right {
-    .pointer-side;
+    .pointer-right;
+}
 
-    left: auto;
-    right: -7px;
+button.bubble__close {
+    .bubble-close;
 }
 
 @media (min-width: 601px) {
     .bubble {
-        max-width: 400px;
+        .bubble-large-screen;
     }
 }
