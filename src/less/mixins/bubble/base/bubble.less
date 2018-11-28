@@ -1,0 +1,126 @@
+// this mixin is used by the flyout notice and tooltip modules
+// this mixin is internal only for now
+
+.bubble() {
+    font-size: 14px;
+    max-width: 344px;
+    min-width: 320px;
+}
+
+.bubble-mask() {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.bubble-large-screen() {
+    max-width: 400px;
+}
+
+// creates basic layout
+.bubble-cell() {
+    display: flex;
+    padding: 16px;
+}
+
+.bubble-content() {
+    flex-grow: 1;
+
+    p {
+        margin: 0;
+    }
+
+    p:not(:first-of-type) {
+        margin-top: 4px;
+    }
+}
+
+.bubble-close() {
+    align-self: flex-start;
+    background: none;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+// styles common to all pointers
+.pointer-base() {
+    height: 16px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 16px;
+    z-index: 0;
+}
+
+.pointer-bottom() {
+    background-color: white;
+    bottom: -7px;
+    top: auto;
+}
+
+.pointer-side() {
+    background-color: white;
+}
+
+.pointer-side-middle() {
+    .pointer-side;
+
+    top: calc(50% - 8px);
+}
+
+.pointer-top() {
+    top: -7px;
+}
+
+.pointer-center() {
+    left: calc(50% - 8px);
+}
+
+.pointer-top-center() {
+    .pointer-top;
+    .pointer-center;
+}
+
+.pointer-top-left() {
+    .pointer-top;
+
+    left: 12px;
+}
+
+.pointer-top-right() {
+    .pointer-top;
+
+    left: auto;
+    right: 12px;
+}
+
+.pointer-bottom-center() {
+    .pointer-bottom;
+    .pointer-center;
+}
+
+.pointer-bottom-left() {
+    .pointer-bottom;
+
+    left: 16px;
+}
+
+.pointer-bottom-right() {
+    .pointer-bottom;
+
+    left: auto;
+    right: 16px;
+}
+
+.pointer-left() {
+    .pointer-side-middle;
+
+    left: -7px;
+}
+
+.pointer-right() {
+    .pointer-side-middle;
+
+    left: auto;
+    right: -7px;
+}
