@@ -1,9 +1,9 @@
 <div id="icon">
     <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
-    <p>The icon module allows direct access to the Skin iconography via inline SVG or background SVG.</p>
+    <p>The icon module allows direct access to the Skin iconography via the <span class="highlight">&lt;svg&gt;</span> tag (i.e. foreground icons) or <span class="highlight">&lt;span&gt;</span> tag (i.e. background icons).</p>
 
-    <h3>Inline SVG</h3>
-    <p>Inline SVGs can inherit their colour via the CSS cascade; this behaviour can be useful when crafting custom buttons and controls.</p>
+    <h3>@ebay/skin/icon/foreground</h3>
+    <p>Foregound icons can inherit their colour via the CSS cascade; this behaviour can be useful when crafting custom buttons and controls.</p>
     <p>To avoid gigantic icons when in a non-CSS (edge-case) state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
     <p><strong>IMPORTANT:</strong> Skin removes all mouse and touch events on our SVG icons due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
 
@@ -20,8 +20,9 @@
         {% endhighlight %}
     </div>
 
-    <h3>Background SVG</h3>
-    <p>Background SVGs have a fixed colour that cannot be changed via CSS.</p>
+    <h3>@ebay/skin/icon/background</h3>
+    <p>Background icons have a fixed colour that cannot be changed via CSS.</p>
+    <p><strong>IMPORTANT:</strong> this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload will occur.</p>
 
     <div class="demo">
         <div class="demo__inner">
