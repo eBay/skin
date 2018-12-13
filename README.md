@@ -28,6 +28,12 @@ From v3 onwards, please refer to our publicly visible [releases](https://github.
 
 Prior to v3, all releases and milestones can only be viewed on the old, internal repository.
 
+## Browser Support
+
+Please view our [@ebay/browserslist-config](https://github.com/eBay/browserslist-config/blob/master/index.js) to see which browsers we currently support.
+
+SPOILER: we do not support IE10 or under.
+
 ## Issues
 
 Please use our publicly visible [issues page](https://github.com/eBay/skin/issues) to ask questions, report issues or submit feature requests.
