@@ -27,7 +27,7 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'adaptive', 'grid', 'grid-full', 'megabundles']);
+gulp.task('less', ['modules', 'adaptive', 'megabundles']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
@@ -43,15 +43,23 @@ gulp.task('adaptive', function () {
     .pipe(gulp.dest(distTarget))
 });
 
+// Grid is deprecated in v7
+// Leaving the tasks commented out just in case we need to restore for a hotfix
+// Scheduled for deletion in v8
+// the dist files are essentially "frozen" until then
+
 // Compile grid modules to /dist
+/*
 gulp.task('grid', function() {
     return gulp.src(['./src/less/grid/ds4/grid-core.less', './src/less/grid/ds4/grid-small.less', './src/less/grid/ds4/grid-large.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget + '/grid/ds4'))
 });
+*/
 
 // #1 Compile grid-full module to dist, docs/static & _site/static
 // #2 Then minify to _cdn
+/*
 gulp.task('grid-full', function() {
     return gulp.src(['./src/less/grid/ds4/grid-full.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
@@ -65,6 +73,7 @@ gulp.task('grid-full', function() {
     }))
     .pipe(gulp.dest(cdnTarget + '/ds4'))
 });
+*/
 
 // #1 Compile the full skin ds4 & ds6 bundles to docs/static & _site/static
 // #2 Then minify to _cdn
