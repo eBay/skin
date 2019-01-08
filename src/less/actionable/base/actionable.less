@@ -1,0 +1,82 @@
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
+button.icon-btn,
+a.icon-link {
+    background-color: transparent;
+    border: 0 none;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-bottom;
+    width: 32px;
+
+    &:focus,
+    &:hover {
+        opacity: 0.65;
+    }
+
+    svg {
+        height: 100%; // vertical centering
+    }
+}
+
+a.icon-link {
+    align-items: center;
+    display: inline-flex;
+
+    > span,
+    > svg {
+        margin: 0 auto; // horizontal centering
+    }
+}
+
+// disabled & partially disabled states
+button[disabled].icon-btn,
+button[aria-disabled="true"].icon-btn,
+a:not([href]).icon-link,
+a[aria-disabled="true"].icon-link {
+    opacity: 0.5;
+
+    svg {
+        background-color: transparent;
+    }
+}
+
+// badged icons
+//-----------------------------
+
+button.icon-btn--badged,
+a.icon-link--badged {
+    position: relative;
+
+    .badge {
+        border: 2px solid;
+        height: 24px;
+        left: 12px;
+        line-height: 1rem;
+        margin: auto;
+        min-width: 24px;
+        padding-top: 0;
+        position: absolute;
+        top: -8px;
+        z-index: 1;
+    }
+}
+
+// images
+//-----------------------------
+
+a.img-link,
+button.img-btn {
+    border: 1px solid transparent;
+}
+
+a.img-link {
+    display: inline-block;
+}
+
+button.img-btn {
+    background-color: transparent;
+    padding: 0;
+}

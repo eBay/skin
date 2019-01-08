@@ -1,35 +1,53 @@
 @import "../../less/ds6/mixins.less";
+@import "../base/actionable.less";
 
-.icon-btn,
-.icon-link {
-    background-color: transparent;
-    border: 0 none;
-    font-size: 24px;
-    min-height: 32px;
-    min-width: 32px;
-    padding: 0;
-
+button.icon-btn,
+a.icon-link {
     svg {
-        .foreground-icon-base;
+        color: @ds6-color-text-default;
     }
 }
 
-.icon-btn--badged,
-.icon-link--badged {
-    position: relative;
+// badged icons
+//-----------------------------
 
+button.icon-btn--badged,
+a.icon-link--badged {
     .badge {
-        border: 2px solid;
         border-color: @ds6-color-badge-text;
         font-size: @ds6-font-size-12;
-        height: 24px;
-        left: 12px;
-        line-height: 1rem;
-        margin: auto;
-        min-width: 24px;
-        padding-top: 0;
-        position: absolute;
-        top: -8px;
-        z-index: 1;
+    }
+}
+
+// images
+//-----------------------------
+
+a.img-link {
+    &[href] {
+        &:hover,
+        &:focus {
+            border-color: @ds6-color-grey3;
+        }
+
+        &:active {
+            border-color: @ds6-color-text-secondary;
+        }
+    }
+}
+
+a.img-link--visit:visited {
+    background-color: @ds6-color-grey1;
+}
+
+button.img-btn {
+    &:not([disabled]) {
+        &:hover,
+        &:focus {
+            border-color: @ds6-color-grey3;
+        }
+
+        &:active {
+            border-color: @ds6-color-text-secondary;
+        }
     }
 }
