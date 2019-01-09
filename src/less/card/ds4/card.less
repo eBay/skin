@@ -1,3 +1,114 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
-@import "card-base.less";
+
+// all cards have a white backround
+.card {
+    background-color: @ds4-color-core-white;
+
+    // every card requires a .card__cell element
+    .card__cell {
+        // we use margins over padding to leverage native CSS margin collapse
+        margin: 14px 16px;
+    }
+}
+
+// cards inside of body are secondary cards by default, because they are the most common use-case
+body .card {
+    border: 1px solid @ds4-color-core-gray-silver;
+    border-radius: 2px;
+    margin: 16px 8px;
+    // padding top and bottom forces collapsed vertical margins to show
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+
+// an override. primary cards must have zero border & margin.
+body .card--primary {
+    border: 0;
+    margin: 0;
+}
+
+body.card--hero,
+body .card--hero {
+    padding-top: 0; // no need to force the vertical margin when we have an image
+
+    .card__cell {
+        margin-bottom: 15px; // we still have 1px padding bottom
+        margin-top: 16px; // to account for 0px padding-top
+    }
+}
+
+.card__cell {
+    h1:first-child,
+    h2:first-child {
+        margin-bottom: 16px;
+    }
+}
+
+// rules for grid inside of card
+.card__cell.grid,
+.card__cell .grid, {
+    > .grid__group {
+        padding-left: 0;
+    }
+}
+
+// rules for card inside of grid
+body .grid {
+    // due to flexbox, card margins will not collapse in a grid system,
+    // resulting in double top and bottom margin, so we remove the top margin
+
+    .grid__group:not(:first-of-type) .card {
+        margin-top: 0;
+    }
+
+    // restore margins on primary card inside grid
+    .card--primary {
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    // these rules avoid a double gutter when placed inside of grid system
+    .card {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// rules for cards on skin dialog block.
+// not recommended. use dialog--card instead.
+
+.dialog[role="dialog"].card {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+
+    [role="document"] {
+        background-color: @ds4-color-core-white;
+    }
+}
+
+@media (min-width: 600px) {
+    body.card .card__cell,
+    .card .card__cell {
+        margin: 22px 24px;
+    }
+
+    .card {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    // we need to once again override margin for primary cards
+    .card--primary {
+        margin: 0;
+    }
+
+    .card__cell {
+        h1:first-child,
+        h2:first-child {
+            margin-bottom: 24px;
+        }
+    }
+}
