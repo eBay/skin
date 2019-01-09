@@ -27,18 +27,11 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'adaptive', 'megabundles']);
+gulp.task('less', ['modules', 'megabundles']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
    return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(gulp.dest(distTarget))
-});
-
-// Compile Skin adaptive modules to /dist
-gulp.task('adaptive', function () {
-   return gulp.src(['./src/less/**/*-large.less', '!./src/less/bundles/**/*.less', '!./src/less/grid/**/*.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
 });
