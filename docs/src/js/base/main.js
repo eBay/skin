@@ -125,3 +125,10 @@ querySelectorAllToArray('.infotip').forEach(function(el, i) {
         hostSelector: '.infotip__host'
     });
 });
+
+var FloatingLabel = require('makeup-floating-label');
+
+// LABEL WIDGETS
+querySelectorAllToArray('.floating-label').forEach(function (el, i) {
+    var floatingLabel = new FloatingLabel(el);
+});

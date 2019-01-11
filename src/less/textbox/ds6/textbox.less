@@ -1,4 +1,5 @@
 @import "../../less/ds6/variables.less";
+@import "../../less/ds6/mixins.less";
 @import "textbox-mixins.less";
 @import "../base/textbox.less";
 
@@ -32,18 +33,8 @@ textarea.textbox__control {
 }
 
 input.textbox__control--underline {
-    .placeholder-floated;
-
-    .placeholder-floated--focus;
-
-    &[disabled] {
-        .placeholder-floated;
-    }
-
-    border: none;
     border-bottom: 1px solid @ds6-color-grey4;
-    height: 1.875rem;  // a11y: has to be relative to the text zoom level
-    padding: 0;
+    height: 1.875rem;  // a11y: has to be relative to the text zoom level; not in base file due to specificity order issue
 }
 
 span.textbox__icon {

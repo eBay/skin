@@ -1,5 +1,6 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
+@import "textbox-mixins.less";
 @import "../base/textbox.less";
 
 input.textbox__control,
@@ -31,6 +32,12 @@ textarea.textbox__control {
     &:focus {
         border-color: @ds4-color-core-blue;
     }
+}
+
+input.textbox__control--underline {
+    border-bottom: 1px solid @ds4-color-core-gray-silver;
+    border-radius: 0;
+    height: 1.875rem;  // a11y: has to be relative to the text zoom level; not in base file due to specificity order issue
 }
 
 span.textbox__icon {

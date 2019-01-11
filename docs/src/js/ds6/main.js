@@ -1,9 +1,3 @@
-var FloatingLabel = require('makeup-floating-label');
-
-querySelectorAllToArray('.floating-label').forEach(function(el, i) {
-    var floatingLabel = new FloatingLabel(el);
-});
-
 // set up initial matchMedia query
 window.mobileMediaQuery = 'all and (max-width: 600px)';
 window.mm = window.matchMedia(window.mobileMediaQuery);
