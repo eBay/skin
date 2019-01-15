@@ -27,7 +27,7 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'megabundles']);
+gulp.task('less', ['modules', 'megabundles', 'base64']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
@@ -83,6 +83,21 @@ gulp.task('megabundles', function () {
     .pipe(gulp.dest(cdnTarget))
 });
 
+// Compile and minify the base64 less to docs/static, _site/static and _cdn
+gulp.task('base64', function () {
+   return gulp.src(['./src/less/icon/background/**/*.less'])
+    .pipe(banner(comment, {pkg: pkg}))
+    .pipe(rename(function (path) {
+       path.basename = 'skin-base64';
+       path.extname = cdnFileExtensionName;
+    }))
+    .pipe(less({plugins: [autoprefixPlugin]}))
+    .pipe(less({plugins: [cleanCSSPlugin]}))
+    .pipe(gulp.dest(docsStaticTarget))
+    .pipe(gulp.dest(siteStaticTarget))
+    .pipe(gulp.dest(cdnTarget))
+});
+
 // Static Server + watching src & docs files
 gulp.task('server', function() {
     // Start the server.
@@ -107,7 +122,7 @@ gulp.task('syncSkinCss', function(cb) {
 
 // Inject CSS into browsers
 gulp.task('injectSkinCSS', function(cb) {
-    return gulp.src(['_site/**/*.css'])
+    return gulp.src(['_site/**/*.css', '_site/**/*.min.css'])
         .pipe(browserSync.stream());
 });
 
