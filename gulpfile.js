@@ -15,7 +15,7 @@ var autoprefixPlugin = new LessPluginAutoPrefix();
 var distTarget = './dist';
 var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
-var cdnFileExtensionName = '.min.css';
+var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v'+pkg.version;
 
 var comment = [
@@ -72,14 +72,14 @@ gulp.task('grid-full', function() {
 // #2 Then minify to _cdn
 gulp.task('megabundles', function () {
    return gulp.src(['./src/less/bundles/skin/**/*.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(banner(comment, {pkg: pkg}))
+    .pipe(rename(function (path) {
+        path.extname = minifiedFileExtensionName;
+    }))
+    .pipe(less({plugins: [autoprefixPlugin]}))
+    .pipe(less({plugins: [cleanCSSPlugin]}))
     .pipe(gulp.dest(docsStaticTarget))
     .pipe(gulp.dest(siteStaticTarget))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
-    .pipe(rename(function (path) {
-        path.extname = cdnFileExtensionName;
-    }))
     .pipe(gulp.dest(cdnTarget))
 });
 
@@ -89,7 +89,7 @@ gulp.task('base64', function () {
     .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
        path.basename = 'skin-base64';
-       path.extname = cdnFileExtensionName;
+       path.extname = minifiedFileExtensionName;
     }))
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(less({plugins: [cleanCSSPlugin]}))
