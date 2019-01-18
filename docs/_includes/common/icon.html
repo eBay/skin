@@ -1,0 +1,58 @@
+<!-- TECH DEBT: the file contains inline styles -->
+<div id="icon">
+    <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
+    <p>The icon module provides full access to the eBay iconography via the <span class="highlight">&lt;svg&gt;</span> tag (i.e. foreground icons) and the <span class="highlight">&lt;span&gt;</span> tag (i.e. background icons).</p>
+    <p>By default, the icon module bundles <strong>all</strong> CSS for <strong>both</strong> types of tag. However, the background icon CSS contains a base64 data-url for every icon in the set, therefore significantly increasing CSS payload. For this reason, Skin also provides the ability to bring in background or foreground CSS independently, via their own modules.</p>
+    <p>Below we give a quick, introductory example of how to use each type of icon; followed up by the full list of icons.</p>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+            <h3>@ebay/skin/icon/foreground</h3>
+            <p>Foregound icons (the <span class="highlight">&lt;svg&gt;</span> tag) can inherit their colour via the CSS cascade.</p>
+            <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+            <h3>@ebay/skin/icon/background</h3>
+            <p>Background icons (the <span class="highlight">&lt;span&gt;</span> tag) have their colour fixed in base64 and cannot be changed via CSS.</p>
+            <p>Remember, this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload will occur.</p>
+        </div>
+    </div>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+            <div class="demo">
+                <div class="demo__inner">
+                    <svg aria-label="Foreground icon example" class="icon icon--info" focusable="false" height="19" width="21" role="img">
+                        <use xlink:href="#icon-info"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+            <div class="demo">
+                <div class="demo__inner">
+                    <span class="icon icon--info"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+        {% highlight html %}
+<svg class="icon icon--info" focusable="false" height="19" width="21">
+    <use xlink:href="#icon-info"></use>
+</svg>
+        {% endhighlight %}
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+        {% highlight html %}
+<span class="icon icon--info"></span>
+        {% endhighlight %}
+        </div>
+    </div>
+
+    <p><strong>NOTE:</strong> Skin removes all mouse and touch events on foreground icons due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
+
+    {% include ds{{ page.ds}}/icon-custom.html %}
+</div>
