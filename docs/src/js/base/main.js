@@ -28,16 +28,15 @@ querySelectorAllToArray('.listbox, .menu, .fake-menu').forEach(function(widgetEl
 
 // COMBOBOX WIDGETS (basic expand/collapse only)
 querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
-    var inputWrapperEl = widgetEl.querySelector('.combobox__control');
     var inputEl = widgetEl.querySelector('input');
 
     inputEl.addEventListener('focus', function(e) {
         var isExpanded = inputEl.getAttribute('aria-expanded') === 'true';
 
         if (isExpanded) {
-            inputWrapperEl.classList.remove('combobox__control--expanded');
+            widgetEl.classList.remove('combobox--expanded');
         } else {
-            inputWrapperEl.classList.add('combobox__control--expanded');
+            widgetEl.classList.add('combobox--expanded');
         }
 
         inputEl.setAttribute('aria-expanded', !isExpanded);
@@ -45,7 +44,7 @@ querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
 
     inputEl.addEventListener('blur', function(e) {
         inputEl.setAttribute('aria-expanded', 'false');
-        inputWrapperEl.classList.remove('combobox__control--expanded');
+        widgetEl.classList.remove('combobox--expanded');
     });
 });
 
