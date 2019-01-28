@@ -27,7 +27,7 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'megabundles', 'base64']);
+gulp.task('less', ['modules', 'megabundle', 'base64']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
@@ -36,41 +36,8 @@ gulp.task('modules', function (cb) {
     .pipe(gulp.dest(distTarget))
 });
 
-// Grid is deprecated in v7
-// Leaving the tasks commented out just in case we need to restore for a hotfix
-// Scheduled for deletion in v8
-// the dist files are essentially "frozen" until then
-
-// Compile grid modules to /dist
-/*
-gulp.task('grid', function() {
-    return gulp.src(['./src/less/grid/ds4/grid-core.less', './src/less/grid/ds4/grid-small.less', './src/less/grid/ds4/grid-large.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(gulp.dest(distTarget + '/grid/ds4'))
-});
-*/
-
-// #1 Compile grid-full module to dist, docs/static & _site/static
-// #2 Then minify to _cdn
-/*
-gulp.task('grid-full', function() {
-    return gulp.src(['./src/less/grid/ds4/grid-full.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(banner(comment, {pkg: pkg}))
-    .pipe(gulp.dest(docsStaticTarget + '/ds4'))
-    .pipe(gulp.dest(siteStaticTarget + '/ds4'))
-    .pipe(gulp.dest(distTarget + '/grid/ds4'))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
-    .pipe(rename(function (path) {
-        path.extname = cdnFileExtensionName;
-    }))
-    .pipe(gulp.dest(cdnTarget + '/ds4'))
-});
-*/
-
-// #1 Compile the full skin ds4 & ds6 bundles to docs/static & _site/static
-// #2 Then minify to _cdn
-gulp.task('megabundles', function () {
+// Compile and minify the full skin bundle to docs/static, _site/static and cdn
+gulp.task('megabundle', function () {
    return gulp.src(['./src/less/bundles/skin/**/*.less'])
     .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
