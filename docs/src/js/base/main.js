@@ -1,5 +1,6 @@
 var modal = require('makeup-modal');
 var transition = require("./transition");
+var RovingTabindex = require('makeup-roving-tabindex');
 
 // EXPAND BUTTONS - Toggle state
 querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
@@ -130,4 +131,19 @@ var FloatingLabel = require('makeup-floating-label');
 // LABEL WIDGETS
 querySelectorAllToArray('.floating-label').forEach(function (el, i) {
     var floatingLabel = new FloatingLabel(el);
+});
+
+// TAB WIDGETS
+querySelectorAllToArray('.tabs').forEach(function(el, i) {
+    var rovingTabindex = RovingTabindex.createLinear(el, '.tabs__item', { wrap: true });
+    var tabItems = querySelectorAllToArray('.tabs__item', el);
+    var tabPanels = querySelectorAllToArray('.tabs__panel', el);
+
+    el.addEventListener('rovingTabindexChange', function(e) {
+        tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
+        tabItems[e.detail.toIndex].setAttribute('aria-selected', 'true');
+
+        tabPanels[e.detail.fromIndex].hidden = true;
+        tabPanels[e.detail.toIndex].hidden = false;
+    });
 });

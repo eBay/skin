@@ -129,11 +129,11 @@ gulp.task('injectSkinCSS', function(cb) {
 // Re-lasso the docs CSS, copy to jekyll _site/static, inject into browsers
 gulp.task('syncDocsCss', function() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
-        gulp.src(['./docs/static/ds4/docs.css'])
+        gulp.src(['./docs/static/ds4/docs.min.css'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'))
             .pipe(browserSync.stream());
 
-        gulp.src(['./docs/static/ds6/docs.css'])
+        gulp.src(['./docs/static/ds6/docs.min.css'])
             .pipe(gulp.dest(siteStaticTarget + '/ds6'))
             .pipe(browserSync.stream());
     });
@@ -142,10 +142,10 @@ gulp.task('syncDocsCss', function() {
 // Re-lasso the docs JS, copy it to jekyll _site/static, then reload browsers
 gulp.task('syncDocsJs', function() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
-        gulp.src(['./docs/static/ds4/docs.js'])
+        gulp.src(['./docs/static/ds4/docs.min.js'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'));
 
-        gulp.src(['./docs/static/ds6/docs.js'])
+        gulp.src(['./docs/static/ds6/docs.min.js'])
             .pipe(gulp.dest(siteStaticTarget + '/ds6'));
 
         browserSync.reload();
