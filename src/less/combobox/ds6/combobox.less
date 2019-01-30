@@ -14,8 +14,19 @@
     font-size: @ds6-font-size-14;
     height: @ds6-combobox-height;
     padding: 0 32px 0 16px;
-    // fixes the cursor in firefox (2 of 2)
-    text-shadow: 0 0 0 @ds6-color-black;
+
+    &[readonly] {
+        // fixes the cursor in firefox (2 of 2)
+        text-shadow: 0 0 0 @ds6-color-black;
+
+        &::-moz-selection {
+            background: @ds6-color-white;
+        }
+
+        &::selection {
+            background: @ds6-color-white;
+        }
+    }
 
     &:focus {
         border-color: @ds6-color-b7;
@@ -24,22 +35,17 @@
     &[disabled],
     &[aria-disabled="true"] {
         border-color: @ds6-color-disabled;
-        // fixes the cursor in firefox
-        text-shadow: 0 0 0 @ds6-color-disabled;
+
+        &[readonly] {
+            // fixes the cursor in firefox
+            text-shadow: 0 0 0 @ds6-color-disabled;
+        }
 
         & + span.combobox__icon {
             .icon-chevron-down-disabled(9px, @ds6-combobox-height);
 
             background-size: 9px 5px;
         }
-    }
-
-    &::-moz-selection {
-        background: @ds6-color-white;
-    }
-
-    &::selection {
-        background: @ds6-color-white;
     }
 }
 

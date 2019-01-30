@@ -10,7 +10,6 @@ span.fake-menu,
 span.listbox,
 span.combobox {
   display: inline-block;
-  vertical-align: bottom;
 }
 .menu button.expand-btn--borderless,
 .fake-menu button.expand-btn--borderless,
@@ -49,7 +48,6 @@ span.combobox {
 .fake-menu .expand-btn ~ .fake-menu__items {
   display: none;
   position: absolute;
-  top: calc(100% - 1px);
   z-index: 1;
 }
 .menu__items[role="menu"],
@@ -94,6 +92,7 @@ button.fake-menu__item {
   display: -webkit-box;
   display: flex;
   font-size: 0.875rem;
+  height: 100%;
   line-height: 2.5;
   padding: 0 16px;
   width: 100%;
@@ -131,7 +130,7 @@ div.listbox__option--active[role="option"] .listbox__status,
 div.combobox__option--active[role^="option"] .combobox__status,
 a.fake-menu__item[aria-current="page"] .fake-menu__status,
 button.fake-menu__item[aria-current="page"] .fake-menu__status {
-  opacity: 1;
+  visibility: visible;
 }
 a.fake-menu__item {
   text-decoration: none;
@@ -152,9 +151,9 @@ button.fake-menu__item {
   align-self: center;
   fill: currentColor;
   height: 8px;
-  opacity: 0;
   stroke: currentColor;
   stroke-width: 0;
+  visibility: hidden;
   width: 8px;
 }
 span.menu__status,
@@ -267,8 +266,8 @@ span.fake-menu__status {
   cursor: default;
   -webkit-user-select: none;
 }
-.combobox__control > input[disabled],
-.combobox__control > input[aria-disabled="true"] {
+.combobox__control > input[readonly][disabled],
+.combobox__control > input[readonly][aria-disabled="true"] {
   color: transparent;
 }
 .combobox__control > input[aria-expanded="true"] {
@@ -321,12 +320,23 @@ span.combobox {
   border-radius: 3px;
   font-size: 0.875rem;
   height: 40px;
-  padding: 0 16px;
+  padding: 0 30px 0 16px;
+}
+.combobox__control > input[readonly] {
   text-shadow: 0 0 0 #555;
+}
+.combobox__control > input[readonly]::-moz-selection {
+  background: #fff;
+}
+.combobox__control > input[readonly]::selection {
+  background: #fff;
 }
 .combobox__control > input[disabled],
 .combobox__control > input[aria-disabled="true"] {
   border-color: #ccc;
+}
+.combobox__control > input[disabled][readonly],
+.combobox__control > input[aria-disabled="true"][readonly] {
   text-shadow: 0 0 0 #ccc;
 }
 .combobox__control > input[disabled] + span.combobox__icon,
@@ -338,12 +348,6 @@ span.combobox {
 }
 .combobox__control > input:focus {
   border-color: #0654ba;
-}
-.combobox__control > input::-moz-selection {
-  background: #fff;
-}
-.combobox__control > input::selection {
-  background: #fff;
 }
 .combobox--small .combobox__control > input {
   font-size: 0.75rem;
