@@ -1,8 +1,12 @@
-var modal = require('makeup-modal');
+var Modal = require('makeup-modal');
 var transition = require("./transition");
 var RovingTabindex = require('makeup-roving-tabindex');
+var Expander = require('makeup-expander');
+var FloatingLabel = require('makeup-floating-label');
+var ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 
-// EXPAND BUTTONS - Toggle state
+// EXPAND BUTTON
+// Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -10,25 +14,40 @@ querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
-// LISTBOX, MENU & FAKE MENU WIDGETS - EXPAND/COLLAPSE ONLY
-querySelectorAllToArray('.listbox, .menu, .fake-menu').forEach(function(widgetEl, widgetIndex) {
-    var buttonEl = widgetEl.querySelector('button');
-
-    if (buttonEl) {
-        buttonEl.addEventListener('click', function(e) {
-            var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true';
-            buttonEl.setAttribute('aria-expanded', !isExpanded);
+// LISTBOX & MENU (similar behaviour, but with different ARIA roles)
+querySelectorAllToArray('.listbox, .menu').forEach(function(widgetEl, i) {
+    // check this isn't a buttonless menu
+    if (widgetEl.querySelector('.expand-btn')) {
+        var widget = new Expander(widgetEl, {
+            collapseOnFocusOut: true,
+            collapseOnMouseOut: true,
+            contentSelector: '[role=listbox], [role=menu]',
+            expandOnClick: true,
+            focusManagement: 'focusable',
+            hostSelector: '.expand-btn'
         });
 
-        buttonEl.addEventListener('blur', function(e) {
-            buttonEl.setAttribute('aria-expanded', 'false');
+        var contentEl = widgetEl.querySelector('[role=menu], [role=listbox]');
+        var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.listbox__option, .menu__item');
+
+        querySelectorAllToArray('.listbox__option, .menu__item', contentEl).forEach(function(el) {
+            ScrollKeyPreventer.add(el);
         });
     }
 });
 
+// FAKE MENU
+querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        contentSelector: '.fake-menu__items',
+        expandOnClick: true,
+        hostSelector: '.expand-btn' });
+});
 
 // COMBOBOX WIDGETS (basic expand/collapse only)
-querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
+querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
     var inputEl = widgetEl.querySelector('input');
 
     inputEl.addEventListener('focus', function(e) {
@@ -49,7 +68,7 @@ querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
     });
 });
 
-// DIALOG WIDGETS
+// DIALOG
 querySelectorAllToArray('.dialog-button').forEach(function (btn) {
     var cancel;
     var dialog = btn.nextElementSibling;
@@ -67,7 +86,7 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
-        modal.modal(dialog.querySelector('.dialog__window'));
+        Modal.modal(dialog.querySelector('.dialog__window'));
     }
 
     function handleClose (ev) {
@@ -84,7 +103,7 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
         document.body.removeAttribute("style");
-        modal.unmodal();
+        Modal.unmodal();
         btn.focus();
     }
 
@@ -101,11 +120,9 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
     }
 });
 
-var Expander = require('makeup-expander');
-
-// TOOLTIP WIDGETS
-querySelectorAllToArray('.tooltip').forEach(function(el, i) {
-    var widget = new Expander(el, {
+// TOOLTIP
+querySelectorAllToArray('.tooltip').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
         contentSelector: '.tooltip__overlay',
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
@@ -116,8 +133,8 @@ querySelectorAllToArray('.tooltip').forEach(function(el, i) {
     });
 });
 
-// INFOTIP/BUBBLEHELP WIDGETS
-querySelectorAllToArray('.infotip').forEach(function(el, i) {
+// INFOTIP
+querySelectorAllToArray('.infotip').forEach(function(el) {
     var widget = new Expander(el, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
@@ -126,20 +143,18 @@ querySelectorAllToArray('.infotip').forEach(function(el, i) {
     });
 });
 
-var FloatingLabel = require('makeup-floating-label');
-
-// LABEL WIDGETS
-querySelectorAllToArray('.floating-label').forEach(function (el, i) {
+// FLOATING LABEL
+querySelectorAllToArray('.floating-label').forEach(function (el) {
     var floatingLabel = new FloatingLabel(el);
 });
 
-// TAB WIDGETS
-querySelectorAllToArray('.tabs').forEach(function(el, i) {
-    var rovingTabindex = RovingTabindex.createLinear(el, '.tabs__item', { wrap: true });
-    var tabItems = querySelectorAllToArray('.tabs__item', el);
-    var tabPanels = querySelectorAllToArray('.tabs__panel', el);
+// TABS
+querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
+    var rovingTabindex = RovingTabindex.createLinear(widgetEl, '.tabs__item', { wrap: true });
+    var tabItems = querySelectorAllToArray('.tabs__item', widgetEl);
+    var tabPanels = querySelectorAllToArray('.tabs__panel', widgetEl);
 
-    el.addEventListener('rovingTabindexChange', function(e) {
+    widgetEl.addEventListener('rovingTabindexChange', function(e) {
         tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
         tabItems[e.detail.toIndex].setAttribute('aria-selected', 'true');
 
