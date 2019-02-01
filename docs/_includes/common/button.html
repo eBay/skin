@@ -111,7 +111,21 @@
 <button class="btn btn--primary btn--fluid" type="button">Button</button>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/button-small.html %}
+    {% if page.ds == 4 %}
+
+    <h3 id="button-small">Small Button (DS4 only)</h3>
+    <p>Use the <span class="highlight">btn--small</span> size modifier to create a small button style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--small">Button</button>
+        </div>
+        {% highlight html %}
+    <button class="btn btn--primary btn--small">Button</button>
+        {% endhighlight %}
+    </div>
+
+    {% endif %}
 
     <h3 id="button-large">Large Button</h3>
     <p>Use the <span class="highlight">btn--large</span> size modifier to create a large button style.</p>
@@ -126,7 +140,22 @@
 <button class="btn btn--primary btn--large" type="button">Button</button>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/button-xlarge.html %}
+    {% if page.ds == 4 %}
+
+    <h3 id="button-extra-large">Extra-Large Button (DS4 only)</h3>
+    <p>Use the <span class="highlight">btn--extra-large</span> size modifier to create an extra large button style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--extra-large" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+    <button class="btn btn--primary btn--extra-large" type="button">Button</button>
+    {% endhighlight %}
+
+    {% endif %}
 
     <h3 id="button-icon">Icon Button</h3>
     <p>Any foreground icon can be placed adjacent to the button text.</p>
@@ -332,11 +361,147 @@
         A better solution is to truncate the text with JavaScript while adding the necessary accessibility attributes to satisfy
         accessibility requirements.</p>
 
-    <!-- Deviation! DS4 uses arrow down icon. DS6 uses a chevron icon. DS6 uses legacy for small button -->
-    {% include ds{{ page.ds}}/button-expand.html %}
+    <h3 id="button-expand">Expand Button</h3>
+    <p>Use the <span class="highlight">expand-btn</span> base class on a button that expands (and collapses) content.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn-example" type="button">
+                <span class="expand-btn__cell">
+                    <span>Expand</span>
+                    <span class="expand-btn__icon"></span>
+                </span>
+            </button>
+        </div>
+        {% highlight html %}
+    <button aria-expanded="false" class="expand-btn expand-btn--primary" type="button">
+        <span class="expand-btn__cell">
+            <span>Expand</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+        {% endhighlight %}
+    </div>
+
+    <p>Can be used with or without a text label, with background or foreground SVG.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn--no-text expand-btn-example" aria-label="Expand/Collapse">
+                <span class="expand-btn__icon"></span>
+            </button>
+        </div>
+        {% highlight html %}
+    <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn--no-text" aria-label="Expand/Collapse">
+        <span class="expand-btn__icon"></span>
+    </button>
+        {% endhighlight %}
+    </div>
 
     <!-- Deviation! DS6 has CTA button -->
-    {% include ds{{ page.ds}}/button-cta.html %}
+    {% if page.ds == 6 %}
+    <h3 id="button-cta">CTA Button (DS6 Only)</h3>
+    <p>Takes users to another URL destination (i.e. it is a hyperlink, not actually a button).</p>
+
+    <h4>Default Background</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <a class="cta-btn" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Blue Background (B4)</h4>
+
+    <div class="demo demo-cta-b2">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--b4" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--b4" href="http://www.ebay.com">
+        <span class="fake-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Red Background (R4)</h4>
+
+    <div class="demo demo-cta-r2">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--r4" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--r4" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Purple Background (TBD)</h4>
+
+    <div class="demo demo-cta-purple">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--purple" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--purple" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+    {% endif %}
 
     {% if page.ds == 6 %}
     <div class="section-footer">
