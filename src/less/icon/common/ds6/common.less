@@ -1,6 +1,5 @@
 @import "../../../less/mixins-common.less";
 @import "../../../less/ds6/mixins.less";
-@import "../../../less/ds6/variables.less";
 
 // we need the span & svg specificty to override dimensions set in span.icon & svg.icon by base mixins
 // todo refactor foreground-icon-base to not contain default width & height
@@ -10,6 +9,16 @@
         height: ~"@{ds6-@{icon-string}-height}"; // string resolves to a LESS variable
         width: ~"@{ds6-@{icon-string}-width}"; // string resolves to a LESS variable
     }
+}
+
+span.icon {
+    .background-icon-base;
+}
+
+svg.icon {
+    .foreground-icon-base;
+
+    pointer-events: none;
 }
 
 .icon--arrow-left {
