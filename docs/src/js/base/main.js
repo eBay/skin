@@ -83,6 +83,13 @@ querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
     });
 
     ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
+
+    var optionEls = querySelectorAllToArray('[role=option]', ownedEl);
+    var buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
+
+    widgetEl.addEventListener('activeDescendantChange', function(e) {
+        // todo: update button label with value of active option (running into a bug which is preventing this)
+    });
 });
 
 // DIALOG
