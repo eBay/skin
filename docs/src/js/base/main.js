@@ -4,6 +4,7 @@ var RovingTabindex = require('makeup-roving-tabindex');
 var Expander = require('makeup-expander');
 var FloatingLabel = require('makeup-floating-label');
 var ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
+var ActiveDescendant = require('makeup-active-descendant');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
@@ -14,23 +15,23 @@ querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
-// LISTBOX & MENU (similar behaviour, but with different ARIA roles)
-querySelectorAllToArray('.listbox, .menu').forEach(function(widgetEl, i) {
+// MENU
+querySelectorAllToArray('.menu').forEach(function(widgetEl, i) {
     // check this isn't a buttonless menu
     if (widgetEl.querySelector('.expand-btn')) {
         var widget = new Expander(widgetEl, {
             collapseOnFocusOut: true,
             collapseOnMouseOut: true,
-            contentSelector: '[role=listbox], [role=menu]',
+            contentSelector: '[role=menu]',
             expandOnClick: true,
             focusManagement: 'focusable',
             hostSelector: '.expand-btn'
         });
 
-        var contentEl = widgetEl.querySelector('[role=menu], [role=listbox]');
-        var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.listbox__option, .menu__item');
+        var contentEl = widgetEl.querySelector('[role=menu]');
+        var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
 
-        querySelectorAllToArray('.listbox__option, .menu__item', contentEl).forEach(function(el) {
+        querySelectorAllToArray('.menu__item', contentEl).forEach(function(el) {
             ScrollKeyPreventer.add(el);
         });
     }
@@ -43,29 +44,45 @@ querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
         collapseOnMouseOut: true,
         contentSelector: '.fake-menu__items',
         expandOnClick: true,
-        hostSelector: '.expand-btn' });
+        hostSelector: '.expand-btn'
+    });
 });
 
-// COMBOBOX WIDGETS (basic expand/collapse only)
+// COMBOBOX
 querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
-    var inputEl = widgetEl.querySelector('input');
-
-    inputEl.addEventListener('focus', function(e) {
-        var isExpanded = inputEl.getAttribute('aria-expanded') === 'true';
-
-        if (isExpanded) {
-            widgetEl.classList.remove('combobox--expanded');
-        } else {
-            widgetEl.classList.add('combobox--expanded');
-        }
-
-        inputEl.setAttribute('aria-expanded', !isExpanded);
+    var expanderWidget = new Expander(widgetEl, {
+        collapseOnFocusOut: true,
+        contentSelector: '[role=listbox]',
+        expandedClass: 'combobox--expanded',
+        expandOnFocus: true,
+        hostSelector: 'input'
     });
 
-    inputEl.addEventListener('blur', function(e) {
-        inputEl.setAttribute('aria-expanded', 'false');
-        widgetEl.classList.remove('combobox--expanded');
+    var focusEl = widgetEl.querySelector('input');
+    var ownedEl = widgetEl.querySelector('[role=listbox]');
+    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
+        activeDescendantClassName: 'combobox__option--active'
     });
+});
+
+// LISTBOX
+querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
+    var expanderWidget = new Expander(widgetEl, {
+        collapseOnFocusOut: true,
+        contentSelector: '[role=listbox]',
+        expandedClass: 'listbox--expanded',
+        expandOnClick: true,
+        focusManagement: 'content',
+        hostSelector: 'button'
+    });
+
+    var focusEl = widgetEl.querySelector('button');
+    var ownedEl = widgetEl.querySelector('[role=listbox]');
+    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
+        activeDescendantClassName: 'listbox__option--active'
+    });
+
+    ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
 });
 
 // DIALOG
@@ -150,9 +167,9 @@ querySelectorAllToArray('.floating-label').forEach(function (el) {
 
 // TABS
 querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
-    var rovingTabindex = RovingTabindex.createLinear(widgetEl, '.tabs__item', { wrap: true });
-    var tabItems = querySelectorAllToArray('.tabs__item', widgetEl);
-    var tabPanels = querySelectorAllToArray('.tabs__panel', widgetEl);
+    var rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
+    var tabItems = querySelectorAllToArray('[role=tab]', widgetEl);
+    var tabPanels = querySelectorAllToArray('[role=tabpanel]', widgetEl);
 
     widgetEl.addEventListener('rovingTabindexChange', function(e) {
         tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
@@ -160,5 +177,9 @@ querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
 
         tabPanels[e.detail.fromIndex].hidden = true;
         tabPanels[e.detail.toIndex].hidden = false;
+    });
+
+    querySelectorAllToArray('[role=tab]', widgetEl).forEach(function(el) {
+        ScrollKeyPreventer.add(el);
     });
 });
