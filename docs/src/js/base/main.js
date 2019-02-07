@@ -20,8 +20,7 @@ querySelectorAllToArray('.menu').forEach(function(widgetEl, i) {
     // check this isn't a buttonless menu
     if (widgetEl.querySelector('.expand-btn')) {
         var widget = new Expander(widgetEl, {
-            collapseOnFocusOut: true,
-            collapseOnMouseOut: true,
+            autoCollapse: true,
             contentSelector: '[role=menu]',
             expandOnClick: true,
             focusManagement: 'focusable',
@@ -51,7 +50,7 @@ querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
 // COMBOBOX
 querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
     var expanderWidget = new Expander(widgetEl, {
-        collapseOnFocusOut: true,
+        autoCollapse: true,
         contentSelector: '[role=listbox]',
         expandedClass: 'combobox--expanded',
         expandOnFocus: true,
@@ -68,7 +67,7 @@ querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
 // LISTBOX
 querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
     var expanderWidget = new Expander(widgetEl, {
-        collapseOnFocusOut: true,
+        autoCollapse: true,
         contentSelector: '[role=listbox]',
         expandedClass: 'listbox--expanded',
         expandOnClick: true,
@@ -158,12 +157,23 @@ querySelectorAllToArray('.tooltip').forEach(function(widgetEl) {
 });
 
 // INFOTIP
-querySelectorAllToArray('.infotip').forEach(function(el) {
-    var widget = new Expander(el, {
+querySelectorAllToArray('.infotip').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
         expandOnClick: true,
         hostSelector: '.infotip__host'
+    });
+
+    widgetEl.querySelector('.infotip__close').addEventListener('click', function() {
+        widget.collapse();
+    });
+});
+
+// TOURTIP
+querySelectorAllToArray('.tourtip').forEach(function(widgetEl) {
+    widgetEl.querySelector('.tourtip__close').addEventListener('click', function() {
+        widgetEl.classList.remove('tourtip--expanded');
     });
 });
 
