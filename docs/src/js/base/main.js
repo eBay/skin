@@ -77,17 +77,30 @@ querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
 
     var focusEl = widgetEl.querySelector('button');
     var ownedEl = widgetEl.querySelector('[role=listbox]');
-    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
-        activeDescendantClassName: 'listbox__option--active'
+    var optionEls = querySelectorAllToArray('[role=option]', ownedEl);
+    var initialIndex = 0;
+
+    // check for existing selected state
+    optionEls.forEach(function(el, elIndex) {
+        if (el.hasAttribute('aria-selected')) {
+            initialIndex = elIndex;
+        }
+    });
+
+    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, ownedEl, ownedEl, '[role=option]', {
+        activeDescendantClassName: 'listbox__option--active',
+        autoInit: initialIndex,
+        autoReset: null
     });
 
     ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
 
-    var optionEls = querySelectorAllToArray('[role=option]', ownedEl);
     var buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
 
     widgetEl.addEventListener('activeDescendantChange', function(e) {
-        // todo: update button label with value of active option (running into a bug which is preventing this)
+        if (e.detail.toIndex > -1) {
+            buttonLabelEl.innerText = optionEls[e.detail.toIndex].innerText;
+        }
     });
 });
 
