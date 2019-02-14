@@ -14,7 +14,8 @@
     }
 }
 
-.page-notice--priority {
+.page-notice--priority, // deprecated in v7
+.page-notice--attention {
     border-color: @ds6-color-r4;
 
     .page-notice__status {
@@ -71,31 +72,33 @@ svg.page-notice__cta {
 }
 
 .page-notice--confirmation .page-notice__status span {
-    background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-confirmation-base64}');
+    .background-image-base64(@ds6-icon-page-notice-confirmation-base64);
 }
 
-.page-notice--priority .page-notice__status span {
-    background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-priority-base64}');
+.page-notice--priority .page-notice__status span, // priority deprecated in v7
+.page-notice--attention .page-notice__status span {
+    .background-image-base64(@ds6-icon-page-notice-attention-base64);
 }
 
 .page-notice--information .page-notice__status span {
-    background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-information-base64}');
+    .background-image-base64(@ds6-icon-page-notice-information-base64);
 }
 
 @media screen and (-ms-high-contrast: white-on-black) {
     .page-notice__close span {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-close-base64-light}');
+        .background-image-base64(@ds6-icon-close-base64-light);
     }
 
     .page-notice--confirmation .page-notice__status span {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-confirmation-base64}');
+        .background-image-base64(ds6-icon-page-notice-confirmation-base64);
     }
 
-    .page-notice--priority .page-notice__status span {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-priority-base64}');
+    .page-notice--priority .page-notice__status span, // priority deprecated in v7
+    .page-notice--attention .page-notice__status span {
+        .background-image-base64(ds6-icon-page-notice-attention-base64);
     }
 
     .page-notice--information .page-notice__status span {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-page-notice-information-base64}');
+        .background-image-base64(ds6-icon-page-notice-information-base64);
     }
 }
