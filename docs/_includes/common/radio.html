@@ -29,6 +29,37 @@
 </span>
     {% endhighlight %}
 
+    <p>The default radio leverages background SVG, but foreground SVG is also supported.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="radio">
+                <input aria-label="SVG radio example" class="radio__control" type="radio" name="radio-svg"/>
+                <span class="radio__icon" hidden>
+                    <svg class="icon icon--radio--unchecked radio__unchecked" focusable="false" height="19" width="21">
+                        <use xlink:href="#icon-radio-unchecked"></use>
+                    </svg>
+                    <svg class="icon icon--radio--checked radio__checked" focusable="false" height="19" width="21">
+                        <use xlink:href="#icon-radio-checked"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="radio">
+    <input aria-label="SVG radio example" class="radio__control" type="radio" />
+    <span class="radio__icon" hidden>
+        <svg class="icon icon--radio--unchecked radio__unchecked" focusable="false" height="19" width="21">
+            <use xlink:href="#icon-radio-unchecked"></use>
+        </svg>
+        <svg class="icon icon--radio--checked radio__checked" focusable="false" height="19" width="21">
+            <use xlink:href="#icon-radio-checked"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
     <h3 id="radio-disabled">Disabled Radio</h3>
     <p>Use the <span class="highlight">disabled</span> attribute to disable any radio input.</p>
     <div class="demo">
@@ -108,17 +139,17 @@
     {% endhighlight %}
 
     <h3 id="radio-custom">Custom Radio</h3>
-    <p>The default radio shown above uses an SVG background image, and therefore has a fixed colour. Inline SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the radio icon.</p>
+    <p>The default radio shown above uses an SVG background image, and therefore has a fixed colour. Foreground SVG, while slightly more verbose, honours the CSS cascade, thus allowing any possible colour for the radio icon.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="radio" style="color: #{% if page.ds == 4 %}5ba71b{% else %}71c63e{% endif %}">
+            <span class="radio">
                 <input aria-label="Custom colour radio example" class="radio__control" id="custom-radio-1" name="radio-custom-colour" type="radio" />
                 <span class="radio__icon" hidden>
                     <svg aria-hidden="true" class="radio__unchecked" focusable="false">
                         <use xlink:href="#icon-radio-unchecked"></use>
                     </svg>
-                    <svg aria-hidden="true" class="radio__checked" focusable="false">
+                    <svg aria-hidden="true" class="radio__checked" focusable="false" style="color: #{% if page.ds == 4 %}5ba71b{% else %}71c63e{% endif %}">
                         <use xlink:href="#icon-radio-checked"></use>
                     </svg>
                 </span>
@@ -127,32 +158,32 @@
     </div>
 
     {% highlight html %}
-<span class="radio" style="color: #{% if page.ds == 4 %}5ba71b{% else %}71c63e{% endif %}">
+<span class="radio">
     <input class="radio__control" type="radio" />
     <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
             <use xlink:href="#icon-radio-unchecked"></use>
         </svg>
-        <svg aria-hidden="true" class="radio__checked" focusable="false">
+        <svg aria-hidden="true" class="radio__checked" focusable="false" style="color: #{% if page.ds == 4 %}5ba71b{% else %}71c63e{% endif %}">
             <use xlink:href="#icon-radio-checked"></use>
         </svg>
     </span>
 </span>
     {% endhighlight %}
 
-    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> property ensures that the SVG icon is not visible alongside the native icon when the page is in a non-CSS state. This hidden property will be overriden by CSS.</p>
+    <p><strong>NOTE:</strong> The <span class="highlight">hidden</span> property ensures that the SVG icon is not visible alongside the native icon when the page is in a non-CSS state.  The hidden state will be overriden by CSS. We consider this an unobtrusive, <em>progressive enhancement</em> of the native HTML radio.</p>
 
     <p>The radio module can use any inline SVG for it's checked and unchecked states.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="field__control radio" style="color: #{% if page.ds == 4 %}5ba71b{% else %}e62048{% endif %}">
+            <span class="field__control radio">
                 <input aria-label="Custom icon radio example" class="radio__control" id="custom-radio-2" name="radio-custom-icon" type="radio" />
                 <span class="radio__icon" hidden>
                     <svg aria-hidden="true" class="radio__unchecked" focusable="false">
                         <use xlink:href="#{% if page.ds == 4 %}icon-radio-unchecked{% else %}icon-save{% endif %}"></use>
                     </svg>
-                    <svg aria-hidden="true" class="radio__checked" focusable="false">
+                    <svg aria-hidden="true" class="radio__checked" focusable="false" style="color: #{% if page.ds == 4 %}5ba71b{% else %}e62048{% endif %}">
                         <use xlink:href="#{% if page.ds == 4 %}icon-confirmation{% else %}icon-save-selected{% endif %}"></use>
                     </svg>
                 </span>
@@ -161,13 +192,13 @@
     </div>
 
     {% highlight html %}
-<span class="field__control radio" style="color: #{% if page.ds == 4 %}5ba71b{% else %}e62048{% endif %}">
+<span class="field__control radio">
     <input class="radio__control" id="custom-radio-1" type="radio" value="1" name="radio-custom" />
     <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
             <use xlink:href="#{% if page.ds == 4 %}icon-radio-unchecked{% else %}icon-save{% endif %}"></use>
         </svg>
-        <svg aria-hidden="true" class="radio__checked" focusable="false">
+        <svg aria-hidden="true" class="radio__checked" focusable="false" style="color: #{% if page.ds == 4 %}5ba71b{% else %}e62048{% endif %}">
             <use xlink:href="#{% if page.ds == 4 %}icon-radio-confirmation{% else %}icon-save-selected{% endif %}"></use>
         </svg>
     </span>
