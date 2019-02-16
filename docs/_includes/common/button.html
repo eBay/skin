@@ -1,23 +1,8 @@
 <div id="button">
-    <h2>Button</h2>
+    <h2><span class="secondary-text">@ebay/skin/</span>button</h2>
     <p>A button is typically used to trigger a JavaScript action (e.g. fetch results, open a dialog or expand a menu). In this case, the <span class="highlight">&lt;button&gt;</span> tag is <strong>required</strong>.</p>
     <p>A button may also be used to submit or reset a form. In this case use the <span class="highlight">&lt;button&gt;</span> tag with <span class="highlight">type=submit</span> or <span class="highlight">type=reset</span> respectively. Use of the <span class="highlight">&lt;input&gt;</span> tag is not currently supported.</p>
     <p>Finally, a link may be styled to <em>look</em> like a button. We call this a fake button. In this case the <span class="highlight">&lt;a&gt;</span> tag is <strong>required</strong> with a valid HREF attribute.</p>
-
-    <ul class="module-toc cols">
-        <li><a href="#button-raw">Raw Button</a></li>
-        <li><a href="#button-regular">Regular Button</a></li>
-        <li><a href="#button-primary">Primary Button</a></li>
-        <li><a href="#button-secondary">Secondary Button</a></li>
-        <li><a href="#button-small">Small Button</a></li>
-        <li><a href="#button-large">Large Button</a></li>
-        <li><a href="#button-extra-large">Extra Large Button</a></li>
-        <li><a href="#button-fluid">Fluid Button</a></li>
-        <li><a href="#button-disabled">Disabled Button</a></li>
-        <li><a href="#button-partially-disabled">Partially Disabled Button</a></li>
-        <li><a href="#button-icon">Icon Button</a></li>
-        <li><a href="#button-expand">Expand Button</a></li>
-    </ul>
 
     <h3 id="button-raw">Raw Button</h3>
     <p>Use the raw button as the base to build custom modifiers. The raw button does not define any styles for states such as disabled, invalid, readonly, etc.</p>
@@ -126,7 +111,21 @@
 <button class="btn btn--primary btn--fluid" type="button">Button</button>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/button-small.html %}
+    {% if page.ds == 4 %}
+
+    <h3 id="button-small">Small Button (DS4 only)</h3>
+    <p>Use the <span class="highlight">btn--small</span> size modifier to create a small button style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--small">Button</button>
+        </div>
+        {% highlight html %}
+    <button class="btn btn--primary btn--small">Button</button>
+        {% endhighlight %}
+    </div>
+
+    {% endif %}
 
     <h3 id="button-large">Large Button</h3>
     <p>Use the <span class="highlight">btn--large</span> size modifier to create a large button style.</p>
@@ -141,7 +140,22 @@
 <button class="btn btn--primary btn--large" type="button">Button</button>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/button-xlarge.html %}
+    {% if page.ds == 4 %}
+
+    <h3 id="button-extra-large">Extra-Large Button (DS4 only)</h3>
+    <p>Use the <span class="highlight">btn--extra-large</span> size modifier to create an extra large button style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--extra-large" type="button">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+    <button class="btn btn--primary btn--extra-large" type="button">Button</button>
+    {% endhighlight %}
+
+    {% endif %}
 
     <h3 id="button-icon">Icon Button</h3>
     <p>Any foreground icon can be placed adjacent to the button text.</p>
@@ -197,7 +211,7 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn btn--primary btn--fluid" type="button" style="padding: 0 16px;">
+            <button class="btn btn--primary btn--fluid" type="button" style="padding-left: 16px; padding-right: 16px;">
                 <span class="btn__cell" style="justify-content: space-between">
                     <span>Select</span>
                     <span style="display: inline-flex;">
@@ -212,7 +226,7 @@
     </div>
 
     {% highlight html %}
-<button class="btn btn--primary btn--fluid" type="button" style="padding: 0 16px;">
+<button class="btn btn--primary btn--fluid" type="button" style="padding-left: 16px; padding-right: 16px;">
     <span class="btn__cell" style="justify-content: space-between">
         <span>Select</span>
         <span style="display: inline-flex;">
@@ -225,11 +239,273 @@
 </button>
     {% endhighlight %}
 
-    <!-- Deviation! DS4 uses arrow down icon. DS6 uses a chevron icon. DS6 uses legacy for small button -->
-    {% include ds{{ page.ds}}/button-expand.html %}
+    <h3 id="button-wrapping">Button wrapping and overflow behavior</h3>
+
+    <p>Text of buttons will wrap when the button fills it's constrained width (if any).</p>
+
+    <div class="demo">
+        <div class="demo__inner" style="max-width: 200px; word-break: normal;">
+            <button type="button" class="btn">
+                Button with a lot of text that will wrap
+            </button>
+        </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+    </div>
+
+    <p>To apply a fixed height to a button use the following pattern: <span class="highlight">btn--medium-fixed-height</span>.</p>
+
+    <div class="demo">
+        <div class="demo__inner" style="max-width: 200px;">
+            <button class="btn btn--medium-fixed-height">
+                Button with a lot of text that will wrap
+            </button>
+        </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn btn--medium-fixed-height">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+    </div>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--medium-fixed-height">
+                Button with a lot of text that won't wrap
+            </button>
+        </div>
+    {% highlight html %}
+<button class="btn btn--medium-fixed-height">
+    Button with a lot of text that won't wrap
+</button>
+    {% endhighlight %}
+    </div>
+
+    <p>To apply truncation to text use the following pattern: <span class="highlight">btn--medium-truncated</span>.</p>
+
+    <div class="demo">
+        <div class="demo__inner" style="max-width: 200px;">
+            <button class="btn btn--medium-truncated">
+                Button with a lot of text that will wrap
+            </button>
+        </div>
+    {% highlight html %}
+<div style="max-width 200px;">
+    <button class="btn btn--medium-truncated">
+        Button with a lot of text that will wrap
+    </button>
+</div>
+    {% endhighlight %}
+    </div>
+
+    <h3 id="button-pill">Pill Button</h3>
+
+    <p>Use the <span class="highlight">pill</span> modifier to create a button styled as a pill. It should be used in conjunction with primary/secondary modifiers for full styling. Note that the pill button only supports one size, so it should not be used together with sizing modifiers. Additionally, JavaScript should be used for multi-line ellipsis truncation.</p>
+
+    <h4>Default Pill</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--pill">Pill button</button>
+            <a class="fake-btn fake-btn--pill" href="http://www.ebay.com">Pill link</a>
+        </div>
+    {% highlight html %}
+<button class="btn btn--pill">Pill button</button>
+<a class="fake-btn fake-btn--pill" href="http://www.ebay.com">Pill link</a>
+    {% endhighlight %}
+    </div>
+
+    <h4>Selected Pill</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--pill" aria-pressed="true">Pill button</button>
+            <a class="fake-btn fake-btn--primary fake-btn--pill" href="http://www.ebay.com">Pill link<span class="clipped"> - Selected</span></a>
+        </div>
+    {% highlight html %}
+<button class="btn btn--primary btn--pill" aria-pressed="true">Pill button</button>
+<a class="fake-btn fake-btn--primary fake-btn--pill" href="http://www.ebay.com">Pill link<span class="clipped"> - Selected</span></a>
+    {% endhighlight %}
+    </div>
+
+    <h4>Unselected Pill</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--secondary btn--pill">Pill button</button>
+            <a class="fake-btn fake-btn--secondary fake-btn--pill" href="http://www.ebay.com">Pill link</a>
+        </div>
+    {% highlight html %}
+<button class="btn btn--secondary btn--pill">Pill button</button>
+<a class="fake-btn fake-btn--secondary fake-btn--pill" href="http://www.ebay.com">Pill link</a>
+    {% endhighlight %}
+    </div>
+
+    <h4>Multiline Pill</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--secondary btn--pill">Pill button with two lines of text</button>
+            <a class="fake-btn fake-btn--secondary fake-btn--pill" href="http://www.ebay.com">Pill link with two lines of text</a>
+        </div>
+    {% highlight html %}
+<button class="btn btn--secondary btn--pill">Pill button with two lines of text</button>
+<a class="fake-btn fake-btn--secondary fake-btn--pill" href="http://www.ebay.com">Pill link with two lines of text</a>
+    {% endhighlight %}
+    </div>
+
+    <p><b>Note:</b> Adding a <span class="highlight">btn--medium-truncated</span> class (or similar classes) to the pill has undesired results.
+        A better solution is to truncate the text with JavaScript while adding the necessary accessibility attributes to satisfy
+        accessibility requirements.</p>
+
+    <h3 id="button-expand">Expand Button</h3>
+    <p>Use the <span class="highlight">expand-btn</span> base class on a button that expands (and collapses) content.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn-example" type="button">
+                <span class="expand-btn__cell">
+                    <span>Expand</span>
+                    <span class="expand-btn__icon"></span>
+                </span>
+            </button>
+        </div>
+        {% highlight html %}
+    <button aria-expanded="false" class="expand-btn expand-btn--primary" type="button">
+        <span class="expand-btn__cell">
+            <span>Expand</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+        {% endhighlight %}
+    </div>
+
+    <p>Can be used with or without a text label, with background or foreground SVG.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn--no-text expand-btn-example" aria-label="Expand/Collapse">
+                <span class="expand-btn__icon"></span>
+            </button>
+        </div>
+        {% highlight html %}
+    <button aria-expanded="false" class="expand-btn expand-btn--primary expand-btn--no-text" aria-label="Expand/Collapse">
+        <span class="expand-btn__icon"></span>
+    </button>
+        {% endhighlight %}
     </div>
 
     <!-- Deviation! DS6 has CTA button -->
-    {% include ds{{ page.ds}}/button-cta.html %}
+    {% if page.ds == 6 %}
+    <h3 id="button-cta">CTA Button (DS6 Only)</h3>
+    <p>Takes users to another URL destination (i.e. it is a hyperlink, not actually a button).</p>
 
+    <h4>Default Background</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <a class="cta-btn" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Blue Background (B4)</h4>
+
+    <div class="demo demo-cta-b2">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--b4" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--b4" href="http://www.ebay.com">
+        <span class="fake-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Red Background (R4)</h4>
+
+    <div class="demo demo-cta-r2">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--r4" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--r4" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+
+    <h4>Purple Background (TBD)</h4>
+
+    <div class="demo demo-cta-purple">
+        <div class="demo__inner">
+            <a class="cta-btn cta-btn--purple" href="http://www.ebay.com">
+                <span class="cta-btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                        <use xlink:href="#icon-arrow-right-bold"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        {% highlight html %}
+    <a class="cta-btn cta-btn--purple" href="http://www.ebay.com">
+        <span class="cta-btn__cell">
+            <span>Button</span>
+            <svg aria-hidden="true" class="cta-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-arrow-right-bold"></use>
+            </svg>
+        </span>
+    </a>
+        {% endhighlight %}
+    </div>
+    {% endif %}
+
+    {% if page.ds == 6 %}
+    <div class="section-footer">
+        <p>DS6.v1.01</p>
+    </div>
+    {% endif %}
 </div>

@@ -1,8 +1,116 @@
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large,
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large {
-    font-size: @ds6-font-size-18;
+.button-size-rules(@paddingBottom, @paddingTop) {
+    padding-bottom: @paddingBottom;
+    padding-top: @paddingTop;
+}
+
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+    .button-size-rules(10px, 10px);
+
+    &__cell--fixed-height svg.btn__icon,
+    &__cell--fixed-height svg.expand-btn__icon,
+    &__cell--fixed-height svg.fake-btn__icon,
+    &__cell--fixed-height svg.cta-btn__icon {
+        align-self: center;
+        height: 1rem;
+        width: 1rem;
+    }
+
+    &--small {
+        .button-size-rules(6px, 6px);
+
+        min-height: 32px;
+
+        &-fixed-height {
+            .button-size-rules(6px, 6px);
+
+            height: 32px;
+        }
+
+        &-truncated {
+            .button-size-rules(6px, 6px);
+            .truncate-button();
+
+            height: 32px;
+        }
+    }
+
+    &--medium {
+        .button-size-rules(10px, 10px);
+
+        min-height: 40px;
+
+        &-fixed-height {
+            .button-size-rules(10px, 10px);
+
+            height: 40px;
+        }
+
+        &-truncated {
+            .button-size-rules(10px, 10px);
+            .truncate-button();
+
+            height: 40px;
+        }
+    }
+
+    &--large {
+        .button-size-rules(12px, 12px);
+
+        min-height: 48px;
+
+        &-fixed-height {
+            .button-size-rules(12px, 12px);
+
+            height: 48px;
+        }
+
+        &-truncated {
+            .button-size-rules(12px, 12px);
+            .truncate-button();
+
+            height: 48px;
+        }
+    }
+
+    &--extra-large {
+        padding: 16px 24px;
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .truncate-button();
+
+            height: 56px;
+        }
+    }
+
+    &--large,
+    &--extra-large {
+        font-size: @ds6-font-size-18;
+    }
+}
+
+button.expand-btn.expand-btn--no-text {
+    height: 40px;
+
+    &.expand-btn--small {
+        height: 32px;
+    }
+
+    &.expand-btn--medium, {
+        height: 40px;
+    }
+
+    &.expand-btn--large {
+        height: 40px;
+    }
+
+    &.expand-btn--extra-large {
+        height: 48px;
+    }
 }

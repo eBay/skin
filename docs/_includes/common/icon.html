@@ -1,0 +1,192 @@
+<!-- TECH DEBT: the file contains inline styles -->
+<div id="icon">
+    <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
+    <p>The icon module provides full access to the eBay iconography via the <span class="highlight">&lt;svg&gt;</span> tag (i.e. foreground icons) and the <span class="highlight">&lt;span&gt;</span> tag (i.e. background icons).</p>
+    <p>By default, the icon module bundles <strong>all</strong> CSS for <strong>both</strong> types of tag. However, the background icon CSS contains a base64 data-url for every icon in the set, therefore significantly increasing CSS payload. For this reason, Skin also provides the ability to bring in background or foreground CSS independently, via their own modules.</p>
+    <p>Below we give a quick, introductory example of how to use each type of icon; followed up by the full list of icons.</p>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+            <h3>@ebay/skin/icon/foreground</h3>
+            <p>Foregound icons (the <span class="highlight">&lt;svg&gt;</span> tag) can inherit their colour via the CSS cascade.</p>
+            <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+            <h3>@ebay/skin/icon/background</h3>
+            <p>Background icons (the <span class="highlight">&lt;span&gt;</span> tag) have their colour fixed in base64 and cannot be changed via CSS.</p>
+            <p>Remember, this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload will occur.</p>
+        </div>
+    </div>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+            <div class="demo">
+                <div class="demo__inner">
+                    <svg aria-label="Foreground icon example" class="icon icon--info" focusable="false" height="19" width="21" role="img">
+                        <use xlink:href="#icon-info"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+            <div class="demo">
+                <div class="demo__inner">
+                    <span class="icon icon--info"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex">
+        <div style="width: 50%">
+        {% highlight html %}
+<svg class="icon icon--info" focusable="false" height="19" width="21">
+    <use xlink:href="#icon-info"></use>
+</svg>
+        {% endhighlight %}
+        </div>
+        <div style="margin-left: 1rem; width: 50%">
+        {% highlight html %}
+<span class="icon icon--info"></span>
+        {% endhighlight %}
+        </div>
+    </div>
+
+    <p><strong>NOTE:</strong> Skin removes all mouse and touch events on foreground icons due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
+
+    <h3 id="icon-a11y">Icon Accessibility</h3>
+    <p>An icon can be <em>presentational</em> or <em>non-presentational</em>.</p>
+
+    <h4>Presentational Icons</h4>
+    <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
+    <p>Presentational foreground icons require <span class="highlight">aria-hidden="true"</span>.</p>
+    <p>Presentational background icons require no special treatment. Assistive technology simply ignores empty span tags.</p>
+
+    <h4>Non-Presentational Icons</h4>
+    <p>A non-presentational icon provides essential content, context or affordance to a page, section or widget.</p>
+    <p>Non-presentational icons nested inside of an interactive element (typically a button or link) require no special treatment. The label and role of the interactive element is sufficient for assistive technology.</p>
+    <p>Non-presentational icons <strong>not</strong> nested inside of an interactive element require <span class="highlight">role="img"</span> and an <span class="highlight">aria-label</span>.</p>
+
+    <h3 id="icon-ds4-filter">Filter Icons</h3>
+    <div class="demo demo--tiles">
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--filter-gallery" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-filter-gallery"></use>
+                </svg>
+            </div>
+            <span class="highlight">filter-gallery</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--filter-single" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-filter-single"></use>
+                </svg>
+            </div>
+            <span class="highlight">filter-single</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--filter-list" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-filter-list"></use>
+                </svg>
+            </div>
+            <span class="highlight">filter-list</span>
+        </div>
+    </div>
+
+    <h3 id="icon-ds4-form">Form Icons</h3>
+    <div class="demo demo--tiles">
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--checkbox-unchecked" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-checkbox-unchecked"></use>
+                </svg>
+            </div>
+            <span class="highlight">checkbox-unchecked</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--checkbox-checked" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-checkbox-checked"></use>
+                </svg>
+            </div>
+            <span class="highlight">checkbox-checked</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--radio-unchecked" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-radio-unchecked"></use>
+                </svg>
+            </div>
+            <span class="highlight">radio-unchecked</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--radio-checked" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-radio-checked"></use>
+                </svg>
+            </div>
+            <span class="highlight">radio-checked</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-tick"></use>
+                </svg>
+            </div>
+            <span class="highlight">tick</span>
+        </div>
+    </div>
+
+    <h3>Carousel Icons</h3>
+    <div class="demo demo--tiles">
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--pause" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-pause"></use>
+                </svg>
+            </div>
+            <span class="highlight">pause</span>
+
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--play" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-play"></use>
+                </svg>
+            </div>
+            <span class="highlight">play</span>
+        </div>
+    </div>
+
+    <h3>Notice Icons</h3>
+    <div class="demo demo--tiles">
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--confirmation" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-confirmation"></use>
+                </svg>
+            </div>
+            <span class="highlight">confirmation</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--information" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-information"></use>
+                </svg>
+            </div>
+            <span class="highlight">information</span>
+        </div>
+        <div class="demo__tile">
+            <div class="demo__inner">
+                <svg aria-hidden="true" class="icon icon--attention" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-attention"></use>
+                </svg>
+            </div>
+            <span class="highlight">attention</span>
+        </div>
+    </div>
+
+    {% include ds{{ page.ds}}/icon-custom.html %}
+</div>

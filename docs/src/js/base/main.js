@@ -1,7 +1,13 @@
-var modal = require('makeup-modal');
+var Modal = require('makeup-modal');
 var transition = require("./transition");
+var RovingTabindex = require('makeup-roving-tabindex');
+var Expander = require('makeup-expander');
+var FloatingLabel = require('makeup-floating-label');
+var ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
+var ActiveDescendant = require('makeup-active-descendant');
 
-// EXPAND BUTTONS - Toggle state
+// EXPAND BUTTON
+// Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -9,47 +15,96 @@ querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
-// LISTBOX, MENU & FAKE MENU WIDGETS - EXPAND/COLLAPSE ONLY
-querySelectorAllToArray('.listbox, .menu, .fake-menu').forEach(function(widgetEl, widgetIndex) {
-    var buttonEl = widgetEl.querySelector('button');
-
-    if (buttonEl) {
-        buttonEl.addEventListener('click', function(e) {
-            var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true';
-            buttonEl.setAttribute('aria-expanded', !isExpanded);
+// MENU
+querySelectorAllToArray('.menu').forEach(function(widgetEl, i) {
+    // check this isn't a buttonless menu
+    if (widgetEl.querySelector('.expand-btn')) {
+        var widget = new Expander(widgetEl, {
+            autoCollapse: true,
+            contentSelector: '[role=menu]',
+            expandOnClick: true,
+            focusManagement: 'focusable',
+            hostSelector: '.expand-btn'
         });
 
-        buttonEl.addEventListener('blur', function(e) {
-            buttonEl.setAttribute('aria-expanded', 'false');
+        var contentEl = widgetEl.querySelector('[role=menu]');
+        var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
+
+        querySelectorAllToArray('.menu__item', contentEl).forEach(function(el) {
+            ScrollKeyPreventer.add(el);
         });
     }
 });
 
-
-// COMBOBOX WIDGETS (basic expand/collapse only)
-querySelectorAllToArray('.combobox').forEach(function(widgetEl, widgetIndex) {
-    var inputWrapperEl = widgetEl.querySelector('.combobox__control');
-    var inputEl = widgetEl.querySelector('input');
-
-    inputEl.addEventListener('focus', function(e) {
-        var isExpanded = inputEl.getAttribute('aria-expanded') === 'true';
-
-        if (isExpanded) {
-            inputWrapperEl.classList.remove('combobox__control--expanded');
-        } else {
-            inputWrapperEl.classList.add('combobox__control--expanded');
-        }
-
-        inputEl.setAttribute('aria-expanded', !isExpanded);
-    });
-
-    inputEl.addEventListener('blur', function(e) {
-        inputEl.setAttribute('aria-expanded', 'false');
-        inputWrapperEl.classList.remove('combobox__control--expanded');
+// FAKE MENU
+querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        contentSelector: '.fake-menu__items',
+        expandOnClick: true,
+        hostSelector: '.expand-btn'
     });
 });
 
-// DIALOG WIDGETS
+// COMBOBOX
+querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
+    var expanderWidget = new Expander(widgetEl, {
+        autoCollapse: true,
+        contentSelector: '[role=listbox]',
+        expandedClass: 'combobox--expanded',
+        expandOnFocus: true,
+        hostSelector: 'input'
+    });
+
+    var focusEl = widgetEl.querySelector('input');
+    var ownedEl = widgetEl.querySelector('[role=listbox]');
+    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
+        activeDescendantClassName: 'combobox__option--active'
+    });
+});
+
+// LISTBOX
+querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
+    var expanderWidget = new Expander(widgetEl, {
+        autoCollapse: true,
+        contentSelector: '[role=listbox]',
+        expandedClass: 'listbox--expanded',
+        expandOnClick: true,
+        focusManagement: 'content',
+        hostSelector: 'button'
+    });
+
+    var focusEl = widgetEl.querySelector('button');
+    var ownedEl = widgetEl.querySelector('[role=listbox]');
+    var optionEls = querySelectorAllToArray('[role=option]', ownedEl);
+    var initialIndex = 0;
+
+    // check for existing selected state
+    optionEls.forEach(function(el, elIndex) {
+        if (el.hasAttribute('aria-selected')) {
+            initialIndex = elIndex;
+        }
+    });
+
+    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, ownedEl, ownedEl, '[role=option]', {
+        activeDescendantClassName: 'listbox__option--active',
+        autoInit: initialIndex,
+        autoReset: null
+    });
+
+    ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
+
+    var buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
+
+    widgetEl.addEventListener('activeDescendantChange', function(e) {
+        if (e.detail.toIndex > -1) {
+            buttonLabelEl.innerText = optionEls[e.detail.toIndex].innerText;
+        }
+    });
+});
+
+// DIALOG
 querySelectorAllToArray('.dialog-button').forEach(function (btn) {
     var cancel;
     var dialog = btn.nextElementSibling;
@@ -67,7 +122,7 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
         document.body.setAttribute("style", "overflow:hidden");
-        modal.modal(dialog.querySelector('.dialog__window'));
+        Modal.modal(dialog.querySelector('.dialog__window'));
     }
 
     function handleClose (ev) {
@@ -84,7 +139,7 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
         document.body.removeAttribute("style");
-        modal.unmodal();
+        Modal.unmodal();
         btn.focus();
     }
 
@@ -99,4 +154,62 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
 
         cancel = undefined;
     }
+});
+
+// TOOLTIP
+querySelectorAllToArray('.tooltip').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
+        contentSelector: '.tooltip__overlay',
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        expandOnFocus: true,
+        expandOnHover: true,
+        focusManagement: 'focusable',
+        hostSelector: '.tooltip__host'
+    });
+});
+
+// INFOTIP
+querySelectorAllToArray('.infotip').forEach(function(widgetEl) {
+    var widget = new Expander(widgetEl, {
+        contentSelector: '.infotip__overlay',
+        expandOnFocus: false,
+        expandOnClick: true,
+        hostSelector: '.infotip__host'
+    });
+
+    widgetEl.querySelector('.infotip__close').addEventListener('click', function() {
+        widget.collapse();
+    });
+});
+
+// TOURTIP
+querySelectorAllToArray('.tourtip').forEach(function(widgetEl) {
+    widgetEl.querySelector('.tourtip__close').addEventListener('click', function() {
+        widgetEl.classList.remove('tourtip--expanded');
+    });
+});
+
+// FLOATING LABEL
+querySelectorAllToArray('.floating-label').forEach(function (el) {
+    var floatingLabel = new FloatingLabel(el);
+});
+
+// TABS
+querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
+    var rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
+    var tabItems = querySelectorAllToArray('[role=tab]', widgetEl);
+    var tabPanels = querySelectorAllToArray('[role=tabpanel]', widgetEl);
+
+    widgetEl.addEventListener('rovingTabindexChange', function(e) {
+        tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
+        tabItems[e.detail.toIndex].setAttribute('aria-selected', 'true');
+
+        tabPanels[e.detail.fromIndex].hidden = true;
+        tabPanels[e.detail.toIndex].hidden = false;
+    });
+
+    querySelectorAllToArray('[role=tab]', widgetEl).forEach(function(el) {
+        ScrollKeyPreventer.add(el);
+    });
 });

@@ -1,11 +1,11 @@
 <div id="tab">
-    <h2>Tab</h2>
+    <h2><span class="secondary-text">@ebay/skin/</span>tab</h2>
     <p>A tab allows the user to switch between multiple <em>panels</em> of content. By decluttering the user-interface in
         this way, we say that tabs follow the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>.</p>
     <p>Selecting a tab should update the visible panel <strong>without</strong> a full page reload. If a full page load is
         required instead (i.e. acting like a link), please see the <a href="#tab-fake">fake tab</a> section below for more
         details.</p>
-    <p><strong>NOTE:</strong> JavaScript is required to handle tab selection, panel visibility, focus management and
+    <p><strong>NOTE:</strong> JavaScript is required to handle tab selection state, panel visibility, focus management and
         arrow-key navigation. For detailed behaviour requirements, please visit the
         <a href="https://ebay.github.io/mindpatterns/disclosure/tabs/index.html">eBay MIND Pattern for Tabs</a>.</p>
 
@@ -58,45 +58,45 @@
         </div>
     </div>
     {% highlight html %}
-    <div class="tabs">
-        <div class="tabs__items" role="tablist">
-            <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab">
-                <span>Tab 1</span>
-            </div>
-            <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab">
-                <span>Tab 2</span>
-            </div>
-            <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab">
-                <span>Tab 3</span>
+<div class="tabs">
+    <div class="tabs__items" role="tablist">
+        <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab">
+            <span>Tab 1</span>
+        </div>
+        <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab">
+            <span>Tab 2</span>
+        </div>
+        <div aria-controls="default-tabpanel-3" aria-selected="false" class="tabs__item" id="default-tab-3" role="tab">
+            <span>Tab 3</span>
+        </div>
+    </div>
+    <div class="tabs__content">
+        <div aria-labelledby="default-tab-1" class="tabs__panel" id="default-tabpanel-1" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 1 Content</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
+                </p>
             </div>
         </div>
-        <div class="tabs__content">
-            <div aria-labelledby="default-tab-1" class="tabs__panel" id="default-tabpanel-1" role="tabpanel">
-                <div class="tabs__cell">
-                    <h3>Panel 1 Content</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
-                    </p>
-                </div>
+        <div aria-labelledby="default-tab-2" class="tabs__panel" hidden id="default-tabpanel-2" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 2 Content</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
+                </p>
             </div>
-            <div aria-labelledby="default-tab-2" class="tabs__panel" hidden id="default-tabpanel-2" role="tabpanel">
-                <div class="tabs__cell">
-                    <h3>Panel 2 Content</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
-                    </p>
-                </div>
-            </div>
-            <div aria-labelledby="default-tab-3" class="tabs__panel" hidden id="default-tabpanel-3" role="tabpanel">
-                <div class="tabs__cell">
-                    <h3>Panel 3 Content</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
-                    </p>
-                </div>
+        </div>
+        <div aria-labelledby="default-tab-3" class="tabs__panel" hidden id="default-tabpanel-3" role="tabpanel">
+            <div class="tabs__cell">
+                <h3>Panel 3 Content</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
+                </p>
             </div>
         </div>
     </div>
+</div>
     {% endhighlight %}
 
     <h3 id="tab-fake">Fake Tabs</h3>
@@ -132,25 +132,31 @@
         </div>
     </div>
     {% highlight html %}
-    <div class="fake-tabs">
-        <ul class="fake-tabs__items">
-            <li class="fake-tabs__item fake-tabs__item--current">
-                <a aria-current="page" href="http://www.ebay.com">Page 1</a>
-            </li>
-            <li class="fake-tabs__item">
-                <a href="http://www.ebay.com">Page 2</a>
-            </li>
-            <li class="fake-tabs__item">
-                <a href="http://www.ebay.com">Page 3</a>
-            </li>
-        </ul>
-        <div class="fake-tabs__content">
-            <div class="fake-tabs__cell">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
-                </p>
-            </div>
+<div class="fake-tabs">
+    <ul class="fake-tabs__items">
+        <li class="fake-tabs__item fake-tabs__item--current">
+            <a aria-current="page" href="http://www.ebay.com">Page 1</a>
+        </li>
+        <li class="fake-tabs__item">
+            <a href="http://www.ebay.com">Page 2</a>
+        </li>
+        <li class="fake-tabs__item">
+            <a href="http://www.ebay.com">Page 3</a>
+        </li>
+    </ul>
+    <div class="fake-tabs__content">
+        <div class="fake-tabs__cell">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda culpa est nisi porro quae quidem ratione repellendus, temporibus. Assumenda atque dolor dolorem eligendi eveniet ipsam modi necessitatibus quos ut?
+            </p>
         </div>
     </div>
+</div>
     {% endhighlight %}
+
+    {% if page.ds == 6 %}
+    <div class="section-footer">
+        <p>DS6.v1.01</p>
+    </div>
+    {% endif %}
 </div>

@@ -2,33 +2,50 @@ button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: transparent;
   border: 1px solid;
   border-color: inherit;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: inherit;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
   font-family: inherit;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 0;
   max-width: 100%;
   text-align: center;
   text-decoration: none;
+  vertical-align: bottom;
+}
+button.btn--fixed-height,
+button.expand-btn--fixed-height,
+a.fake-btn--fixed-height,
+a.cta-btn--fixed-height {
+  height: 40px;
+}
+button.btn--truncated,
+button.expand-btn--truncated,
+a.fake-btn--truncated,
+a.cta-btn--truncated {
+  height: 40px;
+}
+button.btn--truncated,
+button.expand-btn--truncated,
+a.fake-btn--truncated,
+a.cta-btn--truncated,
+button.btn--truncated span,
+button.expand-btn--truncated span,
+a.fake-btn--truncated span,
+a.cta-btn--truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .btn__icon,
 .fake-btn__icon,
 .cta-btn__icon,
 .expand-btn__icon {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 .btn__icon:first-child,
 .fake-btn__icon:first-child,
@@ -57,33 +74,56 @@ a.cta-btn--fluid {
 .fake-btn__cell,
 .cta-btn__cell {
   -webkit-box-align: center;
-      -ms-flex-align: center;
           align-items: center;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
   width: 100%;
 }
-.btn__cell > span,
-.expand-btn__cell > span,
-.fake-btn__cell > span,
-.cta-btn__cell > span {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.btn__cell--fixed-height,
+.expand-btn__cell--fixed-height,
+.fake-btn__cell--fixed-height,
+.cta-btn__cell--fixed-height {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+.btn__cell--fixed-height > span,
+.expand-btn__cell--fixed-height > span,
+.fake-btn__cell--fixed-height > span,
+.cta-btn__cell--fixed-height > span,
+.btn__cell--fixed-height > svg,
+.expand-btn__cell--fixed-height > svg,
+.fake-btn__cell--fixed-height > svg,
+.cta-btn__cell--fixed-height > svg {
+  align-self: baseline;
+  max-width: calc(100% - 32px);
+}
+.btn__cell--truncated,
+.expand-btn__cell--truncated,
+.fake-btn__cell--truncated,
+.cta-btn__cell--truncated {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+.btn__cell--truncated > span,
+.expand-btn__cell--truncated > span,
+.fake-btn__cell--truncated > span,
+.cta-btn__cell--truncated > span,
+.btn__cell--truncated > svg,
+.expand-btn__cell--truncated > svg,
+.fake-btn__cell--truncated > svg,
+.cta-btn__cell--truncated > svg {
+  align-self: baseline;
+  max-width: calc(100% - 32px);
 }
 .btn__cell,
 .fake-btn__cell,
 .cta-btn__cell {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
           justify-content: center;
 }
 .expand-btn__cell {
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
           justify-content: space-between;
 }
 svg.btn__icon,
@@ -100,24 +140,59 @@ span.expand-btn__icon {
   display: inline-block;
   vertical-align: middle;
   background-position-y: center;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   margin-left: 8px;
 }
 span.expand-btn__icon:only-child,
 svg.expand-btn__icon:only-child {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0;
+}
+.btn__cell--fixed-height span.btn__icon,
+.expand-btn__cell--fixed-height span.expand-btn__icon,
+.fake-btn__cell--fixed-height span.fake-btn__icon,
+.cta-btn__cell--fixed-height span.cta-btn__icon,
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  align-self: center;
+}
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+  height: 1rem;
+  width: 1rem;
+}
+button.btn.btn--pill,
+button.expand-btn.expand-btn--pill,
+a.cta-btn.cta-btn--pill,
+a.fake-btn.fake-btn--pill {
+  -webkit-box-align: center;
+          align-items: center;
+  border-radius: 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  height: 48px;
+  -webkit-box-pack: center;
+          justify-content: center;
+  max-width: 180px;
+  min-width: 80px;
+  padding: 4px 24px;
 }
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
   font-size: 0.875rem;
-  height: 40px;
-  padding: 0 16px;
+  padding: 9.5px 16px;
 }
 a.cta-btn {
   background-color: #fff;
@@ -133,61 +208,49 @@ a.cta-btn:hover {
 a.cta-btn:focus {
   outline: 0 none;
 }
-a.cta-btn--p002-blue,
 a.cta-btn--b4 {
   background-color: #3665f3;
   border-color: #c5e5fb;
   color: #c5e5fb;
 }
-a.cta-btn--p002-blue:visited,
 a.cta-btn--b4:visited {
   color: #c5e5fb;
 }
-a.cta-btn--p002-blue:focus,
 a.cta-btn--b4:focus,
-a.cta-btn--p002-blue:hover,
 a.cta-btn--b4:hover {
   background-color: #c5e5fb;
   border-color: #c5e5fb;
   color: #3665f3;
 }
-a.cta-btn--p002-blue:active,
 a.cta-btn--b4:active {
   background-color: #3665f3;
   border-color: #3665f3;
   color: #fff;
 }
-a.cta-btn--p002-blue:not([href]),
 a.cta-btn--b4:not([href]) {
   background-color: #c8c8c8;
   border-color: #c8c8c8;
   color: #ebebeb;
 }
-a.cta-btn--p012-red,
 a.cta-btn--r4 {
   background-color: #e62048;
   border-color: #ffd1dd;
   color: #ffd1dd;
 }
-a.cta-btn--p012-red:visited,
 a.cta-btn--r4:visited {
   color: #ffd1dd;
 }
-a.cta-btn--p012-red:focus,
 a.cta-btn--r4:focus,
-a.cta-btn--p012-red:hover,
 a.cta-btn--r4:hover {
   background-color: #ffd1dd;
   border-color: #ffd1dd;
   color: #e62048;
 }
-a.cta-btn--p012-red:active,
 a.cta-btn--r4:active {
   background-color: #e62048;
   border-color: #e62048;
   color: #ffd1dd;
 }
-a.cta-btn--p012-red:not([href]),
 a.cta-btn--r4:not([href]) {
   background-color: #c8c8c8;
   border-color: #c8c8c8;
@@ -322,34 +385,223 @@ a.fake-btn--secondary[aria-disabled="true"] {
   border-color: #c8c8c8;
   color: #c8c8c8;
 }
+button.btn,
+button.expand-btn,
+a.fake-btn,
+a.cta-btn {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+button.btn__cell--fixed-height svg.btn__icon,
+button.expand-btn__cell--fixed-height svg.btn__icon,
+a.fake-btn__cell--fixed-height svg.btn__icon,
+a.cta-btn__cell--fixed-height svg.btn__icon,
+button.btn__cell--fixed-height svg.expand-btn__icon,
+button.expand-btn__cell--fixed-height svg.expand-btn__icon,
+a.fake-btn__cell--fixed-height svg.expand-btn__icon,
+a.cta-btn__cell--fixed-height svg.expand-btn__icon,
+button.btn__cell--fixed-height svg.fake-btn__icon,
+button.expand-btn__cell--fixed-height svg.fake-btn__icon,
+a.fake-btn__cell--fixed-height svg.fake-btn__icon,
+a.cta-btn__cell--fixed-height svg.fake-btn__icon,
+button.btn__cell--fixed-height svg.cta-btn__icon,
+button.expand-btn__cell--fixed-height svg.cta-btn__icon,
+a.fake-btn__cell--fixed-height svg.cta-btn__icon,
+a.cta-btn__cell--fixed-height svg.cta-btn__icon {
+  align-self: center;
+  height: 1rem;
+  width: 1rem;
+}
+button.btn--small,
+button.expand-btn--small,
+a.fake-btn--small,
+a.cta-btn--small {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  min-height: 32px;
+}
+button.btn--small-fixed-height,
+button.expand-btn--small-fixed-height,
+a.fake-btn--small-fixed-height,
+a.cta-btn--small-fixed-height {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  height: 32px;
+}
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  height: 32px;
+}
+button.btn--small-truncated,
+button.expand-btn--small-truncated,
+a.fake-btn--small-truncated,
+a.cta-btn--small-truncated,
+button.btn--small-truncated span,
+button.expand-btn--small-truncated span,
+a.fake-btn--small-truncated span,
+a.cta-btn--small-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.btn--medium,
+button.expand-btn--medium,
+a.fake-btn--medium,
+a.cta-btn--medium {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  min-height: 40px;
+}
+button.btn--medium-fixed-height,
+button.expand-btn--medium-fixed-height,
+a.fake-btn--medium-fixed-height,
+a.cta-btn--medium-fixed-height {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height: 40px;
+}
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height: 40px;
+}
+button.btn--medium-truncated,
+button.expand-btn--medium-truncated,
+a.fake-btn--medium-truncated,
+a.cta-btn--medium-truncated,
+button.btn--medium-truncated span,
+button.expand-btn--medium-truncated span,
+a.fake-btn--medium-truncated span,
+a.cta-btn--medium-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 button.btn--large,
 button.expand-btn--large,
 a.fake-btn--large,
+a.cta-btn--large {
+  padding-bottom: 12px;
+  padding-top: 12px;
+  min-height: 48px;
+}
+button.btn--large-fixed-height,
+button.expand-btn--large-fixed-height,
+a.fake-btn--large-fixed-height,
+a.cta-btn--large-fixed-height {
+  padding-bottom: 12px;
+  padding-top: 12px;
+  height: 48px;
+}
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated {
+  padding-bottom: 12px;
+  padding-top: 12px;
+  height: 48px;
+}
+button.btn--large-truncated,
+button.expand-btn--large-truncated,
+a.fake-btn--large-truncated,
+a.cta-btn--large-truncated,
+button.btn--large-truncated span,
+button.expand-btn--large-truncated span,
+a.fake-btn--large-truncated span,
+a.cta-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 button.btn--extra-large,
 button.expand-btn--extra-large,
-a.fake-btn--extra-large {
+a.fake-btn--extra-large,
+a.cta-btn--extra-large {
+  padding: 16px 24px;
+}
+button.btn--extra-large-fixed-height,
+button.expand-btn--extra-large-fixed-height,
+a.fake-btn--extra-large-fixed-height,
+a.cta-btn--extra-large-fixed-height {
+  height: 40px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated {
+  height: 56px;
+}
+button.btn--extra-large-truncated,
+button.expand-btn--extra-large-truncated,
+a.fake-btn--extra-large-truncated,
+a.cta-btn--extra-large-truncated,
+button.btn--extra-large-truncated span,
+button.expand-btn--extra-large-truncated span,
+a.fake-btn--extra-large-truncated span,
+a.cta-btn--extra-large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.btn--large,
+button.expand-btn--large,
+a.fake-btn--large,
+a.cta-btn--large,
+button.btn--extra-large,
+button.expand-btn--extra-large,
+a.fake-btn--extra-large,
+a.cta-btn--extra-large {
   font-size: 1.125rem;
+}
+button.expand-btn.expand-btn--no-text {
+  height: 40px;
+}
+button.expand-btn.expand-btn--no-text.expand-btn--small {
+  height: 32px;
+}
+button.expand-btn.expand-btn--no-text.expand-btn--medium {
+  height: 40px;
+}
+button.expand-btn.expand-btn--no-text.expand-btn--large {
+  height: 40px;
+}
+button.expand-btn.expand-btn--no-text.expand-btn--extra-large {
+  height: 48px;
 }
 button.btn--legacy,
 button.expand-btn--legacy,
 a.fake-btn--legacy {
-  height: 32px;
+  padding: 5.5px 48px;
 }
 button.expand-btn--legacy {
-  padding: 0 12px 0 16px;
+  padding: 5.5px 12px;
 }
 button.expand-btn--legacy.expand-btn--no-text {
-  padding: 0 12px;
+  padding: 12.40625px 12px;
 }
 svg.btn__icon,
 svg.fake-btn__icon {
   display: inline-block;
   fill: currentColor;
-  height: 1rem;
+  pointer-events: none;
   stroke: currentColor;
   stroke-width: 0;
   vertical-align: middle;
-  width: 1rem;
+}
+svg.cta-btn__icon,
+svg.expand-btn__icon {
+  flex-shrink: 0;
 }
 svg.cta-btn__icon {
   height: 10px;
@@ -364,30 +616,6 @@ span.expand-btn__icon {
   height: 5.2px;
   width: 9px;
   background-size: 9px 5.2px;
-}
-button.btn--small,
-button.expand-btn--small,
-a.fake-btn--small,
-a.cta-btn--small {
-  height: 40px;
-}
-button.btn--medium,
-button.expand-btn--medium,
-a.fake-btn--medium,
-a.cta-btn--medium {
-  height: 40px;
-}
-button.btn--large,
-button.expand-btn--large,
-a.fake-btn--large,
-a.cta-btn--large {
-  height: 48px;
-}
-button.btn--extra-large,
-button.expand-btn--extra-large,
-a.fake-btn--extra-large,
-a.cta-btn--extra-large {
-  height: 48px;
 }
 @media screen and (-ms-high-contrast: white-on-black) {
   span.expand-btn__icon {

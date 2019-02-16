@@ -1,23 +1,52 @@
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
 
+.fixed-height-button() {
+    display: inline-flex;
+
+    > span,
+    > svg {
+        align-self: baseline;
+        max-width: calc(100% - 32px);
+    }
+}
+
+.truncate-button() {
+    &,
+    & span {
+        line-height: 1.4em; // fixes fake and cta buttons
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-    align-items: center;
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
     box-sizing: border-box;
     color: inherit;
-    display: inline-flex;
+    display: inline-block;
     font-family: inherit;
-    justify-content: center;
     margin: 0; // Remove the button margin in Firefox and Safari
     max-width: 100%;
     text-align: center;
     text-decoration: none;
+    vertical-align: bottom;
+
+    &--fixed-height {
+        height: 40px;
+    }
+
+    &--truncated {
+        .truncate-button();
+
+        height: 40px;
+    }
 }
 
 .btn__icon,
@@ -55,11 +84,12 @@ a.cta-btn--fluid {
     height: 100%;
     width: 100%;
 
-    > span {
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    &--fixed-height {
+        .fixed-height-button();
+    }
+
+    &--truncated {
+        .fixed-height-button();
     }
 }
 
@@ -97,3 +127,24 @@ svg.expand-btn__icon {
         margin: 0;
     }
 }
+
+.btn__cell--fixed-height span.btn__icon,
+.expand-btn__cell--fixed-height span.expand-btn__icon,
+.fake-btn__cell--fixed-height span.fake-btn__icon,
+.cta-btn__cell--fixed-height span.cta-btn__icon,
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+    align-self: center;
+}
+
+.btn__cell--fixed-height svg.icon,
+.expand-btn__cell--fixed-height svg.icon,
+.fake-btn__cell--fixed-height svg.icon,
+.cta-btn__cell--fixed-height svg.icon {
+    height: 1rem;
+    width: 1rem;
+}
+
+@import "button-pill.less";

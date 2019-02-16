@@ -1,7 +1,7 @@
 {
   "name": "@ebay/skin",
   "description": "Skin - CSS modules that represent the brand eBay",
-  "version": "6.3.5",
+  "version": "7.0.0-8",
   "license": "MIT",
   "maintainers": [
     "Ian McBurnie <ianmcburnie@hotmail.com>",
@@ -22,8 +22,8 @@
     "clean": "rimraf _cdn _site .cache .tmp .jekyll npm-debug.log.* .DS_Store",
     "jekyll:docs": "bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
     "lasso:docs": "npm run lasso:ds4 && npm run lasso:ds6 && rimraf .cache docs.html.json build",
-    "lasso:ds4": "lasso ./docs/ds4.browser.json --name docs --output-dir docs/static/ds4 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds4/docs.css.*",
-    "lasso:ds6": "lasso ./docs/ds6.browser.json --name docs --output-dir docs/static/ds6 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds6/docs.css.*",
+    "lasso:ds4": "lasso ./docs/ds4.browser.json --name docs.min --output-dir docs/static/ds4 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds4/docs.css.*",
+    "lasso:ds6": "lasso ./docs/ds6.browser.json --name docs.min --output-dir docs/static/ds6 --plugins lasso-less lasso-autoprefixer --minify && rimraf docs/static/ds6/docs.css.*",
     "lint": "npm run lint:less && npm run lint:css",
     "lint:less": "stylelint src/less --config .stylelintrc-less",
     "lint:css": "stylelint dist --config .stylelintrc-css",
@@ -32,6 +32,7 @@
     "version": "npm run build && git add -A dist docs"
   },
   "devDependencies": {
+    "@ebay/browserslist-config": "^1",
     "browser-sync": "^2",
     "gulp": "^3",
     "gulp-banner": "~0.1.3",
@@ -43,14 +44,16 @@
     "lasso-autoprefixer": "^3",
     "lasso-cli": "^2",
     "lasso-less": "^3",
-    "less-plugin-autoprefix": "^1",
+    "less-plugin-autoprefix": "^2",
     "less-plugin-clean-css": "^1",
-    "makeup-expander": "~0.5.0",
+    "makeup-active-descendant": "~0.0.6",
+    "makeup-expander": "~0.6.1",
     "makeup-floating-label": "~0.0.2",
     "makeup-key-emitter": "~0.0.3",
-    "makeup-modal": "^0.0.4",
+    "makeup-modal": "~0.0.4",
+    "makeup-navigation-emitter": "~0.1.2",
     "makeup-prevent-scroll-keys": "~0.0.2",
-    "makeup-roving-tabindex": "~0.0.5",
+    "makeup-roving-tabindex": "~0.1.0",
     "mkdirp": "~0.5",
     "ncp": "^2",
     "rimraf": "^2",
@@ -70,5 +73,8 @@
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "browserslist": [
+    "extends @ebay/browserslist-config"
+  ]
 }

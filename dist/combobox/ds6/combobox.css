@@ -10,6 +10,7 @@ span.fake-menu,
 span.listbox,
 span.combobox {
   display: inline-block;
+  vertical-align: bottom;
 }
 .menu button.expand-btn--borderless,
 .fake-menu button.expand-btn--borderless,
@@ -38,16 +39,17 @@ span.combobox {
 }
 .menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
 .listbox .expand-btn[aria-expanded="true"] ~ .listbox__options[role="listbox"],
-.combobox .combobox__control.combobox__control--expanded + .combobox__options[role="listbox"],
+.combobox.combobox--expanded .combobox__options[role="listbox"],
 .fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
   display: block;
 }
 .menu .expand-btn ~ .menu__items[role="menu"],
 .listbox .expand-btn ~ .listbox__options[role="listbox"],
-.combobox .combobox__control + .combobox__options[role="listbox"],
+.combobox .combobox__options[role="listbox"],
 .fake-menu .expand-btn ~ .fake-menu__items {
   display: none;
   position: absolute;
+  top: calc(100% - 1px);
   z-index: 1;
 }
 .menu__items[role="menu"],
@@ -55,8 +57,10 @@ span.combobox {
 .listbox__options[role="listbox"],
 .fake-menu__items {
   border: 1px solid;
-  box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-  box-sizing: border-box;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
+          box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   max-height: 400px;
   min-width: 100%;
   overflow-y: auto;
@@ -85,12 +89,11 @@ div.combobox__option[role^="option"],
 a.fake-menu__item,
 button.fake-menu__item {
   border: 1px solid;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-size: 0.875rem;
-  height: 100%;
   line-height: 2.5;
   padding: 0 16px;
   width: 100%;
@@ -111,21 +114,18 @@ button.fake-menu__item span:not([class*="fake-menu__status"]) {
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-box-flex: 1;
-      -ms-flex: 1;
           flex: 1;
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
-div.listbox__option--active-descendant[role="option"] .listbox__status,
-div.listbox__option[role="option"][aria-selected="true"] .listbox__status,
-div.combobox__option[role^="option"][aria-selected="true"] .combobox__status,
+div.listbox__option--active[role="option"] .listbox__status,
+div.combobox__option--active[role^="option"] .combobox__status,
 a.fake-menu__item[aria-current="page"] .fake-menu__status,
 button.fake-menu__item[aria-current="page"] .fake-menu__status {
-  visibility: visible;
+  opacity: 1;
 }
 a.fake-menu__item {
   text-decoration: none;
 }
-a.fake-menu__item:hover,
 a.fake-menu__item:focus {
   text-decoration: underline;
 }
@@ -139,14 +139,12 @@ button.fake-menu__item {
 .listbox__status,
 .combobox__status,
 .fake-menu__status {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   fill: currentColor;
   height: 8px;
+  opacity: 0;
   stroke: currentColor;
   stroke-width: 0;
-  visibility: hidden;
   width: 8px;
 }
 span.menu__status,
@@ -157,8 +155,7 @@ span.fake-menu__status {
   background-size: contain;
   display: inline-block;
   vertical-align: middle;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   pointer-events: none;
 }
 .menu__items--fix-width[role="menu"],
@@ -188,10 +185,8 @@ button.fake-menu__item {
   background-color: #fff;
   border-color: #fff;
   display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
           justify-content: space-between;
 }
 div.menu__item[role^="menuitem"]:hover,
@@ -232,9 +227,8 @@ button.fake-menu__item:active .fake-menu__status {
   color: #c8c8c8;
 }
 div.menu__item[role^="menuitem"][aria-checked="true"],
-div.listbox__option--active-descendant[role="option"],
-div.listbox__option[role="option"][aria-selected="true"],
-div.combobox__option[role^="option"][aria-selected="true"] {
+div.listbox__option--active[role="option"],
+div.combobox__option--active[role^="option"] {
   font-weight: bold;
 }
 a.fake-menu__item {
@@ -269,7 +263,8 @@ span.fake-menu__status {
   }
 }
 .combobox {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
 }
 .combobox__control > input {
@@ -277,7 +272,8 @@ span.fake-menu__status {
      -moz-appearance: none;
           appearance: none;
   border: 1px solid;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: inherit;
   text-align: left;
 }
@@ -306,7 +302,7 @@ span.combobox__icon {
   right: 17px;
   top: 0;
 }
-.combobox__control--expanded span.combobox__icon {
+.combobox--expanded span.combobox__icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }

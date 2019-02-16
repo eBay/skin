@@ -88,6 +88,73 @@
 </div>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/textbox-custom.html %}
+    <h3 id="textbox-icon">Textbox with Icon</h3>
+    <p>Single-line textboxes can be augmented with any inline SVG icon, using a <span class="highlight">textbox__icon</span> element before the control. Font-icons are no longer supported.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+                    <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+                </svg>
+                <input class="textbox__control" type="text" placeholder="placeholder text" />
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+        <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+    </svg>
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
+</span>
+    {% endhighlight %}
+
+    <p>Use <span class="highlight">textbox--icon-end</span> modifier to position the icon after the control.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox textbox--icon-end">
+                <input class="textbox__control" type="text" placeholder="placeholder text" />
+                <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+                    <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox textbox--icon-end">
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
+    <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
+        <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+    </svg>
+</span>
+    {% endhighlight %}
+    <p><strong>NOTE:</strong> The icon is presentational, and therefore hidden from assistive technology using <span class="highlight">aria-hidden</span>. Remember, the purpose of the field must be conveyed using a label.</p>
+
+    <h3 id="textbox-icon">Underline Textbox</h3>
+    <p>Use <span class="highlight">textbox__control--underline</span> modifier to style the textbox with only a bottom border to be used in conjuction with floating labels.</p>
+    <p>Please see the <a href="#floated-label">label</a> module for details on labelling controls. Remember: every textbox requires a label!</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <input class="textbox__control textbox__control--underline" type="text" />
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <input class="textbox__control textbox__control--underline" type="text" />
+</span>
+    {% endhighlight %}
+
+    {% if page.ds == 6 %}
+    <div class="section-footer">
+        <p>DS6.v1.01</p>
+    </div>
+    {% endif %}
 
 </div>

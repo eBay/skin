@@ -1,6 +1,6 @@
 # Skin
 
-Skin is a CSS framework developed by eBay.
+> Pure CSS framework designed & developed by eBay for a branded, e-commerce marketplace.
 
 Please visit the [Skin website](https://ebay.github.io/skin) for all end-user documentation.
 
@@ -14,36 +14,37 @@ Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). 
 
 ## Versioning
 
-As of v3, Skin follows [Semantic Versioning](http://semver.org).
+Skin follows [Semantic Versioning](http://semver.org):
 
-Prior to v3, Skin does **not** follow strict semantic versioning, and uses the following convention instead:
+1. MAJOR version when we make incompatible API changes,
+1. MINOR version when we add functionality in a backwards-compatible manner
+1. PATCH version when we make backwards-compatible bug fixes.
 
-1. **PATCH** version when we make backwards-compatible bug fixes AND when we add functionality in a backwards-compatible manner.
-1. **MINOR** version when we make incompatible API changes.
-1. **MAJOR** version when we make radical architectural changes (i.e this will be the next version of Skin, Skin3).
+## Releases
 
-## Releases &amp; Milestones
+Please refer to our [releases](https://github.com/eBay/skin/releases) page to view the change log for current and past releases.
 
-From v3 onwards, please refer to our publicly visible [releases](https://github.com/eBay/skin/releases) and [milestones](https://github.com/eBay/skin/milestones) pages.
+Please refer to our [web archive](https://ebay.github.io/skin/archive/) for past examples and documentation.
 
-Prior to v3, all releases and milestones can only be viewed on the old, internal repository.
+## Roadmap
+
+Please refer to our [projects](https://github.com/eBay/skin/projects) page to see what's coming down the pipeline.
+
+## Browser Support
+
+Please view our [@ebay/browserslist-config](https://github.com/eBay/browserslist-config/blob/master/index.js) to see which browsers we currently support.
+
+SPOILER: we do not support IE10 or under.
+
+## Accessibility (A11Y)
+
+We take accessibility very seriously. Very seriously indeed. Therefore all modules are built in accordance to the <a href="https://ebay.gitbooks.io/mindpatterns/content/">eBay MIND Patterns</a>. These patterns, in turn, build on from the specifications provided by the <a href="https://w3c.github.io/aria-practices/">WAI-ARIA Authoring Practices</a>.
 
 ## Issues
 
-Please use our publicly visible [issues page](https://github.com/eBay/skin/issues) to ask questions, report issues or submit feature requests.
+Please use our [issues page](https://github.com/eBay/skin/issues) to ask questions, report issues or submit feature requests.
 
-**If you are not sure whether your issue should be publicly visible, please use our internal GitHub.**
-
-To help track your issue, the Skin admins will assign it with a coloured label from one or more of the following categories:
-
-* Black: Issue Type (e.g. bug, question, test case)
-* White: Resolution (e.g. wont fix, invalid, duplicate)
-* Gray: Status (e.g. backlog, in progress, help wanted)
-* Red: Blocker (e.g. dependency, discussion, design)
-* Green: Module (e.g. button, radio, dialog)
-* Blue: Aspect (e.g. build, documentation, website)
-* Pink: Design System (e.g. DS4 or DS6)
-* Yellow: Semver Guidance (e.g. breaking change, backwards compatible)
+To help track your issue, the Skin admins will assign it with a label from one or more issue categories.
 
 ## Developing &amp; Contributing
 

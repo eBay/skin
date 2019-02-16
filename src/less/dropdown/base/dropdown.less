@@ -13,6 +13,7 @@ span.fake-menu,
 span.listbox,
 span.combobox {
     display: inline-block;
+    vertical-align: bottom;
 }
 
 // BEM elements
@@ -46,17 +47,18 @@ span.combobox {
 
 .menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
 .listbox .expand-btn[aria-expanded="true"] ~ .listbox__options[role="listbox"],
-.combobox .combobox__control.combobox__control--expanded + .combobox__options[role="listbox"],
+.combobox.combobox--expanded .combobox__options[role="listbox"],
 .fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
     display: block;
 }
 
 .menu .expand-btn ~ .menu__items[role="menu"],
 .listbox .expand-btn ~ .listbox__options[role="listbox"],
-.combobox .combobox__control + .combobox__options[role="listbox"],
+.combobox .combobox__options[role="listbox"],
 .fake-menu .expand-btn ~ .fake-menu__items {
     display: none;
     position: absolute;
+    top: calc(100% - 1px);
     z-index: 1;
 }
 
@@ -102,7 +104,6 @@ button.fake-menu__item {
     box-sizing: border-box;
     display: flex;
     font-size: 0.875rem;
-    height: 100%;
     line-height: 2.5;
     padding: 0 16px;
     width: 100%;
@@ -123,19 +124,17 @@ button.fake-menu__item span:not([class*="fake-menu__status"]) {
 }
 
 div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
-div.listbox__option--active-descendant[role="option"] .listbox__status,
-div.listbox__option[role="option"][aria-selected="true"] .listbox__status,
-div.combobox__option[role^="option"][aria-selected="true"] .combobox__status,
+div.listbox__option--active[role="option"] .listbox__status,
+div.combobox__option--active[role^="option"] .combobox__status,
 a.fake-menu__item[aria-current="page"] .fake-menu__status,
 button.fake-menu__item[aria-current="page"] .fake-menu__status {
-    visibility: visible;
+    opacity: 1;
 }
 
 // anchor tag specific
 a.fake-menu__item {
     text-decoration: none;
 
-    &:hover,
     &:focus {
         text-decoration: underline;
     }
@@ -156,9 +155,9 @@ button.fake-menu__item {
     align-self: center;
     fill: currentColor;
     height: 8px;
+    opacity: 0;
     stroke: currentColor;
     stroke-width: 0;
-    visibility: hidden;
     width: 8px;
 }
 

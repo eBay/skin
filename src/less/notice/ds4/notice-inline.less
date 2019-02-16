@@ -1,0 +1,67 @@
+.inline-notice {
+    font-size: @ds4-font-size-14;
+    line-height: 1.15;  // helps vertical-alignment when font-weight bold
+    min-height: 16px;
+}
+
+.inline-notice--priority, // deprected in v7
+.inline-notice--attention {
+    color: @ds4-color-text-critical;
+    font-weight: 500;
+}
+
+.inline-notice--information .inline-notice__status {
+    color: @ds4-color-core-blue;
+}
+
+.inline-notice--confirmation .inline-notice__status {
+    color: @ds4-color-core-green;
+}
+
+.inline-notice--priority .inline-notice__status span, // deprected in v7
+.inline-notice--attention .inline-notice__status span {
+    .background-icon-image(16px, 16px, @ds4-icon-attention-base64);
+}
+
+.inline-notice--confirmation .inline-notice__status span {
+    .background-icon-image(16px, 16px, @ds4-icon-confirmation-base64);
+}
+
+.inline-notice--information .inline-notice__status span {
+    .background-icon-image(16px, 16px, @ds4-icon-information-base64);
+}
+
+.inline-notice__content {
+    padding-left: 8px;
+}
+
+.inline-notice__content p {
+    margin: 0;
+
+    &:not(:first-of-type) {
+        margin-top: 4px;
+    }
+}
+
+.inline-notice__status span {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 16px;
+    min-height: 16px;
+    min-width: 16px;
+    width: 16px;
+}
+
+.inline-notice__status svg {
+    .foreground-icon-base;
+
+    height: 16px;
+    width: 16px;
+}
+
+@media (min-width: 601px) {
+    div.inline-notice {
+        margin: 16px 0;
+    }
+}

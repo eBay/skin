@@ -2,166 +2,118 @@
 layout: ds6/test
 title: Tooltip
 ---
-<div style="padding: 15px">
-    <h2>Arrow top left</h2>
-    <div class="test" style="padding-bottom: 50px">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet</p>
-                </span>
-                <span class="arrow-top-left"></span>
+
+<svg hidden>
+    <symbol id="icon-information" viewBox="1.5 1.5 21 21">
+        <path d="M12 17.775c1.05.02 1.05-.833 1.05-.833v-5.788s0-.794-1.05-.783c-1.05.012-1.05.783-1.05.783v5.788s0 .815 1.05.833zM12 1.5C6.204 1.5 1.5 6.204 1.5 12S6.204 22.5 12 22.5 22.5 17.796 22.5 12 17.796 1.5 12 1.5zM3.6 12c0-4.63 3.77-8.4 8.4-8.4 4.63 0 8.4 3.77 8.4 8.4 0 4.63-3.77 8.4-8.4 8.4-4.63 0-8.4-3.77-8.4-8.4zM12 8.719a.984.984 0 1 0 0-1.969.984.984 0 0 0 0 1.969z"/>
+    </symbol>
+    <symbol id="icon-settings" viewBox="1.5 1.2 21 21.54">
+        <path d="M21.981 13.87c.533.421.672 1.164.337 1.776l-1.965 3.4a1.373 1.373 0 0 1-1.715.616l-2.01-.807a8.44 8.44 0 0 1-.977.571l-.305 2.12a1.37 1.37 0 0 1-1.366 1.194h-3.952c-.69 0-1.281-.506-1.365-1.178l-.306-2.135a8.076 8.076 0 0 1-.982-.57l-2.033.816c-.628.228-1.356-.02-1.677-.608l-1.987-3.438a1.388 1.388 0 0 1 .352-1.759l1.697-1.327a7.266 7.266 0 0 1 0-1.142l-1.7-1.33a1.374 1.374 0 0 1-.338-1.775l1.965-3.4a1.373 1.373 0 0 1 1.715-.616l2.01.807a8.44 8.44 0 0 1 .978-.571l.304-2.12A1.37 1.37 0 0 1 10.028 1.2h3.952c.69 0 1.28.506 1.364 1.178l.306 2.135c.339.165.666.356.983.57l2.033-.816c.628-.228 1.356.02 1.676.608l1.987 3.438a1.388 1.388 0 0 1-.351 1.759l-1.698 1.327a7.19 7.19 0 0 1 0 1.142l1.701 1.33zm-3.179 4.305l.009-.015a.326.326 0 0 0-.009.015zm-5.218 3.135l.002-.015-.002.015zm-3.158.015a.444.444 0 0 0-.002-.015l.002.015zm-5.21-3.131a.46.46 0 0 0-.012-.02l.012.02zM3.225 9.19a.402.402 0 0 0 .003-.006l-.003.006zm15.567-3.445a.46.46 0 0 0 .011.02l-.011-.02zm1.815 9.308L18.4 13.328l.063-.5c.042-.338.062-.599.062-.858 0-.26-.02-.52-.062-.858l-.063-.5.397-.31 1.81-1.416-1.634-2.826-2.603 1.045-.403-.31a6.329 6.329 0 0 0-1.465-.85l-.47-.192-.073-.504-.325-2.27h-3.26l-.398 2.774-.47.192a6.69 6.69 0 0 0-1.474.857l-.4.3-.465-.186-2.132-.856L3.4 8.886l2.206 1.726-.062.5a6.893 6.893 0 0 0-.063.858c0 .253.021.527.063.858l.062.5-.397.31-1.81 1.416 1.634 2.826 2.604-1.045.402.31a6.37 6.37 0 0 0 1.465.85l.471.192.072.504.326 2.27h3.26l.397-2.774.471-.192a6.69 6.69 0 0 0 1.474-.857l.4-.3.465.186 2.132.856 1.634-2.826zm-8.603-.515a2.573 2.573 0 0 0 2.569-2.569 2.573 2.573 0 0 0-2.57-2.569 2.573 2.573 0 0 0-2.568 2.569 2.573 2.573 0 0 0 2.569 2.569zm0 1.779a4.351 4.351 0 0 1-4.348-4.348 4.351 4.351 0 0 1 4.348-4.348 4.351 4.351 0 0 1 4.347 4.348 4.351 4.351 0 0 1-4.347 4.348z"/>
+    </symbol>
+</svg>
+
+<style>
+    div.test {
+        height: 200px;
+    }
+</style>
+
+<h2>Tooltip</h2>
+<div class="test">
+    <span class="tooltip">
+        <button accesskey="s" class="tooltip__host icon-btn" aria-describedby="tooltip-0" aria-expanded="true" aria-label="Settings">
+            <svg class="svg-icon" focusable="false" height="16" width="16" aria-hidden="true">
+                <use xlink:href="#icon-settings"></use>
+            </svg>
+        </button>
+        <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
+            <span class="tooltip__pointer tooltip__pointer--top-left"></span>
+            <div class="tooltip__mask">
+                <div class="tooltip__cell">
+                    <div class="tooltip__content">
+                        <p>Use Access Key 'S' to display settings.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </span>
+</div>
 
-    <h2>Arrow top center</h2>
-    <div class="test" style="padding-bottom: 7rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tourtip">
-                <span class="tooltip__content tourtip__content">
-                    <span>
-                        <p>Lorem ipsum dolor sit amet, lora desosa curium apum</p>
-                        <button aria-label="Close tourtip" class="btn btn--secondary btn--fluid tourtip__cta tooltip__close" type="button">Got it</button>
+<h2>Infotip</h2>
+<div class="test">
+    <span class="infotip">
+        <button class="icon-btn infotip__host" type="button" aria-expanded="true" aria-label="Help">
+            <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+                <use xlink:href="#icon-information"></use>
+            </svg>
+        </button>
+        <div class="infotip__overlay">
+            <span class="infotip__pointer infotip__pointer--top-left"></span>
+            <div class="infotip___mask">
+                <div class="infotip__cell">
+                    <span class="infotip__content">
+                        <p>Here's a tip to help you be successful at your task:</p>
+                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                     </span>
-                </span>
-                <span class="arrow-top-center"></span>
+                    <button aria-label="Dismiss infotip" class="infotip__close" type="button">
+                        <span aria-hidden="true" role="img"></span>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </span>
+</div>
 
-    <h2>Arrow top right</h2>
-    <div class="test" style="padding-bottom: 50px">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet</p>
-                </span>
-                <span class="arrow-top-right"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow bottom left</h2>
-    <div class="test" style="padding-bottom: 5.5rem;">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--infotip">
-                <span class="tooltip__content">
-                    <p>Lorem ipsum dolor sit amet, lora desosa curium apum</p>
-                </span>
-                <button aria-label="Close infotip" class="infotip__close tooltip__close" type="button">
-                    <span aria-hidden="true" role="img"></span>
-                </button>
-                <span class="arrow-bottom-left"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow bottom center</h2>
-    <div class="test" style="padding-bottom: 50px">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet</p>
-                </span>
-                <span class="arrow-bottom-center"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow bottom right</h2>
-    <div class="test" style="padding-bottom: 50px">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet</p>
-                </span>
-                <span class="arrow-bottom-right"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow left top</h2>
-    <div class="test" style="padding-bottom: 7rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tourtip">
-                <span class="tooltip__content">
-                    <span>
-                        <h4 class="tooltip__content-heading">Heading</h4>
-                        <p>Lorem ipsum dolor sit amet, lora desosa curium apum</p>
+<h2>Tourtip</h2>
+<div class="test">
+    <div class="tourtip tourtip--expanded">
+        <p class="tourtip__host">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="tourtip__overlay">
+            <span class="tourtip__pointer tourtip__pointer--top-left"></span>
+            <div class="tourtip__mask">
+                <div class="tourtip__cell">
+                    <span class="tourtip__content">
+                        <p>Here's a tip to help you be successful at your task:</p>
+                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
                     </span>
-                </span>
-                <button aria-label="Close tourtip" class="tourtip__close tooltip__close" type="button">
-                    <span aria-hidden="true" role="img"></span>
-                </button>
-                <span class="arrow-left-top"></span>
+                    <button aria-label="Dismiss tourtip" class="tourtip__close" type="button">
+                        <span aria-hidden="true" role="img"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <h2>Arrow left center</h2>
-    <div class="test" style="padding-bottom: 5.5rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet senior dolor elpaso rium jeromie</p>
-                </span>
-                <span class="arrow-left-center"></span>
+<h2>Pointer locations</h2>
+<div class="test">
+    <span class="tooltip">
+        <button accesskey="s" class="tooltip__host icon-btn" aria-describedby="tooltip-0" aria-expanded="true" aria-label="Settings">
+            <svg class="svg-icon" focusable="false" height="16" width="16" aria-hidden="true">
+                <use xlink:href="#icon-settings"></use>
+            </svg>
+        </button>
+        <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
+            <span class="tooltip__pointer tooltip__pointer--bottom"></span>
+            <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
+            <span class="tooltip__pointer tooltip__pointer--bottom-right"></span>
+            <span class="tooltip__pointer tooltip__pointer--left"></span>
+            <span class="tooltip__pointer tooltip__pointer--left-bottom"></span>
+            <span class="tooltip__pointer tooltip__pointer--left-top"></span>
+            <span class="tooltip__pointer tooltip__pointer--right"></span>
+            <span class="tooltip__pointer tooltip__pointer--right-bottom"></span>
+            <span class="tooltip__pointer tooltip__pointer--right-top"></span>
+            <span class="tooltip__pointer tooltip__pointer--top"></span>
+            <span class="tooltip__pointer tooltip__pointer--top-left"></span>
+            <span class="tooltip__pointer tooltip__pointer--top-right"></span>
+            <div class="tooltip__mask">
+                <div class="tooltip__cell">
+                    <div class="tooltip__content">
+                        <p>Use Access Key 'S' to display settings.</p>
+                        <p><a href="http://www.ebay.com">Use fewer refinements.</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <h2>Arrow left bottom</h2>
-    <div class="test" style="padding-bottom: 5.5rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--infotip">
-                <span class="tooltip__content">
-                    <p>Lorem ipsum dolor sit amet, lora desosa curium apum</p>
-                </span>
-                <button aria-label="Close infotip" class="infotip__close tooltip__close" type="button">
-                    <span aria-hidden="true" role="img"></span>
-                </button>
-                <span class="arrow-left-bottom"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow right top</h2>
-    <div class="test" style="padding-bottom: 5.5rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet senior dolor elpaso rium jeromie</p>
-                </span>
-                <span class="arrow-right-top"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow right center</h2>
-    <div class="test" style="padding-bottom: 5.5rem">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tooltip">
-                <span class="tooltip__content tooltip__content-hover">
-                    <p>Lorem ipsum dolor sit amet senior dolor elpaso rium jeromie</p>
-                </span>
-                <span class="arrow-right-center"></span>
-            </div>
-        </div>
-    </div>
-
-    <h2>Arrow right bottom</h2>
-    <div class="test">
-        <div class="tooltip__overlay" style="display: block">
-            <div class="tooltip--tourtip">
-                <span class="tooltip__content tourtip__content">
-                    <span>
-                        <p>Lorem ipsum dolor sit amet, lora desosa curium apum</p>
-                        <button aria-label="Close tourtip" class="btn btn--secondary btn--fluid tourtip__cta tooltip__close" type="button">Got it</button>
-                    </span>
-                </span>
-                <span class="arrow-left-bottom"></span>
-            </div>
-        </div>
-    </div>
+    </span>
 </div>

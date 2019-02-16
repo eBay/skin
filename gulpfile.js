@@ -15,7 +15,7 @@ var autoprefixPlugin = new LessPluginAutoPrefix();
 var distTarget = './dist';
 var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
-var cdnFileExtensionName = '.min.css';
+var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v'+pkg.version;
 
 var comment = [
@@ -27,57 +27,41 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'adaptive', 'grid', 'grid-full', 'megabundles']);
+gulp.task('less', ['modules', 'megabundle', 'base64']);
 
 // Compile all modules to /dist
 gulp.task('modules', function (cb) {
-   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
+   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
 });
 
-// Compile Skin adaptive modules to /dist
-gulp.task('adaptive', function () {
-   return gulp.src(['./src/less/**/*-large.less', '!./src/less/bundles/**/*.less', '!./src/less/grid/**/*.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(gulp.dest(distTarget))
-});
-
-// Compile grid modules to /dist
-gulp.task('grid', function() {
-    return gulp.src(['./src/less/grid/ds4/grid-core.less', './src/less/grid/ds4/grid-small.less', './src/less/grid/ds4/grid-large.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(gulp.dest(distTarget + '/grid/ds4'))
-});
-
-// #1 Compile grid-full module to dist, docs/static & _site/static
-// #2 Then minify to _cdn
-gulp.task('grid-full', function() {
-    return gulp.src(['./src/less/grid/ds4/grid-full.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(banner(comment, {pkg: pkg}))
-    .pipe(gulp.dest(docsStaticTarget + '/ds4'))
-    .pipe(gulp.dest(siteStaticTarget + '/ds4'))
-    .pipe(gulp.dest(distTarget + '/grid/ds4'))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
-    .pipe(rename(function (path) {
-        path.extname = cdnFileExtensionName;
-    }))
-    .pipe(gulp.dest(cdnTarget + '/ds4'))
-});
-
-// #1 Compile the full skin ds4 & ds6 bundles to docs/static & _site/static
-// #2 Then minify to _cdn
-gulp.task('megabundles', function () {
+// Compile and minify the full skin bundle to docs/static, _site/static and cdn
+gulp.task('megabundle', function () {
    return gulp.src(['./src/less/bundles/skin/**/*.less'])
-    .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(banner(comment, {pkg: pkg}))
+    .pipe(rename(function (path) {
+        path.extname = minifiedFileExtensionName;
+    }))
+    .pipe(less({plugins: [autoprefixPlugin]}))
+    .pipe(less({plugins: [cleanCSSPlugin]}))
     .pipe(gulp.dest(docsStaticTarget))
     .pipe(gulp.dest(siteStaticTarget))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
+    .pipe(gulp.dest(cdnTarget))
+});
+
+// Compile and minify the base64 less to docs/static, _site/static and _cdn
+gulp.task('base64', function () {
+   return gulp.src(['./src/less/icon/background/**/*.less'])
+    .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
-        path.extname = cdnFileExtensionName;
+       path.basename = 'skin-base64';
+       path.extname = minifiedFileExtensionName;
     }))
+    .pipe(less({plugins: [autoprefixPlugin]}))
+    .pipe(less({plugins: [cleanCSSPlugin]}))
+    .pipe(gulp.dest(docsStaticTarget))
+    .pipe(gulp.dest(siteStaticTarget))
     .pipe(gulp.dest(cdnTarget))
 });
 
@@ -105,18 +89,18 @@ gulp.task('syncSkinCss', function(cb) {
 
 // Inject CSS into browsers
 gulp.task('injectSkinCSS', function(cb) {
-    return gulp.src(['_site/**/*.css'])
+    return gulp.src(['_site/**/*.css', '_site/**/*.min.css'])
         .pipe(browserSync.stream());
 });
 
 // Re-lasso the docs CSS, copy to jekyll _site/static, inject into browsers
 gulp.task('syncDocsCss', function() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
-        gulp.src(['./docs/static/ds4/docs.css'])
+        gulp.src(['./docs/static/ds4/docs.min.css'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'))
             .pipe(browserSync.stream());
 
-        gulp.src(['./docs/static/ds6/docs.css'])
+        gulp.src(['./docs/static/ds6/docs.min.css'])
             .pipe(gulp.dest(siteStaticTarget + '/ds6'))
             .pipe(browserSync.stream());
     });
@@ -125,10 +109,10 @@ gulp.task('syncDocsCss', function() {
 // Re-lasso the docs JS, copy it to jekyll _site/static, then reload browsers
 gulp.task('syncDocsJs', function() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
-        gulp.src(['./docs/static/ds4/docs.js'])
+        gulp.src(['./docs/static/ds4/docs.min.js'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'));
 
-        gulp.src(['./docs/static/ds6/docs.js'])
+        gulp.src(['./docs/static/ds6/docs.min.js'])
             .pipe(gulp.dest(siteStaticTarget + '/ds6'));
 
         browserSync.reload();

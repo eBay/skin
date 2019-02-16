@@ -1,5 +1,5 @@
 <div id="field">
-    <h2>@ebay/skin/field</h2>
+    <h2><span class="secondary-text">@ebay/skin/</span>field</h2>
     <p>The field module facilitates the layout of a form control and it's associated label, plus any other applicable text or sub-controls (e.g. error text or help button).</p>
 
     <h3 id="field-unstacked">Unstacked Field</h3>
@@ -453,7 +453,7 @@
     <span class="field__control textbox">
         <input aria-invalid="true" class="textbox__control" id="field1" type="text" placeholder="placeholder text">
     </span>
-</div>
+</span>
 <span class="field">
     <label class="field__label" for="size">Field 2</label>
     <span class="field__control">
@@ -472,7 +472,7 @@
 
     <h3 id="field-description">Field Description</h3>
     <p>A field may have nearby text to describe additional instructions, status or validation error of the control.</p>
-    <p>The <span class="highlight">field__description</span> element defines some minimal styling, but does not dictate location or layout. This element has modifiers for <span class="positive">confirmation</span>, <span style="color: #0654ba;">information</span> and <span class="emphasis">priority</span>, depending on the type of descriptive text (or icon).</p>
+    <p>The <span class="highlight">field__description</span> element defines some minimal styling, but does not dictate location or layout. This element has modifiers for <span class="positive">confirmation</span>, <span style="color: #0654ba;">information</span> and <span class="emphasis">attention</span>, depending on the type of descriptive text (or icon).</p>
     <p><strong>TIP:</strong> The description element can be designated as an ARIA <a href="https://ebay.gitbooks.io/mindpatterns/content/techniques/liveregions.html">live-region</a> if client-side updates occur.</p>
 
     <h4>Text on Side of Field</h4>
@@ -566,6 +566,189 @@
 </span>
     {% endhighlight %}
 
-    {% include ds{{ page.ds}}/field-custom.html %}
+    <h3 id="field-fluid">Fluid Field</h3>
+    <p>Form control elements (such as <span class="highlight">select</span> and <span class="highlight">input</span>) are inline-block by default, and will only use up as much of their parent's horizontal space as they need.</p>
+    <p>For a stacked field the control must be set to 100% width (using the <span class="highlight">fluid</span> utility class) to fill all available space.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="field-group" style="margin: 0">
+                <span class="field fluid">
+                    <label class="field__label field__label--stacked" for="field-fluid-block-1">Field 1</label>
+                    <div class="field__control textbox">
+                        <input class="textbox__control fluid" id="field-fluid-block-1" type="text" placeholder="placeholder text" />
+                    </div>
+                </span>
+                <span class="field fluid">
+                    <label class="field__label field__label--stacked" for="field-fluid-block-2">Field 2</label>
+                    <div class="field__control fluid">
+                        <div class="select select--fluid">
+                            <select name="field-fluid-block-2" id="field-fluid-block-2">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <span class="select__icon"></span>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="field-group">
+    <span class="field fluid">
+        <label class="field__label field__label--stacked" for="field1">Field 1</label>
+        <div class="field__control textbox">
+            <input class="textbox__control fluid" id="field1" type="text" placeholder="placeholder text" />
+        </div>
+    </span>
+    <span class="field fluid">
+        <label class="field__label field__label--stacked" for="field2">Field 2</label>
+        <div class="field__control fluid">
+            <div class="select select--fluid">
+                <select name="field2" id="field2">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <span class="select__icon"></span>
+            </div>
+        </div>
+    </span>
+</div>
+    {% endhighlight %}
+    <p>The above example shows the fields in a flexbox layout. This layout is created using the <span class="highlight">field-group</span> helper class. Notice that each field is also set to fluid, in order to fill all available flexbox space (flexbox layout takes care of dividing the space evenly between fluid fields).</p>
+
+    <p>If we set the form control width to 100% in an <em>unstacked</em> field, the control would flow to a new line <em>below</em> the label (effectively behaving like a stacked label). This behaviour can be avoided by adding an additional <span class="highlight">field__group</span> element to create flex layout <em>inside</em> of the field.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="field-group" style="margin: 0">
+                <span class="field fluid">
+                    <span class="field__group fluid">
+                        <label class="field__label no-wrap" for="field-fluid-unstacked-1">Field 1</label>
+                        <span class="field__control fluid textbox">
+                            <input class="textbox__control fluid" id="field-fluid-unstacked-1" type="text" placeholder="placeholder text" />
+                        </span>
+                    </span>
+                </span>
+                <span class="field fluid">
+                    <span class="field__group fluid">
+                        <label class="field__label no-wrap" for="field-fluid-unstacked-2">Field 2</label>
+                        <span class="field__control fluid">
+                            <span class="select select--fluid">
+                                <select name="field-fluid-unstacked-2" id="field-fluid-unstacked-2">
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <span class="select__icon"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="field-group">
+    <span class="field fluid">
+        <span class="field__group fluid">
+            <label class="field__label no-wrap" for="field1">Field 1</label>
+            <span class="field__control fluid textbox">
+                <input class="textbox__control fluid" id="field1" type="text" placeholder="placeholder text" />
+            </span>
+        </span>
+    </span>
+    <span class="field fluid">
+        <span class="field__group fluid">
+            <label class="field__label no-wrap" for="field2">Field 2</label>
+            <span class="field__control fluid">
+                <span class="select select--fluid">
+                    <select name="field2" id="field2">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <span class="select__icon"></span>
+                </span>
+            </span>
+        </span>
+    </span>
+</div>
+    {% endhighlight %}
+    <p><strong>TIP:</strong> You may want to experiment with sizes other than 100%, and also the flexbox <span class="highlight">justify-content</span> property.</p>
+
+    <p>For a fluid control and description, those elements can be wrapped in a <span class="highlight">field__group</span> container to create flex layout.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="field-group" style="margin: 0">
+                <span class="field fluid">
+                    <label class="field__label field__label--stacked" for="field-fluid-block-1">Field 1</label>
+                    <div class="field__group">
+                        <span class="field__control textbox fluid">
+                            <input class="textbox__control fluid" id="field-fluid-block-1" type="text" placeholder="placeholder text" />
+                        </span>
+                        <span class="field__description">
+                            <span>Field description or error</span>
+                        </span>
+                    </div>
+                </span>
+                <span class="field fluid">
+                    <label class="field__label field__label--stacked" for="field-fluid-block-2">Field 2</label>
+                    <div class="field__group">
+                        <div class="field__control fluid">
+                            <div class="select select--fluid">
+                                <select name="field-fluid-block-2" id="field-fluid-block-2">
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <span class="select__icon"></span>
+                            </div>
+                        </div>
+                        <span class="field__description">
+                            <span>Field description or error</span>
+                        </span>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="field-group">
+    <span class="field fluid">
+        <label class="field__label field__label--stacked" for="field-fluid-block-1">Field 1</label>
+        <div class="field__group">
+            <span class="field__control textbox fluid">
+                <input class="textbox__control fluid" id="field-fluid-block-1" type="text" placeholder="placeholder text" />
+            </span>
+            <span class="field__description">
+                <span>Field description or error</span>
+            </span>
+        </div>
+    </span>
+    <span class="field fluid">
+        <label class="field__label field__label--stacked" for="field-fluid-block-2">Field 2</label>
+        <div class="field__group">
+            <div class="field__control fluid">
+                <div class="select select--fluid">
+                    <select name="field-fluid-block-2" id="field-fluid-block-2">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <span class="select__icon"></span>
+                </div>
+            </div>
+            <span class="field__description">
+                <span>Field description or error</span>
+            </span>
+        </div>
+    </span>
+</div>
+        {% endhighlight %}
 
 </div>

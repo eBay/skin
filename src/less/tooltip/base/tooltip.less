@@ -1,22 +1,150 @@
-// BEM blocks
+@import "../../less/ds4/variables.less";
+@import "../../less/ds4/mixins.less";
+@import "../../mixins/bubble/base/bubble.less";
 
 .tooltip__overlay,
-.bubblehelp__overlay {
+.infotip__overlay,
+.tourtip__overlay {
+    .bubble;
+
     display: none;
+    position: absolute;
+}
+
+.tooltip__mask,
+.infotip__mask,
+.tourtip__mask {
+    .bubble-mask;
+}
+
+.tooltip__cell,
+.infotip__cell,
+.tourtip__cell {
+    .bubble-cell;
+}
+
+.tooltip__content,
+.infotip__content,
+.tourtip__content {
+    .bubble-content;
+}
+
+button.tooltip__close,
+button.infotip__close,
+button.tourtip__close {
+    .bubble-close;
+}
+
+.tooltip__pointer,
+.infotip__pointer,
+.tourtip__pointer {
+    .pointer-base;
+    .pointer-top;
+    .pointer-center;
+}
+
+.tooltip__pointer--top-left,
+.infotip__pointer--top-left,
+.tourtip__pointer--top-left {
+    .pointer-top-left;
+}
+
+.tooltip__pointer--top,
+.infotip__pointer--top,
+.tourtip__pointer--top {
+    .pointer-top-center;
+}
+
+.tooltip__pointer--top-right,
+.infotip__pointer--top-right,
+.tourtip__pointer--top-right {
+    .pointer-top-right;
+}
+
+.tooltip__pointer--bottom-left,
+.infotip__pointer--bottom-left,
+.tourtip__pointer--bottom-left {
+    .pointer-bottom-left;
+}
+
+.tooltip__pointer--bottom,
+.infotip__pointer--bottom,
+.tourtip__pointer--bottom {
+    .pointer-bottom-center;
+}
+
+.tooltip__pointer--bottom-right,
+.infotip__pointer--bottom-right,
+.tourtip__pointer--bottom-right {
+    .pointer-bottom-right;
+}
+
+.tooltip__pointer--left,
+.infotip__pointer--left,
+.tourtip__pointer--left {
+    .pointer-left;
+}
+
+.tooltip__pointer--left-bottom,
+.infotip__pointer--left-bottom,
+.tourtip__pointer--left-bottom {
+    .pointer-left-bottom;
+}
+
+.tooltip__pointer--left-top,
+.infotip__pointer--left-top,
+.tourtip__pointer--left-top {
+    .pointer-left-top;
+}
+
+.tooltip__pointer--right,
+.infotip__pointer--right,
+.tourtip__pointer--right {
+    .pointer-right;
+}
+
+.tooltip__pointer--right-bottom,
+.infotip__pointer--right-bottom,
+.tourtip__pointer--right-bottom {
+    .pointer-right-bottom;
+}
+
+.tooltip__pointer--right-top,
+.infotip__pointer--right-top,
+.tourtip__pointer--right-top {
+    .pointer-right-top;
+}
+
+.tooltip,
+.infotip,
+.tourtip {
     position: relative;
 }
 
-.tooltip--expanded .tooltip__overlay,
+.infotip__heading,
+.tourtip__heading {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+span.tooltip,
+span.infotip,
+span.tourtip {
+    display: inline-block;
+}
+
 .tooltip__host[aria-expanded="true"] ~ .tooltip__overlay,
-.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__overlay,
-.bubblehelp__host[aria-expanded="true"] ~ .bubblehelp__live-region .bubblehelp__overlay {
+.infotip__host[aria-expanded="true"] ~ .infotip__overlay,
+.tooltip--expanded .tooltip__overlay, // for nested focusable elements with the tooltip
+.tourtip--expanded .tourtip__overlay {
     display: block;
 }
 
 @media (min-width: 601px) {
-    button.infotip__close,
-    button.tourtip__close,
-    button.flyout-notice__close {
-        margin-left: 16px;
+    .tooltip__overlay,
+    .infotip__overlay,
+    .tourtip__overlay {
+        .bubble-large-screen;
     }
 }
