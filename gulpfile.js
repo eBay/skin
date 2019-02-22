@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
 var less = require('gulp-less');
 var path = require('path');
 var child_process = require('child_process');
@@ -27,17 +26,15 @@ var comment = [
     '*/\n'
 ].join('\n');
 
-gulp.task('less', ['modules', 'megabundle', 'base64']);
-
 // Compile all modules to /dist
-gulp.task('modules', function (cb) {
+function modules () {
    return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
-});
+}
 
 // Compile and minify the full skin bundle to docs/static, _site/static and cdn
-gulp.task('megabundle', function () {
+function megabundle() {
    return gulp.src(['./src/less/bundles/skin/**/*.less'])
     .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
@@ -48,10 +45,10 @@ gulp.task('megabundle', function () {
     .pipe(gulp.dest(docsStaticTarget))
     .pipe(gulp.dest(siteStaticTarget))
     .pipe(gulp.dest(cdnTarget))
-});
+}
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
-gulp.task('base64', function () {
+function base64() {
    return gulp.src(['./src/less/icon/background/**/*.less'])
     .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
@@ -63,38 +60,31 @@ gulp.task('base64', function () {
     .pipe(gulp.dest(docsStaticTarget))
     .pipe(gulp.dest(siteStaticTarget))
     .pipe(gulp.dest(cdnTarget))
-});
+}
 
 // Static Server + watching src & docs files
-gulp.task('server', function() {
+function server() {
     // Start the server.
     browserSync.init({server: "_site"});
     // Watch less files under src/less. Resync CSS on change.
-    gulp.watch("src/less/**/*.less", ['syncSkinCss']);
+    gulp.watch("src/less/**/*.less", gulp.series('default', injectSkinCSS));
     // Watch less files under docs. Resync CSS on change.
-    gulp.watch("docs/src/less/**/*.less", ['syncDocsCss']);
+    gulp.watch("docs/src/less/**/*.less", syncDocsCss);
     // Watch js files under docs. Resync JS on change.
-    gulp.watch("docs/src/js/**/*.js", ['syncDocsJs']);
+    gulp.watch("docs/src/js/**/*.js", syncDocsJs);
     // Watch html files under docs. Regenerate _site on change.
-    gulp.watch("docs/**/*.html", ['syncDocsHtml']);
+    gulp.watch("docs/**/*.html", syncDocsHtml);
     // Watch html files under _site. Resync browser on change.
     gulp.watch("_site/**/*.html").on('change', browserSync.reload);
-});
+}
 
-
-// Run LESS, move compiled CSS to jekyll _site, inject into browsers
-gulp.task('syncSkinCss', function(cb) {
-    runSequence('less', 'injectSkinCSS', cb);
-});
-
-// Inject CSS into browsers
-gulp.task('injectSkinCSS', function(cb) {
-    return gulp.src(['_site/**/*.css', '_site/**/*.min.css'])
-        .pipe(browserSync.stream());
-});
+// Inject Skin CSS into browsers
+function injectSkinCSS() {
+    return gulp.src(['_site/**/*.css', '_site/**/*.min.css']).pipe(browserSync.stream());
+}
 
 // Re-lasso the docs CSS, copy to jekyll _site/static, inject into browsers
-gulp.task('syncDocsCss', function() {
+function syncDocsCss() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
         gulp.src(['./docs/static/ds4/docs.min.css'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'))
@@ -104,10 +94,10 @@ gulp.task('syncDocsCss', function() {
             .pipe(gulp.dest(siteStaticTarget + '/ds6'))
             .pipe(browserSync.stream());
     });
-});
+}
 
 // Re-lasso the docs JS, copy it to jekyll _site/static, then reload browsers
-gulp.task('syncDocsJs', function() {
+function syncDocsJs() {
     return child_process.spawn('npm', ['run', 'lasso:docs'], {stdio: 'inherit'}).on('close', function() {
         gulp.src(['./docs/static/ds4/docs.min.js'])
             .pipe(gulp.dest(siteStaticTarget + '/ds4'));
@@ -117,9 +107,14 @@ gulp.task('syncDocsJs', function() {
 
         browserSync.reload();
     });
-});
+}
 
 // Run Jekyll build
-gulp.task('syncDocsHtml', function (done) {
-    return child_process.spawn('bundler', ['exec', 'jekyll', 'build', '--config', 'docs/_config.yml,docs/_config.localhost.yml'], {stdio: 'inherit'}).on('close', done);
-});
+function syncDocsHtml(cb) {
+    return child_process.spawn('bundler', ['exec', 'jekyll', 'build', '--config', 'docs/_config.yml,docs/_config.localhost.yml'], {stdio: 'inherit'}).on('close', cb);
+}
+
+// public tasks listed below
+
+exports.server = server;
+exports.default = gulp.series(gulp.parallel(modules, megabundle, base64));
