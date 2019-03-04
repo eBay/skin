@@ -10,14 +10,30 @@
     border-bottom: 1px solid @ds6-color-white; // prevent margin-collapse on next element
 }
 
+// move the thin grey bar up by 1 pixel
+.tabs__content,
+.fake-tabs__content {
+    border-top: 1px solid #c7c7c7;
+    position: relative;
+    top: -1px;
+}
+
+// put the tab, with it's blue bar, onto a layer on top of the thin grey bar
+div.tabs__items[role="tablist"],
+ul.fake-tabs__items {
+    position: relative;
+    z-index: 1;
+}
+
 // outer
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
+    border-bottom: 3px solid transparent;
     -webkit-tap-highlight-color: @ds6-color-grey2;
 
     // hover outer
     &:hover {
-        border-bottom: 2px solid @ds6-color-b4;
+        border-bottom: 3px solid @ds6-color-b4;
     }
 }
 
@@ -36,7 +52,7 @@ li.fake-tabs__item > a {
 // selected outer
 div.tabs__item[role="tab"][aria-selected="true"],
 li.fake-tabs__item--current {
-    border-bottom: 2px solid @ds6-color-b4;
+    border-bottom: 3px solid @ds6-color-b4;
 }
 
 // selected inner
