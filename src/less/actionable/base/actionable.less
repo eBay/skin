@@ -1,5 +1,5 @@
-@import "../../less/variables-common.less";
-@import "../../less/mixins-common.less";
+// icons
+//-----------------------------
 
 button.icon-btn,
 a.icon-link {
@@ -17,7 +17,12 @@ a.icon-link {
     }
 
     svg {
+        color: @actionable-icon-color-active;
         height: 100%; // vertical centering
+    }
+
+    &:active svg {
+        color: @actionable-icon-color-active;
     }
 }
 
@@ -52,6 +57,8 @@ a.icon-link--badged {
 
     .badge {
         border: 2px solid;
+        border-color: @actionable-badge-border-color;
+        font-size: @actionable-badge-font-size;
         height: 24px;
         left: 12px;
         line-height: 1rem;
@@ -67,6 +74,23 @@ a.icon-link--badged {
 // images
 //-----------------------------
 
+a.img-link {
+    &[href] {
+        &:hover,
+        &:focus {
+            border-color: @actionable-image-link-border-color-hover;
+        }
+
+        &:active {
+            border-color: @actionable-image-link-border-color-active;
+        }
+    }
+}
+
+a.img-link--visit:visited {
+    background-color: @actionable-image-link-background-color-visited;
+}
+
 a.img-link,
 button.img-btn {
     border: 1px solid transparent;
@@ -76,4 +100,15 @@ button.img-btn {
 button.img-btn {
     background-color: transparent;
     padding: 0;
+
+    &:not([disabled]) {
+        &:hover,
+        &:focus {
+            border-color: @actionable-image-button-border-color-hover;
+        }
+
+        &:active {
+            border-color: @actionable-image-button-border-color-active;
+        }
+    }
 }
