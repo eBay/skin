@@ -6,6 +6,7 @@ This page contains instructions and guidelines for anybody contributing code to 
 
 * [System Requirements](#system-requirements)
 * [Contribution Steps](#contribution-steps)
+* [Versioning](#versioning)
 * [Branching Strategy](#branching-strategy)
 * [Pull Requests](#pull-requests)
 * [Style Guide](#style-guide)
@@ -31,13 +32,57 @@ We **strongly** advise you to only begin working on issues that are assigned spe
 Here is a rough overview of steps required when contributing code to skin:
 
 * GitHub team members must create a new branch in the Skin repo. Non-team members should create their own fork.
-    * Please ensure you branch off from the correct milestone branch! See branching strategy section below.
-* Skin adopts the [BEM](https://css-tricks.com/bem-101/) methodology (a popular naming convention for classes in HTML and CSS)
-    * Please familiarize yourself with our style guide in the section below.
+* Please ensure you branch off from the correct milestone branch! See branching strategy section below.
+* Skin adopts the [BEM](https://css-tricks.com/bem-101/) methodology (a popular naming convention for classes in HTML and CSS). Please familiarize yourself with our style guide in the section below.
 * After making changes to `.less` files, ensure that no new CSS lint warnings or errors are introduced
 * Add or update the corresponding website documentation. More information in the [documentation](#documentation) section below.
 * Push commit(s) to the upstream branch. Ensure new dist files (i.e. the compiled CSS files) are included!
 * Send pull request. See Pull Requests section below.
+
+## Versioning
+
+Skin follows [Semantic Versioning](http://semver.org):
+
+1. MAJOR version when we make incompatible API changes,
+1. MINOR version when we add functionality in a backwards-compatible manner
+1. PATCH version when we make backwards-compatible bug fixes.
+
+To help guide your contribution into the right bucket, we provide more detailed insight into each type of change in the sections below.
+
+### API Change
+
+Here are some types of change that we consider as an incompatible API change:
+
+* Removal of a CSS class
+* Removal of a public variable or mixin
+* Removal of a `browser.json` file
+* Removal of a folder from `dist`
+* Removal of an SVG icon
+* Change to CDN path structure
+* Change to HTML structure or attributes of module
+* Change to CSS property that radically alters appearance and/or layout
+
+Typically we will try and add a deprecation note for a period of time before introducing any breaking API change. The creation of aliases can often help ease the transition from one API to another.
+
+### New Functionality
+
+Here are some of the changes we consider as new functionality:
+
+* Addition of a new module
+* Addition of a module subtype or variant
+* Addition of a new variable or mixin
+* Addition of an alias for a class or icon
+* Update of a module to its latest playbook version
+* Update of a colour value that remains within the same hue
+* Update of a CSS property that does not affect the modules layout in page
+
+Minor version updates are a signal that there is something new (no matter how small) that an app might be interested in using!
+
+### Bug Fix
+
+Rather than creating a list, bug fixes can perhaps best be summed up as: "fixing something that does not work as expected or documented".
+
+**NOTE:** Updating a module to its latest visual specification is NOT a candidate for a bug fix. No matter how small or trivial the visual update may be, we always consider it as new functionality.
 
 ## Branching Strategy
 
