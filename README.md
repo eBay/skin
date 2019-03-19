@@ -10,7 +10,7 @@ Skin is [MIT](LICENSE) licensed.
 
 ## Install
 
-Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on a [CDN](https://ebay.github.io/skin#cdn).
+Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on our [CDN](https://ebay.github.io/skin#cdn).
 
 ## Versioning
 
@@ -19,6 +19,8 @@ Skin follows [Semantic Versioning](http://semver.org):
 1. MAJOR version when we make incompatible API changes,
 1. MINOR version when we add functionality in a backwards-compatible manner
 1. PATCH version when we make backwards-compatible bug fixes.
+
+More detailed insight into our versioning process can be found in our [contributing guide](CONTRIBUTING.md).
 
 ## Releases
 
