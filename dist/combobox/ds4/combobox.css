@@ -195,6 +195,18 @@ button.fake-menu__item {
   background-color: #fff;
   border: none;
 }
+div.menu__item[role^="menuitem"]:hover,
+div.listbox__option[role^="option"]:hover,
+div.combobox__option[role^="option"]:hover,
+a.fake-menu__item:hover,
+button.fake-menu__item:hover,
+div.menu__item[role^="menuitem"].combobox__option--active,
+div.listbox__option[role^="option"].combobox__option--active,
+div.combobox__option[role^="option"].combobox__option--active,
+a.fake-menu__item.combobox__option--active,
+button.fake-menu__item.combobox__option--active {
+  background-color: #eee;
+}
 div.menu__item[role^="menuitem"]:active .menu__status,
 div.listbox__option[role^="option"]:active .menu__status,
 div.combobox__option[role^="option"]:active .menu__status,
@@ -267,8 +279,8 @@ span.fake-menu__status {
   cursor: default;
   -webkit-user-select: none;
 }
-.combobox__control > input[disabled],
-.combobox__control > input[aria-disabled="true"] {
+.combobox__control > input[readonly][disabled],
+.combobox__control > input[readonly][aria-disabled="true"] {
   color: transparent;
 }
 .combobox__control > input[aria-expanded="true"] {
@@ -299,7 +311,6 @@ span.combobox__icon {
 .combobox .combobox__control--borderless > input:focus {
   border-color: transparent;
   outline: none;
-  text-decoration: underline;
 }
 .combobox.combobox--fluid {
   width: 100%;
@@ -322,11 +333,22 @@ span.combobox {
   font-size: 0.875rem;
   height: 40px;
   padding: 0 16px;
+}
+.combobox__control > input[readonly] {
   text-shadow: 0 0 0 #555;
+}
+.combobox__control > input[readonly]::-moz-selection {
+  background: #fff;
+}
+.combobox__control > input[readonly]::selection {
+  background: #fff;
 }
 .combobox__control > input[disabled],
 .combobox__control > input[aria-disabled="true"] {
   border-color: #ccc;
+}
+.combobox__control > input[disabled][readonly],
+.combobox__control > input[aria-disabled="true"][readonly] {
   text-shadow: 0 0 0 #ccc;
 }
 .combobox__control > input[disabled] + span.combobox__icon,
@@ -338,12 +360,6 @@ span.combobox {
 }
 .combobox__control > input:focus {
   border-color: #0654ba;
-}
-.combobox__control > input::-moz-selection {
-  background: #fff;
-}
-.combobox__control > input::selection {
-  background: #fff;
 }
 .combobox--small .combobox__control > input {
   font-size: 0.75rem;
