@@ -1,0 +1,70 @@
+@import "../../less/mixins-common.less";
+@import "../../less/variables-common.less";
+
+details.details[open] {
+    .details__icon {
+        transform: rotate(180deg);
+    }
+
+    summary.details__summary::before {
+        content: none;
+    }
+}
+
+summary.details__summary {
+    align-items: center;
+    box-sizing: border-box;
+    color: @details-summary-color;
+    cursor: default;
+    display: inline-block;
+    list-style-position: inside;
+    list-style-type: none; /* Remove details marker for non-webkit */
+    padding: 14px 8px;
+    width: 100%;
+
+    &::before {
+        content: none;
+    }
+
+    /* Remove details marker for non-webkit */
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &.details_summary--center {
+        text-align: center;
+    }
+
+    &.details_summary--small {
+        font-size: @font-size-12;
+        padding: 5px 8px;
+    }
+}
+
+.details__icon {
+    margin-left: 8px;
+
+    // progressive enhancement - over-ride hidden SVG
+    &[hidden] {
+        display: inline-flex;
+    }
+
+    &:not([hidden]) {
+        .background-icon-base;
+        .details-icon-down();
+    }
+
+    & svg {
+        .foreground-icon-base;
+
+        height: 8px;
+        width: 8px;
+    }
+}
+
+[dir="rtl"] {
+    .details__icon {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+}
