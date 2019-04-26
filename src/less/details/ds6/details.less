@@ -1,0 +1,36 @@
+@import "../../less/ds6/variables.less";
+
+details:not([open]) {
+    .show-less {
+        display: none;
+    }
+}
+
+details[open],
+details[data-makeup-open] {
+    .expand-btn__icon {
+        transform: rotate(180deg);
+    }
+
+    .show-more {
+        display: none;
+    }
+
+    summary::before {
+        content: none;
+    }
+}
+
+summary {
+    color: @ds6-color-b4;
+
+    span.expand-btn__icon {
+        background-image: url('data:image/svg+xml;base64,@{ds6-icon-chevron-down-blue-base64}');
+    }
+
+    &::before {
+        content: none;
+    }
+}
+
+@import '../base/details.less';
