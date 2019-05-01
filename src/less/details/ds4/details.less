@@ -1,37 +1,37 @@
 @import "../../less/ds4/variables.less";
 
-details:not([open]) {
-    .show-less {
+details.details:not([open]) {
+    .details__summary--showless {
         display: none;
     }
 }
 
-details[open],
-details[data-makeup-open] {
+details.details[open],
+details.details[data-makeup-open] {
     .expand-btn__icon {
         transform: rotate(180deg);
     }
 
-    .show-more {
+    .details__summary--showmore {
         display: none;
     }
 
-    summary {
+    summary.details__summary {
         &::before {
             content: none;
         }
     }
 }
 
-summary {
+summary.details__summary {
     color: @ds4-color-core-blue;
+
+    .expand-btn__icon {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-blue-base64}');
+    }
 
     &::before {
         content: none;
-    }
-
-    &:hover {
-        color: #10299c;
     }
 }
 
