@@ -1,5 +1,7 @@
+@import "../../less/mixins-common.less";
+
 details.details[open] {
-    .expand-btn__icon {
+    .details__icon {
         transform: rotate(180deg);
     }
 
@@ -14,6 +16,7 @@ summary.details__summary::-webkit-details-marker {
 }
 
 summary.details__summary {
+    align-items: center;
     display: flex;
     justify-content: left;
     list-style-position: inside;
@@ -31,5 +34,32 @@ summary.details__summary {
     &.details_summary--small {
         font-size: 12px;
         padding: 5px 8px 5px 8px;
+    }
+}
+
+.details__icon {
+    margin-left: 8px;
+
+    // progressive enhancement - over-ride hidden SVG
+    &[hidden] {
+        display: inline-flex;
+    }
+
+    &:not([hidden]) {
+        .background-icon-base;
+    }
+
+    & svg {
+        .foreground-icon-base;
+
+        height: 8px;
+        width: 8px;
+    }
+}
+
+[dir="rtl"] {
+    .details__icon {
+        margin-left: 0;
+        margin-right: 8px;
     }
 }

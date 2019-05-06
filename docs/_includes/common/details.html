@@ -7,7 +7,7 @@
             <details class="details">
                 <summary class="details__summary">
                     <span class="details__summary--text">Details</span>
-                    <span class="expand-btn__icon"></span>
+                    <span class="details__icon"></span>
                 </summary>
                 <p>Sample content</p>
             </details>
@@ -16,7 +16,7 @@
         <details class="details">
             <summary class="details__summary">
                 <span class="details__summary--text">Details</span>
-                <span class="expand-btn__icon"></span>
+                <span class="details__icon"></span>
             </summary>
             <p>Sample content</p>
         </details>
@@ -28,7 +28,7 @@
             <details class="details" open>
                 <summary class="details__summary">
                     <span class="details__summary--text">Details</span>
-                    <span class="expand-btn__icon"></span>
+                    <span class="details__icon"></span>
                 </summary>
                 <p>Sample content</p>
             </details>
@@ -37,7 +37,7 @@
         <details class="details" open>
             <summary class="details__summary">
                 <span class="details__summary--text">Details</span>
-                <span class="expand-btn__icon"></span>
+                <span class="details__icon"></span>
             </summary>
             <p>Sample content</p>
         </details>
@@ -49,7 +49,7 @@
             <details class="details">
                 <summary class="details__summary details_summary--centered">
                     <span class="details__summary--text">Details</span>
-                    <span class="expand-btn__icon"></span>
+                    <span class="details__icon"></span>
                 </summary>
                 <p>Sample content</p>
             </details>
@@ -58,7 +58,7 @@
         <details class="details">
             <summary class="details__summary details_summary--centered">
                 <span class="details__summary--text">Details</span>
-                <span class="expand-btn__icon"></span>
+                <span class="details__icon"></span>
             </summary>
             <p>Sample content</p>
         </details>
@@ -70,32 +70,100 @@
             <details class="details">
                 <summary class="details__summary details_summary--small">
                     <span class="details__summary--text">Details</span>
-                    <span class="expand-btn__icon"></span>
+                    <span class="details__icon"></span>
                 </summary>
                 <p>Sample content</p>
-                <ul>
-                    <li>item 1</li>
-                    <li>item 2</li>
-                    <li>item 3</li>
-                </ul>
             </details>
         </div>
         {% highlight html %}
         <details class="details">
             <summary class="details__summary details_summary--small">
                 <span class="details__summary--text">Details</span>
-                <span class="expand-btn__icon"></span>
+                <span class="details__icon"></span>
             </summary>
             <p>Sample content</p>
-            <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-            </ul>
         </details>
         {% endhighlight %}
     </div>
-
+    <h3>RTL Details Summary</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <details class="details" dir="rtl">
+                <summary class="details__summary">
+                    <span class="details__summary--text">Details</span>
+                    <span class="details__icon"></span>
+                </summary>
+                <p>Sample content</p>
+            </details>
+        </div>
+        {% highlight html %}
+        <details class="details" dir="rtl">
+            <summary class="details__summary">
+                <span class="details__summary--text">Details</span>
+                <span class="details__icon"></span>
+            </summary>
+            <p>Sample content</p>
+        </details>
+        {% endhighlight %}
+    </div>
+    <h3>Details Summary using foreground SVG icon</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <details class="details">
+                <summary class="details__summary">
+                    <span class="details__summary--text">Details</span>
+                    <span class="details__icon" hidden>
+                        <svg aria-hidden="true" focusable="false">
+                            {% if page.ds == 6 %}<use xlink:href="#icon-chevron-down-bold"></use>{% else %}<use xlink:href="#icon-arrow-down"></use>{% endif %}
+                        </svg>
+                    </span>
+                </summary>
+                <p>Sample content</p>
+            </details>
+        </div>
+        {% highlight html %}
+        <details class="details">
+            <summary class="details__summary">
+                <span class="details__summary--text">Details</span>
+                <span class="details__icon" hidden>
+                    <svg aria-hidden="true" focusable="false" >
+                        {% if page.ds == 6 %}<use xlink:href="#icon-chevron-down-bold"></use>{% else %}<use xlink:href="#icon-arrow-down"></use>{% endif %}
+                    </svg>
+                </span>
+            </summary>
+            <p>Sample content</p>
+        </details>
+        {% endhighlight %}
+    </div>
+    <h3>Details Summary using foreground SVG icon with inline styles</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <details class="details">
+                <summary class="details__summary">
+                    <span class="details__summary--text">Details</span>
+                    <span class="details__icon" hidden>
+                        <svg aria-hidden="true" focusable="false" style="color: #000">
+                            {% if page.ds == 6 %}<use xlink:href="#icon-chevron-down-bold"></use>{% else %}<use xlink:href="#icon-arrow-down"></use>{% endif %}
+                        </svg>
+                    </span>
+                </summary>
+                <p>Sample content</p>
+            </details>
+        </div>
+        {% highlight html %}
+        <details class="details">
+            <summary class="details__summary">
+                <span class="details__summary--text">Details</span>
+                <span class="details__icon" hidden>
+                    <svg aria-hidden="true" focusable="false" style="color: #000">
+                        {% if page.ds == 6 %}<use xlink:href="#icon-chevron-down-bold"></use>{% else %}<use xlink:href="#icon-arrow-down"></use>{% endif %}
+                    </svg>
+                </span>
+            </summary>
+            <p>Sample content</p>
+        </details>
+        {% endhighlight %}
+    </div>
     {% if page.ds == 6 %}
     <div class="section-footer">
         <p>DS6.v1.01</p>
