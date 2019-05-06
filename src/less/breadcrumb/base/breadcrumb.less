@@ -14,7 +14,8 @@
         display: inline;
 
         &:not(:last-of-type)::after {
-            .background-icon-base;
+            .background-icon-base();
+            .breadcrumb-li-icon();
 
             content: '';
             margin: 0 4px 0 8px;
@@ -23,12 +24,23 @@
 
     a,
     button {
+        color: @breadcrumb-item-color;
         font-size: @font-size-12;
         text-decoration: none;
 
+        &:visited {
+            color: @breadcrumb-item-color;
+        }
+
         &:focus,
         &:hover {
+            color: @breadcrumb-item-hover-color;
             text-decoration: underline;
+        }
+
+        &[aria-current] {
+            color: @breadcrumb-item-current-color;
+            text-decoration: @breadcrumb-item-current-text-decoration;
         }
     }
 
@@ -38,5 +50,11 @@
         font-family: inherit;
         margin: 0;
         padding: 0;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .breadcrumb li:not(:last-of-type)::after {
+        background-image: url('data:image/svg+xml;base64,@{breadcrumb-item-divider-icon-base64-light}');
     }
 }
