@@ -1,14 +1,36 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
+@import "../base/breadcrumb.less";
 
-.breadcrumb-li-icon() {
-    .ds4-icon-chevron-right(8px, 8px);
+.breadcrumb {
+    li {
+        &:not(:last-of-type)::after {
+            .ds4-icon-chevron-right(8px,8px);
+        }
+    }
+
+    a,
+    button {
+        color: @ds4-color-text-default;
+
+        &:visited {
+            color: @ds4-color-text-default;
+        }
+
+        &:focus,
+        &:hover {
+            color: @ds4-color-core-blue;
+        }
+
+        &[aria-current] {
+            color: @ds4-color-core-gray-dim;
+            text-decoration: none;
+        }
+    }
 }
 
-@breadcrumb-item-color: @ds4-color-text-default;
-@breadcrumb-item-hover-color: @ds4-color-core-blue;
-@breadcrumb-item-current-color: @ds4-color-core-gray-dim;
-@breadcrumb-item-current-text-decoration: none;
-@breadcrumb-item-divider-icon-base64-light: @ds4-icon-chevron-right-base64-light;
-
-@import "../base/breadcrumb.less";
+@media screen and (-ms-high-contrast: white-on-black) {
+    .breadcrumb li:not(:last-of-type)::after {
+        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-right-base64-light}');
+    }
+}
