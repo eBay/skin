@@ -8,6 +8,7 @@
 }
 
 .checkbox__icon {
+    color: @checkbox-checked-color;
     display: inline-flex;
     font-size: 1em;
     outline-offset: 1px;
@@ -18,7 +19,8 @@
     }
 
     &:not([hidden]) {
-        .background-icon-base;
+        .background-icon-base();
+        .checked-icon-unchecked();
     }
 
     & svg {
@@ -59,7 +61,8 @@
 
     &:checked {
         & + .checkbox__icon:not([hidden]) {
-            .background-icon-base;
+            .background-icon-base();
+            .checked-icon-checked();
         }
 
         & + .checkbox__icon svg.checkbox__checked {
@@ -69,5 +72,15 @@
         & + .checkbox__icon svg.checkbox__unchecked {
             display: none;
         }
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .checkbox__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{checkbox-unchecked-icon-base64-light}');
+    }
+
+    .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{checkbox-checked-icon-base64-light}');
     }
 }
