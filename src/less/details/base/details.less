@@ -1,4 +1,5 @@
 @import "../../less/mixins-common.less";
+@import "../../less/variables-common.less";
 
 details.details[open] {
     .details__icon {
@@ -8,11 +9,6 @@ details.details[open] {
     summary.details__summary::before {
         content: none;
     }
-}
-
-/* Remove details marker for non-webkit */
-summary.details__summary::-webkit-details-marker {
-    display: none;
 }
 
 summary.details__summary {
@@ -29,13 +25,18 @@ summary.details__summary {
         content: none;
     }
 
+    /* Remove details marker for non-webkit */
+    &::-webkit-details-marker {
+        display: none;
+    }
+
     &.details_summary--center {
         text-align: center;
     }
 
     &.details_summary--small {
-        font-size: 12px;
-        padding: 5px 8px 5px 8px;
+        font-size: @font-size-12;
+        padding: 5px 8px;
     }
 }
 
