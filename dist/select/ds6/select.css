@@ -8,15 +8,32 @@ span.select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border: 1px solid;
-  font-size: inherit;
+  background-color: #fff;
+  border: 1px solid 0;
+  border-radius: initial;
+  color: "Market Sans", Arial, sans-serif;
+  font-family: "Market Sans", Arial, sans-serif;
+  font-size: 0.875rem;
   height: 40px;
+  padding: 0 32px 0 16px;
 }
 .select > select::-ms-expand {
   display: none;
 }
 .select > select:focus {
+  border-color: #121258;
   outline: 0;
+}
+.select > select[disabled] {
+  background-color: #ebebeb;
+  border: 0;
+  color: #c8c8c8;
+}
+.select > select[disabled] + .select__icon {
+  opacity: 0.5;
+}
+.select > select[aria-invalid="true"] {
+  border: 1px solid #e62048;
 }
 .select__icon {
   display: inline;
@@ -28,11 +45,15 @@ span.select__icon {
   background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
+  height: 5.2px;
+  width: 9px;
+  background-size: 9px 5.2px;
+  top: calc(50% - 2.6px);
   background-position: right 50%;
   pointer-events: none;
   position: absolute;
   right: 16px;
-  top: 0;
 }
 svg.select__icon {
   display: inline-block;
@@ -46,12 +67,6 @@ svg.select__icon {
   right: 16px;
   top: 0;
   width: 11px;
-}
-.select > select[disabled] {
-  border: 0;
-}
-.select > select[disabled] + .select__icon {
-  opacity: 0.5;
 }
 .select.fluid,
 .select.select--fluid {
@@ -70,40 +85,13 @@ svg.select__icon {
 .select.select--borderless > select:focus {
   text-decoration: underline;
 }
-[dir="rtl"] span.select__icon {
-  left: 16px;
-  right: auto;
-}
-span.select__icon {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
-  height: 5.2px;
-  width: 9px;
-  background-size: 9px 5.2px;
-  top: calc(50% - 2.6px);
-}
-@media screen and (-ms-high-contrast: white-on-black) {
-  span.select__icon {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjEuNiIgaGVpZ2h0PSIxMi41OCIgdmlld0JveD0iMS4zNSA1LjcgMjEuNiAxMi41OCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyLjE4NiAxOC4yODVjLS40NTEtLjAwOS0uODA5LS4xNjctMS4wNzUtLjQ0MWwtOS4zMzctOS42YTEuNTI3IDEuNTI3IDAgMCAxLS40MjQtLjk5OXYtLjEwOGMuMDE1LS4zODYuMTY2LS43NDEuNDI0LTEuMDA4LjU2LS41NzMgMS41MjktLjU3IDIuMDgyIDBsOC4yOTQgOC41MyA4LjI5Mi04LjUzMmMuNTU4LS41NyAxLjUyNi0uNTcgMi4wOCAwIC4yNjUuMjcuNDE2LjYyOS40MjggMS4wMXYuMDg3Yy0uMDEyLjM5MS0uMTY1Ljc1LS40MjcgMS4wMmwtOS4zMzMgOS42YTEuNDQzIDEuNDQzIDAgMCAxLTEuMDA0LjQ0MSIvPjwvc3ZnPg==');
-  }
-}
-.select > select {
-  background-color: #fff;
-  border-color: #c8c8c8;
-  border-radius: 0;
-  font-family: "Market Sans", Arial, sans-serif;
-  font-size: 0.875rem;
-  padding: 0 32px 0 16px;
-}
-.select > select:focus {
-  border-color: #121258;
-}
-.select > select[disabled] {
-  background-color: #ebebeb;
-  color: #c8c8c8;
-}
 .select[dir="rtl"] > select {
   padding-left: 30px;
   padding-right: 16px;
+}
+[dir="rtl"] span.select__icon {
+  left: 16px;
+  right: auto;
 }
 .select.select--borderless > select:focus {
   border-color: #121258;

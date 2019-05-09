@@ -8,9 +8,14 @@ span.select {
 
 .select > select {
     appearance: none;
-    border: 1px solid;
-    font-size: inherit;
+    background-color: @select-select-background-color;
+    border: 1px solid @select-select-border-color;
+    border-radius: @select-select-border-radius;
+    color: @select-select-color;
+    font-family: @select-select-font-family;
+    font-size: @select-select-font-size;
     height: 40px;
+    padding: @select-select-padding;
 
     // custom IE pseudo selector for the arrow
     &::-ms-expand {
@@ -18,7 +23,22 @@ span.select {
     }
 
     &:focus {
+        border-color: @select-select-focus-border-color;
         outline: 0;
+    }
+
+    &[disabled] {
+        background-color: @select-select-disabled-background-color;
+        border: 0;
+        color: @select-select-disabled-color;
+
+        + .select__icon {
+            opacity: 0.5;
+        }
+    }
+
+    &[aria-invalid="true"] {
+        border: 1px solid @select-aria-invalid-border-color;
     }
 }
 
@@ -31,12 +51,12 @@ span.select {
 
     span& {
         .background-icon-image-base;
+        .select-icon-down();
 
         background-position: right 50%;
         pointer-events: none;
         position: absolute;
         right: 16px;
-        top: 0;
     }
 
     svg& {
@@ -48,14 +68,6 @@ span.select {
         right: 16px;
         top: 0;
         width: 11px;
-    }
-}
-
-.select > select[disabled] {
-    border: 0;
-
-    + .select__icon {
-        opacity: 0.5;
     }
 }
 
@@ -80,6 +92,11 @@ span.select {
 }
 
 [dir="rtl"] {
+    .select& > select {
+        padding-left: @select-select-rtl-padding-left;
+        padding-right: @select-select-rtl-padding-right;
+    }
+
     span.select__icon {
         left: 16px;
         right: auto;
