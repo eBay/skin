@@ -2,13 +2,17 @@
 
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
-@import "../base/tab.less";
 
-.tabs,
-.fake-tabs {
-    background-color: @ds6-color-white;
-    border-bottom: 1px solid @ds6-color-white; // prevent margin-collapse on next element
-}
+@tabs-background-color: @ds6-color-white;
+@tabs-border-color: @ds6-color-white;
+
+@tabs-item-border-bottom-width: 3px;
+@tabs-item-webkit-tap-highlight-color: @ds6-color-grey2;
+
+@tabs-item-selected-outer-border-color: @ds6-color-b4;
+@tabs-item-selected-inner-color: @ds6-color-b4;
+
+@import "../base/tab.less";
 
 // move the thin grey bar up by 1 pixel
 .tabs__content,
@@ -28,12 +32,9 @@ ul.fake-tabs__items {
 // outer
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
-    border-bottom: 3px solid transparent;
-    -webkit-tap-highlight-color: @ds6-color-grey2;
-
     // hover outer
     &:hover {
-        border-bottom: 3px solid @ds6-color-b4;
+        border-bottom-color: @ds6-color-b4;
     }
 }
 
@@ -49,15 +50,8 @@ li.fake-tabs__item > a {
     color: @ds6-color-text-default;
 }
 
-// selected outer
-div.tabs__item[role="tab"][aria-selected="true"],
-li.fake-tabs__item--current {
-    border-bottom: 3px solid @ds6-color-b4;
-}
-
 // selected inner
 div.tabs__item[role="tab"][aria-selected="true"] > span,
 li.fake-tabs__item--current > a[aria-current="page"] {
-    color: @ds6-color-b4;
     font-weight: bold;
 }
