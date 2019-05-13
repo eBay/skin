@@ -8,7 +8,7 @@ var ActiveDescendant = require('makeup-active-descendant');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
+document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
     el.addEventListener('click', function(e) {
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
@@ -16,7 +16,7 @@ querySelectorAllToArray('.expand-btn-example').forEach(function(el, i) {
 });
 
 // MENU
-querySelectorAllToArray('.menu').forEach(function(widgetEl, i) {
+document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
     // check this isn't a buttonless menu
     if (widgetEl.querySelector('.expand-btn')) {
         var widget = new Expander(widgetEl, {
@@ -30,14 +30,14 @@ querySelectorAllToArray('.menu').forEach(function(widgetEl, i) {
         var contentEl = widgetEl.querySelector('[role=menu]');
         var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
 
-        querySelectorAllToArray('.menu__item', contentEl).forEach(function(el) {
+        contentEl.querySelectorAll('.menu__item').forEach(function(el) {
             ScrollKeyPreventer.add(el);
         });
     }
 });
 
 // FAKE MENU
-querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
+document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
     var widget = new Expander(widgetEl, {
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
@@ -48,7 +48,7 @@ querySelectorAllToArray('.fake-menu').forEach(function(widgetEl) {
 });
 
 // COMBOBOX
-querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
+document.querySelectorAll('.combobox').forEach(function(widgetEl) {
     var expanderWidget = new Expander(widgetEl, {
         autoCollapse: true,
         contentSelector: '[role=listbox]',
@@ -65,7 +65,7 @@ querySelectorAllToArray('.combobox').forEach(function(widgetEl) {
 });
 
 // LISTBOX
-querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
+document.querySelectorAll('.listbox').forEach(function(widgetEl) {
     var expanderWidget = new Expander(widgetEl, {
         autoCollapse: true,
         contentSelector: '[role=listbox]',
@@ -77,7 +77,7 @@ querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
 
     var focusEl = widgetEl.querySelector('button');
     var ownedEl = widgetEl.querySelector('[role=listbox]');
-    var optionEls = querySelectorAllToArray('[role=option]', ownedEl);
+    var optionEls = ownedEl.querySelectorAll('[role=option]');
     var initialIndex = 0;
 
     // check for existing selected state
@@ -105,7 +105,7 @@ querySelectorAllToArray('.listbox').forEach(function(widgetEl) {
 });
 
 // DIALOG
-querySelectorAllToArray('.dialog-button').forEach(function (btn) {
+document.querySelectorAll('.dialog-button').forEach(function (btn) {
     var cancel;
     var dialog = btn.nextElementSibling;
     var dialogBody = dialog.querySelector('.dialog__body');
@@ -157,7 +157,7 @@ querySelectorAllToArray('.dialog-button').forEach(function (btn) {
 });
 
 // TOOLTIP
-querySelectorAllToArray('.tooltip').forEach(function(widgetEl) {
+document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
     var widget = new Expander(widgetEl, {
         contentSelector: '.tooltip__overlay',
         collapseOnFocusOut: true,
@@ -170,7 +170,7 @@ querySelectorAllToArray('.tooltip').forEach(function(widgetEl) {
 });
 
 // INFOTIP
-querySelectorAllToArray('.infotip').forEach(function(widgetEl) {
+document.querySelectorAll('.infotip').forEach(function(widgetEl) {
     var widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
@@ -184,22 +184,22 @@ querySelectorAllToArray('.infotip').forEach(function(widgetEl) {
 });
 
 // TOURTIP
-querySelectorAllToArray('.tourtip').forEach(function(widgetEl) {
+document.querySelectorAll('.tourtip').forEach(function(widgetEl) {
     widgetEl.querySelector('.tourtip__close').addEventListener('click', function() {
         widgetEl.classList.remove('tourtip--expanded');
     });
 });
 
 // FLOATING LABEL
-querySelectorAllToArray('.floating-label').forEach(function (el) {
+document.querySelectorAll('.floating-label').forEach(function (el) {
     var floatingLabel = new FloatingLabel(el);
 });
 
 // TABS
-querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
+document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     var rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
-    var tabItems = querySelectorAllToArray('[role=tab]', widgetEl);
-    var tabPanels = querySelectorAllToArray('[role=tabpanel]', widgetEl);
+    var tabItems = widgetEl.querySelectorAll('[role=tab]');
+    var tabPanels = widgetEl.querySelectorAll('[role=tabpanel]');
 
     widgetEl.addEventListener('rovingTabindexChange', function(e) {
         tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
@@ -209,7 +209,7 @@ querySelectorAllToArray('.tabs').forEach(function(widgetEl) {
         tabPanels[e.detail.toIndex].hidden = false;
     });
 
-    querySelectorAllToArray('[role=tab]', widgetEl).forEach(function(el) {
+    widgetEl.querySelectorAll('[role=tab]').forEach(function(el) {
         ScrollKeyPreventer.add(el);
     });
 });
