@@ -13,23 +13,39 @@ textarea.textbox__control {
     .placeholder;
 
     appearance: none;
-    border: 1px solid;
+    background: @textbox-control-background;
+    border: 1px solid @textbox-control-border-color;
+    border-radius: @textbox-control-border-radius;
     box-sizing: border-box;
+    color: @textbox-control-color;
+    font-family: @textbox-control-font-family;
+    font-size: @textbox-control-font-size;
+    height: @textbox-control-height;
     margin: 0; // Remove the margin in Firefox and Safari.
     padding: 0 16px 0 16px;
 
     &[disabled] {
         .placeholder-disabled;
+
+        color: @textbox-control-disabled-color;
+    }
+
+    &[readonly] {
+        border-color: @textbox-control-readonly-color;
+    }
+
+    &[aria-invalid="true"] {
+        border-color: @textbox-control-invalid-color;
     }
 
     &:focus {
+        border-color: @textbox-control-focus-border-color;
         outline: 0;
     }
 }
 
 input.textbox__control--underline {
     .placeholder-floated;
-
     .placeholder-floated--focus;
 
     &[disabled] {
@@ -37,6 +53,8 @@ input.textbox__control--underline {
     }
 
     border: none;
+    border-bottom: 1px solid @textbox-control-underline-border-bottom-color;
+    height: 1.875rem; // a11y: has to be relative to the text zoom level;
     padding: 0;
 }
 
@@ -51,6 +69,7 @@ textarea.textbox__control {
 
 span.textbox__icon,
 .textbox__icon {
+    color: @textbox-icon-color;
     display: inline-flex;
     height: 100%;
     pointer-events: none;
@@ -62,10 +81,21 @@ span.textbox__icon,
     }
 }
 
+span.textbox__icon {
+    color: @textbox-icon-color;
+}
+
+.textbox__icon {
+    fill: @textbox-icon-fill;
+    width: @textbox-icon-width;
+}
+
 // BLOCK MODIFIERS
 
 span.textbox__icon:first-child,
 .textbox__icon:first-child {
+    left: @textbox-icon-first-child-left;
+
     + input.textbox__control,
     + textarea.textbox__control {
         padding-left: 40px;
@@ -73,6 +103,11 @@ span.textbox__icon:first-child,
 }
 
 .textbox--icon-end {
+    span.textbox__icon:last-child,
+    .textbox__icon:last-child {
+        right: @textbox-icon-end-last-child-right;
+    }
+
     input.textbox__control,
     textarea.textbox__control {
         padding-right: 40px;
@@ -90,23 +125,23 @@ span.textbox__icon:first-child,
 [dir="rtl"] {
     span.textbox__icon:first-child,
     .textbox__icon:first-child {
-        left: auto;
+        right: @textbox-rtl-icon-first-child-right;
 
         + input.textbox__control,
         + textarea.textbox__control {
-            padding-right: 40px;
+            padding-left: @textbox-rtl-icon-first-child-textbox-control-padding-left;
         }
     }
 
     .textbox--icon-end {
         input.textbox__control,
         textarea.textbox__control {
-            padding-left: 40px;
+            padding-right: @textbox-rtl-icon-end-last-child-left;
         }
 
         span.textbox__icon:last-child::before,
         .textbox__icon:last-child {
-            right: auto;
+            left: @textbox-rtl-icon-end-last-child-textbox-control-padding-right;
         }
     }
 }
