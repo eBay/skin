@@ -267,20 +267,48 @@ span.fake-menu__status {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  background-color: #fff;
   border: 1px solid;
+  border-color: #ccc;
+  border-radius: 3px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: inherit;
+  font-size: 0.875rem;
+  height: 40px;
+  padding: 0 32px 0 16px;
   text-align: left;
+}
+.combobox__control > input:focus {
+  border-color: #0654ba;
 }
 .combobox__control > input[readonly] {
   color: transparent;
   cursor: default;
+  text-shadow: 0 0 0 #555;
   -webkit-user-select: none;
 }
-.combobox__control > input[readonly][disabled],
-.combobox__control > input[readonly][aria-disabled="true"] {
+.combobox__control > input[readonly]::-moz-selection {
+  background: #fff;
+}
+.combobox__control > input[readonly]::selection {
+  background: #fff;
+}
+.combobox__control > input[disabled],
+.combobox__control > input[aria-disabled="true"] {
+  border-color: #ccc;
+}
+.combobox__control > input[disabled][readonly],
+.combobox__control > input[aria-disabled="true"][readonly] {
   color: transparent;
+  text-shadow: 0 0 0 #ccc;
+}
+.combobox__control > input[disabled] + span.combobox__icon,
+.combobox__control > input[aria-disabled="true"] + span.combobox__icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iI2NjYyIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
+  height: 100%;
+  width: 9px;
+  background-size: 9px 100%;
 }
 .combobox__control > input[aria-expanded="true"] {
   border-bottom: 0;
@@ -293,6 +321,10 @@ span.combobox__icon {
   background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iIzc2NzY3NiIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
+  height: 100%;
+  width: 9px;
+  background-size: 9px 100%;
   background-position: right center;
   margin-left: 8px;
   pointer-events: none;
@@ -313,54 +345,22 @@ span.combobox__icon {
   border-color: transparent;
   outline: none;
 }
+.combobox.fluid,
 .combobox.combobox--fluid {
   width: 100%;
 }
+.combobox.fluid .combobox__control > input,
 .combobox.combobox--fluid .combobox__control > input {
   width: 100%;
 }
 @media screen and (-ms-high-contrast: white-on-black) {
   span.combobox__icon {
     background-color: transparent;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIuOTA1LS4wMjNsMTEuNTQyIDExLjU0NC0yLjQ0OCAyLjQ0OUwuNDU1IDIuNDI2bDIuNDUtMi40NDl6TTkuNTUgMTEuNTIxTDIxLjA5NS0uMDI0bDIuNDUgMi40NDlMMTEuOTk5IDEzLjk3IDkuNTUgMTEuNTIxeiIvPjwvc3ZnPg==');
   }
 }
 span.combobox {
   vertical-align: top;
-}
-.combobox__control > input {
-  background-color: #fff;
-  border-color: #ccc;
-  border-radius: 3px;
-  font-size: 0.875rem;
-  height: 40px;
-  padding: 0 32px 0 16px;
-}
-.combobox__control > input[readonly] {
-  text-shadow: 0 0 0 #555;
-}
-.combobox__control > input[readonly]::-moz-selection {
-  background: #fff;
-}
-.combobox__control > input[readonly]::selection {
-  background: #fff;
-}
-.combobox__control > input[disabled],
-.combobox__control > input[aria-disabled="true"] {
-  border-color: #ccc;
-}
-.combobox__control > input[disabled][readonly],
-.combobox__control > input[aria-disabled="true"][readonly] {
-  text-shadow: 0 0 0 #ccc;
-}
-.combobox__control > input[disabled] + span.combobox__icon,
-.combobox__control > input[aria-disabled="true"] + span.combobox__icon {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iI2NjYyIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
-  height: 100%;
-  width: 9px;
-  background-size: 9px 100%;
-}
-.combobox__control > input:focus {
-  border-color: #0654ba;
 }
 .combobox--small .combobox__control > input {
   font-size: 0.75rem;
@@ -373,21 +373,4 @@ span.combobox {
 .combobox--extra-large .combobox__control > input {
   font-size: 1.125rem;
   height: 56px;
-}
-.combobox.fluid {
-  width: 100%;
-}
-.combobox.fluid .combobox__control > input {
-  width: 100%;
-}
-span.combobox__icon {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxMyI+PHBhdGggZmlsbD0iIzc2NzY3NiIgZD0iTTExLjYwNCAxMi45MjFMMCAwaDIzLjIxNWwtNS44MDcgNi40NjJ6Ii8+PC9zdmc+');
-  height: 100%;
-  width: 9px;
-  background-size: 9px 100%;
-}
-@media screen and (-ms-high-contrast: white-on-black) {
-  span.combobox__icon {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIuOTA1LS4wMjNsMTEuNTQyIDExLjU0NC0yLjQ0OCAyLjQ0OUwuNDU1IDIuNDI2bDIuNDUtMi40NDl6TTkuNTUgMTEuNTIxTDIxLjA5NS0uMDI0bDIuNDUgMi40NDlMMTEuOTk5IDEzLjk3IDkuNTUgMTEuNTIxeiIvPjwvc3ZnPg==');
-  }
 }
