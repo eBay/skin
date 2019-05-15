@@ -27,6 +27,7 @@
 
 .dialog {
     &[role="dialog"] {
+        background-color: fade(@dialog-background-color, 70%);
         bottom: 0;
         left: 0;
         -webkit-overflow-scrolling: touch;
@@ -62,6 +63,7 @@
         // The background for the dialog window is on this pseudo element.
         // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
         &::before {
+            background-color: @dialog-window-before-background-color;
             bottom: 15vh;
             content: "";
             left: 0;
@@ -76,6 +78,7 @@
         &--full,
         &--left,
         &--right {
+            background-color: @dialog-window-before-modifiers-background-color;
             bottom: 0;
             -webkit-overflow-scrolling: touch;
             overflow-y: auto;
@@ -133,12 +136,19 @@
 
     &__back,
     &__close {
+        background-color: @dialog-back-close-background-color;
         border: 0;
+        color: @dialog-back-close-color;
         margin: 0;
         padding: 16px;
         position: absolute;
         top: 0;
         z-index: 1;
+
+        &:hover,
+        &:focus {
+            color: @dialog-back-close-hover-focus-color;
+        }
 
         span {
             .background-icon-image-base;
@@ -147,10 +157,18 @@
 
     &__close {
         right: 0;
+
+        span {
+            .dialog-close-icon();
+        }
     }
 
     &__back {
         left: 0;
+
+        span {
+            .dialog-back-icon();
+        }
     }
 
     // TRANSITIONS
@@ -189,6 +207,14 @@
             display: block;
         }
 
+        // Root animations.
+        &.dialog--mask {
+            &-fade,
+            &-fade-slow {
+                background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+            }
+        }
+
         // Child animations.
         .dialog__window {
             &--fade {
@@ -212,6 +238,14 @@
     &--hide-init {
         && {
             display: block;
+        }
+
+        // Root animations.
+        &.dialog--mask {
+            &-fade,
+            &-fade-slow {
+                background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+            }
         }
 
         // Child animations.
@@ -244,6 +278,14 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .dialog__window:not(.dialog__window--full) {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
+    }
+}
+
+// HIGH CONTRAST MODE
+//-----------------------------
+@media screen and (-ms-high-contrast: white-on-black) {
+    .dialog__close span {
+        background-image: url('data:image/svg+xml;base64,@{dialog-close-icon-base64-light}');
     }
 }
 
