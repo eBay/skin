@@ -66,7 +66,8 @@ span.combobox {
 .combobox__options[role="listbox"],
 .listbox__options[role="listbox"],
 .fake-menu__items {
-    border: 1px solid;
+    background-color: @dropdown-items-background-color;
+    border: 1px solid @dropdown-items-border-color;
     box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
     box-sizing: border-box;
     max-height: 400px;
@@ -100,7 +101,8 @@ div.listbox__option[role="option"],
 div.combobox__option[role^="option"],
 a.fake-menu__item,
 button.fake-menu__item {
-    border: 1px solid;
+    background-color: @dropdown-item-background-color;
+    border: 1px solid @dropdown-item-border-color;
     box-sizing: border-box;
     display: flex;
     font-size: 0.875rem;
@@ -110,6 +112,20 @@ button.fake-menu__item {
 
     &:not(:last-child) {
         margin-bottom: 1px;
+    }
+
+    &:hover,
+    &.combobox__option--active {
+        background-color: @dropdown-item-hover-background-color;
+    }
+
+    &:active {
+        .menu__status,
+        .listbox__status,
+        .combobox__status,
+        .fake-menu__status {
+            color: @dropdown-item-active-status-color;
+        }
     }
 }
 
@@ -145,6 +161,7 @@ button.fake-menu__item[aria-current="page"] .fake-menu__status {
 
 // anchor tag specific
 a.fake-menu__item {
+    color: @dropdown-fake-anchor-color;
     text-decoration: none;
 
     &:focus {
@@ -154,7 +171,9 @@ a.fake-menu__item {
 
 // button tag specific
 button.fake-menu__item {
+    background-color: @dropdown-fake-button-background-color;
     border: 0;
+    color: @dropdown-fake-button-color;
     display: block;
     font-family: inherit;
     text-align: left;
@@ -165,6 +184,7 @@ button.fake-menu__item {
 .combobox__status,
 .fake-menu__status {
     align-self: center;
+    color: @dropdown-status-color;
     fill: currentColor;
     height: 8px;
     opacity: 0;
@@ -178,6 +198,7 @@ span.listbox__status,
 span.combobox__status,
 span.fake-menu__status {
     .background-icon-image-base;
+    .dropdown-status-icon();
 
     flex-shrink: 0; // prevent the icon from shrinking when label is long
     pointer-events: none;
@@ -195,4 +216,13 @@ span.fake-menu__status {
 .combobox__options--reverse[role="listbox"],
 .fake-menu__items--reverse {
     right: 0;
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.menu__status,
+    span.listbox__status,
+    span.combobox__status,
+    span.fake-menu__status {
+        background-image: url('data:image/svg+xml;base64,@{dropdown-status-base64-light}');
+    }
 }

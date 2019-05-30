@@ -1,68 +1,23 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
-@import "../base/dropdown.less";
 
-.menu__items[role="menu"],
-.listbox__options[role="listbox"],
-.combobox__options[role="listbox"],
-.fake-menu__items {
-    background-color: @ds4-color-core-white;
-    border-color: @ds4-color-core-gray-silver;
-}
-
-div.menu__item[role^="menuitem"],
-div.listbox__option[role^="option"],
-div.combobox__option[role^="option"],
-a.fake-menu__item,
-button.fake-menu__item {
-    background-color: @ds4-color-core-white;
-    border: none;
-
-    &:hover,
-    &.combobox__option--active {
-        background-color: @ds4-color-core-gray-light;
-    }
-
-    &:active {
-        .menu__status,
-        .listbox__status,
-        .combobox__status,
-        .fake-menu__status {
-            color: @ds4-color-core-gray-silver;
-        }
-    }
-}
-
-// anchor tag specific
-a.fake-menu__item {
-    color: @ds4-color-core-gray-dim;
-}
-
-// button tag specific
-button.fake-menu__item {
-    background-color: @ds4-color-core-white;
-    color: @ds4-color-core-gray-dim;
-}
-
-.menu__status,
-.listbox__status,
-.combobox__status,
-.fake-menu__status {
-    color: @ds4-color-core-gray-dim;
-}
-
-span.menu__status,
-span.listbox__status,
-span.combobox__status,
-span.fake-menu__status {
+.dropdown-status-icon() {
     .icon-tick(9px, 9px);
 }
 
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.menu__status,
-    span.listbox__status,
-    span.combobox__status,
-    span.fake-menu__status {
-        background-image: url('data:image/svg+xml;base64,@{ds4-icon-tick-base64-light}');
-    }
-}
+@dropdown-items-background-color: @ds4-color-core-white;
+@dropdown-items-border-color: @ds4-color-core-gray-silver;
+
+@dropdown-item-background-color: @ds4-color-core-white;
+@dropdown-item-border-color: transparent;
+@dropdown-item-hover-background-color: @ds4-color-core-gray-light;
+@dropdown-item-active-status-color: @ds4-color-core-gray-silver;
+
+@dropdown-fake-anchor-color: @ds4-color-core-gray-silver;
+@dropdown-fake-button-background-color: @ds4-color-core-white;
+@dropdown-fake-button-color: @ds4-color-core-gray-dim;
+
+@dropdown-status-color: @ds4-color-core-gray-dim;
+@dropdown-status-base64-light: @ds4-icon-tick-base64-light;
+
+@import "../base/dropdown.less";
