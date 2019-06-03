@@ -1,16 +1,16 @@
-var Modal = require('makeup-modal');
-var transition = require("./transition");
-var RovingTabindex = require('makeup-roving-tabindex');
-var Expander = require('makeup-expander');
-var FloatingLabel = require('makeup-floating-label');
-var ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
-var ActiveDescendant = require('makeup-active-descendant');
+const Modal = require('makeup-modal');
+const transition = require("./transition");
+const RovingTabindex = require('makeup-roving-tabindex');
+const Expander = require('makeup-expander');
+const FloatingLabel = require('makeup-floating-label');
+const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
+const ActiveDescendant = require('makeup-active-descendant');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
     el.addEventListener('click', function(e) {
-        var isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
     })
 });
@@ -19,7 +19,7 @@ document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
 document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
     // check this isn't a buttonless menu
     if (widgetEl.querySelector('.expand-btn')) {
-        var widget = new Expander(widgetEl, {
+        const widget = new Expander(widgetEl, {
             autoCollapse: true,
             contentSelector: '[role=menu]',
             expandOnClick: true,
@@ -27,8 +27,8 @@ document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
             hostSelector: '.expand-btn'
         });
 
-        var contentEl = widgetEl.querySelector('[role=menu]');
-        var rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
+        const contentEl = widgetEl.querySelector('[role=menu]');
+        const rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
 
         contentEl.querySelectorAll('.menu__item').forEach(function(el) {
             ScrollKeyPreventer.add(el);
@@ -38,7 +38,7 @@ document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
 
 // FAKE MENU
 document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
-    var widget = new Expander(widgetEl, {
+    const widget = new Expander(widgetEl, {
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
         contentSelector: '.fake-menu__items',
@@ -57,16 +57,16 @@ document.querySelectorAll('.combobox').forEach(function(widgetEl) {
         hostSelector: 'input'
     });
 
-    var focusEl = widgetEl.querySelector('input');
-    var ownedEl = widgetEl.querySelector('[role=listbox]');
-    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
+    const focusEl = widgetEl.querySelector('input');
+    const ownedEl = widgetEl.querySelector('[role=listbox]');
+    const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
         activeDescendantClassName: 'combobox__option--active'
     });
 });
 
 // LISTBOX
 document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-    var expanderWidget = new Expander(widgetEl, {
+    const expanderWidget = new Expander(widgetEl, {
         autoCollapse: true,
         contentSelector: '[role=listbox]',
         expandedClass: 'listbox--expanded',
@@ -75,10 +75,10 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         hostSelector: 'button'
     });
 
-    var focusEl = widgetEl.querySelector('button');
-    var ownedEl = widgetEl.querySelector('[role=listbox]');
-    var optionEls = ownedEl.querySelectorAll('[role=option]');
-    var initialIndex = 0;
+    const focusEl = widgetEl.querySelector('button');
+    const ownedEl = widgetEl.querySelector('[role=listbox]');
+    const optionEls = ownedEl.querySelectorAll('[role=option]');
+    let initialIndex = 0;
 
     // check for existing selected state
     optionEls.forEach(function(el, elIndex) {
@@ -87,7 +87,7 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         }
     });
 
-    var activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, ownedEl, ownedEl, '[role=option]', {
+    const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, ownedEl, ownedEl, '[role=option]', {
         activeDescendantClassName: 'listbox__option--active',
         autoInit: initialIndex,
         autoReset: null
@@ -95,7 +95,7 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
 
     ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
 
-    var buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
+    const buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
 
     widgetEl.addEventListener('activeDescendantChange', function(e) {
         if (e.detail.toIndex > -1) {
@@ -106,10 +106,10 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
 
 // DIALOG
 document.querySelectorAll('.dialog-button').forEach(function (btn) {
-    var cancel;
-    var dialog = btn.nextElementSibling;
-    var dialogBody = dialog.querySelector('.dialog__body');
-    var dialogClose = dialog.querySelector('.dialog__close');
+    let cancel;
+    const dialog = btn.nextElementSibling;
+    const dialogBody = dialog.querySelector('.dialog__body');
+    const dialogClose = dialog.querySelector('.dialog__close');
     btn.addEventListener('click', handleOpen);
 
     function handleOpen () {
@@ -158,7 +158,7 @@ document.querySelectorAll('.dialog-button').forEach(function (btn) {
 
 // TOOLTIP
 document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
-    var widget = new Expander(widgetEl, {
+    const widget = new Expander(widgetEl, {
         contentSelector: '.tooltip__overlay',
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
@@ -171,7 +171,7 @@ document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
 
 // INFOTIP
 document.querySelectorAll('.infotip').forEach(function(widgetEl) {
-    var widget = new Expander(widgetEl, {
+    const widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
         expandOnClick: true,
@@ -192,14 +192,14 @@ document.querySelectorAll('.tourtip').forEach(function(widgetEl) {
 
 // FLOATING LABEL
 document.querySelectorAll('.floating-label').forEach(function (el) {
-    var floatingLabel = new FloatingLabel(el);
+    const floatingLabel = new FloatingLabel(el);
 });
 
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
-    var rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
-    var tabItems = widgetEl.querySelectorAll('[role=tab]');
-    var tabPanels = widgetEl.querySelectorAll('[role=tabpanel]');
+    const rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
+    const tabItems = widgetEl.querySelectorAll('[role=tab]');
+    const tabPanels = widgetEl.querySelectorAll('[role=tabpanel]');
 
     widgetEl.addEventListener('rovingTabindexChange', function(e) {
         tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
