@@ -5,6 +5,10 @@
     display: inline-flex;
     font-size: @font-size-16;
     vertical-align: text-bottom;
+
+    &__checked {
+        color: @radio-checked-color;
+    }
 }
 
 .radio__icon {
@@ -18,7 +22,8 @@
     }
 
     &:not([hidden]) {
-        .background-icon-base;
+        .background-icon-image-base;
+        .radio-icon-unchecked();
     }
 
     & svg {
@@ -59,7 +64,8 @@
 
     &:checked {
         & + .radio__icon:not([hidden]) {
-            .background-icon-base;
+            .background-icon-image-base;
+            .radio-icon-checked();
         }
 
         & + .radio__icon svg.radio__checked {
@@ -69,5 +75,15 @@
         & + .radio__icon svg.radio__unchecked {
             display: none;
         }
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .radio__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{radio-unchecked-icon-base64-light}');
+    }
+
+    .radio__control[type="radio"]:checked + .radio__icon:not([hidden]) {
+        background-image: url('data:image/svg+xml;base64,@{radio-checked-icon-base64-light}');
     }
 }

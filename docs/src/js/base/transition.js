@@ -2,14 +2,14 @@
  * This module should be shared with ebayui-core and potentially extracted into it's own package.
  */
 
-var ELEMENT_NODE = 1;
-var TRANSITION_END = 'transitionend';
-var IMMEDIATE_TRANSITION_REG = /0m?s(?:, )?/g;
+const ELEMENT_NODE = 1;
+const TRANSITION_END = 'transitionend';
+const IMMEDIATE_TRANSITION_REG = /0m?s(?:, )?/g;
 
 /**
  * Applies a primer `-init` class before starting a transition
  * to make transitioning properties that are not animatable easier.
- * 
+ *
  * **Order**
  * 1. Add class: "$name-init"
  * 2. Wait one frame.
@@ -23,12 +23,12 @@ var IMMEDIATE_TRANSITION_REG = /0m?s(?:, )?/g;
  * @param {Function} cb A callback called after the transition as ended.
  */
 module.exports = function transition(el, baseClass, cb) {
-  var ended;
-  var pending;
-  var ran = 0;
-  var classList = el.classList;
-  var initClass = baseClass + '-init';
-  var cancelFrame = nextFrame(function () {
+  let ended;
+  let pending;
+  let ran = 0;
+  let classList = el.classList;
+  let initClass = baseClass + '-init';
+  let cancelFrame = nextFrame(function () {
     el.addEventListener(TRANSITION_END, listener, true);
     classList.add(baseClass);
     classList.remove(initClass);
@@ -83,16 +83,16 @@ module.exports = function transition(el, baseClass, cb) {
 /**
  * Walks the tree of an element and counts how many transitions have been applied.
  *
- * @param {HTMLElement} el 
+ * @param {HTMLElement} el
  * @return {number}
  */
 function getTransitionCount(el) {
-  var count = window
+  let count = window
     .getComputedStyle(el)
     .transitionDuration
     .replace(IMMEDIATE_TRANSITION_REG, '') ? 1 : 0;
 
-  var child = el.firstElementChild;
+  let child = el.firstElementChild;
   while (child) {
     count += getTransitionCount(child);
     child = child.nextElementSibling;
@@ -108,8 +108,8 @@ function getTransitionCount(el) {
  * @return {function} a function to cancel the callback.
  */
 function nextFrame(fn) {
-  var frame;
-  var cancelFrame;
+  let frame;
+  let cancelFrame;
 
   if (window.requestAnimationFrame) {
     frame = requestAnimationFrame(function () {

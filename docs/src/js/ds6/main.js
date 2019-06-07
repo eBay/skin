@@ -7,14 +7,14 @@ window.sidebar_top = sidebar.offsetTop;
 
 // debounce utility function
 function debounce(func, wait, immediate) {
-    var timeout;
+    let timeout;
     return function () {
-        var context = this, args = arguments;
-        var later = function () {
+        let context = this, args = arguments;
+        let later = function () {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
-        var callNow = immediate && !timeout;
+        let callNow = immediate && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
@@ -22,8 +22,8 @@ function debounce(func, wait, immediate) {
 };
 
 function fixTheSidebar() {
-    var isMobile = window.mm.matches;
-    var y = window.scrollY || window.pageYOffset;
+    let isMobile = window.mm.matches;
+    let y = window.scrollY || window.pageYOffset;
 
     // fix the navigation on scroll
     if (!isMobile && y >= window.sidebar_top) {

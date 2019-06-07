@@ -1,11 +1,17 @@
 @import "variables-common.less";
 
 // base styles for BEM span.icon block
-.background-icon-base() {
+.background-icon-image-base() {
     background-repeat: no-repeat;
-    background-size: contain;
     display: inline-block;
     vertical-align: middle;
+}
+
+// DEPRECATED - do not use
+.background-icon-base() {
+    .background-icon-image-base();
+
+    background-size: contain;
 }
 
 // base styles for BEM svg.icon block
@@ -26,6 +32,10 @@
     background-image: url('data:image/svg+xml;base64,@{base64}');
     height: @height;
     width: @width;
+}
+
+.background-icon-image(@width; @height; @base64) when (@width >= 15) and (@height >= 15) {
+    background-size: contain;
 }
 
 // https://github.com/eBay/skin/issues/334

@@ -3,95 +3,50 @@
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
 @import "textbox-mixins.less";
+
+@textbox-control-background: @ds6-color-white;
+@textbox-control-border-color: @ds6-color-grey4;
+@textbox-control-border-radius: 0;
+@textbox-control-color: @ds6-color-black;
+@textbox-control-font-family: inherit;
+@textbox-control-font-size: @ds6-font-size-14; // for Market Sans to align with buttons and select, it needs same font-size
+@textbox-control-height: 40px;
+
+@textbox-control-disabled-color: @ds6-color-grey1;
+@textbox-control-readonly-color: @ds6-color-black;
+@textbox-control-invalid-color: @ds6-color-r4;
+@textbox-control-focus-border-color: @ds6-color-b4;
+
+@textbox-control-underline-border-bottom-color: @ds6-color-grey4;
+
+@textbox-icon-color: @ds6-color-grey2;
+@textbox-icon-fill: @ds6-color-grey2;
+@textbox-icon-width: 14px;
+@textbox-icon-first-child-left: 17px;
+@textbox-icon-end-last-child-right: 17px;
+
+@textbox-rtl-icon-first-child-right: 17px;
+@textbox-rtl-icon-first-child-textbox-control-padding-left: 17px;
+@textbox-rtl-icon-end-last-child-left: 17px;
+@textbox-rtl-icon-end-last-child-textbox-control-padding-right: 17px;
+
 @import "../base/textbox.less";
 
 input.textbox__control,
 textarea.textbox__control {
-    background: @ds6-color-white;
-    border-color: @ds6-color-grey4;
-    border-radius: 0;
     box-sizing: border-box;
-    color: @ds6-color-black;
-    font-family: inherit;
-    font-size: @ds6-font-size-14; // for Market Sans to align with buttons and select, it needs same font-size
-    height: 40px;
 
     &[disabled] {
         border-color: @ds6-color-grey1;
-        color: @ds6-color-grey1;
     }
-
-    &[readonly] {
-        border-color: @ds6-color-black;
-    }
-
-    &[aria-invalid="true"] {
-        border-color: @ds6-color-r4;
-    }
-
-    &:focus {
-        border-color: @ds6-color-b4;
-    }
-}
-
-input.textbox__control--underline {
-    border-bottom: 1px solid @ds6-color-grey4;
-    height: 1.875rem;  // a11y: has to be relative to the text zoom level; not in base file due to specificity order issue
-}
-
-span.textbox__icon {
-    color: @ds6-color-grey2;
-}
-
-.textbox__icon {
-    fill: @ds6-color-grey2;
-    width: 14px;
 }
 
 // BLOCK MODIFIERS
-
-span.textbox__icon:first-child,
-.textbox__icon:first-child {
-    left: 17px;
-}
-
-.textbox--icon-end {
-    span.textbox__icon:last-child,
-    .textbox__icon:last-child {
-        right: 17px;
-    }
-}
 
 .textbox--large {
     input.textbox__control,
     textarea.textbox__control {
         font-size: @ds6-font-size-18; // for Market Sans to align with buttons and select, it needs same font-size
         height: 48px;
-    }
-}
-
-// RTL
-
-[dir="rtl"] {
-    span.textbox__icon:first-child,
-    .textbox__icon:first-child {
-        right: 17px;
-
-        + input.textbox__control,
-        + textarea.textbox__control {
-            padding-left: 17px;
-        }
-    }
-
-    .textbox--icon-end {
-        input.textbox__control,
-        textarea.textbox__control {
-            padding-right: 17px;
-        }
-
-        span.textbox__icon:last-child::before,
-        .textbox__icon:last-child {
-            left: 17px;
-        }
     }
 }

@@ -1,3 +1,4 @@
+
 .combobox {
     box-sizing: border-box;
     display: inline-block;
@@ -5,27 +6,55 @@
 
 .combobox__control > input {
     appearance: none;
-    border: 1px solid;
+    background-color: @combobox-input-background-color;
+    border: 1px solid @combobox-input-border-color;
+    border-radius: @combobox-input-border-radius;
     box-sizing: border-box;
     font-family: inherit;
+    font-size: @combobox-input-font-size;
+    height: @combobox-input-height;
+    padding: @combobox-input-padding;
     text-align: left;
+
+    &:focus {
+        border-color: @combobox-input-focus-border-color;
+        outline: 0;
+    }
 
     &[readonly] {
         // fixes the cursor in firefox (1 of 2)
         color: transparent;
         cursor: default;
+        // fixes the cursor in firefox (2 of 2)
+        text-shadow: 0 0 0 @combobox-input-readonly-text-shadow-color;
         -webkit-user-select: none; // Fix to get rid of unintended cursor in iOS mobile
+
+        &::-moz-selection,
+        &::selection {
+            background: @combobox-input-readonly-selection-background;
+        }
     }
 
-    &[readonly][disabled],
-    &[readonly][aria-disabled="true"] {
-        // fixes the cursor in firefox
-        color: transparent;
+    &[disabled],
+    &[aria-disabled="true"] {
+        border-color: @combobox-input-disabled-border-color;
+
+        &[readonly] {
+            text-shadow: 0 0 0 @combobox-input-disabled-readonly-text-shadow-color;
+        }
+
+        & + span.combobox__icon {
+            .combobox-input-disabled-icon();
+        }
     }
 
     &[aria-expanded="true"] {
         border-bottom: 0;
         padding-bottom: 1px; // fix for movement when border is removed
+    }
+
+    &[aria-invalid="true"] {
+        border-color: @combobox-input-invalid-color;
     }
 
     &::-ms-clear {
@@ -34,7 +63,8 @@
 }
 
 span.combobox__icon {
-    .background-icon-base;
+    .background-icon-image-base();
+    .combobox-icon();
 
     background-position: right center;
     margin-left: 8px;
@@ -59,6 +89,8 @@ span.combobox__icon {
     }
 }
 
+// .fluid deprecated in 7.3.0 - DO NOT USE .fluid
+.combobox.fluid,
 .combobox.combobox--fluid {
     width: 100%;
 
@@ -70,5 +102,6 @@ span.combobox__icon {
 @media screen and (-ms-high-contrast: white-on-black) {
     span.combobox__icon {
         background-color: transparent;
+        background-image: url('data:image/svg+xml;base64,@{combobox-icon-base64-light}');
     }
 }
