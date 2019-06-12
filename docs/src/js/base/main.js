@@ -5,6 +5,9 @@ const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const ActiveDescendant = require('makeup-active-descendant');
+const ListboxButton = require('./listbox-button.js');
+const Menu = require('./menu.js');
+const MenuButton = require('./menu-button.js');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
@@ -15,34 +18,15 @@ document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
-// MENU
-document.querySelectorAll('.menu').forEach(function(widgetEl, i) {
-    // check this isn't a buttonless menu
-    if (widgetEl.querySelector('.expand-btn')) {
-        const widget = new Expander(widgetEl, {
-            autoCollapse: true,
-            contentSelector: '[role=menu]',
-            expandOnClick: true,
-            focusManagement: 'focusable',
-            hostSelector: '.expand-btn'
-        });
-
-        const contentEl = widgetEl.querySelector('[role=menu]');
-        const rovingTabindexState = RovingTabindex.createLinear(contentEl, '.menu__item');
-
-        contentEl.querySelectorAll('.menu__item').forEach(function(el) {
-            ScrollKeyPreventer.add(el);
-        });
-    }
-});
-
 // FAKE MENU
 document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
     const widget = new Expander(widgetEl, {
+        alwaysDoFocusManagement: true,
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
         contentSelector: '.fake-menu__items',
         expandOnClick: true,
+        focusManagement: 'focusable',
         hostSelector: '.expand-btn'
     });
 });
@@ -61,46 +45,6 @@ document.querySelectorAll('.combobox').forEach(function(widgetEl) {
     const ownedEl = widgetEl.querySelector('[role=listbox]');
     const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
         activeDescendantClassName: 'combobox__option--active'
-    });
-});
-
-// LISTBOX
-document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-    const expanderWidget = new Expander(widgetEl, {
-        autoCollapse: true,
-        contentSelector: '[role=listbox]',
-        expandedClass: 'listbox--expanded',
-        expandOnClick: true,
-        focusManagement: 'content',
-        hostSelector: 'button'
-    });
-
-    const focusEl = widgetEl.querySelector('button');
-    const ownedEl = widgetEl.querySelector('[role=listbox]');
-    const optionEls = ownedEl.querySelectorAll('[role=option]');
-    let initialIndex = 0;
-
-    // check for existing selected state
-    optionEls.forEach(function(el, elIndex) {
-        if (el.hasAttribute('aria-selected')) {
-            initialIndex = elIndex;
-        }
-    });
-
-    const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, ownedEl, ownedEl, '[role=option]', {
-        activeDescendantClassName: 'listbox__option--active',
-        autoInit: initialIndex,
-        autoReset: null
-    });
-
-    ScrollKeyPreventer.add(widgetEl.querySelector('[role=listbox]'));
-
-    const buttonLabelEl = focusEl.querySelector('.expand-btn__cell > span:first-child');
-
-    widgetEl.addEventListener('activeDescendantChange', function(e) {
-        if (e.detail.toIndex > -1) {
-            buttonLabelEl.innerText = optionEls[e.detail.toIndex].innerText;
-        }
     });
 });
 
@@ -211,5 +155,51 @@ document.querySelectorAll('.tabs').forEach(function(widgetEl) {
 
     widgetEl.querySelectorAll('[role=tab]').forEach(function(el) {
         ScrollKeyPreventer.add(el);
+    });
+});
+
+document.querySelectorAll('.listbox').forEach(function(widgetEl) {
+    const widget = new ListboxButton(widgetEl, {
+        labelSelector: '.expand-btn__cell span:first-child',
+        listboxSelector: '.listbox__options'
+    });
+
+    widgetEl.addEventListener('listbox-button-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+});
+
+document.querySelectorAll('.menu:not(.menu--no-button)').forEach(function(widgetEl) {
+    const widget = new MenuButton(widgetEl, {
+        expandedClass: '.menu--expanded',
+        menuSelector: '.menu__items'
+    });
+
+    widget.menu.el.addEventListener('menu-select', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widget.menu.el.addEventListener('menu-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widget.menu.el.addEventListener('menu-toggle', function(e) {
+        console.log(e.type, e.detail);
+    });
+});
+
+document.querySelectorAll('.menu--no-button').forEach(function(widgetEl) {
+    const widget = new Menu(widgetEl);
+
+    widgetEl.addEventListener('menu-select', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widgetEl.addEventListener('menu-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widgetEl.addEventListener('menu-toggle', function(e) {
+        console.log(e.type, e.detail);
     });
 });
