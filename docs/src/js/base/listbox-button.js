@@ -79,8 +79,6 @@ module.exports = class {
         this._onListboxKeyDownListener = onListboxKeyDown.bind(this);
         this._onListboxChangeListener = onListboxChange.bind(this);
 
-        this.el.classList.add('listbox-button--js');
-
         this.wake();
     }
 
