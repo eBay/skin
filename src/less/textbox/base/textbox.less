@@ -1,11 +1,22 @@
 // Textbox text should NOT scale with root font-size. All font-size defined with px.
 
+/* stylelint-disable  no-descending-specificity */
+
 .textbox {
     position: relative;
 }
 
 span.textbox {
     display: inline-block;
+}
+
+textarea.textbox__control {
+    min-height: 200px;
+    overflow: auto;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    resize: vertical;
+    vertical-align: middle;
 }
 
 input.textbox__control,
@@ -58,15 +69,6 @@ input.textbox__control--underline {
     padding: 0;
 }
 
-textarea.textbox__control {
-    min-height: 200px;
-    overflow: auto;
-    padding-bottom: 16px;
-    padding-top: 16px;
-    resize: vertical;
-    vertical-align: middle;
-}
-
 span.textbox__icon,
 .textbox__icon {
     color: @textbox-icon-color;
@@ -92,8 +94,8 @@ span.textbox__icon {
 
 // BLOCK MODIFIERS
 
-span.textbox__icon:first-child,
-.textbox__icon:first-child {
+.textbox__icon:first-child,
+span.textbox__icon:first-child {
     left: @textbox-icon-first-child-left;
 
     + input.textbox__control,
@@ -103,14 +105,14 @@ span.textbox__icon:first-child,
 }
 
 .textbox--icon-end {
-    span.textbox__icon:last-child,
-    .textbox__icon:last-child {
-        right: @textbox-icon-end-last-child-right;
-    }
-
     input.textbox__control,
     textarea.textbox__control {
         padding-right: 40px;
+    }
+
+    .textbox__icon:last-child,
+    span.textbox__icon:last-child {
+        right: @textbox-icon-end-last-child-right;
     }
 }
 
