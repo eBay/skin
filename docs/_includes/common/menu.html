@@ -4,7 +4,7 @@
     <p>A menu follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
     <p>A menu is <strong>not</strong> a form control. If you wish to submit form data natively, without JavaScript, please consider <a href="#checkbox">checkbox</a>, <a href="#combobox">combobox</a>, <a href="#select">select</a>, or <a href="#radio">radio</a> instead.</p>
     <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
-    <p><strong>NOTE: </strong>Only limited JavaScript behaviour has been implemented in these menu examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/menu/index.html">eBay MIND Pattern for Menu</a>.</p>
+    <p><strong>NOTE: </strong>Only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/menu-button/index.html">eBay MIND Pattern for Menu</a>.</p>
 
     <h3 id="menu-default">Default Menu</h3>
     <p>The default menu is a <em>stateless</em> menu.</p>
@@ -59,9 +59,8 @@
                 </button>
                 <div class="menu__items" role="menu">
                     {% for number in (1...50) %}
-                    <div class="menu__item" role="menuitemradio" aria-checked="{% if number == 25 %}true{% else %}false{% endif %}">
+                    <div class="menu__item" role="menuitem">
                         <span>Menu item {{number}}</span>
-                        <span class="menu__status"></span>
                     </div>
                     {% endfor %}
                 </div>
@@ -82,15 +81,15 @@
                     </span>
                 </button>
                 <div class="menu__items" role="menu">
-                    <div class="menu__item" role="menuitemradio" aria-checked="true">
+                    <div class="menu__item" role="menuitemradio" aria-checked="true" data-menuitemradio-name="sort">
                         <span>Item 1 with a long string</span>
                         <span class="menu__status"></span>
                     </div>
-                    <div class="menu__item" role="menuitemradio" aria-checked="false">
+                    <div class="menu__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort">
                         <span>Item 2</span>
                         <span class="menu__status"></span>
                     </div>
-                    <div class="menu__item" role="menuitemradio" aria-checked="false">
+                    <div class="menu__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort">
                         <span>Item 3</span>
                         <span class="menu__status"></span>
                     </div>
@@ -505,7 +504,7 @@
     <p>Finally, any menu can be presented as a buttonless menu, simply by omitting the expand button.</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="menu">
+            <span class="menu menu--no-button">
                 <div class="menu__items" role="menu">
                     <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
                         <span class="menu__status"></span>
@@ -525,7 +524,7 @@
     </div>
 
     {% highlight html %}
-<span class="menu">
+<span class="menu menu--no-button">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
             <span class="menu__status"></span>
