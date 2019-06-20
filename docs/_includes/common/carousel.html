@@ -1,17 +1,14 @@
 <div id="carousel">
     <h2><span class="secondary-text">@ebay/skin/</span>carousel</h2>
-    <p>Carousels group together a list of similar items into a viewport of fixed height and width.</p>
-    <p>The viewport may contain a fixed, discrete subset of the list, or a continuous "as many as can fit" subset. A discrete carousel is typically created by providing the desired number of items-per-slide ahead of time for JavaScript. In either case, the number of visible items constitutes a "slide". Each carousel has a live region to convey slide updates to assistive technology.</p>
+    <p>Carousels group together a list of similar items into a horizontal viewport of fixed height. Items may be entirely static (e.g. an image), entirely interactive (e.g. button) or contain a mix of static and interactive elements (e.g. a heading, image and link).</p>
+    <p>Items may be grouped and paginated via discrete slides, or left ungrouped and paginated in an individual manner.</p>
     <p><strong>NOTE: </strong>No JavaScript behaviour has been implemented in the carousel examples, we demonstrate the CSS aspect only. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/disclosure/carousel/index.html">eBay MIND Pattern for Carousel</a>.</p>
 
     <h3>Filmstrip Carousel</h3>
-    <p>A carousel with more than one item in the viewport is known as a filmstrip carousel. Filmstrips can be discrete or continuous. The example below is continuous.</p>
+    <p>Any carousel showing more than one item per slide is known as a <em>filmstrip</em> carousel. This is analogous to looking at a strip of photographic film. By default, most carousels fall into this category.</p>
 
     <div class="carousel">
         <div class="carousel__container">
-            <h4 class="clipped" aria-live="polite">
-                <span>Top Products - Slide 1 of n</span>
-            </h4>
             <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
                 <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
                     <use xlink:href="#icon-chevron-left"></use>
@@ -24,6 +21,8 @@
                 <li class="demo-filmstrip__card">Card 4</li>
                 <li class="demo-filmstrip__card">Card 5</li>
                 <li class="demo-filmstrip__card">Card 6</li>
+                <li class="demo-filmstrip__card">Card 7</li>
+                <li class="demo-filmstrip__card">Card 8</li>
             </ul>
             <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
                 <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
@@ -35,9 +34,6 @@
     {% highlight html %}
 <div class="carousel">
     <div class="carousel__container">
-        <h2 class="clipped" aria-live="polite">
-            <span>Top Products - Slide 1 of n</span>
-        </h2>
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
                 <use xlink:href="#icon-chevron-left"></use>
@@ -50,6 +46,8 @@
             <li>Card 4</li>
             <li>Card 5</li>
             <li>Card 6</li>
+            <li>Card 7</li>
+            <li>Card 8</li>
         </ul>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
@@ -60,16 +58,14 @@
 </div>
     {% endhighlight %}
 
-    <h3>Slideshow Carousel</h3>
-    <p>A carousel with one item in the viewport is known as a slideshow carousel</p>
-    <p>Slideshow carousels can be discrete only. Apply the modifier <span class="highlight">carousel--slides</span> to create a discrete carousel (this applies to discrete filmstrip carousels too).</p>
-    <p>The list items in a slideshow are typically set to 100% width.</p>
-    <p><strong>NOTE:</strong> On touch screen devices the paddles will always be shown by default.</p>
+    <h3>Discrete Filmstrip Carousel</h3>
+    <p>When grouping filmstrip items into discrete slides (4 per slide in the example below), add the <span class="highlight">carousel--slides</span> modifier.</p>
+    <p>A discrete carousel requires an ARIA live-region to convey slide updates to assistive technology.</p>
 
     <div class="carousel carousel--slides">
         <div class="carousel__container">
             <h4 class="clipped" aria-live="polite">
-                <span>Top Products - Slide 1 of 4</span>
+                <span>Top Products - Slide 1 of 2</span>
             </h4>
             <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
                 <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
@@ -77,23 +73,31 @@
                 </svg>
             </button>
             <ul class="carousel__list">
-                <li class="demo-slideshow__card">Card 1</li>
-                <li class="demo-slideshow__card">Card 2</li>
-                <li class="demo-slideshow__card">Card 3</li>
-                <li class="demo-slideshow__card">Card 4</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 1</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 2</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 3</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 4</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 5</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 6</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 7</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 8</li>
             </ul>
             <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
                 <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
                     <use xlink:href="#icon-chevron-right"></use>
                 </svg>
             </button>
+            <ul class="carousel__dots">
+                <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+                <li><button aria-label="Slide 2 - Top Products"></button></li>
+            </ul>
         </div>
     </div>
     {% highlight html %}
 <div class="carousel carousel--slides">
     <div class="carousel__container">
         <h2 class="clipped" aria-live="polite">
-            <span>Top Products - Slide 1 of 4</span>
+            <span>Top Products - Slide 1 of 2</span>
         </h2>
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
@@ -101,22 +105,101 @@
             </svg>
         </button>
         <ul class="carousel__list">
-            <li>Card 1</li>
-            <li>Card 2</li>
-            <li>Card 3</li>
-            <li>Card 4</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 1</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 2</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 3</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 4</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 5</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 6</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 16px);">Card 7</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 8</li>
         </ul>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
                 <use xlink:href="#icon-chevron-right"></use>
             </svg>
         </button>
+        <ul class="carousel__dots">
+            <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+            <li><button aria-label="Slide 2 - Top Products"></button></li>
+        </ul>
     </div>
 </div>
     {% endhighlight %}
 
-    <h3>Carousel with Pagination Dots</h3>
-    <p>For any discrete carousel, a list of pagination buttons can be placed immediately after the last button.</p>
+    <h3>Discrete Filmstrip Carousel with Peek</h3>
+    <p>For discrete filmstrip carousels on touch devices, the carousel paddles will be shown by default when there is no peek (as in the previous example).</p>
+    <p>A peek can be created, if desired, simply by adjusting item widths and applying the modifier <span class="highlight">carousel--peek</span>.</p>
+
+    <div class="carousel carousel--slides carousel--peek">
+        <div class="carousel__container">
+            <h4 class="clipped" aria-live="polite">
+                <span>Top Products - Slide 1 of 2</span>
+            </h4>
+            <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
+                <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
+                    <use xlink:href="#icon-chevron-left"></use>
+                </svg>
+            </button>
+            <ul class="carousel__list">
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 1</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 2</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 3</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 4</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 5</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 6</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 7</li>
+                <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 8</li>
+            </ul>
+            <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
+                <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                    <use xlink:href="#icon-chevron-right"></use>
+                </svg>
+            </button>
+            <ul class="carousel__dots">
+                <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+                <li><button aria-label="Slide 2 - Top Products"></button></li>
+            </ul>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="carousel carousel--slides carousel--peek">
+    <div class="carousel__container">
+        <h2 class="clipped" aria-live="polite">
+            <span>Top Products - Slide 1 of 2</span>
+        </h2>
+        <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
+                <use xlink:href="#icon-chevron-left"></use>
+            </svg>
+        </button>
+        <ul class="carousel__list">
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 1</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 2</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 3</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 4</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 5</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 6</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 24px);">Card 7</li>
+            <li class="demo-filmstrip__card" style="width: calc(25% - 0px);">Card 8</li>
+        </ul>
+        <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </button>
+        <ul class="carousel__dots">
+            <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+            <li><button aria-label="Slide 2 - Top Products"></button></li>
+        </ul>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Slideshow Carousel</h3>
+    <p>A discrete carousel showing exactly one item per slide is known as a <em>slideshow</em> carousel. This is analogous to an old fashioned slide projector, viewing one image at a time.</p>
+    <p>The <span class="highlight">carousel--slides</span> modifier is required.</p>
+    <p>A slideshow carousel has no peek, therefore all list items should be set to 100% width.</p>
 
     <div class="carousel carousel--slides">
         <div class="carousel__container">
@@ -150,19 +233,19 @@
     {% highlight html %}
 <div class="carousel carousel--slides">
     <div class="carousel__container">
-        <h4 class="clipped" aria-live="polite">
+        <h2 class="clipped" aria-live="polite">
             <span>Top Products - Slide 1 of 4</span>
-        </h4>
+        </h2>
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" >
                 <use xlink:href="#icon-chevron-left"></use>
             </svg>
         </button>
         <ul class="carousel__list">
-            <li class="demo-slideshow__card">Card 1</li>
-            <li class="demo-slideshow__card">Card 2</li>
-            <li class="demo-slideshow__card">Card 3</li>
-            <li class="demo-slideshow__card">Card 4</li>
+            <li style="width: 100%">Card 1</li>
+            <li style="width: 100%">Card 2</li>
+            <li style="width: 100%">Card 3</li>
+            <li style="width: 100%">Card 4</li>
         </ul>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
