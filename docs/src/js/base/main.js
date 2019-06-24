@@ -43,8 +43,21 @@ document.querySelectorAll('.combobox').forEach(function(widgetEl) {
 
     const focusEl = widgetEl.querySelector('input');
     const ownedEl = widgetEl.querySelector('[role=listbox]');
+    const listItems = ownedEl.querySelectorAll('[role=option]');
+
+    focusEl.addEventListener('keydown', e => {
+        // prevent caret move and page scroll
+        if (e.keyCode === 38 || e.keyCode === 40) {
+            e.preventDefault();
+        }
+    });
+
     const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
         activeDescendantClassName: 'combobox__option--active'
+    });
+
+    widgetEl.addEventListener('activeDescendantChange', e => {
+        focusEl.value = listItems[e.detail.toIndex].innerText;
     });
 });
 
