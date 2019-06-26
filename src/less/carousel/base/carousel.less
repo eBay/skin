@@ -1,4 +1,4 @@
-/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-descending-specificity, comment-empty-line-before */
 
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
@@ -205,7 +205,7 @@
         }
     }
 
-    /* autoprefixer: off */
+    /* autoprefixer: ignore next */
     @supports not /*!Y */(
         /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
         /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
@@ -217,8 +217,6 @@
             .show-control();
         }
     }
-
-    /* autoprefixer: on */
 }
 
 /**
@@ -232,13 +230,14 @@
  * it's current implementation has some issues including forcing a scroll bar.
  */
 
-/* autoprefixer: off */
+/* autoprefixer: ignore next */
 @supports (not /*!Y */(-moz-appearance:none)) and /*!Y */(
     /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
     /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
     /*!Y */(scroll-snap-coordinate: 0 0) or
     /*!Y */(scroll-snap-align: start)
 ) {
+    /* autoprefixer: off */
     .carousel {
         &:not(&__autoplay) {
             overflow: hidden;
@@ -272,6 +271,5 @@
             scroll-snap-coordinate: 0 0;
         }
     }
+    /* autoprefixer: on */
 }
-
-/* autoprefixer: on */
