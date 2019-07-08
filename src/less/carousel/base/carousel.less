@@ -1,0 +1,275 @@
+/* stylelint-disable no-descending-specificity, comment-empty-line-before */
+
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
+@ebay-carousel-transition-time: 0.45s;
+@ebay-carousel-transition-function: ease-in-out;
+
+.show-control() {
+    opacity: 0.92;
+    pointer-events: auto;
+
+    &[aria-disabled="true"] {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+.carousel {
+    position: relative;
+
+    &__container {
+        overflow: hidden;
+        padding: 16px 0;
+        position: relative;
+        white-space: nowrap;
+        width: 100%;
+
+        &--controls-disabled .carousel__control.carousel__control {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        transform: translate3d(0, 0, 0); // Same as above, but for backward compatibility to (ie10).
+        transition: transform @ebay-carousel-transition-time @ebay-carousel-transition-function;
+        width: 100%;
+        will-change: transform; // Ensures that the list is on a new layer for better scrolling perf.
+
+        > li {
+            display: inline-block;
+            flex-shrink: 0;
+            list-style: none;
+        }
+    }
+
+    &__control {
+        background-color: @carousel-control-background-color;
+        border: 1px solid @carousel-control-border-color;
+        font-size: 18px;
+        height: 72px;
+        opacity: 0;
+        padding: 0; // override browser default
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
+        width: 28px;
+        z-index: 1;
+
+        &--prev {
+            left: 0;
+        }
+
+        &--next {
+            right: 0;
+        }
+
+        svg {
+            color: @carousel-control-svg-color;
+        }
+
+        .icon--chevron-right {
+            margin-left: 2px;
+        }
+
+        .icon--chevron-left {
+            margin-left: -2px;
+        }
+
+        // progressive enhancement for browsers with support
+        // this cannot be combined with the next rule as
+        // IE/Edge will discard the entire rule
+        .carousel:focus-within & {
+            .show-control();
+        }
+
+        .carousel:hover &,
+        &:focus {
+            .show-control();
+        }
+
+        &:hover {
+            background-color: @carousel-dots-hover-background-color;
+            border-color: @carousel-dots-hover-background-color;
+
+            svg {
+                color: @carousel-dots-hover-svg-color;
+            }
+        }
+
+        &:active {
+            background-color: @carousel-dots-hover-active-background-color;
+
+            svg {
+                color: @carousel-dots-hover-active-svg-color;
+            }
+        }
+    }
+
+    // play and pause are deprecated in favour of playback
+    &__play,
+    &__pause,
+    &__playback {
+        background-color: rgba(0, 0, 0, 0.45);
+        border: 0;
+        border-radius: 50%;
+        bottom: 16px; // accounts for padding.
+        box-sizing: border-box;
+        color: @carousel-play-pause-color;
+        height: 40px;
+        margin-bottom: 19px;
+        margin-right: 19px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 40px;
+        z-index: 2;
+
+        svg {
+            opacity: 0.75;
+        }
+    }
+
+    // slight adjustment needed for play icon
+    &__playback .icon--play {
+        padding-left: 1px;
+    }
+
+    // deprecated in favour of playback
+    &__play {
+        text-indent: 1px;
+    }
+
+    &__dots {
+        margin: 8px 0;
+        padding-left: 0;
+        text-align: center;
+
+        > li {
+            display: inline-block;
+
+            > button {
+                background-color: transparent;
+                border: 0;
+                display: inline-block;
+                height: 8px;
+                margin: 0 6px;
+                padding: 0;
+                position: relative;
+                width: 8px;
+
+                // The active dot uses an after to color it in which transitions opacity.
+                // This was done to avoid transitioning the background color of the element
+                // while still allowing us to use exact ds colors.
+                &::before,
+                &::after {
+                    background-color: @carousel-dots-after-background-color;
+                    border-radius: 50%;
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                }
+
+                &.carousel__dot--active::after,
+                &[aria-current="true"]::after {
+                    opacity: 1;
+                }
+
+                &::after {
+                    background-color: @carousel-dots-after-active-background-color;
+                    opacity: 0;
+                    transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
+                }
+            }
+        }
+    }
+}
+
+@media (hover: none) {
+    // show controls on touch when there is not enough affordance.
+    .carousel {
+        &--slides&:not(&--peek) &__control {
+            .show-control();
+        }
+    }
+
+    /* autoprefixer: ignore next */
+    @supports not /*!Y */(
+        /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+        /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+        /*!Y */(scroll-snap-coordinate: 0 0) or
+        /*!Y */(scroll-snap-align: start)
+    ) {
+        // always show paddles when scroll snapping and hover is not supported.
+        .carousel__control {
+            .show-control();
+        }
+    }
+}
+
+/**
+ * In browsers that support a compatible version of the css scroll snap api we use native scrolling.
+ * Otherwise we fall back to using css transforms.
+ *
+ * Not all browsers that have implemented scroll snapping have done so in a way that we can leverage.
+ * Currently the below media query ensures that the browser supports exactly what we need.
+ *
+ * Firefox is explicitly blacklisted in both queries via a check for "-mox-appearance" since
+ * it's current implementation has some issues including forcing a scroll bar.
+ */
+
+/* autoprefixer: ignore next */
+@supports (not /*!Y */(-moz-appearance:none)) and /*!Y */(
+    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-align: start)
+) {
+    /* autoprefixer: off */
+    .carousel {
+        &:not(&__autoplay) {
+            overflow: hidden;
+
+            .carousel__container {
+                margin-bottom: -80px;
+            }
+
+            .carousel__control {
+                margin-top: -40px;
+            }
+
+            .carousel__list {
+                -webkit-overflow-scrolling: touch;
+                overflow-x: auto; // also used in js to determine scroll behavior
+                padding-bottom: 80px;
+                scroll-behavior: smooth;
+                -webkit-scroll-snap-type: mandatory;
+                -webkit-scroll-snap-type: x mandatory;
+                -ms-scroll-snap-type: mandatory;
+                -ms-scroll-snap-type: x mandatory;
+                scroll-snap-type: mandatory;
+                scroll-snap-type: x mandatory;
+            }
+        }
+
+        &__snap-point {
+            scroll-snap-align: start;
+            -webkit-scroll-snap-coordinate: 0 0;
+            -ms-scroll-snap-coordinate: 0 0;
+            scroll-snap-coordinate: 0 0;
+        }
+    }
+    /* autoprefixer: on */
+}

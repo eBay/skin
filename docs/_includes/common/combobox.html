@@ -1,7 +1,8 @@
 <div id="combobox">
     <h2><span class="secondary-text">@ebay/skin/</span>combobox</h2>
-    <p>An enhanced <a href="#textbox">textbox</a> that allows free text input, or selection from a predefined list of values, or a combination of both. Hence the term 'combo'.</p>
-    <p><strong>NOTE</strong>: Only limited JavaScript behaviour has been implemented in these combobox examples. For example, we do not demonstrate autocomplete functionality. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/combobox/index.html">eBay MIND Pattern for Combobox</a>.</p>
+    <p>An enhanced <a href="#textbox">textbox</a> that allows its value to be constructed via manual text entry, selection from a list of options, or a combination of both. Hence the term 'combo' - it's a combination of a textbox and a listbox.</p>
+    <p>Selecting an option should simply fill the textbox with that value. Options do not have state or any other kind of behaviour.</p>
+    <p><strong>NOTE</strong>: Option selection may be manual or automatic (as shown in examples below). For detailed behaviour requirements, and variants, please visit the <a href="https://ebay.github.io/mindpatterns/input/combobox/index.html">eBay MIND Pattern for Combobox</a>.</p>
 
     <h3>Default Combobox</h3>
     <p>By default, no option in the list should be selected.</p>
@@ -16,15 +17,12 @@
                 <div id="listbox1" class="combobox__options" role="listbox">
                     <div class="combobox__option" role="option">
                         <span>Option 1</span>
-                        <span class="combobox__status"></span>
                     </div>
                     <div class="combobox__option" role="option">
                         <span>Option 2</span>
-                        <span class="combobox__status"></span>
                     </div>
                     <div class="combobox__option" role="option">
                         <span>Option 3</span>
-                        <span class="combobox__status"></span>
                     </div>
                 </div>
             </span>
@@ -38,15 +36,12 @@
     <div id="listbox1" class="combobox__options" role="listbox">
         <div class="combobox__option" role="option">
             <span>Option 1</span>
-            <span class="combobox__status"></span>
         </div>
         <div class="combobox__option" role="option">
             <span>Option 2</span>
-            <span class="combobox__status"></span>
         </div>
         <div class="combobox__option" role="option">
             <span>Option 3</span>
-            <span class="combobox__status"></span>
         </div>
     </div>
 </span>
@@ -66,7 +61,6 @@
                     {% for number in (1...50) %}
                     <div class="combobox__option" role="option" aria-selected="{% if number == 25 %}true{% else %}false{% endif %}">
                         <span>Option {{number}}</span>
-                        <span class="combobox__status"></span>
                     </div>
                     {% endfor %}
                 </div>
@@ -88,15 +82,12 @@
                 <div id="listbox3" class="combobox__options" role="listbox">
                     <div class="combobox__option" role="option">
                         <span>Option 1</span>
-                        <span class="combobox__status"></span>
                     </div>
                     <div class="combobox__option" role="option">
                         <span>Option 2</span>
-                        <span class="combobox__status"></span>
                     </div>
                     <div class="combobox__option" role="option">
                         <span>Option 3</span>
-                        <span class="combobox__status"></span>
                     </div>
                 </div>
             </span>
@@ -110,15 +101,12 @@
     <div id="listbox2" class="combobox__options" role="listbox">
         <div class="combobox__option" role="option">
             <span>Option 1</span>
-            <span class="combobox__status"></span>
         </div>
         <div class="combobox__option" role="option">
             <span>Option 2</span>
-            <span class="combobox__status"></span>
         </div>
         <div class="combobox__option" role="option">
             <span>Option 3</span>
-            <span class="combobox__status"></span>
         </div>
     </div>
 </span>
@@ -126,13 +114,14 @@
     </div>
 
     <h3 id="combobox-readonly">Readonly Combobox</h3>
-    <p>A readonly combobox is intended for use as a custom implementation of the native HTML select element. Unfortunately, a readonly combobox exhibits some UX issues on iOS, which is why for now we recommend using the <a href="#listbox">listbox</a> instead.</p>
-    <p>Apply the <span class="highlight">readonly</span> property to create a readonly combobox.</p>
+    <p>A readonly combobox is intended for use as a custom implementation of the native HTML select element. Unlike a non-readonly combobox, its options do have state. Notice that an additional span element is required within each option.</p>
+    <p>Unfortunately, a readonly combobox exhibits some UX issues on iOS, which is why for now we recommend using the <a href="#listbox">listbox</a> instead.</p>
+    <p>Apply the <span class="highlight">combobox--readonly</span> modifier and <span class="highlight">readonly</span> input property to create a readonly combobox.</p>
     <p>By default, the first item should be selected if the user does not specify a selection. This matches the behaviour of a native HTML select element.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="combobox">
+            <span class="combobox combobox--readonly">
                 <span class="combobox__control">
                     <input role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-owns="listbox4" readonly />
                     <span class="combobox__icon" aria-hidden="true"></span>
@@ -154,7 +143,7 @@
             </span>
         </div>
         {% highlight html %}
-<span class="combobox">
+<span class="combobox combobox--readonly">
     <span class="combobox__control">
         <input role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-owns="listbox4" readonly />
         <span class="combobox__icon" aria-hidden="true"></span>

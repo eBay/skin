@@ -1,0 +1,241 @@
+/* stylelint-disable no-descending-specificity, comment-empty-line-before */
+.carousel {
+  position: relative;
+}
+.carousel__container {
+  overflow: hidden;
+  padding: 16px 0;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+}
+.carousel__container--controls-disabled .carousel__control.carousel__control {
+  opacity: 0;
+  pointer-events: none;
+}
+.carousel__list {
+  display: -webkit-box;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.45s ease-in-out;
+  transition: -webkit-transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
+  width: 100%;
+  will-change: transform;
+}
+.carousel__list > li {
+  display: inline-block;
+  flex-shrink: 0;
+  list-style: none;
+}
+.carousel__control {
+  background-color: #fff;
+  border: 1px solid #111820;
+  font-size: 18px;
+  height: 72px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: opacity 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out;
+  width: 28px;
+  z-index: 1;
+}
+.carousel__control--prev {
+  left: 0;
+}
+.carousel__control--next {
+  right: 0;
+}
+.carousel__control svg {
+  color: #111820;
+}
+.carousel__control .icon--chevron-right {
+  margin-left: 2px;
+}
+.carousel__control .icon--chevron-left {
+  margin-left: -2px;
+}
+.carousel:focus-within .carousel__control {
+  opacity: 0.92;
+  pointer-events: auto;
+}
+.carousel:focus-within .carousel__control[aria-disabled="true"] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.carousel:hover .carousel__control,
+.carousel__control:focus {
+  opacity: 0.92;
+  pointer-events: auto;
+}
+.carousel:hover .carousel__control[aria-disabled="true"],
+.carousel__control:focus[aria-disabled="true"] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.carousel__control:hover {
+  background-color: #6e6e6e;
+  border-color: #6e6e6e;
+}
+.carousel__control:hover svg {
+  color: #fff;
+}
+.carousel__control:active {
+  background-color: #41413f;
+}
+.carousel__control:active svg {
+  color: #fff;
+}
+.carousel__play,
+.carousel__pause,
+.carousel__playback {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 0;
+  border-radius: 50%;
+  bottom: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 40px;
+  margin-bottom: 19px;
+  margin-right: 19px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 40px;
+  z-index: 2;
+}
+.carousel__play svg,
+.carousel__pause svg,
+.carousel__playback svg {
+  opacity: 0.75;
+}
+.carousel__playback .icon--play {
+  padding-left: 1px;
+}
+.carousel__play {
+  text-indent: 1px;
+}
+.carousel__dots {
+  margin: 8px 0;
+  padding-left: 0;
+  text-align: center;
+}
+.carousel__dots > li {
+  display: inline-block;
+}
+.carousel__dots > li > button {
+  background-color: transparent;
+  border: 0;
+  display: inline-block;
+  height: 8px;
+  margin: 0 6px;
+  padding: 0;
+  position: relative;
+  width: 8px;
+}
+.carousel__dots > li > button::before,
+.carousel__dots > li > button::after {
+  background-color: #8a8a8a;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel__dots > li > button.carousel__dot--active::after,
+.carousel__dots > li > button[aria-current="true"]::after {
+  opacity: 1;
+}
+.carousel__dots > li > button::after {
+  background-color: #41413f;
+  opacity: 0;
+  -webkit-transition: opacity 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out;
+}
+@media (hover: none) {
+  .carousel--slides.carousel:not(.carousel--peek) .carousel__control {
+    opacity: 0.92;
+    pointer-events: auto;
+  }
+  .carousel--slides.carousel:not(.carousel--peek) .carousel__control[aria-disabled="true"] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  /* autoprefixer: ignore next */
+  @supports not /*!Y */(
+        /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+        /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+        /*!Y */(scroll-snap-coordinate: 0 0) or
+        /*!Y */(scroll-snap-align: start)
+    ) {
+    .carousel__control {
+      opacity: 0.92;
+      pointer-events: auto;
+    }
+    .carousel__control[aria-disabled="true"] {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+}
+/**
+ * In browsers that support a compatible version of the css scroll snap api we use native scrolling.
+ * Otherwise we fall back to using css transforms.
+ *
+ * Not all browsers that have implemented scroll snapping have done so in a way that we can leverage.
+ * Currently the below media query ensures that the browser supports exactly what we need.
+ *
+ * Firefox is explicitly blacklisted in both queries via a check for "-mox-appearance" since
+ * it's current implementation has some issues including forcing a scroll bar.
+ */
+/* autoprefixer: ignore next */
+@supports (not /*!Y */(-moz-appearance:none)) and /*!Y */(
+    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-align: start)
+) {
+  /* autoprefixer: off */
+  .carousel:not(.carousel__autoplay) {
+    overflow: hidden;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__container {
+    margin-bottom: -80px;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__control {
+    margin-top: -40px;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__list {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding-bottom: 80px;
+    scroll-behavior: smooth;
+    -webkit-scroll-snap-type: mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: mandatory;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel__snap-point {
+    scroll-snap-align: start;
+    -webkit-scroll-snap-coordinate: 0 0;
+    -ms-scroll-snap-coordinate: 0 0;
+    scroll-snap-coordinate: 0 0;
+  }
+  /* autoprefixer: on */
+}
