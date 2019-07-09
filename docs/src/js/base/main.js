@@ -5,6 +5,7 @@ const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const ActiveDescendant = require('makeup-active-descendant');
+const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
@@ -172,9 +173,18 @@ document.querySelectorAll('.tabs').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.listbox').forEach(function(widgetEl) {
+    const widget = new Listbox(widgetEl, {
+        autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
+    });
+
+    widgetEl.addEventListener('listbox-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+});
+
+document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
     const widget = new ListboxButton(widgetEl, {
-        labelSelector: '.expand-btn__cell span:first-child',
-        listboxSelector: '.listbox__options'
+        labelSelector: '.expand-btn__text'
     });
 
     widgetEl.addEventListener('listbox-button-change', function(e) {

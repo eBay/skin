@@ -1,0 +1,80 @@
+@import "../../../less/variables-common.less";
+@import "../../../less/mixins-common.less";
+
+.dropdown-status-icon() {
+    .icon-tick(9px, 9px);
+}
+
+.dropdown-base() {
+    background-color: @dropdown-items-background-color;
+    border: 1px solid @dropdown-items-border-color;
+    box-sizing: border-box;
+    min-width: 100%;
+    width: auto;
+}
+
+.dropdown-overlay() {
+    box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
+    display: none;
+    max-height: 400px;
+    overflow-y: auto;
+    position: absolute;
+    top: calc(100% - 1px);
+    z-index: 1;
+}
+
+.dropdown() {
+    .dropdown-base;
+    .dropdown-overlay;
+}
+
+.dropdown-option() {
+    background-color: @dropdown-item-background-color;
+    border: 1px solid @dropdown-item-border-color;
+    box-sizing: border-box;
+    cursor: default; // needed to override text cursor
+    display: inline-flex;
+    font-size: 0.875rem;
+    justify-content: space-between;
+    line-height: 2.5;
+    padding: 0 16px;
+    width: 100%;
+
+    &:not(:last-child) {
+        margin-bottom: 1px;
+    }
+
+    &:hover {
+        background-color: @dropdown-item-hover-background-color;
+    }
+
+    &:active {
+        font-weight: @dropdown-item-active-font-weight;
+
+        .listbox__status {
+            color: @dropdown-item-active-status-color;
+        }
+    }
+}
+
+.dropdown-status() {
+    align-self: center;
+    color: @dropdown-status-color;
+    fill: currentColor;
+    height: 8px;
+    margin: 0 auto;
+    opacity: 0;
+    stroke: currentColor;
+    stroke-width: 0;
+    width: 8px;
+}
+
+.dropdown-status-background() {
+    .background-icon-image-base;
+    .dropdown-status-icon;
+
+    background-position: left center;
+    background-repeat: no-repeat;
+    flex-shrink: 0; // prevent the icon from shrinking when label is long
+    pointer-events: none;
+}

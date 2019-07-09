@@ -1,0 +1,67 @@
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
+.listbox-button {
+    line-height: normal;
+    position: relative;
+}
+
+span.listbox-button {
+    display: inline-block;
+}
+
+div.listbox-button__listbox {
+    .dropdown;
+
+    border-bottom-color: transparent;
+    overflow: visible; // show focus outline
+}
+
+button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
+    display: block;
+}
+
+// todo: refactor to use a button mixin rather than .expand-btn class
+.listbox-button button.expand-btn--borderless {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+    vertical-align: initial;
+
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+
+    &[aria-expanded="true"] {
+        border-bottom-color: transparent;
+    }
+
+    &[aria-expanded="true"] ~ .listbox-button__listbox {
+        top: 41px; // button height plus one px, to meet design guidelines
+    }
+}
+
+span.listbox-button__status,
+svg.listbox-button__status {
+    .dropdown-status;
+}
+
+// background icon
+span.listbox-button__status {
+    .dropdown-status-background;
+}
+
+div.listbox-button__option--active[role="option"] .listbox-button__status {
+    opacity: 1;
+}
+
+div.listbox-button__option[role="option"] {
+    .dropdown-option;
+}
+
+span.listbox-button__value {
+    .truncate;
+
+    flex: 1;
+}

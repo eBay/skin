@@ -1,248 +1,96 @@
-/* stylelint-disable  no-descending-specificity */
-.menu,
-.fake-menu,
-.listbox,
-.combobox {
-  line-height: normal;
-  position: relative;
+div.listbox {
+  margin: 16px 0;
 }
-span.menu,
-span.fake-menu,
-span.listbox,
-span.combobox {
+span.listbox {
   display: inline-block;
   vertical-align: bottom;
 }
-.menu button.expand-btn--borderless,
-.fake-menu button.expand-btn--borderless,
-.listbox button.expand-btn--borderless {
-  background-color: transparent;
-  border-color: transparent;
-  padding-left: 0;
-  vertical-align: initial;
-}
-.menu button.expand-btn--borderless:focus,
-.fake-menu button.expand-btn--borderless:focus,
-.listbox button.expand-btn--borderless:focus {
-  outline: none;
-  text-decoration: underline;
-}
-.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"],
-.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu__items[role="menu"],
-.listbox button.expand-btn--borderless[aria-expanded="true"] ~ .listbox__options[role="listbox"] {
-  top: 41px;
-}
-.menu .expand-btn[aria-expanded="true"],
-.fake-menu .expand-btn[aria-expanded="true"],
-.listbox .expand-btn[aria-expanded="true"],
-.combobox .expand-btn[aria-expanded="true"] {
-  border-bottom-color: transparent;
-}
-.menu .expand-btn[aria-expanded="true"] ~ .menu__items[role="menu"],
-.listbox .expand-btn[aria-expanded="true"] ~ .listbox__options[role="listbox"],
-.combobox.combobox--expanded .combobox__options[role="listbox"],
-.fake-menu .expand-btn[aria-expanded="true"] ~ .fake-menu__items {
-  display: block;
-}
-.menu .expand-btn ~ .menu__items[role="menu"],
-.listbox .expand-btn ~ .listbox__options[role="listbox"],
-.combobox .combobox__options[role="listbox"],
-.fake-menu .expand-btn ~ .fake-menu__items {
-  display: none;
-  position: absolute;
-  top: calc(100% - 1px);
-  z-index: 1;
-}
-.menu__items[role="menu"],
-.combobox__options[role="listbox"],
-.listbox__options[role="listbox"],
-.fake-menu__items {
+div.listbox__options[role="listbox"] {
   background-color: #fff;
   border: 1px solid #ccc;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-          box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  max-height: 400px;
   min-width: 100%;
-  overflow-y: auto;
   width: auto;
 }
-span.menu__items[role="menu"],
-span.listbox__options[role="listbox"],
-div.combobox__options[role="listbox"],
-span.fake-menu__items {
+span.listbox__options[role="listbox"] {
   display: inline-block;
 }
-.fake-menu__items {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+div.listbox__options--fix-width[role="listbox"] {
+  width: 100%;
 }
-div.menu__item[role^="menuitem"],
-div.listbox__option[role^="option"],
-div.combobox__option[role^="option"],
-button.fake-menu__item {
-  cursor: default;
+div.listbox__options--reverse[role="listbox"] {
+  right: 0;
 }
-div.menu__item[role^="menuitem"],
-div.listbox__option[role="option"],
-div.combobox__option[role^="option"],
-a.fake-menu__item,
-button.fake-menu__item {
+div.listbox__option[role="option"] {
   background-color: #fff;
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: -webkit-box;
-  display: flex;
+  cursor: default;
+  display: -webkit-inline-box;
+  display: inline-flex;
   font-size: 0.875rem;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
   line-height: 2.5;
   padding: 0 16px;
   width: 100%;
 }
-div.menu__item[role^="menuitem"]:not(:last-child),
-div.listbox__option[role="option"]:not(:last-child),
-div.combobox__option[role^="option"]:not(:last-child),
-a.fake-menu__item:not(:last-child),
-button.fake-menu__item:not(:last-child) {
+div.listbox__option[role="option"]:not(:last-child) {
   margin-bottom: 1px;
 }
-div.menu__item[role^="menuitem"]:hover,
-div.listbox__option[role="option"]:hover,
-div.combobox__option[role^="option"]:hover,
-a.fake-menu__item:hover,
-button.fake-menu__item:hover,
-div.menu__item[role^="menuitem"].combobox__option--active,
-div.listbox__option[role="option"].combobox__option--active,
-div.combobox__option[role^="option"].combobox__option--active,
-a.fake-menu__item.combobox__option--active,
-button.fake-menu__item.combobox__option--active {
+div.listbox__option[role="option"]:hover {
   background-color: #eee;
 }
-div.menu__item[role^="menuitem"]:active .menu__status,
-div.listbox__option[role="option"]:active .menu__status,
-div.combobox__option[role^="option"]:active .menu__status,
-a.fake-menu__item:active .menu__status,
-button.fake-menu__item:active .menu__status,
-div.menu__item[role^="menuitem"]:active .listbox__status,
-div.listbox__option[role="option"]:active .listbox__status,
-div.combobox__option[role^="option"]:active .listbox__status,
-a.fake-menu__item:active .listbox__status,
-button.fake-menu__item:active .listbox__status,
-div.menu__item[role^="menuitem"]:active .combobox__status,
-div.listbox__option[role="option"]:active .combobox__status,
-div.combobox__option[role^="option"]:active .combobox__status,
-a.fake-menu__item:active .combobox__status,
-button.fake-menu__item:active .combobox__status,
-div.menu__item[role^="menuitem"]:active .fake-menu__status,
-div.listbox__option[role="option"]:active .fake-menu__status,
-div.combobox__option[role^="option"]:active .fake-menu__status,
-a.fake-menu__item:active .fake-menu__status,
-button.fake-menu__item:active .fake-menu__status {
+div.listbox__option[role="option"]:active {
+  font-weight: normal;
+}
+div.listbox__option[role="option"]:active .listbox__status {
   color: #ccc;
 }
-div.menu__item[role^="menuitem"] span:not([class*="menu__status"]),
-div.listbox__option[role="option"] span:not([class*="listbox__status"]),
-div.combobox__option[role^="option"] span:not([class*="combobox__status"]),
-a.fake-menu__item span:not([class*="fake-menu__status"]),
-button.fake-menu__item span:not([class*="fake-menu__status"]) {
+span.listbox__value {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1;
 }
-@media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {
-  *::-ms-backdrop,
-  div.menu__item[role^="menuitem"] span:not([class*="menu__status"]),
-  div.listbox__option[role="option"] span:not([class*="listbox__status"]),
-  div.combobox__option[role^="option"] span:not([class*="combobox__status"]),
-  a.fake-menu__item span:not([class*="fake-menu__status"]),
-  button.fake-menu__item span:not([class*="fake-menu__status"]) {
-    min-width: 100%;
-  }
-}
-div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
-div.listbox__option--active[role="option"] .listbox__status,
-div.combobox__option--active[role^="option"] .combobox__status,
-a.fake-menu__item[aria-current="page"] .fake-menu__status,
-button.fake-menu__item[aria-current="page"] .fake-menu__status {
-  opacity: 1;
-}
-a.fake-menu__item {
-  color: #333;
-  text-decoration: none;
-}
-a.fake-menu__item:focus {
-  text-decoration: underline;
-}
-button.fake-menu__item {
-  background-color: #fff;
-  border: 0;
-  color: #767676;
-  display: block;
-  font-family: inherit;
-  text-align: left;
-}
-.menu__status,
-.listbox__status,
-.combobox__status,
-.fake-menu__status {
+span.listbox__status,
+svg.listbox__status {
   align-self: center;
   color: #767676;
   fill: currentColor;
   height: 8px;
+  margin: 0 auto;
   opacity: 0;
   stroke: currentColor;
   stroke-width: 0;
   width: 8px;
 }
-span.menu__status,
-span.listbox__status,
-span.combobox__status,
-span.fake-menu__status {
-  background-repeat: no-repeat;
+span.listbox__status {
   display: inline-block;
   vertical-align: middle;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxOCI+PHBhdGggZmlsbD0iIzA2NTRiYSIgZD0iTTIwLjQyOS4wMDFMNy42NzMgMTIuODcgMi40ODEgNy42NzcgMCAxMC4zODZsNy42NzQgNy40NUwyMy4xNCAyLjQ4NiAyMC40MyAweiIvPjwvc3ZnPg==');
   height: 9px;
   width: 9px;
   background-size: 9px 9px;
+  background-position: left center;
+  background-repeat: no-repeat;
   flex-shrink: 0;
   pointer-events: none;
 }
-.menu__items--fix-width[role="menu"],
-.listbox__options--fix-width[role="listbox"],
-.combobox__options--fix-width[role="listbox"],
-.fake-menu__items--fix-width {
-  width: 100%;
+div.listbox__option--active[role="option"] .listbox__status {
+  opacity: 1;
 }
-.menu__items--reverse[role="menu"],
-.listbox__options--reverse[role="listbox"],
-.combobox__options--reverse[role="listbox"],
-.fake-menu__items--reverse {
-  right: 0;
-}
-@media screen and (-ms-high-contrast: white-on-black) {
-  span.menu__status,
-  span.listbox__status,
-  span.combobox__status,
-  span.fake-menu__status {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxOCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjQyOS4wMDFMNy42NzMgMTIuODcgMi40ODEgNy42NzcgMCAxMC4zODZsNy42NzQgNy40NUwyMy4xNCAyLjQ4NiAyMC40MyAweiIvPjwvc3ZnPg==');
+@media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {
+  *::-ms-backdrop,
+  span.listbox__value {
+    min-width: 100%;
   }
 }
-.listbox__status:first-child {
-  margin-left: 0;
-  margin-right: 8px;
-}
-.listbox__status:last-child {
-  margin-left: 8px;
-}
-span.listbox__status {
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 8px 5.7px;
-  height: 5.7px;
-  width: 8px;
+@media screen and (-ms-high-contrast: white-on-black) {
+  span.listbox__status {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxOCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjQyOS4wMDFMNy42NzMgMTIuODcgMi40ODEgNy42NzcgMCAxMC4zODZsNy42NzQgNy40NUwyMy4xNCAyLjQ4NiAyMC40MyAweiIvPjwvc3ZnPg==');
+  }
 }
