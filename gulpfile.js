@@ -28,7 +28,16 @@ var comment = [
 
 // Compile all modules to /dist
 function modules () {
-   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
+   return gulp.src([
+       './src/less/**/*.less',
+       '!./src/less/bundles/**/*.less',
+       '!./src/less/mixins/**/*.less',
+       '!./src/less/less/**/*.less',
+       '!./src/less/**/*-*.less',
+       '!./src/**/base/*.less',
+       './src/less/**/listbox-button.less',
+       '!./src/less/listbox-button/base/listbox-button.less'
+    ])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
 }

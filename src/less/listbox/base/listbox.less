@@ -1,18 +1,64 @@
-.listbox__status {
-    &:first-child {
-        margin-left: 0;
-        margin-right: 8px;
-    }
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
 
-    &:last-child {
-        margin-left: 8px;
-    }
+div.listbox {
+    margin: 16px 0; // margin collapse sensible default
+}
+
+span.listbox {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+div.listbox__options[role="listbox"] {
+    .dropdown-base;
+}
+
+span.listbox__options[role="listbox"] {
+    display: inline-block;
+}
+
+div.listbox__options--fix-width[role="listbox"] {
+    width: 100%;
+}
+
+div.listbox__options--reverse[role="listbox"] {
+    right: 0;
+}
+
+div.listbox__option[role="option"] {
+    .dropdown-option;
+}
+
+span.listbox__value {
+    .truncate;
+
+    flex: 1;
+}
+
+span.listbox__status,
+svg.listbox__status {
+    .dropdown-status;
 }
 
 span.listbox__status {
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: 8px 5.7px;
-    height: 5.7px;
-    width: 8px;
+    .dropdown-status-background;
+}
+
+div.listbox__option--active[role="option"] .listbox__status {
+    opacity: 1;
+}
+
+@media all and (-ms-high-contrast: active),
+    all and (-ms-high-contrast: none) {
+    *::-ms-backdrop,
+    span.listbox__value {
+        min-width: 100%;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.listbox__status {
+        background-image: url('data:image/svg+xml;base64,@{dropdown-status-base64-light}');
+    }
 }
