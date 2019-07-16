@@ -5,6 +5,7 @@ const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const ActiveDescendant = require('makeup-active-descendant');
+const Combobox = require('./combobox.js');
 const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
@@ -33,32 +34,22 @@ document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
 });
 
 // COMBOBOX
-document.querySelectorAll('.combobox').forEach(function(widgetEl) {
-    var expanderWidget = new Expander(widgetEl, {
-        autoCollapse: true,
-        contentSelector: '[role=listbox]',
-        expandedClass: 'combobox--expanded',
-        expandOnFocus: true,
-        hostSelector: 'input'
+document.querySelectorAll('.combobox:not(.combobox--readonly)').forEach(function(widgetEl) {
+    const widget = new Combobox(widgetEl, {
+        autoSelect: false
     });
 
-    const focusEl = widgetEl.querySelector('input');
-    const ownedEl = widgetEl.querySelector('[role=listbox]');
-    const listItems = ownedEl.querySelectorAll('[role=option]');
-
-    focusEl.addEventListener('keydown', e => {
-        // prevent caret move and page scroll
-        if (e.keyCode === 38 || e.keyCode === 40) {
-            e.preventDefault();
-        }
+    widgetEl.addEventListener('combobox-change', function(e) {
+        console.log(e.type, e.detail);
     });
+});
 
-    const activeDescendantWidget = ActiveDescendant.createLinear(widgetEl, focusEl, ownedEl, '[role=option]', {
-        activeDescendantClassName: 'combobox__option--active'
-    });
+// READONLY COMBOBOX
+document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
+    const widget = new Combobox(widgetEl);
 
-    widgetEl.addEventListener('activeDescendantChange', e => {
-        focusEl.value = listItems[e.detail.toIndex].innerText;
+    widgetEl.addEventListener('combobox-change', function(e) {
+        console.log(e.type, e.detail);
     });
 });
 

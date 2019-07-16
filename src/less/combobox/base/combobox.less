@@ -1,6 +1,21 @@
+@import "../../less/variables-common.less";
+@import "../../less/mixins-common.less";
+
 .combobox {
     box-sizing: border-box;
+    line-height: normal;
+    position: relative;
+}
+
+span.combobox {
     display: inline-block;
+    vertical-align: bottom;
+}
+
+.combobox__value {
+    .truncate;
+
+    flex: 1 0 auto;
 }
 
 span.combobox__icon {
@@ -13,6 +28,42 @@ span.combobox__icon {
     position: absolute;
     right: 17px; // +1 px for the border on the input box
     top: 0;
+}
+
+.combobox__options--fix-width[role="listbox"] {
+    width: 100%;
+}
+
+.combobox__options--reverse[role="listbox"] {
+    right: 0;
+}
+
+.combobox__listbox {
+    .dropdown;
+}
+
+.combobox__option[role^="option"] {
+    .dropdown-option;
+
+    &:not(:last-child) {
+        margin-bottom: 1px;
+    }
+
+    &:hover {
+        background-color: @dropdown-item-hover-background-color;
+    }
+}
+
+.combobox__option--active[role^="option"] {
+    background-color: @dropdown-item-hover-background-color;
+}
+
+.combobox .expand-btn[aria-expanded="true"] {
+    border-bottom-color: transparent;
+}
+
+.combobox--expanded .combobox__listbox {
+    display: block;
 }
 
 .combobox--expanded span.combobox__icon {
@@ -30,11 +81,6 @@ span.combobox__icon {
     height: @combobox-input-height;
     padding: @combobox-input-padding;
     text-align: left;
-
-    &:focus {
-        border-color: @combobox-input-focus-border-color;
-        outline: 0;
-    }
 
     &[readonly] {
         // fixes the cursor in firefox (1 of 2)
@@ -77,24 +123,48 @@ span.combobox__icon {
     }
 }
 
-.combobox .combobox__control--borderless > input {
+.combobox__control--borderless > input {
     background-color: transparent;
     border-color: transparent;
     padding-left: 0;
-
-    &:focus {
-        border-color: transparent;
-        outline: none;
-    }
 }
 
-// .fluid deprecated in 7.3.0 - DO NOT USE .fluid
-.combobox.fluid,
-.combobox.combobox--fluid {
+.combobox__control > input:focus {
+    border-color: @combobox-input-focus-border-color;
+    outline: 0;
+}
+
+.combobox__control--borderless > input:focus {
+    border-color: transparent;
+    outline: none;
+}
+
+.combobox--fluid {
     width: 100%;
 
     .combobox__control > input {
         width: 100%;
+    }
+}
+
+.combobox__status {
+    .dropdown-status;
+}
+
+// background icon
+span.combobox__status {
+    .dropdown-status-background;
+}
+
+.combobox__option[role^="option"][aria-selected="true"] .combobox__status {
+    opacity: 1;
+}
+
+@media all and (-ms-high-contrast: active),
+    all and (-ms-high-contrast: none) {
+    *::-ms-backdrop,
+    .combobox__value {
+        min-width: 100%;
     }
 }
 
