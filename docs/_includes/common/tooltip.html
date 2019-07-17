@@ -62,6 +62,7 @@
     {% endhighlight %}
 
     <h4 id="tooltip-infotip">Infotip</h4>
+
     <p>An infotip is a standalone button that activates only on click. The purpose of the infotip is to inform the user about a non-clickable element or page section.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the button to expand or collapse the infotip.</p>
 
@@ -73,20 +74,20 @@
                         <use xlink:href="#icon-information"></use>
                     </svg>
                 </button>
-                <span class="infotip__overlay" style="top: 45px; left: -4px;">
+                <div class="infotip__overlay">
                     <span class="infotip__pointer infotip__pointer--top-left"></span>
-                    <span class="infotip__mask">
-                        <span class="infotip__cell">
+                    <div class="infotip__mask">
+                        <div class="infotip__cell">
                             <span class="infotip__content">
-                                <span class="infotip__heading">Infotip</span>
-                                <span>Here's a tip to help you be successful at your task.</span>
+                                <h3 class="infotip__heading">Infotip</h3>
+                                <p>Here's a tip to help you be successful at your task.</p>
                             </span>
                             <button aria-label="Dismiss infotip" class="infotip__close" type="button">
                                 <span aria-hidden="true" role="img"></span>
                             </button>
-                        </span>
-                    </span>
-                </span>
+                        </div>
+                    </div>
+                </div>
             </span>
         </div>
     </div>
@@ -97,21 +98,82 @@
             <use xlink:href="#icon-information"></use>
         </svg>
     </button>
-    <span class="infotip__overlay">
+    <div class="infotip__overlay">
         <span class="infotip__pointer infotip__pointer--top-left"></span>
-        <span class="infotip__mask">
-            <span class="infotip__cell">
+        <div class="infotip__mask">
+            <div class="infotip__cell">
                 <span class="infotip__content">
-                    <span class="infotip__heading">Infotip</span>
-                    <span>Here's a tip to help you be successful at your task.</span>
+                    <h3 class="infotip__heading">Infotip</h3>
+                    <p>Here's a tip to help you be successful at your task.</p>
                 </span>
                 <button aria-label="Dismiss infotip" class="infotip__close" type="button">
                     <span aria-hidden="true" role="img"></span>
                 </button>
+            </div>
+        </div>
+    </div>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <p>
+        In case you want to nest the infotip inside a paragraph element, you need to make sure that
+        there are no block level elements, such as div, h1-6, or p elements.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <p>
+                Inside paragraph
+                <span class="infotip">
+                    <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+                        <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+                            <use xlink:href="#icon-information"></use>
+                        </svg>
+                    </button>
+                    <span class="infotip__overlay" style="top: 45px; left: -4px;">
+                        <span class="infotip__pointer infotip__pointer--top-left"></span>
+                        <span class="infotip__mask">
+                            <span class="infotip__cell">
+                                <span class="infotip__content">
+                                    <span class="infotip__heading">Infotip</span>
+                                    <span>Here's a tip to help you be successful at your task.</span>
+                                </span>
+                                <button aria-label="Dismiss infotip" class="infotip__close" type="button">
+                                    <span aria-hidden="true" role="img"></span>
+                                </button>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </p>
+        </div>
+    </div>
+    {% highlight html %}
+<p>
+    Inside paragraph
+    <span class="infotip">
+        <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+            <svg aria-hidden="true" class="svg-icon" focusable="false" width="16" height="16">
+                <use xlink:href="#icon-information"></use>
+            </svg>
+        </button>
+        <span class="infotip__overlay">
+            <span class="infotip__pointer infotip__pointer--top-left"></span>
+            <span class="infotip__mask">
+                <span class="infotip__cell">
+                    <span class="infotip__content">
+                        <span class="infotip__heading">Infotip</span>
+                        <span>Here's a tip to help you be successful at your task.</span>
+                    </span>
+                    <button aria-label="Dismiss infotip" class="infotip__close" type="button">
+                        <span aria-hidden="true" role="img"></span>
+                    </button>
+                </span>
             </span>
         </span>
     </span>
-</span>
+</p>
     {% endhighlight %}
 
     <h4 id="tooltip-tour">Tourtip</h4>
