@@ -7,6 +7,8 @@
 *
 * A listbox can be a standalone focusable widget, or controlled by a separate, focusable widget
 * (a textbox for example, in the case of a combobox or datepicker)
+*
+* This listbox code currently supports single-selct only!
 */
 
 const findIndex = require('core-js-pure/features/array/find-index');
@@ -20,6 +22,7 @@ function onFocus(e) {
     if (this._mouseDownFlag !== true && this._options.autoSelect === true && this.index === -1) {
         this._activeDescendant.index = 0;
         this.items[0].setAttribute('aria-selected', 'true');
+
         if (this._options.useAriaChecked === true) {
             this.items[0].setAttribute('aria-checked', 'true');
         }
@@ -34,9 +37,6 @@ function onMouseDown(e) {
     this._mouseDownFlag = true;
 }
 
-/*
-*   A keydown only happens on a listbox with manual selection
-*/
 function onKeyDown(e) {
     if (e.keyCode === 13 || e.keyCode === 32) { // enter key or spacebar key
         const toElIndex = this._activeDescendant.index;
@@ -46,20 +46,10 @@ function onKeyDown(e) {
         if (isTolElSelected === false) {
             this.unselect(this.index);
             this.select(toElIndex);
-
-            this.el.dispatchEvent(new CustomEvent('listbox-change', {
-                detail: {
-                    optionIndex: toElIndex,
-                    optionValue: toEl.innerText
-                }
-            }));
         }
     }
 }
 
-/*
-*   A click only happens on a listbox with manual selection
-*/
 function onClick(e) {
     const toEl = e.target;
     const toElIndex = toEl.dataset.makeupIndex;
@@ -68,39 +58,25 @@ function onClick(e) {
     if (isTolElSelected === false) {
         this.unselect(this.index);
         this.select(toElIndex);
-
-        this.el.dispatchEvent(new CustomEvent('listbox-change', {
-            detail: {
-                optionIndex: toElIndex,
-                optionValue: toEl.innerText
-            }
-        }));
     }
 }
 
-/*
-*   The maekeup-active-descendant does all of the heavy lifting for managing aria-activedescendant state
-*/
 function _onActiveDescendantChange(e) {
-    const fromEl = this.items[e.detail.fromIndex];
-    const toEl =  this.items[e.detail.toIndex];
+    this.el.dispatchEvent(new CustomEvent('listbox-active-descendant-change', {
+        detail: e.detail
+    }));
 
-    if (fromEl) {
-        if (this._options.useAriaChecked === true) {
-            fromEl.setAttribute('aria-checked', 'false');
-        }
-    }
+    if (this._options.autoSelect === true) {
+        const fromEl = this.items[e.detail.fromIndex];
+        const toEl =  this.items[e.detail.toIndex];
 
-    if (toEl) {
-        if (this._options.useAriaChecked === true) {
-            toEl.setAttribute('aria-checked', 'true');
+        if (fromEl) {
+            this.unselect(e.detail.fromIndex);
         }
 
-        this.el.dispatchEvent(new CustomEvent('listbox-change', {
-            detail: {
-                optionValue: toEl.innerText
-            }
-        }));
+        if (toEl) {
+            this.select(e.detail.toIndex);
+        }
     }
 }
 
@@ -138,8 +114,7 @@ module.exports = class {
                 activeDescendantClassName: this._options.activeDescendantClassName,
                 autoInit: this.index,
                 autoReset: this._options.autoReset,
-                axis: 'y',
-                useAriaSelected: this._options.autoSelect
+                axis: 'y'
             }
         );
 
@@ -167,9 +142,17 @@ module.exports = class {
     select(index) {
         if (index > -1 && index < this.items.length) {
             this.items[index].setAttribute('aria-selected', 'true');
+
             if (this._options.useAriaChecked === true) {
                 this.items[index].setAttribute('aria-checked', 'true');
             }
+
+            this.el.dispatchEvent(new CustomEvent('listbox-change', {
+                detail: {
+                    optionIndex: index,
+                    optionValue: this.items[index].innerText
+                }
+            }));
         }
     }
 
@@ -194,12 +177,9 @@ module.exports = class {
         if (this._destroyed !== true) {
             this._listboxEl.addEventListener('focus', this._onFocusListener);
             this._listboxEl.addEventListener('mousedown', this._onMouseDownListener);
-            if (this._options.autoSelect === true) {
-                this._activeDescendantRootEl.addEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
-            } else {
-                this._listboxEl.addEventListener('keydown', this._onKeyDownListener);
-                this._listboxEl.addEventListener('click', this._onClickListener);
-            }
+            this._activeDescendantRootEl.addEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
+            this._listboxEl.addEventListener('keydown', this._onKeyDownListener);
+            this._listboxEl.addEventListener('click', this._onClickListener);
         }
     }
 
