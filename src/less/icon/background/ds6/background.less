@@ -2,404 +2,190 @@
 @import "../../../less/ds6/mixins.less";
 @import "../../../less/ds6/variables.less";
 
-.icon-size-mixin(@icon-string) {
-    height: ~"@{ds6-@{icon-string}-height}"; // string resolves to a LESS variable
-    width: ~"@{ds6-@{icon-string}-width}"; // string resolves to a LESS variable
+.background-icon-mixin(@name) {
+    background-image: url('data:image/svg+xml;base64,@{ds6-icon-@{name}-base64}');
+    height: ~"@{ds6-icon-@{name}-height}"; // string resolves to a LESS variable
+    width: ~"@{ds6-icon-@{name}-width}"; // string resolves to a LESS variable
 }
 
-span {
-    &.icon {
-        .background-icon-image-base;
-    }
+// IMPORT COMMON ICONS
+@import "../base/background.less";
 
+// DS6 SPECIFIC ICONS
+span {
     &.icon--arrow-left {
-        .background-image-base64(@ds6-icon-arrow-left-base64);
-        .icon-size-mixin('icon-arrow-left');
+        .background-icon-mixin('arrow-left');
     }
 
     &.icon--arrow-right {
-        .background-image-base64(@ds6-icon-arrow-right-base64);
-        .icon-size-mixin('icon-arrow-right');
-    }
-
-    &.icon--arrow-move {
-        .background-image-base64(@ds6-icon-arrow-move-base64);
-        .icon-size-mixin('icon-arrow-move');
+        .background-icon-mixin('arrow-right');
     }
 
     &.icon--arrow-right-bold {
-        .background-image-base64(@ds6-icon-arrow-right-bold-base64);
-        .icon-size-mixin('icon-arrow-right-bold');
+        .background-icon-mixin('arrow-right-bold');
     }
 
-    &.icon--chevron-up {
-        .background-image-base64(@ds6-icon-chevron-up-base64);
-        .icon-size-mixin('icon-chevron-up');
-    }
-
-    &.icon--chevron-down {
-        .background-image-base64(@ds6-icon-chevron-down-base64);
-        .icon-size-mixin('icon-chevron-down');
-    }
-
-    &.icon--chevron-left {
-        .background-image-base64(@ds6-icon-chevron-left-base64);
-        .icon-size-mixin('icon-chevron-left');
-    }
-
-    &.icon--chevron-right {
-        .background-image-base64(@ds6-icon-chevron-right-base64);
-        .icon-size-mixin('icon-chevron-right');
-    }
-
-    &.icon--chevron-up-bold {
-        .background-image-base64(@ds6-icon-chevron-up-bold-base64);
-        .icon-size-mixin('icon-chevron-up-bold');
-    }
-
-    &.icon--chevron-down-bold {
-        .background-image-base64(@ds6-icon-chevron-down-bold-base64);
-        .icon-size-mixin('icon-chevron-down-bold');
-    }
-
-    &.icon--checkbox-unchecked {
-        .background-image-base64(@ds6-icon-checkbox-unchecked-base64);
-        .icon-size-mixin('icon-checkbox-unchecked');
-    }
-
-    &.icon--checkbox-checked {
-        .background-image-base64(@ds6-icon-checkbox-checked-base64);
-        .icon-size-mixin('icon-checkbox-checked');
-    }
-
-    &.icon--radio-unchecked {
-        .background-image-base64(@ds6-icon-radio-unchecked-base64);
-        .icon-size-mixin('icon-radio-unchecked');
-    }
-
-    &.icon--radio-checked {
-        .background-image-base64(@ds6-icon-radio-checked-base64);
-        .icon-size-mixin('icon-radio-checked');
-    }
-
-    &.icon--tick {
-        .background-image-base64(@ds6-icon-tick-base64);
-        .icon-size-mixin('icon-tick');
-    }
-
-    &.icon--menu {
-        .background-image-base64(@ds6-icon-menu-base64);
-        .icon-size-mixin('icon-menu');
-    }
-
-    &.icon--close {
-        .background-image-base64(@ds6-icon-close-base64);
-        .icon-size-mixin('icon-close');
-    }
-
-    &.icon--cart {
-        .background-image-base64(@ds6-icon-cart-base64);
-        .icon-size-mixin('icon-cart');
-    }
-
-    &.icon--notification {
-        .background-image-base64(@ds6-icon-notification-base64);
-        .icon-size-mixin('icon-notification');
-    }
-
-    &.icon--search {
-        .background-image-base64(@ds6-icon-search-base64);
-        .icon-size-mixin('icon-search');
-    }
-
-    &.icon--search-bold {
-        .background-image-base64(@ds6-icon-search-bold-base64);
-        .icon-size-mixin('icon-search-bold');
-    }
-
-    &.icon--overflow {
-        .background-image-base64(@ds6-icon-overflow-base64);
-        .icon-size-mixin('icon-overflow');
+    &.icon--arrow-move {
+        .background-icon-mixin('arrow-move');
     }
 
     &.icon--bids {
-        .background-image-base64(@ds6-icon-bids-base64);
-        .icon-size-mixin('icon-bids');
+        .background-icon-mixin('bids');
     }
 
     &.icon--categories {
-        .background-image-base64(@ds6-icon-categories-base64);
-        .icon-size-mixin('icon-categories');
+        .background-icon-mixin('categories');
+    }
+
+    &.icon--chevron-up-bold {
+        .background-icon-mixin('chevron-up-bold');
+    }
+
+    &.icon--chevron-down-bold {
+        .background-icon-mixin('chevron-down-bold');
     }
 
     &.icon--deals {
-        .background-image-base64(@ds6-icon-deals-base64);
-        .icon-size-mixin('icon-deals');
-    }
-
-    &.icon--download {
-        .background-image-base64(@ds6-icon-download-base64);
-        .icon-size-mixin('icon-download');
-    }
-
-    &.icon--event {
-        .background-image-base64(@ds6-icon-event-base64);
-        .icon-size-mixin('icon-event');
-    }
-
-    &.icon--help {
-        .background-image-base64(@ds6-icon-help-base64);
-        .icon-size-mixin('icon-help');
-    }
-
-    &.icon--profile {
-        .background-image-base64(@ds6-icon-profile-base64);
-        .icon-size-mixin('icon-profile');
-    }
-
-    &.icon--purchases {
-        .background-image-base64(@ds6-icon-purchases-base64);
-        .icon-size-mixin('icon-purchases');
-    }
-
-    &.icon--selling {
-        .background-image-base64(@ds6-icon-selling-base64);
-        .icon-size-mixin('icon-selling');
-    }
-
-    &.icon--settings {
-        .background-image-base64(@ds6-icon-settings-base64);
-        .icon-size-mixin('icon-settings');
-    }
-
-    &.icon--watch {
-        .background-image-base64(@ds6-icon-watch-base64);
-        .icon-size-mixin('icon-watch');
-    }
-
-    &.icon--save {
-        .background-image-base64(@ds6-icon-save-base64);
-        .icon-size-mixin('icon-save');
-    }
-
-    &.icon--save-bold {
-        .background-image-base64(@ds6-icon-save-bold-base64);
-        .icon-size-mixin('icon-save-bold');
-    }
-
-    &.icon--save-selected {
-        .background-image-base64(@ds6-icon-save-selected-base64);
-        .icon-size-mixin('icon-save-selected');
-    }
-
-    &.icon--camera {
-        .background-image-base64(@ds6-icon-camera-base64);
-        .icon-size-mixin('icon-camera');
-    }
-
-    &.icon--mic {
-        .background-image-base64(@ds6-icon-mic-base64);
-        .icon-size-mixin('icon-mic');
-    }
-
-    &.icon--clear {
-        .background-image-base64(@ds6-icon-clear-base64);
-        .icon-size-mixin('icon-clear');
-    }
-
-    &.icon--top-seller {
-        .background-image-base64(@ds6-icon-top-seller-base64);
-        .icon-size-mixin('icon-top-seller');
-    }
-
-    &.icon--fast-n-free {
-        .background-image-base64(@ds6-icon-fast-n-free-base64);
-        .icon-size-mixin('icon-fast-n-free');
-    }
-
-    &.icon--filter-gallery {
-        .background-image-base64(@ds6-icon-filter-gallery-base64);
-        .icon-size-mixin('icon-filter-gallery');
-    }
-
-    &.icon--filter-single {
-        .background-image-base64(@ds6-icon-filter-single-base64);
-        .icon-size-mixin('icon-filter-single');
-    }
-
-    &.icon--filter-list {
-        .background-image-base64(@ds6-icon-filter-list-base64);
-        .icon-size-mixin('icon-filter-list');
-    }
-
-    &.icon--home {
-        .background-image-base64(@ds6-icon-home-base64);
-        .icon-size-mixin('icon-home');
-    }
-
-    &.icon--info {
-        .background-image-base64(@ds6-icon-info-base64);
-        .icon-size-mixin('icon-info');
-    }
-
-    &.icon--messages {
-        .background-image-base64(@ds6-icon-messages-base64);
-        .icon-size-mixin('icon-messages');
-    }
-
-    &.icon--following {
-        .background-image-base64(@ds6-icon-following-base64);
-        .icon-size-mixin('icon-following');
-    }
-
-    &.icon--send {
-        .background-image-base64(@ds6-icon-send-base64);
-        .icon-size-mixin('icon-send');
-    }
-
-    &.icon--refresh {
-        .background-image-base64(@ds6-icon-refresh-base64);
-        .icon-size-mixin('icon-refresh');
-    }
-
-    &.icon--add {
-        .background-image-base64(@ds6-icon-add-base64);
-        .icon-size-mixin('icon-add');
-    }
-
-    &.icon--sign-out {
-        .background-image-base64(@ds6-icon-sign-out-base64);
-        .icon-size-mixin('icon-sign-out');
-    }
-
-    &.icon--user-profile {
-        .background-image-base64(@ds6-icon-user-profile-base64);
-        .icon-size-mixin('icon-user-profile');
-    }
-
-    &.icon--flag {
-        .background-image-base64(@ds6-icon-flag-base64);
-        .icon-size-mixin('icon-flag');
-    }
-
-    &.icon--pause {
-        .background-image-base64(@ds6-icon-pause-base64);
-        .icon-size-mixin('icon-pause');
-    }
-
-    &.icon--play {
-        .background-image-base64(@ds6-icon-play-base64);
-        .icon-size-mixin('icon-play');
-    }
-
-    &.icon--photo-rotate {
-        .background-image-base64(@ds6-icon-photo-rotate-base64);
-        .icon-size-mixin('icon-photo-rotate');
-    }
-
-    &.icon--photo-crop {
-        .background-image-base64(@ds6-icon-photo-crop-base64);
-        .icon-size-mixin('icon-photo-crop');
-    }
-
-    &.icon--photo-select-all {
-        .background-image-base64(@ds6-icon-photo-select-all-base64);
-        .icon-size-mixin('icon-photo-select-all');
-    }
-
-    &.icon--photo-select-none {
-        .background-image-base64(@ds6-icon-photo-select-none-base64);
-        .icon-size-mixin('icon-photo-select-none');
-    }
-
-    &.icon--photo-brightness {
-        .background-image-base64(@ds6-icon-photo-brightness-base64);
-        .icon-size-mixin('icon-photo-brightness');
-    }
-
-    &.icon--photo-gallery {
-        .background-image-base64(@ds6-icon-photo-gallery-base64);
-        .icon-size-mixin('icon-photo-gallery');
-    }
-
-    &.icon--photo-gallery-more {
-        .background-image-base64(@ds6-icon-photo-gallery-more-base64);
-        .icon-size-mixin('icon-photo-gallery-more');
+        .background-icon-mixin('deals');
     }
 
     &.icon--delete {
-        .background-image-base64(@ds6-icon-delete-base64);
-        .icon-size-mixin('icon-delete');
+        .background-icon-mixin('delete');
     }
 
-    &.icon--thumbs-up {
-        .background-image-base64(@ds6-icon-thumbs-up-base64);
-        .icon-size-mixin('icon-thumbs-up');
+    &.icon--event {
+        .background-icon-mixin('event');
     }
 
-    &.icon--thumbs-up-selected {
-        .background-image-base64(@ds6-icon-thumbs-up-selected-base64);
-        .icon-size-mixin('icon-thumbs-up-selected');
+    &.icon--fast-n-free {
+        .background-icon-mixin('fast-n-free');
     }
 
-    &.icon--thumbs-down {
-        .background-image-base64(@ds6-icon-thumbs-down-base64);
-        .icon-size-mixin('icon-thumbs-down');
+    &.icon--flag {
+        .background-icon-mixin('flag');
     }
 
-    &.icon--thumbs-down-selected {
-        .background-image-base64(@ds6-icon-thumbs-down-selected-base64);
-        .icon-size-mixin('icon-thumbs-down-selected');
+    &.icon--following {
+        .background-icon-mixin('following');
     }
 
-    &.icon--star-empty {
-        .background-image-base64(@ds6-icon-star-empty-base64);
-        .icon-size-mixin('icon-star-empty');
+    &.icon--home {
+        .background-icon-mixin('home');
     }
 
-    &.icon--star-filled {
-        .background-image-base64(@ds6-icon-star-filled-base64);
-        .icon-size-mixin('icon-star-filled');
+    &.icon--mic {
+        .background-icon-mixin('mic');
     }
 
-    &.icon--star-half {
-        .background-image-base64(@ds6-icon-star-half-base64);
-        .icon-size-mixin('icon-star-half');
+    &.icon--overflow {
+        .background-icon-mixin('overflow');
     }
 
-    &.icon--star-undefined {
-        .background-image-base64(@ds6-icon-star-undefined-base64);
-        .icon-size-mixin('icon-star-undefined');
+    &.icon--photo-rotate {
+        .background-icon-mixin('photo-rotate');
+    }
+
+    &.icon--photo-brightness {
+        .background-icon-mixin('photo-brightness');
+    }
+
+    &.icon--photo-crop {
+        .background-icon-mixin('photo-crop');
+    }
+
+    &.icon--photo-gallery {
+        .background-icon-mixin('photo-gallery');
+    }
+
+    &.icon--photo-gallery-more {
+        .background-icon-mixin('photo-gallery-more');
+    }
+
+    &.icon--photo-select-all {
+        .background-icon-mixin('photo-select-all');
+    }
+
+    &.icon--photo-select-none {
+        .background-icon-mixin('photo-select-none');
+    }
+
+    &.icon--purchases {
+        .background-icon-mixin('purchases');
     }
 
     &.icon--red-laser {
-        .background-image-base64(@ds6-icon-red-laser-base64);
-        .icon-size-mixin('icon-red-laser');
+        .background-icon-mixin('red-laser');
     }
 
-    &.icon--window {
-        .background-image-base64(@ds6-icon-window-base64);
-        .icon-size-mixin('icon-window');
+    &.icon--refresh {
+        .background-icon-mixin('refresh');
     }
 
-    // priority deprecated in v7
-    &.icon--priority {
-        .background-image-base64(@ds6-icon-priority-base64);
-        .icon-size-mixin('icon-priority');
+    &.icon--save {
+        .background-icon-mixin('save');
     }
 
-    &.icon--attention {
-        .background-image-base64(@ds6-icon-attention-base64);
-        .icon-size-mixin('icon-attention');
+    &.icon--save-bold {
+        .background-icon-mixin('save-bold');
     }
 
-    &.icon--confirmation {
-        .background-image-base64(@ds6-icon-confirmation-base64);
-        .icon-size-mixin('icon-confirmation');
+    &.icon--save-selected {
+        .background-icon-mixin('save-selected');
     }
 
-    &.icon--information {
-        .background-image-base64(@ds6-icon-information-base64);
-        .icon-size-mixin('icon-information');
+    &.icon--search-bold {
+        .background-icon-mixin('search-bold');
+    }
+
+    &.icon--send {
+        .background-icon-mixin('send');
+    }
+
+    &.icon--sign-out {
+        .background-icon-mixin('sign-out');
+    }
+
+    &.icon--star-empty {
+        .background-icon-mixin('star-empty');
+    }
+
+    &.icon--star-filled {
+        .background-icon-mixin('star-filled');
+    }
+
+    &.icon--star-half {
+        .background-icon-mixin('star-half');
+    }
+
+    &.icon--star-undefined {
+        .background-icon-mixin('star-undefined');
+    }
+
+    &.icon--thumbs-up {
+        .background-icon-mixin('thumbs-up');
+    }
+
+    &.icon--thumbs-down {
+        .background-icon-mixin('thumbs-down');
+    }
+
+    &.icon--thumbs-down-selected {
+        .background-icon-mixin('thumbs-down-selected');
+    }
+
+    &.icon--thumbs-up-selected {
+        .background-icon-mixin('thumbs-up-selected');
+    }
+
+    &.icon--top-seller {
+        .background-icon-mixin('top-seller');
+    }
+
+    &.icon--user-profile {
+        .background-icon-mixin('user-profile');
+    }
+
+    &.icon--watch {
+        .background-icon-mixin('watch');
     }
 }
