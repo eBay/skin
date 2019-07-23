@@ -7,6 +7,11 @@ button.expand-btn,
 a.fake-btn,
 a.cta-btn {
     .btn-base;
+
+    border-radius: @btn-border-radius;
+    display: inline-block;
+    max-width: 100%;
+    padding: @btn-padding;
 }
 
 a.fake-btn:visited {
@@ -21,7 +26,7 @@ a.fake-btn:visited {
 }
 
 button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    .btn-expand-icon-expanded;
+    transform: rotate(180deg);
 }
 
 button.btn--fluid,
@@ -45,7 +50,7 @@ a.cta-btn--fluid {
 }
 
 .expand-btn__cell {
-    .btn-cell-content-space-between;
+    justify-content: space-between;
 }
 
 svg.btn__icon,
@@ -56,12 +61,20 @@ svg.cta-btn__icon {
 }
 
 span.expand-btn__icon {
-    .btn-expand-background-icon;
+    .background-icon-image-base();
+    .btn-expand-icon();
+
+    background-position-y: center;
+    flex-shrink: 0;
+    margin-left: 8px;
 }
 
 span.expand-btn__icon,
 svg.expand-btn__icon {
-    .btn-expand-icon-only-child;
+    &:only-child {
+        display: flex;
+        margin: 0;
+    }
 }
 
 .btn__cell--fixed-height span.btn__icon,
