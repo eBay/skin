@@ -1,138 +1,67 @@
 @import "../../less/variables-common.less";
 @import "../../less/mixins-common.less";
-
-.fixed-height-button() {
-    display: inline-flex;
-
-    > span,
-    > svg {
-        align-self: baseline;
-        max-width: calc(100% - 32px);
-    }
-}
-
-.truncate-button() {
-    &,
-    & span {
-        line-height: 1.4em; // fixes fake and cta buttons
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-}
+@import "../../mixins/button/base/button-mixins.less";
 
 button.btn,
 button.expand-btn,
 a.fake-btn,
 a.cta-btn {
-    background-color: transparent;
-    border: 1px solid;
-    border-color: inherit;
-    border-radius: @btn-border-radius;
-    box-sizing: border-box;
-    color: inherit;
-    display: inline-block;
-    font-family: inherit;
-    font-size: @btn-font-size;
-    margin: 0; // Remove the button margin in Firefox and Safari
-    max-width: 100%;
-    padding: @btn-padding;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: bottom;
-
-    &--fixed-height {
-        height: 40px;
-    }
-
-    &--truncated {
-        .truncate-button();
-
-        height: 40px;
-    }
+    .btn-base;
 }
 
 a.fake-btn:visited {
-    color: inherit;
+    .btn-fake-visited;
 }
 
 .btn__icon,
 .fake-btn__icon,
 .cta-btn__icon,
 .expand-btn__icon {
-    align-self: center;
-
-    &:first-child {
-        margin-right: 8px;
-    }
-
-    &:last-child {
-        margin-left: 8px;
-    }
+    .btn-icon-base;
 }
 
 button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    transform: rotate(180deg);
+    .btn-expand-icon-expanded;
 }
 
 button.btn--fluid,
 button.expand-btn--fluid,
 a.fake-btn--fluid,
 a.cta-btn--fluid {
-    width: 100%;
+    .btn-fluid-base;
 }
 
 .btn__cell,
 .expand-btn__cell,
 .fake-btn__cell,
 .cta-btn__cell {
-    align-items: center;
-    display: flex;
-    width: 100%;
-
-    &--fixed-height {
-        .fixed-height-button();
-    }
-
-    &--truncated {
-        .fixed-height-button();
-    }
+    .btn-cell-base;
 }
 
 .btn__cell,
 .fake-btn__cell,
 .cta-btn__cell {
-    justify-content: center;
+    .btn-cell-content-center;
 }
 
 .expand-btn__cell {
-    justify-content: space-between;
+    .btn-cell-content-space-between;
 }
 
 svg.btn__icon,
 svg.expand-btn__icon,
 svg.fake-btn__icon,
 svg.cta-btn__icon {
-    fill: currentColor;
-    stroke: currentColor;
-    stroke-width: 0;
+    .btn-icon-svg-base;
 }
 
 span.expand-btn__icon {
-    .background-icon-image-base();
-    .btn-expand-icon();
-
-    background-position-y: center;
-    flex-shrink: 0;
-    margin-left: 8px;
+    .btn-expand-background-icon;
 }
 
 span.expand-btn__icon,
 svg.expand-btn__icon {
-    &:only-child {
-        display: flex;
-        margin: 0;
-    }
+    .btn-expand-icon-only-child;
 }
 
 .btn__cell--fixed-height span.btn__icon,
@@ -143,19 +72,17 @@ svg.expand-btn__icon {
 .expand-btn__cell--fixed-height svg.icon,
 .fake-btn__cell--fixed-height svg.icon,
 .cta-btn__cell--fixed-height svg.icon {
-    align-self: center;
+    .btn-fixed-height-icon-alignment;
 }
 
 .btn__cell--fixed-height svg.icon,
 .expand-btn__cell--fixed-height svg.icon,
 .fake-btn__cell--fixed-height svg.icon,
 .cta-btn__cell--fixed-height svg.icon {
-    height: 1rem;
-    width: 1rem;
+    .btn-fixed-height-icon-dimensions;
 }
 
 @import "button-cta.less";
 @import "button-regular.less";
 @import "button-primary.less";
 @import "button-secondary.less";
-@import "button-pill.less";

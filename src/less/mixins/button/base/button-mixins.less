@@ -1,0 +1,127 @@
+@import "../../../less/variables-common.less";
+@import "../../../less/mixins-common.less";
+
+.btn-fake-visited() {
+    color: inherit;
+}
+
+.btn-fixed-height() {
+    display: inline-flex;
+
+    > span,
+    > svg {
+        align-self: baseline;
+        max-width: calc(100% - 32px);
+    }
+}
+
+.btn-truncate() {
+    &,
+    & span {
+        line-height: 1.4em; // fixes fake and cta buttons
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.btn-base() {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: inherit;
+    border-radius: @btn-border-radius;
+    box-sizing: border-box;
+    color: inherit;
+    display: inline-block;
+    font-family: inherit;
+    font-size: @btn-font-size;
+    margin: 0; // Remove the button margin in Firefox and Safari
+    max-width: 100%;
+    padding: @btn-padding;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: bottom;
+
+    &--fixed-height {
+        height: 40px;
+    }
+
+    &--truncated {
+        .btn-truncate();
+
+        height: 40px;
+    }
+}
+
+.btn-icon-base() {
+    align-self: center;
+
+    &:first-child {
+        margin-right: 8px;
+    }
+
+    &:last-child {
+        margin-left: 8px;
+    }
+}
+
+.btn-fluid-base() {
+    width: 100%;
+}
+
+.btn-cell-base() {
+    align-items: center;
+    display: flex;
+    width: 100%;
+
+    &--fixed-height {
+        .btn-fixed-height();
+    }
+
+    &--truncated {
+        .btn-fixed-height();
+    }
+}
+
+.btn-cell-content-center() {
+    justify-content: center;
+}
+
+.btn-cell-content-space-between() {
+    justify-content: space-between;
+}
+
+.btn-icon-svg-base() {
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
+}
+
+.btn-expand-icon-expanded() {
+    transform: rotate(180deg);
+}
+
+.btn-expand-background-icon() {
+    .background-icon-image-base();
+    .btn-expand-icon();
+
+    background-position-y: center;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.btn-expand-icon-only-child() {
+    &:only-child {
+        display: flex;
+        margin: 0;
+    }
+}
+
+.btn-fixed-height-icon-alignment() {
+    align-self: center;
+}
+
+.btn-fixed-height-icon-dimensions() {
+    height: 1rem;
+    width: 1rem;
+}
