@@ -21,12 +21,12 @@ document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
 });
 
 // FAKE MENU
-document.querySelectorAll('.fake-menu').forEach(function(widgetEl) {
+document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
     const widget = new Expander(widgetEl, {
         alwaysDoFocusManagement: true,
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
-        contentSelector: '.fake-menu__items',
+        contentSelector: '.fake-menu-button__items',
         expandOnClick: true,
         focusManagement: 'focusable',
         hostSelector: '.expand-btn'
@@ -183,10 +183,9 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.menu:not(.menu--no-button)').forEach(function(widgetEl) {
+document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
-        expandedClass: '.menu--expanded',
-        menuSelector: '.menu__items'
+        menuSelector: '.menu-button__items'
     });
 
     widget.menu.el.addEventListener('menu-select', function(e) {
@@ -202,7 +201,7 @@ document.querySelectorAll('.menu:not(.menu--no-button)').forEach(function(widget
     });
 });
 
-document.querySelectorAll('.menu--no-button').forEach(function(widgetEl) {
+document.querySelectorAll('.menu').forEach(function(widgetEl) {
     const widget = new Menu(widgetEl);
 
     widgetEl.addEventListener('menu-select', function(e) {
