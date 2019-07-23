@@ -30,7 +30,7 @@ function onMenuItemSelect(e) {
 
 const defaultOptions = {
     expandedClass: 'menu-button--expanded',
-    menuSelector: '.menu-button__items'
+    menuSelector: '.menu-button__menu'
 };
 
 module.exports = class {

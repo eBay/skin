@@ -26,7 +26,7 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
         alwaysDoFocusManagement: true,
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
-        contentSelector: '.fake-menu-button__items',
+        contentSelector: '.fake-menu-button__menu',
         expandOnClick: true,
         focusManagement: 'focusable',
         hostSelector: '.expand-btn'
@@ -185,7 +185,7 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
 
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
-        menuSelector: '.menu-button__items'
+        menuSelector: '.menu-button__menu'
     });
 
     widget.menu.el.addEventListener('menu-select', function(e) {
