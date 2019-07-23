@@ -5,18 +5,9 @@
           box-sizing: border-box;
   min-width: 100%;
   width: auto;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-          box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-  display: none;
   max-height: 400px;
   overflow-y: auto;
-  position: absolute;
-  top: calc(100% - 1px);
   z-index: 1;
-}
-.menu > .menu__items {
-  display: block;
-  position: static;
 }
 span.menu,
 span.fake-menu {
@@ -31,52 +22,6 @@ span.fake-menu__items {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-div.menu__item[role^="menuitem"],
-a.fake-menu__item,
-button.fake-menu__item {
-  background-color: #fff;
-  border: 1px solid transparent;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  cursor: default;
-  display: -webkit-inline-box;
-  display: inline-flex;
-  font-size: 0.875rem;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  line-height: 2.5;
-  padding: 0 16px;
-  width: 100%;
-}
-div.menu__item[role^="menuitem"]:not(:last-child),
-a.fake-menu__item:not(:last-child),
-button.fake-menu__item:not(:last-child) {
-  margin-bottom: 1px;
-}
-div.menu__item[role^="menuitem"]:hover,
-a.fake-menu__item:hover,
-button.fake-menu__item:hover {
-  background-color: #eee;
-}
-div.menu__item[role^="menuitem"]:active,
-a.fake-menu__item:active,
-button.fake-menu__item:active {
-  font-weight: normal;
-}
-div.menu__item[role^="menuitem"]:active .menu-button__status,
-a.fake-menu__item:active .menu-button__status,
-button.fake-menu__item:active .menu-button__status,
-div.menu__item[role^="menuitem"]:active .fake-menu-button__status,
-a.fake-menu__item:active .fake-menu-button__status,
-button.fake-menu__item:active .fake-menu-button__status,
-div.menu__item[role^="menuitem"]:active .menu__status,
-a.fake-menu__item:active .menu__status,
-button.fake-menu__item:active .menu__status,
-div.menu__item[role^="menuitem"]:active .listbox__status,
-a.fake-menu__item:active .listbox__status,
-button.fake-menu__item:active .listbox__status {
-  color: #ccc;
 }
 .menu__status,
 .fake-menu__status {
@@ -103,28 +48,51 @@ span.fake-menu__status {
   flex-shrink: 0;
   pointer-events: none;
 }
-a.fake-menu__item {
-  color: #333;
-  text-decoration: none;
-}
-a.fake-menu__item:focus {
-  text-decoration: underline;
-}
 .fake-menu__status:last-child,
 .menu__item .badge,
 .menu__status:last-child {
   margin-left: 8px;
 }
-.menu__items--scroll[role="menu"] {
-  overflow-y: scroll;
+a.fake-menu__item {
+  color: #333;
+  text-decoration: none;
 }
-.menu__items--fix-width[role="menu"],
-.fake-menu__items--fix-width {
+button.fake-menu__item,
+a.fake-menu__item,
+div.menu__item[role^="menuitem"] {
+  background-color: #fff;
+  border: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: default;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  font-size: 0.875rem;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  line-height: 2.5;
+  padding: 0 16px;
   width: 100%;
 }
-.menu__items--reverse[role="menu"],
-.fake-menu__items--reverse {
-  right: 0;
+button.fake-menu__item:not(:last-child),
+a.fake-menu__item:not(:last-child),
+div.menu__item[role^="menuitem"]:not(:last-child) {
+  margin-bottom: 1px;
+}
+button.fake-menu__item:hover,
+a.fake-menu__item:hover,
+div.menu__item[role^="menuitem"]:hover {
+  background-color: #eee;
+}
+button.fake-menu__item:active,
+a.fake-menu__item:active,
+div.menu__item[role^="menuitem"]:active {
+  font-weight: normal;
+}
+button.fake-menu__item:active .fake-menu__status,
+a.fake-menu__item:active .fake-menu__status,
+div.menu__item[role^="menuitem"]:active .menu__status {
+  color: #ccc;
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
 a.fake-menu__item[aria-current="page"] .fake-menu__status,
@@ -139,6 +107,20 @@ div.menu__item[role^="menuitem"] span:not([class*="menu__status"]) {
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
+}
+a.fake-menu__item:focus {
+  text-decoration: underline;
+}
+.menu__items--scroll[role="menu"] {
+  overflow-y: scroll;
+}
+.menu__items--fix-width[role="menu"],
+.fake-menu__items--fix-width {
+  width: 100%;
+}
+.menu__items--reverse[role="menu"],
+.fake-menu__items--reverse {
+  right: 0;
 }
 .menu button.expand-btn--borderless,
 .fake-menu button.expand-btn--borderless {
