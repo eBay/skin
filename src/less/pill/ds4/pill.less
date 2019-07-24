@@ -1,0 +1,194 @@
+@import "../../less/ds4/variables.less";
+@import "../../less/ds4/mixins.less";
+@import "../../mixins/button/ds4/button-mixins.less";
+@import "../base/pill.less";
+
+.pill-size-rules(@fontSize, @padding) {
+    font-size: @fontSize;
+    padding: @padding;
+}
+
+button.pill,
+a.fake-pill {
+    line-height: 1.3em;
+
+    &__cell--fixed-height &__icon {
+        align-self: center;
+        overflow: visible;
+    }
+
+    &--small {
+        .pill-size-rules(@ds4-font-size-12, 8px 32px);
+
+        &-fixed-height {
+            height: 32px;
+        }
+
+        &-truncated {
+            .pill-size-rules(@ds4-font-size-12, 8px 32px);
+            .btn-truncate;
+
+            height: 32px;
+        }
+    }
+
+    &--medium {
+        .pill-size-rules(@ds4-font-size-14, 11px 40px);
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .pill-size-rules(@ds4-font-size-14, 11px 40px);
+            .btn-truncate;
+
+            height: 40px;
+        }
+    }
+
+    &--large {
+        .pill-size-rules(@ds4-font-size-16, 14px 48px);
+
+        &-fixed-height {
+            height: 48px;
+        }
+
+        &-truncated {
+            .pill-size-rules(@ds4-font-size-16, 14px 48px);
+            .btn-truncate;
+
+            height: 48px;
+        }
+    }
+
+    &--extra-large {
+        // chrome and firefox disagree on calculations, so 15.875px is a compromise
+        .pill-size-rules(@ds4-font-size-18, 15.875px 56px);
+
+        &-fixed-height {
+            height: 56px;
+        }
+
+        &-truncated {
+            .pill-size-rules(@ds4-font-size-18, 15.875px 56px);
+            .btn-truncate;
+
+            height: 56px;
+        }
+    }
+}
+
+button.pill--regular,
+a.fake-pill--regular {
+    &:hover,
+    &:focus {
+        border-color: @ds4-color-core-gray-spanish;
+    }
+}
+
+button.pill--primary,
+a.fake-pill--primary,
+button.pill--selected,
+a.fake-pill--selected {
+    svg {
+        color: @ds4-color-core-white;
+        fill: @ds4-color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: @ds4-color-interface-cta;
+        opacity: 0.8;
+    }
+
+    &:active {
+        background-color: @ds4-color-core-blue-dark;
+    }
+}
+
+button.pill--secondary,
+a.fake-pill--secondary,
+button.pill--unselected,
+a.fake-pill--unselected {
+    svg {
+        color: @ds4-color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@ds4-color-core-gray-gainsboro, 50%);
+        border-color: @ds4-color-core-gray-dim;
+    }
+
+    &:active {
+        background-color: fade(@ds4-color-core-gray-gainsboro, 50%);
+        border-color: fade(@ds4-color-core-gray-davys, 50%);
+    }
+}
+
+a.fake-pill--primary:not([href]),
+a.fake-pill--primary[aria-disabled="true"],
+a.fake-pill--selected:not([href]),
+a.fake-pill--selected[aria-disabled="true"] {
+    svg {
+        color: @ds4-color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @ds4-color-interface-cta;
+        border-color: @ds4-color-interface-cta;
+        opacity: 0.5;
+    }
+}
+
+a.fake-pill--secondary:not([href]),
+a.fake-pill--secondary[aria-disabled="true"],
+a.fake-pill--unselected:not([href]),
+a.fake-pill--unselected[aria-disabled="true"] {
+    background-color: @ds4-color-core-gray-silver;
+
+    svg {
+        color: @ds4-color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @ds4-color-core-gray-silver;
+        border-color: @ds4-color-text-disabled;
+    }
+}
+
+button.pill--primary[disabled],
+button.pill--primary[aria-disabled="true"],
+button.pill--selected[disabled],
+button.pill--selected[aria-disabled="true"] {
+    svg {
+        color: @ds4-color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @ds4-color-interface-cta;
+        border-color: @ds4-color-interface-cta;
+        opacity: 0.5;
+    }
+}
+
+button.pill--secondary[disabled],
+button.pill--secondary[aria-disabled="true"],
+button.pill--unselected[disabled],
+button.pill--unselected[aria-disabled="true"] {
+    background-color: @ds4-color-core-gray-silver;
+
+    svg {
+        color: @ds4-color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @ds4-color-core-gray-silver;
+        border-color: @ds4-color-text-disabled;
+    }
+}
