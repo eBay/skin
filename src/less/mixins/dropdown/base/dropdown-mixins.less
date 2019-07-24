@@ -13,14 +13,19 @@
     width: auto;
 }
 
-.dropdown-overlay() {
-    box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-    display: none;
+.dropdown-overlay-constraints() {
     max-height: 400px;
     overflow-y: auto;
+    z-index: 1;
+}
+
+.dropdown-overlay() {
+    .dropdown-overlay-constraints;
+
+    box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
+    display: none;
     position: absolute;
     top: calc(100% - 1px);
-    z-index: 1;
 }
 
 .dropdown() {
@@ -50,10 +55,7 @@
 
     &:active {
         font-weight: @dropdown-item-active-font-weight;
-
-        .listbox__status {
-            color: @dropdown-item-active-status-color;
-        }
+        // In future add a generic status class used by all dropdowns
     }
 }
 

@@ -1,0 +1,132 @@
+.menu-button,
+.fake-menu-button {
+    line-height: normal;
+    position: relative;
+
+    &__menu {
+        .dropdown;
+    }
+}
+
+span.menu-button,
+span.fake-menu-button {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+span.menu-button__menu,
+span.fake-menu-button__menu {
+    display: inline-block;
+}
+
+.fake-menu-button__menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.menu-button__item[role^="menuitem"],
+a.fake-menu-button__item,
+button.fake-menu-button__item {
+    .dropdown-option;
+}
+
+.menu-button__status,
+.fake-menu-button__status {
+    .dropdown-status;
+}
+
+span.menu-button__status,
+span.fake-menu-button__status {
+    .dropdown-status-background;
+}
+
+.fake-menu-button__status:last-child,
+.menu-button__item .badge,
+.menu-button__status:last-child {
+    margin-left: 8px;
+}
+
+// anchor tag specific
+a.fake-menu-button__item {
+    color: @dropdown-fake-anchor-color;
+    text-decoration: none;
+
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+button.fake-menu-button__item:active .fake-menu-button__status,
+div.menu-button__item[role^="menuitem"]:active .menu-button__status,
+a.fake-menu-button__item:active .fake-menu-button__status {
+    color: @dropdown-item-active-status-color;
+}
+
+div.menu-button__item[role^="menuitem"][aria-checked="true"] .menu-button__status,
+a.fake-menu-button__item[aria-current="page"] .fake-menu-button__status,
+button.fake-menu-button__item[aria-current="page"] .fake-menu-button__status {
+    opacity: 1;
+}
+
+a.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
+button.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
+div.menu-button__item[role^="menuitem"] span:not([class*="menu-button__status"]) {
+    .truncate;
+
+    flex: 1 0 auto;
+}
+
+.menu-button__menu--scroll {
+    overflow-y: scroll;
+}
+
+.menu-button__menu--fix-width,
+.fake-menu-button__menu--fix-width {
+    width: 100%;
+}
+
+.menu-button__menu--reverse,
+.fake-menu-button__menu--reverse {
+    right: 0;
+}
+
+.menu-button button.expand-btn--borderless,
+.fake-menu-button button.expand-btn--borderless {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+    vertical-align: initial;
+
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+.menu-button .expand-btn[aria-expanded="true"],
+.fake-menu-button .expand-btn[aria-expanded="true"] {
+    border-bottom-color: transparent;
+}
+
+.menu-button .expand-btn[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu-button .expand-btn[aria-expanded="true"] ~ .fake-menu-button__menu {
+    display: block;
+}
+
+.expand-btn ~ .menu-button__menu--static,
+.expand_btn ~ .fake-menu-button__menu--static {
+    position: static;
+}
+
+.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
+    top: 41px; // button height plus one px, to meet design guidelines
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    span.menu-button__status,
+    span.fake-menu-button__status {
+        background-image: url('data:image/svg+xml;base64,@{dropdown-status-base64-light}');
+    }
+}
