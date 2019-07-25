@@ -1,8 +1,72 @@
-// DS6.v1.01
-
 @import "../../less/ds6/variables.less";
 @import "../../less/ds6/mixins.less";
-@import "textbox-mixins.less";
+
+.placeholder() {
+    &::-webkit-input-placeholder {
+        color: @ds6-color-grey4;
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        color: @ds6-color-grey4;
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        color: @ds6-color-grey4;
+        font-weight: 200;
+    }
+}
+
+.placeholder-disabled() {
+    &::-webkit-input-placeholder {
+        color: @ds6-color-grey1;
+    }
+
+    &::-moz-placeholder {
+        color: @ds6-color-grey1;
+    }
+
+    &:-ms-input-placeholder {
+        color: @ds6-color-grey1;
+    }
+}
+
+.placeholder-floated() {
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    &::placeholder {
+        color: transparent;
+    }
+}
+
+.placeholder-floated--focus() {
+    &:focus::-webkit-input-placeholder {
+        color: @ds6-color-grey4;
+    }
+
+    &:focus::-moz-placeholder {
+        color: @ds6-color-grey4;
+    }
+
+    &:focus:-ms-input-placeholder {
+        color: @ds6-color-grey4;
+    }
+
+    &:focus::placeholder {
+        color: @ds6-color-grey4;
+    }
+}
 
 @textbox-control-background: @ds6-color-white;
 @textbox-control-border-color: @ds6-color-grey4;
@@ -29,6 +93,15 @@
 @textbox-rtl-icon-first-child-textbox-control-padding-left: 17px;
 @textbox-rtl-icon-end-last-child-left: 17px;
 @textbox-rtl-icon-end-last-child-textbox-control-padding-right: 17px;
+
+// Fixed Height Values for Textbox, Combobox & Button
+// (size are PX intentionally, and should not scale with root font size)
+//-----------------------------
+
+@ds6-height-control-small: 40px;
+@ds6-height-control-medium: 40px;
+@ds6-height-control-large: 48px;
+@ds6-height-control-extra-large: 48px;
 
 @import "../base/textbox.less";
 

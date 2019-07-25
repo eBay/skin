@@ -1,6 +1,72 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
-@import "textbox-mixins.less";
+
+.placeholder() {
+    &::-webkit-input-placeholder {
+        color: @ds4-color-core-gray-dim;
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        color: @ds4-color-core-gray-dim;
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        color: @ds4-color-core-gray-dim;
+        font-weight: 200;
+    }
+}
+
+.placeholder-disabled() {
+    &::-webkit-input-placeholder {
+        color: @ds4-color-core-gray-silver;
+    }
+
+    &::-moz-placeholder {
+        color: @ds4-color-core-gray-silver;
+    }
+
+    &:-ms-input-placeholder {
+        color: @ds4-color-core-gray-silver;
+    }
+}
+
+.placeholder-floated() {
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    &::placeholder {
+        color: transparent;
+    }
+}
+
+.placeholder-floated--focus() {
+    &:focus::-webkit-input-placeholder {
+        color: @ds4-color-core-gray-dim;
+    }
+
+    &:focus::-moz-placeholder {
+        color: @ds4-color-core-gray-dim;
+    }
+
+    &:focus:-ms-input-placeholder {
+        color: @ds4-color-core-gray-dim;
+    }
+
+    &:focus::placeholder {
+        color: @ds4-color-core-gray-dim;
+    }
+}
 
 @textbox-control-background: @ds4-color-core-white;
 @textbox-control-border-color: @ds4-color-core-gray-silver;
@@ -27,6 +93,15 @@
 @textbox-rtl-icon-first-child-textbox-control-padding-left: 16px;
 @textbox-rtl-icon-end-last-child-left: 16px;
 @textbox-rtl-icon-end-last-child-textbox-control-padding-right: 16px;
+
+// Fixed Height Values for Textbox, Combobox & Button
+// (size are PX intentionally, and should not scale with root font size)
+//-----------------------------
+
+@ds4-height-control-small: 32px;
+@ds4-height-control-medium: 40px;
+@ds4-height-control-large: 48px;
+@ds4-height-control-extra-large: 56px;
 
 @import "../base/textbox.less";
 
