@@ -19,12 +19,12 @@
     }
 
     &:not([hidden]) {
-        .background-icon-image-base();
+        .background-icon-base-mixin;
         .checked-icon-unchecked();
     }
 
     & svg {
-        .foreground-icon-base;
+        .foreground-icon-base-mixin;
 
         height: 18px;
         width: 18px;
@@ -61,7 +61,7 @@
 
     &:checked {
         & + .checkbox__icon:not([hidden]) {
-            .background-icon-image-base();
+            .background-icon-base-mixin;
             .checked-icon-checked();
         }
 
@@ -77,10 +77,10 @@
 
 @media screen and (-ms-high-contrast: white-on-black) {
     .checkbox__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{checkbox-unchecked-icon-base64-light}');
+        .background-image-base64(@checkbox-unchecked-icon-base64-light);
     }
 
     .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{checkbox-checked-icon-base64-light}');
+        .background-image-base64(@checkbox-checked-icon-base64-light);
     }
 }
