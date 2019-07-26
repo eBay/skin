@@ -1,3 +1,5 @@
+const pageWidgets = [];
+
 const Modal = require('makeup-modal');
 const transition = require("./transition");
 const RovingTabindex = require('makeup-roving-tabindex');
@@ -20,17 +22,16 @@ document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
-// FAKE MENU
+// FAKE MENU BUTTON
 document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
-    const widget = new Expander(widgetEl, {
-        alwaysDoFocusManagement: true,
-        collapseOnFocusOut: true,
-        collapseOnMouseOut: true,
-        contentSelector: '.fake-menu-button__menu',
+    pageWidgets.push(new Expander(widgetEl, {
         expandOnClick: true,
+        collapseOnFocusOut: true,
+        collapseOnClickOut: true,
+        contentSelector: '.fake-menu-button__menu',
         focusManagement: 'focusable',
         hostSelector: '.expand-btn'
-    });
+    }));
 });
 
 // COMBOBOX

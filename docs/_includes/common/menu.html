@@ -1,7 +1,5 @@
 <div id="menu">
     <h2><span class="secondary-text">@ebay/skin/</span>menu</h2>
-
-    <p>A menu can be shown without a button to allow navigation to other pages</p>
     <p>A menu is <strong>not</strong> a form control. If you wish to submit form data natively, without JavaScript, please consider <a href="#checkbox">checkbox</a>, <a href="#combobox">combobox</a>, <a href="#select">select</a>, or <a href="#radio">radio</a> instead.</p>
     <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
     <p><strong>NOTE: </strong>Only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/menu-button/index.html">eBay MIND Pattern for Menu</a>.</p>
@@ -12,7 +10,7 @@
     <div class="demo">
         <div class="demo__inner">
             <span class="menu" style="width: 300px;">
-                <div class="menu__menu" role="menu">
+                <div class="menu__items" role="menu">
                     <div class="menu__item" role="menuitem">
                         <span>Item 1 with a long string</span>
                     </div>
@@ -23,7 +21,7 @@
         </div>
         {% highlight html %}
 <span class="menu" style="width: 300px;">
-    <div class="menu__menu" role="menu">
+    <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitem">
             <span>Item 1 with a long string</span>
         </div>
@@ -34,29 +32,13 @@
         {% endhighlight %}
     </div>
 
-    <p>For all menus, the overlay becomes automatically scrollable when it's height reaches 400px.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="menu" style="width: 300px;">
-                <div class="menu__menu" role="menu">
-                    {% for number in (1...50) %}
-                    <div class="menu__item" role="menuitem">
-                        <span>Menu item {{number}}</span>
-                    </div>
-                    {% endfor %}
-                </div>
-            </span>
-        </div>
-    </div>
-
     <h3 id="menu-radio">Radio Menu</h3>
     <p>For single-select state, use role <span class="highlight">menuitemradio</span> on each menu item.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="menu" style="width: 300px;">
-                <div class="menu__menu" role="menu">
+            <span class="menu" style="width: 300px">
+                <div class="menu__items" role="menu">
                     <div class="menu__item" role="menuitemradio" aria-checked="true" data-menuitemradio-name="sort">
                         <span>Item 1 with a long string</span>
                         <span class="menu__status"></span>
@@ -75,14 +57,14 @@
     </div>
 
     {% highlight html %}
-<span class="menu" style="width: 300px;">
+<span class="menu" style="width: 300px">
     <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
         <span class="expand-btn__cell">
             <span class="expand-btn__text">Radio menu</span>
             <span class="expand-btn__icon"></span>
         </span>
     </button>
-    <div class="menu__menu" role="menu">
+    <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true">
             <span>Radio menu item 1</span>
             <span class="menu__status"></span>
@@ -97,5 +79,41 @@
         </div>
     </div>
 </span>
+    {% endhighlight %}
+
+    <h3 id="menu-fake">Fake Menu</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="fake-menu" style="width: 300px">
+                <ul class="fake-menu__items">
+                    <li>
+                        <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
+                            <span>Link 1</span>
+                            <span class="fake-menu__status"></span>
+                        </a>
+                    </li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 2</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 3</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu__item">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="fake-menu" style="width: 300px">
+    <ul class="fake-menu__items">
+        <li>
+            <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
+                <span>Link 1</span>
+                <span class="fake-menu__status"></span>
+            </a>
+        </li>
+        <li><a href="http://www.ebay.com" class="fake-menu__item">Link 2</a></li>
+        <li><a href="http://www.ebay.com" class="fake-menu__item">Link 3</a></li>
+        <li><a href="http://www.ebay.com" class="fake-menu__item">Link 4</a></li>
+    </ul>
+</div>
     {% endhighlight %}
 </div>
