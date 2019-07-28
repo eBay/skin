@@ -1,0 +1,208 @@
+@import "../../mixins/button/ds4/button-mixins.less";
+@import "../../mixins/icon/ds4/icon-mixins.less";
+@import "../base/expand-button.less";
+
+.btn-expand-icon() {
+    .background-icon-image-mixin('arrow-down', 8px, 8px);
+}
+
+/* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
+
+button.expand-btn {
+    padding: 11px 16px;
+
+    &[disabled],
+    &[aria-disabled="true"] {
+        opacity: 0.5;
+    }
+}
+
+svg.expand-btn__icon {
+    height: 8px;
+    width: 8px;
+}
+
+button.expand-btn--regular span.expand-btn__icon {
+    .background-image-base64(@icon-arrow-down-blue-base64);
+}
+
+button.expand-btn--primary span.expand-btn__icon {
+    .background-image-base64(@icon-arrow-down-white-base64);
+}
+
+button.expand-btn--secondary span.expand-btn__icon {
+    .background-image-base64(@icon-arrow-down-gray-davys-base64);
+}
+
+button.expand-btn--regular {
+    &:hover,
+    &:focus {
+        border-color: @color-core-gray-spanish;
+    }
+}
+
+button.expand-btn--primary {
+    svg {
+        color: @color-core-white;
+        fill: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: @color-interface-cta;
+        opacity: 0.8;
+    }
+
+    &:active {
+        background-color: @color-core-blue-dark;
+    }
+}
+
+button.expand-btn--primary[disabled],
+button.expand-btn--primary[aria-disabled="true"] {
+    svg {
+        color: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        opacity: 0.5;
+    }
+}
+
+button.expand-btn--secondary {
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: @color-core-gray-dim;
+    }
+
+    &:active {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: fade(@color-core-gray-davys, 50%);
+    }
+}
+
+button.expand-btn--secondary[disabled],
+button.expand-btn--secondary[aria-disabled="true"] {
+    background-color: @color-core-gray-silver;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-core-gray-silver;
+        border-color: @color-text-disabled;
+    }
+}
+
+button.expand-btn {
+    &__cell--fixed-height &__icon {
+        align-self: center;
+        overflow: visible;
+    }
+
+    &--small {
+        .button-size-rules(@font-size-12, 8px 32px);
+
+        &-fixed-height {
+            height: 32px;
+        }
+
+        &-truncated {
+            .button-size-rules(@font-size-12, 8px 32px);
+            .btn-truncate;
+
+            height: 32px;
+        }
+    }
+
+    &--medium {
+        .button-size-rules(@font-size-14, 11px 40px);
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .button-size-rules(@font-size-14, 11px 40px);
+            .btn-truncate;
+
+            height: 40px;
+        }
+    }
+
+    &--large {
+        .button-size-rules(@font-size-16, 14px 48px);
+
+        &-fixed-height {
+            height: 48px;
+        }
+
+        &-truncated {
+            .button-size-rules(@font-size-16, 14px 48px);
+            .btn-truncate;
+
+            height: 48px;
+        }
+    }
+
+    &--extra-large {
+        // chrome and firefox disagree on calculations, so 15.875px is a compromise
+        .button-size-rules(@font-size-18, 15.875px 56px);
+
+        &-fixed-height {
+            height: 56px;
+        }
+
+        &-truncated {
+            .button-size-rules(@font-size-18, 15.875px 56px);
+            .btn-truncate;
+
+            height: 56px;
+        }
+    }
+}
+
+button.expand-btn--small {
+    padding: 8px 12px 8px 16px;
+
+    &.expand-btn--no-text {
+        padding: 8px 12px;
+    }
+}
+
+button.expand-btn.expand-btn--no-text {
+    height: 40px;
+
+    &.expand-btn--small {
+        height: 32px;
+    }
+
+    &.expand-btn--medium {
+        height: 40px;
+    }
+
+    &.expand-btn--large {
+        height: 48px;
+    }
+
+    &.expand-btn--extra-large {
+        height: 56px;
+    }
+}
+
+button.expand-btn[class*="--medium"],
+button.expand-btn[class*="--large"],
+button.expand-btn[class*="--extra-large"] {
+    padding-left: 16px;
+    padding-right: 16px;
+}
