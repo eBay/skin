@@ -38,7 +38,9 @@ function modules () {
        './src/less/**/listbox-button.less',
        '!./src/less/listbox-button/base/listbox-button.less',
        './src/less/**/menu-button.less',
-       '!./src/less/menu-button/base/menu-button.less'
+       '!./src/less/menu-button/base/menu-button.less',
+       './src/less/**/cta-button.less',
+       '!./src/less/cta-button/base/cta-button.less'
     ])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
