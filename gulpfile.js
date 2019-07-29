@@ -30,19 +30,14 @@ var comment = [
 function modules () {
    return gulp.src([
        './src/less/**/*.less',
-       '!./src/less/bundles/**/*.less',
-       '!./src/less/mixins/**/*.less',
-       '!./src/less/less/**/*.less',
-       '!./src/less/**/*-*.less',
        '!./src/**/base/*.less',
-       './src/less/**/listbox-button.less',
-       '!./src/less/listbox-button/base/listbox-button.less',
-       './src/less/**/menu-button.less',
-       '!./src/less/menu-button/base/menu-button.less',
-       './src/less/**/cta-button.less',
-       '!./src/less/cta-button/base/cta-button.less',
-       './src/less/**/expand-button.less',
-       '!./src/less/expand-button/base/expand-button.less'
+       '!./src/less/**/*-static.less',
+       '!./src/less/bundles/**/*.less',
+       '!./src/less/gh/**/*.less',
+       '!./src/less/grid/**/*.less',
+       '!./src/less/less/**/*.less',
+       '!./src/less/mixins/**/*.less',
+       '!./src/less/variables/**/*.less'
     ])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))

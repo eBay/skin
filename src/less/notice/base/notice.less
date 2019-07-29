@@ -1,3 +1,154 @@
-@import "notice-page.less";
-@import "notice-inline.less";
-@import "notice-flyout.less";
+.page-notice {
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+div[role="region"].page-notice,
+section.page-notice {
+    display: flex;
+    margin: 8px 0;
+}
+
+span[role="region"].page-notice {
+    display: inline-flex;
+}
+
+.page-notice__status {
+    display: flex;
+    margin: 0;
+
+    span {
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+    }
+}
+
+.page-notice__content {
+    flex: 1;
+    width: 100%;
+    /* stylelint-disable */
+    -ms-word-break: break-all;
+        word-break: break-all;
+    /* Non standard for WebKit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+    /* stylelint-enable */
+}
+
+svg.page-notice__cta {
+    .foreground-icon-base-mixin;
+}
+
+span.page-notice__cta {
+    .background-icon-base-mixin;
+}
+
+.page-notice__close,
+button.page-notice__close {
+    background: none;
+    border: 0;
+
+    span {
+        .background-icon-base-mixin;
+    }
+}
+
+a.page-notice,
+button.page-notice {
+    display: flex;
+}
+
+a.page-notice {
+    color: inherit;
+    text-decoration: none;
+}
+
+// todo: move inline notice to separate module OR fix stylelint no-descending-specificity violations
+
+div.inline-notice {
+    display: flex;
+    margin: 8px 0;
+}
+
+span.inline-notice {
+    display: inline-flex;
+}
+
+// DEPRECATED in V7. SCHEDULED FOR REMOVAL.
+
+.flyout-notice {
+    .bubble;
+
+    position: absolute;
+}
+
+.flyout-notice__mask {
+    .bubble-mask;
+}
+
+.flyout-notice__cell {
+    .bubble-cell;
+}
+
+.flyout-notice__content {
+    .bubble-content;
+}
+
+button.flyout-notice__close {
+    .bubble-close;
+}
+
+.flyout-notice__pointer {
+    .pointer-base;
+    .pointer-top;
+    .pointer-center;
+}
+
+.flyout-notice__pointer--top-left {
+    .pointer-top-left;
+}
+
+.flyout-notice__pointer--top {
+    .pointer-top-center;
+}
+
+.flyout-notice__pointer--top-right {
+    .pointer-top-right;
+}
+
+.flyout-notice__pointer--bottom-left {
+    .pointer-bottom-left;
+}
+
+.flyout-notice__pointer--bottom {
+    .pointer-bottom-center;
+}
+
+.flyout-notice__pointer--bottom-right {
+    .pointer-bottom-right;
+}
+
+.flyout-notice__pointer--left {
+    .pointer-left;
+}
+
+.flyout-notice__pointer--right {
+    .pointer-right;
+}
+
+@media (min-width: 601px) {
+    .flyout-notice {
+        .bubble-large-screen;
+    }
+}
+
+.flyout-notice__content p {
+    margin: 0;
+}
+
+.flyout-notice__content p:not(:first-of-type) {
+    margin-top: 4px;
+}
