@@ -1,7 +1,293 @@
 @import "../../less/ds4/variables.less";
 @import "../../less/ds4/mixins.less";
-@import "../../variables/ds4/icon-variables.less";
+@import "../../mixins/bubble/ds4/bubble.less";
+@import "../../mixins/icon/ds4/icon-mixins.less";
 @import "../base/notice.less";
-@import "notice-page.less";
-@import "notice-inline.less";
-@import "notice-flyout.less";
+
+// stylelint-disable no-descending-specificity
+
+.page-notice {
+    background-color: @color-core-white;
+    border-bottom: 1px solid @color-core-gray-silver;
+    border-top: 1px solid @color-core-gray-silver;
+    font-size: @font-size-14;
+    min-height: 32px;
+    padding: 8px 8px 8px 0;
+}
+
+button.page-notice {
+    border-left: 0 none;
+    border-right: 0 none;
+    text-align: left;
+    width: 100%;
+}
+
+.page-notice--fluid {
+    width: 100%;
+}
+
+.page-notice--attention,
+a.page-notice--attention {
+    color: @color-text-critical;
+}
+
+.page-notice__content {
+    margin-top: 4px;
+    padding-left: 8px;
+}
+
+.page-notice__content--align-middle {
+    margin-top: 8px;
+
+    & + .page-notice__cta {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+svg.page-notice__cta {
+    color: @color-icon-actionable-default;
+    height: 23px;
+    width: 13px;
+}
+
+.page-notice__content p {
+    margin: 0;
+
+    &:not(:first-of-type) {
+        margin-top: 4px;
+    }
+}
+
+.page-notice__status span {
+    .background-icon-base-mixin;
+
+    height: 24px;
+    margin-left: 8px;
+    width: 24px;
+}
+
+.page-notice__status svg {
+    .foreground-icon-base-mixin;
+}
+
+.page-notice__status span,
+.page-notice__status svg {
+    height: 24px;
+    margin: 4px 0 4px 8px;
+    min-height: 24px;
+    min-width: 24px;
+    width: 24px;
+}
+
+.page-notice--information .page-notice__status {
+    color: @color-core-blue;
+}
+
+.page-notice--confirmation .page-notice__status {
+    color: @color-core-green;
+}
+
+button.page-notice__close span {
+    .background-icon-base-mixin;
+    .background-icon-image-mixin('close', 12px, 12px);
+}
+
+.page-notice--attention .page-notice__status span {
+    .background-icon-image-mixin('attention');
+}
+
+.page-notice--confirmation .page-notice__status span {
+    .background-icon-image-mixin('confirmation');
+}
+
+.page-notice--information .page-notice__status span {
+    .background-icon-image-mixin('information');
+}
+
+button.page-notice__close {
+    background: none;
+    border: 0;
+    color: @color-icon-actionable-default;
+    height: 32px;
+    margin-left: 8px;
+    padding: 0;
+    white-space: nowrap;
+    width: 32px;
+
+    &:focus,
+    &:hover {
+        color: @color-icon-actionable-hover;
+    }
+
+    &:active {
+        color: @color-icon-actionable-active;
+    }
+
+    svg {
+        .foreground-icon-base-mixin;
+
+        height: 12px;
+        width: 12px;
+    }
+}
+
+@media (min-width: 601px) {
+    div[role="region"].page-notice,
+    section.page-notice {
+        margin: 16px 0;
+    }
+
+    .page-notice {
+        border: 1px solid @color-core-gray-silver;
+        padding-right: 16px;
+    }
+
+    .page-notice__content {
+        padding-left: 16px;
+    }
+
+    .page-notice__cta {
+        margin-left: 16px;
+    }
+
+    .page-notice--information {
+        border-top: 2px solid @color-interface-cta;
+    }
+
+    .page-notice--confirmation {
+        border-top: 2px solid @color-interface-positive;
+    }
+
+    .page-notice--attention {
+        border-top: 2px solid @color-text-critical;
+    }
+
+    span.page-notice__cta {
+        .background-icon-image-mixin('chevron-light-right', 16px, 16px);
+    }
+
+    button.page-notice__close {
+        margin-left: 16px;
+    }
+
+    .page-notice__status svg {
+        margin-left: 16px;
+    }
+
+    .page-notice__status span {
+        margin-left: 16px;
+    }
+}
+
+// todo: move inline notice to separate module OR fix stylelint no-descending-specificity violations
+
+// line-height helps vertical-alignment when font-weight is bold
+.inline-notice {
+    font-size: @font-size-14;
+    line-height: 1.15;
+    min-height: 16px;
+}
+
+.inline-notice--attention {
+    color: @color-text-critical;
+    font-weight: 500;
+}
+
+.inline-notice--information .inline-notice__status {
+    color: @color-core-blue;
+}
+
+.inline-notice--confirmation .inline-notice__status {
+    color: @color-core-green;
+}
+
+.inline-notice__status span {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 16px;
+    min-height: 16px;
+    min-width: 16px;
+    width: 16px;
+}
+
+.inline-notice--attention .inline-notice__status span {
+    .background-icon-image-mixin('attention', 16px, 16px);
+}
+
+.inline-notice--confirmation .inline-notice__status span {
+    .background-icon-image-mixin('confirmation', 16px, 16px);
+}
+
+.inline-notice--information .inline-notice__status span {
+    .background-icon-image-mixin('information', 16px, 16px);
+}
+
+.inline-notice__content {
+    padding-left: 8px;
+}
+
+.inline-notice__content p {
+    margin: 0;
+
+    &:not(:first-of-type) {
+        margin-top: 4px;
+    }
+}
+
+.inline-notice__status svg {
+    .foreground-icon-base-mixin;
+
+    height: 16px;
+    width: 16px;
+}
+
+@media (min-width: 601px) {
+    div.inline-notice {
+        margin: 16px 0;
+    }
+}
+
+// DEPRECATED in V7. SCHEDULED FOR REMOVAL.
+
+.flyout-notice--confirmation {
+    .flyout-notice__mask {
+        border-top: 2px solid @color-interface-positive;
+    }
+
+    .flyout-notice__pointer--top-left,
+    .flyout-notice__pointer--top,
+    .flyout-notice__pointer--top-right {
+        background-color: @color-interface-positive;
+    }
+}
+
+.flyout-notice--information {
+    .flyout-notice__mask {
+        border-top: 2px solid @color-interface-cta;
+    }
+
+    .flyout-notice__pointer--top-left,
+    .flyout-notice__pointer--top,
+    .flyout-notice__pointer--top-right {
+        background-color: @color-interface-cta;
+    }
+}
+
+.flyout-notice--attention {
+    .flyout-notice__mask {
+        border-top: 2px solid @color-text-critical;
+        color: @color-text-critical;
+    }
+
+    .flyout-notice__pointer--top-left,
+    .flyout-notice__pointer--top,
+    .flyout-notice__pointer--top-right {
+        background-color: @color-text-critical;
+    }
+}
