@@ -5,7 +5,6 @@
 }
 
 .checkbox__icon {
-    color: @checkbox-checked-color;
     display: inline-flex;
     font-size: 1em;
     outline-offset: 1px;
@@ -23,6 +22,7 @@
     & svg {
         .foreground-icon-base-mixin;
 
+        color: @checkbox-unchecked-color;
         height: 18px;
         width: 18px;
     }
@@ -40,10 +40,12 @@
 
     &:not(:checked) {
         & + .checkbox__icon svg.checkbox__checked {
+            color: @checkbox-checked-color;
             display: none;
         }
 
         & + .checkbox__icon svg.checkbox__unchecked {
+            color: @checkbox-unchecked-color;
             display: inline-block;
         }
     }
@@ -63,10 +65,12 @@
         }
 
         & + .checkbox__icon svg.checkbox__checked {
+            color: @checkbox-checked-color;
             display: inline-block;
         }
 
         & + .checkbox__icon svg.checkbox__unchecked {
+            color: @checkbox-unchecked-color;
             display: none;
         }
     }
