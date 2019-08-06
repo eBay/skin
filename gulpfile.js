@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
@@ -6,6 +7,7 @@ var banner = require('gulp-banner');
 var pkg = require('./package.json');
 var flatten = require('gulp-flatten');
 var rename = require("gulp-rename");
+var merge = require('merge-stream');
 var browserSync = require('browser-sync').create();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
 var cleanCSSPlugin = new LessPluginCleanCSS({advanced: true});
@@ -15,7 +17,7 @@ var distTarget = './dist';
 var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
-var cdnTarget = './_cdn/skin/v'+pkg.version;
+var cdnTarget = getCdnTarget('skin');
 
 var comment = [
     '/*!',
@@ -25,6 +27,17 @@ var comment = [
     'https://github.com/eBay/skin/blob/master/LICENSE.txt"',
     '*/\n'
 ].join('\n');
+
+function getCdnTarget(bundle) {
+    return './_cdn/' + bundle + '/v'+pkg.version;
+}
+
+function getFolders(dir) {
+  return fs.readdirSync(dir)
+        .filter(function(file) {
+            return fs.statSync(path.join(dir, file)).isDirectory() && file !== 'skin';
+        });
+}
 
 // Compile all modules to /dist
 function modules () {
@@ -55,6 +68,24 @@ function megabundle() {
     .pipe(gulp.dest(docsStaticTarget))
     .pipe(gulp.dest(siteStaticTarget))
     .pipe(gulp.dest(cdnTarget))
+}
+
+function bundle() {
+    var bundlePath = './src/less/bundles';
+    var folders = getFolders(bundlePath);
+    console.log(folders, bundlePath);
+    var tasks = folders.map(function (folder) {
+        console.log('pather', path.join(bundlePath, folder, '/**/*.less'));
+        return gulp.src(path.join(bundlePath, folder, '/**/*.less'))
+            .pipe(banner(comment, { pkg: pkg }))
+            .pipe(rename(function (path) {
+                path.extname = minifiedFileExtensionName;
+            }))
+        .pipe(less({plugins: [autoprefixPlugin]}))
+        .pipe(less({plugins: [cleanCSSPlugin]}))
+        .pipe(gulp.dest(getCdnTarget(folder)))
+    });
+    return merge(tasks);
 }
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
@@ -127,4 +158,4 @@ function syncDocsHtml(cb) {
 // public tasks listed below
 
 exports.server = server;
-exports.default = gulp.series(gulp.parallel(modules, megabundle, base64));
+exports.default = gulp.series(gulp.parallel(modules, megabundle, base64, bundle));
