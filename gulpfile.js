@@ -7,6 +7,7 @@ var banner = require('gulp-banner');
 var pkg = require('./package.json');
 var flatten = require('gulp-flatten');
 var rename = require("gulp-rename");
+var gulpIf = require("gulp-if");
 var merge = require('merge-stream');
 var browserSync = require('browser-sync').create();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
@@ -35,7 +36,7 @@ function getCdnTarget(bundle) {
 function getFolders(dir) {
   return fs.readdirSync(dir)
         .filter(function(file) {
-            return fs.statSync(path.join(dir, file)).isDirectory() && file !== 'skin';
+            return fs.statSync(path.join(dir, file)).isDirectory();
         });
 }
 
@@ -58,32 +59,21 @@ function modules () {
 
 // Compile and minify the full skin bundle to docs/static, _site/static and cdn
 function megabundle() {
-   return gulp.src(['./src/less/bundles/skin/**/*.less'])
-    .pipe(banner(comment, {pkg: pkg}))
-    .pipe(rename(function (path) {
-        path.extname = minifiedFileExtensionName;
-    }))
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
-    .pipe(gulp.dest(docsStaticTarget))
-    .pipe(gulp.dest(siteStaticTarget))
-    .pipe(gulp.dest(cdnTarget))
-}
-
-function bundle() {
     var bundlePath = './src/less/bundles';
     var folders = getFolders(bundlePath);
-    console.log(folders, bundlePath);
     var tasks = folders.map(function (folder) {
-        console.log('pather', path.join(bundlePath, folder, '/**/*.less'));
+        var isSkin = folder === 'skin';
         return gulp.src(path.join(bundlePath, folder, '/**/*.less'))
-            .pipe(banner(comment, { pkg: pkg }))
+            .pipe(banner(comment, {pkg: pkg}))
             .pipe(rename(function (path) {
                 path.extname = minifiedFileExtensionName;
             }))
-        .pipe(less({plugins: [autoprefixPlugin]}))
-        .pipe(less({plugins: [cleanCSSPlugin]}))
-        .pipe(gulp.dest(getCdnTarget(folder)))
+            .pipe(less({plugins: [autoprefixPlugin]}))
+            .pipe(less({plugins: [cleanCSSPlugin]}))
+            .pipe(gulpIf(isSkin, gulp.dest(docsStaticTarget)))
+            .pipe(gulpIf(isSkin, gulp.dest(siteStaticTarget)))
+            .pipe(gulp.dest(getCdnTarget(folder)))
+
     });
     return merge(tasks);
 }
@@ -158,4 +148,4 @@ function syncDocsHtml(cb) {
 // public tasks listed below
 
 exports.server = server;
-exports.default = gulp.series(gulp.parallel(modules, megabundle, base64, bundle));
+exports.default = gulp.series(gulp.parallel(modules, megabundle, base64));
