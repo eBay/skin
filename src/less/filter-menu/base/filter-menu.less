@@ -9,6 +9,7 @@ span.filter-menu {
 
     border-color: @filter-menu-border-color;
     border-radius: 16px;
+    overflow: hidden;
 }
 
 .filter-menu__scroll-area {
@@ -23,11 +24,14 @@ span.filter-menu__items[role="menu"] {
 }
 
 div.filter-menu__item[role^="menuitem"] {
-    .dropdown-option;
-
-    border: none;
+    box-sizing: border-box;
+    cursor: default; // needed to override text cursor
+    display: inline-flex;
+    font-size: 0.875rem;
+    justify-content: space-between;
     line-height: 1.4em;
     padding: 8px 16px;
+    width: 100%;
 
     &:focus {
         outline: none;
@@ -38,16 +42,13 @@ div.filter-menu__item[role^="menuitem"] {
         background-color: @filter-menu-item-background-color;
     }
 
+    &:active {
+        font-weight: @dropdown-item-active-font-weight;
+        // In future add a generic status class used by all dropdowns
+    }
+
     &:last-child {
         margin-bottom: 8px;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 0;
-    }
-
-    &:first-child {
-        border-radius: 4px 4px 0 0;
     }
 
     & > span:not(.checkbox) {
@@ -75,7 +76,6 @@ div.filter-menu__item[role^="menuitem"] {
 
 div.filter-menu__item--footer[role^="menuitem"] {
     background: @filter-menu-footer-background-color;
-    border-radius: 0 0 16px 16px;
     border-top: 1px solid @filter-menu-border-color;
     bottom: 0;
     padding: 16px;
