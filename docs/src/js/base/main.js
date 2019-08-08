@@ -202,7 +202,23 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.menu, .filter-menu-aria').forEach(function(widgetEl) {
+document.querySelectorAll('.menu').forEach(function(widgetEl) {
+    const widget = new Menu(widgetEl);
+
+    widgetEl.addEventListener('menu-select', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widgetEl.addEventListener('menu-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widgetEl.addEventListener('menu-toggle', function(e) {
+        console.log(e.type, e.detail);
+    });
+});
+
+document.querySelectorAll('.filter-menu-aria').forEach(function(widgetEl) {
     const widget = new Menu(widgetEl);
 
     widgetEl.addEventListener('menu-select', function(e) {
