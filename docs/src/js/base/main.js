@@ -202,7 +202,7 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.menu, .filter-menu').forEach(function(widgetEl) {
+document.querySelectorAll('.menu, .filter-menu-aria').forEach(function(widgetEl) {
     const widget = new Menu(widgetEl);
 
     widgetEl.addEventListener('menu-select', function(e) {
