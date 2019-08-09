@@ -24,15 +24,21 @@ function onClick(e) {
 }
 
 function processMenuItemAction(widgetEl, menuItemEl) {
-    switch (menuItemEl.getAttribute('role')) {
+    var menuItemRootEl = menuItemEl;
+
+    if (['menuitem', 'menuitemradio', 'menuitemcheckbox'].indexOf(menuItemEl.getAttribute('role')) === -1) {
+        menuItemRootEl = menuItemEl.closest('[role^=menuitem]');
+    }
+
+    switch (menuItemRootEl.getAttribute('role')) {
         case 'menuitemcheckbox':
-            doMenuItemCheckbox(widgetEl, menuItemEl);
+            doMenuItemCheckbox(widgetEl, menuItemRootEl);
             break;
         case 'menuitemradio':
-            doMenuItemRadio(widgetEl, menuItemEl, widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemEl.dataset.menuitemradioName}]`));
+            doMenuItemRadio(widgetEl, menuItemRootEl, widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemEl.dataset.menuitemradioName}]`));
             break;
         default:
-            doMenuItem(widgetEl, menuItemEl);
+            doMenuItem(widgetEl, menuItemRootEl);
             break;
     }
 }
