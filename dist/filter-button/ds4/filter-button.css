@@ -5,6 +5,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+div.filter-group {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
 button.filter-button,
 a.filter-link {
   -webkit-box-align: center;
@@ -16,6 +21,8 @@ a.filter-link {
   color: inherit;
   display: -webkit-inline-box;
   display: inline-flex;
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
@@ -28,11 +35,17 @@ a.filter-link {
   margin: 0;
   max-width: 280px;
   min-width: 56px;
-  padding: 8px 12px;
+  padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
   background-color: #eee;
+}
+button.filter-button + button.filter-button,
+button.filter-button + a.filter-link,
+a.filter-link + button.filter-button,
+a.filter-link + a.filter-link {
+  margin-left: 8px;
 }
 button.filter-button:focus,
 a.filter-link:focus,
@@ -71,7 +84,6 @@ a.filter-link--selected:active {
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],
 button.filter-button[aria-pressed="true"][disabled],
-button.filter-button--selected[aria-disabled="true"],
 a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
@@ -82,7 +94,6 @@ a.filter-link--selected[aria-disabled="true"] {
 button.filter-button[disabled]:hover,
 button.filter-button[aria-disabled="true"]:hover,
 button.filter-button[aria-pressed="true"][disabled]:hover,
-button.filter-button--selected[aria-disabled="true"]:hover,
 a.filter-link:not([href]):hover,
 a.filter-link[aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
@@ -90,7 +101,6 @@ a.filter-link--selected[aria-disabled="true"]:hover,
 button.filter-button[disabled]:focus,
 button.filter-button[aria-disabled="true"]:focus,
 button.filter-button[aria-pressed="true"][disabled]:focus,
-button.filter-button--selected[aria-disabled="true"]:focus,
 a.filter-link:not([href]):focus,
 a.filter-link[aria-disabled="true"]:focus,
 a.filter-link--selected:not([href]):focus,
