@@ -51,31 +51,40 @@ a.fake-btn--secondary[aria-disabled="true"] {
     }
 }
 
-button.btn--delete,
-a.fake-btn--delete {
-    background-color: @color-white;
-    border-color: @color-r4;
-    color: @color-r4;
-
-    &:focus,
-    &:hover,
-    &:active,
-    &:visited {
-        border-color: @color-r4;
-        color: @color-r4;
-    }
-}
-
 svg.btn__icon,
 svg.fake-btn__icon {
     .foreground-icon-base-mixin();
 }
 
+button.btn {
+    .button-size-rules(10px, 10px);
+
+    &--fixed-height {
+        .button-size-rules(10px, 10px);
+    }
+
+    &--truncated {
+        .button-size-rules(10px, 10px);
+    }
+}
+
+// Fake button needs different padding or the text doesn't quite align with the real button text for this size
+a.fake-btn {
+    .button-size-rules(9px, 11px);
+
+    &--fixed-height {
+        .button-size-rules(9px, 11px);
+    }
+
+    &--truncated {
+        .button-size-rules(9px, 11px);
+    }
+}
+
 button.btn,
 a.fake-btn {
-    .button-size-rules(13px, 15px);
-
-    min-height: 48px;
+    font-size: @font-size-14;
+    min-height: 40px;
 
     &__cell--fixed-height svg.btn__icon,
     &__cell--fixed-height svg.expand-btn__icon,
@@ -86,40 +95,29 @@ a.fake-btn {
         width: 1rem;
     }
 
-    &--small {
-        .button-size-rules(10px, 10px);
-
-        font-size: @font-size-14;
-        min-height: 40px;
-
-        &-fixed-height {
-            .button-size-rules(10px, 10px);
-
-            height: 40px;
-            min-height: 40px;
-        }
-
-        &-truncated {
-            .button-size-rules(10px, 10px);
-            .btn-truncate();
-
-            height: 40px;
-            min-height: 40px;
-        }
+    &--truncated {
+        .btn-truncate();
     }
 
-    // legacy support for fixed height and truncated supported in ds4
-    &--medium,
-    &--large,
-    &--extra-large {
+    &--large {
+        .button-size-rules(13px, 15px);
+
+        font-size: @font-size-16;
+        min-height: 48px;
+
         &-fixed-height {
+            .button-size-rules(13px, 15px);
+
             height: 48px;
+            min-height: 48px;
         }
 
         &-truncated {
+            .button-size-rules(13px, 15px);
             .btn-truncate();
 
             height: 48px;
+            min-height: 48px;
         }
     }
 }
