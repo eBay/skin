@@ -1,0 +1,32 @@
+// base styles for BEM span.icon block
+.background-icon-base-mixin() {
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// base styles for BEM svg.icon block
+.foreground-icon-base-mixin() {
+    display: inline-block;
+    fill: currentColor;
+    pointer-events: none;
+    stroke: currentColor;
+    stroke-width: 0;
+    vertical-align: middle;
+}
+
+// LESS extension of .background-icon-image-mixin
+.background-icon-image-mixin(@name; @width; @height) when (@width >= 15) and (@height >= 15) {
+    background-size: contain;
+}
+
+// LESS extension of .background-icon-image-mixin
+// https://github.com/eBay/skin/issues/334
+.background-icon-image-mixin(@name; @width; @height) when (@width < 15), (@height < 15) {
+    background-size: @width @height;
+}
+
+// shorthand for setting base64
+.background-image-base64(@base64) {
+    background-image: url('data:image/svg+xml;base64,@{base64}');
+}

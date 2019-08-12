@@ -7,8 +7,11 @@
 *
 * A listbox can be a standalone focusable widget, or controlled by a separate, focusable widget
 * (a textbox for example, in the case of a combobox or datepicker)
+*
+* This listbox code currently supports single-selct only!
 */
 
+const findIndex = require('core-js-pure/features/array/find-index');
 const ActiveDescendant = require('makeup-active-descendant');
 const PreventScrollKeys = require('makeup-prevent-scroll-keys');
 
@@ -18,7 +21,11 @@ const PreventScrollKeys = require('makeup-prevent-scroll-keys');
 function onFocus(e) {
     if (this._mouseDownFlag !== true && this._options.autoSelect === true && this.index === -1) {
         this._activeDescendant.index = 0;
-        this.items[0].setAttribute('aria-checked', 'true');
+        this.items[0].setAttribute('aria-selected', 'true');
+
+        if (this._options.useAriaChecked === true) {
+            this.items[0].setAttribute('aria-checked', 'true');
+        }
     }
     this._mouseDownFlag = false;
 }
@@ -30,71 +37,46 @@ function onMouseDown(e) {
     this._mouseDownFlag = true;
 }
 
-/*
-*   A keydown only happens on a listbox with manual selection
-*/
 function onKeyDown(e) {
     if (e.keyCode === 13 || e.keyCode === 32) { // enter key or spacebar key
         const toElIndex = this._activeDescendant.index;
         const toEl = this.items[toElIndex];
-        const isTolElChecked = toEl.getAttribute('aria-checked') === 'true';
+        const isTolElSelected = toEl.getAttribute('aria-selected') === 'true';
 
-        if (isTolElChecked === false) {
-            this.uncheck(this.index);
-            this.check(toElIndex);
-
-            this.el.dispatchEvent(new CustomEvent('listbox-change', {
-                detail: {
-                    optionIndex: toElIndex,
-                    optionValue: toEl.innerText
-                }
-            }));
+        if (isTolElSelected === false) {
+            this.unselect(this.index);
+            this.select(toElIndex);
         }
     }
 }
 
-/*
-*   A click only happens on a listbox with manual selection
-*/
 function onClick(e) {
     const toEl = e.target;
     const toElIndex = toEl.dataset.makeupIndex;
-    const isTolElChecked = toEl.getAttribute('aria-checked') === 'true';
+    const isTolElSelected = toEl.getAttribute('aria-selected') === 'true';
 
-    if (isTolElChecked === false) {
-        this.uncheck(this.index);
-        this.check(toElIndex);
-
-        this.el.dispatchEvent(new CustomEvent('listbox-change', {
-            detail: {
-                optionIndex: toElIndex,
-                optionValue: toEl.innerText
-            }
-        }));
+    if (isTolElSelected === false) {
+        this.unselect(this.index);
+        this.select(toElIndex);
     }
 }
 
-/*
-*   The maekeup-active-descendant does all of the heavy lifting for managing aria-activedescendant state
-*/
 function _onActiveDescendantChange(e) {
-    const fromEl = this.items[e.detail.fromIndex];
-    const toEl =  this.items[e.detail.toIndex];
+    this.el.dispatchEvent(new CustomEvent('listbox-active-descendant-change', {
+        detail: e.detail
+    }));
 
-    if (fromEl) {
-        fromEl.setAttribute('aria-checked', 'false');
-        fromEl.classList.remove(this._options.activeDescendantClassName);
-    }
+    if (this._options.autoSelect === true) {
+        const fromEl = this.items[e.detail.fromIndex];
+        const toEl =  this.items[e.detail.toIndex];
 
-    if (toEl) {
-        toEl.setAttribute('aria-checked', 'true');
-        toEl.classList.add(this._options.activeDescendantClassName);
+        if (fromEl) {
+            this.unselect(e.detail.fromIndex);
+        }
 
-        this.el.dispatchEvent(new CustomEvent('listbox-change', {
-            detail: {
-                optionValue: toEl.innerText
-            }
-        }));
+        if (toEl) {
+            this.select(e.detail.toIndex);
+        }
     }
 }
 
@@ -104,7 +86,8 @@ const defaultOptions = {
     autoSelect: true, // when true, aria-checked state matches active-descendant
     focusableElement: null, // used in a combobox/datepicker scenario
     listboxOwnerElement: null, // used in a combobox/datepicker scenario
-    multiSelect: false // todo
+    multiSelect: false, // todo
+    useAriaChecked: true // doubles up on support for aria-selected to announce visible selected/checked state
 };
 
 module.exports = class {
@@ -128,6 +111,8 @@ module.exports = class {
             this._listboxEl,
             '[role=option]',
             {
+                activeDescendantClassName: this._options.activeDescendantClassName,
+                autoInit: this.index,
                 autoReset: this._options.autoReset,
                 axis: 'y'
             }
@@ -147,24 +132,36 @@ module.exports = class {
     }
 
     get index() {
-        return Array.prototype.slice.call(this.items).findIndex(function(el) {
-            return el.getAttribute('aria-checked') === 'true';
-        });
+        return findIndex(Array.prototype.slice.call(this.items), (el) => el.getAttribute('aria-selected') === 'true');
     }
 
     get items() {
         return this._listboxEl.querySelectorAll('[role=option]');
     }
 
-    check(index) {
+    select(index) {
         if (index > -1 && index < this.items.length) {
-            this.items[index].setAttribute('aria-checked', 'true');
+            this.items[index].setAttribute('aria-selected', 'true');
+
+            if (this._options.useAriaChecked === true) {
+                this.items[index].setAttribute('aria-checked', 'true');
+            }
+
+            this.el.dispatchEvent(new CustomEvent('listbox-change', {
+                detail: {
+                    optionIndex: index,
+                    optionValue: this.items[index].innerText
+                }
+            }));
         }
     }
 
-    uncheck(index) {
+    unselect(index) {
         if (index > -1 && index < this.items.length) {
-            this.items[index].setAttribute('aria-checked', 'false');
+            this.items[index].setAttribute('aria-selected', 'false');
+            if (this._options.useAriaChecked === true) {
+                this.items[index].setAttribute('aria-checked', 'false');
+            }
         }
     }
 
@@ -180,12 +177,9 @@ module.exports = class {
         if (this._destroyed !== true) {
             this._listboxEl.addEventListener('focus', this._onFocusListener);
             this._listboxEl.addEventListener('mousedown', this._onMouseDownListener);
-            if (this._options.autoSelect === true) {
-                this._activeDescendantRootEl.addEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
-            } else {
-                this._listboxEl.addEventListener('keydown', this._onKeyDownListener);
-                this._listboxEl.addEventListener('click', this._onClickListener);
-            }
+            this._activeDescendantRootEl.addEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
+            this._listboxEl.addEventListener('keydown', this._onKeyDownListener);
+            this._listboxEl.addEventListener('click', this._onClickListener);
         }
     }
 

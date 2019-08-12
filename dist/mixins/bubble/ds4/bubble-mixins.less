@@ -1,0 +1,85 @@
+@import "../../../variables/ds4/color-variables.less";
+@import "../../../variables/ds4/icon-variables.less";
+@import "../../../variables/ds4/typography-variables.less";
+@import "../base/bubble-mixins.less";
+
+.bubble() {
+    box-shadow: 0 3px 7px @color-transparent-gray-gainsboro;
+}
+
+.bubble-mask() {
+    border-top: 2px solid @color-core-gray-silver;
+}
+
+.bubble-close() {
+    color: @color-icon-actionable-default;
+    margin: 0 0 0 16px;
+
+    &:focus,
+    &:hover {
+        color: @color-icon-actionable-hover;
+
+        span {
+            // todo: convert this base64 string to a variable
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iIzk5OSIgZD0iTTMxLjQyNyAyLjg0NkwyOS4wNC40NTkgMTUuOTU2IDEzLjU0MSAyLjg3NC40NTkuNDg4IDIuODQ2IDEzLjU3IDE1LjkyOC40ODggMjkuMDEybDIuMzg2IDIuMzg2IDEzLjA4Mi0xMy4wODJMMjkuMDQgMzEuMzk4bDIuMzg2LTIuMzg2LTEzLjA4NC0xMy4wODR6Ii8+PC9zdmc+');
+        }
+    }
+
+    &:active {
+        color: @color-icon-actionable-active;
+    }
+
+    svg {
+        .foreground-icon-base-mixin;
+
+        height: 12px;
+        width: 12px;
+    }
+
+    span {
+        .background-icon-base-mixin;
+        /* stylelint-disable declaration-block-no-duplicate-properties */
+        .background-icon-image-mixin('close', 12px, 12px);
+        /* stylelint-enable */
+    }
+}
+
+.pointer-top() {
+    background-color: @color-core-gray-silver;
+}
+
+.pointer-bottom() {
+    box-shadow: 2px 2px 2px @color-transparent-gray-gainsboro;
+}
+
+.pointer-top-center() {
+    background-color: @color-core-gray-silver;
+}
+
+@left-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+
+.pointer-left() {
+    box-shadow: @left-box-shadow;
+}
+
+.pointer-left-top() {
+    box-shadow: @left-box-shadow;
+}
+
+.pointer-left-bottom() {
+    box-shadow: @left-box-shadow;
+}
+
+@right-box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
+
+.pointer-right() {
+    box-shadow: @right-box-shadow;
+}
+
+.pointer-right-top() {
+    box-shadow: @right-box-shadow;
+}
+
+.pointer-right-bottom() {
+    box-shadow: @right-box-shadow;
+}
