@@ -184,21 +184,21 @@ Please upload the ./_cdn/${args.name}/${pkg.version} directory to CDN
 
 require('yargs') // eslint-disable-line
   .command('list', 'List all available modules', (yargs) => {
-
-
   }, (argv) => {
-    dsList.forEach((dsV) => {
-      const cssProcesser = new CssProcesser(dsV, argv);
-      cssProcesser.getDistCss().then((files) => {
-        console.log(`======================`);
-        console.log(`${dsV} - modules avaiable`);
-        console.log(`======================`);
-        files.forEach((file) => {
-          console.log(path.basename(file, '.css'));
-        })
-        console.log()
-        console.log()
+    prebuild().then(() => {
+      dsList.forEach((dsV) => {
+        const cssProcesser = new CssProcesser(dsV, argv);
+        cssProcesser.getDistCss().then((files) => {
+          console.log(`======================`);
+          console.log(`${dsV} - modules avaiable`);
+          console.log(`======================`);
+          files.forEach((file) => {
+            console.log(path.basename(file, '.css'));
+          })
+          console.log()
+          console.log()
 
+        })
       })
     });
   })
