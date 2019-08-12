@@ -4,18 +4,41 @@ const path = require('path');
 const dsList = ['ds4', 'ds6'];
 const less = require('less');
 const fs = require('fs');
-var pkg = require('../package.json');
-var LessPluginCleanCSS = require('less-plugin-clean-css');
-var cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true });
-var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-var autoprefixPlugin = new LessPluginAutoPrefix();
+const pkg = require('../package.json');
+const LessPluginCleanCSS = require('less-plugin-clean-css');
+const cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true });
+const LessPluginAutoPrefix = require('less-plugin-autoprefix');
+const autoprefixPlugin = new LessPluginAutoPrefix();
 const currentDir = path.dirname(__dirname);
+const { exec } = require('child_process');
 
 function getCDNPath(bundle, dsV) {
-  console.log()
-    return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsV}`;
+  return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsV}`;
 }
 
+/**
+ * Generates a raw less file for given css file
+ * @param {*} file
+ * @param {*} classDef The prefix with all the scopeSpecificity
+ */
+function generateRawLess(file, classDef) {
+  if (!!classDef) {
+    // Need to read file and output
+    const cssContents = fs.readFileSync(file);
+    return `${classDef} {
+             ${cssContents}
+            }`;
+  } else {
+    return `@import (inline) "${file}";`;
+  }
+
+}
+
+/**
+ * Generates a single less file from all CSS files in the dist directory
+ * @param {*} dsV The DS version (either 4 or 6)
+ * @param {*} args Yargs passed in
+ */
 function generateLESS(dsV, args) {
   let classDef = '';
   if (args.scopeClass) {
@@ -23,20 +46,9 @@ function generateLESS(dsV, args) {
       classDef += `.${args.scopeClass}`;
     }
   }
-
   return new Promise((resolve, reject) => {
     glob(`${currentDir}/dist/**/${dsV}/**/*.css`, (err, files) => {
-      const compiled = files.map((file) => {
-        if (!!classDef) {
-          // Need to read file and output
-          const cssContents = fs.readFileSync(file);
-          return `${classDef} {
-             ${cssContents}
-            }`;
-        } else {
-          return `@import (inline) "${file}";`;
-        }
-      }).join('\n');
+      const compiled = files.map((file) => generateRawLess(file, classDef)).join('\n');
       resolve({
         css: compiled,
         dsV,
@@ -45,32 +57,78 @@ function generateLESS(dsV, args) {
   })
 }
 
+/**
+ * Runs the compilation of less
+ * @param {*} res The response with dsVersion and raw css/less
+ * @param {*} plugin The given plugin to run the render with
+ */
 function compileLess(res, plugin) {
   return Promise.all(res.map((raw) => less.render(raw.css, { plugins: [plugin] })
-    .then((render) => {
-      console.log(Object.keys(render))
-      return {
+    .then((render) => ({
       css: render.css,
       dsV: raw.dsV
-    };
-  }
-    )
+    }))
   ));
 }
 
-function fetchCSS(name, args) {
-  Promise.all(
+/**
+ * Runs npm build to get dist output
+ */
+function prebuild() {
+  return new Promise((resolve, reject) => {
+    exec('npm run build', (err) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log('npm build successful')
+      return resolve();
+    });
+  });
+}
+
+function makeDir(path) {
+  return new Promise((resolve, reject) => {
+    fs.mkdir(path, { recursive: true }, (err) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve();
+    });
+  });
+}
+
+function writeFile(file, data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(file, data, (err) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve();
+    });
+  });
+}
+
+function writeAllFiles(res, args) {
+  return Promise.all(res.map((out) => {
+    const path = getCDNPath(args.name, out.dsV);
+    return makeDir(path).then(() => writeFile(`${path}/skin.min.css`, out.css));
+  }))
+
+}
+
+/**
+ * Main function to start, generates less files and compiles and writes them
+ * @param {*} name
+ * @param {*} args
+ */
+function runCSSBuild(name, args) {
+  prebuild().then(() => Promise.all(
     dsList.map((ds) => generateLESS(ds, args))
-  )
+  ))
     .then((res) => compileLess(res, autoprefixPlugin))
     .then((res) => compileLess(res, cleanCSSPlugin))
-    .then((output) => {
-      output.forEach((out) => {
-        const path = getCDNPath(args.name, out.dsV);
-        fs.mkdirSync(path, {recursive: true});
-        fs.writeFileSync(`${path}/skin.min.css`, out.css);
-        console.log(`Wrote output to ${path}`);
-      })
+    .then((res) => writeAllFiles(res, args))
+    .then(() => {
       console.log(`Bundle created successfully!
 Please upload the ./_cdn/${args.name}/${pkg.version} directory to CDN
 `);
@@ -88,15 +146,14 @@ require('yargs') // eslint-disable-line
         default: 'skin'
       })
   }, (argv) => {
-    console.log('ok')
-    fetchCSS(argv.name, argv);
+    runCSSBuild(argv.name, argv);
   })
   .option('scope-class', {
     describe: 'Scoped class to prefix bundle with',
     default: ''
   })
   .option('scope-specificity', {
-    describe: 'How many times to show scope',
+    describe: 'How many times to repeat scope',
     default: '1'
   })
   .option('modules', {
