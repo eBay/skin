@@ -1,4 +1,3 @@
-var fs = require('fs');
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
@@ -7,8 +6,6 @@ var banner = require('gulp-banner');
 var pkg = require('./package.json');
 var flatten = require('gulp-flatten');
 var rename = require("gulp-rename");
-var gulpIf = require("gulp-if");
-var merge = require('merge-stream');
 var browserSync = require('browser-sync').create();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
 var cleanCSSPlugin = new LessPluginCleanCSS({advanced: true});
@@ -18,7 +15,7 @@ var distTarget = './dist';
 var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
-var cdnTarget = getCdnTarget('skin');
+var cdnTarget = './_cdn/skin/v'+pkg.version;
 
 var comment = [
     '/*!',
@@ -28,17 +25,6 @@ var comment = [
     'https://github.com/eBay/skin/blob/master/LICENSE.txt"',
     '*/\n'
 ].join('\n');
-
-function getCdnTarget(bundle) {
-    return './_cdn/' + bundle + '/v'+pkg.version;
-}
-
-function getFolders(dir) {
-  return fs.readdirSync(dir)
-        .filter(function(file) {
-            return fs.statSync(path.join(dir, file)).isDirectory();
-        });
-}
 
 // Compile all modules to /dist
 function modules () {
@@ -59,23 +45,16 @@ function modules () {
 
 // Compile and minify the full skin bundle to docs/static, _site/static and cdn
 function megabundle() {
-    var bundlePath = './src/less/bundles';
-    var folders = getFolders(bundlePath);
-    var tasks = folders.map(function (folder) {
-        var isSkin = folder === 'skin';
-        return gulp.src(path.join(bundlePath, folder, '/**/*.less'))
-            .pipe(banner(comment, {pkg: pkg}))
-            .pipe(rename(function (path) {
-                path.extname = minifiedFileExtensionName;
-            }))
-            .pipe(less({plugins: [autoprefixPlugin]}))
-            .pipe(less({plugins: [cleanCSSPlugin]}))
-            .pipe(gulpIf(isSkin, gulp.dest(docsStaticTarget)))
-            .pipe(gulpIf(isSkin, gulp.dest(siteStaticTarget)))
-            .pipe(gulp.dest(getCdnTarget(folder)))
-
-    });
-    return merge(tasks);
+   return gulp.src(['./src/less/bundles/skin/**/*.less'])
+    .pipe(banner(comment, {pkg: pkg}))
+    .pipe(rename(function (path) {
+        path.extname = minifiedFileExtensionName;
+    }))
+    .pipe(less({plugins: [autoprefixPlugin]}))
+    .pipe(less({plugins: [cleanCSSPlugin]}))
+    .pipe(gulp.dest(docsStaticTarget))
+    .pipe(gulp.dest(siteStaticTarget))
+    .pipe(gulp.dest(cdnTarget))
 }
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
