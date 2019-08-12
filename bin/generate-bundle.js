@@ -11,6 +11,8 @@ const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoprefixPlugin = new LessPluginAutoPrefix();
 const currentDir = path.dirname(__dirname);
 const { exec } = require('child_process');
+const processed = [];
+const skipped = []
 
 function getCDNPath(bundle, dsV) {
   return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsV}`;
@@ -21,7 +23,13 @@ function getCDNPath(bundle, dsV) {
  * @param {*} file
  * @param {*} classDef The prefix with all the scopeSpecificity
  */
-function generateRawLess(file, classDef) {
+function generateRawLess(file, classDef, args) {
+  const fileName = path.basename(file, '.css');
+  if (args.modules.length > 0 && args.modules.indexOf(fileName) === -1) {
+    skipped.push(fileName);
+    return '';
+  }
+  processed.push(fileName);
   if (!!classDef) {
     // Need to read file and output
     const cssContents = fs.readFileSync(file);
@@ -48,7 +56,17 @@ function generateLESS(dsV, args) {
   }
   return new Promise((resolve, reject) => {
     glob(`${currentDir}/dist/**/${dsV}/**/*.css`, (err, files) => {
-      const compiled = files.map((file) => generateRawLess(file, classDef)).join('\n');
+      const compiled = files.map((file) => generateRawLess(file, classDef, args)).join('\n');
+
+      if (args.modules.length > 0) {
+        console.log(`Processed ${processed.length} modules for ${dsV}`)
+      }
+      if (args.verbose) {
+        console.log(`Modules processed: ${processed.join(',')}`)
+
+        console.log(`Skipped ${skipped.length} modules`)
+        console.log(`Modules skipped: ${skipped.join(',')}`)
+      }
       resolve({
         css: compiled,
         dsV,
@@ -76,6 +94,7 @@ function compileLess(res, plugin) {
  */
 function prebuild() {
   return new Promise((resolve, reject) => {
+    console.log('Running build...')
     exec('npm run build', (err) => {
       if (err) {
         return reject(err);
@@ -129,7 +148,7 @@ function runCSSBuild(name, args) {
     .then((res) => compileLess(res, cleanCSSPlugin))
     .then((res) => writeAllFiles(res, args))
     .then(() => {
-      console.log(`Bundle created successfully!
+      console.log(`Bundles created successfully!
 Please upload the ./_cdn/${args.name}/${pkg.version} directory to CDN
 `);
     }).catch((e) => {
@@ -158,6 +177,11 @@ require('yargs') // eslint-disable-line
   })
   .option('modules', {
     alias: 'm',
+    type: 'array',
     default: []
+  })
+  .option('verbose', {
+    alias: 'v',
+    type: 'boolean'
   })
   .argv
