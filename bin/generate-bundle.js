@@ -18,16 +18,17 @@ const dsList = ['ds4', 'ds6'];
  * Main Processing class. Holds info about args passed and ds version
  */
 class CssProcesser {
-  constructor(dsV, args) {
-    this.dsV = dsV;
+  constructor(dsVersion, args) {
+    this.dsVersion = dsVersion;
     this.args = args;
     this.processed = [];
     this.skipped = [];
 
     let classDef = '';
-    if (args.scopeClass) {
+    const scopeClass = args.scopeClass;
+    if (scopeClass) {
       for (let i = 0; i < args.scopeSpecificity; i++) {
-        classDef += `.${args.scopeClass}`;
+        classDef += `.${scopeClass}`;
       }
     }
     this.classDef = classDef;
@@ -43,7 +44,7 @@ class CssProcesser {
 
   getDistCss() {
     return new Promise((resolve, reject) => {
-      glob(`${currentDir}/dist/**/${this.dsV}/**/*.css`, (err, files) => {
+      glob(`${currentDir}/dist/**/${this.dsVersion}/**/*.css`, (err, files) => {
         if (err) {
           return reject(err);
         }
@@ -78,25 +79,25 @@ class CssProcesser {
   processFiles(files) {
     return new Promise((resolve, reject) => {
       const compiled = files.map((file) => this.generateRawLess(file)).join('\n');
-      const processed = this.processed
+      const processed = this.processed;
       const skipped = this.skipped;
-      const dsV = this.dsV;
+      const dsVersion = this.dsVersion;
 
       if (this.args.modules.length > 0 || this.args.verbose) {
-        console.log(`Processed ${processed.length} modules for ${dsV}`)
+        console.log(`Processed ${processed.length} modules for ${dsVersion}`);
       }
       if (this.args.verbose) {
-        console.log(`Modules processed: ${processed.join(',')} for ${dsV}`)
+        console.log(`Modules processed: ${processed.join(',')} for ${dsVersion}`);
 
-        console.log(`Skipped ${skipped.length} modules for ${dsV}`)
-        console.log(`Modules skipped: ${skipped.join(',')} for ${dsV}`)
+        console.log(`Skipped ${skipped.length} modules for ${dsVersion}`);
+        console.log(`Modules skipped: ${skipped.join(',')} for ${dsVersion}`);
       }
       resolve(compiled);
     });
   }
 
   generateLESS() {
-    return this.getDistCss(this.dsV).then((files) => this.processFiles(files));
+    return this.getDistCss(this.dsVersion).then((files) => this.processFiles(files));
   }
 
   compileLess(raw, plugin) {
@@ -106,13 +107,13 @@ class CssProcesser {
   }
 
   writeAllFiles(raw) {
-    const path = getCDNPath(this.args.name, this.dsV);
+    const path = getCDNPath(this.args.name, this.dsVersion);
     return makeDir(path).then(() => writeFile(`${path}/skin.min.css`, raw));
   }
 }
 
-function getCDNPath(bundle, dsV) {
-  return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsV}`;
+function getCDNPath(bundle, dsVersion) {
+  return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsVersion}`;
 }
 
 
@@ -183,29 +184,28 @@ Please upload the ./_cdn/${args.name}/${pkg.version} directory to CDN
 
 
 require('yargs') // eslint-disable-line
+  .usage('Usage: $0 <command> [options]')
   .command('list', 'List all available modules', (yargs) => {
   }, (argv) => {
     prebuild().then(() => {
-      dsList.forEach((dsV) => {
-        const cssProcesser = new CssProcesser(dsV, argv);
+      dsList.forEach((dsVersion) => {
+        const cssProcesser = new CssProcesser(dsVersion, argv);
         cssProcesser.getDistCss().then((files) => {
           console.log(`======================`);
-          console.log(`${dsV} - modules avaiable`);
+          console.log(`${dsVersion} - modules avaiable`);
           console.log(`======================`);
           files.forEach((file) => {
             console.log(path.basename(file, '.css'));
-          })
-          console.log()
-          console.log()
-
-        })
+          });
+       })
       })
     });
   })
-  .command('gen [name]', 'generates a CDN bundle with the given name', (yargs) => {
+  .command('bundle <name>', 'generates a CDN bundle with the given name', (yargs) => {
     yargs
       .positional('name', {
         describe: 'name to generate bundle',
+        demand: true,
         default: 'skin'
       })
       .option('scope-class', {
@@ -223,6 +223,8 @@ require('yargs') // eslint-disable-line
         default: []
       })
 
+
+
   }, (argv) => {
     runCSSBuild(argv.name, argv);
   })
@@ -230,4 +232,6 @@ require('yargs') // eslint-disable-line
     alias: 'v',
     type: 'boolean'
   })
+  .demandCommand(1)
+  .help()
   .argv

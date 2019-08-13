@@ -48,6 +48,18 @@ Please use our [issues page](https://github.com/eBay/skin/issues) to ask questio
 
 To help track your issue, the Skin admins will assign it with a label from one or more issue categories.
 
+## Bundling Skin on your own
+
+Skin provides a command to bundle your own bundles for uploading to cdn. Use `bin/generate-bundle.js` in order to create separate bundles
+
+`bin/generate-bundle.js list` -> List available modules (used for the --modules argument)
+
+`bin/generate-bundle.js bundle ebay` -> Create a bundle under the ebay folder
+
+`bin/generate-bundle.js bundle ebay --modules button carousel` -> Create a bundle under the ebay folder with only button and carousel modules
+
+`bin/generate-bundle.js bundle ebay --scope-class ebay --scope-specificity 5` -> Create a bundle under the ebay folder with all CSS styles wrapped under `.ebay.ebay.ebay.ebay.ebay {}`
+
 ## Developing &amp; Contributing
 
 Interested in contributing? Head over to our [contributing guide](CONTRIBUTING.md) for information on how to get started.
