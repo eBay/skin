@@ -1,10 +1,3 @@
-.filter-button-cell {
-  display: inline-block;
-  max-width: 258px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 div.filter-group {
   display: -webkit-box;
   display: flex;
@@ -57,7 +50,8 @@ a.filter-link:active {
 }
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
-  display: inline-block;
+  display: -webkit-box;
+  display: flex;
   max-width: 258px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,6 +78,7 @@ a.filter-link--selected:active {
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],
 button.filter-button[aria-pressed="true"][disabled],
+button.filter-button[aria-pressed="true"][aria-disabled="true"],
 a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
@@ -94,6 +89,7 @@ a.filter-link--selected[aria-disabled="true"] {
 button.filter-button[disabled]:hover,
 button.filter-button[aria-disabled="true"]:hover,
 button.filter-button[aria-pressed="true"][disabled]:hover,
+button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link:not([href]):hover,
 a.filter-link[aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
@@ -101,10 +97,17 @@ a.filter-link--selected[aria-disabled="true"]:hover,
 button.filter-button[disabled]:focus,
 button.filter-button[aria-disabled="true"]:focus,
 button.filter-button[aria-pressed="true"][disabled]:focus,
+button.filter-button[aria-pressed="true"][aria-disabled="true"]:focus,
 a.filter-link:not([href]):focus,
 a.filter-link[aria-disabled="true"]:focus,
 a.filter-link--selected:not([href]):focus,
 a.filter-link--selected[aria-disabled="true"]:focus {
   background-color: #eee;
   color: #c8c8c8;
+}
+button.filter-button[aria-pressed="true"][disabled]:hover,
+button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
+a.filter-link--selected:not([href]):hover,
+a.filter-link--selected[aria-disabled="true"]:hover {
+  background-color: #dbeafe;
 }

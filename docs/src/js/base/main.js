@@ -202,6 +202,28 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     });
 });
 
+document.querySelectorAll('.filter-menu-button').forEach(function(widgetEl) {
+    console.log('**** widgetEl ***********************************************');
+    console.log(widgetEl);
+    console.log('***************************************************');
+    const widget = new MenuButton(widgetEl, {
+        expandedClass: 'filter-menu-button--expanded',
+        menuSelector: '.filter-menu-button__menu'
+    });
+
+    widget.menu.el.addEventListener('menu-select', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widget.menu.el.addEventListener('menu-change', function(e) {
+        console.log(e.type, e.detail);
+    });
+
+    widget.menu.el.addEventListener('menu-toggle', function(e) {
+        console.log(e.type, e.detail);
+    });
+});
+
 document.querySelectorAll('.menu').forEach(function(widgetEl) {
     const widget = new Menu(widgetEl);
 
@@ -218,7 +240,7 @@ document.querySelectorAll('.menu').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.filter-menu-aria').forEach(function(widgetEl) {
+document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     const widget = new Menu(widgetEl);
 
     widgetEl.addEventListener('menu-select', function(e) {
