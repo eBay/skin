@@ -48,7 +48,7 @@ Please use our [issues page](https://github.com/eBay/skin/issues) to ask questio
 
 To help track your issue, the Skin admins will assign it with a label from one or more issue categories.
 
-## Bundling Skin on your own
+## Custom Bundler
 
 Skin provides a command to create your own bundles for uploading to cdn. Use `bin/generate-bundle.js` in order to create separate bundles.
 
