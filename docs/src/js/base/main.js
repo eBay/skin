@@ -203,9 +203,6 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.filter-menu-button').forEach(function(widgetEl) {
-    console.log('**** widgetEl ***********************************************');
-    console.log(widgetEl);
-    console.log('***************************************************');
     const widget = new MenuButton(widgetEl, {
         expandedClass: 'filter-menu-button--expanded',
         menuSelector: '.filter-menu-button__menu'
