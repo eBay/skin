@@ -25,21 +25,13 @@ span.filter-menu-form__items {
     display: inline-block;
 }
 
-span.filter-menu__status,
-span.filter-menu__status--inline {
+span.filter-menu__status {
     display: block;
     flex-shrink: 1;
     height: 18px;
     min-width: 18px;
     width: 18px;
-}
 
-span.filter-menu__status {
-    .background-icon-base-mixin();
-    .background-icon-image-mixin('checkbox-unchecked', 18px, 18px);
-}
-
-span.filter-menu__status--inline {
     svg {
         &.icon.icon--checkbox-unchecked {
             color: @filter-menu-checkbox-color;
@@ -55,6 +47,11 @@ span.filter-menu__status--inline {
             width: 18px;
         }
     }
+}
+
+span.filter-menu__status--background {
+    .background-icon-base-mixin();
+    .background-icon-image-mixin('checkbox-unchecked', 18px, 18px);
 }
 
 .filter-menu-form__item {
@@ -131,14 +128,14 @@ button.filter-menu-form__footer[type="submit"] {
     margin-left: 8px;
 }
 
-.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status {
-    .background-icon-image-mixin('checkbox-checked', 18px, 18px);
-}
-
-.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status--inline > svg.icon.icon--checkbox-unchecked {
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status > svg.icon.icon--checkbox-unchecked {
     display: none;
 }
 
-.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status--inline > svg.icon.icon--checkbox-checked {
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status > svg.icon.icon--checkbox-checked {
     display: block;
+}
+
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] > span.filter-menu__status--background {
+    .background-icon-image-mixin('checkbox-checked', 18px, 18px);
 }
