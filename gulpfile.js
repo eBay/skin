@@ -59,7 +59,7 @@ function megabundle() {
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
 function base64() {
-   return gulp.src(['./src/less/icon/background/**/*.less', '!./src/less/icon/background/base/*.less'])
+   return gulp.src(['./src/less/icon/background/**/*.less', './src/less/icon-small/background/**/*.less', '!./src/less/icon/background/base/*.less', ])
     .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
        path.basename = 'skin-base64';
