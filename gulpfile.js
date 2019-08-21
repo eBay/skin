@@ -17,6 +17,7 @@ var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v'+pkg.version;
 
+
 var comment = [
     '/*!',
     'Skin v<%= pkg.version %>',
@@ -59,8 +60,8 @@ function megabundle() {
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
 function base64() {
-   return gulp.src(['./src/less/icon/background/**/*.less', '!./src/less/icon/background/base/*.less'])
-    .pipe(banner(comment, {pkg: pkg}))
+   return gulp.src(['./src/less/icon/background/**/*.less', '!./src/less/icon/background/base/*.less', '!./src/less/icon/background/ds6/background.less'])
+   .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
        path.basename = 'skin-base64';
        path.extname = minifiedFileExtensionName;
