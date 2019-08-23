@@ -5,10 +5,18 @@
 
 .checked-icon-unchecked() {
     .background-icon-image-mixin('checkbox-unchecked', 18px, 18px);
+
+    @media (max-width: 600px) {
+        .background-icon-image-mixin('checkbox-unchecked', 24px, 24px);
+    }
 }
 
 .checked-icon-checked() {
     .background-icon-image-mixin('checkbox-checked', 18px, 18px);
+
+    @media (max-width: 600px) {
+        .background-icon-image-mixin('checkbox-checked', 24px, 24px);
+    }
 }
 
 @checkbox-checked-color: @color-b4;
@@ -17,3 +25,11 @@
 @checkbox-checked-icon-base64-light: @icon-checkbox-checked-base64-light;
 
 @import "../base/checkbox.less";
+
+@media (max-width: 600px) {
+    .checkbox__icon svg,
+    .checkbox__control[type="checkbox"] {
+        height: 24px;
+        width: 24px;
+    }
+}

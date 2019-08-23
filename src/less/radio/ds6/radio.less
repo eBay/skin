@@ -5,10 +5,18 @@
 
 .radio-icon-unchecked() {
     .background-icon-image-mixin('radio-unchecked', 18px, 18px);
+
+    @media (max-width: 600px) {
+        .background-icon-image-mixin('radio-unchecked', 24px, 24px);
+    }
 }
 
 .radio-icon-checked() {
     .background-icon-image-mixin('radio-checked', 18px, 18px);
+
+    @media (max-width: 600px) {
+        .background-icon-image-mixin('radio-checked', 24px, 24px);
+    }
 }
 
 @radio-checked-color: @color-b4;
@@ -17,3 +25,11 @@
 @radio-checked-icon-base64-light: @icon-radio-checked-base64-light;
 
 @import "../base/radio.less";
+
+@media (max-width: 600px) {
+    .radio__icon svg,
+    .radio__control[type="radio"] {
+        height: 24px;
+        width: 24px;
+    }
+}
