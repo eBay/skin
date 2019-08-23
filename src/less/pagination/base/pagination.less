@@ -39,33 +39,34 @@
     span {
         .background-icon-base-mixin();
     }
-
-    &[aria-disabled="true"],
-    &[aria-disabled="true"]:hover {
-        cursor: default;
-    }
 }
 
 .pagination__next span {
-    .pagination-next-icon();
+    .pagination-icon(@pagination-icon-next);
 }
 
 .pagination__previous span {
-    .pagination-previous-icon();
+    .pagination-icon(@pagination-icon-previous);
 }
 
 .pagination__next {
     &:focus,
     &:hover {
         span {
-            .pagination-next-hover-icon();
+            .pagination-icon('@{pagination-icon-next}-focus');
         }
     }
 
     &[aria-disabled="true"] {
+        cursor: default;
+
         span {
-            .pagination-next-disabled-icon();
+            .pagination-icon('@{pagination-icon-next}-disabled');
         }
+    }
+
+    &[aria-disabled="true"]:hover {
+        cursor: default;
     }
 }
 
@@ -73,14 +74,20 @@
     &:focus,
     &:hover {
         span {
-            .pagination-previous-hover-icon();
+            .pagination-icon('@{pagination-icon-previous}-focus');
         }
     }
 
     &[aria-disabled="true"] {
+        cursor: default;
+
         span {
-            .pagination-previous-disabled-icon();
+            .pagination-icon('@{pagination-icon-previous}-disabled');
         }
+    }
+
+    &[aria-disabled="true"]:hover {
+        cursor: default;
     }
 }
 
@@ -133,24 +140,24 @@
 
 @media screen and (-ms-high-contrast: white-on-black) {
     .pagination__next span {
-        .pagination-next-icon-light();
+        .pagination-icon-light(@pagination-next-icon-light);
     }
 
     .pagination__previous span {
-        .pagination-previous-icon-light();
+        .pagination-icon-light(@pagination-next-focus-icon-light);
     }
 
     .pagination__next {
         &:focus,
         &:hover {
             span {
-                .pagination-next-focus-icon-light();
+                .pagination-icon-light(@pagination-previous-icon-light);
             }
         }
 
         &[aria-disabled="true"] {
             span {
-                .pagination-next-icon-disabled-light();
+                .pagination-icon-light(@pagination-previous-focus-icon-light);
             }
         }
     }
@@ -159,13 +166,13 @@
         &:focus,
         &:hover {
             span {
-                .pagination-previous-focus-icon-light();
+                .pagination-icon-light(@pagination-next-icon-disabled-light);
             }
         }
 
         &[aria-disabled="true"] {
             span {
-                .pagination-previous-icon-disabled-light();
+                .pagination-icon-light(@pagination-previous-icon-disabled-light);
             }
         }
     }
