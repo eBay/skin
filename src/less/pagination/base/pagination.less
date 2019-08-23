@@ -1,68 +1,172 @@
 .pagination {
-    display: inline-flex;
+    .pagination-layout-base();
+
+    font-family: inherit;
     font-size: 0;
     max-width: 100%;
 }
 
+.pagination a,
+.pagination button {
+    color: @pagination-item-color;
+    font-size: @font-size-16;
+}
+
 .pagination__items {
-    display: inline;
+    .pagination-layout-base();
+
+    box-sizing: border-box;
     flex-wrap: wrap;
+    height: 48px;
     list-style-type: none;
     overflow: hidden;
     padding: 0;
-    text-align: center;
-    vertical-align: middle;
 
     > li:not([hidden]) {
-        display: inline-block;
-        width: 48px;
+        .pagination-layout-base();
     }
 }
 
 .pagination__next,
 .pagination__previous {
+    .pagination-layout-base();
+    .pagination-item-dimensions();
+
     background: none;
     border: none;
     cursor: pointer;
-    display: inline-block;
-    font-family: inherit;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
 
-    // Common styles for background icon
     span {
-        .background-icon-base-mixin;
+        .background-icon-base-mixin();
+    }
 
-        height: 17px;
-        width: 17px;
+    &[aria-disabled="true"],
+    &[aria-disabled="true"]:hover {
+        cursor: default;
+    }
+}
+
+.pagination__next span {
+    .pagination-next-icon();
+}
+
+.pagination__previous span {
+    .pagination-previous-icon();
+}
+
+.pagination__next {
+    &:focus,
+    &:hover {
+        span {
+            .pagination-next-hover-icon();
+        }
+    }
+
+    &[aria-disabled="true"] {
+        span {
+            .pagination-next-disabled-icon();
+        }
+    }
+}
+
+.pagination__previous {
+    &:focus,
+    &:hover {
+        span {
+            .pagination-previous-hover-icon();
+        }
+    }
+
+    &[aria-disabled="true"] {
+        span {
+            .pagination-previous-disabled-icon();
+        }
     }
 }
 
 .pagination__item {
-    background: none;
-    border: none;
+    .pagination-layout-base();
+    .pagination-item-dimensions();
+
+    background: none; // button fix
+    border: none; // button fix
+    box-sizing: border-box;
+    color: @pagination-item-color;
     cursor: pointer;
-    display: inline-block;
-    font-family: inherit;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    font-family: inherit; // button fix
+    font-weight: @pagination-item-font-weight;
+    margin: 0 4px;
     text-decoration: none;
-    vertical-align: middle;
+
+    &:active,
+    &:link,
+    &:visited {
+        color: @pagination-item-active-color;
+    }
+
+    &:focus,
+    &:hover {
+        color: @pagination-item-focus-color;
+        text-decoration: underline;
+    }
+
+    &[aria-current="page"] {
+        background-color: @pagination-item-current-background-color; // DS4-only
+        border: @pagination-item-current-border;
+        color: @pagination-item-current-color;
+        font-weight: @pagination-item-current-font-weight;
+    }
 }
 
 .pagination--fluid {
-    align-items: center;
-    display: flex;
+    width: 100%;
 
     .pagination__items {
-        display: flex;
-        min-width: 288px;
+        flex-grow: 1;
+        max-width: none;
 
         > li {
             flex: 1 0 48px;
+        }
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .pagination__next span {
+        .pagination-next-icon-light();
+    }
+
+    .pagination__previous span {
+        .pagination-previous-icon-light();
+    }
+
+    .pagination__next {
+        &:focus,
+        &:hover {
+            span {
+                .pagination-next-focus-icon-light();
+            }
+        }
+
+        &[aria-disabled="true"] {
+            span {
+                .pagination-next-icon-disabled-light();
+            }
+        }
+    }
+
+    .pagination__previous {
+        &:focus,
+        &:hover {
+            span {
+                .pagination-previous-focus-icon-light();
+            }
+        }
+
+        &[aria-disabled="true"] {
+            span {
+                .pagination-previous-icon-disabled-light();
+            }
         }
     }
 }
