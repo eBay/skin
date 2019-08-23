@@ -54,7 +54,7 @@
     }
 
     &[disabled] + .checkbox__icon {
-        opacity: 0.5;
+        opacity: @checkbox-disabled-opacity;
     }
 
     &:checked {
@@ -64,8 +64,11 @@
         }
 
         & + .checkbox__icon svg.checkbox__checked {
-            color: @checkbox-checked-color;
             display: inline-block;
+        }
+
+        &:not([disabled]) + .checkbox__icon svg.checkbox__checked {
+            color: @checkbox-checked-color;
         }
 
         & + .checkbox__icon svg.checkbox__unchecked {
