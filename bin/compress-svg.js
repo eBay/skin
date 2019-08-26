@@ -17,7 +17,7 @@ var FS = require('fs'),
     }, {
       "removeXMLProcInst": false
     }, {
-      "removeComments": true
+      "removeComments": false
     }, {
       "removeMetadata": true
     }, {
