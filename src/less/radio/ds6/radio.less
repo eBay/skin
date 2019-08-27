@@ -1,35 +1,22 @@
-@import "../../variables/ds6/color-variables.less";
 @import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/radio-variables.less";
 @import "../../variables/ds6/typography-variables.less";
 @import "../../mixins/icon/ds6/icon-mixins.less";
-
-.radio-icon-unchecked() {
-    .background-icon-image-mixin('radio-unchecked', 18px, 18px);
-
-    @media (max-width: 600px) {
-        .background-icon-image-mixin('radio-unchecked', 24px, 24px);
-    }
-}
-
-.radio-icon-checked() {
-    .background-icon-image-mixin('radio-checked', 18px, 18px);
-
-    @media (max-width: 600px) {
-        .background-icon-image-mixin('radio-checked', 24px, 24px);
-    }
-}
-
-@radio-checked-color: @color-b4;
-@radio-unchecked-color: @color-grey2;
-@radio-unchecked-icon-base64-light: @icon-radio-unchecked-base64-light;
-@radio-checked-icon-base64-light: @icon-radio-checked-base64-light;
-
+@import "../../mixins/radio/ds6/radio-mixins.less";
 @import "../base/radio.less";
+
+.radio__control[type="radio"][disabled]:checked + .radio__icon {
+    background-image: url('data:image/svg+xml;base64,@{icon-radio-checked-disabled-small-base64}');
+}
 
 @media (max-width: 600px) {
     .radio__icon svg,
     .radio__control[type="radio"] {
         height: 24px;
         width: 24px;
+    }
+
+    .radio__control[type="radio"][disabled]:checked + .radio__icon {
+        background-image: url('data:image/svg+xml;base64,@{icon-radio-checked-disabled-base64}');
     }
 }
