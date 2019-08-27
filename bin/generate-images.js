@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const Svgo = require('svgo');
 const jsdom = require("jsdom");
+const config = require('./image-config.json');
 const { JSDOM } = jsdom;
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
@@ -12,115 +13,8 @@ const files = [
   path.resolve(svgDir, 'ds6', 'icons.svg'),
   path.resolve(svgDir, 'ds4', 'icons.svg'),
 ];
-const base64Config = {
-  ds6Color: '#111820',
-  overrides: {
-    'icon-checkbox-checked': '#3665F2'
-  },
-  modules: [{
-    suffix: 'light',
-    color: '#ffffff',
-    list: [
-      'icon-arrow-left',
-      'icon-arrow-left-small',
-      'icon-arrow-right',
-      'icon-arrow-right-small',
-      'icon-checkbox-checked',
-      'icon-checkbox-checked-small',
-      'icon-checkbox-unchecked',
-      'icon-checkbox-unchecked-small',
-      'icon-chevron-down',
-      'icon-chevron-down-small',
-      'icon-chevron-left',
-      'icon-chevron-left-small',
-      'icon-chevron-right',
-      'icon-chevron-right-small',
-      'icon-close',
-      'icon-close-small',
-      'icon-radio-checked',
-      'icon-radio-checked-small',
-      'icon-radio-unchecked',
-      'icon-radio-unchecked-small',
-      'icon-tick',
-      'icon-tick-small',
-      'icon-chevron-down-bold',
-      'icon-window',
-    ]
-  }]
-}
-const svgo = new Svgo({
-  plugins: [{
-    "cleanupAttrs": true
-  }, {
-    "removeDoctype": true
-  }, {
-    "removeXMLProcInst": false
-  }, {
-    "removeComments": false
-  }, {
-    "removeMetadata": true
-  }, {
-    "removeTitle": true
-  }, {
-    "removeDesc": true
-  }, {
-    "removeUselessDefs": false
-  }, {
-    "removeEditorsNSData": true
-  }, {
-    "removeEmptyAttrs": true
-  }, {
-    "removeHiddenElems": false
-  }, {
-    "removeEmptyText": true
-  }, {
-    "removeEmptyContainers": true
-  }, {
-    "removeViewBox": false
-  }, {
-    "cleanupEnableBackground": true
-  }, {
-    "convertStyleToAttrs": true
-  }, {
-    "convertColors": true
-  }, {
-    "convertPathData": true
-  }, {
-    "convertTransform": true
-  }, {
-    "removeUnknownsAndDefaults": true
-  }, {
-    "removeNonInheritableGroupAttrs": true
-  }, {
-    "removeUselessStrokeAndFill": false
-  }, {
-    "removeUnusedNS": true
-  }, {
-    "minifyStyles": false
-  }, {
-    "cleanupIDs": false
-  }, {
-    "cleanupNumericValues": true
-  }, {
-    "moveElemsAttrsToGroup": true
-  }, {
-    "moveGroupAttrsToElems": true
-  }, {
-    "collapseGroups": true
-  }, {
-    "removeRasterImages": false
-  }, {
-    "mergePaths": true
-  }, {
-    "convertShapeToPath": true
-  }, {
-    "sortAttrs": true
-  }, {
-    "removeDimensions": true
-  }],
-  js2svg: { pretty: true }
-
-});
+const { base64Config, svgoConfig } = config;
+const svgo = new Svgo(svgoConfig);
 
 files.forEach(async (filePath) => {
   try {
