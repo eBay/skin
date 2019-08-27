@@ -57,9 +57,7 @@ class CssProcesser {
   wrap(cssContents) {
     return `${this.classDef} {
              ${cssContents}
-            }`
-
-
+            }`;
   }
 
   rewrapBody(cssContents) {
@@ -70,14 +68,11 @@ class CssProcesser {
       const newContents = cssContents.replace(bodyMatch, '');
       return `body ${this.classDef} ${body[1]}
       ${this.wrap(newContents)}
-     `
+     `;
     } else {
       this.wrap(cssContents);
     }
-
     return newCssContents;
-
-
   }
 
   /**
@@ -251,9 +246,6 @@ require('yargs') // eslint-disable-line
         describe: 'Space separated list of modules to include. If empty, will include all',
         default: []
       })
-
-
-
   }, (argv) => {
     runCSSBuild(argv.name, argv);
   })
