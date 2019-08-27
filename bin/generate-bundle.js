@@ -10,7 +10,7 @@ const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoprefixPlugin = new LessPluginAutoPrefix();
 const currentDir = path.dirname(__dirname);
 const { exec } = require('child_process');
-const bodyMatch = new RegExp('body ({(?:.|\\s|\\S)*?})', 'm');
+const bodyMatch = new RegExp('body ?({(?:.|\\s|\\S)*?})', 'm');
 
 // The list of directories in the dist to pull
 const dsList = ['ds4', 'ds6'];
