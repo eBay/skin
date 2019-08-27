@@ -1,36 +1,21 @@
-@import "../../variables/ds6/color-variables.less";
-@import "../../variables/ds6/icon-variables.less";
 @import "../../variables/ds6/typography-variables.less";
-@import "../../mixins/icon/ds6/icon-mixins.less";
-
-.checked-icon-unchecked() {
-    .background-icon-image-mixin('checkbox-unchecked', 18px, 18px);
-
-    @media (max-width: 600px) {
-        .background-icon-image-mixin('checkbox-unchecked', 24px, 24px);
-    }
-}
-
-.checked-icon-checked() {
-    .background-icon-image-mixin('checkbox-checked', 18px, 18px);
-
-    @media (max-width: 600px) {
-        .background-icon-image-mixin('checkbox-checked', 24px, 24px);
-    }
-}
-
-@checkbox-checked-color: @color-b4;
-@checkbox-unchecked-color: @color-black;
-@checkbox-unchecked-icon-base64-light: @icon-checkbox-unchecked-base64-light;
-@checkbox-checked-icon-base64-light: @icon-checkbox-checked-base64-light;
-@checkbox-disabled-opacity: 0.25;
-
+@import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/checkbox-variables.less";
+@import "../../mixins/checkbox/ds6/checkbox-mixins.less";
 @import "../base/checkbox.less";
 
-@media (max-width: 600px) {
+.checkbox__control[type="checkbox"][disabled]:checked + .checkbox__icon {
+    background-image: url('data:image/svg+xml;base64,@{icon-checkbox-checked-disabled-small-base64}');
+}
+
+@media (min-width: 601px) {
     .checkbox__icon svg,
     .checkbox__control[type="checkbox"] {
         height: 24px;
         width: 24px;
+    }
+
+    .checkbox__control[type="checkbox"][disabled]:checked + .checkbox__icon {
+        background-image: url('data:image/svg+xml;base64,@{icon-checkbox-checked-disabled-base64}');
     }
 }
