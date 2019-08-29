@@ -12,13 +12,36 @@ a.fake-btn--primary {
     &:focus,
     &:hover,
     &:active {
-        background-color: @color-b7;
-        border-color: @color-b7;
+        background-color: @color-b6;
+        border-color: @color-b6;
+    }
+}
+
+a.fake-btn--primary:not([href]),
+a.fake-btn--primary[aria-disabled="true"] {
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @button-primary-partially-disabled-background-color;
+        border-color: @button-primary-partially-disabled-border-color;
+        color: @button-primary-partially-disabled-color;
+    }
+}
+
+button.btn--secondary,
+a.fake-btn--secondary {
+    &:focus,
+    &:hover,
+    &:active {
+        border-color: @color-b6;
+        color: @color-b6;
     }
 }
 
 button.btn--secondary[disabled],
-a.fake-btn--secondary[disabled] {
+a.fake-btn--secondary[disabled],
+a.fake-btn--secondary:not([href]),
+a.fake-btn--secondary[aria-disabled="true"] {
     &:focus,
     &:hover,
     &:active {
@@ -28,114 +51,80 @@ a.fake-btn--secondary[disabled] {
     }
 }
 
-button.btn--secondary,
-a.fake-btn--secondary {
-    &:focus,
-    &:hover,
-    &:active {
-        border-color: @color-b7;
-        color: @color-b7;
-    }
-}
-
 svg.btn__icon,
 svg.fake-btn__icon {
-    .foreground-icon-base-mixin;
+    .foreground-icon-base-mixin();
+}
+
+button.btn {
+    .button-size-rules(10px, 10px);
+}
+
+button.btn--fixed-height {
+    .button-size-rules-fixed-height(10px, 21px);
+}
+
+button.btn--truncated {
+    .button-size-rules(10px, 10px);
+}
+
+// Fake button needs different padding or the text doesn't quite align with the real button text for this size
+a.fake-btn {
+    .button-size-rules(9px, 11px);
+}
+
+a.fake-btn--fixed-height {
+    .button-size-rules-fixed-height(9px, 21.5px);
+}
+
+a.fake-btn--truncated {
+    .button-size-rules(9px, 11px);
 }
 
 button.btn,
 a.fake-btn {
-    .button-size-rules(10px, 10px);
+    font-size: @font-size-14;
+    min-height: 40px;
+}
 
-    &__cell--fixed-height svg.btn__icon,
-    &__cell--fixed-height svg.expand-btn__icon,
-    &__cell--fixed-height svg.fake-btn__icon,
-    &__cell--fixed-height svg.cta-btn__icon {
+button.btn__cell--fixed-height,
+a.fake-btn__cell--fixed-height {
+    svg.btn__icon,
+    svg.expand-btn__icon,
+    svg.fake-btn__icon,
+    svg.cta-btn__icon {
         align-self: center;
         height: 1rem;
         width: 1rem;
     }
-
-    &--small {
-        .button-size-rules(6px, 6px);
-
-        min-height: 32px;
-
-        &-fixed-height {
-            .button-size-rules(6px, 6px);
-
-            height: 32px;
-        }
-
-        &-truncated {
-            .button-size-rules(6px, 6px);
-            .btn-truncate;
-
-            height: 32px;
-        }
-    }
-
-    &--medium {
-        .button-size-rules(10px, 10px);
-
-        min-height: 40px;
-
-        &-fixed-height {
-            .button-size-rules(10px, 10px);
-
-            height: 40px;
-        }
-
-        &-truncated {
-            .button-size-rules(10px, 10px);
-            .btn-truncate;
-
-            height: 40px;
-        }
-    }
-
-    &--large {
-        .button-size-rules(12px, 12px);
-
-        min-height: 48px;
-
-        &-fixed-height {
-            .button-size-rules(12px, 12px);
-
-            height: 48px;
-        }
-
-        &-truncated {
-            .button-size-rules(12px, 12px);
-            .btn-truncate;
-
-            height: 48px;
-        }
-    }
-
-    &--extra-large {
-        padding: 16px 24px;
-
-        &-fixed-height {
-            height: 40px;
-        }
-
-        &-truncated {
-            .btn-truncate;
-
-            height: 56px;
-        }
-    }
-
-    &--large,
-    &--extra-large {
-        font-size: @font-size-18;
-    }
 }
 
-// Official DS6 styles are medium and large, but adding this to support legacy deprecated small button
+button.btn--truncated,
+a.fake-btn--truncated {
+    .btn-truncate();
+}
 
-button.btn--legacy,
-a.fake-btn--legacy {
-    padding: 5.5px 48px;
+button.btn--large,
+a.fake-btn--large {
+    .button-size-rules(13px, 15px);
+
+    font-size: @font-size-16;
+    min-height: 48px;
+}
+
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+    .button-size-rules-fixed-height(13px, 27px);
+
+    height: 48px;
+    min-height: 48px;
+}
+
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+    .button-size-rules(13px, 15px);
+    .btn-truncate();
+
+    height: 48px;
+    min-height: 48px;
 }

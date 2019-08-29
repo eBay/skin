@@ -6,6 +6,18 @@
 @import "../../mixins/icon/ds4/icon-mixins.less";
 @import "../base/button.less";
 
+button.btn,
+a.fake-btn {
+    .button-size-rules(@font-size-14, 11px 40px);
+
+    line-height: 1.2em;
+}
+
+button.btn--truncated,
+a.fake-btn--truncated {
+    .btn-truncate;
+}
+
 button.btn {
     &[disabled],
     &[aria-disabled="true"] {
@@ -128,67 +140,26 @@ a.fake-btn--secondary[aria-disabled="true"] {
     overflow: visible;
 }
 
-button.btn--small,
-a.fake-btn--small {
-    .button-size-rules(@font-size-12, 8px 32px);
-
-    &-fixed-height {
-        height: 32px;
-    }
-
-    &-truncated {
-        .button-size-rules(@font-size-12, 8px 32px);
-        .btn-truncate;
-
-        height: 32px;
-    }
-}
-
-button.btn--medium,
-a.fake-btn--medium {
-    .button-size-rules(@font-size-14, 11px 40px);
-
-    &-fixed-height {
-        height: 40px;
-    }
-
-    &-truncated {
-        .button-size-rules(@font-size-14, 11px 40px);
-        .btn-truncate;
-
-        height: 40px;
-    }
+button.btn--fixed-height,
+a.fake-btn--fixed-height {
+    .button-fixed-height-top-padding(21.5px);
 }
 
 button.btn--large,
 a.fake-btn--large {
     .button-size-rules(@font-size-16, 14px 48px);
-
-    &-fixed-height {
-        height: 48px;
-    }
-
-    &-truncated {
-        .button-size-rules(@font-size-16, 14px 48px);
-        .btn-truncate;
-
-        height: 48px;
-    }
 }
 
-button.btn--extra-large,
-a.fake-btn--extra-large {
-    // chrome and firefox disagree on calculations, so 15.875px is a compromise
-    .button-size-rules(@font-size-18, 15.875px 56px);
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+    height: 48px;
+    .button-fixed-height-top-padding(27px);
+}
 
-    &-fixed-height {
-        height: 56px;
-    }
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+    .button-size-rules(@font-size-16, 14px 48px);
+    .btn-truncate;
 
-    &-truncated {
-        .button-size-rules(@font-size-18, 15.875px 56px);
-        .btn-truncate;
-
-        height: 56px;
-    }
+    height: 48px;
 }

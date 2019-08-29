@@ -1,7 +1,7 @@
 {
   "name": "@ebay/skin",
   "description": "Skin - CSS modules that represent the brand eBay",
-  "version": "8.0.1",
+  "version": "9.0.0-6",
   "license": "MIT",
   "maintainers": [
     "Ian McBurnie <ianmcburnie@hotmail.com>",
@@ -31,7 +31,7 @@
     "copy:variablesToDist": "mkdirp dist/variables && ncp src/less/variables dist/variables",
     "copy:mixinsToDist": "mkdirp dist/mixins && ncp src/less/mixins dist/mixins",
     "copy:svgToDist": "mkdirp dist/svg && ncp src/svg dist/svg",
-    "version": "npm run build && git add -A dist docs",
+    "version": "node scripts/cdn-version && npm run build && git add -A dist docs",
     "transpile": "babel docs/src/js --out-dir docs/_babel"
   },
   "devDependencies": {
@@ -41,6 +41,7 @@
     "@ebay/browserslist-config": "^1",
     "babel-plugin-transform-object-assign": "^6",
     "browser-sync": "^2",
+    "core-js-pure": "^3",
     "details-element-polyfill": "^2.3.1",
     "gulp": "^4",
     "gulp-banner": "~0.1.3",
@@ -65,10 +66,11 @@
     "mkdirp": "~0.5",
     "ncp": "^2",
     "nodelist-foreach-polyfill": "^1",
-    "rimraf": "^2",
+    "rimraf": "^3",
     "stylelint": "^10",
     "stylelint-config-standard": "^18",
-    "stylelint-order": "^3"
+    "stylelint-order": "^3",
+    "yargs": "^13.3.0"
   },
   "keywords": [
     "eBay",

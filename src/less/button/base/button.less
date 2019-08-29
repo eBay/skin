@@ -134,8 +134,25 @@ a.fake-btn--secondary:visited {
     color: @button-secondary-fake-visited-color;
 }
 
+button.btn--delete,
+a.fake-btn--delete {
+    background-color: @button-delete-background-color;
+    border-color: @button-delete-border-color;
+    color: @button-delete-color;
+
+    &:focus,
+    &:hover,
+    &:active,
+    &:visited {
+        border-color: @button-delete-border-color;
+        color: @button-delete-color;
+    }
+}
+
 button.btn--secondary[disabled],
-button.btn--secondary[aria-disabled="true"] {
+button.btn--secondary[aria-disabled="true"],
+button.btn--delete[disabled],
+button.btn--delete[aria-disabled="true"] {
     background-color: @button-secondary-disabled-background-color;
     border-color: @button-secondary-disabled-border-color;
     color: @button-secondary-disabled-color;
@@ -153,7 +170,9 @@ button.btn--secondary[aria-disabled="true"] {
 }
 
 a.fake-btn--secondary:not([href]),
-a.fake-btn--secondary[aria-disabled="true"] {
+a.fake-btn--secondary[aria-disabled="true"],
+a.fake-btn--delete:not([href]),
+a.fake-btn--delete[aria-disabled="true"] {
     border-color: @button-secondary-partially-disabled-border-color;
     color: @button-secondary-partially-disabled-color;
 }
