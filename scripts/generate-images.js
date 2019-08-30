@@ -24,10 +24,16 @@ files.forEach(async (filePath) => {
     await fs.promises.writeFile(result.path, result.data)
     const svgGenerator = new SVGGenerator(result, dsVersion)
     await svgGenerator.generateAllBase64();
+    await writeSymbols(result, dsVersion);
   } catch (e) {
     console.error('An error has occurred', e)
   }
 });
+
+async function writeSymbols(result, dsVersion) {
+  const fileOutput = result.data.replace(/<svg.*>/, '<svg hidden>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
+  await fs.promises.writeFile(`${currentDir}/docs/_includes/${dsVersion}/symbols.html`, fileOutput);
+}
 
 class SVGGenerator {
   constructor(allSVGs, dsVersion) {
