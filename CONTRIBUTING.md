@@ -200,8 +200,8 @@ A pre-release is always made from a milestone branch.
     * update the version number in `package.json`
     * commit all changes locally
     * create a Git tag
-2. Push commit to origin.
-3. Run `npm publish --tag beta` to publish the package to NPM.
+1. Push commit to origin.
+1. Run `npm publish --tag beta` to publish the package to NPM.
 
 ### Final Release
 
