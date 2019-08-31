@@ -219,7 +219,7 @@ A final release is always made from the master branch.
 1. Push commit to origin.
 1. Push the git tag to origin, e.g. `git push origin v3.1.0`.
 1. Run `npm publish` to publish the package to NPM.
-1. Publish the `/_cdn/skin/{version}` folder to the CDN using the CDN Upload Portal.
+1. Publish the `/_cdn/skin/{version}` folder to the CDN.
 
 ### GitHub Release
 
