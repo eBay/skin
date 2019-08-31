@@ -1,21 +1,28 @@
 .breadcrumb {
-    margin: 16px 0;
+    height: fit-content;
+    min-height: 16px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
 
     ul {
+        display: flex;
         list-style-type: none;
         margin: 0;
+        min-width: 100%;
         padding: 0;
+        position: absolute;
+        right: 0;
+        top: -2px;
     }
 
     li {
-        display: inline;
-
         &:not(:last-of-type)::after {
-            .background-icon-base-mixin;
-            .breadcrumb-icon-divider;
+            .background-icon-base-mixin();
+            .breadcrumb-icon-divider();
 
             content: '';
-            margin: 0 4px 0 8px;
+            margin: 0 8px;
         }
     }
 
