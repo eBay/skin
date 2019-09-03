@@ -19,9 +19,15 @@
   display: inline-block;
   vertical-align: middle;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJpY29uLWNoZWNrYm94LXVuY2hlY2tlZCIgdmlld0JveD0iMCAwIDIxIDIyIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNLjk1NSAwaDE5LjA5Yy41MjggMCAuOTU1LjQ0OC45NTUgMXYyMGMwIC41NTItLjQyNyAxLS45NTUgMUguOTU1Qy40MjcgMjIgMCAyMS41NTIgMCAyMVYxYzAtLjU1Mi40MjctMSAuOTU1LTF6bS45NTQgMjBoMTcuMTgyVjJIMS45MDl2MTh6IiBmaWxsPSIjMTExODIwIi8+Cjwvc3ZnPg==');
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   background-size: contain;
+}
+@media (min-width: 601px) {
+  .checkbox__icon:not([hidden]) {
+    height: 18px;
+    width: 18px;
+  }
 }
 .checkbox__icon svg {
   display: inline-block;
@@ -31,17 +37,13 @@
   stroke-width: 0;
   vertical-align: middle;
   color: #111820;
-  height: 18px;
-  width: 18px;
 }
 .checkbox__control[type="checkbox"] {
   font-size: 100%;
-  height: 18px;
   margin: 0;
   opacity: 0;
   padding: 0;
   position: absolute;
-  width: 18px;
   z-index: 1;
 }
 .checkbox__control[type="checkbox"]:not(:checked) + .checkbox__icon svg.checkbox__checked {
@@ -55,20 +57,28 @@
   outline: 1px dotted #767676;
 }
 .checkbox__control[type="checkbox"][disabled] + .checkbox__icon {
-  opacity: 0.5;
+  opacity: 0.25;
 }
 .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
   background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJpY29uLWNoZWNrYm94LWNoZWNrZWQiIHZpZXdCb3g9IjAgMCAyMiAyMiI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEgMGgyMGExIDEgMCAwMTEgMXYyMGExIDEgMCAwMS0xIDFIMWExIDEgMCAwMS0xLTFWMWExIDEgMCAwMTEtMXptNy4zIDE1LjcxYTEgMSAwIDAwMS40MSAwbDgtOGgtLjAxYTEgMSAwIDAwLTEuNDEtMS40MUw5IDEzLjU5IDUuNzEgMTAuM2ExIDEgMCAwMC0xLjQxIDEuNDFsNCA0eiIgZmlsbD0iIzM2NjVGMiIvPgo8L3N2Zz4=');
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   background-size: contain;
 }
+@media (min-width: 601px) {
+  .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
+    height: 18px;
+    width: 18px;
+  }
+}
 .checkbox__control[type="checkbox"]:checked + .checkbox__icon svg.checkbox__checked {
-  color: #3665f3;
   display: inline-block;
+}
+.checkbox__control[type="checkbox"]:checked:not([disabled]) + .checkbox__icon svg.checkbox__checked {
+  color: #3665f3;
 }
 .checkbox__control[type="checkbox"]:checked + .checkbox__icon svg.checkbox__unchecked {
   display: none;
@@ -79,5 +89,20 @@
   }
   .checkbox__control[type="checkbox"]:checked + .checkbox__icon:not([hidden]) {
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJpY29uLWNoZWNrYm94LWNoZWNrZWQiIHZpZXdCb3g9IjAgMCAyMiAyMiI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEgMGgyMGExIDEgMCAwMTEgMXYyMGExIDEgMCAwMS0xIDFIMWExIDEgMCAwMS0xLTFWMWExIDEgMCAwMTEtMXptNy4zIDE1LjcxYTEgMSAwIDAwMS40MSAwbDgtOGgtLjAxYTEgMSAwIDAwLTEuNDEtMS40MUw5IDEzLjU5IDUuNzEgMTAuM2ExIDEgMCAwMC0xLjQxIDEuNDFsNCA0eiIgZmlsbD0iIzM2NjVGMiIvPgo8L3N2Zz4=');
+  }
+}
+.checkbox__control[type="checkbox"][disabled]:checked + .checkbox__icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJpY29uLWNoZWNrYm94LWNoZWNrZWQiIHZpZXdCb3g9IjAgMCAyMiAyMiI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEgMGgyMGExIDEgMCAwMTEgMXYyMGExIDEgMCAwMS0xIDFIMWExIDEgMCAwMS0xLTFWMWExIDEgMCAwMTEtMXptNy4zIDE1LjcxYTEgMSAwIDAwMS40MSAwbDgtOGgtLjAxYTEgMSAwIDAwLTEuNDEtMS40MUw5IDEzLjU5IDUuNzEgMTAuM2ExIDEgMCAwMC0xLjQxIDEuNDFsNCA0eiIvPgo8L3N2Zz4=');
+}
+.checkbox__icon svg,
+.checkbox__control[type="checkbox"] {
+  height: 24px;
+  width: 24px;
+}
+@media (min-width: 601px) {
+  .checkbox__icon svg,
+  .checkbox__control[type="checkbox"] {
+    height: 18px;
+    width: 18px;
   }
 }
