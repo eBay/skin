@@ -10,6 +10,7 @@ const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoprefixPlugin = new LessPluginAutoPrefix();
 const currentDir = path.dirname(__dirname);
 const { exec } = require('child_process');
+const bodyMatch = new RegExp('body ?({(?:.|\\s|\\S)*?})', 'm');
 
 // The list of directories in the dist to pull
 const dsList = ['ds4', 'ds6'];
@@ -53,6 +54,27 @@ class CssProcesser {
     });
   }
 
+  wrap(cssContents) {
+    return `${this.classDef} {
+             ${cssContents}
+            }`;
+  }
+
+  rewrapBody(cssContents) {
+    // First get match
+    const body = bodyMatch.exec(cssContents);
+    if (body && body[1]) {
+      // Add new body
+      const newContents = cssContents.replace(bodyMatch, '');
+      return `body ${this.classDef} ${body[1]}
+      ${this.wrap(newContents)}
+     `;
+    } else {
+      this.wrap(cssContents);
+    }
+    return newCssContents;
+  }
+
   /**
    * Generates a raw less file for given css file
    * @param {*} file
@@ -67,10 +89,12 @@ class CssProcesser {
 
     if (!!this.classDef) {
       // Need to read file and output
-      const cssContents = fs.readFileSync(file);
-      return `${this.classDef} {
-             ${cssContents}
-            }`;
+      const cssContents = fs.readFileSync(file).toString();
+      // Check if it's global module and change body
+      if (fileName === 'global') {
+        return this.rewrapBody(cssContents);
+      }
+      return this.wrap(cssContents);
     } else {
       return `@import (inline) "${file}";`;
     }
@@ -128,7 +152,7 @@ function getCDNPath(bundle, dsVersion) {
 function prebuild() {
   return new Promise((resolve, reject) => {
     console.log('Running build...')
-    exec('npm run build', (err) => {
+    exec('npm run build:css', (err) => {
       if (err) {
         return reject(err);
       }
@@ -197,7 +221,7 @@ require('yargs') // eslint-disable-line
           files.forEach((file) => {
             console.log(path.basename(file, '.css'));
           });
-       })
+        })
       })
     });
   })
@@ -222,9 +246,6 @@ require('yargs') // eslint-disable-line
         describe: 'Space separated list of modules to include. If empty, will include all',
         default: []
       })
-
-
-
   }, (argv) => {
     runCSSBuild(argv.name, argv);
   })
