@@ -1,107 +1,130 @@
-// DS6.v1.01
+@import "../../variables/ds6/color-variables.less";
+@import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/typography-variables.less";
+@import "../../mixins/button/ds6/button-mixins.less";
+@import "../../mixins/icon/ds6/icon-mixins.less";
+@import "../base/button.less";
 
-@import "../../less/ds6/variables.less";
-@import "../../less/ds6/mixins.less";
+button.btn--primary,
+a.fake-btn--primary {
+    font-weight: bold;
 
-.btn-expand-icon() {
-    .icon-chevron-down-bold(9px, 5.2px);
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @color-b6;
+        border-color: @color-b6;
+    }
 }
 
-@btn-border-radius: 0;
-@btn-font-size: @ds6-font-size-14;
-@btn-padding: 9.5px 16px;
+a.fake-btn--primary:not([href]),
+a.fake-btn--primary[aria-disabled="true"] {
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @button-primary-partially-disabled-background-color;
+        border-color: @button-primary-partially-disabled-border-color;
+        color: @button-primary-partially-disabled-color;
+    }
+}
 
-@btn-cta-background-color: @ds6-color-background-default;
-@btn-cta-color: @ds6-color-b4;
-@btn-cta-visited-color: @ds6-color-b4;
-@btn-cta-focus-hover-background-color: @ds6-color-b7;
-@btn-cta-focus-hover-border-color: @ds6-color-b7;
-@btn-cta-focus-hover-color: @ds6-color-white;
+button.btn--secondary,
+a.fake-btn--secondary {
+    &:focus,
+    &:hover,
+    &:active {
+        border-color: @color-b6;
+        color: @color-b6;
+    }
+}
 
-@btn-cta-no-href-background-color: @ds6-color-white;
-@btn-cta-no-href-border-color: @ds6-color-disabled;
-@btn-cta-no-href-color: @ds6-color-disabled;
-
-@button-regular-background-color: @ds6-color-white;
-@button-regular-border-color: @ds6-color-grey2;
-@button-regular-color: @ds6-color-black;
-
-@button-regular-active-color: @ds6-color-black;
-@button-regular-fake-visited-color: @ds6-color-black;
-
-@button-regular-disabled-background-color: @ds6-color-disabled;
-@button-regular-disabled-border-color: @ds6-color-disabled;
-@button-regular-disabled-color: @ds6-color-white;
-@button-regular-disabled-svg-color: @ds6-color-white;
-@button-regular-disabled-hover-background-color: @ds6-color-disabled;
-@button-regular-disabled-hover-border-color: @ds6-color-disabled;
-
-@button-regular-partially-disabled-background-color: @ds6-color-disabled;
-@button-regular-partially-disabled-color: @ds6-color-disabled;
-
-@button-primary-background-color: @ds6-color-b4;
-@button-primary-border-color: @ds6-color-b4;
-@button-primary-color: @ds6-color-white;
-
-@button-primary-fake-visited-color: @ds6-color-white;
-
-@button-primary-disabled-background-color: @ds6-color-disabled;
-@button-primary-disabled-border-color: @ds6-color-disabled;
-@button-primary-disabled-color: @ds6-color-white;
-@button-primary-disabled-svg-color: @ds6-color-white;
-@button-primary-disabled-hover-background-color: @ds6-color-disabled;
-@button-primary-disabled-hover-border-color: @ds6-color-disabled;
-
-@button-primary-partially-disabled-background-color: @ds6-color-disabled;
-@button-primary-partially-disabled-border-color: @ds6-color-disabled;
-@button-primary-partially-disabled-color: @ds6-color-white;
-
-@button-secondary-background-color: @ds6-color-white;
-@button-secondary-border-color: @ds6-color-b4;
-@button-secondary-color: @ds6-color-b4;
-
-@button-secondary-fake-visited-color: @ds6-color-b4;
-
-@button-secondary-disabled-background-color: @ds6-color-white;
-@button-secondary-disabled-border-color: @ds6-color-disabled;
-@button-secondary-disabled-color: @ds6-color-disabled;
-@button-secondary-disabled-svg-color: @ds6-color-disabled;
-@button-secondary-disabled-hover-background-color: @ds6-color-white;
-@button-secondary-disabled-hover-border-color: @ds6-color-disabled;
-
-@button-secondary-partially-disabled-border-color: @ds6-color-disabled;
-@button-secondary-partially-disabled-color: @ds6-color-disabled;
-
-@import "../base/button.less";
-@import "button-cta.less";
-@import "button-regular.less";
-@import "button-primary.less";
-@import "button-secondary.less";
-@import "button-sizes.less";
-@import "button-legacy.less";
+button.btn--secondary[disabled],
+a.fake-btn--secondary[disabled],
+a.fake-btn--secondary:not([href]),
+a.fake-btn--secondary[aria-disabled="true"] {
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @color-white;
+        border-color: @color-disabled;
+        color: @color-disabled;
+    }
+}
 
 svg.btn__icon,
 svg.fake-btn__icon {
-    .foreground-icon-base;
+    .foreground-icon-base-mixin();
 }
 
-svg.expand-btn__icon,
-svg.cta-btn__icon {
-    flex-shrink: 0;
+button.btn {
+    .button-size-rules(10px, 10px);
 }
 
-svg.cta-btn__icon {
-    height: 10px;
-    width: 9.75px;
+button.btn--fixed-height {
+    .button-size-rules-fixed-height(10px, 21px);
 }
 
-svg.expand-btn__icon {
-    height: 5.2px;
-    width: 9px;
+button.btn--truncated {
+    .button-size-rules(10px, 10px);
 }
 
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.expand-btn__icon {
-        background-image: url('data:image/svg+xml;base64,@{ds6-icon-chevron-down-bold-base64-light}');
+// Fake button needs different padding or the text doesn't quite align with the real button text for this size
+a.fake-btn {
+    .button-size-rules(9px, 11px);
+}
+
+a.fake-btn--fixed-height {
+    .button-size-rules-fixed-height(9px, 21.5px);
+}
+
+a.fake-btn--truncated {
+    .button-size-rules(9px, 11px);
+}
+
+button.btn,
+a.fake-btn {
+    font-size: @font-size-14;
+    min-height: 40px;
+}
+
+button.btn__cell--fixed-height,
+a.fake-btn__cell--fixed-height {
+    svg.btn__icon,
+    svg.expand-btn__icon,
+    svg.fake-btn__icon,
+    svg.cta-btn__icon {
+        align-self: center;
+        height: 1rem;
+        width: 1rem;
     }
+}
+
+button.btn--truncated,
+a.fake-btn--truncated {
+    .btn-truncate();
+}
+
+button.btn--large,
+a.fake-btn--large {
+    .button-size-rules(13px, 15px);
+
+    font-size: @font-size-16;
+    min-height: 48px;
+}
+
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+    .button-size-rules-fixed-height(13px, 27px);
+
+    height: 48px;
+    min-height: 48px;
+}
+
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+    .button-size-rules(13px, 15px);
+    .btn-truncate();
+
+    height: 48px;
+    min-height: 48px;
 }

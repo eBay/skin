@@ -1,0 +1,144 @@
+/* DEPRECATED in 8.0.0 */
+@import "../../variables/ds6/color-variables.less";
+@import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/typography-variables.less";
+@import "../../mixins/button/ds6/button-mixins.less";
+@import "../base/pill.less";
+
+.pill-size-rules(@paddingBottom, @paddingTop) {
+    padding-bottom: @paddingBottom;
+    padding-top: @paddingTop;
+}
+
+button.pill,
+a.fake-pill {
+    .pill-size-rules(10px, 10px);
+
+    &__cell--fixed-height svg.pill__icon,
+    &__cell--fixed-height svg.fake-pill__icon {
+        align-self: center;
+        height: 1rem;
+        width: 1rem;
+    }
+
+    &--small {
+        .pill-size-rules(6px, 6px);
+
+        min-height: 32px;
+
+        &-fixed-height {
+            .pill-size-rules(6px, 6px);
+
+            height: 32px;
+        }
+
+        &-truncated {
+            .pill-size-rules(6px, 6px);
+            .btn-truncate;
+
+            height: 32px;
+        }
+    }
+
+    &--medium {
+        .pill-size-rules(10px, 10px);
+
+        min-height: 40px;
+
+        &-fixed-height {
+            .pill-size-rules(10px, 10px);
+
+            height: 40px;
+        }
+
+        &-truncated {
+            .pill-size-rules(10px, 10px);
+            .btn-truncate;
+
+            height: 40px;
+        }
+    }
+
+    &--large {
+        .pill-size-rules(12px, 12px);
+
+        min-height: 48px;
+
+        &-fixed-height {
+            .pill-size-rules(12px, 12px);
+
+            height: 48px;
+        }
+
+        &-truncated {
+            .pill-size-rules(12px, 12px);
+            .btn-truncate;
+
+            height: 48px;
+        }
+    }
+
+    &--extra-large {
+        padding: 16px 24px;
+
+        &-fixed-height {
+            height: 40px;
+        }
+
+        &-truncated {
+            .btn-truncate;
+
+            height: 56px;
+        }
+    }
+
+    &--large,
+    &--extra-large {
+        font-size: @font-size-18;
+    }
+}
+
+// Official DS6 styles are medium and large, but adding this to support legacy deprecated small button
+button.pill--legacy,
+a.fake-pill--legacy {
+    padding: 5.5px 48px;
+}
+
+button.pill--primary,
+a.fake-pill--primary,
+button.pill--selected,
+a.fake-pill--selected {
+    font-weight: bold;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @color-b7;
+        border-color: @color-b7;
+    }
+}
+
+button.pill--secondary[disabled],
+a.fake-pill--secondary[disabled],
+button.pill--unselected[disabled],
+a.fake-pill--unselected[disabled] {
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @color-disabled;
+        border-color: @color-disabled;
+        color: @color-white;
+    }
+}
+
+button.pill--secondary,
+a.fake-pill--secondary,
+button.pill--unselected,
+a.fake-pill--unselected {
+    &:focus,
+    &:hover,
+    &:active {
+        border-color: @color-b7;
+        color: @color-b7;
+    }
+}

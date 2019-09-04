@@ -17,6 +17,7 @@ var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v'+pkg.version;
 
+
 var comment = [
     '/*!',
     'Skin v<%= pkg.version %>',
@@ -28,7 +29,17 @@ var comment = [
 
 // Compile all modules to /dist
 function modules () {
-   return gulp.src(['./src/less/**/*.less', '!./src/less/bundles/**/*.less', '!./src/less/mixins/**/*.less', '!./src/less/less/**/*.less', '!./src/less/**/*-*.less', '!./src/**/base/*.less'])
+   return gulp.src([
+       './src/less/**/*.less',
+       '!./src/**/base/*.less',
+       '!./src/less/**/*-static.less',
+       '!./src/less/bundles/**/*.less',
+       '!./src/less/gh/**/*.less',
+       '!./src/less/grid/**/*.less',
+       '!./src/less/less/**/*.less',
+       '!./src/less/mixins/**/*.less',
+       '!./src/less/variables/**/*.less'
+    ])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
 }
@@ -49,8 +60,8 @@ function megabundle() {
 
 // Compile and minify the base64 less to docs/static, _site/static and _cdn
 function base64() {
-   return gulp.src(['./src/less/icon/background/**/*.less'])
-    .pipe(banner(comment, {pkg: pkg}))
+   return gulp.src(['./src/less/icon/background/**/*.less', '!./src/less/icon/background/base/*.less', '!./src/less/icon/background/ds6/background.less'])
+   .pipe(banner(comment, {pkg: pkg}))
     .pipe(rename(function (path) {
        path.basename = 'skin-base64';
        path.extname = minifiedFileExtensionName;

@@ -1,0 +1,542 @@
+<div id="menu-button">
+    <h2><span class="secondary-text">@ebay/skin/</span>menu-button</h2>
+
+    <p>A menu button follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
+    <p>A menu is <strong>not</strong> a form control. If you wish to submit form data natively, without JavaScript, please consider <a href="#checkbox">checkbox</a>, <a href="#combobox">combobox</a>, <a href="#select">select</a>, or <a href="#radio">radio</a> instead.</p>
+    <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-fake">fake menu</a>.</p>
+    <p><strong>NOTE: </strong>Only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/menu-button/index.html">eBay MIND Pattern for Menu</a>.</p>
+
+    <h3 id="menu-button-default">Default Menu Button</h3>
+    <p>The default menu is a <em>stateless</em> menu.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 1 with a long string</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem"><span>Item 2</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Item 3</span></div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 1 with a long string</span>
+            </div>
+            <div class="menu-button__item" role="menuitem"><span>Item 2</span></div>
+            <div class="menu-button__item" role="menuitem"><span>Item 3</span></div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <p>For all menu buttons, the overlay becomes automatically scrollable when it's height reaches 400px.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        {% for number in (1...50) %}
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Menu item {{number}}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <h3 id="menu-button-radio">Radio Menu Button</h3>
+    <p>For single-select state, use role <span class="highlight">menuitemradio</span> on each menu item.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="true" data-menuitemradio-name="sort">
+                            <span>Item 1 with a long string</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort">
+                            <span>Item 2</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort">
+                            <span>Item 3</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitemradio" aria-checked="true">
+                <span>Radio menu item 1</span>
+                <span class="menu-button__status"></span>
+            </div>
+            <div class="menu-button__item" role="menuitemradio" aria-checked="false">
+                <span>Radio menu item 2</span>
+                <span class="menu-button__status"></span>
+            </div>
+            <div class="menu-button__item" role="menuitemradio" aria-checked="false">
+                <span>Radio menu item 3</span>
+                <span class="menu-button__status"></span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="menu-button-checkbox">Checkbox Menu Button</h3>
+    <p>For multi-select state, use role <span class="highlight">menuitemcheckbox</span> on each menu item.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                            <span>Item 1</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                            <span>Item 2</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                            <span>Item 3</span>
+                            <span class="menu-button__status"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
+                <span>Item 1</span>
+                <span class="menu-button__status"></span>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true" height="8" width="8">
+                <span>Item 2</span>
+                <span class="menu-button__status"></span>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="false" height="8" width="8">
+                <span>Item 3</span>
+                <span class="menu-button__status"></span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="menu-button-fake">Fake Menu Button</h3>
+    <p>A fake menu button <em>looks</em> like a normal menu button component, but it contains a list of hyperlinks (instead of a menu of menuitems) and thus behaves more like a navigational component.</p>
+    <p>A valid HREF attribute is <strong>required</strong> for all anchor tags. A value of "javascript" (or any such variant) is <strong>not</strong> a valid URL!</p>
+    <p>Use the <span class="highlight">aria-current</span> attribute to denote the link that matches the current page URL (if applicable).</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="fake-menu-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <ul class="fake-menu-button__menu">
+                    <li>
+                        <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
+                            <span>Link 1</span>
+                            <span class="fake-menu-button__status"></span>
+                        </a>
+                    </li>
+                    <li><a href="http://www.ebay.com" class="fake-menu-button__item">Link 2</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu-button__item">Link 3</a></li>
+                    <li><a href="http://www.ebay.com" class="fake-menu-button__item">Link 4</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="fake-menu-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <ul class="fake-menu-button__menu">
+        <li>
+            <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
+                <span>Link 1</span>
+                <span class="fake-menu-button__status"></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Link 2</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Link 3</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com" class="fake-menu-button__item">Link 4</a>
+        </li>
+    </ul>
+</span>
+    {% endhighlight %}
+
+    <p><strong>TIP:</strong> A fake menu button can contain a mix of anchor tags and button tags.</p>
+
+    <h3 id="menu-button-growth">Fixed Width Menu Button</h3>
+    <p>Use the <span class="highlight">menu-button__menu--fix-width</span> or <span class="highlight">fake-menu-button__menu--fix-width</span> element modifier to fix the width of any menu items to the button width. This is useful in cases where the menu overlay needs to be constrained to the button width, usually to accomodate spacing and layout.</p>
+    <p><strong>NOTE: </strong> The <span class="highlight">fix-width</span> modifier only works on menus that use a <span class="highlight">span</span> tag.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu menu-button__menu--fix-width">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 1 with a long string</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 2</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 3</span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu-button__menu menu-button__menu--fix-width">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 1 with a long string</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 2</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="menu-button-borderless">Borderless Menu Button</h3>
+    <p>Use the <span class="highlight">expand-btn--borderless</span> element modifier on the expand button
+        to allow for a borderless version of the expand button.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--regular expand-btn--borderless" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 1</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 2</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Item 3</span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--regular expand-btn--borderless" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 1</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 2</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="menu-button-custom">Custom Menu Button</h3>
+
+    <p>Any menu can use any kind of button hierarchy as defined in the <a href="#button">button</a> module (e.g. <span class="highlight">.expand-btn--primary</span>).</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--primary" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 1</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 2</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 3</span></div>
+                    </div>
+                </div>
+            </span>
+            <span class="menu-button">
+                <button class="expand-btn expand-btn--secondary" aria-expanded="false" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 1</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 2</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 3</span></div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn expand-btn--primary" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <!-- menu items omitted from example code -->
+</span>
+
+<span class="menu-button">
+    <button class="expand-btn expand-btn--secondary" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <!-- menu items omitted from example code -->
+</span>
+    {% endhighlight %}
+
+    <p>For <em>custom</em> background and foreground colours, please replace the icon's span element with an inline SVG element:</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #6a29b9; color: white" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <svg aria-hidden="true" class="expand-btn__icon" focusable="false">
+                            <use xlink:href="#icon-chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 1</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 2</span></div>
+                        <div class="menu-button__item" role="menuitem"><span>Menu item 3</span></div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #6a29b9; color: white" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <svg aria-hidden="true" class="expand-btn__icon" focusable="false">
+                <use xlink:href="#icon-chevron-down-bold"></use>
+            </svg>
+        </span>
+    </button>
+</span>
+        {% endhighlight %}
+
+    </div>
+
+    <p>A checkbox menu or radio menu can also leverage inline SVG for the checked state of each item:</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Menu Button</span>
+                        <svg aria-hidden="true" class="expand-btn__icon" focusable="false" height="8" width="8">
+                            <use xlink:href="#icon-chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                            <span>Menu item 1</span>
+                            <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                                <use xlink:href="#icon-confirmation"></use>
+                            </svg>
+                        </div>
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                            <span>Menu item 2</span>
+                            <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                                <use xlink:href="#icon-confirmation"></use>
+                            </svg>
+                        </div>
+                        <div class="menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                            <span>Menu item 3</span>
+                            <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                                <use xlink:href="#icon-confirmation"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" style="background-color: #5ba71b; color: white" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Menu Button</span>
+            <svg aria-hidden="true" class="expand-btn__icon" focusable="false" height="8" width="8">
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                <span>Menu item 1</span>
+                <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-confirmation"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                <span>Menu item 2</span>
+                <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-confirmation"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                <span>Menu item 3</span>
+                <svg aria-hidden="true" class="menu-button__status" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-confirmation"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+
+    </div>
+
+    <p><strong>TIP:</strong> The positions of the status icon and label have been reversed in this example, simply by flipping their DOM order.</p>
+
+    {% if page.ds == 6 %}
+    <div class="section-footer">
+        <p>DS6.v1.01</p>
+    </div>
+    {% endif %}
+</div>

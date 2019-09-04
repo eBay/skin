@@ -1,0 +1,187 @@
+<div id="listbox-button">
+    <h2><span class="secondary-text">@ebay/skin/</span>listbox-button</h2>
+    <p>A listbox button is intended for use as a custom implementation of the native HTML select element's <em>single</em>-select use case.</p>
+    <p>Because a button element does not store form data, it's value will not be submitted along with other form data without the assistance of JavaScript.</p>
+    <p><strong>NOTE</strong>: only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/listbox-button/index.html">eBay MIND Pattern for Listbox Button</a>.</p>
+
+    <h3 id="listbox-button-default">Default</h3>
+    <p>By default, the first option should be selected if the user does not specify a selection. This matches the behaviour of a native HTML select element.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="listbox-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Option 1</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox" tabindex="0">
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 1</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 2</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 3</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="listbox-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Option 1</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 1</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 2</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 3</span>
+                <span class="listbox-button__status"></span>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="listbox-button-selected">Selected State</h3>
+    <p>An initial selection can be specified by applying the <span class="highlight">aria-selected</span> state to a single option.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="listbox-button">
+                <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Option 2</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox" tabindex="0">
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 1</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option" aria-selected="true">
+                            <span class="listbox-button__value">Option 2</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 3</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="listbox-button">
+    <button class="expand-btn expand-btn--regular" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Option 1</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 1</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">Option 2</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 3</span>
+                <span class="listbox-button__status"></span>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    <h3 id="listbox-button-borderless">Borderless</h3>
+    <p>Apply the <span class="highlight">expand-btn--borderless</span> modifier to create a borderless listbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="listbox-button">
+                <button class="expand-btn expand-btn--regular expand-btn--borderless" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Option 1</span>
+                        <span class="expand-btn__icon"></span>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox" tabindex="0">
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 1</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 2</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Option 3</span>
+                            <span class="listbox-button__status"></span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        {% highlight html %}
+<span class="listbox-button">
+    <button class="expand-btn expand-btn--regular expand-btn--borderless" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Listbox</span>
+            <span class="expand-btn__icon"></span>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 1</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 2</span>
+                <span class="listbox-button__status"></span>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Option 3</span>
+                <span class="listbox-button__status"></span>
+            </div>
+        </div>
+    </div>
+</span>
+        {% endhighlight %}
+    </div>
+
+    {% if page.ds == 6 %}
+    <div class="section-footer">
+        <p>DS6.v1.01</p>
+    </div>
+    {% endif %}
+
+</div>

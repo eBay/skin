@@ -1,24 +1,91 @@
-@import "../../less/ds4/variables.less";
-@import "../../less/ds4/mixins.less";
-@import "textbox-mixins.less";
+@import "../../variables/ds4/color-variables.less";
+@import "../../variables/ds4/icon-variables.less";
+@import "../../variables/ds4/typography-variables.less";
 
-@textbox-control-background: @ds4-color-core-white;
-@textbox-control-border-color: @ds4-color-core-gray-silver;
+.placeholder() {
+    &::-webkit-input-placeholder {
+        color: @color-core-gray-dim;
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        color: @color-core-gray-dim;
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        color: @color-core-gray-dim;
+        font-weight: 200;
+    }
+}
+
+.placeholder-disabled() {
+    &::-webkit-input-placeholder {
+        color: @color-core-gray-silver;
+    }
+
+    &::-moz-placeholder {
+        color: @color-core-gray-silver;
+    }
+
+    &:-ms-input-placeholder {
+        color: @color-core-gray-silver;
+    }
+}
+
+.placeholder-floated() {
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    &::placeholder {
+        color: transparent;
+    }
+}
+
+.placeholder-floated--focus() {
+    &:focus::-webkit-input-placeholder {
+        color: @color-core-gray-dim;
+    }
+
+    &:focus::-moz-placeholder {
+        color: @color-core-gray-dim;
+    }
+
+    &:focus:-ms-input-placeholder {
+        color: @color-core-gray-dim;
+    }
+
+    &:focus::placeholder {
+        color: @color-core-gray-dim;
+    }
+}
+
+@textbox-control-background: @color-core-white;
+@textbox-control-border-color: @color-core-gray-silver;
 @textbox-control-border-radius: 3px;
-@textbox-control-color: @ds4-color-core-gray-davys;
-@textbox-control-font-family: @ds4-font-family-base;
+@textbox-control-color: @color-core-gray-davys;
+@textbox-control-font-family: @font-family-base;
 @textbox-control-font-size: inherit;
 @textbox-control-height: @ds4-height-control-medium;
 
-@textbox-control-disabled-color: @ds4-color-core-gray-silver;
-@textbox-control-readonly-color: @ds4-color-core-gray-silver;
-@textbox-control-invalid-color: @ds4-color-interface-hot;
-@textbox-control-focus-border-color: @ds4-color-core-blue;
+@textbox-control-disabled-color: @color-core-gray-silver;
+@textbox-control-readonly-color: @color-core-gray-silver;
+@textbox-control-invalid-color: @color-interface-hot;
+@textbox-control-focus-border-color: @color-core-blue;
 
-@textbox-control-underline-border-bottom-color: @ds4-color-core-gray-silver;
+@textbox-control-underline-border-bottom-color: @color-core-gray-silver;
 
-@textbox-icon-color: @ds4-color-core-gray-spanish;
-@textbox-icon-fill: @ds4-color-core-gray-spanish;
+@textbox-icon-color: @color-core-gray-spanish;
+@textbox-icon-fill: @color-core-gray-spanish;
 @textbox-icon-width: 1em;
 @textbox-icon-first-child-left: 16px;
 @textbox-icon-end-last-child-right: 16px;
@@ -28,18 +95,27 @@
 @textbox-rtl-icon-end-last-child-left: 16px;
 @textbox-rtl-icon-end-last-child-textbox-control-padding-right: 16px;
 
+// Fixed Height Values for Textbox, Combobox & Button
+// (size are PX intentionally, and should not scale with root font size)
+//-----------------------------
+
+@ds4-height-control-small: 32px;
+@ds4-height-control-medium: 40px;
+@ds4-height-control-large: 48px;
+@ds4-height-control-extra-large: 56px;
+
 @import "../base/textbox.less";
 
 input.textbox__control,
 textarea.textbox__control {
     &[disabled] {
-        background-color: @ds4-color-core-gray-light;
+        background-color: @color-core-gray-light;
         border: 0;
     }
 
     &[readonly] {
-        background-color: @ds4-color-core-gray-light;
-        color: @ds4-color-core-gray-dim;
+        background-color: @color-core-gray-light;
+        color: @color-core-gray-dim;
     }
 }
 
@@ -56,13 +132,13 @@ input.textbox__control--underline {
 .textbox--small {
     input.textbox__control,
     textarea.textbox__control {
-        font-size: @ds4-font-size-12;
+        font-size: @font-size-12;
         height: @ds4-height-control-small;
     }
 }
 
 .textbox--large {
-    font-size: @ds4-font-size-16;
+    font-size: @font-size-16;
 
     input.textbox__control,
     textarea.textbox__control {
@@ -71,7 +147,7 @@ input.textbox__control--underline {
 }
 
 .textbox--extra-large {
-    font-size: @ds4-font-size-18;
+    font-size: @font-size-18;
 
     input.textbox__control,
     textarea.textbox__control {

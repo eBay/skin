@@ -1,51 +1,56 @@
-// DS6.v1.01
-
-@import "../../less/ds6/variables.less";
-@import "../../less/ds6/mixins.less";
-@import "../../dropdown/ds6/dropdown.less";
+@import "../../variables/ds6/color-variables.less";
+@import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/typography-variables.less";
+@import "../../mixins/dropdown/ds6/dropdown-mixins.less";
+@import "../../mixins/icon/ds6/icon-mixins.less";
+@import "../../mixins/utility/utility-mixins.less";
 
 @combobox-height: 40px;
 
+@combobox-input-background-color: @color-white;
+@combobox-input-border-color: @color-grey4;
+@combobox-input-border-radius: 0;
+@combobox-input-font-size: @font-size-14;
+@combobox-input-height: @combobox-height;
+@combobox-input-padding: 0 32px 0 16px;
+
+@combobox-input-readonly-text-shadow-color: @color-black;
+@combobox-input-readonly-selection-background: @color-white;
+
+@combobox-input-disabled-border-color: @color-disabled;
+@combobox-input-disabled-readonly-text-shadow-color: @color-disabled;
+@combobox-input-invalid-color: @color-r4;
+@combobox-input-focus-border-color: @color-b4;
+
+@combobox-icon-base64-light: @icon-chevron-down-bold-base64-light;
+
 .combobox-icon() {
-    .icon-chevron-down-bold(9px, @combobox-height);
+    .background-icon-image-mixin('chevron-down-bold', 9px, @combobox-height);
 
     background-size: 9px 5px;
 }
 
 .combobox-input-disabled-icon() {
-    .icon-chevron-down-disabled(9px, @combobox-height);
+    .background-icon-image-mixin('chevron-down-disabled', 9px, @combobox-height);
 
     background-size: 9px 5px;
 }
 
-@combobox-input-background-color: @ds6-color-white;
-@combobox-input-border-color: @ds6-color-grey4;
-@combobox-input-border-radius: 0;
-@combobox-input-font-size: @ds6-font-size-14;
-@combobox-input-height: @combobox-height;
-@combobox-input-padding: 0 32px 0 16px;
-
-@combobox-input-readonly-text-shadow-color: @ds6-color-black;
-@combobox-input-readonly-selection-background: @ds6-color-white;
-
-@combobox-input-disabled-border-color: @ds6-color-disabled;
-@combobox-input-disabled-readonly-text-shadow-color: @ds6-color-disabled;
-@combobox-input-invalid-color: @ds6-color-r4;
-@combobox-input-focus-border-color: @ds6-color-b4;
-
-@combobox-icon-base64-light: @ds6-icon-chevron-down-bold-base64-light;
-
 @import "../base/combobox.less";
+
+.combobox__option--active[role^="option"] {
+    font-weight: bold;
+}
 
 .combobox--large,
 .combobox--extra-large {
     .combobox__control > input {
-        font-size: @ds6-font-size-18;
+        font-size: @font-size-18;
         height: @combobox-height + 8px;
     }
 
     span.combobox__icon {
-        .icon-chevron-down-bold(9px, @combobox-height + 8px);
+        .background-icon-image-mixin('chevron-down-bold', 9px, @combobox-height + 8px);
 
         background-size: 9px 5px;
     }

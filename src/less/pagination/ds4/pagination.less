@@ -1,14 +1,16 @@
-@import "../../less/ds4/variables.less";
-@import "../../less/ds4/mixins.less";
+@import "../../variables/ds4/color-variables.less";
+@import "../../variables/ds4/icon-variables.less";
+@import "../../variables/ds4/typography-variables.less";
+@import "../../mixins/icon/ds4/icon-mixins.less";
 @import "../base/pagination.less";
 
 .pagination {
-    font-family: @ds4-font-family-base;
+    font-family: @font-family-base;
     min-width: 400px;
 }
 
 .pagination a {
-    color: @ds4-color-icon-actionable-default;
+    color: @color-icon-actionable-default;
 }
 
 .pagination__items {
@@ -16,14 +18,14 @@
 }
 
 .pagination__item {
-    color: @ds4-color-text-default;
-    font-size: @ds4-font-size-14;
+    color: @color-text-default;
+    font-size: @font-size-14;
     padding: 8px 12px;
 
     &:active,
     &:link,
     &:visited {
-        color: @ds4-color-text-default;
+        color: @color-text-default;
     }
 
     &:focus,
@@ -32,9 +34,9 @@
     }
 
     &[aria-current="page"] {
-        background-color: @ds4-color-core-gray-light;
-        color: @ds4-color-core-gray-jet;
-        font-weight: @ds4-font-weight-medium;
+        background-color: @color-core-gray-light;
+        color: @color-core-gray-jet;
+        font-weight: @font-weight-medium;
         line-height: 16px;
     }
 }
@@ -45,24 +47,24 @@
 }
 
 .pagination__next span {
-    .ds4-icon-chevron-light-right(10px, 17px);
+    .background-icon-image-mixin('chevron-light-right', 10px, 17px);
 }
 
 .pagination__previous span {
-    .ds4-icon-chevron-light-left(10px, 17px);
+    .background-icon-image-mixin('chevron-light-left', 10px, 17px);
 }
 
 .pagination__next {
     &:focus,
     &:hover {
         span {
-            .ds4-icon-chevron-light-right-focus(10px, 17px);
+            .background-icon-image-mixin('chevron-light-right-focus', 10px, 17px);
         }
     }
 
     &[aria-disabled="true"] {
         span {
-            .ds4-icon-chevron-light-right-disabled(10px, 17px);
+            .background-icon-image-mixin('chevron-light-right-disabled', 10px, 17px);
         }
     }
 }
@@ -71,13 +73,13 @@
     &:focus,
     &:hover {
         span {
-            .ds4-icon-chevron-light-left-focus(10px, 17px);
+            .background-icon-image-mixin('chevron-light-left-focus', 10px, 17px);
         }
     }
 
     &[aria-disabled="true"] {
         span {
-            .ds4-icon-chevron-light-left-disabled(10px, 17px);
+            .background-icon-image-mixin('chevron-light-left-disabled', 10px, 17px);
         }
     }
 }
@@ -88,18 +90,18 @@
 
 @media screen and (-ms-high-contrast: white-on-black) {
     .pagination__next span {
-        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-right-base64-light}');
+        .background-image-base64(@icon-chevron-right-base64-light);
     }
 
     .pagination__previous span {
-        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-left-base64-light}');
+        .background-image-base64(@icon-chevron-left-base64-light);
     }
 
     .pagination__next[aria-disabled="true"] span {
-        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-right-disabled-base64}');
+        .background-image-base64(@icon-chevron-right-disabled-base64);
     }
 
     .pagination__previous[aria-disabled="true"] span {
-        background-image: url('data:image/svg+xml;base64,@{ds4-icon-chevron-left-disabled-base64}');
+        .background-image-base64(@icon-chevron-left-disabled-base64);
     }
 }

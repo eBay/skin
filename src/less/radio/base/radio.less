@@ -1,6 +1,3 @@
-@import "../../less/variables-common.less";
-@import "../../less/mixins-common.less";
-
 .radio {
     display: inline-flex;
     font-size: @font-size-16;
@@ -22,13 +19,14 @@
     }
 
     &:not([hidden]) {
-        .background-icon-image-base;
+        .background-icon-base-mixin;
         .radio-icon-unchecked();
     }
 
     & svg {
-        .foreground-icon-base;
+        .foreground-icon-base-mixin;
 
+        color: @radio-unchecked-color;
         height: 18px;
         width: 18px;
     }
@@ -46,10 +44,12 @@
 
     &:not(:checked) {
         & + .radio__icon svg.radio__checked {
+            color: @radio-checked-color;
             display: none;
         }
 
         & + .radio__icon svg.radio__unchecked {
+            color: @radio-unchecked-color;
             display: inline-block;
         }
     }
@@ -64,15 +64,17 @@
 
     &:checked {
         & + .radio__icon:not([hidden]) {
-            .background-icon-image-base;
+            .background-icon-base-mixin;
             .radio-icon-checked();
         }
 
         & + .radio__icon svg.radio__checked {
+            color: @radio-checked-color;
             display: inline-block;
         }
 
         & + .radio__icon svg.radio__unchecked {
+            color: @radio-unchecked-color;
             display: none;
         }
     }
@@ -80,10 +82,10 @@
 
 @media screen and (-ms-high-contrast: white-on-black) {
     .radio__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{radio-unchecked-icon-base64-light}');
+        .background-image-base64(@radio-unchecked-icon-base64-light);
     }
 
     .radio__control[type="radio"]:checked + .radio__icon:not([hidden]) {
-        background-image: url('data:image/svg+xml;base64,@{radio-checked-icon-base64-light}');
+        .background-image-base64(@radio-checked-icon-base64-light);
     }
 }

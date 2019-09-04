@@ -47,18 +47,18 @@ function onListboxChange(e) {
 const defaultOptions = {
     autoSelect: true,
     labelSelector: '.listbox-button__label',
-    listboxSelector: '.listbox-button__listbox',
-    hostSelector: 'button'
+    listboxSelector: '.listbox-button__listbox'
 };
 
 module.exports = class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
         this.el = widgetEl;
-        this._buttonEl = this.el.querySelector(this._options.hostSelector);
+        this._buttonEl = this.el.querySelector('button');
         this._buttonLabelEl = widgetEl.querySelector(this._options.labelSelector);
 
         this.listbox = new Listbox(this.el.querySelector(this._options.listboxSelector), {
+            activeDescendantClassName: 'listbox-button__option--active',
             autoSelect: this._options.autoSelect
         });
 
@@ -70,8 +70,8 @@ module.exports = class {
             contentSelector: this._options.listboxSelector,
             expandedClass: 'listbox-button--expanded',
             expandOnClick: true,
-            focusManagement: 'content', // known discrepancy between skin and mindpatterns, due to lack of wrapper element
-            hostSelector: this._options.hostSelector
+            focusManagement: 'focusable',
+            hostSelector: 'button'
         });
 
         this._onButtonFirstClickListener = onButtonFirstClick.bind(this);

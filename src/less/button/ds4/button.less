@@ -1,83 +1,24 @@
-@import "../../less/ds4/variables.less";
-@import "../../less/ds4/mixins.less";
-
-.btn-expand-icon() {
-    .icon-arrow-down(8px, 8px);
-}
-
-@btn-border-radius: 3px;
-@btn-font-size: @ds4-font-size-14;
-@btn-padding: 11px 48px;
-
-@btn-cta-background-color: @ds4-color-core-white;
-@btn-cta-color: @ds4-color-interface-cta;
-@btn-cta-visited-color: @ds4-color-interface-cta;
-@btn-cta-focus-hover-background-color: @ds4-color-interface-cta-dark;
-@btn-cta-focus-hover-border-color: @ds4-color-interface-cta-dark;
-@btn-cta-focus-hover-color: @ds4-color-core-white;
-
-@btn-cta-no-href-background-color: @ds4-color-core-white;
-@btn-cta-no-href-border-color: @ds4-color-core-gray-silver;
-@btn-cta-no-href-color: @ds4-color-core-gray-silver;
-
-@button-regular-background-color: @ds4-color-core-white;
-@button-regular-border-color: @ds4-color-core-gray-silver;
-@button-regular-color: @ds4-color-interface-cta;
-
-@button-regular-active-color: @ds4-color-core-gray-davys;
-@button-regular-fake-visited-color: @ds4-color-interface-cta;
-
-@button-regular-disabled-background-color: @ds4-color-core-gray-silver;
-@button-regular-disabled-border-color: @ds4-color-core-gray-dim;
-@button-regular-disabled-color: @ds4-color-core-gray-dim;
-@button-regular-disabled-svg-color: @ds4-color-core-gray-dim;
-@button-regular-disabled-hover-background-color: @ds4-color-core-gray-silver;
-@button-regular-disabled-hover-border-color: @ds4-color-core-gray-dim;
-
-@button-regular-partially-disabled-background-color: @ds4-color-core-gray-silver;
-@button-regular-partially-disabled-color: @ds4-color-core-gray-dim;
-
-@button-primary-background-color: @ds4-color-interface-cta;
-@button-primary-border-color: @ds4-color-interface-cta;
-@button-primary-color: @ds4-color-core-white;
-
-@button-primary-fake-visited-color: @ds4-color-core-white;
-
-@button-primary-disabled-background-color: @ds4-color-interface-cta;
-@button-primary-disabled-border-color: @ds4-color-interface-cta;
-@button-primary-disabled-color: @ds4-color-core-white;
-@button-primary-disabled-svg-color: @ds4-color-core-white;
-@button-primary-disabled-hover-background-color: @ds4-color-interface-cta;
-@button-primary-disabled-hover-border-color: @ds4-color-interface-cta;
-
-@button-primary-partially-disabled-background-color: @ds4-color-interface-cta;
-@button-primary-partially-disabled-border-color: @ds4-color-interface-cta;
-@button-primary-partially-disabled-color: @ds4-color-core-white;
-
-@button-secondary-background-color: fade(@ds4-color-interface-view-background, 50%);
-@button-secondary-border-color: @ds4-color-text-disabled;
-@button-secondary-color: @ds4-color-core-gray-davys;
-
-@button-secondary-fake-visited-color: @ds4-color-core-gray-davys;
-
-@button-secondary-disabled-background-color: @ds4-color-interface-cta;
-@button-secondary-disabled-border-color: @ds4-color-text-disabled;
-@button-secondary-disabled-color: @ds4-color-core-gray-davys;
-@button-secondary-disabled-svg-color: @ds4-color-core-gray-davys;
-@button-secondary-disabled-hover-background-color: @ds4-color-interface-cta;
-@button-secondary-disabled-hover-border-color: @ds4-color-interface-cta;
-
-@button-secondary-partially-disabled-border-color: @ds4-color-text-disabled;
-@button-secondary-partially-disabled-color: @ds4-color-core-gray-davys;
-
+@import "../../variables/ds4/button-variables.less";
+@import "../../variables/ds4/color-variables.less";
+@import "../../variables/ds4/icon-variables.less";
+@import "../../variables/ds4/typography-variables.less";
+@import "../../mixins/button/ds4/button-mixins.less";
+@import "../../mixins/icon/ds4/icon-mixins.less";
 @import "../base/button.less";
 
-button.expand-btn {
-    padding: 11px 16px;
+button.btn,
+a.fake-btn {
+    .button-size-rules(@font-size-14, 11px 40px);
+
+    line-height: 1.2em;
 }
 
-button.btn,
-button.expand-btn {
+button.btn--truncated,
+a.fake-btn--truncated {
+    .btn-truncate;
+}
+
+button.btn {
     &[disabled],
     &[aria-disabled="true"] {
         opacity: 0.5;
@@ -91,32 +32,134 @@ a.fake-btn {
     }
 }
 
-@import "button-regular.less";
-@import "button-primary.less";
-@import "button-secondary.less";
-@import "button-sizes.less";
-
-svg.expand-btn__icon,
-svg.cta-btn__icon {
-    height: 8px;
-    width: 8px;
+button.btn--regular,
+a.fake-btn--regular {
+    &:hover,
+    &:focus {
+        border-color: @color-core-gray-spanish;
+    }
 }
 
-button.expand-btn--regular span.expand-btn__icon {
-    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-blue-base64}');
+button.btn--primary,
+a.fake-btn--primary {
+    svg {
+        color: @color-core-white;
+        fill: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: @color-interface-cta;
+        opacity: 0.8;
+    }
+
+    &:active {
+        background-color: @color-core-blue-dark;
+    }
 }
 
-button.expand-btn--primary span.expand-btn__icon {
-    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-white-base64}');
+button.btn--secondary,
+a.fake-btn--secondary {
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: @color-core-gray-dim;
+    }
+
+    &:active {
+        background-color: fade(@color-core-gray-gainsboro, 50%);
+        border-color: fade(@color-core-gray-davys, 50%);
+    }
 }
 
-button.expand-btn--secondary span.expand-btn__icon {
-    background-image: url('data:image/svg+xml;base64,@{ds4-icon-arrow-down-gray-davys-base64}');
+button.btn--primary[disabled],
+button.btn--primary[aria-disabled="true"] {
+    svg {
+        color: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        opacity: 0.5;
+    }
 }
 
-button.btn.btn--pill,
-button.expand-btn.expand-btn--pill,
-a.cta-btn.cta-btn--pill,
-a.fake-btn.fake-btn--pill {
-    line-height: 1.3em;
+a.fake-btn--primary:not([href]),
+a.fake-btn--primary[aria-disabled="true"] {
+    svg {
+        color: @color-core-white;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-interface-cta;
+        border-color: @color-interface-cta;
+        opacity: 0.5;
+    }
+}
+
+button.btn--secondary[disabled],
+button.btn--secondary[aria-disabled="true"] {
+    background-color: @color-core-gray-silver;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-core-gray-silver;
+        border-color: @color-text-disabled;
+    }
+}
+
+a.fake-btn--secondary:not([href]),
+a.fake-btn--secondary[aria-disabled="true"] {
+    background-color: @color-core-gray-silver;
+
+    svg {
+        color: @color-core-gray-davys;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @color-core-gray-silver;
+        border-color: @color-text-disabled;
+    }
+}
+
+.btn__cell--fixed-height .btn__icon,
+.fake-btn__cell--fixed-height .fake-btn__icon {
+    align-self: center;
+    overflow: visible;
+}
+
+button.btn--fixed-height,
+a.fake-btn--fixed-height {
+    .button-fixed-height-top-padding(21.5px);
+}
+
+button.btn--large,
+a.fake-btn--large {
+    .button-size-rules(@font-size-16, 14px 48px);
+}
+
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+    height: 48px;
+    .button-fixed-height-top-padding(27px);
+}
+
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+    .button-size-rules(@font-size-16, 14px 48px);
+    .btn-truncate;
+
+    height: 48px;
 }

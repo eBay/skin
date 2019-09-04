@@ -36,7 +36,7 @@ Please refer to our [projects](https://github.com/eBay/skin/projects) page to se
 
 Please view our [@ebay/browserslist-config](https://github.com/eBay/browserslist-config/blob/master/index.js) to see which browsers we currently support.
 
-SPOILER: we do not support IE10 or under.
+_SPOILER_: we do not support IE10 or under.
 
 ## Accessibility (A11Y)
 
@@ -47,6 +47,18 @@ We take accessibility very seriously. Very seriously indeed. Therefore all modul
 Please use our [issues page](https://github.com/eBay/skin/issues) to ask questions, report issues or submit feature requests.
 
 To help track your issue, the Skin admins will assign it with a label from one or more issue categories.
+
+## Custom Bundler
+
+Skin provides a command to create your own bundles for uploading to cdn. Use `bin/generate-bundle.js` in order to create separate bundles.
+
+`bin/generate-bundle.js list` -> List available modules (used for the --modules argument)
+
+`bin/generate-bundle.js bundle ebay` -> Create a bundle under the ebay folder
+
+`bin/generate-bundle.js bundle ebay --modules button carousel` -> Create a bundle under the ebay folder with only button and carousel modules
+
+`bin/generate-bundle.js bundle ebay --scope-class ebay --scope-specificity 5` -> Create a bundle under the ebay folder with all CSS styles wrapped under `.ebay.ebay.ebay.ebay.ebay {}`
 
 ## Developing &amp; Contributing
 
