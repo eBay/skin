@@ -1,43 +1,169 @@
 <div id="less">
     <h2><span class="secondary-text">@ebay/skin/</span>less</h2>
     <p>The Less module enables developers to access our public Less variables &amp; mixins in their application.</p>
-    <p>Our Less module is <strong>not</strong> intended as a <em>general-purpose</em> library of utility mixins and variables such as <a href="http://lesshat.madebysource.com">LessHat</a>..</p>
+    <p>Our Less module is <strong>not</strong> intended as a <em>general-purpose</em> library of utility mixins and variables such as <a href="http://lesshat.madebysource.com">LessHat</a>.</p>
     {% highlight json %}
 {
     "dependencies": {
       "lasso": "^3",
       "lasso-less": "^3",
-      "@ebay/skin": "^7"
+      "@ebay/skin": "^9"
     }
 }
     {% endhighlight %}
-    <p><strong>NOTE</strong>: This module requires the additional <a href="https://www.npmjs.com/package/lasso-less">lasso-less</a> plugin dependency in your app package.json:</p>
+    <p><strong>NOTE</strong>: This module requires the additional <a href="https://www.npmjs.com/package/lasso-less">lasso-less</a> plugin dependency in your app package.json.</p>
 
     <h3 id="less-typography">Typography Mixins</h3>
     <div class="demo">
         <div class="demo__inner">
             <ul class="demo-typography">
-                <li class="giant-text-2">.typography-giant-2</li>
-                <li class="giant-text-1">.typography-giant-1</li>
-                <li class="large-text-2 bold-text">.typography-large-2-bold</li>
-                <li class="large-text-2">.typography-large-2</li>
-                <li class="large-text-2 secondary-text">.typography-large-2-secondary</li>
-                <li class="large-text-1 bold-text">.typography-large-1-bold</li>
-                <li class="large-text-1">.typography-large-1</li>
-                <li class="large-text-1 secondary-text">.typography-large-1-secondary</li>
-                <li class="medium-text bold-text">.typography-medium-bold</li>
-                <li class="medium-text">.typography-medium</li>
-                <li class="medium-text secondary-text">.typography-medium-secondary</li>
-                <li class="regular-text bold-text">.typography-regular-bold</li>
-                <li class="regular-text">.typography-regular</li>
-                <li class="regular-text secondary-text">.typography-regular-secondary</li>
-                <li class="small-text bold-text">.typography-small-bold</li>
-                <li class="small-text">.typography-small</li>
-                <li class="small-text secondary-text">.typography-small-secondary</li>
+                <li class="giant-text-2">.typography-giant-2();</li>
+                <li class="giant-text-1">.typography-giant-1();</li>
+                <li class="large-text-2 bold-text">.typography-large-2-bold();</li>
+                <li class="large-text-2">.typography-large-2();</li>
+                <li class="large-text-2 secondary-text">.typography-large-2-secondary();</li>
+                <li class="large-text-1 bold-text">.typography-large-1-bold();</li>
+                <li class="large-text-1">.typography-large-1();</li>
+                <li class="large-text-1 secondary-text">.typography-large-1-secondary();</li>
+                <li class="medium-text bold-text">.typography-medium-bold();</li>
+                <li class="medium-text">.typography-medium();</li>
+                <li class="medium-text secondary-text">.typography-medium-secondary();</li>
+                <li class="regular-text bold-text">.typography-regular-bold();</li>
+                <li class="regular-text">.typography-regular();</li>
+                <li class="regular-text secondary-text">.typography-regular-secondary();</li>
+                <li class="small-text bold-text">.typography-small-bold();</li>
+                <li class="small-text">.typography-small();</li>
+                <li class="small-text secondary-text">.typography-small-secondary();</li>
             </ul>
         </div>
     </div>
 
-    {% include ds{{ page.ds}}/less-custom.html %}
+    <h3 id="less-variables-greys">Grey Color Variables</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-colors">
+                <li class="demo-color-white">@color-white <span class="demo-colors__info">(#fff)</span></li>
+                <li class="demo-color-grey1">@color-grey1 <span class="demo-colors__info">(#{% if page.ds == 4 %}eee{% else %}f5f5f5{% endif %})</span></li>
+                <li class="demo-color-grey2">@color-grey2 <span class="demo-colors__info">(#{% if page.ds == 4 %}ddd{% else %}e5e5e5{% endif %})</span></li>
+                <li class="demo-color-grey3">@color-grey3 <span class="demo-colors__info">(#{% if page.ds == 4 %}ccc{% else %}c7c7c7{% endif %})</span></li>
+                <li class="demo-color-grey4">@color-grey4 <span class="demo-colors__info">(#{% if page.ds == 4 %}999{% else %}a2a2a2{% endif %})</span></li>
+                <li class="demo-color-grey5">@color-grey5 <span class="demo-colors__info">(#767676)</span></li>
+                <li class="demo-color-grey6">@color-grey6 <span class="demo-colors__info">(#{% if page.ds == 4 %}333{% else %}41413f{% endif %})</span></li>
+                <li class="demo-color-black">@color-black <span class="demo-colors__info">(#{% if page.ds == 4 %}000{% else %}111820{% endif %})</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="less-color-product">Product Color Variables</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-colors">
+                <li class="demo-color-text-default">@color-text-default</li>
+                <li class="demo-color-text-secondary">@color-text-secondary</li>
+                <li class="demo-color-link-default">@color-link-default</li>
+                <li class="demo-color-link-visited">@color-link-visited</li>
+                <li class="demo-color-information-background">@color-information-background</li>
+                <li class="demo-color-badge">@color-badge</li>
+                <li class="demo-color-star">@color-star</li>
+                <li class="demo-color-warning-background">@color-warning-background</li>
+                <li class="demo-color-critical-text">@color-critical-text</li>
+                <li class="demo-color-critical-background">@color-critical-background</li>
+                <li class="demo-color-confirmation-text">@color-confirmation-text</li>
+                <li class="demo-color-confirmation-background">@color-confirmation-background</li>
+                <li class="demo-color-background-default">@color-background-default</li>
+            </ul>
+        </div>
+    </div>
+
+    {% if page.ds == 4 %}
+
+    <h3 id="less-core-colors">Core Color Variables</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-colors">
+                <li class="demo-color-core-orange">@color-core-orange;</li>
+                <li class="demo-color-core-red">@color-core-red;</li>
+                <li class="demo-color-core-purple">@color-core-purple;</li>
+                <li class="demo-color-core-blue-dark">@color-core-blue-dark;</li>
+                <li class="demo-color-core-blue">@color-core-blue;</li>
+                <li class="demo-color-core-violet">@color-core-violet;</li>
+                <li class="demo-color-core-green">@color-core-green;</li>
+                <li class="demo-color-core-beige">@color-core-beige;</li>
+                <li class="demo-color-core-beige-light">@color-core-beige-light;</li>
+            </ul>
+        </div>
+    </div>
+
+    <p>For a full list of DS4 colour variables, please <a href="archive/index.html">visit the archive</a>.</p>
+
+    {% endif %}
+
+    {% if page.ds == 6 %}
+
+    <h3 id="less-color-palette">Palette Color Variables</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-colors">
+                <li class="demo-color-y1">@color-y1 <span class="demo-colors__info">(#fcf2bd)</span></li>
+                <li class="demo-color-y2">@color-y2 <span class="demo-colors__info">(#f7e376)</span></li>
+                <li class="demo-color-y3">@color-y3 <span class="demo-colors__info">(#fbcd25)</span></li>
+                <li class="demo-color-y4">@color-y4 <span class="demo-colors__info">(#f7b100)</span></li>
+                <li class="demo-color-y5">@color-y5 <span class="demo-colors__info">(#e58c02)</span></li>
+                <li class="demo-color-y6">@color-y6 <span class="demo-colors__info">(#aa5404)</span></li>
+                <li class="demo-color-y7">@color-y7 <span class="demo-colors__info">(#592e13)</span></li>
+                <li class="demo-color-o1">@color-o1 <span class="demo-colors__info">(#ffdec7)</span></li>
+                <li class="demo-color-o2">@color-o2 <span class="demo-colors__info">(#feb786)</span></li>
+                <li class="demo-color-o3">@color-o3 <span class="demo-colors__info">(#ff8559)</span></li>
+                <li class="demo-color-o4">@color-o4 <span class="demo-colors__info">(#ff6932)</span></li>
+                <li class="demo-color-o5">@color-o5 <span class="demo-colors__info">(#db3c07)</span></li>
+                <li class="demo-color-o6">@color-o6 <span class="demo-colors__info">(#b03005)</span></li>
+                <li class="demo-color-o7">@color-o7 <span class="demo-colors__info">(#5c1b05)</span></li>
+                <li class="demo-color-r1">@color-r1 <span class="demo-colors__info">(#ffd1dd)</span></li>
+                <li class="demo-color-r2">@color-r2 <span class="demo-colors__info">(#ffa2b6)</span></li>
+                <li class="demo-color-r3">@color-r3 <span class="demo-colors__info">(#ff6383)</span></li>
+                <li class="demo-color-r4">@color-r4 <span class="demo-colors__info">(#e62048)</span></li>
+                <li class="demo-color-r5">@color-r5 <span class="demo-colors__info">(#c4003a)</span></li>
+                <li class="demo-color-r6">@color-r6 <span class="demo-colors__info">(#a00739)</span></li>
+                <li class="demo-color-r7">@color-r7 <span class="demo-colors__info">(#680226)</span></li>
+                <li class="demo-color-m1">@color-m1 <span class="demo-colors__info">(#fad8f0)</span></li>
+                <li class="demo-color-m2">@color-m2 <span class="demo-colors__info">(#f5a0d9)</span></li>
+                <li class="demo-color-m3">@color-m3 <span class="demo-colors__info">(#ea5fbc)</span></li>
+                <li class="demo-color-m4">@color-m4 <span class="demo-colors__info">(#d11da4)</span></li>
+                <li class="demo-color-m5">@color-m5 <span class="demo-colors__info">(#a60d8a)</span></li>
+                <li class="demo-color-m6">@color-m6 <span class="demo-colors__info">(#82187c)</span></li>
+                <li class="demo-color-m7">@color-m7 <span class="demo-colors__info">(#500750)</span></li>
+                <li class="demo-color-b1">@color-b1 <span class="demo-colors__info">(#c5e5fb)</span></li>
+                <li class="demo-color-b2">@color-b2 <span class="demo-colors__info">(#93c9ff)</span></li>
+                <li class="demo-color-b3">@color-b3 <span class="demo-colors__info">(#659eff)</span></li>
+                <li class="demo-color-b4">@color-b4 <span class="demo-colors__info">(#3665f3)</span></li>
+                <li class="demo-color-b5">@color-b5 <span class="demo-colors__info">(#382aef)</span></li>
+                <li class="demo-color-b6">@color-b6 <span class="demo-colors__info">(#2b0eaf)</span></li>
+                <li class="demo-color-b7">@color-b7 <span class="demo-colors__info">(#121258)</span></li>
+                <li class="demo-color-t1">@color-t1 <span class="demo-colors__info">(#c2f2ef)</span></li>
+                <li class="demo-color-t2">@color-t2 <span class="demo-colors__info">(#71e3e2)</span></li>
+                <li class="demo-color-t3">@color-t3 <span class="demo-colors__info">(#1dcbca)</span></li>
+                <li class="demo-color-t4">@color-t4 <span class="demo-colors__info">(#02a2ac)</span></li>
+                <li class="demo-color-t5">@color-t5 <span class="demo-colors__info">(#01718f)</span></li>
+                <li class="demo-color-t6">@color-t6 <span class="demo-colors__info">(#0e4a6c)</span></li>
+                <li class="demo-color-t7">@color-t7 <span class="demo-colors__info">(#00364f)</span></li>
+                <li class="demo-color-g1">@color-g1 <span class="demo-colors__info">(#ccfdce)</span></li>
+                <li class="demo-color-g2">@color-g2 <span class="demo-colors__info">(#9ef4a6)</span></li>
+                <li class="demo-color-g3">@color-g3 <span class="demo-colors__info">(#5ee471)</span></li>
+                <li class="demo-color-g4">@color-g4 <span class="demo-colors__info">(#3ac952)</span></li>
+                <li class="demo-color-g5">@color-g5 <span class="demo-colors__info">(#119c4b)</span></li>
+                <li class="demo-color-g6">@color-g6 <span class="demo-colors__info">(#157a40)</span></li>
+                <li class="demo-color-g7">@color-g7 <span class="demo-colors__info">(#064d2f)</span></li>
+                <li class="demo-color-l1">@color-l1 <span class="demo-colors__info">(#f4fabe)</span></li>
+                <li class="demo-color-l2">@color-l2 <span class="demo-colors__info">(#e9f577)</span></li>
+                <li class="demo-color-l3">@color-l3 <span class="demo-colors__info">(#c9e43b)</span></li>
+                <li class="demo-color-l4">@color-l4 <span class="demo-colors__info">(#accf02)</span></li>
+                <li class="demo-color-l5">@color-l5 <span class="demo-colors__info">(#86b300)</span></li>
+                <li class="demo-color-l6">@color-l6 <span class="demo-colors__info">(#4b7d06)</span></li>
+                <li class="demo-color-l7">@color-l7 <span class="demo-colors__info">(#364f03)</span></li>
+            </ul>
+        </div>
+    </div>
+
+    {% endif %}
 
 </div>

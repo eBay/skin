@@ -1,0 +1,257 @@
+@mobile: ~"only screen and (max-width: 600px)";
+@desktop: ~"only screen and (min-width: 601px)";
+
+h1 {
+    display: inline-block;
+}
+
+/* DEMO STYLES */
+/* creates 8px of whitespace around the module */
+
+.demo {
+    background-color: #fff;
+    border: 1px dashed #ccc;
+}
+
+.demo__inner {
+    margin: 8px;
+}
+
+span.demo,
+span.demo__inner {
+    display: inline-block;
+}
+
+/* PYGMENTS/ROUGE */
+
+@import "pygments.less";
+
+span.highlight {
+    background-color: #eee;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+    /* fix for long attributes values that don't wrap right */
+    .s {
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+}
+
+figure.highlight {
+    background-color: #efefef;
+    box-sizing: border-box;
+    margin: 8px 0;
+    width: 100%;
+
+    pre {
+        font-family: monospace, monospace; // normalize.css
+        font-size: 1em; // normalize.css
+        margin: 0;
+        padding: 8px 8px 0;
+    }
+
+    code {
+        white-space: pre-wrap;
+    }
+}
+
+/* CAROUSEL */
+
+.demo-filmstrip__card {
+    background: @color-information-background;
+    color: @color-text-default;
+    font-size: 24px;
+    font-weight: bold;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 16px;
+    text-align: center;
+    width: 250px;
+}
+
+.demo-filmstrip__card:last-child {
+    margin-right: 0;
+}
+
+.demo-slideshow__card {
+    background: @color-information-background;
+    color: @color-text-default;
+    font-size: 36px;
+    font-weight: bold;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    width: 100%;
+}
+
+/* COLOR */
+
+.demo-colors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 1rem 0;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 1.25rem;
+            margin-bottom: 0.25rem;
+            margin-right: 1rem;
+            vertical-align: middle;
+            width: 100%;
+
+            @media @desktop {
+                display: inline-block;
+                width: 10rem;
+            }
+        }
+    }
+}
+
+/* ICON */
+
+span.icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-table {
+    display: inline-table;
+
+    th,
+    td {
+        text-align: left;
+
+        &:not(:first-child) {
+            padding-left: 16px;
+        }
+    }
+}
+
+/* LESS */
+
+.demo-color- {
+    &white::before {
+        background-color: @color-white;
+        outline: 1px solid @color-grey4;
+    }
+
+    &grey1::before {
+        background-color: @color-grey1;
+        outline: 1px solid @color-grey4;
+    }
+
+    &grey2::before {
+        background-color: @color-grey2;
+        outline: 1px solid @color-grey4;
+    }
+
+    &grey3::before {
+        background-color: @color-grey3;
+    }
+
+    &grey4::before {
+        background-color: @color-grey4;
+    }
+
+    &grey5::before {
+        background-color: @color-grey5;
+    }
+
+    &grey6::before {
+        background-color: @color-grey6;
+    }
+
+    &black::before {
+        background-color: @color-black;
+    }
+
+    &text-default::before {
+        background-color: @color-text-default;
+    }
+
+    &text-secondary::before {
+        background-color: @color-text-secondary;
+    }
+
+    &link-default::before {
+        background-color: @color-link-default;
+    }
+
+    &link-visited::before {
+        background-color: @color-link-visited;
+    }
+
+    &information-background::before {
+        background-color: @color-information-background;
+    }
+
+    &badge::before {
+        background-color: @color-badge;
+    }
+
+    &star::before {
+        background-color: @color-star;
+    }
+
+    &warning-background::before {
+        background-color: @color-warning-background;
+    }
+
+    &confirmation-text::before {
+        background-color: @color-confirmation-text;
+    }
+
+    &confirmation-background::before {
+        background-color: @color-confirmation-background;
+    }
+
+    &critical-text::before {
+        background-color: @color-critical-text;
+    }
+
+    &critical-background::before {
+        background-color: @color-critical-background;
+    }
+
+    &background-default::before {
+        background-color: @color-background-default;
+        outline: 1px solid @color-grey4;
+    }
+}
+
+/* TYPOGRAPHY */
+
+.demo-typography {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 1rem 0;
+    }
+}
+
+/* UTILITY */
+
+.utility-table {
+    th,
+    td {
+        text-align: left;
+    }
+}
+
+@media @desktop {
+    body {
+        margin: 32px;
+    }
+
+    h2 {
+        margin-top: 32px;
+    }
+}

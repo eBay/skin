@@ -1,56 +1,41 @@
 <!-- TECH DEBT: the file contains inline styles -->
 <div id="icon">
     <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
-    <p>The icon module provides full access to the eBay iconography via the <span class="highlight">&lt;svg&gt;</span> tag (i.e. foreground icons) and the <span class="highlight">&lt;span&gt;</span> tag (i.e. background icons).</p>
+    <p>The icon module provides full access to the eBay iconography via the <span>&lt;svg&gt;</span> tag (i.e. foreground icons) and the <span>&lt;span&gt;</span> tag (i.e. background icons).</p>
     <p>By default, the icon module bundles <strong>all</strong> CSS for <strong>both</strong> types of tag. However, the background icon CSS contains a base64 data-url for every icon in the set, therefore significantly increasing CSS payload. For this reason, Skin also provides the ability to bring in background or foreground CSS independently, via their own modules.</p>
     <p>Below we give a quick, introductory example of how to use each type of icon; followed up by the full list of icons.</p>
 
-    <div style="display: flex">
-        <div style="width: 50%">
-            <h3>@ebay/skin/icon/foreground</h3>
-            <p>Foregound icons (the <span class="highlight">&lt;svg&gt;</span> tag) can inherit their colour via the CSS cascade.</p>
-            <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
-        </div>
-        <div style="margin-left: 1rem; width: 50%">
-            <h3>@ebay/skin/icon/background</h3>
-            <p>Background icons (the <span class="highlight">&lt;span&gt;</span> tag) have their colour fixed in base64 and cannot be changed via CSS.</p>
-            <p>Remember, this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload will occur.</p>
+    <h3>@ebay/skin/icon/foreground</h3>
+    <p>Foregound icons use the <span>&lt;svg&gt;</span> tag and can inherit their colour via the CSS cascade.</p>
+    <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Foreground icon example" class="icon icon--information" focusable="false" height="24" width="24" role="img">
+                <use xlink:href="#icon-information"></use>
+            </svg>
         </div>
     </div>
 
-    <div style="display: flex">
-        <div style="width: 50%">
-            <div class="demo">
-                <div class="demo__inner">
-                    <svg aria-label="Foreground icon example" class="icon icon--information" focusable="false" height="24" width="24" role="img">
-                        <use xlink:href="#icon-information"></use>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div style="margin-left: 1rem; width: 50%">
-            <div class="demo">
-                <div class="demo__inner">
-                    <span class="icon icon--information"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="display: flex">
-        <div style="width: 50%">
-        {% highlight html %}
+    {% highlight html %}
 <svg class="icon icon--information" focusable="false" height="24" width="24">
     <use xlink:href="#icon-information"></use>
 </svg>
-        {% endhighlight %}
-        </div>
-        <div style="margin-left: 1rem; width: 50%">
-        {% highlight html %}
-<span class="icon icon--information"></span>
-        {% endhighlight %}
+    {% endhighlight %}
+
+    <h3>@ebay/skin/icon/background</h3>
+    <p>Background icons use the <span>&lt;span&gt;</span> tag. Their colour fixed in base64 and cannot be changed via CSS.</p>
+    <p>Remember, this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload will occur.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="icon icon--information"></span>
         </div>
     </div>
+
+    {% highlight html %}
+<span class="icon icon--information"></span>
+    {% endhighlight %}
 
     <p><strong>NOTE:</strong> Skin removes all mouse and touch events on foreground icons due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
 
@@ -59,277 +44,1763 @@
 
     <h4>Presentational Icons</h4>
     <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
-    <p>Presentational foreground icons require <span class="highlight">aria-hidden="true"</span>.</p>
+    <p>Presentational foreground icons require <span>aria-hidden="true"</span>.</p>
     <p>Presentational background icons require no special treatment. Assistive technology simply ignores empty span tags.</p>
 
     <h4>Non-Presentational Icons</h4>
     <p>A non-presentational icon provides essential content, context or affordance to a page, section or widget.</p>
     <p>Non-presentational icons nested inside of an interactive element (typically a button or link) require no special treatment. The label and role of the interactive element is sufficient for assistive technology.</p>
-    <p>Non-presentational icons <strong>not</strong> nested inside of an interactive element require <span class="highlight">role="img"</span> and an <span class="highlight">aria-label</span>.</p>
+    <p>Non-presentational icons <strong>not</strong> nested inside of an interactive element require <span>role="img"</span> and an <span>aria-label</span>.</p>
 
-    <h3 id="icon-ds4-filter">Filter Icons</h3>
-    <div class="demo demo--tiles">
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--filter-gallery" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-filter-gallery"></use>
-                </svg>
-            </div>
-            <span class="highlight">filter-gallery</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--filter-single" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-filter-single"></use>
-                </svg>
-            </div>
-            <span class="highlight">filter-single</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--filter-list" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-filter-list"></use>
-                </svg>
-            </div>
-            <span class="highlight">filter-list</span>
-        </div>
-    </div>
-    {% if page.ds == 6 %}
-        <h3 id="icon-ds6-filter-small">Small Filter Icons</h3>
-        <div class="demo demo--tiles">
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--filter-gallery-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-filter-gallery-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">filter-gallery-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--filter-single-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-filter-single-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">filter-single-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--filter-list-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-filter-list-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">filter-list-small</span>
-            </div>
-        </div>
+    <h3 id="icon-icons">The Icons</h3>
+    <p>The table below displays all icons, in default size and small size (DS6 only, where applicable). Append <span class="highlight">-small</span> to the icon name to render the small version.</p>
+
+    <table class="icon-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Default</th>
+                <th>Small</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>filter-gallery</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-gallery" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-gallery"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-gallery-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-gallery-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>filter-single</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-single" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-single"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-single-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-single-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>filter-list</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-list" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-list"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--filter-list-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-filter-list-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>checkbox-checked</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--checkbox-checked" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-checkbox-checked"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--checkbox-checked-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-checkbox-checked-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>checkbox-unchecked</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--checkbox-unchecked" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-checkbox-unchecked"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--checkbox-unchecked-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-checkbox-unchecked-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>radio-checked</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--radio-checked" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-radio-checked"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--radio-checked-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-radio-checked-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>radio-unchecked</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--radio-unchecked" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-radio-unchecked"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--radio-unchecked-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-radio-unchecked-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>tick</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-tick"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--tick-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-tick-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>pause</td>
+                <td colspan="2">
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--pause" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-pause"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>play</td>
+                <td colspan="2">
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--play" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-play"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>attention</td>
+                <td colspan="2">
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--attention" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-attention"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>confirmation</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--confirmation" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-confirmation"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--confirmation-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-confirmation-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>information</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--information" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-information"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--information-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-information-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>attention-filled</td>
+                <td colspan="2">
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--attention-filled" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-attention-filled"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>confirmation-filled</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-confirmation-filled"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-confirmation-filled-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>information-filled</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--information-filled" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-information-filled"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--information-filled-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-information-filled-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-down</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-down" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-down"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-down-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-down-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-down-bold</td>
+                <td colspan="2">
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-down-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-down-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-left</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-left"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-left-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-left-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-up</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-up" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-up"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-up-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-up-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-up-bold</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-up-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-up-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-up-bold-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-up-bold-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-right</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-right"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-right-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>chevron-right</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-right"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-chevron-right-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow-left</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-left" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-left"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-left-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-left-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow-move</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-move" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-move"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-move-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-move-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow-right</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-right" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-right-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-right-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>arrow-right-bold</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-right-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-right-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--arrow-right-bold-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-arrow-right-bold-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>cart</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--cart" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-cart"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--cart-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-cart-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>close</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--close" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-close"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-close-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>menu</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-menu"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--menu-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-menu-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>notification</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--notification" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-notification"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--notification-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-notification-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>overflow</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--overflow" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-overflow"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-overflow-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>search</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--search" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-search"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--search-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-search-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>search-bold</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--search-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-search-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--search-bold-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-search-bold-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>bids</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--bids" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-bids"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--bids-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-bids-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>categories</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--categories" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-categories"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--categories-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-categories-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>deals</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--deals" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-deals"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--deals-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-deals-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>download</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--download" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-download"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--download-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-download-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>event</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--event" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-event"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--event-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-event-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>help</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--help" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-help"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--help-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-help-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>home</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--home" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-home"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--home-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-home-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>messages</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--messages" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-messages"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--messages-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-messages-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>profile</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--profile" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-profile"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--profile-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-profile-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="icon-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Default</th>
+                <th>Small</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>purchases</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--purchases" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-purchases"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--purchases-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-purchases-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>selling</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--selling" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-selling"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--selling-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-selling-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>settings</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-settings"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--settings-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-settings-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>add</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--add" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-add"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--add-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-add-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>window</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--window" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-window"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--window-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-window-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>camera</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--camera" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-camera"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--camera-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-camera-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>clear</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--clear" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-clear"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--clear-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-clear-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>clock</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--clock" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-clock"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--clock-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-clock-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>watch</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--watch" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-watch"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--watch-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-watch-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>following</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--following" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-following"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--following-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-following-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>send</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--send" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-send"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--send-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-send-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>refresh</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--refresh" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-refresh"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--refresh-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-refresh-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>edit</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--edit" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-edit"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--edit-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-edit-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>wallet</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--wallet" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-wallet"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--wallet-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-wallet-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>mic</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--mic" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-mic"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--mic-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-mic-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>red-laser</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--red-laser" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-red-laser"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--red-laser-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-red-laser-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-rotate</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-rotate" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-rotate"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-rotate-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-rotate-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-crop</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-crop" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-crop"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-crop-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-crop-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-select-all</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-select-all" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-select-all"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-select-all-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-select-all-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-select-none</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-select-none" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-select-none"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-select-none-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-select-none-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-brightness</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-brightness" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-brightness"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-brightness-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-brightness-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-gallery</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-gallery" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-gallery"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-gallery-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-gallery-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>photo-gallery-more</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--gallery-more" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-gallery-more"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--photo-gallery-more-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-photo-gallery-more-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>delete</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--delete" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-delete"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--delete-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-delete-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>top-seller</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--top-seller" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-top-seller"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--top-seller-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-top-seller-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>fast-n-free</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--fast-n-free" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-fast-n-free"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--fast-n-free-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-fast-n-free-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>truck</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--truck" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-truck"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--truck-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-truck-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>thumbs-up</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-up" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-up"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-up-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-up-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>thumbs-up-selected</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-up-selected" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-up-selected"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-up-selected-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-up-selected-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>thumbs-down</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-down" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-down"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-down-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-down-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>thumbs-down-selected</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-down-selected" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-down-selected"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--thumbs-down-selected-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-thumbs-down-selected-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-empty</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-empty" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-empty"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-empty-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-empty-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-filled</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-filled" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-filled"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-filled-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-filled-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-filled-grey</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-filled-grey" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-filled-grey"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-filled-grey-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-filled-grey-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-half</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-half" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-half"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-half-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-half-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-undefined</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-undefined" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-undefined"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--icon-undefined-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-undefined-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-star-undefined</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-undefined" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-undefined"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--star-undefined-small" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-star-undefined-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-save</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-save-selected</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save-selected" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save-selected"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save-selected" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save-selected"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>icon-save-bold</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--save-bold" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-save-bold"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if page.ds == 4 %}
+    <p>For a full list of DS4 icons, please <a href="archive/index.html">visit the archive</a>.</p>
     {% endif %}
-
-    <h3 id="icon-ds4-form">Form Icons</h3>
-    <div class="demo demo--tiles">
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--checkbox-unchecked" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-checkbox-unchecked"></use>
-                </svg>
-            </div>
-            <span class="highlight">checkbox-unchecked</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--checkbox-checked" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-checkbox-checked"></use>
-                </svg>
-            </div>
-            <span class="highlight">checkbox-checked</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--radio-unchecked" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-radio-unchecked"></use>
-                </svg>
-            </div>
-            <span class="highlight">radio-unchecked</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--radio-checked" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-radio-checked"></use>
-                </svg>
-            </div>
-            <span class="highlight">radio-checked</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-tick"></use>
-                </svg>
-            </div>
-            <span class="highlight">tick</span>
-        </div>
-    </div>
-
-    {% if page.ds == 6 %}
-        <h3 id="icon-ds6-form-small">Small Form Icons</h3>
-        <div class="demo demo--tiles">
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--checkbox-unchecked-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-checkbox-unchecked-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">checkbox-unchecked-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--checkbox-checked-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-checkbox-checked-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">checkbox-checked-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--radio-unchecked-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-radio-unchecked-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">radio-unchecked-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--radio-checked-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-radio-checked-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">radio-checked-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--tick-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-tick-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">tick-small</span>
-            </div>
-        </div>
-    {% endif %}
-
-    <h3>Carousel Icons</h3>
-    <div class="demo demo--tiles">
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--pause" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-pause"></use>
-                </svg>
-            </div>
-            <span class="highlight">pause</span>
-
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--play" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-play"></use>
-                </svg>
-            </div>
-            <span class="highlight">play</span>
-        </div>
-    </div>
-
-    <h3>Notice Icons</h3>
-    <div class="demo demo--tiles">
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--confirmation" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-confirmation"></use>
-                </svg>
-            </div>
-            <span class="highlight">confirmation</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--information" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-information"></use>
-                </svg>
-            </div>
-            <span class="highlight">information</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--attention" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-attention"></use>
-                </svg>
-            </div>
-            <span class="highlight">attention</span>
-        </div>
-
-        {% if page.ds == 6 %}
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-confirmation-filled"></use>
-                </svg>
-            </div>
-            <span class="highlight">confirmation-filled</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--information-filled" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-information-filled"></use>
-                </svg>
-            </div>
-            <span class="highlight">information-filled</span>
-        </div>
-        <div class="demo__tile">
-            <div class="demo__inner">
-                <svg aria-hidden="true" class="icon icon--attention-filled" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-attention-filled"></use>
-                </svg>
-            </div>
-            <span class="highlight">attention-filled</span>
-        </div>
-        {% endif %}
-    </div>
-
-    {% if page.ds == 6 %}
-        <h3>Small Notice Icons</h3>
-        <div class="demo demo--tiles">
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--confirmation-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-confirmation-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">confirmation-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--information-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-information-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">information-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-confirmation-filled-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">confirmation-filled-small</span>
-            </div>
-            <div class="demo__tile">
-                <div class="demo__inner">
-                    <svg aria-hidden="true" class="icon icon--information-filled-small" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-information-filled-small"></use>
-                    </svg>
-                </div>
-                <span class="highlight">information-filled-small</span>
-            </div>
-
-        </div>
-    {% endif %}
-
-    {% include ds{{ page.ds}}/icon-custom.html %}
 
     <h3>Inline Icons for non Node applications</h3>
     <p>For pages that do not load Skin under node, but only use the CSS from it, inline icons need to be included in the HTML page.</p>
@@ -343,7 +1814,7 @@
 </svg>
     {% endhighlight %}
 
-    <p>Then you can display the icon in the page by referring to the symbol ID</p>
+    <p>Then you can display the icon in the page by referring to the symbol ID.</p>
 
     {% highlight html %}
 <svg class="icon icon--add" focusable="false" width="16" height="16" aria-hidden="true">
