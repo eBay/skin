@@ -1,3 +1,5 @@
+@import "../../variables/base/tooltip-variables.less";
+
 .tooltip__overlay,
 .infotip__overlay,
 .tourtip__overlay {
@@ -141,6 +143,12 @@ span.tourtip {
     display: inline-block;
 }
 
+.tooltip__overlay,
+.infotip__overlay {
+    left: 0 - @icon-width/2;
+    margin-top: 11px; // half the height of the pointer
+}
+
 .tooltip--expanded .tooltip__overlay,
 .tourtip--expanded .tourtip__overlay,
 .tooltip__host[aria-expanded="true"] ~ .tooltip__overlay,
@@ -148,9 +156,10 @@ span.tourtip {
     display: block;
 }
 
-button.infotip__host.icon-btn {
-    height: 16px;
-    width: 16px;
+button.infotip__host.icon-btn,
+button.tooltip__host.icon-btn {
+    height: 20px;
+    width: @icon-width;
 }
 
 @media (min-width: 601px) {
