@@ -68,7 +68,6 @@ ${this.output.join('\n')}
     if (this.dsVersion === 'ds6') {
       return lookup.ds6Color || lookup.color;
     } else {
-
       return lookup.ds4Color || lookup.color;
     }
   }
@@ -77,6 +76,7 @@ ${this.output.join('\n')}
     const color = this.getColor(svg.id, module);
     const win = this.dom.window;
     let variableName = `@${svg.id}`;
+    let modifiedPath;
     if (module.prefix) {
       variableName += `-${module.prefix}`;
     }
@@ -86,10 +86,14 @@ ${this.output.join('\n')}
     }
     svg.querySelectorAll('path').forEach((path) => {
       if (!path.hasAttribute('fill') && !!color) {
+        modifiedPath = path;
         path.setAttribute('fill', color);
       }
     })
-    const base64 = win.btoa((new win.XMLSerializer()).serializeToString(svg).replace('<symbol', '<svg').replace('/symbol>', '/svg>').replace(/(  )+/g, ''))
+    const base64 = win.btoa((new win.XMLSerializer()).serializeToString(svg).replace('<symbol', '<svg').replace('/symbol>', '/svg>').replace(/(  )+/g, ''));
+    if(modifiedPath) {
+      modifiedPath.removeAttribute('fill');
+    }
     this.output.push(`${variableName}: "${base64}";`);
   }
 }
