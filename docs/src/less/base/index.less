@@ -1,8 +1,118 @@
 @mobile: ~"only screen and (max-width: 600px)";
 @desktop: ~"only screen and (min-width: 601px)";
 
-h1 {
-    display: inline-block;
+body {
+    margin: 0;
+}
+
+header .details__summary {
+    padding: 8px 0;
+}
+
+header div {
+    align-items: center;
+    background-color: @color-link-default;
+    box-sizing: border-box;
+    color: white;
+    padding: 16px 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+header span {
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+header span a {
+    color: white;
+
+    &:visited {
+        color: white
+    }
+
+    &:focus {
+        outline: 1px dotted white;
+    }
+}
+
+main > div > h2 {
+    margin-top: 24px;
+    padding-top: 8px;
+}
+
+footer div {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+    padding: 16px 8px;
+}
+
+header details {
+    background: #eee;
+
+    p {
+        color: @color-grey5;
+        text-align: center;
+    }
+
+    ul {
+        column-count: 2;
+        font-size: 20px;
+        line-height: 2em;
+        list-style-type: square;
+        margin: 0;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+
+            &:visited {
+                color: @color-link-default;
+            }
+        }
+    }
+
+    &[open] {
+        padding-bottom: 32px;
+    }
+}
+
+#page-grid {
+    padding: 8px;
+}
+
+#about {
+    dl {
+        margin: 32px 0;
+    }
+
+    dt {
+        display: inline-block;
+        vertical-align: top;
+        width: 29%;
+    }
+
+    dd {
+        display: inline-block;
+        margin: 0;
+        width: 70%;
+    }
+}
+
+.graphic {
+    box-sizing: border-box;
+    display: block;
+    margin: 48px auto 0 auto;
+    max-width: 738px;
+    width: 100%;
 }
 
 /* DEMO STYLES */
@@ -134,6 +244,7 @@ span.icon {
 }
 
 /* LESS */
+/* PLEASE DON'T USE THIS LESS FORMATTING "TRICK" IN OUR MODULE SOURCE CODE ;-) */
 
 .demo-color- {
     &white::before {
@@ -246,12 +357,10 @@ span.icon {
     }
 }
 
-@media @desktop {
-    body {
-        margin: 32px;
-    }
+/* DESKTOP LAYOUT */
 
-    h2 {
-        margin-top: 32px;
+@media @desktop {
+    header details ul {
+        column-count: 3;
     }
 }

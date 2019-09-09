@@ -1,21 +1,78 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>{{page.title}}</title>
+        <title>{{page.title}} (DS{{page.ds}})</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <link type="text/css" rel="stylesheet" href="/static/ds{{page.ds}}/skin.min.css"/>
         <link type="text/css" rel="stylesheet" href="/static/ds{{page.ds}}/docs.min.css"/>
+        <!-- critical styles -->
+        <style>
+            @media only screen and (max-width: 600px) {
+                #modules {
+                    display: block;
+                }
+            }
+        </style>
         <!-- uncomment to load background icons -->
         <!-- <link type="text/css" rel="stylesheet" href="static/ds{{page.ds}}/skin-base64.min.css"/> -->
     </head>
     <body>
-        <div id="page-grid">
-            <header>
+        <header>
+            <details class="details" id="modules">
+                <summary class="details__summary details_summary--center">
+                    <span class="details__summary-text">modules</span>
+                    <span class="details__icon"></span>
+                </summary>
+                <p class="tip">Use the links below and the back button to navigate the site</p>
+                <ul class="modules-list">
+                    <li><a href="#actionable">Actionable</a></li>
+                    <li><a href="#badge">Badge</a></li>
+                    <li><a href="#breadcrumb">Breadcrumb</a></li>
+                    <li><a href="#button">Button</a></li>
+                    <li><a href="#carousel">Carousel</a></li>
+                    <li><a href="#checkbox">Checkbox</a></li>
+                    <li><a href="#color">Color</a></li>
+                    <li><a href="#combobox">Combobox</a></li>
+                    <li><a href="#cta-button">CTA Button</a></li>
+                    <li><a href="#details">Details</a></li>
+                    <li><a href="#dialog">Dialog</a></li>
+                    <li><a href="#expand-button">Expand Button</a></li>
+                    <li><a href="#field">Field</a></li>
+                    <li><a href="#filter-button">Filter Button</a></li>
+                    <li><a href="#filter-menu">Filter Menu</a></li>
+                    <li><a href="#filter-menu-button">Filter Menu Button</a></li>
+                    <li><a href="#global">Global</a></li>
+                    <li><a href="#icon">Icon</a></li>
+                    <li><a href="#label">Label</a></li>
+                    <li><a href="#less">Less</a></li>
+                    <li><a href="#link">Link</a></li>
+                    <li><a href="#listbox">Listbox</a></li>
+                    <li><a href="#listbox-button">Listbox Button</a></li>
+                    <li><a href="#marketsans">Market Sans</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#menu-button">Menu Button</a></li>
+                    <li><a href="#notice">Notice</a></li>
+                    <li><a href="#pagination">Pagination</a></li>
+                    <li><a href="#radio">Radio</a></li>
+                    <li><a href="#select">Select</a></li>
+                    <li><a href="#spinner">Spinner</a></li>
+                    <li><a href="#svg">SVG</a></li>
+                    <li><a href="#switch">Switch</a></li>
+                    <li><a href="#tab">Tab</a></li>
+                    <li><a href="#textbox">Textbox</a></li>
+                    <li><a href="#tooltip">Tooltip</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#utility">Utility</a></li>
+                </ul>
+            </details>
+            <div>
                 <h1>{{ page.title }}</h1>
-                <span>DS{{page.ds}} (<a href="{% if page.ds == 6 %}../{% endif %}{% if page.ds == 4 %}ds6/{% endif %}index.html">switch</a>)</h1></span>
-            </header>
-            <nav>
+                <span><a href="{% if page.ds == 6 %}../index.html{% endif %}{% if page.ds == 4 %}ds6/index.html{% endif %}">DS: {{page.ds}}</a></span>
+            </div>
+        </header>
+        <div id="page-grid">
+            <nav hidden>
                 <h2 id="setup">Setup</h2>
                 <div>
                     <ul>
@@ -43,7 +100,6 @@
                         <li><a href="#actionable">Actionable</a></li>
                         <li><a href="#badge">Badge</a></li>
                         <li><a href="#breadcrumb">Breadcrumb</a></li>
-                        <li><a href="#actionable">Actionable</a></li>
                         <li><a href="#button">Button</a></li>
                         <li><a href="#carousel">Carousel</a></li>
                         <li><a href="#checkbox">Checkbox</a></li>
@@ -85,10 +141,13 @@
             <main>
                 {{ content }}
             </main>
-            <footer>
-                <a href="https://github.com/eBay/skin">View on GitHub</a>. Copyright &copy; 2018 eBay, Inc. All rights reserved.
-            </footer>
         </div>
+        <footer>
+            <div>
+                <span><a href="https://github.com/eBay/skin">View on GitHub</a></span>
+                <span>Copyright &copy; 2018 eBay, Inc. All rights reserved.</span>
+            </div>
+        </footer>
     </body>
     <script src="../static/ds{{page.ds}}/docs.min.js"></script>
     <script>$_mod.ready();</script>
