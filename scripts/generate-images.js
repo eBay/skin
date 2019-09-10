@@ -9,6 +9,7 @@ const config = require('./image-config.json');
 const { JSDOM } = jsdom;
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
+const { exec } = require('child_process');
 const files = [
   path.resolve(svgDir, 'ds6', 'icons.svg'),
   path.resolve(svgDir, 'ds4', 'icons.svg'),
@@ -16,19 +17,36 @@ const files = [
 const { base64Config, svgoConfig } = config;
 const svgo = new Svgo(svgoConfig);
 
-files.forEach(async (filePath) => {
-  try {
-    const dsVersion = filePath.indexOf('ds6') > -1 ? 'ds6' : 'ds4';
-    const data = await fs.promises.readFile(filePath, 'utf8')
-    const result = await svgo.optimize(data, { path: filePath });
-    await fs.promises.writeFile(result.path, result.data)
-    const svgGenerator = new SVGGenerator(result, dsVersion)
-    await svgGenerator.generateAllBase64();
-    await writeSymbols(result, dsVersion);
-  } catch (e) {
-    console.error('An error has occurred', e)
-  }
-});
+async function run() {
+  await Promise.all(files.map(async (filePath) => {
+    try {
+      const dsVersion = filePath.indexOf('ds6') > -1 ? 'ds6' : 'ds4';
+      const data = await fs.promises.readFile(filePath, 'utf8')
+      const result = await svgo.optimize(data, { path: filePath });
+      await fs.promises.writeFile(result.path, result.data)
+      const svgGenerator = new SVGGenerator(result, dsVersion)
+      await svgGenerator.generateAllBase64();
+      await writeSymbols(result, dsVersion);
+      console.log(`Wrote all ${dsVersion} files`);
+    } catch (e) {
+      console.error('An error has occurred', e)
+    }
+  }));
+  await postBuild()
+}
+
+async function postBuild() {
+  return new Promise((resolve, reject) => {
+    console.log('Running build...')
+    exec('yarn build', (err) => {
+      if (err) {
+        return reject(err);
+      }
+      console.log('Build successful!')
+      return resolve();
+    });
+  });
+}
 
 async function writeSymbols(result, dsVersion) {
   const fileOutput = result.data.replace(/<svg.*>/, '<svg hidden>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
@@ -91,9 +109,11 @@ ${this.output.join('\n')}
       }
     })
     const base64 = win.btoa((new win.XMLSerializer()).serializeToString(svg).replace('<symbol', '<svg').replace('/symbol>', '/svg>').replace(/(  )+/g, ''));
-    if(modifiedPath) {
+    if (modifiedPath) {
       modifiedPath.removeAttribute('fill');
     }
     this.output.push(`${variableName}: "${base64}";`);
   }
 }
+
+run();
