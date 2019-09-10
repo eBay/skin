@@ -21,28 +21,28 @@ async function run() {
   await Promise.all(files.map(async (filePath) => {
     try {
       const dsVersion = filePath.indexOf('ds6') > -1 ? 'ds6' : 'ds4';
-      const data = await fs.promises.readFile(filePath, 'utf8')
+      const data = await fs.promises.readFile(filePath, 'utf8');
       const result = await svgo.optimize(data, { path: filePath });
-      await fs.promises.writeFile(result.path, result.data)
-      const svgGenerator = new SVGGenerator(result, dsVersion)
+      await fs.promises.writeFile(result.path, result.data);
+      const svgGenerator = new SVGGenerator(result, dsVersion);
       await svgGenerator.generateAllBase64();
       await writeSymbols(result, dsVersion);
       console.log(`Wrote all ${dsVersion} files`);
     } catch (e) {
-      console.error('An error has occurred', e)
+      console.error('An error has occurred', e);
     }
   }));
-  await postBuild()
+  await postBuild();
 }
 
 async function postBuild() {
   return new Promise((resolve, reject) => {
-    console.log('Running build...')
+    console.log('Running build...');
     exec('yarn build', (err) => {
       if (err) {
         return reject(err);
       }
-      console.log('Build successful!')
+      console.log('Build successful!');
       return resolve();
     });
   });
