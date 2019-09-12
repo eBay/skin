@@ -1,19 +1,16 @@
-@import "../../variables/ds4/color-variables.less";
 @import "../../variables/ds4/icon-variables.less";
+@import "../../variables/ds4/radio-variables.less";
 @import "../../variables/ds4/typography-variables.less";
 @import "../../mixins/icon/ds4/icon-mixins.less";
-
-.radio-icon-unchecked() {
-    .background-icon-image-mixin('radio-unchecked', 18px, 18px);
-}
-
-.radio-icon-checked() {
-    .background-icon-image-mixin('radio-checked', 18px, 18px);
-}
-
-@radio-checked-color: @color-core-blue;
-@radio-unchecked-color: @color-core-gray-silver;
-@radio-unchecked-icon-base64-light: @icon-radio-unchecked-base64-light;
-@radio-checked-icon-base64-light: @icon-radio-checked-base64-light;
-
+@import "../../mixins/radio/ds4/radio-mixins.less";
 @import "../base/radio.less";
+
+.radio__control[type="radio"]:checked + .radio__icon svg.radio__checked {
+    color: @radio-checked-color;
+}
+
+.radio__icon svg,
+.radio__control[type="radio"] {
+    height: 18px;
+    width: 18px;
+}
