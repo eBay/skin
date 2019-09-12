@@ -48,35 +48,39 @@
     &__control {
         background-color: @carousel-control-background-color;
         border: 1px solid @carousel-control-border-color;
+        border-radius: 16px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
         font-size: 18px;
-        height: 72px;
+        height: 32px;
         opacity: 0;
         padding: 0; // override browser default
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
-        width: 28px;
+        width: 32px;
         z-index: 1;
 
         &--prev {
-            left: 0;
+            left: 8px;
         }
 
         &--next {
-            right: 0;
+            right: 8px;
         }
 
         svg {
             color: @carousel-control-svg-color;
         }
 
-        .icon--chevron-right {
+        .icon--chevron-right-small {
             margin-left: 2px;
+            margin-top: -4px;
         }
 
-        .icon--chevron-left {
+        .icon--chevron-left-small {
             margin-left: -2px;
+            margin-top: -4px;
         }
 
         // progressive enhancement for browsers with support
@@ -269,4 +273,19 @@ span.carousel__container {
         }
     }
     /* autoprefixer: on */
+    @media (max-width: 600px) {
+        .carousel {
+            &:not(&__autoplay) {
+                overflow: visible;
+
+                .carousel__container {
+                    margin-bottom: 0;
+                }
+
+                .carousel__list {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
 }
