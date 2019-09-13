@@ -3,64 +3,6 @@
 @ebay-carousel-transition-time: 0.45s;
 @ebay-carousel-transition-function: ease-in-out;
 
-.show-control() {
-    opacity: 0.92;
-    pointer-events: auto;
-
-    &[aria-disabled="true"] {
-        opacity: 0.3;
-        pointer-events: none;
-    }
-}
-
-.carousel-control-mixin(@control-height; @control-width) {
-    background-color: @carousel-control-background-color;
-    border: 1px solid @carousel-control-border-color;
-    font-size: 18px;
-    height: @control-height;
-    opacity: 0;
-    padding: 0; // override browser default
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
-    width: @control-width;
-    z-index: 1;
-
-    svg {
-        color: @carousel-control-svg-color;
-    }
-
-    // progressive enhancement for browsers with support
-    // this cannot be combined with the next rule as
-    // IE/Edge will discard the entire rule
-    .carousel:focus-within & {
-        .show-control();
-    }
-
-    .carousel:hover &,
-    &:focus {
-        .show-control();
-    }
-
-    &:hover {
-        background-color: @carousel-dots-hover-background-color;
-        border-color: @carousel-dots-hover-background-color;
-
-        svg {
-            color: @carousel-dots-hover-svg-color;
-        }
-    }
-
-    &:active {
-        background-color: @carousel-dots-hover-active-background-color;
-
-        svg {
-            color: @carousel-dots-hover-active-svg-color;
-        }
-    }
-}
-
 .carousel {
     position: relative;
 
