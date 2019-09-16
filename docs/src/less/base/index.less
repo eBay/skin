@@ -5,86 +5,6 @@ body {
     margin: 0;
 }
 
-header .details__summary {
-    padding: 8px 0;
-}
-
-header div {
-    align-items: center;
-    background-color: @color-link-default;
-    box-sizing: border-box;
-    color: white;
-    padding: 16px 8px;
-    display: flex;
-    justify-content: space-between;
-}
-
-header h1 {
-    font-size: 26px;
-    font-weight: bold;
-    margin: 0;
-}
-
-header span {
-    flex-shrink: 0;
-    margin-left: 8px;
-}
-
-header span a {
-    color: white;
-
-    &:visited {
-        color: white
-    }
-
-    &:focus {
-        outline: 1px dotted white;
-    }
-}
-
-main > div > h2 {
-    margin-top: 24px;
-    padding-top: 8px;
-}
-
-footer div {
-    background-color: #eee;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 64px;
-    padding: 16px 8px;
-}
-
-header details {
-    background: #eee;
-
-    p {
-        color: @color-grey5;
-        text-align: center;
-    }
-
-    ul {
-        column-count: 2;
-        font-size: 20px;
-        line-height: 2em;
-        list-style-type: square;
-        margin: 0;
-        width: 100%;
-
-        a {
-            text-decoration: none;
-
-            &:visited {
-                color: @color-link-default;
-            }
-        }
-    }
-
-    &[open] {
-        padding-bottom: 32px;
-    }
-}
-
 #page-grid {
     padding: 8px;
 }
@@ -97,14 +17,95 @@ header details {
     dt {
         display: inline-block;
         vertical-align: top;
-        width: 29%;
+        width: 35%;
     }
 
     dd {
         display: inline-block;
         margin: 0;
-        width: 70%;
+        width: 60%;
     }
+}
+
+.modules-expander {
+    background: #eee;
+}
+
+.modules-expander__tip {
+    color: @color-grey5;
+    margin: 4px 8px;
+    text-align: center;
+}
+
+.modules-expander__list {
+    column-count: 2;
+    font-size: 20px;
+    line-height: 2em;
+    list-style-type: square;
+    margin: 0;
+    width: 100%;
+}
+
+.modules-expander[open] {
+    padding-bottom: 32px;
+}
+
+.modules-expander__list a {
+    text-decoration: none;
+}
+
+.modules-expander .details__summary {
+    padding: 8px 0;
+}
+
+.app-bar {
+    align-items: center;
+    background-color: @color-link-default;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 8px;
+}
+
+.app-bar__title {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.app-bar__links {
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.app-bar__links a {
+    color: white;
+}
+
+.app-bar__links a:focus {
+    outline: 1px dotted white;
+}
+
+.modules-expander__list a:visited {
+    color: @color-link-default;
+}
+
+.app-bar__links a:visited {
+    color: white;
+}
+
+main > div > h2 {
+    margin-top: 24px;
+    padding-top: 8px;
+}
+
+footer > div {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+    padding: 16px 8px;
 }
 
 .graphic {
@@ -116,7 +117,6 @@ header details {
 }
 
 /* DEMO STYLES */
-/* creates 8px of whitespace around the module */
 
 .demo {
     background-color: #fff;
@@ -154,8 +154,8 @@ figure.highlight {
     width: 100%;
 
     pre {
-        font-family: monospace, monospace; // normalize.css
-        font-size: 1em; // normalize.css
+        font-family: monospace;
+        font-size: 1em;
         margin: 0;
         padding: 8px 8px 0;
     }
@@ -200,51 +200,56 @@ figure.highlight {
     list-style: none;
     margin: 0;
     padding: 0;
+}
 
-    li {
-        margin: 1rem 0;
+.demo-colors li {
+    margin: 1rem 0;
+}
 
-        &::before {
-            content: '';
-            display: block;
-            height: 1.25rem;
-            margin-bottom: 0.25rem;
-            margin-right: 1rem;
-            vertical-align: middle;
-            width: 100%;
+.demo-colors li::before {
+    content: '';
+    display: block;
+    height: 1.25rem;
+    margin-bottom: 0.25rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 100%;
+}
 
-            @media @desktop {
-                display: inline-block;
-                width: 10rem;
-            }
-        }
-    }
+/* UTILITY */
+
+.utility-table {
+    width: 100%;
+}
+
+.utility-table th,
+.utility-table td {
+    text-align: left;
 }
 
 /* ICON */
 
 span.icon {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .icon-table {
-    display: inline-table;
+    width: 100%;
+}
 
-    th,
-    td {
-        text-align: left;
+.icon-table th,
+.icon-table td {
+    text-align: left;
 
-        &:not(:first-child) {
-            padding-left: 16px;
-        }
+    &:not(:first-child) {
+        padding-left: 16px;
     }
 }
 
 /* LESS */
-/* PLEASE DON'T USE THIS LESS FORMATTING "TRICK" IN OUR MODULE SOURCE CODE ;-) */
 
 .demo-color- {
     &white::before {
@@ -342,19 +347,10 @@ span.icon {
     list-style: none;
     margin: 0;
     padding: 0;
-
-    li {
-        margin: 1rem 0;
-    }
 }
 
-/* UTILITY */
-
-.utility-table {
-    th,
-    td {
-        text-align: left;
-    }
+.demo-typography li {
+    margin: 1rem 0;
 }
 
 /* DESKTOP LAYOUT */
@@ -362,5 +358,10 @@ span.icon {
 @media @desktop {
     header details ul {
         column-count: 3;
+    }
+
+    .demo-colors li::before {
+        display: inline-block;
+        width: 10rem;
     }
 }
