@@ -8,8 +8,11 @@
         <link type="text/css" rel="stylesheet" href="/static/ds{{page.ds}}/docs.min.css"/>
         <!-- critical styles -->
         <style>
-            @media only screen and (max-width: 600px) {
-                #modules {
+            @media only screen and (min-width: 601px) {
+                .modules-expander {
+                    display: none;
+                }
+                .site-nav {
                     display: block;
                 }
             }
@@ -68,15 +71,15 @@
             </details>
             <div class="app-bar">
                 <h1 class="app-bar__title">{{ page.title }}</h1>
-                <span class="app-bar__links"><a href="{% if page.ds == 6 %}../index.html{% endif %}{% if page.ds == 4 %}ds6/index.html{% endif %}">DS: {{page.ds}}</a></span>
+                <span class="app-bar__links"><a href="https://github.com/eBay/skin">GitHub</a> | {% if page.ds == 4 %}<a href="ds6/index.html">DS6</a>{% endif %}{% if page.ds == 6 %}<a href="../index.html">DS4</a>{% endif %}</span>
             </div>
         </header>
-        <div id="page-grid">
-            <nav hidden>
-                <h2 id="setup">Setup</h2>
+        <div class="page-grid">
+            <nav class="site-nav" hidden>
+                <h2>Setup</h2>
                 <div>
                     <ul>
-                        <li><a href="#intro">Intro</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#install">Install</a></li>
                         <li><a href="#bundling">Bundling</a></li>
                         <li><a href="#flags">Flags</a></li>
@@ -84,17 +87,7 @@
                     </ul>
                 </div>
 
-                <!--
-                <h2 id="system">System</h2>
-                <div>
-                    <ul>
-                        <li><a href="{% if page.ds == 6 %}../{% endif %}index.html">DS4</a></li>
-                        <li><a href="{% if page.ds == 4 %}ds6/{% endif %}index.html">DS6</a></li>
-                    </ul>
-                </div>
-                -->
-
-                <h2 id="modules">Modules</h2>
+                <h2>Modules</h2>
                 <div>
                     <ul>
                         <li><a href="#actionable">Actionable</a></li>
@@ -141,13 +134,11 @@
             <main>
                 {{ content }}
             </main>
+            <footer>
+                <hr />
+                <p>Copyright &copy; 2018 eBay, Inc. All rights reserved.</p>
+            </footer>
         </div>
-        <footer>
-            <div>
-                <span><a href="https://github.com/eBay/skin">View on GitHub</a></span>
-                <span>Copyright &copy; 2018 eBay, Inc. All rights reserved.</span>
-            </div>
-        </footer>
     </body>
     <script src="../static/ds{{page.ds}}/docs.min.js"></script>
     <script>$_mod.ready();</script>

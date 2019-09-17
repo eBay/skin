@@ -1,136 +1,6 @@
-@mobile: ~"only screen and (max-width: 600px)";
 @desktop: ~"only screen and (min-width: 601px)";
-
-body {
-    margin: 0;
-}
-
-#page-grid {
-    padding: 8px;
-}
-
-#about {
-    dl {
-        margin: 32px 0;
-    }
-
-    dt {
-        display: inline-block;
-        vertical-align: top;
-        width: 35%;
-    }
-
-    dd {
-        display: inline-block;
-        margin: 0;
-        width: 60%;
-    }
-}
-
-.modules-expander {
-    background: #eee;
-}
-
-.modules-expander__tip {
-    color: @color-grey5;
-    margin: 4px 8px;
-    text-align: center;
-}
-
-.modules-expander__list {
-    column-count: 2;
-    font-size: 20px;
-    line-height: 2em;
-    list-style-type: square;
-    margin: 0;
-    width: 100%;
-}
-
-.modules-expander[open] {
-    padding-bottom: 32px;
-}
-
-.modules-expander__list a {
-    text-decoration: none;
-}
-
-.modules-expander .details__summary {
-    padding: 8px 0;
-}
-
-.app-bar {
-    align-items: center;
-    background-color: @color-link-default;
-    box-sizing: border-box;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 8px;
-}
-
-.app-bar__title {
-    font-size: 26px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.app-bar__links {
-    flex-shrink: 0;
-    margin-left: 8px;
-}
-
-.app-bar__links a {
-    color: white;
-}
-
-.app-bar__links a:focus {
-    outline: 1px dotted white;
-}
-
-.modules-expander__list a:visited {
-    color: @color-link-default;
-}
-
-.app-bar__links a:visited {
-    color: white;
-}
-
-main > div > h2 {
-    margin-top: 24px;
-    padding-top: 8px;
-}
-
-footer > div {
-    background-color: #eee;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 64px;
-    padding: 16px 8px;
-}
-
-.graphic {
-    box-sizing: border-box;
-    display: block;
-    margin: 48px auto 0 auto;
-    max-width: 738px;
-    width: 100%;
-}
-
-/* DEMO STYLES */
-
-.demo {
-    background-color: #fff;
-    border: 1px dashed #ccc;
-}
-
-.demo__inner {
-    margin: 8px;
-}
-
-span.demo,
-span.demo__inner {
-    display: inline-block;
-}
+@medium: ~"only screen and (min-width: 961px)";
+@giant: ~"only screen and (min-width: 1281px)";
 
 /* PYGMENTS/ROUGE */
 
@@ -150,12 +20,12 @@ span.highlight {
 figure.highlight {
     background-color: #efefef;
     box-sizing: border-box;
+    font-size: 12px;
     margin: 8px 0;
     width: 100%;
 
     pre {
         font-family: monospace;
-        font-size: 1em;
         margin: 0;
         padding: 8px 8px 0;
     }
@@ -165,7 +35,156 @@ figure.highlight {
     }
 }
 
-/* CAROUSEL */
+/* MAIN LAYOUT */
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: @color-link-default;
+}
+
+footer {
+    margin-top: 32px;
+}
+
+main > div > h2 {
+    margin-top: 24px;
+    padding-top: 8px;
+}
+
+.page-grid {
+    padding: 8px;
+}
+
+.skin-graphic {
+    box-sizing: border-box;
+    display: block;
+    margin: 48px auto 0 auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.modules-expander {
+    background: #eee;
+    padding: 4px;
+}
+
+.modules-expander__tip {
+    color: @color-grey5;
+    margin: 4px 8px;
+    text-align: center;
+}
+
+.modules-expander__list {
+    column-count: 2;
+    font-size: 20px;
+    line-height: 1.75em;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+}
+
+.modules-expander[open] {
+    padding-bottom: 32px;
+}
+
+.modules-expander__list a {
+    text-decoration: none;
+}
+
+.modules-expander .details__summary {
+    padding: 8px 0;
+}
+
+.app-bar {
+    align-items: center;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8px;
+    padding: 16px 0;
+}
+
+.app-bar__title {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.app-bar__links {
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.app-bar__links a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-nav h2 {
+    margin-top: 32px;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    text-decoration: none;
+}
+
+.modules-expander__list a:visited {
+    color: @color-link-default;
+}
+
+.app-bar__links a:hover {
+    text-decoration: underline;
+}
+
+.app-bar__links a:focus {
+    outline: 2px dotted white;
+}
+
+.app-bar__links a:visited {
+    color: white;
+}
+
+.site-nav a:visited {
+    color: @color-link-default;
+}
+
+/* ABOUT SECTION */
+
+#about dl {
+    margin: 16px 0 32px 0;
+}
+
+#about dt {
+    font-weight: bold;
+    margin: 16px 0 4px 0;
+}
+
+#about dd {
+    margin: 0;
+}
+
+/* DEMO SECTIONS */
+
+.demo {
+    background-color: #fff;
+    border: 1px dashed #ccc;
+}
+
+.demo__inner {
+    margin: 8px;
+}
+
+span.demo,
+span.demo__inner {
+    display: inline-block;
+}
+
+/* CAROUSEL SECTION */
 
 .demo-filmstrip__card {
     background: @color-information-background;
@@ -194,7 +213,7 @@ figure.highlight {
     width: 100%;
 }
 
-/* COLOR */
+/* COLOR SECTION */
 
 .demo-colors {
     list-style: none;
@@ -216,7 +235,7 @@ figure.highlight {
     width: 100%;
 }
 
-/* UTILITY */
+/* UTILITY SECTION */
 
 .utility-table {
     width: 100%;
@@ -227,7 +246,7 @@ figure.highlight {
     text-align: left;
 }
 
-/* ICON */
+/* ICON SECTION */
 
 span.icon {
     background-repeat: no-repeat;
@@ -249,7 +268,7 @@ span.icon {
     }
 }
 
-/* LESS */
+/* LESS SECTION */
 
 .demo-color- {
     &white::before {
@@ -341,7 +360,7 @@ span.icon {
     }
 }
 
-/* TYPOGRAPHY */
+/* TYPOGRAPHY SECTION */
 
 .demo-typography {
     list-style: none;
@@ -356,12 +375,86 @@ span.icon {
 /* DESKTOP LAYOUT */
 
 @media @desktop {
-    header details ul {
-        column-count: 3;
+    .page-grid {
+        display: grid;
+        margin: 0 auto;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    header {
+        background-color: @color-link-default;
+        padding: 0 8px;
+    }
+
+    main {
+        grid-column-end: 2;
+        grid-column-start: 2;
+        grid-row-end: 1;
+        grid-row-start: 1;
+        overflow-x: hidden;
+    }
+
+    footer {
+        grid-column-end: 2;
+        grid-column-start: 2;
+        grid-row-end: 2;
+        grid-row-start: 2;
+    }
+
+    .app-bar {
+        margin: 0 auto;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .site-nav {
+        grid-column-end: 1;
+        grid-column-start: 1;
+        grid-row-end: 1;
+        grid-row-start: 1;
+        height: 100vh;
+        overflow-y: scroll;
+        padding-right: 32px;
+        position: sticky;
+        top: 0;
+    }
+
+    .site-nav ul {
+        line-height: 1.5em;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 
     .demo-colors li::before {
         display: inline-block;
         width: 10rem;
+    }
+}
+
+@media @medium {
+    #about dl {
+        column-count: 2;
+    }
+
+    .app-bar {
+        max-width: 960px;
+    }
+
+    .page-grid {
+        grid-column-gap: 16px;
+        max-width: 960px;
+    }
+}
+
+@media @giant {
+    .app-bar {
+        max-width: 1280px;
+    }
+
+    .page-grid {
+        grid-column-gap: 32px;
+        max-width: 1280px;
     }
 }
