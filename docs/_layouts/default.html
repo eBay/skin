@@ -1,17 +1,70 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page.title }} (DS{{ page.ds }})</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/skin.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.css"/>
+        <!-- critical styles -->
+        <style>
+            @media only screen and (min-width: 601px) {
+                .modules-expander {
+                    display: none;
+                }
+                .site-nav {
+                    display: block;
+                }
+            }
+        </style>
+        <!-- uncomment to load background icons -->
+        <!-- <link type="text/css" rel="stylesheet" href="static/ds{{page.ds}}/skin-base64.min.css"/> -->
     </head>
     <body>
         <header>
-            <h1>{{ page.title }}</h1>
+            <details class="details modules-expander">
+                <summary class="details__summary details_summary--center">
+                    <span class="details__summary-text">modules</span>
+                    <span class="details__icon"></span>
+                </summary>
+                <p class="modules-expander__tip">Use the links below &amp; the back button to navigate</p>
+                <ul class="modules-expander__list">
+                    {% include common/module-list.html %}
+                </ul>
+            </details>
+            <div class="app-bar">
+                <h1 class="app-bar__title">{{ page.title }}</h1>
+                <ul class="app-bar__links">
+                    <li><a href="https://github.com/eBay/skin">GitHub</a></li>
+                    <li>{% if page.ds == 4 %}<a href="ds6/index.html">DS6</a>{% endif %}{% if page.ds == 6 %}<a href="../index.html">DS4</a>{% endif %}</li>
+                </ul>
+            </div>
         </header>
-        <div role="main">
-            {{ content }}
+        <div class="page-grid">
+            <nav class="site-nav" hidden>
+                <h2>Setup</h2>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#install">Install</a></li>
+                    <li><a href="#bundling">Bundling</a></li>
+                    <li><a href="#flags">Flags</a></li>
+                    <li><a href="#cdn">CDN</a></li>
+                </ul>
+
+                <h2>Modules</h2>
+                <ul>
+                    {% include common/module-list.html %}
+                </ul>
+            </nav>
+            <main>
+                {{ content }}
+            </main>
+            <footer>
+                <hr />
+                <p>Copyright &copy; 2018 eBay, Inc. All rights reserved.</p>
+            </footer>
         </div>
     </body>
+    <script src="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.js"></script>
+    <script>$_mod.ready();</script>
 </html>
