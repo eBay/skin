@@ -4,8 +4,8 @@
         <title>{{page.title}} (DS{{page.ds}})</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <link type="text/css" rel="stylesheet" href="/static/ds{{page.ds}}/skin.min.css"/>
-        <link type="text/css" rel="stylesheet" href="/static/ds{{page.ds}}/docs.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/static/ds{{ page.ds }}/skin.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/static/ds{{ page.ds }}/docs.min.css"/>
         <!-- critical styles -->
         <style>
             @media only screen and (min-width: 601px) {
@@ -34,7 +34,10 @@
             </details>
             <div class="app-bar">
                 <h1 class="app-bar__title">{{ page.title }}</h1>
-                <span class="app-bar__links"><a href="https://github.com/eBay/skin">GitHub</a> | {% if page.ds == 4 %}<a href="ds6/index.html">DS6</a>{% endif %}{% if page.ds == 6 %}<a href="../index.html">DS4</a>{% endif %}</span>
+                <ul class="app-bar__links">
+                    <li><a href="https://github.com/eBay/skin">GitHub</a></li>
+                    <li>{% if page.ds == 4 %}<a href="ds6/index.html">DS6</a>{% endif %}{% if page.ds == 6 %}<a href="../index.html">DS4</a>{% endif %}</li>
+                </ul>
             </div>
         </header>
         <div class="page-grid">
@@ -66,6 +69,6 @@
             </footer>
         </div>
     </body>
-    <script src="../static/ds{{page.ds}}/docs.min.js"></script>
+    <script src="../static/ds{{ page.ds }}/docs.min.js"></script>
     <script>$_mod.ready();</script>
 </html>

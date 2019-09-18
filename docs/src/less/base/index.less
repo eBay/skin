@@ -116,20 +116,22 @@ main > div > h2 {
 
 .app-bar__links {
     flex-shrink: 0;
+    list-style-type: none;
     margin-left: 8px;
+    padding: 0;
+}
+
+.app-bar__links li {
+    float: left;
+}
+
+.app-bar__links li:not(:last-child)::after {
+    content: '';
+    margin: 0 8px;
 }
 
 .app-bar__links a {
     color: white;
-    text-decoration: none;
-}
-
-.site-nav h2 {
-    margin-top: 32px;
-    text-transform: uppercase;
-}
-
-.site-nav a {
     text-decoration: none;
 }
 
@@ -147,10 +149,6 @@ main > div > h2 {
 
 .app-bar__links a:visited {
     color: white;
-}
-
-.site-nav a:visited {
-    color: @color-link-default;
 }
 
 /* ABOUT SECTION */
@@ -420,11 +418,24 @@ span.icon {
         top: 0;
     }
 
+    .site-nav h2 {
+        margin-top: 32px;
+        text-transform: uppercase;
+    }
+
     .site-nav ul {
         line-height: 1.5em;
         list-style-type: none;
         margin: 0;
         padding: 0;
+    }
+
+    .site-nav a {
+        text-decoration: none;
+    }
+
+    .site-nav a:visited {
+        color: @color-link-default;
     }
 
     .demo-colors li::before {
