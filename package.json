@@ -32,7 +32,10 @@
     "copy:mixinsToDist": "mkdirp dist/mixins && ncp src/less/mixins dist/mixins",
     "copy:svgToDist": "mkdirp dist/svg && ncp src/svg dist/svg",
     "version": "node scripts/cdn-version && npm run build && git add -A dist docs",
-    "transpile": "babel docs/src/js --out-dir docs/_babel"
+    "transpile": "babel docs/src/js --out-dir docs/_babel",
+    "snapshot": "npm run snapshot:pages && npm run snapshot:modules",
+    "snapshot:pages": "percy snapshot _site --snapshot-files=index.html,ds6/index.html",
+    "snapshot:modules": "percy snapshot _site --snapshot-files=test/**/ds4/index.html,test/**/ds6/index.html --ignore-files=test/card,test/dialog"
   },
   "devDependencies": {
     "@babel/cli": "^7",
@@ -68,6 +71,7 @@
     "mkdirp": "~0.5",
     "ncp": "^2",
     "nodelist-foreach-polyfill": "^1",
+    "percy": "^0",
     "rimraf": "^3",
     "stylelint": "^10",
     "stylelint-config-standard": "^18",
