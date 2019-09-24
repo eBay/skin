@@ -2,10 +2,11 @@
     <h2><span class="secondary-text">@ebay/skin/</span>notice</h2>
 
     <p>The purpose of a notice is to convey the next course of action for a task or flow. The notice must be clear and concise, with minimum cognitive load.</p>
-    <p>A notice may appear at page-level or inline-level, with a status of attention, confirmation, or information.</p>
+    <p>A notice may appear at page-level, section-level or inline-level, with a status of attention, confirmation, or information.</p>
 
-    <h3>Page Notice</h3>
-    <p>A page-level notice typically appears prominently at the top of the page or directly above a module. To aid discoverabilty of such important content for assistive technology, we make each page notice a landmark region with heading.</p>
+    <h3 id="notice-page">Page Notice</h3>
+    <p>A page-level notice appears prominently at the top of the page for high priority use cases; often requiring an interaction.</p>
+    <p>To aid discoverabilty of such important content for assistive technology, we make each page notice a landmark region.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -66,7 +67,7 @@
 </section>
     {% endhighlight %}
 
-    <h3>Dismissable Page Notice</h3>
+    <h3 id="notice-page-dismissable">Dismissable Page Notice</h3>
      <p>Append a button with class <span class="highlight">page-notice__close</span> to create a dismissable page notice.</p>
         <div class="demo">
             <div class="demo__inner">
@@ -123,7 +124,7 @@
 </section>
      {% endhighlight %}
 
-     <h4>Call-to-Action Page Notice</h4>
+     <h4 id="notice-page-cta">Call-to-Action Page Notice</h4>
      <p>Use an anchor or button tag to create a 'call-to-action' page notice tile.</p>
      <p><strong>IMPORTANT</strong>: A call-to-action can only have <strong>one</strong> action, i.e. a link or button tag cannot contain any nested links or buttons.
 
@@ -155,103 +156,112 @@
 </section>
      {% endhighlight %}
 
-    <h3>Guidance Notice</h3>
-    <p>A guidance notice usually sits in the page guiding the user to different actions</p>
-    <p>For a light, default guidance module, please omit the status modifier.</p>
+    <h3 id="notice-section">Section Notice</h3>
+    <p>Section notices are used to provide tips, guidance & feedback on section level elements. Section notices are not as prominent as page level alerts, but still educate the user without alarming them.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <section aria-labelledby="guide-light" class="page-notice page-notice--guidance" role="region">
-               <div class="page-notice__content">
-                    <p>This is a message that provides more info about the page</p>
+            <section aria-label="Guidance" class="section-notice" role="region">
+               <div class="section-notice__content">
+                    <p>Items you didn't win will now show in the <a href="#">Didn't win</a> section of this page.</p>
                 </div>
             </section>
-
-            <section aria-labelledby="guide-success" class="page-notice page-notice--confirmation page-notice--guidance">
-                <h4 class="page-notice__status" id="confirmation-status">
-                    <span aria-label="Confirmation" role="img"></span>
-                </h4>
-                <div class="page-notice__content">
-                    <p>This successfully finished <a href="#">next page</a></p>
-                </div>
-            </section>
-
-            <section aria-labelledby="guide-status" class="page-notice page-notice--attention page-notice--guidance">
-                <h4 class="page-notice__status" id="attention-status">
-                    <span aria-label="Attention" role="img"></span>
-                </h4>
-                <div class="page-notice__content">
-                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
-                </div>
-            </section>
-
-            <section aria-labelledby="guide-light" class="page-notice page-notice--guidance" role="region">
-               <div class="page-notice__content">
-                    <p>This is a message that provides more info about the page </p>
-                    <p>With an action button</p>
-                </div>
-                <button class="btn btn--secondary btn--transparent">Button</button>
-            </section>
-
-            <section aria-labelledby="information-status" class="page-notice page-notice--information page-notice--guidance" role="region">
-                <h4 class="page-notice__status" id="information-status">
-                    <span aria-label="Information" role="img"></span>
-                </h4>
-                <div class="page-notice__content">
-                    <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
-                </div>
-                <button class="btn btn--secondary btn--transparent">Button</button>
-            </section>
-
         </div>
     </div>
+
     {% highlight html %}
-
-<section aria-labelledby="guide-light" class="page-notice page-notice--guidance" role="region">
+<section aria-label="Guidance" class="section-notice" role="region">
     <div class="page-notice__content">
-        <p>This is a message that provides more info about the page</p>
+        <p>Items you didn't win will now show in the <a href="http://www.ebay.com">Didn't win</a> section of this page.</p>
     </div>
 </section>
+    {% endhighlight %}
 
-<section aria-labelledby="guide-success" class="page-notice page-notice--confirmation page-notice--guidance">
-    <h4 class="page-notice__status" id="confirmation-status">
-        <span aria-label="Confirmation" role="img"></span>
-    </h4>
-    <div class="page-notice__content">
-        <p>This successfully finished <a href="#">next page</a></p>
-    </div>
-</section>
+    <p>A section notice can have a CTA button.</p>
 
-<section aria-labelledby="guide-status" class="page-notice page-notice--attention page-notice--guidance">
-    <h4 class="page-notice__status" id="attention-status">
-        <span aria-label="Attention" role="img"></span>
-    </h4>
-    <div class="page-notice__content">
-        <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
-    </div>
-</section>
+    <section aria-label="Guidance" class="section-notice" role="region">
+       <div class="section-notice__content">
+            <p>This is a message that provides more info about the page </p>
+            <p>With an action button</p>
+        </div>
+        <button class="btn btn--secondary btn--transparent">Button</button>
+    </section>
 
-<section aria-labelledby="guide-light" class="page-notice page-notice--guidance" role="region">
-    <div class="page-notice__content">
+{% highlight html %}
+<section aria-label="Guidance" class="section-notice" role="region">
+    <div class="section-notice__content">
         <p>This is a message that provides more info about the page </p>
         <p>With an action button</p>
     </div>
     <button class="btn btn--secondary btn--transparent">Button</button>
 </section>
+{% endhighlight %}
 
-<section aria-labelledby="information-status" class="page-notice page-notice--information page-notice--guidance" role="region">
-    <h4 class="page-notice__status" id="information-status">
+    <p>A section notice may have a status of attention, confirmation, or information.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation">
+                <h4 class="section-notice__status" id="section-notice-confirmation">
+                    <span aria-label="Confirmation" role="img"></span>
+                </h4>
+                <div class="section-notice__content">
+                    <p>This successfully finished <a href="#">next page</a></p>
+                </div>
+            </section>
+
+            <section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention">
+                <h4 class="section-notice__status" id="section-notice-attention">
+                    <span aria-label="Attention" role="img"></span>
+                </h4>
+                <div class="section-notice__content">
+                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+                </div>
+            </section>
+
+            <section aria-labelledby="section-notice-information" class="section-notice section-notice--information" role="region">
+                <h4 class="section-notice__status" id="section-notice-information">
+                    <span aria-label="Information" role="img"></span>
+                </h4>
+                <div class="section-notice__content">
+                    <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
+                </div>
+                <button class="btn btn--secondary btn--transparent">Button</button>
+            </section>
+        </div>
+    </div>
+    {% highlight html %}
+<section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation">
+    <h3 class="section-notice__status" id="section-notice-confirmation">
+        <span aria-label="Confirmation" role="img"></span>
+    </h3>
+    <div class="section-notice__content">
+        <p>This successfully finished <a href="http://www.ebay.com">next page</a></p>
+    </div>
+</section>
+
+<section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention">
+    <h3 class="section-notice__status" id="section-notice-attention">
+        <span aria-label="Attention" role="img"></span>
+    </h3>
+    <div class="section-notice__content">
+        <p><strong>Error.</strong> Please take another look at the following:<br /><a href="http://www.ebay.com">Card number</a>, <a href="http://www.ebay.com">Expiration date</a> &amp; <a href="http://www.ebay.com">Security code</a>.</p>
+    </div>
+</section>
+
+<section aria-labelledby="section-notice-information" class="section-notice section-notice--information" role="region">
+    <h3 class="section-notice__status" id="section-notice-information">
         <span aria-label="Information" role="img"></span>
-    </h4>
-    <div class="page-notice__content">
-        <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
+    </h3>
+    <div class="section-notice__content">
+        <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="http://www.ebay.com">Learn more</a>.</p>
     </div>
     <button class="btn btn--secondary btn--transparent">Button</button>
 </section>
     {% endhighlight %}
 
-    <h3>Inline Notice</h3>
-    <p>An inline-level notice is typically located near a form field or user interface control.</p>
+    <h3 id="notice-inline">Inline Notice</h3>
+    <p>An inline-level notice provides tips, guidance and feedback on individual elements and form controls.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -293,7 +303,7 @@
     </span>
     <span class="inline-notice__content">
         <p>Delivered on May 1, 2017</p>
-        <p>Tracking number: <a href="#">93878473859376898908657567</a></p>
+        <p>Tracking number: <a href="http://www.ebay.com">93878473859376898908657567</a></p>
     </span>
 </div>
 
@@ -419,7 +429,7 @@
 
     {% if page.ds == 6 %}
     <div class="section-footer">
-        <p>DS6.v1.02</p>
+        <p>DS6.5.v1.01</p>
     </div>
     {% endif %}
 
