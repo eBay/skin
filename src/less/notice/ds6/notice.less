@@ -17,27 +17,11 @@
 
 @import "../base/notice.less";
 
-.page-notice {
-    border-style: solid;
-    border-width: 1px;
+.page-notice,
+.section-notice {
     flex-wrap: wrap;
     font-size: @font-size-14;
     margin: 8px 0;
-
-    &.page-notice--confirmation {
-        background-color: @page-notice-confirmation-background-color;
-        border-color: @page-notice-confirmation-border-color;
-    }
-
-    &.page-notice--attention {
-        background-color: @page-notice-attention-background-color;
-        border-color: @page-notice-attention-border-color;
-    }
-
-    &.page-notice--information {
-        background-color: @page-notice-information-background-color;
-        border-color: @page-notice-information-border-color;
-    }
 
     & > a.fake-btn,
     & > button.btn {
@@ -46,24 +30,53 @@
     }
 }
 
-.page-notice__status {
+.page-notice--confirmation,
+.page-notice--attention,
+.page-notice--information {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.page-notice--confirmation,
+.section-notice--confirmation {
+    background-color: @page-notice-confirmation-background-color;
+    border-color: @page-notice-confirmation-border-color;
+}
+
+.page-notice--attention,
+.section-notice--attention {
+    background-color: @page-notice-attention-background-color;
+    border-color: @page-notice-attention-border-color;
+}
+
+.page-notice--information,
+.section-notice--information {
+    background-color: @page-notice-information-background-color;
+    border-color: @page-notice-information-border-color;
+}
+
+.page-notice__status,
+.section-notice__status {
     align-items: center;
     color: @color-white;
     padding: 12px 0 12px 16px;
 }
 
-.page-notice__content {
+.page-notice__content,
+.section-notice__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 16px;
 }
 
-.page-notice__content p {
+.page-notice__content p,
+.section-notice__content p {
     margin: 0;
 }
 
-.page-notice__close {
+.page-notice__close,
+.section-notice__close {
     height: 48px;
     width: 50px;
 
@@ -73,23 +86,28 @@
     }
 }
 
-span.page-notice__cta {
+span.page-notice__cta,
+span.section-notice__cta {
     .background-icon-base-mixin;
     .background-icon-image-mixin('arrow-right', 16px, 16px);
 }
 
-svg.page-notice__cta {
+svg.page-notice__cta,
+svg.section-notice__cta {
     height: 16px;
     width: 16px;
 }
 
 span.page-notice__cta,
-svg.page-notice__cta {
+svg.page-notice__cta,
+span.section-notice__cta,
+svg.section-notice__cta {
     align-self: center;
     margin: 0 16px;
 }
 
-.page-notice__status span {
+.page-notice__status span,
+.section-notice__status span {
     .background-icon-base-mixin;
 
     height: 24px;
@@ -97,20 +115,24 @@ svg.page-notice__cta {
     width: 24px;
 }
 
-.page-notice--confirmation .page-notice__status span {
+.page-notice--confirmation .page-notice__status span,
+.section-notice--confirmation .section-notice__status span {
     .background-image-base64(@icon-confirmation-filled-base64);
 }
 
-.page-notice--attention .page-notice__status span {
+.page-notice--attention .page-notice__status span,
+.section-notice--attention .section-notice__status span {
     .background-image-base64(@icon-attention-filled-base64);
 }
 
-.page-notice--information .page-notice__status span {
+.page-notice--information .page-notice__status span,
+.section-notice--information .section-notice__status span {
     .background-image-base64(@icon-information-filled-base64);
 }
 
 @media (min-width: 601px) {
-    .page-notice {
+    .page-notice,
+    .section-notice {
         flex-wrap: nowrap;
 
         & > button.btn,
@@ -122,19 +144,23 @@ svg.page-notice__cta {
 }
 
 @media screen and (-ms-high-contrast: white-on-black) {
-    .page-notice__close span {
+    .page-notice__close span,
+    .section-notice__close span {
         .background-image-base64(@icon-close-base64-light);
     }
 
-    .page-notice--confirmation .page-notice__status span {
+    .page-notice--confirmation .page-notice__status span,
+    .section-notice--confirmation .section-notice__status span {
         .background-image-base64(@icon-confirmation-filled-base64);
     }
 
-    .page-notice--attention .page-notice__status span {
+    .page-notice--attention .page-notice__status span,
+    .section-notice--attention .section-notice__status span {
         .background-image-base64(@icon-attention-filled-base64);
     }
 
-    .page-notice--information .page-notice__status span {
+    .page-notice--information .page-notice__status span,
+    .section-notice--information .section-notice__status span {
         .background-image-base64(@icon-information-filled-base64);
     }
 }
