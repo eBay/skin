@@ -202,7 +202,7 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.filter-menu-button').forEach(function(widgetEl) {
+document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
         expandedClass: 'filter-menu-button--expanded',
         menuSelector: '.filter-menu-button__menu'
