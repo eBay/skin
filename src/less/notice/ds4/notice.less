@@ -1,43 +1,67 @@
 @import "../../variables/ds4/color-variables.less";
 @import "../../variables/ds4/icon-variables.less";
 @import "../../variables/ds4/typography-variables.less";
+@import "../../variables/ds4/button-variables.less";
 @import "../../mixins/bubble/ds4/bubble-mixins.less";
 @import "../../mixins/icon/ds4/icon-mixins.less";
+@import "../../mixins/button/ds4/button-mixins.less";
+
+@page-notice-light-background-color: @color-core-gray-light;
+
 @import "../base/notice.less";
 
 // stylelint-disable no-descending-specificity
 
-.page-notice {
-    background-color: @color-core-white;
-    border-bottom: 1px solid @color-core-gray-silver;
-    border-top: 1px solid @color-core-gray-silver;
+.page-notice,
+.section-notice {
     font-size: @font-size-14;
     min-height: 32px;
     padding: 8px 8px 8px 0;
 }
 
-button.page-notice {
+.page-notice--information,
+.page-notice--confirmation,
+.page-notice--attention {
+    background-color: @color-core-white;
+    border-bottom: 1px solid @color-core-gray-silver;
+    border-top: 1px solid @color-core-gray-silver;
+}
+
+.section-notice--information,
+.section-notice--confirmation,
+.section-notice--attention {
+    background-color: @color-core-white;
+    border: 1px solid @color-core-gray-silver;
+}
+
+button.page-notice,
+button.section-notice {
     border-left: 0 none;
     border-right: 0 none;
     text-align: left;
     width: 100%;
 }
 
-.page-notice--fluid {
+.page-notice--fluid,
+.section-notice--fluid {
     width: 100%;
 }
 
 .page-notice--attention,
-a.page-notice--attention {
+a.page-notice--attention,
+.section-notice--attention,
+a.section-notice--attention {
     color: @color-text-critical;
 }
 
-.page-notice__content {
+.page-notice__content,
+.section-notice__content {
     margin-top: 4px;
     padding-left: 8px;
 }
 
-.page-notice__content--align-middle {
+.page-notice__content--align-middle,
+.section-notice__content--align-middle {
     margin-top: 8px;
 
     & + .page-notice__cta {
@@ -50,13 +74,22 @@ a.page-notice--attention {
     }
 }
 
-svg.page-notice__cta {
+svg.page-notice__cta,
+svg.section-notice__cta {
     color: @color-icon-actionable-default;
     height: 23px;
     width: 13px;
 }
 
-.page-notice__content p {
+.page-notice > button.btn,
+.page-notice > a.fake-btn,
+.section-notice > button.btn,
+.section-notice > a.fake-btn {
+    margin: auto 16px;
+}
+
+.page-notice__content p,
+.section-notice__content p {
     margin: 0;
 
     &:not(:first-of-type) {
@@ -64,7 +97,8 @@ svg.page-notice__cta {
     }
 }
 
-.page-notice__status span {
+.page-notice__status span,
+.section-notice__status span {
     .background-icon-base-mixin;
 
     height: 24px;
@@ -72,12 +106,15 @@ svg.page-notice__cta {
     width: 24px;
 }
 
-.page-notice__status svg {
+.page-notice__status svg,
+.section-notice__status svg {
     .foreground-icon-base-mixin;
 }
 
 .page-notice__status span,
-.page-notice__status svg {
+.page-notice__status svg,
+.section-notice__status span,
+.section-notice__status svg {
     height: 24px;
     margin: 4px 0 4px 8px;
     min-height: 24px;
@@ -85,32 +122,39 @@ svg.page-notice__cta {
     width: 24px;
 }
 
-.page-notice--information .page-notice__status {
+.page-notice--information .page-notice__status,
+.section-notice--information .section-notice__status {
     color: @color-core-blue;
 }
 
-.page-notice--confirmation .page-notice__status {
+.page-notice--confirmation .page-notice__status,
+.section-notice--confirmation .section-notice__status {
     color: @color-core-green;
 }
 
-button.page-notice__close span {
+button.page-notice__close span,
+button.section-notice__close span {
     .background-icon-base-mixin;
     .background-icon-image-mixin('close', 12px, 12px);
 }
 
-.page-notice--attention .page-notice__status span {
+.page-notice--attention .page-notice__status span,
+.section-notice--attention .section-notice__status span {
     .background-icon-image-mixin('attention-filled');
 }
 
-.page-notice--confirmation .page-notice__status span {
+.page-notice--confirmation .page-notice__status span,
+.section-notice--confirmation .section-notice__status span {
     .background-icon-image-mixin('confirmation-filled');
 }
 
-.page-notice--information .page-notice__status span {
+.page-notice--information .page-notice__status span,
+.section-notice--information .section-notice__status span {
     .background-icon-image-mixin('information-filled');
 }
 
-button.page-notice__close {
+button.page-notice__close,
+button.section-notice__close {
     background: none;
     border: 0;
     color: @color-icon-actionable-default;
@@ -139,20 +183,28 @@ button.page-notice__close {
 
 @media (min-width: 601px) {
     div[role="region"].page-notice,
-    section.page-notice {
+    section.page-notice,
+    div[role="region"].section-notice,
+    section.section-notice {
         margin: 16px 0;
+    }
+
+    .page-notice,
+    .section-notice {
+        padding-right: 16px;
     }
 
     .page-notice {
         border: 1px solid @color-core-gray-silver;
-        padding-right: 16px;
     }
 
-    .page-notice__content {
+    .page-notice__content,
+    .section-notice__content {
         padding-left: 16px;
     }
 
-    .page-notice__cta {
+    .page-notice__cta,
+    .section-notice__cta {
         margin-left: 16px;
     }
 
@@ -168,19 +220,23 @@ button.page-notice__close {
         border-top: 2px solid @color-text-critical;
     }
 
-    span.page-notice__cta {
+    span.page-notice__cta,
+    span.section-notice__cta {
         .background-icon-image-mixin('chevron-light-right', 16px, 16px);
     }
 
-    button.page-notice__close {
+    button.page-notice__close,
+    button.section-notice__close {
         margin-left: 16px;
     }
 
-    .page-notice__status svg {
+    .page-notice__status svg,
+    .section-notice__status svg {
         margin-left: 16px;
     }
 
-    .page-notice__status span {
+    .page-notice__status span,
+    .section-notice__status span {
         margin-left: 16px;
     }
 }

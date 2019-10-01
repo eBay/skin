@@ -252,3 +252,11 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
         console.log(e.type, e.detail);
     });
 });
+
+document.querySelectorAll('.switch__control').forEach(function(widgetEl) {
+    widgetEl.setAttribute('aria-checked', widgetEl.checked ? 'true' : 'false');
+
+    widgetEl.addEventListener('change', function(e) {
+        e.target.setAttribute('aria-checked', e.target.checked ? 'true' : 'false');
+    });
+});

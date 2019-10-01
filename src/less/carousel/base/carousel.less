@@ -3,16 +3,6 @@
 @ebay-carousel-transition-time: 0.45s;
 @ebay-carousel-transition-function: ease-in-out;
 
-.show-control() {
-    opacity: 0.92;
-    pointer-events: auto;
-
-    &[aria-disabled="true"] {
-        opacity: 0.3;
-        pointer-events: none;
-    }
-}
-
 .carousel {
     position: relative;
 
@@ -24,7 +14,6 @@
 
         &--controls-disabled .carousel__control.carousel__control {
             opacity: 0;
-            pointer-events: none;
         }
     }
 
@@ -42,70 +31,6 @@
             display: inline-block;
             flex-shrink: 0;
             list-style: none;
-        }
-    }
-
-    &__control {
-        background-color: @carousel-control-background-color;
-        border: 1px solid @carousel-control-border-color;
-        font-size: 18px;
-        height: 72px;
-        opacity: 0;
-        padding: 0; // override browser default
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
-        width: 28px;
-        z-index: 1;
-
-        &--prev {
-            left: 0;
-        }
-
-        &--next {
-            right: 0;
-        }
-
-        svg {
-            color: @carousel-control-svg-color;
-        }
-
-        .icon--chevron-right {
-            margin-left: 2px;
-        }
-
-        .icon--chevron-left {
-            margin-left: -2px;
-        }
-
-        // progressive enhancement for browsers with support
-        // this cannot be combined with the next rule as
-        // IE/Edge will discard the entire rule
-        .carousel:focus-within & {
-            .show-control();
-        }
-
-        .carousel:hover &,
-        &:focus {
-            .show-control();
-        }
-
-        &:hover {
-            background-color: @carousel-dots-hover-background-color;
-            border-color: @carousel-dots-hover-background-color;
-
-            svg {
-                color: @carousel-dots-hover-svg-color;
-            }
-        }
-
-        &:active {
-            background-color: @carousel-dots-hover-active-background-color;
-
-            svg {
-                color: @carousel-dots-hover-active-svg-color;
-            }
         }
     }
 
@@ -235,8 +160,40 @@ span.carousel__container {
     /*!Y */(scroll-snap-align: start)
 ) {
     /* autoprefixer: off */
-    .carousel {
-        &:not(&__autoplay) {
+    .carousel:not(.carousel__autoplay) {
+        overflow: visible;
+
+        .carousel__container {
+            margin-bottom: 0;
+        }
+
+        .carousel__control {
+            margin-top: 0;
+        }
+
+        .carousel__list {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto; // also used in js to determine scroll behavior
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+            -webkit-scroll-snap-type: mandatory;
+            -webkit-scroll-snap-type: x mandatory;
+            -ms-scroll-snap-type: mandatory;
+            -ms-scroll-snap-type: x mandatory;
+            scroll-snap-type: mandatory;
+            scroll-snap-type: x mandatory;
+        }
+    }
+
+    .carousel__snap-point {
+        scroll-snap-align: start;
+        -webkit-scroll-snap-coordinate: 0 0;
+        -ms-scroll-snap-coordinate: 0 0;
+        scroll-snap-coordinate: 0 0;
+    }
+    /* autoprefixer: on */
+    @media (min-width: 601px) {
+        .carousel:not(.carousel__autoplay) {
             overflow: hidden;
 
             .carousel__container {
@@ -248,25 +205,8 @@ span.carousel__container {
             }
 
             .carousel__list {
-                -webkit-overflow-scrolling: touch;
-                overflow-x: auto; // also used in js to determine scroll behavior
                 padding-bottom: 80px;
-                scroll-behavior: smooth;
-                -webkit-scroll-snap-type: mandatory;
-                -webkit-scroll-snap-type: x mandatory;
-                -ms-scroll-snap-type: mandatory;
-                -ms-scroll-snap-type: x mandatory;
-                scroll-snap-type: mandatory;
-                scroll-snap-type: x mandatory;
             }
         }
-
-        &__snap-point {
-            scroll-snap-align: start;
-            -webkit-scroll-snap-coordinate: 0 0;
-            -ms-scroll-snap-coordinate: 0 0;
-            scroll-snap-coordinate: 0 0;
-        }
     }
-    /* autoprefixer: on */
 }
