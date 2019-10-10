@@ -12,6 +12,7 @@ const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
+const Switch = require('./switch.js');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
@@ -253,10 +254,16 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     });
 });
 
-document.querySelectorAll('.switch__control').forEach(function(widgetEl) {
+// SWITCH - FORM BASED VERSION
+document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
     widgetEl.setAttribute('aria-checked', widgetEl.checked ? 'true' : 'false');
 
     widgetEl.addEventListener('change', function(e) {
         e.target.setAttribute('aria-checked', e.target.checked ? 'true' : 'false');
     });
+});
+
+// SWITCH - JAVASCRIPT BASED VERSION
+document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
+    const widget = new Switch(widgetEl);
 });
