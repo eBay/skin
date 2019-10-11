@@ -8,29 +8,25 @@
 }
 
 .section-title__title {
+    .typography-medium-bold();
+
     margin: 0;
 }
 
 .section-title__subtitle {
+    .typography-regular();
+
     color: @color-grey5;
 }
 
 .section-title__cta {
-    margin: 0 16px;
+    font-size: @font-size-medium;
+    margin: 0;
     white-space: nowrap;
 
     > a {
-        border-left: 2px solid @color-grey2;
-        display: inline-block;
-        padding-left: 16px;
-    }
-}
-
-.section-title__cta--no-text {
-    margin: 0;
-
-    > a {
         border: 0;
+        display: inline-block;
         padding: 0;
     }
 
@@ -76,88 +72,53 @@ svg.section-title__cta-icon {
     margin: 0 24px 0 auto;
 }
 
-.section-title__info button.icon-btn.infotip__host,
-.section-title__overflow button.icon-btn {
-    height: 28px;
-    width: 28px;
-}
-
 .section-title__cta,
 .section-title__info,
 .section-title__overflow {
     align-items: center;
     display: flex;
+    height: 24px;
 }
 
-@media (max-width: 600px) {
+.section-title__info button.icon-btn.infotip__host,
+.section-title__overflow button.icon-btn {
+    height: 20px;
+    width: 20px;
+}
+
+.section-title--giant {
     .section-title__title {
-        .typography-medium-bold();
+        .typography-large-2-bold();
     }
 
-    .section-title__subtitle {
-        .typography-regular();
+    > .section-title__cta,
+    > .section-title__info,
+    > .section-title__overflow {
+        height: 32px;
+    }
+}
+
+.section-title--large {
+    .section-title__title {
+        .typography-large-1-bold();
     }
 
-    .section-title__cta {
-        font-size: @font-size-medium;
-        margin: 0;
+    > .section-title__cta,
+    > .section-title__info,
+    > .section-title__overflow {
+        height: 28px;
+    }
+}
 
-        & > a {
-            border: 0;
-            padding: 0;
-        }
-
-        & > a > span:not(.section-title__cta-icon) {
-            display: none;
-        }
+.section-title--small {
+    .section-title__title {
+        .typography-regular-bold();
     }
 
-    .section-title__cta,
-    .section-title__info,
-    .section-title__overflow {
-        height: 24px;
-    }
-
-    .section-title__info button.icon-btn.infotip__host,
-    .section-title__overflow button.icon-btn {
+    > .section-title__cta,
+    > .section-title__info,
+    > .section-title__overflow {
         height: 20px;
-        width: 20px;
-    }
-
-    .section-title--giant {
-        .section-title__title {
-            .typography-large-2-bold();
-        }
-
-        > .section-title__cta,
-        > .section-title__info,
-        > .section-title__overflow {
-            height: 32px;
-        }
-    }
-
-    .section-title--large {
-        .section-title__title {
-            .typography-large-1-bold();
-        }
-
-        > .section-title__cta,
-        > .section-title__info,
-        > .section-title__overflow {
-            height: 28px;
-        }
-    }
-
-    .section-title--small {
-        .section-title__title {
-            .typography-regular-bold();
-        }
-
-        > .section-title__cta,
-        > .section-title__info,
-        > .section-title__overflow {
-            height: 20px;
-        }
     }
 }
 
@@ -172,12 +133,28 @@ svg.section-title__cta-icon {
 
     .section-title__cta {
         font-size: @font-size-large-1;
+        margin: 0 16px;
+
+        > a {
+            border-left: 2px solid @color-grey2;
+            padding-left: 16px;
+        }
+
+        > a > span:not(.section-title__cta-icon) {
+            display: inline;
+        }
     }
 
     .section-title__cta,
     .section-title__info,
     .section-title__overflow {
         height: 28px;
+    }
+
+    .section-title__info button.icon-btn.infotip__host,
+    .section-title__overflow button.icon-btn {
+        height: 28px;
+        width: 28px;
     }
 
     .section-title--giant {
@@ -214,5 +191,18 @@ svg.section-title__cta-icon {
         > .section-title__overflow {
             height: 24px;
         }
+    }
+}
+
+.section-title__cta--no-text {
+    margin: 0;
+
+    > a {
+        border: 0;
+        padding: 0;
+    }
+
+    > a > span:not(.section-title__cta-icon) {
+        display: none;
     }
 }
