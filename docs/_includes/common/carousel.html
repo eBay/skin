@@ -1,11 +1,12 @@
 <div id="carousel">
     <h2><span class="secondary-text">@ebay/skin/</span>carousel</h2>
     <p>Carousels group together a list of similar items into a horizontal viewport of fixed height. Items may be entirely static (e.g. an image), entirely interactive (e.g. button) or contain a mix of static and interactive elements (e.g. a heading, image and link).</p>
-    <p>Items may be grouped and paginated via discrete slides, or left ungrouped and paginated in an individual manner.</p>
-    <p><strong>NOTE: </strong>No JavaScript behaviour has been implemented in the carousel examples, we demonstrate the CSS aspect only. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/disclosure/carousel/index.html">eBay MIND Pattern for Carousel</a>.</p>
+    <p>Items may be grouped and paginated via a <em>discrete</em> number of slides, or left ungrouped and paginated in a <em>continuous</em> manner.</p>
+    <p><strong>NOTE: </strong>No JavaScript behaviour has been implemented in the carousel examples (i.e. the controls are non-functional), we demonstrate the CSS aspect only. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/disclosure/carousel/index.html">eBay MIND Pattern for Carousel</a>.</p>
 
-    <h3>Filmstrip Carousel</h3>
-    <p>Any carousel showing more than one item per slide is known as a <em>filmstrip</em> carousel. This is analogous to looking at a strip of photographic film. By default, most carousels fall into this category.</p>
+    <h3>Filmstrip Carousel (Continuous)</h3>
+    <p>Any type of carousel showing more than one item per slide is known as a <em>filmstrip</em> carousel. This is analogous to looking at a strip of photographic film. By default, most carousels fall into this category.</p>
+    <p>Continuous carousels always require a "peek" to give affordance of more content and carousel behaviour.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -62,8 +63,9 @@
 </div>
     {% endhighlight %}
 
-    <h3>Discrete Filmstrip Carousel</h3>
-    <p>When grouping filmstrip items into discrete slides (4 per slide in the example below), add the <span class="highlight">carousel--slides</span> modifier.</p>
+    <h3>Filmstrip Carousel (Discrete)</h3>
+    <p>When grouping filmstrip items into discrete slides (e.g. 4 items per slide in the example below), add the <span class="highlight">carousel--slides</span> modifier.</p>
+    <p>A discrete carousel must give some visual affordance to the total number of slides. This can be achieved with a strip of pagination "dots" underneath the carousel.</p>
     <p>A discrete carousel requires an ARIA live-region to convey slide updates to assistive technology.</p>
 
     <div class="demo">
@@ -135,8 +137,7 @@
 </div>
     {% endhighlight %}
 
-    <h3>Discrete Filmstrip Carousel with Peek</h3>
-    <p>For discrete filmstrip carousels on touch devices, the carousel paddles will be shown by default when there is no peek (as in the previous example).</p>
+    <p>For discrete filmstrip carousels on touch devices, the paddles will always be shown by default when there is no peek (as in the previous example).</p>
     <p>A peek can be created, if desired, simply by adjusting item widths and applying the modifier <span class="highlight">carousel--peek</span>.</p>
 
     <div class="demo">
@@ -210,8 +211,130 @@
 
     <h3>Slideshow Carousel</h3>
     <p>A discrete carousel showing exactly one item per slide is known as a <em>slideshow</em> carousel. This is analogous to an old fashioned slide projector, viewing one image at a time.</p>
-    <p>The <span class="highlight">carousel--slides</span> modifier is required.</p>
-    <p>A slideshow carousel has no peek, therefore all list items should be set to 100% width.</p>
+    <p>A slideshow carousel should have no peek, therefore all items must be set to 100% width.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="carousel carousel--slides">
+                <div class="carousel__container">
+                    <h4 class="clipped" aria-live="polite">
+                        <span>Top Products - Slide 1 of 4</span>
+                    </h4>
+                    <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
+                        <svg aria-hidden="true" class="icon icon--chevron-left-small" focusable="false" >
+                            <use xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </button>
+                    <ul class="carousel__list">
+                        <li class="demo-slideshow__card">Card 1</li>
+                        <li class="demo-slideshow__card">Card 2</li>
+                        <li class="demo-slideshow__card">Card 3</li>
+                        <li class="demo-slideshow__card">Card 4</li>
+                    </ul>
+                    <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
+                        <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false">
+                            <use xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="carousel__dots">
+                    <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+                    <li><button aria-label="Slide 2 - Top Products"></button></li>
+                    <li><button aria-label="Slide 3 - Top Products"></button></li>
+                    <li><button aria-label="Slide 4 - Top Products"></button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="carousel carousel--slides">
+    <div class="carousel__container">
+        <h2 class="clipped" aria-live="polite">
+            <span>Top Products - Slide 1 of 4</span>
+        </h2>
+        <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-left-small" focusable="false" >
+                <use xlink:href="#icon-chevron-left"></use>
+            </svg>
+        </button>
+        <ul class="carousel__list">
+            <li style="width: 100%">Card 1</li>
+            <li style="width: 100%">Card 2</li>
+            <li style="width: 100%">Card 3</li>
+            <li style="width: 100%">Card 4</li>
+        </ul>
+        <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </button>
+    </div>
+    <ul class="carousel__dots">
+        <li><button aria-current="true" aria-label="Slide 1 - Top Products"></button></li>
+        <li><button aria-label="Slide 2 - Top Products"></button></li>
+        <li><button aria-label="Slide 3 - Top Products"></button></li>
+        <li><button aria-label="Slide 4 - Top Products"></button></li>
+    </ul>
+</div>
+    {% endhighlight %}
+
+    <p>The pagination dots can be dropped in favour of "always on" paddles, by applying class <span class="highlight">carousel__control--show</span> to the paddles.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="carousel carousel--slides">
+                <div class="carousel__container">
+                    <h4 class="clipped" aria-live="polite">
+                        <span>Top Products - Slide 1 of 4</span>
+                    </h4>
+                    <button class="carousel__control carousel__control--prev carousel__control--show" aria-label="Previous Slide - Top Products">
+                        <svg aria-hidden="true" class="icon icon--chevron-left-small" focusable="false" >
+                            <use xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </button>
+                    <ul class="carousel__list">
+                        <li class="demo-slideshow__card">Card 1</li>
+                        <li class="demo-slideshow__card">Card 2</li>
+                        <li class="demo-slideshow__card">Card 3</li>
+                        <li class="demo-slideshow__card">Card 4</li>
+                    </ul>
+                    <button class="carousel__control carousel__control--next carousel__control--show" aria-label="Next Slide - Top Products">
+                        <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false">
+                            <use xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="carousel carousel--slides">
+    <div class="carousel__container">
+        <h2 class="clipped" aria-live="polite">
+            <span>Top Products - Slide 1 of 4</span>
+        </h2>
+        <button class="carousel__control carousel__control--prev carousel__control--show" aria-label="Previous Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-left-small" focusable="false" >
+                <use xlink:href="#icon-chevron-left"></use>
+            </svg>
+        </button>
+        <ul class="carousel__list">
+            <li style="width: 100%">Card 1</li>
+            <li style="width: 100%">Card 2</li>
+            <li style="width: 100%">Card 3</li>
+            <li style="width: 100%">Card 4</li>
+        </ul>
+        <button class="carousel__control carousel__control--next carousel__control--show" aria-label="Next Slide - Top Products">
+            <svg aria-hidden="true" class="icon icon--chevron-right-small" focusable="false">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Slideshow Carousel (Autoplay)</h3>
+    <p>An autoplay carousel requires no other visual affordance than the play/pause button.</p>
 
     <div class="demo">
         <div class="demo__inner">
