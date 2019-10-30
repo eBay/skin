@@ -1,30 +1,82 @@
 <div id="notice">
     <h2><span class="secondary-text">@ebay/skin/</span>notice</h2>
-
     <p>The purpose of a notice is to convey the next course of action for a task or flow. The notice must be clear and concise, with minimum cognitive load.</p>
-    <p>A notice may appear at page-level, section-level or inline-level, with a status of attention, confirmation, or information.</p>
+    <p>A notice may appear at the following levels: window, page, section or inline.</p>
+
+    <h3 id="notice-window">Window Notice</h3>
+    <p>A window notice is a message of celebration used when a user has completed something important. It is always the major focus of the window.</p>
+    <p>It can be used to fill a dialog window on large screens, or to fill the entire screen on small devices.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <section aria-labelledby="window-notice-heading" class="window-notice" role="region">
+                <h2 id="window-notice-heading">
+                    <span class="window-notice__icon" role="img" aria-label="Success"></span>
+                    <span class="window-notice__title">Your first order has been placed!</span>
+                </h2>
+                <p class="window-notice__content">You'll get a confirmation email soon. The rest of your items are now ready to checkout.</p>
+                <button class="btn btn--large">Continue</button>
+            </section>
+        </div>
+    </div>
+    {% highlight html %}
+<section aria-labelledby="window-notice-heading" class="window-notice" role="region">
+    <h2 id="window-notice-heading">
+        <span class="window-notice__icon" role="img" aria-label="Success"></span>
+        <span class="window-notice__title">Your first order has been placed!</span>
+    </h2>
+    <p class="window-notice__content">You'll get a confirmation email soon. The rest of your items are now ready to checkout.</p>
+    <button class="btn btn--large">Continue</button>
+</section>
+    {% endhighlight %}
+
+    <p>Apply the <span class="highlight">.window-notice--fill</span> modifier to fill the container and align items accordingly.</p>
+
+    <div class="demo" style="width: 320px; max-width:90vw">
+        <div class="demo__inner" style="height: 500px; max-height: 90vh">
+            <section aria-labelledby="window-notice-heading" class="window-notice window-notice--fill" role="region">
+                <h2 id="window-notice-heading">
+                    <span class="window-notice__icon" role="img" aria-label="Success"></span>
+                    <span class="window-notice__title">Your first order has been placed!</span>
+                </h2>
+                <p class="window-notice__content">You'll get a confirmation email soon. The rest of your items are now ready to checkout.</p>
+                <button class="btn btn--large">Continue</button>
+            </section>
+        </div>
+    </div>
+    {% highlight html %}
+<section aria-labelledby="window-notice-heading" class="window-notice window-notice--fill" role="region">
+    <h2 id="window-notice-heading">
+        <span class="window-notice__icon" role="img" aria-label="Success"></span>
+        <span class="window-notice__title">Your first order has been placed!</span>
+    </h2>
+    <p class="window-notice__content">You'll get a confirmation email soon. The rest of your items are now ready to checkout.</p>
+    <button class="btn btn--large">Continue</button>
+</section>
+    {% endhighlight %}
 
     <h3 id="notice-page">Page Notice</h3>
     <p>A page-level notice appears prominently at the top of the page for high priority use cases; often requiring an interaction.</p>
+    <p>A page-level notice may have a status of celebration, confirmation, information or attention.</p>
     <p>To aid discoverabilty of such important content for assistive technology, we make each page notice a landmark region.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation">
+            <section aria-labelledby="celebration-status" class="page-notice page-notice--celebration" role="region">
+                <h4 class="page-notice__status" id="celebration-status">
+                    <span aria-label="Congratulations" role="img"></span>
+                </h4>
+                <div class="page-notice__content">
+                    <p><span class="page-notice__title">Your order's in!</span><br />We'll email updates to jonsnow@gmail.com. You should get it by Thu, Sept 22.</p>
+                </div>
+            </section>
+
+            <section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation" role="region">
                 <h4 class="page-notice__status" id="confirmation-status">
                     <span aria-label="Confirmation" role="img"></span>
                 </h4>
                 <div class="page-notice__content">
                     <p><strong>Congrats!</strong> You just listed <a href="#">"Spam and Eggs From the Cow's Perspective</a> (paperback)."</p>
-                </div>
-            </section>
-
-            <section aria-labelledby="attention-status" class="page-notice page-notice--attention">
-                <h4 class="page-notice__status" id="attention-status">
-                    <span aria-label="Attention" role="img"></span>
-                </h4>
-                <div class="page-notice__content">
-                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
                 </div>
             </section>
 
@@ -36,10 +88,28 @@
                     <p><strong>Good news!</strong> You get free shipping on your next pair of shoes! <a href="#">Learn more</a>.</p>
                 </div>
             </section>
+
+            <section aria-labelledby="attention-status" class="page-notice page-notice--attention" role="region">
+                <h4 class="page-notice__status" id="attention-status">
+                    <span aria-label="Attention" role="img"></span>
+                </h4>
+                <div class="page-notice__content">
+                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+                </div>
+            </section>
         </div>
     </div>
     {% highlight html %}
-<section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation">
+<section aria-labelledby="celebration-status" class="page-notice page-notice--celebration" role="region">
+    <h4 class="page-notice__status" id="celebration-status">
+        <span aria-label="Congratulations" role="img"></span>
+    </h4>
+    <div class="page-notice__content">
+        <p><span class="page-notice__title">Your order's in!</span><br />We'll email updates to jonsnow@gmail.com. You should get it by Thu, Sept 22.</p>
+    </div>
+</section>
+
+<section aria-labelledby="confirmation-status" class="page-notice page-notice--confirmation" role="region">
     <h2 class="page-notice__status" id="confirmation-status">
         <span aria-label="Confirmation" role="img"></span>
     </h2>
@@ -48,7 +118,7 @@
     </div>
 </section>
 
-<section aria-labelledby="attention-status" class="page-notice page-notice--attention">
+<section aria-labelledby="attention-status" class="page-notice page-notice--attention" role="region">
     <h2 class="page-notice__status" id="attention-status">
         <span aria-label="Attention" role="img"></span>
     </h2>
@@ -67,6 +137,8 @@
 </section>
     {% endhighlight %}
 
+    <!-- dismissiable page notice and CTA notice are deprecated in DS6.5 -->
+    <!--
     <h3 id="notice-page-dismissable">Dismissable Page Notice</h3>
      <p>Append a button with class <span class="highlight">page-notice__close</span> to create a dismissable page notice.</p>
         <div class="demo">
@@ -155,9 +227,11 @@
     <button class="btn btn--secondary btn--transparent">Button</button>
 </section>
      {% endhighlight %}
+     -->
 
     <h3 id="notice-section">Section Notice</h3>
     <p>Section notices are used to provide tips, guidance & feedback on section level elements. Section notices are not as prominent as page level alerts, but still educate the user without alarming them.</p>
+    <p>A section-level notice may have the following status: default (no icon), confirmation, information or attention.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -165,62 +239,17 @@
                <div class="section-notice__content">
                     <p>Items you didn't win will now show in the <a href="#">Didn't win</a> section of this page.</p>
                 </div>
-            </section>
-        </div>
-    </div>
-
-    {% highlight html %}
-<section aria-label="Guidance" class="section-notice" role="region">
-    <div class="section-notice__content">
-        <p>Items you didn't win will now show in the <a href="http://www.ebay.com">Didn't win</a> section of this page.</p>
-    </div>
-</section>
-    {% endhighlight %}
-
-    <p>A section notice can have a CTA button.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <section aria-label="Guidance" class="section-notice" role="region">
-               <div class="section-notice__content">
-                    <p>This is a message that provides more info about the page </p>
-                    <p>With an action button</p>
-                </div>
                 <button class="btn btn--secondary btn--transparent">Button</button>
             </section>
-        </div>
-    </div>
 
-{% highlight html %}
-<section aria-label="Guidance" class="section-notice" role="region">
-    <div class="section-notice__content">
-        <p>This is a message that provides more info about the page </p>
-        <p>With an action button</p>
-    </div>
-    <button class="btn btn--secondary btn--transparent">Button</button>
-</section>
-{% endhighlight %}
-
-    <p>A section notice may have a status of attention, confirmation, or information.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation">
+            <section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation" role="region">
                 <h4 class="section-notice__status" id="section-notice-confirmation">
                     <span aria-label="Confirmation" role="img"></span>
                 </h4>
                 <div class="section-notice__content">
                     <p>This successfully finished <a href="#">next page</a></p>
                 </div>
-            </section>
-
-            <section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention">
-                <h4 class="section-notice__status" id="section-notice-attention">
-                    <span aria-label="Attention" role="img"></span>
-                </h4>
-                <div class="section-notice__content">
-                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
-                </div>
+                <button class="btn btn--secondary btn--transparent">Button</button>
             </section>
 
             <section aria-labelledby="section-notice-information" class="section-notice section-notice--information" role="region">
@@ -232,25 +261,34 @@
                 </div>
                 <button class="btn btn--secondary btn--transparent">Button</button>
             </section>
+
+            <section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention" role="region">
+                <h4 class="section-notice__status" id="section-notice-attention">
+                    <span aria-label="Attention" role="img"></span>
+                </h4>
+                <div class="section-notice__content">
+                    <p><strong>Error.</strong> Please take another look at the following:<br /><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+                </div>
+                <button class="btn btn--secondary btn--transparent">Button</button>
+            </section>
         </div>
     </div>
     {% highlight html %}
-<section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation">
+<section aria-label="Guidance" class="section-notice" role="region">
+    <div class="section-notice__content">
+        <p>Items you didn't win will now show in the <a href="http://www.ebay.com">Didn't win</a> section of this page.</p>
+    </div>
+    <button class="btn btn--secondary btn--transparent">Button</button>
+</section>
+
+<section aria-labelledby="section-notice-confirmation" class="section-notice section-notice--confirmation" role="region">
     <h3 class="section-notice__status" id="section-notice-confirmation">
         <span aria-label="Confirmation" role="img"></span>
     </h3>
     <div class="section-notice__content">
         <p>This successfully finished <a href="http://www.ebay.com">next page</a></p>
     </div>
-</section>
-
-<section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention">
-    <h3 class="section-notice__status" id="section-notice-attention">
-        <span aria-label="Attention" role="img"></span>
-    </h3>
-    <div class="section-notice__content">
-        <p><strong>Error.</strong> Please take another look at the following:<br /><a href="http://www.ebay.com">Card number</a>, <a href="http://www.ebay.com">Expiration date</a> &amp; <a href="http://www.ebay.com">Security code</a>.</p>
-    </div>
+    <button class="btn btn--secondary btn--transparent">Button</button>
 </section>
 
 <section aria-labelledby="section-notice-information" class="section-notice section-notice--information" role="region">
@@ -262,10 +300,21 @@
     </div>
     <button class="btn btn--secondary btn--transparent">Button</button>
 </section>
+
+<section aria-labelledby="section-notice-attention" class="section-notice section-notice--attention" role="region">
+    <h3 class="section-notice__status" id="section-notice-attention">
+        <span aria-label="Attention" role="img"></span>
+    </h3>
+    <div class="section-notice__content">
+        <p><strong>Error.</strong> Please take another look at the following:<br /><a href="http://www.ebay.com">Card number</a>, <a href="http://www.ebay.com">Expiration date</a> &amp; <a href="http://www.ebay.com">Security code</a>.</p>
+    </div>
+    <button class="btn btn--secondary btn--transparent">Button</button>
+</section>
     {% endhighlight %}
 
     <h3 id="notice-inline">Inline Notice</h3>
     <p>An inline-level notice provides tips, guidance and feedback on individual elements and form controls.</p>
+    <p>An inline-level notice may have a status of confirmation, information or attention.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -280,15 +329,6 @@
                 </span>
             </div>
 
-            <div class="inline-notice inline-notice--attention">
-                <span class="inline-notice__status">
-                    <span aria-label="Attention" role="img"></span>
-                </span>
-                <span class="inline-notice__content">
-                    <p>Update your credit card.</p>
-                </span>
-            </div>
-
             <div class="inline-notice inline-notice--information">
                 <span class="inline-notice__status">
                     <span aria-label="Information" role="img"></span>
@@ -298,6 +338,14 @@
                 </span>
             </div>
 
+            <div class="inline-notice inline-notice--attention">
+                <span class="inline-notice__status">
+                    <span aria-label="Attention" role="img"></span>
+                </span>
+                <span class="inline-notice__content">
+                    <p>Update your credit card.</p>
+                </span>
+            </div>
         </div>
     </div>
     {% highlight html %}
@@ -311,21 +359,21 @@
     </span>
 </div>
 
-<div class="inline-notice inline-notice--attention">
-    <span class="inline-notice__status">
-        <span aria-label="Attention" role="img"></span>
-    </span>
-    <span class="inline-notice__content">
-        <p>Update your credit card.</p>
-    </span>
-</div>
-
 <div class="inline-notice inline-notice--information">
     <span class="inline-notice__status">
         <span aria-label="Information" role="img"></span>
     </span>
     <span class="inline-notice__content">
         <p>Global Shipping Program transaction.</p>
+    </span>
+</div>
+
+<div class="inline-notice inline-notice--attention">
+    <span class="inline-notice__status">
+        <span aria-label="Attention" role="img"></span>
+    </span>
+    <span class="inline-notice__content">
+        <p>Update your credit card.</p>
     </span>
 </div>
     {% endhighlight %}
