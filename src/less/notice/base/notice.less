@@ -1,3 +1,64 @@
+.window-notice {
+    background-color: @window-notice-background-color;
+    box-sizing: border-box;
+    margin: 16px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.window-notice--fill {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+}
+
+.window-notice > .btn,
+.window-notice > .fake-btn {
+    margin-top: 28px;
+}
+
+.window-notice--fill > .btn,
+.window-notice--fill > .fake-btn {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.window-notice > h2 {
+    margin: 0;
+}
+
+span.window-notice__icon[role='img'] {
+    .background-image-base64(@icon-confirmation-filled-base64);
+}
+
+span.window-notice__icon[role='img'],
+svg.window-notice__icon {
+    display: block;
+    font-size: 0;
+    height: 35px;
+    margin: 0 auto;
+    width: 35px;
+}
+
+.window-notice__title {
+    display: inline-block;
+    font-size: @font-size-30;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.window-notice__content {
+    color: @window-notice-content-color;
+    margin: 20px 0 0;
+}
+
+/* PAGE NOTICE & SECTION NOTICE */
+
 .page-notice,
 .section-notice {
     align-items: stretch;
@@ -33,6 +94,10 @@ span[role="region"].section-notice {
     }
 }
 
+.page-notice__title {
+    font-weight: bold;
+}
+
 .page-notice__content,
 .section-notice__content {
     flex: 1;
@@ -46,6 +111,27 @@ span[role="region"].section-notice {
        -moz-hyphens: auto;
             hyphens: auto;
     /* stylelint-enable */
+}
+
+.page-notice__content {
+    font-size: @font-size-medium;
+}
+
+.page-notice--celebration {
+    color: @page-notice-celebration-text-color;
+}
+
+.page-notice--celebration .page-notice__title {
+    color: @page-notice-celebration-title-color;
+    display: inline-block;
+    font-size: @font-size-large-1;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.page-notice--celebration .btn {
+    border-color: black;
+    color: @page-notice-celebration-color;
 }
 
 svg.page-notice__cta,
@@ -83,7 +169,7 @@ a.section-notice {
     text-decoration: none;
 }
 
-// todo: move inline notice to separate module OR fix stylelint no-descending-specificity violations
+/* INLINE NOTICE */
 
 div.inline-notice {
     display: flex;
@@ -94,7 +180,16 @@ span.inline-notice {
     display: inline-flex;
 }
 
-// DEPRECATED in V7. SCHEDULED FOR REMOVAL.
+/* LARGE SCREENS */
+
+@media (min-width: 601px) {
+    .page-notice--celebration .page-notice__title {
+        font-size: @font-size-giant-1;
+        margin-bottom: 8px;
+    }
+}
+
+// DEPRECATED in V7. SCHEDULED FOR REMOVAL IN V10.
 
 .flyout-notice {
     .bubble;
