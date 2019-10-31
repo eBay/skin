@@ -7,6 +7,11 @@
 @import "../../mixins/button/ds4/button-mixins.less";
 
 @page-notice-light-background-color: @color-core-gray-light;
+@page-notice-celebration-text-color: @color-core-green;
+@page-notice-celebration-title-color: @color-black;
+@page-notice-celebration-color: @color-black;
+@window-notice-background-color: @color-core-white;
+@window-notice-content-color: @color-core-green;
 
 @import "../base/notice.less";
 
@@ -21,10 +26,15 @@
 
 .page-notice--information,
 .page-notice--confirmation,
-.page-notice--attention {
+.page-notice--attention,
+.page-notice--celebration {
     background-color: @color-core-white;
     border-bottom: 1px solid @color-core-gray-silver;
     border-top: 1px solid @color-core-gray-silver;
+}
+
+.page-notice--celebration {
+    padding: 16px 16px 16px 0;
 }
 
 .section-notice--information,
@@ -128,6 +138,7 @@ svg.section-notice__cta {
 }
 
 .page-notice--confirmation .page-notice__status,
+.page-notice--celebration .page-notice__status,
 .section-notice--confirmation .section-notice__status {
     color: @color-core-green;
 }
@@ -144,6 +155,7 @@ button.section-notice__close span {
 }
 
 .page-notice--confirmation .page-notice__status span,
+.page-notice--celebration .page-notice__status span,
 .section-notice--confirmation .section-notice__status span {
     .background-icon-image-mixin('confirmation-filled');
 }
@@ -198,9 +210,17 @@ button.section-notice__close {
         border: 1px solid @color-core-gray-silver;
     }
 
+    .page-notice--celebration {
+        padding: 24px 24px 24px 0;
+    }
+
     .page-notice__content,
     .section-notice__content {
         padding-left: 16px;
+    }
+
+    .page-notice--celebration .page-notice__content {
+        padding-left: 24px;
     }
 
     .page-notice__cta,
@@ -212,7 +232,8 @@ button.section-notice__close {
         border-top: 2px solid @color-interface-cta;
     }
 
-    .page-notice--confirmation {
+    .page-notice--confirmation,
+    .page-notice--celebration {
         border-top: 2px solid @color-interface-positive;
     }
 
@@ -307,6 +328,11 @@ button.section-notice__close {
 @media (min-width: 601px) {
     div.inline-notice {
         margin: 16px 0;
+    }
+
+    .page-notice--celebration .page-notice__status svg,
+    .page-notice--celebration .page-notice__status span {
+        margin-left: 24px;
     }
 }
 
