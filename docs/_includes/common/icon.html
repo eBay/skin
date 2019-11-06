@@ -79,15 +79,25 @@
     </div>
 
     <h3 id="icon-icons">The Icons</h3>
-    <p>The table below displays all icons in two sizes: "default" and "small". Append <span class="highlight">-small</span> to the icon name to render the small version.</p>
-    <p>An empty box indicates that the icon is not available for the currently displayed design system version (DS{{ page.ds }}).</p>
+    <p>The table below displays all available icons for the currently selected design system version (DS{{ page.ds }}). An empty box indicates that the icon is not available, and/or not relevant, to this system.</p>
+    {% if page.ds == 4 %}
+    <p><strong>NOTE: </strong> DS4 does not have small versions of icons.</p>
+    {% endif %}
+    {% if page.ds == 6 %}
+    <p>Append <span class="highlight">-small</span> to the icon name to render the small version.</p>
+    {% endif %}
 
-    <table class="icon-table">
+    <table cellpadding="0" cellspacing="0" class="icon-table">
         <thead>
             <tr>
                 <th>NAME</th>
+                {% if page.ds == 4 %}
+                <th>ICON</th>
+                {% endif %}
+                {% if page.ds == 6 %}
                 <th>DEFAULT</th>
                 <th>SMALL</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -104,11 +114,47 @@
                         </span>
                     </span>
                 </td>
+                {% if page.ds == 6 %}
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-small" focusable="false" height="24" width="24">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}-small" focusable="false" height="16" width="16">
                                 <use xlink:href="#icon-{{ icon }}-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if page.ds == 4 %}
+    <p>For a full list of DS4 icons, please <a href="archive/index.html">visit the archive</a>.</p>
+    {% endif %}
+
+    <h3 id="icon-aliases">Icon Aliases</h3>
+
+    <p>We provide several aliases for cases where the design systems have diverged in their choice of icon. For example, DS6 uses arrows for pagination, whereas DS4 uses chevrons.</p>
+
+    <table cellpadding="0" cellspacing="0" class="icon-table">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>ICON</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% assign icons = "pagination-prev, pagination-next" | split: ", " %}
+            {% for icon in icons %}
+            <tr>
+                <td>{{ icon }}</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-{{ icon }}"></use>
                             </svg>
                         </span>
                     </span>
@@ -118,9 +164,6 @@
         </tbody>
     </table>
 
-    {% if page.ds == 4 %}
-    <p>For a full list of DS4 icons, please <a href="archive/index.html">visit the archive</a>.</p>
-    {% endif %}
 
     {% if page.ds == 6 %}
     <div class="section-footer">
