@@ -16,14 +16,10 @@
         top: -2px;
     }
 
-    li {
-        &:not(:last-of-type)::after {
-            .background-icon-base-mixin();
-            .breadcrumb-icon-divider();
-
-            content: '';
-            margin: 0 8px;
-        }
+    // slightly odd measurements below, but matches what's in production
+    li svg {
+        margin-left: 5px;
+        margin-right: 7px;
     }
 
     button {
@@ -48,7 +44,12 @@
 
         &[aria-current] {
             color: @breadcrumb-item-current-color;
+            text-decoration: none;
         }
+    }
+
+    a:visited {
+        color: @breadcrumb-item-color;
     }
 }
 

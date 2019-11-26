@@ -11,52 +11,31 @@ button.expand-btn {
     padding: @btn-padding;
 }
 
-.expand-btn__icon {
+button.expand-btn svg {
     .btn-icon-base;
-}
+    .btn-icon-svg-base;
 
-button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    transform: rotate(180deg);
+    flex-shrink: 0;
 }
 
 button.expand-btn--fluid {
     .btn-fluid-base;
 }
 
-.expand-btn__cell {
+span.expand-btn__cell {
     .btn-cell-base;
 
     justify-content: space-between;
 }
 
-svg.expand-btn__icon {
-    .btn-icon-svg-base;
-}
-
-span.expand-btn__icon {
-    .background-icon-base-mixin;
-    .btn-expand-icon();
-
-    background-position-y: center;
-    flex-shrink: 0;
-    margin-left: 8px;
-}
-
-span.expand-btn__icon,
-svg.expand-btn__icon {
-    &:only-child {
-        display: flex;
-        margin: 0;
-    }
-}
-
-.expand-btn__cell--fixed-height span.expand-btn__icon,
-.expand-btn__cell--fixed-height svg.icon {
+span.expand-btn__cell--fixed-height svg {
     .btn-fixed-height-icon-alignment;
+    .btn-fixed-height-icon-dimensions;
 }
 
-.expand-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-dimensions;
+button.expand-btn svg:only-child {
+    display: flex;
+    margin: 0;
 }
 
 button.expand-btn--regular {
@@ -131,4 +110,8 @@ button.expand-btn--secondary[aria-disabled="true"] {
         background-color: @button-secondary-disabled-hover-background-color;
         border-color: @button-secondary-disabled-hover-border-color;
     }
+}
+
+button.expand-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
 }

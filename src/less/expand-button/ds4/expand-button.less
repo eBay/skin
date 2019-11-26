@@ -5,10 +5,6 @@
 @import "../../mixins/icon/ds4/icon-mixins.less";
 @import "../base/expand-button.less";
 
-.btn-expand-icon() {
-    .background-icon-image-mixin('arrow-down', 8px, 8px);
-}
-
 /* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
 
 button.expand-btn {
@@ -21,21 +17,9 @@ button.expand-btn {
     }
 }
 
-svg.expand-btn__icon {
+button.expand-btn svg {
     height: 8px;
     width: 8px;
-}
-
-button.expand-btn--regular span.expand-btn__icon {
-    .background-image-base64(@icon-arrow-down-blue-base64);
-}
-
-button.expand-btn--primary span.expand-btn__icon {
-    .background-image-base64(@icon-arrow-down-white-base64);
-}
-
-button.expand-btn--secondary span.expand-btn__icon {
-    .background-image-base64(@icon-arrow-down-gray-davys-base64);
 }
 
 button.expand-btn--regular {
@@ -108,105 +92,51 @@ button.expand-btn--secondary[aria-disabled="true"] {
     }
 }
 
-button.expand-btn {
-    &__cell--fixed-height &__icon {
-        align-self: center;
-        overflow: visible;
-    }
+button.expand-btn__cell--fixed-height svg {
+    align-self: center;
+    overflow: visible;
+}
 
-    &--small {
-        .button-size-rules(@font-size-12, 8px 32px);
+button.expand-btn--small {
+    .button-size-rules(@font-size-12, 8px 32px);
+}
 
-        &-fixed-height {
-            height: 32px;
-        }
+button.expand-btn--small-fixed-height {
+    height: 32px;
+}
 
-        &-truncated {
-            .button-size-rules(@font-size-12, 8px 32px);
-            .btn-truncate;
+button.expand-btn--small-truncated {
+    .button-size-rules(@font-size-12, 8px 32px);
+    .btn-truncate;
 
-            height: 32px;
-        }
-    }
+    height: 32px;
+}
 
-    &--medium {
-        .button-size-rules(@font-size-14, 11px 40px);
-
-        &-fixed-height {    // when updated for DS6.5 see https://github.com/eBay/skin/issues/555
-            height: 40px;
-        }
-
-        &-truncated {
-            .button-size-rules(@font-size-14, 11px 40px);
-            .btn-truncate;
-
-            height: 40px;
-        }
-    }
-
-    &--large {
-        .button-size-rules(@font-size-16, 14px 48px);
-
-        &-fixed-height {
-            height: 48px;
-        }
-
-        &-truncated {
-            .button-size-rules(@font-size-16, 14px 48px);
-            .btn-truncate;
-
-            height: 48px;
-        }
-    }
-
-    &--extra-large {
-        // chrome and firefox disagree on calculations, so 15.875px is a compromise
-        .button-size-rules(@font-size-18, 15.875px 56px);
-
-        &-fixed-height {
-            height: 56px;
-        }
-
-        &-truncated {
-            .button-size-rules(@font-size-18, 15.875px 56px);
-            .btn-truncate;
-
-            height: 56px;
-        }
-    }
+button.expand-btn--large {
+    .button-size-rules(@font-size-16, 14px 48px);
 }
 
 button.expand-btn--small {
     padding: 8px 16px;
-
-    &.expand-btn--no-text {
-        padding: 8px 12px;
-    }
 }
 
+// code smell (chained modifier)
 button.expand-btn.expand-btn--no-text {
     height: 40px;
-
-    &.expand-btn--small {
-        height: 32px;
-    }
-
-    &.expand-btn--medium {
-        height: 40px;
-    }
-
-    &.expand-btn--large {
-        height: 48px;
-    }
-
-    &.expand-btn--extra-large {
-        height: 56px;
-    }
 }
 
-button.expand-btn[class*="--medium"],
-button.expand-btn[class*="--large"],
-button.expand-btn[class*="--extra-large"] {
+// code smell (chained modifier)
+button.expand-btn.expand-btn--no-text.expand-btn--small {
+    height: 32px;
+    padding: 8px 12px;
+}
+
+// code smell (chained modifier)
+button.expand-btn.expand-btn--no-text.expand-btn--large {
+    height: 48px;
+}
+
+button.expand-btn[class*="--large"] {
     padding-left: 16px;
     padding-right: 16px;
 }
