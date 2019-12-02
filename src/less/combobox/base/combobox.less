@@ -15,16 +15,12 @@ span.combobox {
     flex: 1 0 auto;
 }
 
-span.combobox__icon {
-    .background-icon-base-mixin;
-    .combobox-icon();
-
-    background-position: right center;
+.combobox svg {
     margin-left: 8px;
     pointer-events: none;
     position: absolute;
     right: 17px; // +1 px for the border on the input box
-    top: 0;
+    top: calc(50% - 4px); // 4px is half the height of dropdown icon size
 }
 
 .combobox__options--fix-width[role="listbox"] {
@@ -63,7 +59,7 @@ span.combobox__icon {
     display: block;
 }
 
-.combobox--expanded span.combobox__icon {
+.combobox--expanded svg {
     transform: rotate(180deg);
 }
 
@@ -73,8 +69,9 @@ span.combobox__icon {
     border: 1px solid @combobox-input-border-color;
     border-radius: @combobox-input-border-radius;
     box-sizing: border-box;
+    color: inherit;
     font-family: inherit;
-    font-size: @combobox-input-font-size;
+    font-size: inherit;
     height: @combobox-input-height;
     padding: @combobox-input-padding;
     text-align: left;
@@ -101,8 +98,8 @@ span.combobox__icon {
             text-shadow: 0 0 0 @combobox-input-disabled-readonly-text-shadow-color;
         }
 
-        & + span.combobox__icon {
-            .combobox-input-disabled-icon();
+        & + svg {
+            opacity: 0.5;
         }
     }
 
@@ -144,30 +141,10 @@ span.combobox__icon {
     }
 }
 
-.combobox__status {
-    .dropdown-status;
-}
-
-// background icon
-span.combobox__status {
-    .dropdown-status-background;
-}
-
-.combobox__option[role^="option"][aria-selected="true"] .combobox__status {
-    opacity: 1;
-}
-
 @media all and (-ms-high-contrast: active),
     all and (-ms-high-contrast: none) {
     *::-ms-backdrop,
     .combobox__value {
         min-width: 100%;
-    }
-}
-
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.combobox__icon {
-        background-color: transparent;
-        .background-image-base64(@combobox-icon-base64-light);
     }
 }

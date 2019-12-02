@@ -8,8 +8,15 @@
 /* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
 
 button.expand-btn {
+    background-color: @button-regular-background-color;
+    border-color: @button-regular-border-color;
+    color: @button-regular-color;
     line-height: 1.2em;
     padding: 11px 16px;
+
+    &:active {
+        border-color: @button-regular-active-color;
+    }
 
     &[disabled],
     &[aria-disabled="true"] {
@@ -17,15 +24,27 @@ button.expand-btn {
     }
 }
 
-button.expand-btn svg {
-    height: 8px;
-    width: 8px;
-}
-
 button.expand-btn--regular {
     &:hover,
     &:focus {
         border-color: @color-core-gray-spanish;
+    }
+}
+
+button.expand-btn--regular[disabled],
+button.expand-btn--regular[aria-disabled="true"] {
+    background-color: @button-regular-disabled-background-color;
+    border-color: @button-regular-disabled-border-color;
+    color: @button-regular-disabled-color;
+
+    svg {
+        color: @button-regular-disabled-svg-color;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: @button-regular-disabled-hover-background-color;
+        border-color: @button-regular-disabled-hover-border-color;
     }
 }
 
