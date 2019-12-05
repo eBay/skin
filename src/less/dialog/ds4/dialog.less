@@ -3,14 +3,6 @@
 @import "../../variables/ds4/typography-variables.less";
 @import "../../mixins/icon/ds4/icon-mixins.less";
 
-.dialog-close-icon() {
-    .background-icon-image-mixin('close', 17px, 17px);
-}
-
-.dialog-back-icon() {
-    .background-icon-image-mixin('chevron-light-left', 17px, 17px);
-}
-
 @dialog-background-color: @color-text-default;
 @dialog-window-before-background-color: @color-interface-view-background;
 @dialog-window-before-modifiers-background-color: @color-interface-view-background;
@@ -23,61 +15,46 @@
 @dialog-transitions-hide-mask-fade-background-color: @color-text-default;
 @dialog-transitions-show-mask-fade-background-color: @color-text-default;
 
-@dialog-close-icon-base64-light: @icon-close-base64-light;
-
 @import "../base/dialog.less";
 
-.dialog {
-    &__back,
-    &__close {
-        font-size: @font-size-14;
-        height: 38px;
-        padding: 0;
-        width: 50px;
+.dialog__back,
+.dialog__close {
+    font-size: @font-size-14;
+    height: 38px;
+    padding: 0;
+    width: 50px;
 
-        svg {
-            height: 16px;
-            width: 16px;
-        }
+    svg {
+        height: 16px;
+        width: 16px;
     }
+}
 
-    &__body {
-        font-size: @font-size-14;
-        padding-top: calc(1.125rem ~"+" 14px);
+.dialog__body {
+    font-size: @font-size-14;
+    padding-top: calc(1.125rem ~"+" 14px);
 
-        h2:first-of-type {
-            background-color: @color-core-white;
-            border-bottom: 1px solid @color-core-gray-light;
-            box-sizing: border-box;
-            font-size: @font-size-18;
-            font-weight: 400;
-            left: 0;
-            margin: -16px -16px 16px;
-            overflow: hidden;
-            padding: 8px 50px 8px;
-            position: absolute;
-            text-align: center;
-            text-overflow: ellipsis;
-            top: 0;
-            white-space: nowrap;
-            width: calc(100% ~"+" 32px);
-        }
+    h2:first-of-type {
+        background-color: @color-core-white;
+        border-bottom: 1px solid @color-core-gray-light;
+        box-sizing: border-box;
+        font-size: @font-size-18;
+        font-weight: 400;
+        left: 0;
+        margin: -16px -16px 16px;
+        overflow: hidden;
+        padding: 8px 50px 8px;
+        position: absolute;
+        text-align: center;
+        text-overflow: ellipsis;
+        top: 0;
+        white-space: nowrap;
+        width: calc(100% ~"+" 32px);
     }
+}
 
-    &--hide-close-button &__close {
-        display: none;
-    }
-
-    // card deprecated in v7.4.0
-    .card {
-        margin: 16px 0;
-
-        &.card--primary {
-            margin-left: -16px;
-            margin-right: -16px;
-            margin-top: -16px;
-        }
-    }
+.dialog--hide-close-button .dialog__close {
+    display: none;
 }
 
 @media (min-width: 601px) {

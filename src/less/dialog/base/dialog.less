@@ -25,239 +25,199 @@
 // BLOCK
 //-----------------------------
 
-.dialog {
-    &[role="dialog"] {
-        background-color: fade(@dialog-background-color, 70%);
-        bottom: 0;
+.dialog[role="dialog"] {
+    background-color: fade(@dialog-background-color, 70%);
+    bottom: 0;
+    left: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    will-change: background-color;
+    z-index: 100000; // because global header has an element with 99999
+}
+
+.dialog--no-mask[role="dialog"] {
+    background-color: transparent;
+}
+
+.dialog__body {
+    box-sizing: border-box;
+    margin: 16px;
+    min-height: 100%;
+    position: relative;
+}
+
+.dialog__close {
+    right: 0;
+}
+
+.dialog__back {
+    left: 0;
+}
+
+.dialog__back,
+.dialog__close {
+    background-color: @dialog-back-close-background-color;
+    border: 0;
+    color: @dialog-back-close-color;
+    margin: 0;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    &:hover,
+    &:focus {
+        color: @dialog-back-close-hover-focus-color;
+    }
+}
+
+.dialog__window {
+    left: 0;
+    margin: auto;
+    max-width: @dialog_max_width;
+    min-height: 55px;
+    padding-bottom: 15vh;
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: calc(100% - 32px);
+    will-change: opacity, transform;
+
+    // The background for the dialog window is on this pseudo element.
+    // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
+    &::before {
+        background-color: @dialog-window-before-background-color;
+        bottom: 15vh;
+        content: "";
         left: 0;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: auto;
-        position: fixed;
-        right: 0;
-        top: 0;
-        will-change: background-color;
-        z-index: 100000; // because global header has an element with 99999
-    }
-
-    // MODIFIERS
-    //-----------------------------
-    &--no-mask[role="dialog"] {
-        background-color: transparent;
-    }
-
-    // ELEMENTS
-    //-----------------------------
-
-    &__body {
-        box-sizing: border-box;
-        margin: 16px;
-        min-height: 100%;
-        position: relative;
-    }
-
-    &__close {
-        right: 0;
-
-        span {
-            .dialog-close-icon();
-        }
-    }
-
-    &__back {
-        left: 0;
-
-        span {
-            .dialog-back-icon();
-        }
-    }
-
-    &__back,
-    &__close {
-        background-color: @dialog-back-close-background-color;
-        border: 0;
-        color: @dialog-back-close-color;
-        margin: 0;
-        padding: 16px;
         position: absolute;
         top: 0;
-        z-index: 1;
+        width: 100%;
+    }
+}
 
-        &:hover,
-        &:focus {
-            color: @dialog-back-close-hover-focus-color;
-        }
+.dialog__window--full,
+.dialog__window--left,
+.dialog__window--right {
+    background-color: @dialog-window-before-modifiers-background-color;
+    bottom: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    padding-bottom: 0;
+    top: 0;
 
-        span {
-            .background-icon-base-mixin;
-        }
+    &::before {
+        display: none;
     }
 
-    &__window {
-        left: 0;
-        margin: auto;
-        max-width: @dialog_max_width;
-        min-height: 55px;
-        padding-bottom: 15vh;
-        position: absolute;
-        right: 0;
-        top: 15%;
-        width: calc(100% - 32px);
-        will-change: opacity, transform;
-
-        // The background for the dialog window is on this pseudo element.
-        // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
-        &::before {
-            background-color: @dialog-window-before-background-color;
-            bottom: 15vh;
-            content: "";
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-
-        // MODIFIERS
-        //-----------------------------
-
-        &--full,
-        &--left,
-        &--right {
-            background-color: @dialog-window-before-modifiers-background-color;
-            bottom: 0;
-            -webkit-overflow-scrolling: touch;
-            overflow-y: auto;
-            padding-bottom: 0;
-            top: 0;
-
-            &::before {
-                display: none;
-            }
-
-            .dialog {
-                &__body {
-                    min-height: auto;
-                }
-
-                &__close {
-                    float: right;
-                    position: sticky;
-                }
-            }
-        }
-
-        &--fill {
-            min-height: 70vh;
-        }
-
-        &--full {
-            bottom: 0;
-            max-width: 100%;
-            width: 100%;
-        }
-
-        &--left,
-        &--right {
-            .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
-        }
-
-        &--left {
-            border-right: 1px solid rgba(153, 153, 153, 0.18);
-            right: auto;
-        }
-
-        &--right {
-            border-left: 1px solid rgba(153, 153, 153, 0.18);
-            left: auto;
-        }
+    .dialog__body {
+        min-height: auto;
     }
 
-    // TRANSITIONS
-    //-----------------------------
+    .dialog__close {
+        float: right;
+        position: sticky;
+    }
+}
 
-    // Prime transitions.
-    &--show,
-    &--hide {
-        // Root animations.
-        &.dialog--mask {
-            &-fade {
-                transition: background-color 0.16s ease-out;
-            }
+.dialog__window--fill {
+    min-height: 70vh;
+}
 
-            &-fade-slow {
-                transition: background-color 0.32s ease-out;
-            }
-        }
+.dialog__window--full {
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+}
 
-        // Child animations.
-        .dialog__window {
-            &--fade {
-                transition: opacity 0.16s ease-out;
-            }
+.dialog__window--left,
+.dialog__window--right {
+    .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
+}
 
-            &--slide {
-                transition: transform 0.32s ease-out;
-            }
-        }
+.dialog__window--left {
+    border-right: 1px solid rgba(153, 153, 153, 0.18);
+    right: auto;
+}
+
+.dialog__window--right {
+    border-left: 1px solid rgba(153, 153, 153, 0.18);
+    left: auto;
+}
+
+.dialog--show,
+.dialog--hide {
+    // Root animations.
+    &.dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
     }
 
-    // Apply hide animation.
-    &--hide,
-    &--show-init {
-        && {
-            display: block;
-        }
-
-        // Root animations.
-        &.dialog--mask {
-            &-fade,
-            &-fade-slow {
-                background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
-            }
-        }
-
-        // Child animations.
-        .dialog__window {
-            &--fade {
-                opacity: 0;
-            }
-
-            &--slide {
-                &.dialog__window--left {
-                    transform: translateX(-100%);
-                }
-
-                &.dialog__window--right {
-                    transform: translateX(100%);
-                }
-            }
-        }
+    &.dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
     }
 
-    // Apply show animation.
-    &--show,
-    &--hide-init {
-        && {
-            display: block;
-        }
+    // Child animations.
+    .dialog__window--fade {
+        transition: opacity 0.16s ease-out;
+    }
 
-        // Root animations.
-        &.dialog--mask {
-            &-fade,
-            &-fade-slow {
-                background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
-            }
-        }
+    .dialog__window--slide {
+        transition: transform 0.32s ease-out;
+    }
+}
 
-        // Child animations.
-        .dialog__window {
-            &--fade {
-                opacity: 1;
-            }
+// Apply hide animation.
+.dialog--hide,
+.dialog--show-init {
+    && {
+        display: block;
+    }
 
-            &--slide {
-                transform: translateX(0);
-            }
-        }
+    // Root animations.
+    &.dialog--mask-fade,
+    &.dialog--mask-fade-slow {
+        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+    }
+
+    // Child animations.
+    .dialog__window--fade {
+        opacity: 0;
+    }
+
+    // code smell, chained modifier
+    .dialog__window--slide.dialog__window--left {
+        transform: translateX(-100%);
+    }
+
+    // code smell, chained modifier
+    .dialog__window--slide.dialog__window--right {
+        transform: translateX(100%);
+    }
+}
+
+// Apply show animation.
+.dialog--show,
+.dialog--hide-init {
+    && {
+        display: block;
+    }
+
+    // Root animations.
+    &.dialog--mask-fade,
+    &.dialog--mask-fade-slow {
+        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+    }
+
+    // Child animations.
+    .dialog__window--fade {
+        opacity: 1;
+    }
+
+    .dialog__window--slide {
+        transform: translateX(0);
     }
 }
 
@@ -279,17 +239,4 @@
     .dialog__window:not(.dialog__window--full) {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
     }
-}
-
-// HIGH CONTRAST MODE
-//-----------------------------
-@media screen and (-ms-high-contrast: white-on-black) {
-    .dialog__close span {
-        .background-image-base64(@dialog-close-icon-base64-light);
-    }
-}
-
-// POLYFILL THE HIDDEN ATTRIBUTE
-[hidden] {
-    display: none;
 }
