@@ -23,6 +23,13 @@ document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
     })
 });
 
+document.querySelectorAll('.filter-menu-button--form button').forEach(function(el, i) {
+    el.addEventListener('click', function(e) {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+    })
+});
+
 // FAKE MENU BUTTON
 document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
     pageWidgets.push(new Expander(widgetEl, {
