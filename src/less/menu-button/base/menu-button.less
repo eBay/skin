@@ -26,22 +26,21 @@ span.fake-menu-button__button {
 div.menu-button__item[role^="menuitem"],
 a.fake-menu-button__item,
 button.fake-menu-button__item {
-    .dropdown-option;
+    .dropdown-option-base;
 }
 
-.menu-button__status,
-.fake-menu-button__status {
+div.menu-button__item[role^="menuitem"] {
+    cursor: default; // needed to override text cursor
+}
+
+.menu-button__item svg.icon,
+.fake-menu-button__item svg.icon {
     .dropdown-status;
 }
 
-span.menu-button__status,
-span.fake-menu-button__status {
-    .dropdown-status-background;
-}
-
-.fake-menu-button__status:last-child,
-.menu-button__item .badge,
-.menu-button__status:last-child {
+.menu-button__item svg.icon:last-child,
+.fake-menu-button__item svg.icon:last-child,
+.menu-button__item .badge {
     margin-left: 8px;
 }
 
@@ -63,21 +62,27 @@ button.fake-menu-button__item {
     text-align: left;
 }
 
-button.fake-menu-button__item:active .fake-menu-button__status,
-div.menu-button__item[role^="menuitem"]:active .menu-button__status,
-a.fake-menu-button__item:active .fake-menu-button__status {
+button.fake-menu-button__item:active svg.icon,
+a.fake-menu-button__item:active svg.icon {
     color: @dropdown-item-active-status-color;
 }
 
-div.menu-button__item[role^="menuitem"][aria-checked="true"] .menu-button__status,
-a.fake-menu-button__item[aria-current="page"] .fake-menu-button__status,
-button.fake-menu-button__item[aria-current="page"] .fake-menu-button__status {
+a.fake-menu-button__item[aria-current="page"] svg.icon,
+button.fake-menu-button__item[aria-current="page"] svg.icon {
     opacity: 1;
 }
 
-a.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
-button.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
-div.menu-button__item[role^="menuitem"] span:not([class*="menu-button__status"]) {
+div.menu-button__item[role^="menuitem"]:active svg.icon {
+    color: @dropdown-item-active-status-color;
+}
+
+div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
+    opacity: 1;
+}
+
+a.fake-menu-button__item span,
+button.fake-menu-button__item span,
+div.menu-button__item[role^="menuitem"] span {
     .truncate;
 
     flex: 1 0 auto;
@@ -134,11 +139,4 @@ div.menu-button__item[role^="menuitem"] span:not([class*="menu-button__status"])
 .menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
     top: 41px; // button height plus one px, to meet design guidelines
-}
-
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.menu-button__status,
-    span.fake-menu-button__status {
-        .background-image-base64(@dropdown-status-base64-light);
-    }
 }
