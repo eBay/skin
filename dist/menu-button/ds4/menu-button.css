@@ -39,7 +39,6 @@ button.fake-menu-button__item {
   border: 1px solid transparent;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  cursor: default;
   display: -webkit-inline-box;
   display: inline-flex;
   font-family: inherit;
@@ -69,8 +68,11 @@ a.fake-menu-button__item:active,
 button.fake-menu-button__item:active {
   font-weight: normal;
 }
-.menu-button__status,
-.fake-menu-button__status {
+div.menu-button__item[role^="menuitem"] {
+  cursor: default;
+}
+.menu-button__item svg.icon,
+.fake-menu-button__item svg.icon {
   align-self: center;
   fill: currentColor;
   height: 8px;
@@ -80,22 +82,9 @@ button.fake-menu-button__item:active {
   stroke-width: 0;
   width: 8px;
 }
-span.menu-button__status,
-span.fake-menu-button__status {
-  display: inline-block;
-  vertical-align: middle;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxOCI+PHBhdGggZmlsbD0iIzA2NTRiYSIgZD0iTTIwLjQyOS4wMDFMNy42NzMgMTIuODcgMi40ODEgNy42NzcgMCAxMC4zODZsNy42NzQgNy40NUwyMy4xNCAyLjQ4NiAyMC40MyAweiIvPjwvc3ZnPg==');
-  height: 9px;
-  width: 9px;
-  background-size: 9px 9px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-  pointer-events: none;
-}
-.fake-menu-button__status:last-child,
-.menu-button__item .badge,
-.menu-button__status:last-child {
+.menu-button__item svg.icon:last-child,
+.fake-menu-button__item svg.icon:last-child,
+.menu-button__item .badge {
   margin-left: 8px;
 }
 a.fake-menu-button__item {
@@ -111,19 +100,23 @@ button.fake-menu-button__item {
   font-family: inherit;
   text-align: left;
 }
-button.fake-menu-button__item:active .fake-menu-button__status,
-div.menu-button__item[role^="menuitem"]:active .menu-button__status,
-a.fake-menu-button__item:active .fake-menu-button__status {
+button.fake-menu-button__item:active svg.icon,
+a.fake-menu-button__item:active svg.icon {
   color: #ccc;
 }
-div.menu-button__item[role^="menuitem"][aria-checked="true"] .menu-button__status,
-a.fake-menu-button__item[aria-current="page"] .fake-menu-button__status,
-button.fake-menu-button__item[aria-current="page"] .fake-menu-button__status {
+a.fake-menu-button__item[aria-current="page"] svg.icon,
+button.fake-menu-button__item[aria-current="page"] svg.icon {
   opacity: 1;
 }
-a.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
-button.fake-menu-button__item span:not([class*="fake-menu-button__status"]),
-div.menu-button__item[role^="menuitem"] span:not([class*="menu-button__status"]) {
+div.menu-button__item[role^="menuitem"]:active svg.icon {
+  color: #ccc;
+}
+div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
+  opacity: 1;
+}
+a.fake-menu-button__item span,
+button.fake-menu-button__item span,
+div.menu-button__item[role^="menuitem"] span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -172,10 +165,4 @@ div.menu-button__item[role^="menuitem"] span:not([class*="menu-button__status"])
 .menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
   top: 41px;
-}
-@media screen and (-ms-high-contrast: white-on-black) {
-  span.menu-button__status,
-  span.fake-menu-button__status {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAxOCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjQyOS4wMDFMNy42NzMgMTIuODcgMi40ODEgNy42NzcgMCAxMC4zODZsNy42NzQgNy40NUwyMy4xNCAyLjQ4NiAyMC40MyAweiIvPjwvc3ZnPg==');
-  }
 }
