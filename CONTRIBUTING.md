@@ -116,11 +116,11 @@ Guidance for pull requests:
 
 * Always double-check which branch you are attempting to merge into. The target branch should always be a milestone branch!
 * Only Skin admins are permitted to merge into `master`
-* Non-atomic commits should be squashed (i.e.  work in progress").
-* Do not add any commit that leaves the code a broken state.
+* Non-atomic commits should be squashed (i.e. "work in progress" type commits).
+* Do not add any commit that leaves the code in a broken state.
 * Pull request for a *feature* must only contain changes related to the issue (NOTE: refactoring/cleanup type PRs are often exempt from this rule)
-* **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewers job more difficult and/or time consuming, as well as increasing risk of regression
-* If you spot some other unrelated bug or code smell, create a GitHub issue for it.
+* **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
+* If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
 * After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
 
 ## Style Guide
@@ -129,7 +129,7 @@ When contributing to Skin, please bear the following guidelines in mind:
 
 * Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
 * Ensure all markup is valid HTML
-* Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a tradeoff)
+* Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwile tradeoff)
 * Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
 * Use the `<svg>` tag for icons
 * Never use the `<i>` tag for icons
