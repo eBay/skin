@@ -1,7 +1,10 @@
-.breadcrumb {
+nav.breadcrumb {
+    color: @breadcrumb-item-color;
+    font-size: @font-size-12;
     height: fit-content;
+    margin: 8px 0;
     min-height: 16px;
-    overflow: hidden;
+    overflow: hidden; // causing font zoom & keyboard focus issues (#927)
     position: relative;
     white-space: nowrap;
 
@@ -13,7 +16,6 @@
         padding: 0;
         position: absolute;
         right: 0;
-        top: -2px;
     }
 
     // slightly odd measurements below, but matches what's in production
@@ -22,19 +24,23 @@
         margin-right: 7px;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     button {
         background: none;
         border: none;
         font-family: inherit;
+        font-size: 1em;
         margin: 0;
         padding: 0;
     }
 
     a,
     button {
-        color: @breadcrumb-item-color;
-        font-size: @font-size-12;
-        text-decoration: none;
+        color: inherit;
+        outline-offset: -4px; // needed because of hidden overflow
 
         &:focus,
         &:hover {
@@ -49,12 +55,12 @@
     }
 
     a:visited {
-        color: @breadcrumb-item-color;
+        color: inherit;
     }
 }
 
-@media screen and (-ms-high-contrast: white-on-black) {
-    .breadcrumb li:not(:last-of-type)::after {
-        .background-image-base64(@breadcrumb-icon-divider-base64-light);
+@media (min-width: 601px) {
+    nav.breadcrumb {
+        margin: 16px 0;
     }
 }
