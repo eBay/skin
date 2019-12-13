@@ -3,14 +3,6 @@
 @import "../../variables/ds4/typography-variables.less";
 @import "../../mixins/icon/ds4/icon-mixins.less";
 
-.select-icon-down() {
-    .background-icon-image-mixin('arrow-down', 9px, 100%);
-
-    top: 0;
-}
-
-@select-icon-down-base64-light: @icon-arrow-down-base64-light;
-
 @select-select-background-color: @color-core-white;
 @select-select-border-color: @color-core-gray-silver;
 @select-select-border-radius: 3px;
@@ -43,36 +35,18 @@
 
 @import "../base/select.less";
 
-.select > select {
-    &[readonly] {
-        background-color: @color-core-gray-light;
-        border-color: @color-core-gray-silver;
-        color: @color-core-gray-dim;
-    }
+.select select[readonly] {
+    background-color: @color-core-gray-light;
+    border-color: @color-core-gray-silver;
+    color: @color-core-gray-dim;
 }
 
-.select--small {
-    > select {
-        font-size: @font-size-12;
-        height: @ds4-height-control-small;
-    }
+.select--large select {
+    font-size: @font-size-16;
+    height: @ds4-height-control-large;
 }
 
-.select--large {
-    > select {
-        font-size: @font-size-16;
-        height: @ds4-height-control-large;
-    }
-}
-
-.select--extra-large {
-    > select {
-        font-size: @font-size-18;
-        height: @ds4-height-control-extra-large;
-    }
-}
-
-.select.select--borderless > select {
+.select--borderless select {
     background-color: transparent;
     border: 0;
     padding-left: 0;
