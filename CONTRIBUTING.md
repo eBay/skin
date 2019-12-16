@@ -10,6 +10,7 @@ This page contains instructions and guidelines for anybody contributing code to 
 * [Branching Strategy](#branching-strategy)
 * [Pull Requests](#pull-requests)
 * [Style Guide](#style-guide)
+* [Testing Guide](#testing-guide)
 * [Website Setup](#website-setup)
 * [Scripts](#scripts)
 * [Icon Creation](#icon-creation)
@@ -38,6 +39,15 @@ Here is a rough overview of steps required when contributing code to skin:
 * Add or update the corresponding website documentation. More information in the [documentation](#documentation) section below.
 * Push commit(s) to the upstream branch. Ensure new dist files (i.e. the compiled CSS files) are included!
 * Send pull request. See Pull Requests section below.
+
+## Development Modes
+
+Skin can usually considered to be in one of two modes of development:
+
+1. Feature development mode (default)
+1. Refactoring/cleanup mode
+
+The vast majority of this guide is relevant to both modes.
 
 ## Versioning
 
@@ -96,8 +106,6 @@ Issue branches must be created from the relevant milestone branch. For example, 
 
 Every milestone branch must be created from the `master` branch. For example, when beginning work on the 2.9.0 release, the `2.9.0` branch would be created from the `master` branch.
 
-<strike>When work on an issue branch is complete and committed to the branch, the Jenkins CI job must be run on that branch. This may result in a new commit being added to the issue branch by the CI machine. After this point, a PR should be sent.</strike>
-
 When all milestone issues are complete, and merged into the milestone branch, a Skin admin will merge the milestone branch into the `master` branch in preparation for the release.
 
 A milestone branch will be deleted after it has been merged into `master`. There is no need to keep these milestone branches lying around, as we can go back to any point in time using tags. See the hotfix section below for more details.
@@ -107,38 +115,49 @@ A milestone branch will be deleted after it has been merged into `master`. There
 Guidance for pull requests:
 
 * Always double-check which branch you are attempting to merge into. The target branch should always be a milestone branch!
-    * Only Skin admins are permitted to merge into `master`
-* Non-atomic commits should be squashed
-    * i.e. please avoid "work in progress" commits (especially those in a broken state) in your PR
-* Pull request must only contain changes related to the issue.
-    * **Do not** be tempted to go fixing or refactoring unrelated issues - as it makes the code reviewers job a lot harder as well as increasing risk of regression
-    * Think of yourself as a surgeon. Get in, fix the problem, and don't go tinkering with anything unrelated! If you do spot some other issue that bothers you, create an issue for it and it can be tackled separately.
+* Only Skin admins are permitted to merge into `master`
+* Non-atomic commits should be squashed (i.e. "work in progress" type commits).
+* Do not add any commit that leaves the code in a broken state.
+* Pull request for a *feature* must only contain changes related to the issue (NOTE: refactoring/cleanup type PRs are often exempt from this rule)
+* **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
+* If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
 * After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
 
 ## Style Guide
 
-When contributing to Skin, please bear the following in mind:
+When contributing to Skin, please bear the following guidelines in mind:
 
 * Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
 * Ensure all markup is valid HTML
-* Leverage ARIA roles, states and properties for styling hooks wherever possible
+* Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwile tradeoff)
 * Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
-* Use SVG for icons and graphics (the icon-font is now frozen/deprecated)
-* Harness CSS margin-collapse wherever possible
-* Do not use the `<i>` tag for icons, use a `<span>` instead
-* Do not use presentational classnames, e.g. `btn--green` should be `btn--secondary` for example
+* Use the `<svg>` tag for icons
+* Never use the `<i>` tag for icons
+* Harness CSS margin-collapse wherever possible.
+* Most block-level modules will require margin top and bottom as a sensible default
+* Do not use presentational classnames, e.g. `.btn--green` should be `.btn--secondary` for example
 * Do not combine classes into a single classname, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
-* Do not use ambiguous or global classnames, e.g. `large` should be `btn--large`
-* Do not use class `disabled` to disable buttons or form elements, use the HTML `disabled` property instead
-* Do not use class `active` on radio buttons or checkboxes, use `aria-selected` or `aria-checked` instead
+* Do not chain BEM modifiers (e.g. `.btn--large.btn--primary`). This is a code smell.
+* Do not use ambiguous or global classnames, e.g. `.large` should be `.btn--large`
+* Do not use class `.disabled` to disable buttons or form elements, use the HTML `disabled` property instead
 * Do not wrap inputs with labels, use explicit labels instead (e.g. use the `for` and `id` attributes)
 * Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy url
 * Every `<img>` tag must have an `alt` attribute, with **no** exceptions. The value can be an empty string for presentational images.
 * Avoid naming conflicts with other grid systems (e.g. Bootstap Grids)
-* Keep LESS pre-processor usage restricted to variables & mixins. 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
-* Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in sub-optimal compiled CSS. The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
+* Keep LESS pre-processor usage restricted to variables, mixins and basic nesting (see below). 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
+* Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in sub-optimal compiled CSS. Try and restrict nesting to pseudo selectors only (e.g. `:focus`, `::after`).
+* Avoid over specificity (unless required for accessibility safeguarding). The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
 [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
-* Please do not commit commented code. All commented code should be deleted.
+* Please do not commit commented out code to production.
+
+## Testing Guide
+
+Every module requires a test page (located under the `/docs` folder). Each test page should try and cover as many variants, scenarios and edge cases as possible. The following tests are required for every module:
+
+* RTL (right to left languages)
+* Font-Size increase (up to 200%)
+* Color inheritance (to a certain degree)
+* CSS Variables (coming soon)
 
 ## Website Setup
 
@@ -171,7 +190,7 @@ Our GitHub Pages source is located in the `docs` folder.
 
 In order to start developing the website simply run: `npm start` which will build, bundle and run a BrowserSync server at http://localhost:3000.
 
-DS4 test pages are available at http://localhost:3000/test. Web archive is available at http://localhost:3000/archive.
+Test pages are available at http://localhost:3000/test. Web archive is available at http://localhost:3000/archive.
 
 ## Scripts
 
