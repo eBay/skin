@@ -3,6 +3,8 @@
 /* stylelint-disable  no-descending-specificity */
 
 .textbox {
+    color: @textbox-control-color;
+    font-size: @textbox-control-font-size;
     position: relative;
 }
 
@@ -31,9 +33,9 @@ textarea.textbox__control {
     border: 1px solid @textbox-control-border-color;
     border-radius: @textbox-control-border-radius;
     box-sizing: border-box;
-    color: @textbox-control-color;
+    color: inherit;
     font-family: @textbox-control-font-family;
-    font-size: @textbox-control-font-size;
+    font-size: 1em;
     height: @textbox-control-height;
     margin: 0; // Remove the margin in Firefox and Safari.
 
@@ -71,34 +73,21 @@ input.textbox__control--underline {
     padding: 0;
 }
 
-span.textbox__icon,
-.textbox__icon {
+.textbox svg {
     color: @textbox-icon-color;
     display: inline-flex;
+    fill: @textbox-icon-fill;
     height: 100%;
     pointer-events: none;
     position: absolute;
     top: 0;
-
-    &::before {
-        align-self: center;
-    }
-}
-
-span.textbox__icon {
-    color: @textbox-icon-color;
-}
-
-.textbox__icon {
-    fill: @textbox-icon-fill;
     width: @textbox-icon-width;
 }
 
 // BLOCK MODIFIERS
 
-.textbox__icon:first-child,
-span.textbox__icon:first-child {
-    left: @textbox-icon-first-child-left;
+.textbox svg:first-child {
+    left: 16px;
 
     + input.textbox__control,
     + textarea.textbox__control {
@@ -112,9 +101,8 @@ span.textbox__icon:first-child {
         padding-right: 40px;
     }
 
-    .textbox__icon:last-child,
-    span.textbox__icon:last-child {
-        right: @textbox-icon-end-last-child-right;
+    svg:last-child {
+        right: 16px;
     }
 }
 
@@ -127,25 +115,24 @@ span.textbox__icon:first-child {
 // RTL
 
 [dir="rtl"] {
-    span.textbox__icon:first-child,
-    .textbox__icon:first-child {
-        right: @textbox-rtl-icon-first-child-right;
+    .textbox svg:first-child {
+        right: 16px;
 
-        + input.textbox__control,
-        + textarea.textbox__control {
-            padding-left: @textbox-rtl-icon-first-child-textbox-control-padding-left;
+        & + input.textbox__control,
+        & + textarea.textbox__control {
+            padding-right: 40px;
         }
     }
 
     .textbox--icon-end {
         input.textbox__control,
         textarea.textbox__control {
-            padding-right: @textbox-rtl-icon-end-last-child-left;
+            padding-left: 40px;
         }
 
-        span.textbox__icon:last-child::before,
-        .textbox__icon:last-child {
-            left: @textbox-rtl-icon-end-last-child-textbox-control-padding-right;
+        > svg:last-child {
+            left: 16px;
+            right: auto;
         }
     }
 }
