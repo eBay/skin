@@ -5,5 +5,6 @@ const helper = require('./generate-helper');
 
 helper.runner(async (data) => {
   const result = await helper.optimizeSVG(data.filePath);
-  await helper.writeSymbols(result, data.dsVersion);
+  const svgGenerator = new helper.SVGGenerator(result, data.dsVersion);
+  await svgGenerator.generateAllBase64();
 });
