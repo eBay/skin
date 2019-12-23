@@ -29,14 +29,14 @@ button.expand-btn--truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-button.expand-btn svg {
+button.expand-btn svg.icon {
   align-self: center;
   flex-shrink: 0;
 }
-button.expand-btn svg:first-child {
+button.expand-btn svg.icon:first-child {
   margin-right: 8px;
 }
-button.expand-btn svg:last-child {
+button.expand-btn svg.icon:last-child {
   margin-left: 8px;
 }
 button.expand-btn--fluid {
@@ -67,18 +67,14 @@ span.expand-btn__cell--truncated > svg {
   align-self: baseline;
   max-width: calc(100% - 32px);
 }
-span.expand-btn__cell--fixed-height svg {
-  align-self: center;
-}
-button.expand-btn svg:only-child {
-  display: -webkit-box;
-  display: flex;
-  margin: 0;
-}
 button.expand-btn--primary {
   background-color: #0654ba;
   border-color: #0654ba;
   color: #fff;
+}
+span.expand-btn__cell--fixed-height svg.icon {
+  align-self: center;
+  overflow: visible;
 }
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
@@ -86,8 +82,8 @@ button.expand-btn--primary[aria-disabled="true"] {
   border-color: #0654ba;
   color: #fff;
 }
-button.expand-btn--primary[disabled] svg,
-button.expand-btn--primary[aria-disabled="true"] svg {
+button.expand-btn--primary[disabled] svg.icon,
+button.expand-btn--primary[aria-disabled="true"] svg.icon {
   color: #fff;
 }
 button.expand-btn--primary[disabled]:hover,
@@ -108,8 +104,8 @@ button.expand-btn--secondary[aria-disabled="true"] {
   border-color: #999;
   color: #555;
 }
-button.expand-btn--secondary[disabled] svg,
-button.expand-btn--secondary[aria-disabled="true"] svg {
+button.expand-btn--secondary[disabled] svg.icon,
+button.expand-btn--secondary[aria-disabled="true"] svg.icon {
   color: #555;
 }
 button.expand-btn--secondary[disabled]:hover,
@@ -121,24 +117,58 @@ button.expand-btn--secondary[aria-disabled="true"]:active {
   background-color: #0654ba;
   border-color: #0654ba;
 }
-button.expand-btn[aria-expanded="true"] svg {
+button.expand-btn svg.icon:only-child {
+  display: -webkit-box;
+  display: flex;
+  margin: 0;
+}
+button.expand-btn[aria-expanded="true"] svg.icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-[dir="rtl"] button.expand-btn svg:first-child {
+[dir="rtl"] button.expand-btn svg.icon:first-child {
   margin-left: 8px;
   margin-right: 0;
 }
-[dir="rtl"] button.expand-btn svg:last-child {
+[dir="rtl"] button.expand-btn svg.icon:last-child {
   margin-left: 0;
   margin-right: 8px;
+}
+button.expand-btn--large {
+  min-height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-fixed-height {
+  height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-truncated {
+  height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-truncated,
+button.expand-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.expand-btn.expand-btn--no-text {
+  height: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+button.expand-btn--no-text.expand-btn--large {
+  height: 48px;
 }
 /* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
 button.expand-btn {
   background-color: #fff;
   border-color: #ccc;
   color: #0654ba;
-  line-height: 1.2em;
   padding: 11px 16px;
 }
 button.expand-btn:active {
@@ -152,24 +182,24 @@ button.expand-btn--regular:hover,
 button.expand-btn--regular:focus {
   border-color: #999;
 }
-button.expand-btn--regular[disabled],
-button.expand-btn--regular[aria-disabled="true"] {
+button.expand-btn[disabled],
+button.expand-btn[aria-disabled="true"] {
   background-color: #ccc;
   border-color: #767676;
   color: #767676;
 }
-button.expand-btn--regular[disabled] svg,
-button.expand-btn--regular[aria-disabled="true"] svg {
+button.expand-btn[disabled] svg.icon,
+button.expand-btn[aria-disabled="true"] svg.icon {
   color: #767676;
 }
-button.expand-btn--regular[disabled]:hover,
-button.expand-btn--regular[aria-disabled="true"]:hover,
-button.expand-btn--regular[disabled]:focus,
-button.expand-btn--regular[aria-disabled="true"]:focus {
+button.expand-btn[disabled]:hover,
+button.expand-btn[aria-disabled="true"]:hover,
+button.expand-btn[disabled]:focus,
+button.expand-btn[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #767676;
 }
-button.expand-btn--primary svg {
+button.expand-btn--primary svg.icon {
   color: #fff;
   fill: #fff;
 }
@@ -181,8 +211,8 @@ button.expand-btn--primary:focus {
 button.expand-btn--primary:active {
   background-color: #00489f;
 }
-button.expand-btn--primary[disabled] svg,
-button.expand-btn--primary[aria-disabled="true"] svg {
+button.expand-btn--primary[disabled] svg.icon,
+button.expand-btn--primary[aria-disabled="true"] svg.icon {
   color: #fff;
 }
 button.expand-btn--primary[disabled]:hover,
@@ -193,7 +223,7 @@ button.expand-btn--primary[aria-disabled="true"]:focus {
   border-color: #0654ba;
   opacity: 0.5;
 }
-button.expand-btn--secondary svg {
+button.expand-btn--secondary svg.icon {
   color: #555;
 }
 button.expand-btn--secondary:hover,
@@ -209,8 +239,8 @@ button.expand-btn--secondary[disabled],
 button.expand-btn--secondary[aria-disabled="true"] {
   background-color: #ccc;
 }
-button.expand-btn--secondary[disabled] svg,
-button.expand-btn--secondary[aria-disabled="true"] svg {
+button.expand-btn--secondary[disabled] svg.icon,
+button.expand-btn--secondary[aria-disabled="true"] svg.icon {
   color: #555;
 }
 button.expand-btn--secondary[disabled]:hover,
@@ -220,47 +250,6 @@ button.expand-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
-button.expand-btn__cell--fixed-height svg {
-  align-self: center;
-  overflow: visible;
-}
-button.expand-btn--small {
-  font-size: 0.75rem;
-  padding: 8px 32px;
-}
-button.expand-btn--small-fixed-height {
-  height: 32px;
-}
-button.expand-btn--small-truncated {
-  font-size: 0.75rem;
-  padding: 8px 32px;
-  height: 32px;
-}
-button.expand-btn--small-truncated,
-button.expand-btn--small-truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 button.expand-btn--large {
   font-size: 1rem;
-  padding: 14px 48px;
-}
-button.expand-btn--small {
-  padding: 8px 16px;
-}
-button.expand-btn.expand-btn--no-text {
-  height: 40px;
-}
-button.expand-btn.expand-btn--no-text.expand-btn--small {
-  height: 32px;
-  padding: 8px 12px;
-}
-button.expand-btn.expand-btn--no-text.expand-btn--large {
-  height: 48px;
-}
-button.expand-btn[class*="--large"] {
-  padding-left: 16px;
-  padding-right: 16px;
 }

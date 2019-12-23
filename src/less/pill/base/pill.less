@@ -9,6 +9,7 @@ a.fake-pill {
     color: inherit;
     display: inline-flex;
     flex-direction: column;
+    font-size: @btn-font-size;
     height: 48px;
     justify-content: center;
     max-width: 180px;
@@ -17,7 +18,7 @@ a.fake-pill {
 }
 
 a.fake-pill:visited {
-    .btn-fake-visited;
+    color: inherit;
 }
 
 .pill__icon,
@@ -27,30 +28,35 @@ a.fake-pill:visited {
 
 button.pill--fluid,
 a.fake-pill--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
 .pill__cell,
 .fake-pill__cell {
     .btn-cell-base;
-    .btn-cell-content-center;
+
+    justify-content: center;
 }
 
+// deprecated
 svg.pill__icon,
 svg.fake-pill__icon {
-    .btn-icon-svg-base;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
 }
 
 .pill__cell--fixed-height span.pill__icon,
 .fake-pill__cell--fixed-height span.fake-pill__icon,
 .pill__cell--fixed-height svg.icon,
 .fake-pill__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-alignment;
+    align-self: center;
 }
 
 .pill__cell--fixed-height svg.icon,
 .fake-pill__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-dimensions;
+    height: 1rem;
+    width: 1rem;
 }
 
 button.pill--regular,
@@ -74,7 +80,7 @@ button.pill--regular[aria-disabled="true"] {
     border-color: @button-regular-disabled-border-color;
     color: @button-regular-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-regular-disabled-svg-color;
     }
 
@@ -113,7 +119,7 @@ button.pill--selected[aria-disabled="true"] {
     border-color: @button-primary-disabled-border-color;
     color: @button-primary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-primary-disabled-svg-color;
     }
 
@@ -155,7 +161,7 @@ button.pill--unselected[aria-disabled="true"] {
     border-color: @button-secondary-disabled-border-color;
     color: @button-secondary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-secondary-disabled-svg-color;
     }
 

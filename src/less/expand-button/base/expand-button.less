@@ -1,5 +1,5 @@
 button.expand-btn {
-    .btn-base-no-font-size();
+    .btn-base();
 
     background-color: transparent;
     border: 1px solid;
@@ -12,14 +12,14 @@ button.expand-btn {
     padding: @btn-padding;
 }
 
-button.expand-btn svg {
+button.expand-btn svg.icon {
     .btn-icon-base;
 
     flex-shrink: 0;
 }
 
 button.expand-btn--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
 span.expand-btn__cell {
@@ -28,19 +28,15 @@ span.expand-btn__cell {
     justify-content: space-between;
 }
 
-span.expand-btn__cell--fixed-height svg {
-    .btn-fixed-height-icon-alignment;
-}
-
-button.expand-btn svg:only-child {
-    display: flex;
-    margin: 0;
-}
-
 button.expand-btn--primary {
     background-color: @button-primary-background-color;
     border-color: @button-primary-border-color;
     color: @button-primary-color;
+}
+
+span.expand-btn__cell--fixed-height svg.icon {
+    align-self: center;
+    overflow: visible;
 }
 
 button.expand-btn--primary[disabled],
@@ -49,7 +45,7 @@ button.expand-btn--primary[aria-disabled="true"] {
     border-color: @button-primary-disabled-border-color;
     color: @button-primary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-primary-disabled-svg-color;
     }
 
@@ -72,7 +68,7 @@ button.expand-btn--secondary[aria-disabled="true"] {
     border-color: @button-secondary-disabled-border-color;
     color: @button-secondary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-secondary-disabled-svg-color;
     }
 
@@ -84,10 +80,55 @@ button.expand-btn--secondary[aria-disabled="true"] {
     }
 }
 
-button.expand-btn[aria-expanded="true"] svg {
+button.expand-btn svg.icon:only-child {
+    display: flex;
+    margin: 0;
+}
+
+button.expand-btn[aria-expanded="true"] svg.icon {
     transform: rotate(180deg);
 }
 
-[dir="rtl"] button.expand-btn svg {
-    .btn-icon-base-rtl;
+[dir="rtl"] button.expand-btn svg.icon {
+    &:first-child {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+
+    &:last-child {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+}
+
+button.expand-btn--large {
+    min-height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+button.expand-btn--large-fixed-height {
+    height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+button.expand-btn--large-truncated {
+    .btn-truncate;
+
+    height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+// code smell (chained modifier)
+button.expand-btn.expand-btn--no-text {
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+// code smell (chained modifier)
+button.expand-btn--no-text.expand-btn--large {
+    height: 48px;
 }

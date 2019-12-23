@@ -29,14 +29,14 @@ button.expand-btn--truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-button.expand-btn svg {
+button.expand-btn svg.icon {
   align-self: center;
   flex-shrink: 0;
 }
-button.expand-btn svg:first-child {
+button.expand-btn svg.icon:first-child {
   margin-right: 8px;
 }
-button.expand-btn svg:last-child {
+button.expand-btn svg.icon:last-child {
   margin-left: 8px;
 }
 button.expand-btn--fluid {
@@ -67,18 +67,14 @@ span.expand-btn__cell--truncated > svg {
   align-self: baseline;
   max-width: calc(100% - 32px);
 }
-span.expand-btn__cell--fixed-height svg {
-  align-self: center;
-}
-button.expand-btn svg:only-child {
-  display: -webkit-box;
-  display: flex;
-  margin: 0;
-}
 button.expand-btn--primary {
   background-color: #3665f3;
   border-color: #3665f3;
   color: #fff;
+}
+span.expand-btn__cell--fixed-height svg.icon {
+  align-self: center;
+  overflow: visible;
 }
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
@@ -86,8 +82,8 @@ button.expand-btn--primary[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #fff;
 }
-button.expand-btn--primary[disabled] svg,
-button.expand-btn--primary[aria-disabled="true"] svg {
+button.expand-btn--primary[disabled] svg.icon,
+button.expand-btn--primary[aria-disabled="true"] svg.icon {
   color: #fff;
 }
 button.expand-btn--primary[disabled]:hover,
@@ -108,8 +104,8 @@ button.expand-btn--secondary[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #c7c7c7;
 }
-button.expand-btn--secondary[disabled] svg,
-button.expand-btn--secondary[aria-disabled="true"] svg {
+button.expand-btn--secondary[disabled] svg.icon,
+button.expand-btn--secondary[aria-disabled="true"] svg.icon {
   color: #c7c7c7;
 }
 button.expand-btn--secondary[disabled]:hover,
@@ -121,17 +117,52 @@ button.expand-btn--secondary[aria-disabled="true"]:active {
   background-color: #fff;
   border-color: #c7c7c7;
 }
-button.expand-btn[aria-expanded="true"] svg {
+button.expand-btn svg.icon:only-child {
+  display: -webkit-box;
+  display: flex;
+  margin: 0;
+}
+button.expand-btn[aria-expanded="true"] svg.icon {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-[dir="rtl"] button.expand-btn svg:first-child {
+[dir="rtl"] button.expand-btn svg.icon:first-child {
   margin-left: 8px;
   margin-right: 0;
 }
-[dir="rtl"] button.expand-btn svg:last-child {
+[dir="rtl"] button.expand-btn svg.icon:last-child {
   margin-left: 0;
   margin-right: 8px;
+}
+button.expand-btn--large {
+  min-height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-fixed-height {
+  height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-truncated {
+  height: 48px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+button.expand-btn--large-truncated,
+button.expand-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.expand-btn.expand-btn--no-text {
+  height: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+button.expand-btn--no-text.expand-btn--large {
+  height: 48px;
 }
 /* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
 button.expand-btn--primary {
@@ -160,62 +191,6 @@ button.expand-btn {
   padding-bottom: 10px;
   padding-top: 10px;
 }
-span.expand-btn__cell--fixed-height svg {
-  align-self: center;
-}
-button.expand-btn--small {
-  padding-bottom: 6px;
-  padding-top: 6px;
-  min-height: 32px;
-}
-button.expand-btn--small-fixed-height {
-  padding-bottom: 6px;
-  padding-top: 6px;
-  height: 32px;
-}
-button.expand-btn--small-truncated {
-  padding-bottom: 6px;
-  padding-top: 6px;
-  height: 32px;
-}
-button.expand-btn--small-truncated,
-button.expand-btn--small-truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-button.expand-btn--large {
-  padding-bottom: 12px;
-  padding-top: 12px;
-  min-height: 48px;
-}
-button.expand-btn--large-fixed-height {
-  padding-bottom: 12px;
-  padding-top: 12px;
-  height: 48px;
-}
-button.expand-btn--large-truncated {
-  padding-bottom: 12px;
-  padding-top: 12px;
-  height: 48px;
-}
-button.expand-btn--large-truncated,
-button.expand-btn--large-truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 button.expand-btn--large {
   font-size: 1.125rem;
-}
-button.expand-btn.expand-btn--no-text {
-  height: 40px;
-}
-button.expand-btn.expand-btn--no-text.expand-btn--small {
-  height: 32px;
-}
-button.expand-btn.expand-btn--no-text.expand-btn--large {
-  height: 40px;
 }

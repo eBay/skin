@@ -8,33 +8,25 @@
 
 button.btn,
 a.fake-btn {
-    .button-size-rules(@font-size-14, 11px 40px);
-
-    line-height: 1.2em;
+    padding: 11px 40px; // ds4 difference: horizontal padding
 }
 
-button.btn--truncated,
-a.fake-btn--truncated {
-    .btn-truncate;
+button.btn[disabled] {
+    opacity: 0.5;
 }
 
-button.btn {
-    &[disabled],
-    &[aria-disabled="true"] {
-        opacity: 0.5;
-    }
+a.fake-btn:not([href]) {
+    opacity: 0.5;
 }
 
-a.fake-btn {
-    &:not([href]),
-    &[aria-disabled="true"] {
-        opacity: 0.5;
-    }
+button.btn[aria-disabled="true"],
+a.fake-btn[aria-disabled="true"] {
+    opacity: 0.5;
 }
 
 button.btn--primary,
 a.fake-btn--primary {
-    svg {
+    svg.icon {
         color: @color-core-white;
         fill: @color-core-white;
     }
@@ -52,7 +44,7 @@ a.fake-btn--primary {
 
 button.btn--secondary,
 a.fake-btn--secondary {
-    svg {
+    svg.icon {
         color: @color-core-gray-davys;
     }
 
@@ -70,7 +62,7 @@ a.fake-btn--secondary {
 
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
-    svg {
+    svg.icon {
         color: @color-core-white;
     }
 
@@ -84,7 +76,7 @@ button.btn--primary[aria-disabled="true"] {
 
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
-    svg {
+    svg.icon {
         color: @color-core-white;
     }
 
@@ -100,7 +92,7 @@ button.btn--secondary[disabled],
 button.btn--secondary[aria-disabled="true"] {
     background-color: @color-core-gray-silver;
 
-    svg {
+    svg.icon {
         color: @color-core-gray-davys;
     }
 
@@ -115,7 +107,7 @@ a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"] {
     background-color: @color-core-gray-silver;
 
-    svg {
+    svg.icon {
         color: @color-core-gray-davys;
     }
 
@@ -126,27 +118,14 @@ a.fake-btn--secondary[aria-disabled="true"] {
     }
 }
 
-button.btn--fixed-height,
-a.fake-btn--fixed-height {
-    .button-fixed-height-top-padding(21.5px);
-}
-
 button.btn--large,
 a.fake-btn--large {
-    .button-size-rules(@font-size-16, 14px 48px);
-}
-
-button.btn--large-fixed-height,
-a.fake-btn--large-fixed-height {
-    .button-fixed-height-top-padding(27px);
-
-    height: 48px;
+    font-size: @font-size-16;
+    padding: 14px 48px;
 }
 
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
-    .button-size-rules(@font-size-16, 14px 48px);
-    .btn-truncate;
-
-    height: 48px;
+    font-size: @font-size-16;
+    padding: 14px 48px;
 }
