@@ -1,5 +1,6 @@
 button.btn,
 a.fake-btn {
+  border: 1px solid;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: inherit;
@@ -7,14 +8,14 @@ a.fake-btn {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
-  font-size: 0.875rem;
   background-color: transparent;
-  border: 1px solid;
   border-color: inherit;
   border-radius: 0;
   color: inherit;
   display: inline-block;
+  font-size: 0.875rem;
   max-width: 100%;
+  min-height: 40px;
   padding: 9.5px 16px;
 }
 button.btn--fixed-height,
@@ -71,32 +72,26 @@ a.fake-btn--fluid {
   align-self: baseline;
   max-width: calc(100% - 32px);
 }
-button.btn svg,
-a.fake-btn svg {
+button.btn svg.icon,
+a.fake-btn svg.icon {
   align-self: center;
-  display: inline-block;
-  fill: currentColor;
-  pointer-events: none;
-  stroke: currentColor;
-  stroke-width: 0;
-  vertical-align: middle;
   flex-shrink: 0;
   width: 1em;
 }
-button.btn svg:first-child,
-a.fake-btn svg:first-child {
+button.btn svg.icon:first-child,
+a.fake-btn svg.icon:first-child {
   margin-right: 8px;
 }
-button.btn svg:last-child,
-a.fake-btn svg:last-child {
+button.btn svg.icon:last-child,
+a.fake-btn svg.icon:last-child {
   margin-left: 8px;
 }
-button.btn__cell--fixed-height svg,
-a.fake-btn__cell--fixed-height svg {
-  height: 1rem;
-  width: 1rem;
+button.btn__cell--fixed-height svg.icon,
+a.fake-btn__cell--fixed-height svg.icon {
   align-self: center;
+  height: 1rem;
   overflow: visible;
+  width: 1rem;
 }
 button.btn--primary,
 a.fake-btn--primary {
@@ -113,8 +108,8 @@ button.btn--primary[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #fff;
 }
-button.btn--primary[disabled] svg,
-button.btn--primary[aria-disabled="true"] svg {
+button.btn--primary[disabled] svg.icon,
+button.btn--primary[aria-disabled="true"] svg.icon {
   color: #fff;
 }
 button.btn--primary[disabled]:hover,
@@ -164,10 +159,10 @@ button.btn--delete[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #c7c7c7;
 }
-button.btn--secondary[disabled] svg,
-button.btn--secondary[aria-disabled="true"] svg,
-button.btn--delete[disabled] svg,
-button.btn--delete[aria-disabled="true"] svg {
+button.btn--secondary[disabled] svg.icon,
+button.btn--secondary[aria-disabled="true"] svg.icon,
+button.btn--delete[disabled] svg.icon,
+button.btn--delete[aria-disabled="true"] svg.icon {
   color: #c7c7c7;
 }
 button.btn--secondary[disabled]:hover,
@@ -192,9 +187,44 @@ a.fake-btn--delete[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #c7c7c7;
 }
+button.btn--large,
+a.fake-btn--large {
+  min-height: 48px;
+}
 button.btn--transparent,
 a.fake-btn--transparent {
   background-color: transparent;
+}
+button.btn--fixed-height,
+a.fake-btn--fixed-height {
+  padding-top: calc(21.5px - 0.75em);
+}
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+  height: 48px;
+  padding-top: calc(27px - 0.75em);
+}
+button.btn--truncated,
+a.fake-btn--truncated,
+button.btn--truncated span,
+a.fake-btn--truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+  height: 48px;
+}
+button.btn--large-truncated,
+a.fake-btn--large-truncated,
+button.btn--large-truncated span,
+a.fake-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 button.btn--primary,
 a.fake-btn--primary {
@@ -250,7 +280,6 @@ button.btn {
 }
 button.btn--fixed-height {
   padding-bottom: 10px;
-  padding-top: calc(21px - 0.75em);
 }
 button.btn--truncated {
   padding-bottom: 10px;
@@ -262,59 +291,25 @@ a.fake-btn {
 }
 a.fake-btn--fixed-height {
   padding-bottom: 9px;
-  padding-top: calc(21.5px - 0.75em);
 }
 a.fake-btn--truncated {
   padding-bottom: 9px;
   padding-top: 11px;
 }
-button.btn,
-a.fake-btn {
-  font-size: 0.875rem;
-  min-height: 40px;
-}
-button.btn__cell--fixed-height svg,
-a.fake-btn__cell--fixed-height svg {
-  align-self: center;
-  height: 1rem;
-  width: 1rem;
-}
-button.btn--truncated,
-a.fake-btn--truncated,
-button.btn--truncated span,
-a.fake-btn--truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 button.btn--large,
 a.fake-btn--large {
+  font-size: 1rem;
   padding-bottom: 13px;
   padding-top: 15px;
-  font-size: 1rem;
-  min-height: 48px;
 }
 button.btn--large-fixed-height,
 a.fake-btn--large-fixed-height {
-  padding-bottom: 13px;
-  padding-top: calc(27px - 0.75em);
-  height: 48px;
   min-height: 48px;
+  padding-bottom: 13px;
 }
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
+  min-height: 48px;
   padding-bottom: 13px;
   padding-top: 15px;
-  height: 48px;
-  min-height: 48px;
-}
-button.btn--large-truncated,
-a.fake-btn--large-truncated,
-button.btn--large-truncated span,
-a.fake-btn--large-truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }

@@ -6,6 +6,7 @@ a.cta-btn {
     border-radius: @btn-border-radius;
     color: @btn-cta-color;
     display: inline-block;
+    font-size: @btn-font-size;
     max-width: 100%;
     padding: @btn-padding;
 }
@@ -29,19 +30,38 @@ a.cta-btn[aria-disabled="true"] {
 }
 
 a.cta-btn--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
 span.cta-btn__cell {
     .btn-cell-base;
-    .btn-cell-content-center;
+
+    justify-content: center;
 }
 
-a.cta-btn svg {
+a.cta-btn svg.icon {
     .btn-icon-base;
-    .btn-icon-svg-base;
+
+    flex-shrink: 0;
 }
 
-span.cta-btn__cell--fixed-height > svg {
-    .btn-fixed-height-icon-alignment;
+span.cta-btn__cell--fixed-height svg.icon {
+    align-self: center;
+    height: 1rem;
+    overflow: visible; // needed?
+    width: 1rem;
+}
+
+a.cta-btn--large {
+    min-height: 48px;
+}
+
+a.cta-btn--large-truncated {
+    .btn-truncate;
+
+    height: 48px;
+}
+
+a.cta-btn--large-fixed-height {
+    height: 48px;
 }
