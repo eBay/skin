@@ -226,13 +226,13 @@ A pre-release is always made from a milestone branch.
 
 A final release is always made from the master branch.
 
-1. Manually update all CDN url paths in documentation and push the change
 1. Create a GitHub PR to merge the milestone branch into master branch.
 1. Merge the PR after approval (do not squash!)
 1. Switch to your local master branch and pull the changes from origin.
 1. Run `npm version patch`, `npm version minor`, or `npm version major`. This command will automatically:
     * update the version number in css build files
     * update the version number in `package.json`
+    * update the version number in Jekyll docs
     * commit all changes locally
     * create a Git tag
 1. Push commit to origin.
