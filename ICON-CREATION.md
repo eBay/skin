@@ -1,6 +1,6 @@
 # Icon Creation
 
-Skin uses inline and background SVGs to deliver the iconography for any site using it. This guide will help you properly add or modify SVG files for the Skin library.
+Skin uses the SVG tag to deliver all iconography. This guide will help you properly add or modify SVG files for the Skin library.
 
 ## Step 1: Set up the icon
 
@@ -60,10 +60,12 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 
 ## Step 4: Create the SVG in Base64
 
+NOTE: This step is no longer required. Support for background SVG, using base64, was dropped in Skin v10.0.0.
+
 - Use the following template to add your path definition:
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="21.54" height="19.39" viewBox="1.5 2.3 21.54 19.39"><path d="[ ... icon path info ...]"/></svg>
 ```
 
@@ -85,13 +87,6 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 ```
 
 - Add a mixin for your icon in `/src/less/less/ds6/mixins.less`
-
-```less
-.icon-following(@width: @ds6-icon-following-width; @height: @ds6-icon-following-height) {
-    .background-icon-image(@width; @height; 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAuNSAwLjI1IDE1IDE5LjUiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMTcuMzU3IDE4LjVMMTIgMTYuMTM4IDYuNjQzIDE4LjVWNC40MTdoMTAuNzE0VjE4LjV6bTAtMTYuMjVINi42NDNjLTEuMTc5IDAtMi4xMzIuOTc1LTIuMTMyIDIuMTY3TDQuNSAyMS43NSAxMiAxOC41bDcuNSAzLjI1VjQuNDE3YzAtMS4xOTItLjk2NC0yLjE2Ny0yLjE0My0yLjE2N3oiLz48L2RlZnM+PHVzZSBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00IC0yKSIgeGxpbms6aHJlZj0iI2EiLz48L3N2Zz4=');
-}
-```
-
 - Add the CSS class and reference the new mixin in `/src/less/icon/ds6/icon.less`
 
 ```less
