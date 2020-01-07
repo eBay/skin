@@ -1,3 +1,4 @@
+// clear floated elements
 .clearfix {
     &::before,
     &::after {
@@ -11,6 +12,7 @@
     }
 }
 
+// visibly hidden
 .clipped {
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
@@ -22,6 +24,7 @@
     width: 1px;
 }
 
+// visibly unhidden on focus
 .clipped--stealth:focus {
     clip: auto;
     height: auto;
@@ -30,16 +33,31 @@
     width: auto;
 }
 
+// one-liner mixins deprecated in v10
 .fluid {
     width: 100%;
 }
 
-.fluid-image {
+// Image will stretch up and down
+// fluid-image deprecated in favour of image-stretch in v10
+.fluid-image,
+.image-stretch {
     height: auto;
     width: 100%;
 }
 
-.image-wrapper {
+// Image will scale up and down
+// responsive-image deprecated in favour of image-scale in v10
+.responsive-image,
+.image-scale {
+    height: auto;
+    max-width: 100%;
+}
+
+// Vertically and horizontally center an image
+// image-wrapper deprecated in favour of image-center in v10
+.image-wrapper,
+.image-center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -50,37 +68,44 @@
     }
 }
 
+// one-liner mixins deprecated in v10
 .no-scroll {
     overflow: hidden;
 }
 
+// one-liner mixins deprecated in v10
 .no-wrap {
     white-space: nowrap;
 }
 
-.responsive-image {
-    height: auto;
-    max-width: 100%;
-}
-
-.truncate {
+// truncate deprecated in favour of text-truncate in v10
+.truncate,
+.text-truncate {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
+// one-liner mixins deprecated in v10
+// moved to typography
 .emphasis {
     color: @utility-emphasis-color;
 }
 
+// one-liner mixins deprecated in v10
+// moved to typography
 .negative {
     color: @utility-negative-color;
 }
 
+// one-liner mixins deprecated in v10
+// moved to typography
 .positive {
-    color: @utility-positivie-color;
+    color: @utility-positive-color;
 }
 
+// deprecated in v10
+// moved to typography
 .disabled-text {
     color: @utility-disabled-text-color;
 }
