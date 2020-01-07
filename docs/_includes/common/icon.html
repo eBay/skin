@@ -1,9 +1,7 @@
 <!-- TECH DEBT: the file contains inline styles -->
 <div id="icon">
     <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
-    <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span>&lt;svg&gt;</span> tag.</p>
-
-    <p>The <span>&lt;svg&gt;</span> tag can inherit its colour via the CSS cascade.</p>
+    <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
     <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
 
     <div class="demo">
@@ -20,7 +18,10 @@
 </svg>
     {% endhighlight %}
 
-    <p>Before an icon can be used, its <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> must be stamped on the page inside of a hidden SVG block.</p>
+    <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
+
+    <h3>Including an Icon</h3>
+    <p>Before an icon can be used, its <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> must be stamped on the page inside of a hidden SVG block. In future, when we drop support for Internet Explorer, symbols can be included via the <a href="#svg">SVG module</a>.</p>
 
     {% if page.ds == 4 %}
     {% highlight html %}
@@ -41,8 +42,6 @@
 </svg>
     {% endhighlight %}
     {% endif %}
-
-    <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
 
     <h3>Presentational Icons</h3>
     <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
@@ -141,7 +140,24 @@
     <p>For a full list of DS4 icons, please <a href="archive/index.html">visit the archive</a>.</p>
     {% endif %}
 
-    <h3 id="icon-aliases">Icon Aliases</h3>
+    <h3 id="icon-disabled">Disabled Icons</h3>
+    <p>Most icons can be given a disabled appearance by adding the <span class="highlight">icon--disabled</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Disabled icon example" class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24" role="img">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </div>
+    </div>
+
+    {% highlight html %}
+<svg class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24">
+    <use xlink:href="#icon-chevron-right"></use>
+</svg>
+    {% endhighlight %}
+
+    <h3 id="icon-alias">Aliased Icons</h3>
 
     <p>We provide several aliases for cases where the design systems have diverged in their choice of icon. For example, DS6 uses arrows for pagination, whereas DS4 uses chevrons.</p>
 
