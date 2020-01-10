@@ -68,7 +68,7 @@ function _onActiveDescendantChange(e) {
 
     if (this._options.autoSelect === true) {
         const fromEl = this.items[e.detail.fromIndex];
-        const toEl =  this.items[e.detail.toIndex];
+        const toEl = this.items[e.detail.toIndex];
 
         if (fromEl) {
             this.unselect(e.detail.fromIndex);
@@ -193,4 +193,4 @@ module.exports = class {
         this._onClickListener = null;
         this._onActiveDescendantChangeListener = null;
     }
-}
+};

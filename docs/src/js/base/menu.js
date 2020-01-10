@@ -13,8 +13,7 @@ function onKeyDown(e) {
     if (e.keyCode === 13) {
         e.preventDefault();
         processMenuItemAction(this.el, e.target);
-    }
-    else if (e.keyCode === 32) {
+    } else if (e.keyCode === 32) {
         processMenuItemAction(this.el, e.target);
     }
 }
@@ -24,7 +23,7 @@ function onClick(e) {
 }
 
 function processMenuItemAction(widgetEl, menuItemEl) {
-    var menuItemRootEl = menuItemEl;
+    let menuItemRootEl = menuItemEl;
 
     if (['menuitem', 'menuitemradio', 'menuitemcheckbox'].indexOf(menuItemEl.getAttribute('role')) === -1) {
         menuItemRootEl = menuItemEl.closest('[role^=menuitem]');
@@ -80,7 +79,7 @@ module.exports = class {
     constructor(widgetEl) {
         this.el = widgetEl;
 
-        this._rovingTabIndex = RovingTabIndex.createLinear(this.el, '[role^=menuitem]' , {
+        this._rovingTabIndex = RovingTabIndex.createLinear(this.el, '[role^=menuitem]', {
             autoReset: 0
         });
 
@@ -117,4 +116,4 @@ module.exports = class {
         this._onKeyDownListener = null;
         this._onClickListener = null;
     }
-}
+};

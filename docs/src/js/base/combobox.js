@@ -106,7 +106,7 @@ function filter(widget) {
 
     if (numChars === 0) {
         widget._listboxWidget._activeDescendant.reset();
-        widget._listboxWidget.items.forEach(el => el.hidden = false);
+        widget._listboxWidget.items.forEach(el => (el.hidden = false));
     } else {
         const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
             return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
@@ -116,8 +116,8 @@ function filter(widget) {
             return el.innerText.substring(0, numChars).toLowerCase() !== currentValue;
         });
 
-        matchedItems.forEach((el) => el.hidden = false);
-        unmatchedItems.forEach((el) => el.hidden = true);
+        matchedItems.forEach((el) => (el.hidden = false));
+        unmatchedItems.forEach((el) => (el.hidden = true));
     }
 }
 
@@ -146,7 +146,7 @@ module.exports = class {
             useAriaChecked: this._readOnly
         });
 
-        this._expander = new Expander(this._el,  {
+        this._expander = new Expander(this._el, {
             collapseOnClickOut: true,
             collapseOnFocusOut: true,
             contentSelector: '.combobox__listbox',
@@ -201,4 +201,4 @@ module.exports = class {
         this._onTextboxInputListener = null;
         this._onTextboxClickListener = null;
     }
-}
+};

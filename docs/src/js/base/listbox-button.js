@@ -62,7 +62,7 @@ module.exports = class {
             autoSelect: this._options.autoSelect
         });
 
-        this._expander = new Expander(this.el,  {
+        this._expander = new Expander(this.el, {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
@@ -108,4 +108,4 @@ module.exports = class {
         this._onListboxKeyDownListener = null;
         this._onListboxChangeListener = null;
     }
-}
+};
