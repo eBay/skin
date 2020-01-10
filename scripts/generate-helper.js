@@ -49,7 +49,7 @@ async function postBuild() {
 }
 
 async function writeSymbols(result, dsVersion) {
-    const fileOutput = result.data.replace(/<svg.*>/, '<svg hidden>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
+    const fileOutput = result.data.replace(/<svg.*>/, '<div hidden>\n<svg>').replace('</svg>', '</div>\n</svg>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
     await fs.promises.writeFile(`${currentDir}/docs/_includes/${dsVersion}/symbols.html`, fileOutput);
 }
 
