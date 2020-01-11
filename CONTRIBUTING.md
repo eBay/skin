@@ -176,9 +176,9 @@ Once Jekyll is setup successfully, running a build should create the following f
 * `./_site/static/dsx/skin.min.css`
     * the full, minified skin css bundle copied directly from /dist
 * `./_site/index.html`
-    * ds4 homepage
-* `./_site/ds6/index.html`
     * ds6 homepage
+* `./_site/ds4/index.html`
+    * ds4 homepage
 * `./_site/archive`
     * archive of old versions of website
 * `./_site/test`
