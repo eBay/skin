@@ -17,15 +17,15 @@ const Switch = require('./switch.js');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
-    el.addEventListener('click', function(e) {
+document.querySelectorAll('.expand-btn-example').forEach(function(el) {
+    el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
     });
 });
 
-document.querySelectorAll('.filter-menu-button--form button').forEach(function(el, i) {
-    el.addEventListener('click', function(e) {
+document.querySelectorAll('.filter-menu-button--form button').forEach(function(el) {
+    el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
     });

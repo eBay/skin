@@ -13,7 +13,7 @@ function onKeyDown(e) {
     }
 }
 
-function onClick(e) {
+function onClick() {
     this.toggle();
 }
 

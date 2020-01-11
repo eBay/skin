@@ -9,7 +9,7 @@
 const Expander = require('makeup-expander');
 const Menu = require('./menu.js');
 
-function onButtonFirstClick(e) {
+function onButtonFirstClick() {
     this.menu.el.hidden = false;
 }
 
@@ -20,7 +20,7 @@ function onMenuKeyDown(e) {
     }
 }
 
-function onMenuItemSelect(e) {
+function onMenuItemSelect() {
     const widget = this;
     setTimeout(function() {
         widget._expander.collapse();

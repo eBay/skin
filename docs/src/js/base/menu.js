@@ -34,7 +34,11 @@ function processMenuItemAction(widgetEl, menuItemEl) {
             doMenuItemCheckbox(widgetEl, menuItemRootEl);
             break;
         case 'menuitemradio':
-            doMenuItemRadio(widgetEl, menuItemRootEl, widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemEl.dataset.menuitemradioName}]`));
+            doMenuItemRadio(
+                widgetEl,
+                menuItemRootEl,
+                widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemEl.dataset.menuitemradioName}]`)
+            );
             break;
         default:
             doMenuItem(widgetEl, menuItemRootEl);
