@@ -1,12 +1,13 @@
+/* eslint-disable no-console */
+
 const pageWidgets = [];
 
 const Modal = require('makeup-modal');
-const transition = require("./transition");
+const transition = require('./transition');
 const RovingTabindex = require('makeup-roving-tabindex');
 const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
-const ActiveDescendant = require('makeup-active-descendant');
 const Combobox = require('./combobox.js');
 const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
@@ -16,18 +17,18 @@ const Switch = require('./switch.js');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-document.querySelectorAll('.expand-btn-example').forEach(function(el, i) {
-    el.addEventListener('click', function(e) {
+document.querySelectorAll('.expand-btn-example').forEach(function(el) {
+    el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
-    })
+    });
 });
 
-document.querySelectorAll('.filter-menu-button--form button').forEach(function(el, i) {
-    el.addEventListener('click', function(e) {
+document.querySelectorAll('.filter-menu-button--form button').forEach(function(el) {
+    el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
-    })
+    });
 });
 
 // FAKE MENU BUTTON
@@ -44,9 +45,9 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
 
 // COMBOBOX
 document.querySelectorAll('.combobox:not(.combobox--readonly)').forEach(function(widgetEl) {
-    const widget = new Combobox(widgetEl, {
+    pageWidgets.push(new Combobox(widgetEl, {
         autoSelect: false
-    });
+    }));
 
     widgetEl.addEventListener('combobox-change', function(e) {
         console.log(e.type, e.detail);
@@ -55,7 +56,7 @@ document.querySelectorAll('.combobox:not(.combobox--readonly)').forEach(function
 
 // READONLY COMBOBOX
 document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
-    const widget = new Combobox(widgetEl);
+    pageWidgets.push(new Combobox(widgetEl));
 
     widgetEl.addEventListener('combobox-change', function(e) {
         console.log(e.type, e.detail);
@@ -63,14 +64,14 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
 });
 
 // DIALOG
-document.querySelectorAll('.dialog-button').forEach(function (btn) {
+document.querySelectorAll('.dialog-button').forEach(function(btn) {
     let cancel;
     const dialog = btn.nextElementSibling;
     const dialogBody = dialog.querySelector('.dialog__body');
     const dialogClose = dialog.querySelector('.dialog__close');
     btn.addEventListener('click', handleOpen);
 
-    function handleOpen () {
+    function handleOpen() {
         if (cancel) {
             cancel();
         }
@@ -79,11 +80,11 @@ document.querySelectorAll('.dialog-button').forEach(function (btn) {
         dialog.removeAttribute('hidden');
         btn.removeEventListener('click', handleOpen);
         dialog.addEventListener('click', handleClose, true);
-        document.body.setAttribute("style", "overflow:hidden");
+        document.body.setAttribute('style', 'overflow:hidden');
         Modal.modal(dialog.querySelector('.dialog__window'));
     }
 
-    function handleClose (ev) {
+    function handleClose(ev) {
         if (dialogBody.contains(ev.target)) {
             return;
         }
@@ -96,12 +97,12 @@ document.querySelectorAll('.dialog-button').forEach(function (btn) {
         dialog.setAttribute('hidden', '');
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
-        document.body.removeAttribute("style");
+        document.body.removeAttribute('style');
         Modal.unmodal();
         btn.focus();
     }
 
-    function handleTransitionEnd (isOpening) {
+    function handleTransitionEnd(isOpening) {
         // focus on the close button
         if (isOpening) {
             // hack: safari needs an additional timeout
@@ -116,7 +117,7 @@ document.querySelectorAll('.dialog-button').forEach(function (btn) {
 
 // TOOLTIP
 document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
-    const widget = new Expander(widgetEl, {
+    pageWidgets.push(new Expander(widgetEl, {
         contentSelector: '.tooltip__overlay',
         collapseOnFocusOut: true,
         collapseOnMouseOut: true,
@@ -124,7 +125,7 @@ document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
         expandOnHover: true,
         focusManagement: 'focusable',
         hostSelector: '.tooltip__host'
-    });
+    }));
 });
 
 // INFOTIP
@@ -149,13 +150,13 @@ document.querySelectorAll('.tourtip').forEach(function(widgetEl) {
 });
 
 // FLOATING LABEL
-document.querySelectorAll('.floating-label').forEach(function (el) {
-    const floatingLabel = new FloatingLabel(el);
+document.querySelectorAll('.floating-label').forEach(function(el) {
+    pageWidgets.push(new FloatingLabel(el));
 });
 
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
-    const rovingTabindex = RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
+    RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
     const tabItems = widgetEl.querySelectorAll('[role=tab]');
     const tabPanels = widgetEl.querySelectorAll('[role=tabpanel]');
 
@@ -173,9 +174,9 @@ document.querySelectorAll('.tabs').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.listbox').forEach(function(widgetEl) {
-    const widget = new Listbox(widgetEl, {
-        autoSelect: (widgetEl.dataset.autoSelect === 'true') ? true : false
-    });
+    pageWidgets.push(new Listbox(widgetEl, {
+        autoSelect: widgetEl.dataset.autoSelect === 'true'
+    }));
 
     widgetEl.addEventListener('listbox-change', function(e) {
         console.log(e.type, e.detail);
@@ -183,9 +184,9 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-    const widget = new ListboxButton(widgetEl, {
+    pageWidgets.push(new ListboxButton(widgetEl, {
         labelSelector: '.expand-btn__text'
-    });
+    }));
 
     widgetEl.addEventListener('listbox-button-change', function(e) {
         console.log(e.type, e.detail);
@@ -230,7 +231,7 @@ document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').
 });
 
 document.querySelectorAll('.menu').forEach(function(widgetEl) {
-    const widget = new Menu(widgetEl);
+    pageWidgets.push(new Menu(widgetEl));
 
     widgetEl.addEventListener('menu-select', function(e) {
         console.log(e.type, e.detail);
@@ -246,7 +247,7 @@ document.querySelectorAll('.menu').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
-    const widget = new Menu(widgetEl);
+    pageWidgets.push(new Menu(widgetEl));
 
     widgetEl.addEventListener('menu-select', function(e) {
         console.log(e.type, e.detail);
@@ -272,5 +273,5 @@ document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
 
 // SWITCH - JAVASCRIPT BASED VERSION
 document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
-    const widget = new Switch(widgetEl);
+    pageWidgets.push(new Switch(widgetEl));
 });
