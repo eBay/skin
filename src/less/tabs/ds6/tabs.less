@@ -1,0 +1,56 @@
+@import "../../variables/ds6/color-variables.less";
+@import "../../variables/ds6/icon-variables.less";
+@import "../../variables/ds6/typography-variables.less";
+
+@tabs-background-color: @color-white;
+@tabs-border-color: @color-white;
+
+@tabs-item-border-bottom-width: 3px;
+@tabs-item-webkit-tap-highlight-color: @color-grey3;
+
+@tabs-item-selected-outer-border-color: @color-b4;
+@tabs-item-selected-inner-color: @color-b4;
+
+@import "../base/tabs.less";
+
+// move the thin grey bar up by 1 pixel
+.tabs__content,
+.fake-tabs__content {
+    border-top: 1px solid #c7c7c7;
+    position: relative;
+    top: -1px;
+}
+
+// put the tab, with it's blue bar, onto a layer on top of the thin grey bar
+div.tabs__items[role="tablist"],
+ul.fake-tabs__items {
+    position: relative;
+    z-index: 1;
+}
+
+// outer
+div.tabs__item[role="tab"],
+li.fake-tabs__item {
+    // hover outer
+    &:hover {
+        border-bottom-color: @color-b4;
+    }
+}
+
+// inner
+div.tabs__item[role="tab"] > span,
+li.fake-tabs__item > a {
+    color: @color-text-default;
+}
+
+// hover inner
+div.tabs__item[role="tab"]:hover > span,
+li.fake-tabs__item:hover > a {
+    color: @color-b4;
+}
+
+// selected inner
+div.tabs__item[role="tab"][aria-selected="true"] > span,
+li.fake-tabs__item--current > a[aria-current="page"] {
+    font-weight: bold;
+}
