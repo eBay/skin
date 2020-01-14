@@ -108,11 +108,11 @@ function filter(widget) {
         widget._listboxWidget._activeDescendant.reset();
         widget._listboxWidget.items.forEach(el => (el.hidden = false));
     } else {
-        const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter(function(el) {
+        const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
             return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
         });
 
-        const unmatchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter(function(el) {
+        const unmatchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
             return el.innerText.substring(0, numChars).toLowerCase() !== currentValue;
         });
 
