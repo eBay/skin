@@ -5,7 +5,11 @@
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <link rel="stylesheet" type="text/css" href="../../../static/ds{{ page.ds }}/skin.min.css">
+        {% if jekyll.environment == "development" %}
+        <link type="text/css" rel="stylesheet" href="../../../static/ds{{ page.ds }}/skin.min.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/ds{{page.ds}}/skin.min.css"/>
+        {% endif %}
         <style>
             .demo {
                 background: #fff;

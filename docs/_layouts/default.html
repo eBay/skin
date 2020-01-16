@@ -4,7 +4,11 @@
         <title>{{ page.title }} (DS{{ page.ds }})</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        {% if jekyll.environment == "development" %}
         <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/skin.min.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/ds{{page.ds}}/skin.min.css"/>
+        {% endif %}
         <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.css"/>
         <!-- critical styles -->
         <style>
