@@ -123,19 +123,19 @@ span.carousel__container {
   .carousel--slides.carousel:not(.carousel--peek) .carousel__control[aria-disabled="true"] {
     opacity: 0.3;
   }
-  /* autoprefixer: ignore next */
-  @supports not /*!Y */(
-        /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
-        /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
-        /*!Y */(scroll-snap-coordinate: 0 0) or
-        /*!Y */(scroll-snap-align: start)
-    ) {
-    .carousel__control {
-      opacity: 0.92;
-    }
-    .carousel__control[aria-disabled="true"] {
-      opacity: 0.3;
-    }
+}
+/* autoprefixer: ignore next */
+@supports not /*!Y */(
+    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-align: start)
+) {
+  .carousel:not(.carousel__autoplay) .carousel__control {
+    opacity: 0.92;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__control[aria-disabled="true"] {
+    opacity: 0.3;
   }
 }
 /**
@@ -145,11 +145,9 @@ span.carousel__container {
  * Not all browsers that have implemented scroll snapping have done so in a way that we can leverage.
  * Currently the below media query ensures that the browser supports exactly what we need.
  *
- * Firefox is explicitly blacklisted in both queries via a check for "-mox-appearance" since
- * it's current implementation has some issues including forcing a scroll bar.
  */
 /* autoprefixer: ignore next */
-@supports (not /*!Y */(-moz-appearance:none)) and /*!Y */(
+@supports (
     /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
     /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
     /*!Y */(scroll-snap-coordinate: 0 0) or
@@ -159,13 +157,11 @@ span.carousel__container {
   .carousel:not(.carousel__autoplay) {
     overflow: visible;
   }
-  .carousel:not(.carousel__autoplay) .carousel__container {
-    margin-bottom: 0;
-  }
   .carousel:not(.carousel__autoplay) .carousel__control {
     margin-top: 0;
   }
   .carousel:not(.carousel__autoplay) .carousel__list {
+    border-color: rgba(0, 0, 0, 0);
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
     padding-bottom: 10px;
@@ -176,6 +172,21 @@ span.carousel__container {
     -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: mandatory;
     scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -webkit-transition: border-color 0.5s;
+    transition: border-color 0.5s;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__list:hover {
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+  .carousel:not(.carousel__autoplay) .carousel__list::-webkit-scrollbar {
+    height: 5px;
+  }
+  .carousel:not(.carousel__autoplay) .carousel__list::-webkit-scrollbar-thumb {
+    border-color: inherit;
+    border-radius: 4px;
+    border-right-style: inset;
+    border-right-width: calc(100vw + 100vh);
   }
   .carousel__snap-point {
     scroll-snap-align: start;
@@ -185,18 +196,6 @@ span.carousel__container {
   }
   /* autoprefixer: on */
   @media (min-width: 601px) {
-    .carousel:not(.carousel__autoplay) {
-      overflow: hidden;
-    }
-    .carousel:not(.carousel__autoplay) .carousel__container {
-      margin-bottom: -80px;
-    }
-    .carousel:not(.carousel__autoplay) .carousel__control {
-      margin-top: -40px;
-    }
-    .carousel:not(.carousel__autoplay) .carousel__list {
-      padding-bottom: 80px;
-    }
     div.carousel {
       margin: 16px 0;
     }
