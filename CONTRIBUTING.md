@@ -174,7 +174,7 @@ Once Jekyll is setup successfully, running a build should create the following f
 * `./_site/static/dsx/docs.min.js`
     * this is the Lasso output of `./docs/src/js/dsx`
 * `./_site/static/dsx/skin.min.css`
-    * the full, minified skin css bundle copied directly from /dist
+    * the full, minified skin css bundle (only used in development environment)
 * `./_site/index.html`
     * ds6 homepage
 * `./_site/ds4/index.html`
