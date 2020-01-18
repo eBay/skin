@@ -1,7 +1,43 @@
 <div>
     <h2 id="bundling">Bundling</h2>
     <p>Skin supports <a href="https://webpack.js.org">Webpack</a> and <a href="https://github.com/lasso-js/lasso">Lasso.js</a>.</p>
-    <p>For Lasso.js, add the <span class="highlight">@ebay/skin</span> module as a <span class="highlight">browser.json</span> dependency to include the entire set of Skin modules.</p>
+
+    <h3>Webpack</h3>
+    <p>Add <span class="highlight">@ebay/skin</span>, <span class="highlight">@ebay/browserslist-config</span> as dependencies and <span class="highlight">less</span>, <span class="highlight">less-loader</span> as dev dependencies to <span class="highlight">package.json</span>.</p>
+    {% highlight json %}
+{
+    "dependencies": {
+        "@ebay/browserslist-config": "^1.0.1",
+        "@ebay/skin": "^9.5.4",
+    },
+    "devDependencies": {
+        "less": "^3.10.3",
+        "less-loader": "^5.0.0"
+    }
+}
+    {% endhighlight %}
+
+    <p>Now in your webpack configuration do:</p>
+    {% highlight js %}
+module.exports = {
+    module: {
+        rules: [
+        {
+            test: /\.less$/,
+            loader: 'less-loader', // compiles Less to CSS
+        },
+        ],
+    },
+};
+    {% endhighlight %}
+
+    <h4>Usage</h4>
+    {% highlight js %}
+import "@ebay/skin/button.less";
+    {% endhighlight %}
+
+    <h3>Lasso.js</h3>
+    <p>Add the <span class="highlight">@ebay/skin</span> module as a <span class="highlight">browser.json</span> dependency to include the entire set of Skin modules.</p>
     {% highlight json %}
 {
     "dependencies": [

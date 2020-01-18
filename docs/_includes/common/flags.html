@@ -1,8 +1,29 @@
 <div id="flags">
     <h2>Flags</h2>
     <p>Skin has the ability to switch between design system versions.</p>
-    <p>DS6 is the current design system. To opt into DS4, Lasso.js requires the <span class="highlight">ds-4</span> <a href="https://github.com/lasso-js/lasso#conditional-dependencies">conditional dependency flag</a>.</p>
+    <p>DS6 is the current design system.</p>
 
+    <h4>Webpack SetUp</h4>
+    <p>If you need to pull in the <span class="highlight">flags</span>, we should install and configure <span class="highlight">arc-webpack</span></p>
+
+    {% highlight js %}
+yarn add -D arc-webpack
+    {% endhighlight %}
+
+    <p>Do the following in your webpack config:</p>
+    {% highlight js %}
+const AdaptivePlugin = require("arc-webpack");
+...
+...
+    plugins: [
+        new AdaptivePlugin({ flags: { "skin-ds4": true } })
+    ]
+    {% endhighlight %}
+
+    <p>Note: Currently, there is a bug in <span class="highlight">arc-webpack</span> which is being fixed. The workaround is to enable <span class="highlight">MiniCssExtractPlugin</span> even in all environments</p>
+
+    <h4>Lasso.js SetUp</h4>
+    <p>To opt into DS4, Lasso.js requires the <span class="highlight">ds-4</span> <a href="https://github.com/lasso-js/lasso#conditional-dependencies">conditional dependency flag</a></p>
     {% highlight JavaScript %}
 myLasso.lassoPage({
     flags: ['ds-4']
