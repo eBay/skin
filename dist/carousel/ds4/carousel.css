@@ -95,26 +95,44 @@
   -webkit-transition: opacity 0.45s ease-in-out;
   transition: opacity 0.45s ease-in-out;
 }
-.carousel__list--fade-right::after {
-  right: 0;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#fff));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #fff 100%);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 100%);
-  bottom: 0;
-  content: "";
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  width: 30px;
-  z-index: 1;
-}
 div.carousel {
   margin: 16px 0;
 }
 span.carousel,
 span.carousel__container {
   display: inline-block;
+}
+.carousel__container--fade-right {
+  /*
+    For firefox, the mask-image works. However, when the carousel list is
+    transitioned in ebayui, it does not move the mask, but rather it stays
+    at the end of the first page. For firefox, we implemented a gradient, but we
+    should move to the mask implementation once firefox fixes it's issues
+     */
+}
+@supports (not /*!Y */(-moz-appearance:none)) {
+  .carousel__container--fade-right .carousel__list {
+    -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(85%, #fff), to(rgba(0, 0, 0, 0)));
+    -webkit-mask-image: -webkit-linear-gradient(left, #fff 85%, rgba(0, 0, 0, 0) 100%);
+            mask-image: -webkit-gradient(linear, left top, right top, color-stop(85%, #fff), to(rgba(0, 0, 0, 0)));
+            mask-image: linear-gradient(to right, #fff 85%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+@supports (-moz-appearance:none) {
+  .carousel__container--fade-right::after {
+    right: 0;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(245, 245, 245, 0.8)));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(245, 245, 245, 0.8) 100%);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(245, 245, 245, 0.8) 100%);
+    bottom: 0;
+    content: "";
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 55px;
+    z-index: 1;
+  }
 }
 @media (hover: none) {
   .carousel--slides.carousel:not(.carousel--peek) .carousel__control {
@@ -214,7 +232,7 @@ span.carousel__container {
           transform: translateY(-50%);
   -webkit-transition: opacity 0.45s ease-in-out;
   transition: opacity 0.45s ease-in-out;
-  z-index: 1;
+  z-index: 2;
   height: 72px;
   width: 28px;
 }
