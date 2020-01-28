@@ -37,8 +37,10 @@
     "snapshot": "npm run snapshot:pages && npm run snapshot:modules",
     "snapshot:pages": "percy snapshot _site --snapshot-files=index.html,ds6/index.html",
     "snapshot:modules": "percy snapshot _site --snapshot-files=test/**/ds4/index.html,test/**/ds6/index.html --ignore-files=test/card,test/dialog",
-    "storybook:build": "STORYBOOK_DS=4 build-storybook -o ./docs/ds4/storybook && STORYBOOK_DS=6 build-storybook -o ./docs/storybook",
-    "storybook:start": "STORYBOOK_DS=6 start-storybook"
+    "storybook:copy-svg-icons": "node scripts/storybook/copy-svg-icons",
+    "storybook:build": "STORYBOOK_DS=4 npm run storybook:copy-svg-icons build-storybook -o ./docs/ds4/storybook && STORYBOOK_DS=6 build-storybook -o ./docs/storybook",
+    "storybook:start-proper": "start-storybook",
+    "storybook:start": "cross-env STORYBOOK_DS=6 npm-run-all -s storybook:copy-svg-icons storybook:start-proper"
   },
   "devDependencies": {
     "@babel/cli": "^7",
@@ -51,6 +53,7 @@
     "browser-sync": "^2",
     "btoa": "^1",
     "core-js-pure": "^3",
+    "cross-env": "^7.0.0",
     "details-element-polyfill": "^2",
     "eslint": "^6",
     "eslint-config-ebay": "^1",
@@ -79,6 +82,7 @@
     "mkdirp": "~0.5",
     "ncp": "^2",
     "nodelist-foreach-polyfill": "^1",
+    "npm-run-all": "^4.1.5",
     "percy": "~0.20",
     "rimraf": "^3",
     "stylelint": "^13",
