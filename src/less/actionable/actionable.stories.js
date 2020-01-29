@@ -55,9 +55,9 @@ export const iconLinkPartiallyDisabled = () => `
 `;
 
 export const imageLink = () => `
-<a class="img-link" href="http://www.ebay.com"><img src="/static/iphone.jpg" alt="iphone" /></a>
+<a class="img-link" href="http://www.ebay.com"><img src="/docs/static/iphone.jpg" alt="iphone" /></a>
 `;
 
 export const imageButton = () => `
-<button class="img-btn" type="button"><img src="/static/iphone.jpg" alt="iphone" /></button>
+<button class="img-btn" type="button"><img src="/docs/static/iphone.jpg" alt="iphone" /></button>
 `;

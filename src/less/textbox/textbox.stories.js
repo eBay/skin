@@ -55,33 +55,41 @@ export const Fluid = () => `
 `;
 
 export const singleLineRTL = () => `
-<span class="textbox">
-    <input aria-label="Email Address" class="textbox__control" type="text" placeholder="placeholder text" />
- </span>
+<div class="demo" dir="rtl">
+    <span class="textbox">
+        <input aria-label="Email Address" class="textbox__control" type="text" placeholder="placeholder text" />
+    </span>
+ </div>
 `;
 
 export const multiLineRTL = () => `
-<span class="textbox">
-    <textarea aria-label="Description" class="textbox__control" placeholder="placeholder text"></textarea>
-</span>
+<div class="demo" dir="rtl">
+    <span class="textbox">
+        <textarea aria-label="Description" class="textbox__control" placeholder="placeholder text"></textarea>
+    </span>
+</div>
 `;
 
 export const iconRTL = () => `
-<span class="textbox">
-    <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                <use xlink:href="#icon-messages"></use>
-    </svg>
-    <input class="textbox__control" type="text" placeholder="placeholder text" />
-</span>
+<div class="demo" dir="rtl">
+    <span class="textbox">
+        <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+                    <use xlink:href="#icon-messages"></use>
+        </svg>
+        <input class="textbox__control" type="text" placeholder="placeholder text" />
+    </span>
+</div>
 `;
 
 export const iconEndRTL = () => `
-<span class="textbox textbox--icon-end">
-    <input class="textbox__control" type="text" placeholder="placeholder text" />
-    <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                <use xlink:href="#icon-messages"></use>
-    </svg>
-</span>
+<div class="demo" dir="rtl">
+    <span class="textbox textbox--icon-end">
+        <input class="textbox__control" type="text" placeholder="placeholder text" />
+        <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+                    <use xlink:href="#icon-messages"></use>
+        </svg>
+    </span>
+</div>
 `;
 
 export const actionableIcon = () => `
