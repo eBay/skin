@@ -74,7 +74,7 @@ export const iconRTL = () => `
 <div class="demo" dir="rtl">
     <span class="textbox">
         <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-messages"></use>
+            <use xlink:href="#icon-messages"></use>
         </svg>
         <input class="textbox__control" type="text" placeholder="placeholder text" />
     </span>
@@ -86,7 +86,7 @@ export const iconEndRTL = () => `
     <span class="textbox textbox--icon-end">
         <input class="textbox__control" type="text" placeholder="placeholder text" />
         <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-messages"></use>
+            <use xlink:href="#icon-messages"></use>
         </svg>
     </span>
 </div>
