@@ -61,6 +61,7 @@
         padding-left: 1px;
     }
 
+    // Remove in skin 11
     &__dots {
         margin: 16px 0;
         padding-left: 0;
@@ -130,18 +131,17 @@ span.carousel__container {
             .show-control();
         }
     }
-
-    /* autoprefixer: ignore next */
-    @supports not /*!Y */(
-        /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
-        /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
-        /*!Y */(scroll-snap-coordinate: 0 0) or
-        /*!Y */(scroll-snap-align: start)
-    ) {
-        // always show paddles when scroll snapping and hover is not supported.
-        .carousel__control {
-            .show-control();
-        }
+}
+/* autoprefixer: ignore next */
+@supports not /*!Y */(
+    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
+    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-coordinate: 0 0) or
+    /*!Y */(scroll-snap-align: start)
+) {
+    // always show paddles when scroll snapping and hover is not supported.
+    .carousel:not(.carousel__autoplay) .carousel__control {
+        .show-control();
     }
 }
 
@@ -152,12 +152,10 @@ span.carousel__container {
  * Not all browsers that have implemented scroll snapping have done so in a way that we can leverage.
  * Currently the below media query ensures that the browser supports exactly what we need.
  *
- * Firefox is explicitly blacklisted in both queries via a check for "-mox-appearance" since
- * it's current implementation has some issues including forcing a scroll bar.
  */
 
 /* autoprefixer: ignore next */
-@supports (not /*!Y */(-moz-appearance:none)) and /*!Y */(
+@supports (
     /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
     /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
     /*!Y */(scroll-snap-coordinate: 0 0) or
@@ -167,15 +165,13 @@ span.carousel__container {
     .carousel:not(.carousel__autoplay) {
         overflow: visible;
 
-        .carousel__container {
-            margin-bottom: 0;
-        }
-
         .carousel__control {
             margin-top: 0;
         }
 
         .carousel__list {
+            // Add transition on border-color in order to support fade in/out of scrollbar
+            border-color: rgba(0, 0, 0, 0);
             -webkit-overflow-scrolling: touch;
             overflow-x: auto; // also used in js to determine scroll behavior
             padding-bottom: 10px;
@@ -186,6 +182,24 @@ span.carousel__container {
             -ms-scroll-snap-type: x mandatory;
             scroll-snap-type: mandatory;
             scroll-snap-type: x mandatory;
+            scrollbar-width: thin; // Firefox scrollbar
+            transition: border-color 0.5s;
+
+            &:hover {
+                border-color: rgba(0, 0, 0, 0.4);
+            }
+
+            &::-webkit-scrollbar {
+                height: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                // This creates a scrollbar to be colored by border
+                border-color: inherit;
+                border-radius: 4px;
+                border-right-style: inset;
+                border-right-width: calc(100vw + 100vh);
+            }
         }
     }
 
@@ -197,22 +211,6 @@ span.carousel__container {
     }
     /* autoprefixer: on */
     @media (min-width: 601px) {
-        .carousel:not(.carousel__autoplay) {
-            overflow: hidden;
-
-            .carousel__container {
-                margin-bottom: -80px;
-            }
-
-            .carousel__control {
-                margin-top: -40px;
-            }
-
-            .carousel__list {
-                padding-bottom: 80px;
-            }
-        }
-
         div.carousel {
             margin: 16px 0;
         }
