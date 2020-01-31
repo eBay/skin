@@ -60,55 +60,6 @@
     &__playback .icon--play {
         padding-left: 1px;
     }
-
-    // Remove in skin 11
-    &__dots {
-        margin: 16px 0;
-        padding-left: 0;
-        text-align: center;
-
-        > li {
-            display: inline-block;
-
-            > button {
-                background-color: transparent;
-                border: 0;
-                display: inline-block;
-                height: 8px;
-                margin: 0 6px;
-                padding: 0;
-                position: relative;
-                width: 8px;
-
-                // The active dot uses an after to color it in which transitions opacity.
-                // This was done to avoid transitioning the background color of the element
-                // while still allowing us to use exact ds colors.
-                &::before,
-                &::after {
-                    background-color: @carousel-dots-after-background-color;
-                    border-radius: 50%;
-                    content: "";
-                    display: block;
-                    height: 100%;
-                    left: 0;
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                }
-
-                &.carousel__dot--active::after,
-                &[aria-current="true"]::after {
-                    opacity: 1;
-                }
-
-                &::after {
-                    background-color: @carousel-dots-after-active-background-color;
-                    opacity: 0;
-                    transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
-                }
-            }
-        }
-    }
 }
 
 div.carousel {
