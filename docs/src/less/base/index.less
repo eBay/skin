@@ -1,3 +1,5 @@
+// stylelint-disable no-descending-specificity
+
 @desktop: ~"only screen and (min-width: 601px)";
 @medium: ~"only screen and (min-width: 961px)";
 @giant: ~"only screen and (min-width: 1281px)";
@@ -199,8 +201,8 @@ span.demo__inner {
 
 /* CAROUSEL SECTION */
 
-.demo-filmstrip__card {
-    background: @color-information-background;
+.carousel__list--default-demo li {
+    background-color: @color-information-background;
     color: @color-text-default;
     font-size: 24px;
     font-weight: bold;
@@ -208,22 +210,40 @@ span.demo__inner {
     line-height: 120px;
     margin-right: 16px;
     text-align: center;
-    width: 250px;
+    width: 200px;
 }
 
-.demo-filmstrip__card:last-child {
-    margin-right: 0;
+.carousel__list--discrete-demo li {
+    background-color: @color-information-background;
+    box-sizing: border-box;
+    color: @color-text-default;
+    font-size: 24px;
+    font-weight: bold;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 16px;
+    text-align: center;
+    width: calc(25% - 24px);
 }
 
-.demo-slideshow__card {
-    background: @color-information-background;
+.carousel__list--slideshow-demo li {
+    background-color: @color-information-background;
     color: @color-text-default;
     font-size: 36px;
     font-weight: bold;
     height: 300px;
     line-height: 300px;
+    margin-right: 16px;
     text-align: center;
     width: 100%;
+}
+
+.carousel__list--discrete-demo li:last-child {
+    margin-right: 0;
+}
+
+.carousel__list--slideshow-demo li:last-child {
+    margin-right: 0;
 }
 
 /* COLOR SECTION */
