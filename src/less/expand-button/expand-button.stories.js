@@ -115,22 +115,24 @@ export const defaultSizePrimaryDisabled = () => `
 `;
 
 export const defaultSizeRTL = () => `
-<button type="button" class="expand-btn">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-<button type="button" class="expand-btn" aria-expanded="true">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
+<div dir="rtl">
+    <button type="button" class="expand-btn">
+        <span class="expand-btn__cell">
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <button type="button" class="expand-btn" aria-expanded="true">
+        <span class="expand-btn__cell">
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+</div>
 `;
 
 export const largeSize = () => `
@@ -302,4 +304,56 @@ export const defaultSizeLongTextFixedWidthFixedHeightTruncatedInheritFontSize200
         </svg>
     </span>
 </button>
+`;
+
+export const defaultSizeDefaultTypeWithIcon = () => `
+<button type="button" class="expand-btn">
+    <span class="expand-btn__cell">
+        <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
+            <use xlink:href="#icon-settings"></use>
+        </svg>
+        <span>Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+<button type="button" class="expand-btn" aria-expanded="true">
+    <span class="expand-btn__cell">
+        <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
+            <use xlink:href="#icon-settings"></use>
+        </svg>
+        <span>Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+`;
+
+export const defaultSizeDefaultTypeWithIconRTL = () => `
+<div dir="rtl">
+    <button type="button" class="expand-btn">
+        <span class="expand-btn__cell">
+            <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
+                <use xlink:href="#icon-settings"></use>
+            </svg>
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <button type="button" class="expand-btn" aria-expanded="true">
+        <span class="expand-btn__cell">
+            <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
+                <use xlink:href="#icon-settings"></use>
+            </svg>
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+</div>
 `;
