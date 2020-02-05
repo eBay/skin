@@ -67,3 +67,11 @@ Skin provides a command to create your own bundles for uploading to cdn. Use `bi
 Interested in contributing? Head over to our [contributing guide](CONTRIBUTING.md) for information on how to get started.
 
 Contributions don't have to be code! They can be ideas, inspiration, discussion or filing bugs!
+
+## People
+
+The original creator of Skin is [Senthil Padmanabhan](https://github.com/senthilp).
+
+The current author and lead maintainer is [Ian McBurnie](https://github.com/ianmcburnie).
+
+[List of all contributors](https://github.com/eBay/skin/graphs/contributors).
