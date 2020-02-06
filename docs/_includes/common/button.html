@@ -1,22 +1,9 @@
 <div id="button">
-    <h2><span class="secondary-text">@ebay/skin/</span>button</h2>
+    {% include common/section-header.html name="button" version=page.versions.button %}
+
     <p>A button is typically used to trigger a JavaScript action (e.g. fetch results, open a dialog or expand a menu). In this case, the <span class="highlight">&lt;button&gt;</span> tag is <strong>required</strong>.</p>
     <p>A button may also be used to submit or reset a form. In this case use the <span class="highlight">&lt;button&gt;</span> tag with <span class="highlight">type=submit</span> or <span class="highlight">type=reset</span> respectively. Use of the <span class="highlight">&lt;input&gt;</span> tag is not currently supported.</p>
     <p>Finally, a link may be styled to <em>look</em> like a button. We call this a fake button. In this case the <span class="highlight">&lt;a&gt;</span> tag is <strong>required</strong> with a valid HREF attribute.</p>
-
-    <h3 id="button-regular">Regular Button (Deprecated)</h3>
-    <p>Use the <span class="highlight">regular</span> modifier to create the regular button.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--regular">Button</button>
-            <a class="fake-btn fake-btn--regular" href="http://www.ebay.com">Link</a>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button class="btn btn--regular">Button</button>
-<a class="fake-btn fake-btn--regular" href="http://www.ebay.com">Link</a>
-    {% endhighlight %}
 
     <h3 id="button-primary">Primary Button</h3>
     <p>Use the <span class="highlight">primary</span> block modifier to create a primary button style.</p>
@@ -88,7 +75,7 @@
 
     <h3 id="button-partially-disabled">Partially Disabled Button</h3>
     <p>Partially disabled buttons are visually and aurally identifiable as disabled, but remain keyboard focusable.</p>
-    <p>Partially disabled buttons can vastly simplify keyboard focus management logic in situations where the button may frequently toggle back and forth between enabled and disabled (e.g. pagination or carousel 'bookend' buttons).</p>
+    <p>Partially disabled buttons can vastly simplify keyboard focus management logic in situations where the button may frequently toggle back and forth between enabled and disabled (e.g. pagination or carousel "paddles").</p>
     <p>The <span class="highlight">aria-disabled</span> state is <strong>required</strong> for partially disabled buttons.</p>
     <div class="demo">
         <div class="demo__inner">
@@ -115,7 +102,7 @@
     {% endhighlight %}
 
     <h3 id="button-large">Large Button</h3>
-    <p>Use the <span class="highlight">btn--large</span> size modifier to create a large button style. All other sizes are deprecated and no longer supported.</p>
+    <p>Use the <span class="highlight">btn--large</span> size modifier to create a large button style.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -130,15 +117,23 @@
     {% endhighlight %}
 
     <h3 id="button-icon">Icon Button</h3>
-    <p>Any foreground icon can be placed adjacent to the button text.</p>
+    <p>Any SVG icon can be placed adjacent to the button text. To flip position of text and icon, simply swap the DOM order.</p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary">
                 <span class="btn__cell">
-                    <svg aria-hidden="true" class="btn__icon" focusable="false" height="16" width="16">
+                    <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
                         <use xlink:href="#icon-menu"></use>
                     </svg>
                     <span>Button</span>
+                </span>
+            </button>
+            <button class="btn btn--primary">
+                <span class="btn__cell">
+                    <span>Button</span>
+                    <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
+                        <use xlink:href="#icon-menu"></use>
+                    </svg>
                 </span>
             </button>
         </div>
@@ -147,34 +142,16 @@
     {% highlight html %}
 <button class="btn btn--primary">
     <span class="btn__cell">
-        <svg aria-hidden="true" class="btn__icon" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
             <use xlink:href="#icon-menu"></use>
         </svg>
         <span>Button</span>
     </span>
 </button>
-    {% endhighlight %}
-
-    <p>To flip position of text and icon, simply swap the DOM order.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--primary">
-                <span class="btn__cell">
-                    <span>Button</span>
-                    <svg aria-hidden="true" class="btn__icon" focusable="false" height="16" width="16">
-                        <use xlink:href="#icon-menu"></use>
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </div>
-
-    {% highlight html %}
 <button class="btn btn--primary">
     <span class="btn__cell">
         <span>Button</span>
-        <svg aria-hidden="true" class="btn__icon" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
             <use xlink:href="#icon-menu"></use>
         </svg>
     </span>
@@ -190,7 +167,7 @@
                     <span>Select</span>
                     <span style="display: inline-flex;">
                         <span>Any</span>
-                        <svg aria-hidden="true" class="btn__icon" focusable="false" width="8" height="8">
+                        <svg aria-hidden="true" class="icon icon--chevron-down" focusable="false" width="8" height="8">
                             <use xlink:href="#icon-chevron-down"></use>
                         </svg>
                     </span>
@@ -205,7 +182,7 @@
         <span>Select</span>
         <span style="display: inline-flex;">
             <span>Any</span>
-            <svg aria-hidden="true" class="btn__icon" focusable="false" width="8" height="8">
+            <svg aria-hidden="true" class="icon icon--chevron-down" focusable="false" width="8" height="8">
                 <use xlink:href="#icon-chevron-down"></use>
             </svg>
         </span>
@@ -213,9 +190,31 @@
 </button>
     {% endhighlight %}
 
-    <h3 id="button-wrapping">Button wrapping and overflow behavior</h3>
+    <h3 id="button-fixed-height">Fixed Height Button</h3>
 
-    <p>Text of buttons will wrap when the button fills it's constrained width (if any).</p>
+    <p>To ensure the same height as other controls, apply a fixed height to a button with <span class="highlight">btn--fixed-height</span> or <span class="highlight">btn--large-fixed-height</span>.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <input aria-label="Email Address" class="textbox__control" type="text" placeholder="textbox" />
+            </span>
+            <button class="btn btn--primary btn--fixed-height">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <input aria-label="Email Address" class="textbox__control" type="text" placeholder="textbox" />
+</span>
+<button class="btn btn--primary btn--fixed-height">
+    Button
+</button>
+    {% endhighlight %}
+
+    <h3 id="button-fixed-width">Fixed Width Button</h3>
+
+    <p>Button text will begin to wrap naturally once the button grows to its constrained width.</p>
 
     <div class="demo">
         <div class="demo__inner" style="max-width: 200px; word-break: normal;">
@@ -233,13 +232,13 @@
 </div>
     {% endhighlight %}
 
-    <p>To apply a fixed height to a button use <span class="highlight">btn--fixed-height</span> or <span class="highlight">btn--large-fixed-height</span>.</p>
+    <h3 id="button-fixed-width">Fixed Width and Height Button</h3>
+
+    <p>Of course, with a fixed width <em>and</em> a fixed height, the text will begin to overflow.</p>
 
     <div class="demo">
         <div class="demo__inner" style="max-width: 200px;">
-            <button class="btn btn--fixed-height">
-                Button with a lot of text that will wrap
-            </button>
+            <button class="btn btn--fixed-height">Button with a lot of text that will wrap</button>
         </div>
     </div>
 
@@ -251,25 +250,11 @@
 </div>
     {% endhighlight %}
 
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--fixed-height">
-                Button with a lot of text that won't wrap
-            </button>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button class="btn btn--fixed-height">
-    Button with a lot of text that won't wrap
-</button>
-    {% endhighlight %}
-
-    <p>To apply truncation to text use use <span class="highlight">btn--truncated</span> or <span class="highlight">btn--large-truncated</span>.</p>
+    <p>The solution is to apply truncation, via the <span class="highlight">btn--truncated</span> or <span class="highlight">btn--large-truncated</span> modifiers.</p>
 
     <div class="demo">
         <div class="demo__inner" style="max-width: 200px;">
-            <button class="btn btn--truncated">
+            <button class="btn btn--fixed-height btn--truncated">
                 Button with a lot of text that will wrap
             </button>
         </div>
@@ -277,15 +262,9 @@
 
     {% highlight html %}
 <div style="max-width 200px;">
-    <button class="btn btn--truncated">
+    <button class="btn btn--fixed-height btn--truncated">
         Button with a lot of text that will wrap
     </button>
 </div>
     {% endhighlight %}
-
-    {% if page.ds == 6 %}
-    <div class="section-footer">
-        <p>DS6.5.v1.01</p>
-    </div>
-    {% endif %}
 </div>

@@ -1,16 +1,12 @@
-<!-- TECH DEBT: the file contains inline styles -->
 <div id="icon">
-    <h2><span class="secondary-text">@ebay/skin/</span>icon</h2>
-    <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span>&lt;svg&gt;</span> tag (i.e. foreground icons) and the <span>&lt;span&gt;</span> tag (i.e. background icons).</p>
-    <p>However, <strong>please be aware that background icons significantly increase CSS payload</strong> (due to the size of base64 data-urls). For this reason, Skin also provides the ability to choose foreground <em>or</em> background icons only, via their own modules, described below.</p>
+    {% include common/section-header.html name="icon" version=page.versions.icon %}
 
-    <h3>@ebay/skin/icon/foreground</h3>
-    <p>Foregound icons use the <span>&lt;svg&gt;</span> tag and can inherit their colour via the CSS cascade.</p>
+    <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
     <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the browser's default 300x150 size.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Foreground icon example" class="icon icon--information" focusable="false" height="24" width="24" role="img">
+            <svg aria-label="Icon example" class="icon icon--information" focusable="false" height="24" width="24" role="img">
                 <use xlink:href="#icon-information"></use>
             </svg>
         </div>
@@ -22,61 +18,57 @@
 </svg>
     {% endhighlight %}
 
-    <p>Before a foreground icon can be used, its <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> must be stamped on the page inside of a hidden SVG block.</p>
+    <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
+
+    <h3>Including an Icon</h3>
+    <p>Before an icon can be used, its <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> must be stamped on the page inside of a hidden SVG block. In future, when we drop support for Internet Explorer, symbols can be included via the <a href="#svg">SVG module</a>.</p>
 
     {% if page.ds == 4 %}
     {% highlight html %}
-<svg hidden>
-    <symbol id="icon-information" viewBox="0 0 24 24">
-        <path fill="#0654ba" d="M12.007 9.753a.849.849 0 00-.849.849v6.553a.85.85 0 001.683.004v-6.557a.849.849 0 00-.834-.849zm1.057-2.88a1.016 1.016 0 11-2.032 0 1.016 1.016 0 012.032 0zm-1.057 17.141C5.376 24.014 0 18.638 0 12.007 0 5.376 5.376 0 12.007 0c6.631 0 12.007 5.376 12.007 12.007v.015c-.008 6.625-5.381 11.992-12.007 11.992zm0-22.261c-5.671 0-10.268 4.597-10.268 10.268s4.597 10.268 10.268 10.268 10.268-4.597 10.268-10.268S17.678 1.753 12.007 1.753z"/>
-    </symbol>
-</svg>
+<div hidden>
+    <svg>
+        <symbol id="icon-information" viewBox="0 0 24 24">
+            <path fill="#0654ba" d="M12.007 9.753a.849.849 0 00-.849.849v6.553a.85.85 0 001.683.004v-6.557a.849.849 0 00-.834-.849zm1.057-2.88a1.016 1.016 0 11-2.032 0 1.016 1.016 0 012.032 0zm-1.057 17.141C5.376 24.014 0 18.638 0 12.007 0 5.376 5.376 0 12.007 0c6.631 0 12.007 5.376 12.007 12.007v.015c-.008 6.625-5.381 11.992-12.007 11.992zm0-22.261c-5.671 0-10.268 4.597-10.268 10.268s4.597 10.268 10.268 10.268 10.268-4.597 10.268-10.268S17.678 1.753 12.007 1.753z"/>
+        </symbol>
+    </svg>
+</div>
     {% endhighlight %}
     {% endif %}
 
     {% if page.ds == 6 %}
     {% highlight html %}
-<svg hidden>
-    <symbol id="icon-information" viewBox="0 0 24 24">
-        <path fill-rule="evenodd" d="M0 12C0 5.373 5.373 0 12 0c6.625.006 11.994 5.375 12 12 0 6.627-5.373 12-12 12S0 18.627 0 12zm2 0c0 5.523 4.477 10 10 10 5.52-.006 9.994-4.48 10-10 0-5.523-4.477-10-10-10S2 6.477 2 12zm10-2a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm1-3a1 1 0 11-2 0 1 1 0 012 0z"/>
-    </symbol>
-</svg>
+<div hidden>
+    <svg>
+        <symbol id="icon-information" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M0 12C0 5.373 5.373 0 12 0c6.625.006 11.994 5.375 12 12 0 6.627-5.373 12-12 12S0 18.627 0 12zm2 0c0 5.523 4.477 10 10 10 5.52-.006 9.994-4.48 10-10 0-5.523-4.477-10-10-10S2 6.477 2 12zm10-2a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm1-3a1 1 0 11-2 0 1 1 0 012 0z"/>
+        </symbol>
+    </svg>
+</div>
     {% endhighlight %}
     {% endif %}
 
-    <p><strong>NOTE:</strong> Skin removes all pointer events on foreground icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
+    <p><strong>NOTE:</strong> the SVG tag does not support the <span class="highlight">hidden</span> attribute, hence a hidden wrapper element is needed.</p>
 
-    <h3>@ebay/skin/icon/background</h3>
-    <p>Background icons use the <span>&lt;span&gt;</span> tag. Their colour is hard-coded in base64 and cannot be changed via CSS.</p>
-    <p>Although the smaller HTML footprint of background icons may seem more conveniant, this module contains a base64 encoded string for <strong>every</strong> icon in the set, therefore a significant increase in CSS payload occurs.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="icon icon--information"></span>
-        </div>
-    </div>
+    <h3>Presentational Icons</h3>
+    <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
+    <p>Presentational icons require <span class="highlight">aria-hidden="true"</span>, in order to hide them from assistive technology.</p>
 
     {% highlight html %}
-<span class="icon icon--information"></span>
+<svg class="icon icon--information" focusable="false" height="24" width="24" aria-hidden="true">
+    <use xlink:href="#icon-information"></use>
+</svg>
     {% endhighlight %}
 
-    <h3 id="icon-a11y">Icon Accessibility</h3>
-    <p>An icon can be <em>presentational</em> or <em>non-presentational</em>, as described below.</p>
+    <h3>Non-Presentational Icons</h3>
+    <p>A non-presentational icon provides essential content, context or affordance to a page, section or widget.</p>
 
-    <div class="split">
-        <div>
-            <h4>Presentational Icons</h4>
-            <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
-            <p>Presentational foreground icons require <span>aria-hidden="true"</span>.</p>
-            <p>Presentational background icons require no special treatment. Assistive technology simply ignores empty span tags.</p>
-        </div>
-        <div>
-            <h4>Non-Presentational Icons</h4>
-            <p>A non-presentational icon provides essential content, context or affordance to a page, section or widget.</p>
-            <p>Non-presentational icons nested inside of an interactive element (typically a button or link) require no special treatment. The label and role of the interactive element is sufficient for assistive technology.</p>
-            <p>Non-presentational icons <strong>not</strong> nested inside of an interactive element require <span>role="img"</span> and an <span>aria-label</span>.</p>
-        </div>
-    </div>
+    <p>Non-presentational icons require both <span class="highlight">role="img"</span> and an <span class="highlight">aria-label</span> for assistive technology.</p>
+
+    {% highlight html %}
+<svg class="icon icon--information" focusable="false" height="24" width="24" role="img" aria-label="Information">
+    <use xlink:href="#icon-information"></use>
+</svg>
+    {% endhighlight %}
 
     <h3 id="icon-icons">The Icons</h3>
     <p>The table below displays all available icons for the currently selected design system version (DS{{ page.ds }}). An empty box indicates that the icon is not available, and/or not relevant, to this system.</p>
@@ -84,7 +76,7 @@
     <p><strong>NOTE: </strong> DS4 does not have small versions of icons.</p>
     {% endif %}
     {% if page.ds == 6 %}
-    <p>Append <span class="highlight">-small</span> to the icon name to render the small version.</p>
+    <p>Append <span class="highlight">-small</span>, <span class="highlight">-filled</span> or <span class="highlight">-filled-small</span> to the icon name to render the correspdonding variant.</p>
     {% endif %}
 
     <table cellpadding="0" cellspacing="0" class="icon-table">
@@ -97,11 +89,13 @@
                 {% if page.ds == 6 %}
                 <th>DEFAULT</th>
                 <th>SMALL</th>
+                <th>FILLED</th>
+                <th>FILLED-SMALL</th>
                 {% endif %}
             </tr>
         </thead>
         <tbody>
-            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, attention-filled, bids, camera, categories, close, cart, checkbox-checked, checkbox-unchecked, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, confirmation-filled, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, following, information, information-filled, help, home, menu, messages, mic, notification, overflow, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, play, profile, purchases, radio-checked, radio-unchecked, red-laser, refresh, save, save-bold, save-selected, search, search-bold, selling, send, settings, star-empty, star-filled, star-filled-grey, star-half, star-undefined, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, watch, window" | split: ", " %}
+            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bids, camera, categories, close, cart, checkbox-checked, checkbox-unchecked, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, following, information, help, home, menu, messages, mic, notification, overflow, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, play, profile, purchases, radio-checked, radio-unchecked, red-laser, refresh, save, save-bold, save-selected, search, search-bold, selling, send, settings, star-empty, star-filled, star-filled-grey, star-half, star-undefined, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, watch, window" | split: ", " %}
             {% for icon in icons %}
             <tr>
                 <td>{{ icon }}</td>
@@ -124,6 +118,24 @@
                         </span>
                     </span>
                 </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled" focusable="false" height="24" width="24">
+                                <use xlink:href="#icon-{{ icon }}-filled"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled-small" focusable="false" height="16" width="16">
+                                <use xlink:href="#icon-{{ icon }}-filled-small"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
                 {% endif %}
             </tr>
             {% endfor %}
@@ -134,7 +146,24 @@
     <p>For a full list of DS4 icons, please <a href="archive/index.html">visit the archive</a>.</p>
     {% endif %}
 
-    <h3 id="icon-aliases">Icon Aliases</h3>
+    <h3 id="icon-disabled">Disabled Icons</h3>
+    <p>Most icons can be given a disabled appearance by adding the <span class="highlight">icon--disabled</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Disabled icon example" class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24" role="img">
+                <use xlink:href="#icon-chevron-right"></use>
+            </svg>
+        </div>
+    </div>
+
+    {% highlight html %}
+<svg class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24">
+    <use xlink:href="#icon-chevron-right"></use>
+</svg>
+    {% endhighlight %}
+
+    <h3 id="icon-alias">Aliased Icons</h3>
 
     <p>We provide several aliases for cases where the design systems have diverged in their choice of icon. For example, DS6 uses arrows for pagination, whereas DS4 uses chevrons.</p>
 
@@ -146,7 +175,7 @@
             </tr>
         </thead>
         <tbody>
-            {% assign icons = "carousel-prev, carousel-next, pagination-prev, pagination-next" | split: ", " %}
+            {% assign icons = "back, carousel-prev, carousel-next, cta, dropdown, pagination-prev, pagination-next" | split: ", " %}
             {% for icon in icons %}
             <tr>
                 <td>{{ icon }}</td>
@@ -163,12 +192,4 @@
             {% endfor %}
         </tbody>
     </table>
-
-
-    {% if page.ds == 6 %}
-    <div class="section-footer">
-        <p>DS6.5.v1.01</p>
-    </div>
-    {% endif %}
-
 </div>

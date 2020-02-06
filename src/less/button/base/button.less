@@ -1,91 +1,48 @@
 button.btn,
 a.fake-btn {
-    .btn-base;
+    .btn-base();
 
     background-color: transparent;
-    border: 1px solid;
     border-color: inherit;
     border-radius: @btn-border-radius;
     color: inherit;
     display: inline-block;
+    font-size: @font-size-14;
     max-width: 100%;
+    min-height: 40px;
     padding: @btn-padding;
 }
 
 a.fake-btn:visited {
-    .btn-fake-visited;
-}
-
-.btn__icon,
-.fake-btn__icon,
-.expand-btn__icon {
-    .btn-icon-base;
+    color: inherit;
 }
 
 button.btn--fluid,
 a.fake-btn--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
 .btn__cell,
 .fake-btn__cell {
-    .btn-cell-base;
-    .btn-cell-content-center;
+    .btn-cell-base();
+
+    justify-content: center;
 }
 
-svg.btn__icon,
-svg.fake-btn__icon {
-    .btn-icon-svg-base;
+button.btn svg.icon,
+a.fake-btn svg.icon {
+    .btn-icon-base();
+
+    flex-shrink: 0;
+    width: 1em;
 }
 
-.btn__cell--fixed-height span.btn__icon,
-.fake-btn__cell--fixed-height span.fake-btn__icon,
-.btn__cell--fixed-height svg.icon,
-.fake-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-alignment;
-}
-
-.btn__cell--fixed-height svg.icon,
-.fake-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-dimensions;
-}
-
-button.btn--regular,
-a.fake-btn--regular {
-    background-color: @button-regular-background-color;
-    border-color: @button-regular-border-color;
-    color: @button-regular-color;
-
-    &:active {
-        border-color: @button-regular-active-color;
-    }
-}
-
-a.fake-btn--regular:visited {
-    color: @button-regular-fake-visited-color;
-}
-
-button.btn--regular[disabled],
-button.btn--regular[aria-disabled="true"] {
-    background-color: @button-regular-disabled-background-color;
-    border-color: @button-regular-disabled-border-color;
-    color: @button-regular-disabled-color;
-
-    svg {
-        color: @button-regular-disabled-svg-color;
-    }
-
-    &:hover,
-    &:focus {
-        background-color: @button-regular-disabled-hover-background-color;
-        border-color: @button-regular-disabled-hover-border-color;
-    }
-}
-
-a.fake-btn--regular:not([href]),
-a.fake-btn--regular[aria-disabled="true"] {
-    background-color: @button-regular-partially-disabled-background-color;
-    color: @button-regular-partially-disabled-color;
+button.btn__cell--fixed-height svg.icon,
+a.fake-btn__cell--fixed-height svg.icon {
+    align-self: center;
+    height: 1rem;
+    overflow: visible;
+    width: 1rem;
 }
 
 button.btn--primary,
@@ -105,7 +62,7 @@ button.btn--primary[aria-disabled="true"] {
     border-color: @button-primary-disabled-border-color;
     color: @button-primary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-primary-disabled-svg-color;
     }
 
@@ -157,7 +114,7 @@ button.btn--delete[aria-disabled="true"] {
     border-color: @button-secondary-disabled-border-color;
     color: @button-secondary-disabled-color;
 
-    svg {
+    svg.icon {
         color: @button-secondary-disabled-svg-color;
     }
 
@@ -177,7 +134,35 @@ a.fake-btn--delete[aria-disabled="true"] {
     color: @button-secondary-partially-disabled-color;
 }
 
+button.btn--large,
+a.fake-btn--large {
+    min-height: 48px;
+}
+
 button.btn--transparent,
 a.fake-btn--transparent {
     background-color: transparent;
+}
+
+button.btn--fixed-height,
+a.fake-btn--fixed-height {
+    padding-top: calc(21.5px - 0.75em);
+}
+
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+    height: 48px;
+    padding-top: calc(27px - 0.75em);
+}
+
+button.btn--truncated,
+a.fake-btn--truncated {
+    .btn-truncate();
+}
+
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+    .btn-truncate();
+
+    height: 48px;
 }

@@ -1,55 +1,67 @@
 a.cta-btn {
-    .btn-base;
+    .btn-base();
 
     background-color: @btn-cta-background-color;
     border-color: currentColor;
     border-radius: @btn-border-radius;
     color: @btn-cta-color;
     display: inline-block;
+    font-size: @btn-font-size;
     max-width: 100%;
     padding: @btn-padding;
-
-    &:visited {
-        color: @btn-cta-visited-color;
-    }
-
-    &:focus,
-    &:hover {
-        background-color: @btn-cta-focus-hover-background-color;
-        border-color: @btn-cta-focus-hover-border-color;
-        color: @btn-cta-focus-hover-color;
-    }
-
-    &:not([href]),
-    &[aria-disabled="true"] {
-        background-color: @btn-cta-no-href-background-color;
-        border-color: @btn-cta-no-href-border-color;
-        color: @btn-cta-no-href-color;
-    }
 }
 
-.cta-btn__icon {
-    .btn-icon-base;
+a.cta-btn:visited {
+    color: @btn-cta-visited-color;
+}
+
+a.cta-btn:focus,
+a.cta-btn:hover {
+    background-color: @btn-cta-focus-hover-background-color;
+    border-color: @btn-cta-focus-hover-border-color;
+    color: @btn-cta-focus-hover-color;
+}
+
+a.cta-btn:not([href]),
+a.cta-btn[aria-disabled="true"] {
+    background-color: @btn-cta-no-href-background-color;
+    border-color: @btn-cta-no-href-border-color;
+    color: @btn-cta-no-href-color;
 }
 
 a.cta-btn--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
-.cta-btn__cell {
-    .btn-cell-base;
-    .btn-cell-content-center;
+span.cta-btn__cell {
+    .btn-cell-base();
+
+    justify-content: center;
 }
 
-svg.cta-btn__icon {
-    .btn-icon-svg-base;
+a.cta-btn svg.icon {
+    .btn-icon-base();
+
+    flex-shrink: 0;
 }
 
-.cta-btn__cell--fixed-height span.cta-btn__icon,
-.cta-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-alignment;
+span.cta-btn__cell--fixed-height svg.icon {
+    align-self: center;
+    height: 1rem;
+    overflow: visible; // needed?
+    width: 1rem;
 }
 
-.cta-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-dimensions;
+a.cta-btn--large {
+    min-height: 48px;
+}
+
+a.cta-btn--large-truncated {
+    .btn-truncate();
+
+    height: 48px;
+}
+
+a.cta-btn--large-fixed-height {
+    height: 48px;
 }

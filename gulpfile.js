@@ -58,21 +58,6 @@ function megabundle() {
     .pipe(gulp.dest(cdnTarget))
 }
 
-// Compile and minify the base64 less to docs/static, _site/static and _cdn
-function base64() {
-   return gulp.src(['./src/less/icon/background/**/*.less', '!./src/less/icon/background/base/*.less', '!./src/less/icon/background/ds6/background.less'])
-   .pipe(banner(comment, {pkg: pkg}))
-    .pipe(rename(function (path) {
-       path.basename = 'skin-base64';
-       path.extname = minifiedFileExtensionName;
-    }))
-    .pipe(less({plugins: [autoprefixPlugin]}))
-    .pipe(less({plugins: [cleanCSSPlugin]}))
-    .pipe(gulp.dest(docsStaticTarget))
-    .pipe(gulp.dest(siteStaticTarget))
-    .pipe(gulp.dest(cdnTarget))
-}
-
 // Static Server + watching src & docs files
 function server() {
     // Start the server.
@@ -128,4 +113,4 @@ function syncDocsHtml(cb) {
 // public tasks listed below
 
 exports.server = server;
-exports.default = gulp.series(gulp.parallel(modules, megabundle, base64));
+exports.default = gulp.series(gulp.parallel(modules, megabundle));

@@ -1,5 +1,6 @@
 <div id="textbox">
-    <h2><span class="secondary-text">@ebay/skin/</span>textbox</h2>
+    {% include common/section-header.html name="textbox" version=page.versions.textbox %}
+
     <p>A textbox (also known as an <em>input</em>) allows the user to enter data.</p>
     <p>The purpose of a textbox is to collect form data. Therefore, textbox should always be used in conjunction with a form, label and submit button.</p>
 
@@ -39,7 +40,7 @@
 </span>
     {% endhighlight %}
 
-    <h3>Textbox with error</h3>
+    <h3>Error-State Textbox</h3>
     <p>Use the <span class="highlight">aria-invalid</span> attribute to highlight any input with error.</p>
     <div class="demo">
         <div class="demo__inner">
@@ -89,13 +90,13 @@
     {% endhighlight %}
 
     <h3 id="textbox-icon">Textbox with Icon</h3>
-    <p>Single-line textboxes can be augmented with any inline SVG icon, using a <span class="highlight">textbox__icon</span> element before the control. Font-icons are no longer supported.</p>
+    <p>Single-line textboxes can be augmented with any SVG <a href="#icon">icon</a>.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="textbox">
-                <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
-                    <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+                <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+                    <use xlink:href="#icon-messages"></use>
                 </svg>
                 <input class="textbox__control" type="text" placeholder="placeholder text" />
             </span>
@@ -104,21 +105,21 @@
 
     {% highlight html %}
 <span class="textbox">
-    <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
-        <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+    <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+        <use xlink:href="#icon-messages"></use>
     </svg>
     <input class="textbox__control" type="text" placeholder="placeholder text" />
 </span>
     {% endhighlight %}
 
-    <p>Use <span class="highlight">textbox--icon-end</span> modifier to position the icon after the control.</p>
+    <p>To display the icon at the end of the control, position the <span class="highlight">svg</span> tag after the input, and use <span class="highlight">textbox--icon-end</span> modifier.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="textbox textbox--icon-end">
                 <input class="textbox__control" type="text" placeholder="placeholder text" />
-                <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
-                    <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+                <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+                    <use xlink:href="#icon-messages"></use>
                 </svg>
             </span>
         </div>
@@ -127,12 +128,39 @@
     {% highlight html %}
 <span class="textbox textbox--icon-end">
     <input class="textbox__control" type="text" placeholder="placeholder text" />
-    <svg aria-hidden="true" class="textbox__icon" focusable="false" width="16" height="16">
-        <use xlink:href="#{% if page.ds == 4 %}icon-mail{% else %}icon-messages{% endif %}"></use>
+    <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
+        <use xlink:href="#icon-messages"></use>
     </svg>
 </span>
     {% endhighlight %}
     <p><strong>NOTE:</strong> The icon is presentational, and therefore hidden from assistive technology using <span class="highlight">aria-hidden</span>. Remember, the purpose of the field must be conveyed using a label.</p>
+
+    <h3 id="textbox-icon-actionable">Textbox with Actionable Icon</h3>
+    <p>Single-line textboxes also support an <a href="#actionable">actionable</a> icon.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox textbox--icon-end">
+                <input class="textbox__control" type="text" placeholder="placeholder text" />
+                <button class="icon-btn" type="button" aria-label="Choose Contact">
+                    <svg aria-hidden="true" class="icon icon--messages" focusable="false" width="16" height="16">
+                        <use xlink:href="#icon-messages"></use>
+                    </svg>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox textbox--icon-end">
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
+    <button class="icon-btn" type="button" aria-label="Choose Contact">
+        <svg aria-hidden="true" class="icon icon--messages" focusable="false" width="16" height="16">
+            <use xlink:href="#icon-messages"></use>
+        </svg>
+    </button>
+</span>
+    {% endhighlight %}
 
     <h3 id="textbox-underline">Underline Textbox</h3>
     <p>Use <span class="highlight">textbox__control--underline</span> modifier to style the textbox with only a bottom border to be used in conjuction with floating labels.</p>
@@ -150,11 +178,4 @@
     <input class="textbox__control textbox__control--underline" type="text" />
 </span>
     {% endhighlight %}
-
-    {% if page.ds == 6 %}
-    <div class="section-footer">
-        <p>DS6.v1.01</p>
-    </div>
-    {% endif %}
-
 </div>

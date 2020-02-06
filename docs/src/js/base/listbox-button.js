@@ -9,7 +9,7 @@
 const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 
-function onButtonFirstClick(e) {
+function onButtonFirstClick() {
     this.listbox.el.hidden = false;
 }
 
@@ -24,7 +24,7 @@ function onListboxKeyDown(e) {
     }
 }
 
-function onListboxClick(e) {
+function onListboxClick() {
     const widget = this;
     setTimeout(function() {
         widget._expander.collapse();
@@ -62,7 +62,7 @@ module.exports = class {
             autoSelect: this._options.autoSelect
         });
 
-        this._expander = new Expander(this.el,  {
+        this._expander = new Expander(this.el, {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
@@ -108,4 +108,4 @@ module.exports = class {
         this._onListboxKeyDownListener = null;
         this._onListboxChangeListener = null;
     }
-}
+};

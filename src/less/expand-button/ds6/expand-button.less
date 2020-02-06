@@ -5,17 +5,13 @@
 @import "../../mixins/icon/ds6/icon-mixins.less";
 @import "../base/expand-button.less";
 
-.btn-expand-icon() {
-    .background-icon-image-mixin('chevron-down-bold', 9px, 5.2px);
+button.expand-btn {
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
-/* stylelint-disable  no-descending-specificity, no-duplicate-selectors */
-
-button.expand-btn--regular[disabled],
-button.expand-btn--regular[aria-disabled="true"] {
-    span.expand-btn__icon {
-        .background-icon-image-mixin('chevron-down-disabled', 9px, 100%);
-    }
+button.expand-btn--large {
+    font-size: @font-size-18;
 }
 
 button.expand-btn--primary {
@@ -39,167 +35,11 @@ button.expand-btn--secondary[disabled] {
     }
 }
 
-button.expand-btn--primary span.expand-btn__icon {
-    .background-image-base64(@icon-chevron-down-bold-base64-light);
-}
-
 button.expand-btn--secondary {
     &:focus,
     &:hover,
     &:active {
         border-color: @color-b7;
         color: @color-b7;
-    }
-}
-
-button.expand-btn--secondary span.expand-btn__icon {
-    .background-image-base64(@icon-chevron-down-bold-blue-base64);
-}
-
-button.expand-btn--secondary:focus span.expand-btn__icon,
-button.expand-btn--secondary:hover span.expand-btn__icon {
-    .background-image-base64(@icon-chevron-down-bold-blue-dark-base64);
-}
-
-button.expand-btn {
-    .button-size-rules(10px, 10px);
-
-    &__cell--fixed-height svg.btn__icon,
-    &__cell--fixed-height svg.expand-btn__icon,
-    &__cell--fixed-height svg.fake-btn__icon,
-    &__cell--fixed-height svg.cta-btn__icon {
-        align-self: center;
-        height: 1rem;
-        width: 1rem;
-    }
-
-    &--small {
-        .button-size-rules(6px, 6px);
-
-        min-height: 32px;
-
-        &-fixed-height {
-            .button-size-rules(6px, 6px);
-
-            height: 32px;
-        }
-
-        &-truncated {
-            .button-size-rules(6px, 6px);
-            .btn-truncate;
-
-            height: 32px;
-        }
-    }
-
-    &--medium {
-        .button-size-rules(10px, 10px);
-
-        min-height: 40px;
-
-        &-fixed-height {    // when updated for DS6.5 see https://github.com/eBay/skin/issues/555
-            .button-size-rules(10px, 10px);
-
-            height: 40px;
-        }
-
-        &-truncated {
-            .button-size-rules(10px, 10px);
-            .btn-truncate;
-
-            height: 40px;
-        }
-    }
-
-    &--large {
-        .button-size-rules(12px, 12px);
-
-        min-height: 48px;
-
-        &-fixed-height {
-            .button-size-rules(12px, 12px);
-
-            height: 48px;
-        }
-
-        &-truncated {
-            .button-size-rules(12px, 12px);
-            .btn-truncate;
-
-            height: 48px;
-        }
-    }
-
-    &--extra-large {
-        padding: 16px 24px;
-
-        &-fixed-height {
-            height: 40px;
-        }
-
-        &-truncated {
-            .btn-truncate;
-
-            height: 56px;
-        }
-    }
-
-    &--large,
-    &--extra-large {
-        font-size: @font-size-18;
-    }
-}
-
-button.expand-btn--small {
-    padding: 7px 16px;
-
-    &.expand-btn--no-text {
-        padding: 8px 12px;
-    }
-}
-
-button.expand-btn.expand-btn--no-text {
-    height: 40px;
-
-    &.expand-btn--small {
-        height: 32px;
-    }
-
-    &.expand-btn--medium {
-        height: 40px;
-    }
-
-    &.expand-btn--large {
-        height: 40px;
-    }
-
-    &.expand-btn--extra-large {
-        height: 48px;
-    }
-}
-
-// Official DS6 styles are medium and large, but adding this to support legacy deprecated small button
-
-button.expand-btn--legacy {
-    padding: 5.5px 48px;
-}
-
-button.expand-btn--legacy {
-    padding: 5.5px 12px;
-
-    &.expand-btn--no-text {
-        padding: 12.40625px 12px; // weird padding number, but it gets it to 32px height
-    }
-}
-
-svg.expand-btn__icon {
-    flex-shrink: 0;
-    height: 5.2px;
-    width: 9px;
-}
-
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.expand-btn__icon {
-        .background-image-base64(@icon-chevron-down-bold-base64-light);
     }
 }

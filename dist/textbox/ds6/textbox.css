@@ -1,6 +1,18 @@
 /* stylelint-disable  no-descending-specificity */
 .textbox {
+  color: #111820;
+  font-size: 0.875rem;
   position: relative;
+}
+.textbox button.icon-btn {
+  padding: 0;
+  position: absolute;
+  right: 0;
+}
+.textbox button.icon-btn svg.icon {
+  left: 0;
+  right: 0;
+  width: 14px;
 }
 span.textbox {
   display: inline-block;
@@ -25,9 +37,9 @@ textarea.textbox__control {
   border-radius: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #111820;
+  color: inherit;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 1em;
   height: 40px;
   margin: 0;
 }
@@ -126,65 +138,48 @@ input.textbox__control--underline[disabled]::-ms-input-placeholder {
 input.textbox__control--underline[disabled]::placeholder {
   color: transparent;
 }
-span.textbox__icon,
-.textbox__icon {
+.textbox svg {
   color: #c7c7c7;
   display: -webkit-inline-box;
   display: inline-flex;
+  fill: #c7c7c7;
   height: 100%;
   pointer-events: none;
   position: absolute;
   top: 0;
-}
-span.textbox__icon::before,
-.textbox__icon::before {
-  align-self: center;
-}
-span.textbox__icon {
-  color: #c7c7c7;
-}
-.textbox__icon {
-  fill: #c7c7c7;
   width: 14px;
 }
-.textbox__icon:first-child,
-span.textbox__icon:first-child {
-  left: 17px;
+.textbox svg:first-child {
+  left: 16px;
 }
-.textbox__icon:first-child + input.textbox__control,
-span.textbox__icon:first-child + input.textbox__control,
-.textbox__icon:first-child + textarea.textbox__control,
-span.textbox__icon:first-child + textarea.textbox__control {
+.textbox svg:first-child + input.textbox__control,
+.textbox svg:first-child + textarea.textbox__control {
   padding-left: 40px;
 }
 .textbox--icon-end input.textbox__control,
 .textbox--icon-end textarea.textbox__control {
   padding-right: 40px;
 }
-.textbox--icon-end .textbox__icon:last-child,
-.textbox--icon-end span.textbox__icon:last-child {
-  right: 17px;
+.textbox--icon-end svg:last-child {
+  right: 16px;
 }
 .textbox__control--fluid {
   width: 100%;
 }
-[dir="rtl"] span.textbox__icon:first-child,
-[dir="rtl"] .textbox__icon:first-child {
-  right: 17px;
+[dir="rtl"] .textbox svg:first-child {
+  right: 16px;
 }
-[dir="rtl"] span.textbox__icon:first-child + input.textbox__control,
-[dir="rtl"] .textbox__icon:first-child + input.textbox__control,
-[dir="rtl"] span.textbox__icon:first-child + textarea.textbox__control,
-[dir="rtl"] .textbox__icon:first-child + textarea.textbox__control {
-  padding-left: 17px;
+[dir="rtl"] .textbox svg:first-child + input.textbox__control,
+[dir="rtl"] .textbox svg:first-child + textarea.textbox__control {
+  padding-right: 40px;
 }
 [dir="rtl"] .textbox--icon-end input.textbox__control,
 [dir="rtl"] .textbox--icon-end textarea.textbox__control {
-  padding-right: 17px;
+  padding-left: 40px;
 }
-[dir="rtl"] .textbox--icon-end span.textbox__icon:last-child::before,
-[dir="rtl"] .textbox--icon-end .textbox__icon:last-child {
-  left: 17px;
+[dir="rtl"] .textbox--icon-end > svg:last-child {
+  left: 16px;
+  right: auto;
 }
 input.textbox__control,
 textarea.textbox__control {

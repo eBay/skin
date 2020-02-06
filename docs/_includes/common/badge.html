@@ -1,5 +1,6 @@
 <div id="badge">
-    <h2><span class="secondary-text">@ebay/skin/</span>badge</h2>
+    {% include common/section-header.html name="badge" version=page.versions.badge %}
+
     <p>A badge is a visual indicator added to an element to convey quantity, newness or both. Badges are intended to remind a user of previous actions taken, or to alert them of new actions that they should consider.</p>
 
     <h3 id="badge-default">Default Badge</h3>
@@ -12,6 +13,29 @@
     </div>
     {% highlight html %}
 <span class="badge" role="img" aria-label="1 notification">1</span>
+    {% endhighlight %}
+
+    <h3 id="badge-actionable">Actionable Badge</h3>
+    <p>A badge can be placed inside of an actionable icon button or icon link and it will receive the appropriate positioning. Note that the <span class="highlight">aria-label</span> is now moved to the button or anchor tag.</p>
+    <p>The button or anchor element requires an additional <span class="highlight">icon-btn--badged</span> or <span class="highlight">icon-link--badged</span> modifier, respectively.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
+                <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
+                    <use xlink:href="#icon-menu"></use>
+                </svg>
+                <span aria-hidden="true" class="badge">4</span>
+            </button>
+        </div>
+    </div>
+    {% highlight html %}
+<button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
+    <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
+        <use xlink:href="#icon-menu"></use>
+    </svg>
+    <span aria-hidden="true" class="badge">4</span>
+</button>
     {% endhighlight %}
 
     <h3 id="badge-menu">Menu Badge</h3>
@@ -43,33 +67,4 @@
     </div>
 </span>
     {% endhighlight %}
-
-    <h3 id="badge-icon-button">Icon Button Badge</h3>
-    <p>A badge can be placed inside of an icon button and it will receive the appropriate positioning. Note that the <span class="highlight">aria-label</span> is now moved to the button role.</p>
-    <p>The button element requires an additional <span class="highlight">icon-btn--badged</span> modifier.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
-                <svg class="icon icon--menu" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-menu"></use>
-                </svg>
-                <span aria-hidden="true" class="badge">4</span>
-            </button>
-        </div>
-    </div>
-    {% highlight html %}
-<button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
-    <svg class="icon icon--menu" focusable="false" width="16" height="16" aria-hidden="true">
-        <use xlink:href="#icon-menu"></use>
-    </svg>
-    <span aria-hidden="true" class="badge">4</span>
-</button>
-    {% endhighlight %}
-
-    {% if page.ds == 6 %}
-    <div class="section-footer">
-        <p>DS6.5.v1.01</p>
-    </div>
-    {% endif %}
 </div>

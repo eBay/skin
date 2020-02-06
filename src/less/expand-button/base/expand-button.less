@@ -1,5 +1,5 @@
 button.expand-btn {
-    .btn-base;
+    .btn-base();
 
     background-color: transparent;
     border: 1px solid;
@@ -7,83 +7,25 @@ button.expand-btn {
     border-radius: @btn-border-radius;
     color: inherit;
     display: inline-block;
+    font-size: 1em;
     max-width: 100%;
     padding: @btn-padding;
 }
 
-.expand-btn__icon {
-    .btn-icon-base;
-}
+button.expand-btn svg.icon {
+    .btn-icon-base();
 
-button.expand-btn[aria-expanded="true"] .expand-btn__icon {
-    transform: rotate(180deg);
+    flex-shrink: 0;
 }
 
 button.expand-btn--fluid {
-    .btn-fluid-base;
+    width: 100%;
 }
 
-.expand-btn__cell {
-    .btn-cell-base;
+span.expand-btn__cell {
+    .btn-cell-base();
 
     justify-content: space-between;
-}
-
-svg.expand-btn__icon {
-    .btn-icon-svg-base;
-}
-
-span.expand-btn__icon {
-    .background-icon-base-mixin;
-    .btn-expand-icon();
-
-    background-position-y: center;
-    flex-shrink: 0;
-    margin-left: 8px;
-}
-
-span.expand-btn__icon,
-svg.expand-btn__icon {
-    &:only-child {
-        display: flex;
-        margin: 0;
-    }
-}
-
-.expand-btn__cell--fixed-height span.expand-btn__icon,
-.expand-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-alignment;
-}
-
-.expand-btn__cell--fixed-height svg.icon {
-    .btn-fixed-height-icon-dimensions;
-}
-
-button.expand-btn--regular {
-    background-color: @button-regular-background-color;
-    border-color: @button-regular-border-color;
-    color: @button-regular-color;
-
-    &:active {
-        border-color: @button-regular-active-color;
-    }
-}
-
-button.expand-btn--regular[disabled],
-button.expand-btn--regular[aria-disabled="true"] {
-    background-color: @button-regular-disabled-background-color;
-    border-color: @button-regular-disabled-border-color;
-    color: @button-regular-disabled-color;
-
-    svg {
-        color: @button-regular-disabled-svg-color;
-    }
-
-    &:hover,
-    &:focus {
-        background-color: @button-regular-disabled-hover-background-color;
-        border-color: @button-regular-disabled-hover-border-color;
-    }
 }
 
 button.expand-btn--primary {
@@ -92,15 +34,22 @@ button.expand-btn--primary {
     color: @button-primary-color;
 }
 
+span.expand-btn__cell--fixed-height svg.icon {
+    align-self: center;
+    overflow: visible;
+}
+
+button.expand-btn[disabled],
+button.expand-btn[aria-disabled="true"] {
+    border-color: @button-secondary-disabled-border-color;
+    color: @button-secondary-disabled-color;
+}
+
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
     background-color: @button-primary-disabled-background-color;
     border-color: @button-primary-disabled-border-color;
     color: @button-primary-disabled-color;
-
-    svg {
-        color: @button-primary-disabled-svg-color;
-    }
 
     &:hover,
     &:focus {
@@ -121,14 +70,63 @@ button.expand-btn--secondary[aria-disabled="true"] {
     border-color: @button-secondary-disabled-border-color;
     color: @button-secondary-disabled-color;
 
-    svg {
-        color: @button-secondary-disabled-svg-color;
-    }
-
     &:hover,
     &:focus,
     &:active {
         background-color: @button-secondary-disabled-hover-background-color;
         border-color: @button-secondary-disabled-hover-border-color;
     }
+}
+
+button.expand-btn svg.icon:only-child {
+    display: flex;
+    margin: 0;
+}
+
+button.expand-btn[aria-expanded="true"] svg.icon--dropdown {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] button.expand-btn svg.icon {
+    &:first-child {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+
+    &:last-child {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+}
+
+button.expand-btn--large {
+    min-height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+button.expand-btn--large-fixed-height {
+    height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+button.expand-btn--large-truncated {
+    .btn-truncate();
+
+    height: 48px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+// code smell (chained modifier)
+button.expand-btn.expand-btn--no-text {
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+// code smell (chained modifier)
+button.expand-btn--no-text.expand-btn--large {
+    height: 48px;
 }

@@ -1,0 +1,70 @@
+// the non-plural classname is deprecated in v10
+nav.breadcrumb,
+nav.breadcrumbs {
+    color: @breadcrumbs-item-color;
+    font-size: @font-size-12;
+    height: fit-content;
+    margin: 8px 0;
+    min-height: 16px;
+    overflow: hidden; // causing font zoom & keyboard focus issues (#927)
+    position: relative;
+    white-space: nowrap;
+
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        min-width: 100%;
+        padding: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    // slightly odd measurements below, but matches what's in production
+    li svg {
+        margin-left: 5px;
+        margin-right: 7px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+
+    a,
+    button {
+        color: inherit;
+        outline-offset: -4px; // needed because of hidden overflow
+
+        &:focus,
+        &:hover {
+            color: @breadcrumbs-item-focus-hover-color;
+            text-decoration: underline;
+        }
+
+        &[aria-current] {
+            color: @breadcrumbs-item-current-color;
+            text-decoration: none;
+        }
+    }
+
+    a:visited {
+        color: inherit;
+    }
+}
+
+// the non-plural classname is deprecated in v10
+@media (min-width: 601px) {
+    nav.breadcrumb,
+    nav.breadcrumbs {
+        margin: 16px 0;
+    }
+}

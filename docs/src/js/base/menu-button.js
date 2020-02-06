@@ -9,7 +9,7 @@
 const Expander = require('makeup-expander');
 const Menu = require('./menu.js');
 
-function onButtonFirstClick(e) {
+function onButtonFirstClick() {
     this.menu.el.hidden = false;
 }
 
@@ -20,9 +20,9 @@ function onMenuKeyDown(e) {
     }
 }
 
-function onMenuItemSelect(e) {
+function onMenuItemSelect() {
     const widget = this;
-    setTimeout(function(e) {
+    setTimeout(function() {
         widget._expander.collapse();
         widget._buttonEl.focus();
     }, 150);
@@ -40,7 +40,7 @@ module.exports = class {
         this._buttonEl = widgetEl.querySelector('button');
         this.menu = new Menu(widgetEl.querySelector(this._options.menuSelector));
 
-        this._expander = new Expander(widgetEl,  {
+        this._expander = new Expander(widgetEl, {
             alwaysDoFocusManagement: true,
             collapseOnClick: true,
             collapseOnClickOut: true,
@@ -86,4 +86,4 @@ module.exports = class {
         this._onMenuKeyDownListener = null;
         this._onMenuItemSelectListener = null;
     }
-}
+};

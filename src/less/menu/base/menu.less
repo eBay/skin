@@ -1,6 +1,7 @@
 .menu__items,
 .fake-menu__items {
-    .dropdown-base();
+    background-color: #fff;
+    cursor: default; // needed to override text cursor
 }
 
 span.menu,
@@ -20,58 +21,66 @@ span.fake-menu__items {
     padding: 0;
 }
 
-.menu__status,
-.fake-menu__status {
+.menu__item svg.icon,
+.fake-menu__item svg.icon {
     .dropdown-status();
 }
 
-span.menu__status,
-span.fake-menu__status {
-    .dropdown-status-background();
-}
-
-.fake-menu__status:last-child,
-.menu__item .badge,
-.menu__status:last-child {
+.menu__item svg.icon:last-child,
+.fake-menu__item svg.icon:last-child,
+.menu__item .badge {
     margin-left: 8px;
 }
 
-// anchor tag specific
 a.fake-menu__item {
     color: @dropdown-fake-anchor-color;
     text-decoration: none;
 }
 
+button.fake-menu__item {
+    font-size: inherit;
+}
+
 button.fake-menu__item,
 a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
-    .dropdown-option();
+    .dropdown-option-base();
 }
 
-button.fake-menu__item:active .fake-menu__status,
-a.fake-menu__item:active .fake-menu__status,
-div.menu__item[role^="menuitem"]:active .menu__status {
+a.fake-menu__item:focus {
+    text-decoration: underline;
+}
+
+button.fake-menu__item:active svg.icon,
+a.fake-menu__item:active svg.icon {
     color: @dropdown-item-active-status-color;
 }
 
-div.menu__item[role^="menuitem"][aria-checked="true"] .menu__status,
-a.fake-menu__item[aria-current="page"] .fake-menu__status,
-button.fake-menu__item[aria-current="page"] .fake-menu__status {
+a.fake-menu__item[aria-current="page"] svg.icon,
+button.fake-menu__item[aria-current="page"] svg.icon {
     opacity: 1;
 }
 
-a.fake-menu__item span:not([class*="fake-menu__status"]),
-button.fake-menu__item span:not([class*="fake-menu__status"]),
-div.menu__item[role^="menuitem"] span:not([class*="menu__status"]) {
-    .truncate();
-
-    flex: 1 0 auto;
-    text-align: left;
+div.menu__item[role^="menuitem"]:active svg.icon {
+    color: @dropdown-item-active-status-color;
 }
 
-// anchor tag specific
-a.fake-menu__item:focus {
-    text-decoration: underline;
+div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
+    opacity: 1;
+}
+
+a.fake-menu__item span,
+button.fake-menu__item span,
+div.menu__item[role^="menuitem"] span {
+    flex: 1 0 auto;
+    text-align: left;
+    white-space: nowrap;
+}
+
+a.fake-menu__item span.badge,
+button.fake-menu__item span.badge,
+div.menu__item[role^="menuitem"] span.badge {
+    flex: initial;
 }
 
 .menu__items--scroll[role="menu"] {
@@ -98,12 +107,5 @@ a.fake-menu__item:focus {
     &:focus {
         outline: none;
         text-decoration: underline;
-    }
-}
-
-@media screen and (-ms-high-contrast: white-on-black) {
-    span.menu__status,
-    span.fake-menu__status {
-        .background-image-base64(@dropdown-status-base64-light);
     }
 }

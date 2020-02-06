@@ -13,7 +13,7 @@ function onKeyDown(e) {
     }
 }
 
-function onClick(e) {
+function onClick() {
     this.toggle();
 }
 
@@ -74,4 +74,4 @@ module.exports = class {
         this._onKeyDownListener = null;
         this._onClickListener = null;
     }
-}
+};

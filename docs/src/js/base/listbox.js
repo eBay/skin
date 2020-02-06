@@ -18,7 +18,7 @@ const PreventScrollKeys = require('makeup-prevent-scroll-keys');
 /*
 *   For listbox with auto select, the first keyboard focus should set selection to first option
 */
-function onFocus(e) {
+function onFocus() {
     if (this._mouseDownFlag !== true && this._options.autoSelect === true && this.index === -1) {
         this._activeDescendant.index = 0;
         this.items[0].setAttribute('aria-selected', 'true');
@@ -33,7 +33,7 @@ function onFocus(e) {
 /*
 *   This flag is used to help us detect if first focus comes from keyboard or as a result of mouse onClick
 */
-function onMouseDown(e) {
+function onMouseDown() {
     this._mouseDownFlag = true;
 }
 
@@ -68,7 +68,7 @@ function _onActiveDescendantChange(e) {
 
     if (this._options.autoSelect === true) {
         const fromEl = this.items[e.detail.fromIndex];
-        const toEl =  this.items[e.detail.toIndex];
+        const toEl = this.items[e.detail.toIndex];
 
         if (fromEl) {
             this.unselect(e.detail.fromIndex);
@@ -99,7 +99,11 @@ module.exports = class {
         // in cases such as comboboc, the active-descendant logic is controlled by a parent widget
         this._activeDescendantRootEl = this._options.listboxOwnerElement || this.el;
 
-        this._listboxEl = (widgetEl.getAttribute('role') === 'listbox') ? widgetEl : this.el.querySelector('[role=listbox]');
+        if (widgetEl.getAttribute('role') === 'listbox') {
+            this._listboxEl = widgetEl;
+        } else {
+            this._listboxEl = this.el.querySelector('[role=listbox]');
+        }
 
         if (!this._options.focusableElement) {
             this._listboxEl.setAttribute('tabindex', '0');
@@ -170,14 +174,20 @@ module.exports = class {
         this._listboxEl.removeEventListener('mousedown', this._onMouseDownListener);
         this._listboxEl.removeEventListener('keydown', this._onKeyDownListener);
         this._listboxEl.removeEventListener('click', this._onClickListener);
-        this._activeDescendantRootEl.removeEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
+        this._activeDescendantRootEl.removeEventListener(
+            'activeDescendantChange',
+            this._onActiveDescendantChangeListener
+        );
     }
 
     wake() {
         if (this._destroyed !== true) {
             this._listboxEl.addEventListener('focus', this._onFocusListener);
             this._listboxEl.addEventListener('mousedown', this._onMouseDownListener);
-            this._activeDescendantRootEl.addEventListener('activeDescendantChange', this._onActiveDescendantChangeListener);
+            this._activeDescendantRootEl.addEventListener(
+                'activeDescendantChange',
+                this._onActiveDescendantChangeListener
+            );
             this._listboxEl.addEventListener('keydown', this._onKeyDownListener);
             this._listboxEl.addEventListener('click', this._onClickListener);
         }
@@ -193,4 +203,4 @@ module.exports = class {
         this._onClickListener = null;
         this._onActiveDescendantChangeListener = null;
     }
-}
+};

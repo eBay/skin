@@ -1,5 +1,6 @@
 button.btn,
 a.fake-btn {
+  border: 1px solid;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: inherit;
@@ -7,14 +8,14 @@ a.fake-btn {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
-  font-size: 0.875rem;
   background-color: transparent;
-  border: 1px solid;
   border-color: inherit;
   border-radius: 3px;
   color: inherit;
   display: inline-block;
+  font-size: 0.875rem;
   max-width: 100%;
+  min-height: 40px;
   padding: 11px 48px;
 }
 button.btn--fixed-height,
@@ -37,21 +38,6 @@ a.fake-btn--truncated span {
 a.fake-btn:visited {
   color: inherit;
 }
-.btn__icon,
-.fake-btn__icon,
-.expand-btn__icon {
-  align-self: center;
-}
-.btn__icon:first-child,
-.fake-btn__icon:first-child,
-.expand-btn__icon:first-child {
-  margin-right: 8px;
-}
-.btn__icon:last-child,
-.fake-btn__icon:last-child,
-.expand-btn__icon:last-child {
-  margin-left: 8px;
-}
 button.btn--fluid,
 a.fake-btn--fluid {
   width: 100%;
@@ -71,8 +57,6 @@ a.fake-btn--fluid {
   display: -webkit-inline-box;
   display: inline-flex;
 }
-.btn__cell--fixed-height > span,
-.fake-btn__cell--fixed-height > span,
 .btn__cell--fixed-height > svg,
 .fake-btn__cell--fixed-height > svg {
   align-self: baseline;
@@ -83,64 +67,31 @@ a.fake-btn--fluid {
   display: -webkit-inline-box;
   display: inline-flex;
 }
-.btn__cell--truncated > span,
-.fake-btn__cell--truncated > span,
 .btn__cell--truncated > svg,
 .fake-btn__cell--truncated > svg {
   align-self: baseline;
   max-width: calc(100% - 32px);
 }
-svg.btn__icon,
-svg.fake-btn__icon {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: 0;
-}
-.btn__cell--fixed-height span.btn__icon,
-.fake-btn__cell--fixed-height span.fake-btn__icon,
-.btn__cell--fixed-height svg.icon,
-.fake-btn__cell--fixed-height svg.icon {
+button.btn svg.icon,
+a.fake-btn svg.icon {
   align-self: center;
+  flex-shrink: 0;
+  width: 1em;
 }
-.btn__cell--fixed-height svg.icon,
-.fake-btn__cell--fixed-height svg.icon {
+button.btn svg.icon:first-child,
+a.fake-btn svg.icon:first-child {
+  margin-right: 8px;
+}
+button.btn svg.icon:last-child,
+a.fake-btn svg.icon:last-child {
+  margin-left: 8px;
+}
+button.btn__cell--fixed-height svg.icon,
+a.fake-btn__cell--fixed-height svg.icon {
+  align-self: center;
   height: 1rem;
+  overflow: visible;
   width: 1rem;
-}
-button.btn--regular,
-a.fake-btn--regular {
-  background-color: #fff;
-  border-color: #ccc;
-  color: #0654ba;
-}
-button.btn--regular:active,
-a.fake-btn--regular:active {
-  border-color: #555;
-}
-a.fake-btn--regular:visited {
-  color: #0654ba;
-}
-button.btn--regular[disabled],
-button.btn--regular[aria-disabled="true"] {
-  background-color: #ccc;
-  border-color: #767676;
-  color: #767676;
-}
-button.btn--regular[disabled] svg,
-button.btn--regular[aria-disabled="true"] svg {
-  color: #767676;
-}
-button.btn--regular[disabled]:hover,
-button.btn--regular[aria-disabled="true"]:hover,
-button.btn--regular[disabled]:focus,
-button.btn--regular[aria-disabled="true"]:focus {
-  background-color: #ccc;
-  border-color: #767676;
-}
-a.fake-btn--regular:not([href]),
-a.fake-btn--regular[aria-disabled="true"] {
-  background-color: #ccc;
-  color: #767676;
 }
 button.btn--primary,
 a.fake-btn--primary {
@@ -157,8 +108,8 @@ button.btn--primary[aria-disabled="true"] {
   border-color: #0654ba;
   color: #fff;
 }
-button.btn--primary[disabled] svg,
-button.btn--primary[aria-disabled="true"] svg {
+button.btn--primary[disabled] svg.icon,
+button.btn--primary[aria-disabled="true"] svg.icon {
   color: #fff;
 }
 button.btn--primary[disabled]:hover,
@@ -208,10 +159,10 @@ button.btn--delete[aria-disabled="true"] {
   border-color: #999;
   color: #555;
 }
-button.btn--secondary[disabled] svg,
-button.btn--secondary[aria-disabled="true"] svg,
-button.btn--delete[disabled] svg,
-button.btn--delete[aria-disabled="true"] svg {
+button.btn--secondary[disabled] svg.icon,
+button.btn--secondary[aria-disabled="true"] svg.icon,
+button.btn--delete[disabled] svg.icon,
+button.btn--delete[aria-disabled="true"] svg.icon {
   color: #555;
 }
 button.btn--secondary[disabled]:hover,
@@ -236,15 +187,22 @@ a.fake-btn--delete[aria-disabled="true"] {
   border-color: #999;
   color: #555;
 }
+button.btn--large,
+a.fake-btn--large {
+  min-height: 48px;
+}
 button.btn--transparent,
 a.fake-btn--transparent {
   background-color: transparent;
 }
-button.btn,
-a.fake-btn {
-  font-size: 0.875rem;
-  padding: 11px 40px;
-  line-height: 1.2em;
+button.btn--fixed-height,
+a.fake-btn--fixed-height {
+  padding-top: calc(21.5px - 0.75em);
+}
+button.btn--large-fixed-height,
+a.fake-btn--large-fixed-height {
+  height: 48px;
+  padding-top: calc(27px - 0.75em);
 }
 button.btn--truncated,
 a.fake-btn--truncated,
@@ -255,22 +213,35 @@ a.fake-btn--truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-button.btn[disabled],
-button.btn[aria-disabled="true"] {
+button.btn--large-truncated,
+a.fake-btn--large-truncated {
+  height: 48px;
+}
+button.btn--large-truncated,
+a.fake-btn--large-truncated,
+button.btn--large-truncated span,
+a.fake-btn--large-truncated span {
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button.btn,
+a.fake-btn {
+  padding: 11px 40px;
+}
+button.btn[disabled] {
   opacity: 0.5;
 }
-a.fake-btn:not([href]),
+a.fake-btn:not([href]) {
+  opacity: 0.5;
+}
+button.btn[aria-disabled="true"],
 a.fake-btn[aria-disabled="true"] {
   opacity: 0.5;
 }
-button.btn--regular:hover,
-a.fake-btn--regular:hover,
-button.btn--regular:focus,
-a.fake-btn--regular:focus {
-  border-color: #999;
-}
-button.btn--primary svg,
-a.fake-btn--primary svg {
+button.btn--primary,
+a.fake-btn--primary {
   color: #fff;
   fill: #fff;
 }
@@ -285,8 +256,8 @@ button.btn--primary:active,
 a.fake-btn--primary:active {
   background-color: #00489f;
 }
-button.btn--secondary svg,
-a.fake-btn--secondary svg {
+button.btn--secondary,
+a.fake-btn--secondary {
   color: #555;
 }
 button.btn--secondary:hover,
@@ -301,8 +272,8 @@ a.fake-btn--secondary:active {
   background-color: rgba(221, 221, 221, 0.5);
   border-color: rgba(85, 85, 85, 0.5);
 }
-button.btn--primary[disabled] svg,
-button.btn--primary[aria-disabled="true"] svg {
+button.btn--primary[disabled],
+button.btn--primary[aria-disabled="true"] {
   color: #fff;
 }
 button.btn--primary[disabled]:hover,
@@ -313,8 +284,8 @@ button.btn--primary[aria-disabled="true"]:focus {
   border-color: #0654ba;
   opacity: 0.5;
 }
-a.fake-btn--primary:not([href]) svg,
-a.fake-btn--primary[aria-disabled="true"] svg {
+a.fake-btn--primary:not([href]),
+a.fake-btn--primary[aria-disabled="true"] {
   color: #fff;
 }
 a.fake-btn--primary:not([href]):hover,
@@ -328,9 +299,6 @@ a.fake-btn--primary[aria-disabled="true"]:focus {
 button.btn--secondary[disabled],
 button.btn--secondary[aria-disabled="true"] {
   background-color: #ccc;
-}
-button.btn--secondary[disabled] svg,
-button.btn--secondary[aria-disabled="true"] svg {
   color: #555;
 }
 button.btn--secondary[disabled]:hover,
@@ -343,9 +311,6 @@ button.btn--secondary[aria-disabled="true"]:focus {
 a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"] {
   background-color: #ccc;
-}
-a.fake-btn--secondary:not([href]) svg,
-a.fake-btn--secondary[aria-disabled="true"] svg {
   color: #555;
 }
 a.fake-btn--secondary:not([href]):hover,
@@ -355,37 +320,13 @@ a.fake-btn--secondary[aria-disabled="true"]:focus {
   background-color: #ccc;
   border-color: #999;
 }
-.btn__cell--fixed-height .btn__icon,
-.fake-btn__cell--fixed-height .fake-btn__icon {
-  align-self: center;
-  overflow: visible;
-}
-button.btn--fixed-height,
-a.fake-btn--fixed-height {
-  padding-top: calc(21.5px - 0.75em);
-}
 button.btn--large,
 a.fake-btn--large {
   font-size: 1rem;
   padding: 14px 48px;
 }
-button.btn--large-fixed-height,
-a.fake-btn--large-fixed-height {
-  height: 48px;
-  padding-top: calc(27px - 0.75em);
-}
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
   font-size: 1rem;
   padding: 14px 48px;
-  height: 48px;
-}
-button.btn--large-truncated,
-a.fake-btn--large-truncated,
-button.btn--large-truncated span,
-a.fake-btn--large-truncated span {
-  line-height: 1.4em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }

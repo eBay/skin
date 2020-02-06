@@ -1,3 +1,5 @@
+// stylelint-disable no-descending-specificity
+
 @desktop: ~"only screen and (min-width: 601px)";
 @medium: ~"only screen and (min-width: 961px)";
 @giant: ~"only screen and (min-width: 1281px)";
@@ -150,18 +152,20 @@ main > div > h2 {
     color: white;
 }
 
-/* REUSABLE LAYOUT CLASSES */
-
-.split {
+.section-header {
     display: flex;
+    margin: 16px 0;
 }
 
-.split > div {
-    width: 50%;
+.section-header h2 {
+    margin: 0;
 }
 
-.split > div:last-child {
-    margin-left: 8px;
+.section-header__version {
+    align-self: flex-end;
+    background-color: @color-grey1;
+    margin-left: auto;
+    padding: 2px 4px;
 }
 
 /* ABOUT SECTION */
@@ -197,8 +201,8 @@ span.demo__inner {
 
 /* CAROUSEL SECTION */
 
-.demo-filmstrip__card {
-    background: @color-information-background;
+.carousel__list--default-demo li {
+    background-color: @color-information-background;
     color: @color-text-default;
     font-size: 24px;
     font-weight: bold;
@@ -206,22 +210,40 @@ span.demo__inner {
     line-height: 120px;
     margin-right: 16px;
     text-align: center;
-    width: 250px;
+    width: 200px;
 }
 
-.demo-filmstrip__card:last-child {
-    margin-right: 0;
+.carousel__list--discrete-demo li {
+    background-color: @color-information-background;
+    box-sizing: border-box;
+    color: @color-text-default;
+    font-size: 24px;
+    font-weight: bold;
+    height: 120px;
+    line-height: 120px;
+    margin-right: 16px;
+    text-align: center;
+    width: calc(25% - 24px);
 }
 
-.demo-slideshow__card {
-    background: @color-information-background;
+.carousel__list--slideshow-demo li {
+    background-color: @color-information-background;
     color: @color-text-default;
     font-size: 36px;
     font-weight: bold;
     height: 300px;
     line-height: 300px;
+    margin-right: 16px;
     text-align: center;
     width: 100%;
+}
+
+.carousel__list--discrete-demo li:last-child {
+    margin-right: 0;
+}
+
+.carousel__list--slideshow-demo li:last-child {
+    margin-right: 0;
 }
 
 /* COLOR SECTION */
@@ -244,6 +266,17 @@ span.demo__inner {
     margin-right: 1rem;
     vertical-align: middle;
     width: 100%;
+}
+
+/* GLOBAL SECTION */
+
+a.demo-link-visited {
+    color: @color-link-visited;
+
+    &:link,
+    &:visited {
+        color: @color-link-visited;
+    }
 }
 
 /* UTILITY SECTION */
@@ -273,7 +306,6 @@ span.icon {
 
 .icon-table th {
     background-color: #eee;
-    font-size: 18px;
     padding: 8px 6px;
     text-align: left;
 }
@@ -476,6 +508,7 @@ span.icon {
     .app-bar {
         margin: 0 auto;
         max-width: 600px;
+        padding-left: 8px;
         width: 100%;
     }
 
@@ -486,6 +519,7 @@ span.icon {
         grid-row-start: 1;
         height: 100vh;
         overflow-y: scroll;
+        padding-left: 8px;
         padding-right: 24px;
         position: sticky;
         top: 0;

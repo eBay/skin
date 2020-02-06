@@ -15,15 +15,6 @@
 
 @import "../base/notice.less";
 
-// stylelint-disable no-descending-specificity
-
-.page-notice,
-.section-notice {
-    font-size: @font-size-14;
-    min-height: 32px;
-    padding: 8px 8px 8px 0;
-}
-
 .page-notice--information,
 .page-notice--confirmation,
 .page-notice--attention,
@@ -33,10 +24,6 @@
     border-top: 1px solid @color-core-gray-silver;
 }
 
-.page-notice--celebration {
-    padding: 16px 16px 16px 0;
-}
-
 .section-notice--information,
 .section-notice--confirmation,
 .section-notice--attention {
@@ -44,92 +31,16 @@
     border: 1px solid @color-core-gray-silver;
 }
 
-button.page-notice,
-button.section-notice {
-    border-left: 0 none;
-    border-right: 0 none;
-    text-align: left;
-    width: 100%;
-}
-
-.page-notice--fluid,
-.section-notice--fluid {
-    width: 100%;
-}
-
 .page-notice--attention,
-a.page-notice--attention,
 .section-notice--attention,
+a.page-notice--attention,
 a.section-notice--attention {
     color: @color-text-critical;
 }
 
-.page-notice__content,
-.section-notice__content {
-    margin-top: 4px;
-    padding-left: 8px;
-}
-
-.page-notice__content--align-middle,
-.section-notice__content--align-middle {
-    margin-top: 8px;
-
-    & + .page-notice__cta {
-        align-self: center;
-        margin-top: 0;
-    }
-
-    p {
-        margin: 0;
-    }
-}
-
-svg.page-notice__cta,
-svg.section-notice__cta {
-    color: @color-icon-actionable-default;
-    height: 23px;
-    width: 13px;
-}
-
-.page-notice > button.btn,
-.page-notice > a.fake-btn,
-.section-notice > button.btn,
-.section-notice > a.fake-btn {
-    margin: auto 16px;
-}
-
-.page-notice__content p,
-.section-notice__content p {
-    margin: 0;
-
-    &:not(:first-of-type) {
-        margin-top: 4px;
-    }
-}
-
-.page-notice__status span,
-.section-notice__status span {
-    .background-icon-base-mixin;
-
-    height: 24px;
-    margin-left: 8px;
-    width: 24px;
-}
-
-.page-notice__status svg,
-.section-notice__status svg {
-    .foreground-icon-base-mixin;
-}
-
-.page-notice__status span,
-.page-notice__status svg,
-.section-notice__status span,
-.section-notice__status svg {
-    height: 24px;
-    margin: 4px 0 4px 8px;
-    min-height: 24px;
-    min-width: 24px;
-    width: 24px;
+.page-notice__status,
+.section-notice__status {
+    color: @color-white;
 }
 
 .page-notice--information .page-notice__status,
@@ -143,89 +54,9 @@ svg.section-notice__cta {
     color: @color-core-green;
 }
 
-button.page-notice__close span,
-button.section-notice__close span {
-    .background-icon-base-mixin;
-    .background-icon-image-mixin('close', 12px, 12px);
-}
-
-.page-notice--attention .page-notice__status span,
-.section-notice--attention .section-notice__status span {
-    .background-icon-image-mixin('attention-filled');
-}
-
-.page-notice--confirmation .page-notice__status span,
-.page-notice--celebration .page-notice__status span,
-.section-notice--confirmation .section-notice__status span {
-    .background-icon-image-mixin('confirmation-filled');
-}
-
-.page-notice--information .page-notice__status span,
-.section-notice--information .section-notice__status span {
-    .background-icon-image-mixin('information-filled');
-}
-
-button.page-notice__close,
-button.section-notice__close {
-    background: none;
-    border: 0;
-    color: @color-icon-actionable-default;
-    height: 32px;
-    margin-left: 8px;
-    padding: 0;
-    white-space: nowrap;
-    width: 32px;
-
-    &:focus,
-    &:hover {
-        color: @color-icon-actionable-hover;
-    }
-
-    &:active {
-        color: @color-icon-actionable-active;
-    }
-
-    svg {
-        .foreground-icon-base-mixin;
-
-        height: 12px;
-        width: 12px;
-    }
-}
-
 @media (min-width: 601px) {
-    div[role="region"].page-notice,
-    section.page-notice,
-    div[role="region"].section-notice,
-    section.section-notice {
-        margin: 16px 0;
-    }
-
-    .page-notice,
-    .section-notice {
-        padding-right: 16px;
-    }
-
     .page-notice {
         border: 1px solid @color-core-gray-silver;
-    }
-
-    .page-notice--celebration {
-        padding: 24px 24px 24px 0;
-    }
-
-    .page-notice__content,
-    .section-notice__content {
-        padding-left: 16px;
-    }
-
-    .page-notice--celebration .page-notice__content {
-        padding-left: 24px;
-    }
-
-    .page-notice__cta,
-    .section-notice__cta {
-        margin-left: 16px;
     }
 
     .page-notice--information {
@@ -239,138 +70,5 @@ button.section-notice__close {
 
     .page-notice--attention {
         border-top: 2px solid @color-text-critical;
-    }
-
-    span.page-notice__cta,
-    span.section-notice__cta {
-        .background-icon-image-mixin('chevron-light-right', 16px, 16px);
-    }
-
-    button.page-notice__close,
-    button.section-notice__close {
-        margin-left: 16px;
-    }
-
-    .page-notice__status svg,
-    .section-notice__status svg {
-        margin-left: 16px;
-    }
-
-    .page-notice__status span,
-    .section-notice__status span {
-        margin-left: 16px;
-    }
-}
-
-// todo: move inline notice to separate module OR fix stylelint no-descending-specificity violations
-
-// line-height helps vertical-alignment when font-weight is bold
-.inline-notice {
-    font-size: @font-size-14;
-    line-height: 1.15;
-    min-height: 16px;
-}
-
-.inline-notice--attention {
-    color: @color-text-critical;
-    font-weight: 500;
-}
-
-.inline-notice--information .inline-notice__status {
-    color: @color-core-blue;
-}
-
-.inline-notice--confirmation .inline-notice__status {
-    color: @color-core-green;
-}
-
-.inline-notice__status span {
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
-    height: 16px;
-    min-height: 16px;
-    min-width: 16px;
-    width: 16px;
-}
-
-.inline-notice--attention .inline-notice__status span {
-    .background-icon-image-mixin('attention-filled', 16px, 16px);
-}
-
-.inline-notice--confirmation .inline-notice__status span {
-    .background-icon-image-mixin('confirmation-filled', 16px, 16px);
-}
-
-.inline-notice--information .inline-notice__status span {
-    .background-icon-image-mixin('information-filled', 16px, 16px);
-}
-
-.inline-notice__content {
-    padding-left: 8px;
-}
-
-.inline-notice__content p {
-    margin: 0;
-
-    &:not(:first-of-type) {
-        margin-top: 4px;
-    }
-}
-
-.inline-notice__status svg {
-    .foreground-icon-base-mixin;
-
-    height: 16px;
-    width: 16px;
-}
-
-@media (min-width: 601px) {
-    div.inline-notice {
-        margin: 16px 0;
-    }
-
-    .page-notice--celebration .page-notice__status svg,
-    .page-notice--celebration .page-notice__status span {
-        margin-left: 24px;
-    }
-}
-
-// DEPRECATED in V7. SCHEDULED FOR REMOVAL.
-
-.flyout-notice--confirmation {
-    .flyout-notice__mask {
-        border-top: 2px solid @color-interface-positive;
-    }
-
-    .flyout-notice__pointer--top-left,
-    .flyout-notice__pointer--top,
-    .flyout-notice__pointer--top-right {
-        background-color: @color-interface-positive;
-    }
-}
-
-.flyout-notice--information {
-    .flyout-notice__mask {
-        border-top: 2px solid @color-interface-cta;
-    }
-
-    .flyout-notice__pointer--top-left,
-    .flyout-notice__pointer--top,
-    .flyout-notice__pointer--top-right {
-        background-color: @color-interface-cta;
-    }
-}
-
-.flyout-notice--attention {
-    .flyout-notice__mask {
-        border-top: 2px solid @color-text-critical;
-        color: @color-text-critical;
-    }
-
-    .flyout-notice__pointer--top-left,
-    .flyout-notice__pointer--top,
-    .flyout-notice__pointer--top-right {
-        background-color: @color-text-critical;
     }
 }
