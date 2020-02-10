@@ -171,3 +171,14 @@ export const singleSelectSelectedInheritFontSize200PercentBrokenSpacingShouldNot
     </div>
 </span>
 `;
+
+export const grouped = () => `
+<span class="menu">
+    <div class="menu__items" role="menu">
+        <div class="menu__item" role="menuitem" tabindex="0"><span>Item 1</span></div>
+        <hr class="menu__separator" role="separator" />
+        <div class="menu__item" role="menuitem"><span>Item 2</span></div>
+        <div class="menu__item" role="menuitem"><span>Item 3</span></div>
+    </div>
+</span>
+`;
