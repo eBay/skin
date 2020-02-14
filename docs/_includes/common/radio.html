@@ -7,12 +7,12 @@
 
     <h3>Default Radio</h3>
     <p>Use the <span class="highlight">radio</span> base class to create a styled radio.</p>
-    <p><strong>NOTE:</strong>  Skin uses SVG to give a custom radio button appearance. This SVG is hidden by default to prevent it from appearing alongside the browser default radio button in a non-CSS state.</p>
+    <p><strong>NOTE:</strong> Skin uses SVG to give a custom radio button appearance. This SVG is hidden by default to prevent it from appearing alongside the browser default radio button in a non-CSS state.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="radio">
-                <input aria-label="SVG radio example" class="radio__control" type="radio" name="radio-svg"/>
+                <input aria-label="SVG radio example" class="radio__control" type="radio" name="radio-default"/>
                 <span class="radio__icon" hidden>
                     <svg class="radio__unchecked" focusable="false" height="18" width="18">
                         <use xlink:href="#icon-radio-unchecked"></use>
@@ -26,7 +26,7 @@
     </div>
     {% highlight html %}
 <span class="radio">
-    <input aria-label="SVG radio example" class="radio__control" type="radio" />
+    <input class="radio__control" type="radio" />
     <span class="radio__icon" hidden>
         <svg class="radio__unchecked" focusable="false" height="18" width="18">
             <use xlink:href="#icon-radio-unchecked"></use>
@@ -37,6 +37,42 @@
     </span>
 </span>
     {% endhighlight %}
+
+    {% if page.ds == 6 %}
+
+    <h3 id="radio-large">Large Radio</h3>
+    <p>Small screens should use the larger <span class="highlight">#icon-radio-unchecked-large</span> and <span class="highlight">#icon-radio-checked-large</span> icons.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="radio demo-large-radio">
+                <input aria-label="SVG radio example" class="radio__control" type="radio" name="radio-large"/>
+                <span class="radio__icon" hidden>
+                    <svg class="radio__unchecked" focusable="false" height="24" width="24">
+                        <use xlink:href="#icon-radio-unchecked-large"></use>
+                    </svg>
+                    <svg class="radio__checked" focusable="false" height="24" width="24">
+                        <use xlink:href="#icon-radio-checked-large"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="radio">
+    <input class="radio__control" type="radio" />
+    <span class="radio__icon" hidden>
+        <svg class="radio__unchecked" focusable="false" height="24" width="24">
+            <use xlink:href="#icon-radio-unchecked-large"></use>
+        </svg>
+        <svg class="radio__checked" focusable="false" height="24" width="24">
+            <use xlink:href="#icon-radio-checked-large"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
+    {% endif %}
 
     <h3 id="radio-disabled">Disabled Radio</h3>
     <p>Use the <span class="highlight">disabled</span> attribute to disable any radio input.</p>
