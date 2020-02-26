@@ -5,9 +5,9 @@
     <p>The purpose of a checkbox is to collect form data; therefore a checkbox should always be used in conjunction with a form, label and submit button.</p>
     <p>The checkbox is decoupled from its text label to allow more flexibility in terms of layout. How and where you provide this label is up to you, but do not forget it!</p>
 
-    <h3 id="checkbox-default">Default</h3>
+    <h3 id="checkbox-default">Default Checkbox</h3>
     <p>Use the <span class="highlight">checkbox</span> base class to create a checkbox.</p>
-    <p><strong>NOTE:</strong>  Skin uses SVG to give a custom checkbox appearance. This SVG is hidden by default to prevent it from appearing alongside the browser default checkbox in a non-CSS state.</p>
+    <p><strong>NOTE:</strong> Skin uses SVG to give a custom checkbox appearance. This SVG is hidden by default to prevent it from appearing alongside the browser default checkbox in a non-CSS state.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -37,6 +37,42 @@
     </span>
 </span>
     {% endhighlight %}
+
+    {% if page.ds == 6 %}
+
+    <h3 id="checkbox-large">Large Checkbox</h3>
+    <p>Small screens should use the larger <span class="highlight">#icon-checkbox-unchecked-large</span> and <span class="highlight">#icon-checkbox-checked-large</span> icons.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox demo-large-checkbox">
+                <input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-large" checked />
+                <span class="checkbox__icon" hidden>
+                    <svg class="checkbox__unchecked" focusable="false" height="24" width="24">
+                        <use xlink:href="#icon-checkbox-unchecked-large"></use>
+                    </svg>
+                    <svg class="checkbox__checked" focusable="false" height="24" width="24">
+                        <use xlink:href="#icon-checkbox-checked-large"></use>
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="checkbox">
+    <input class="checkbox__control" type="checkbox" checked />
+    <span class="checkbox__icon" hidden>
+        <svg class="checkbox__unchecked" focusable="false" height="24" width="24">
+            <use xlink:href="#icon-checkbox-unchecked-large"></use>
+        </svg>
+        <svg class="checkbox__checked" focusable="false" height="24" width="24">
+            <use xlink:href="#icon-checkbox-checked-large"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
+    {% endif %}
 
     <h3 id="checkbox-disabled">Disabled Checkbox</h3>
     <p>Use the <span class="highlight">disabled</span> attribute to disable any checkbox input.</p>
