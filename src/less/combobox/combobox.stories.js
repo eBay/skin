@@ -269,3 +269,28 @@ export const defaultSizeLongOptions = () => `
     </div>
 </div>
 `;
+
+export const actionableIcon = () => `
+<span class="combobox">
+    <span class="combobox__control">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox1" />
+        <button class="icon-btn icon-btn--actionable" type="button" aria-label="Expand Suggestions">
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </button>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox1" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 3</span>
+            </div>
+        </div>
+    </div>
+`;
