@@ -89,13 +89,15 @@
                 {% if page.ds == 6 %}
                 <th>DEFAULT</th>
                 <th>SMALL</th>
+                <th>LARGE</th>
                 <th>FILLED</th>
                 <th>FILLED-SMALL</th>
+                <th>FILLED-LARGE</th>
                 {% endif %}
             </tr>
         </thead>
         <tbody>
-            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bids, camera, categories, close, cart, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, following, information, help, home, menu, messages, mic, notification, overflow, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, play, profile, purchases, red-laser, refresh, save, save-bold, save-selected, search, search-bold, selling, send, settings, star-empty, star-filled, star-filled-grey, star-half, star-undefined, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, watch, window" | split: ", " %}
+            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bank, bids, calendar, camera, cart, categories, chat, close, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, credit-card, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, filter-single-selected, fingerprint, following, information, ipad-condensed-grid, ipad-relaxed-grid, ipad-vertical-split, help, home, location, locked, menu, messages, mic, mobile, mobile-signal, notification, overflow, package, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, play, profile, purchases, red-laser, refresh, remove, save, save-bold, save-selected, search, search-bold, selling, send, settings, share, star-empty, star-filled, star-filled-grey, star-half, star-undefined, store, text-messaging, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, unlocked, watch, window" | split: ", " %}
             {% for icon in icons %}
             <tr>
                 <td>{{ icon }}</td>
@@ -121,6 +123,15 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}-large" focusable="false" height="64" width="64">
+                                <use xlink:href="#icon-{{ icon }}-large"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
                             <svg aria-hidden="true" class="icon icon--{{ icon }}-filled" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-{{ icon }}-filled"></use>
                             </svg>
@@ -136,6 +147,16 @@
                         </span>
                     </span>
                 </td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled-large" focusable="false" height="64" width="64">
+                                <use xlink:href="#icon-{{ icon }}-filled-large"></use>
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+
                 {% endif %}
             </tr>
             {% endfor %}
