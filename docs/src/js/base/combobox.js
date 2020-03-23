@@ -10,11 +10,11 @@ const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 const Util = require('./util.js');
 
-function onButtonClick(e) {
+function onButtonClick() {
     this._expander.toggle();
 }
 
-function onButtonFocus(e) {
+function onButtonFocus() {
     this._expander.expanded = false;
 }
 
@@ -160,7 +160,7 @@ module.exports = class {
             collapseOnFocusOut: true,
             contentSelector: '.combobox__listbox',
             expandedClass: 'combobox--expanded',
-            expandOnFocus: this._buttonEl ? false : true,
+            expandOnFocus: !this._buttonEl,
             hostSelector: 'input'
         });
 
