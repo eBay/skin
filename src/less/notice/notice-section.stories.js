@@ -1,21 +1,14 @@
 export default { title: 'notice-section' };
 
-export const sectionNotice = () => `
+export const base = () => `
 <div class="section-notice" role="region">
     <span class="section-notice__content">
         <p>Here you go</p>
     </span>
 </div>
-<div class="section-notice section-notice--attention" role="region">
-    <h3 class="section-notice__status">
-        <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
-            <use xlink:href="#icon-attention-filled"></use>
-        </svg>
-    </h3>
-    <span class="section-notice__content">
-        <p>Something went wrong. Please try again.</p>
-    </span>
-</div>
+`;
+
+export const confirmation = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
@@ -26,6 +19,22 @@ export const sectionNotice = () => `
         <p>Congrats! You are the highest bidder!</p>
     </span>
 </div>
+`;
+
+export const attention = () => `
+<div class="section-notice section-notice--attention" role="region">
+    <h3 class="section-notice__status">
+        <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
+            <use xlink:href="#icon-attention-filled"></use>
+        </svg>
+    </h3>
+    <span class="section-notice__content">
+        <p>Something went wrong. Please try again.</p>
+    </span>
+</div>
+`;
+
+export const information = () => `
 <div class="section-notice section-notice--information" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--information-filled">
@@ -38,38 +47,17 @@ export const sectionNotice = () => `
 </div>
 `;
 
-export const sectionNoticeButtonCTA = () => `
+export const baseWithButtonCTA = () => `
 <div class="section-notice" role="region">
     <span class="section-notice__content">
         <p>Something went wrong. Please try again.</p>
         <p>Click button to get More info</p>
     </span>
-    <button class="btn btn--secondary btn--transparent">Action button</button>
+    <button class="btn btn--secondary btn--transparent">Action Button</button>
 </div>
-<div class="section-notice section-notice--attention" role="region">
-    <h3 class="section-notice__status">
-        <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
-            <use xlink:href="#icon-attention-filled"></use>
-        </svg>
-    </h3>
-    <span class="section-notice__content">
-        <p>Something went wrong. Please try again.</p>
-        <p>Here's a second line</p>
-    </span>
-    <button class="btn btn--secondary btn--transparent">Action button</button>
-</div>
-<div class="section-notice section-notice--information" role="region">
-    <h3 class="section-notice__status">
-        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
-            <use xlink:href="#icon-information-filled"></use>
-        </svg>
-    </h3>
-    <span class="section-notice__content">
-        <p>Something went wrong. Please try again.</p>
-        <p>Here's a second line</p>
-    </span>
-    <button class="btn btn--secondary btn--transparent">Action button</button>
-</div>
+`;
+
+export const confirmationWithButtonCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
@@ -81,11 +69,11 @@ export const sectionNoticeButtonCTA = () => `
         <p>Congrats! You are the highest bidder!</p>
         <p>Here's a second line</p>
     </span>
-    <button class="btn btn--secondary btn--transparent">Action button</button>
+    <button class="btn btn--secondary btn--transparent">Action Button</button>
 </div>
 `;
 
-export const sectionNoticeLinkCTA = () => `
+export const attentionWithButtonCTA = () => `
 <div class="section-notice section-notice--attention" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
@@ -96,8 +84,11 @@ export const sectionNoticeLinkCTA = () => `
         <p>Something went wrong. Please try again.</p>
         <p>Here's a second line</p>
     </span>
-    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action button</a>
+    <button class="btn btn--secondary btn--transparent">Action Button</button>
 </div>
+`;
+
+export const informationWithButtonCTA = () => `
 <div class="section-notice section-notice--information" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--information-filled">
@@ -108,8 +99,11 @@ export const sectionNoticeLinkCTA = () => `
         <p>Something went wrong. Please try again.</p>
         <p>Here's a second line</p>
     </span>
-    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action button</a>
+    <button class="btn btn--secondary btn--transparent">Action Button</button>
 </div>
+`;
+
+export const confirmationWithLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
@@ -121,16 +115,11 @@ export const sectionNoticeLinkCTA = () => `
         <p>Congrats! You are the highest bidder!</p>
         <p>Here's a second line</p>
     </span>
-    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action button</a>
+    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action Link</a>
 </div>
 `;
 
-export const sectionNoticeMultiline = () => `
-<div class="section-notice section-notice--guidance" role="region">
-    <span class="section-notice__content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </span>
-</div>
+export const attentionWithLinkCTA = () => `
 <div class="section-notice section-notice--attention" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
@@ -138,23 +127,33 @@ export const sectionNoticeMultiline = () => `
         </svg>
     </h3>
     <span class="section-notice__content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Something went wrong. Please try again.</p>
+        <p>Here's a second line</p>
     </span>
+    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action Link</a>
 </div>
+`;
+
+export const informationWithLinkCTA = () => `
+<div class="section-notice section-notice--information" role="region">
+    <h3 class="section-notice__status">
+        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
+            <use xlink:href="#icon-information-filled"></use>
+        </svg>
+    </h3>
+    <span class="section-notice__content">
+        <p>Something went wrong. Please try again.</p>
+        <p>Here's a second line</p>
+    </span>
+    <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action Link</a>
+</div>
+`;
+
+export const longText = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <h3 class="section-notice__status">
         <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
             <use xlink:href="#icon-confirmation-filled"></use>
-        </svg>
-    </h3>
-    <span class="section-notice__content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </span>
-</div>
-<div class="section-notice section-notice--information" role="region">
-    <h3 class="section-notice__status">
-        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
-            <use xlink:href="#icon-information-filled"></use>
         </svg>
     </h3>
     <span class="section-notice__content">
