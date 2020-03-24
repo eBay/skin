@@ -1,6 +1,6 @@
 export default { title: 'label' };
 
-export const defaultLabel = () => `
+export const base = () => `
 <span class="floating-label">
     <label class="floating-label__label" for="firstName">First Name</label>
     <span class="textbox">
@@ -9,7 +9,7 @@ export const defaultLabel = () => `
 </span>
 `;
 
-export const floatingLabelWithValue = () => `
+export const value = () => `
 <span class="floating-label">
     <label class="floating-label__label" for="lastName">Last Name</label>
     <span class="textbox">
@@ -18,7 +18,7 @@ export const floatingLabelWithValue = () => `
 </span>
 `;
 
-export const floatingLabelWithPlaceholder = () => `
+export const placeholder = () => `
 <span class="floating-label">
     <label class="floating-label__label" for="dob">Date Of Birth</label>
     <span class="textbox">
@@ -27,7 +27,7 @@ export const floatingLabelWithPlaceholder = () => `
 </span>
 `;
 
-export const floatingLabelWithDisabledTextbox = () => `
+export const disabledTextbox = () => `
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
     <span class="textbox">
@@ -36,7 +36,7 @@ export const floatingLabelWithDisabledTextbox = () => `
 </span>
 `;
 
-export const floatingLabelWithInvalidTextbox = () => `
+export const invalidTextbox = () => `
 <span class="floating-label">
     <label class="floating-label__label" for="firstName">First Name</label>
     <span class="textbox">

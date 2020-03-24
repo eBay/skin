@@ -27,7 +27,7 @@ export const group = () => `
 </div>
 `;
 
-export const selectedButton = () => `
+export const pressedButton = () => `
 <button type="button" class="filter-button" aria-pressed="true">
     <span class="filter-button__cell">Button</span>
 </button>
