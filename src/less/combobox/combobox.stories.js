@@ -84,52 +84,6 @@ export const large = () => `
 </span>
 `;
 
-export const inheritColour = () => `
-<div style="color: red">
-    <span class="combobox combobox--expanded">
-        <span class="combobox__control">
-            <input class="pink-placeholder-text" name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-        <div class="combobox__listbox">
-            <div id="listbox1" class="combobox__options" role="listbox">
-                <div class="combobox__option" role="option">
-                    <span>Option 1</span>
-                </div>
-                <div class="combobox__option" role="option">
-                    <span>Option 2</span>
-                </div>
-            </div>
-        </div>
-    </span>
-</div>
-`;
-
-export const inheritFontSize = () => `
-<div style="font-size: 200%;">
-    <span class="combobox combobox--expanded">
-        <span class="combobox__control">
-            <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-        <div class="combobox__listbox">
-            <div id="listbox1" class="combobox__options" role="listbox">
-                <div class="combobox__option" role="option">
-                    <span>Option 1</span>
-                </div>
-                <div class="combobox__option" role="option">
-                    <span>Option 2</span>
-                </div>
-            </div>
-        </div>
-    </span>
-</div>
-`;
-
 export const longOptions = () => `
 <span class="combobox combobox--expanded">
     <span class="combobox__control">
@@ -175,4 +129,73 @@ export const actionableIcon = () => `
         </div>
     </div>
 </span>
+`;
+
+export const rtl = () => `
+<div dir="rtl">
+    <span class="combobox combobox--expanded">
+        <span class="combobox__control">
+            <input class="pink-placeholder-text" name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+        <div class="combobox__listbox">
+            <div id="listbox1" class="combobox__options" role="listbox">
+                <div class="combobox__option" role="option">
+                    <span>Option 1</span>
+                </div>
+                <div class="combobox__option" role="option">
+                    <span>Option 2</span>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+`;
+
+export const inheritColour = () => `
+<div style="color: red">
+    <span class="combobox combobox--expanded">
+        <span class="combobox__control">
+            <input class="pink-placeholder-text" name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+        <div class="combobox__listbox">
+            <div id="listbox1" class="combobox__options" role="listbox">
+                <div class="combobox__option" role="option">
+                    <span>Option 1</span>
+                </div>
+                <div class="combobox__option" role="option">
+                    <span>Option 2</span>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+`;
+
+export const inheritFontSize = () => `
+<div style="font-size: 200%;">
+    <span class="combobox combobox--expanded">
+        <span class="combobox__control">
+            <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+        <div class="combobox__listbox">
+            <div id="listbox1" class="combobox__options" role="listbox">
+                <div class="combobox__option" role="option">
+                    <span>Option 1</span>
+                </div>
+                <div class="combobox__option" role="option">
+                    <span>Option 2</span>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
 `;
