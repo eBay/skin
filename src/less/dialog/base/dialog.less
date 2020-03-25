@@ -42,11 +42,34 @@
     background-color: transparent;
 }
 
+.dialog__heading {
+    display: flex;
+    margin: 16px 16px 0;
+}
+
+.dialog__heading h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.dialog__heading > :last-child {
+    margin-left: 16px;
+}
+
 .dialog__body {
     box-sizing: border-box;
+    flex: 1;
     margin: 16px;
     min-height: 100%;
     position: relative;
+}
+
+.dialog__body > :first-child {
+    margin-top: 0;
+}
+
+.dialog__body > :last-child {
+    margin-bottom: 0;
 }
 
 .dialog__close {
@@ -57,6 +80,7 @@
     left: 0;
 }
 
+// TODO refactor in next major version
 .dialog__back,
 .dialog__close {
     background-color: @dialog-back-close-background-color;
@@ -74,7 +98,17 @@
     }
 }
 
+.dialog__heading .dialog__close {
+    // TODO remove the nested selector in next major version
+    align-self: center;
+    float: auto;
+    padding: 0;
+    position: relative;
+}
+
 .dialog__window {
+    display: flex;
+    flex-direction: column;
     left: 0;
     margin: auto;
     max-width: @dialog_max_width;
@@ -117,10 +151,10 @@
         min-height: auto;
     }
 
-    .dialog__close {
-        float: right;
-        position: sticky;
-    }
+    // .dialog__close {
+    //     float: right;
+    //     position: sticky;
+    // }
 }
 
 .dialog__window--fill {

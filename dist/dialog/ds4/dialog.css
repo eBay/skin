@@ -13,12 +13,33 @@
 .dialog--no-mask[role="dialog"] {
   background-color: transparent;
 }
+.dialog__heading {
+  display: -webkit-box;
+  display: flex;
+  margin: 16px 16px 0;
+}
+.dialog__heading h2 {
+  -webkit-box-flex: 1;
+          flex: 1;
+  margin: 0;
+}
+.dialog__heading > :last-child {
+  margin-left: 16px;
+}
 .dialog__body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1;
   margin: 16px;
   min-height: 100%;
   position: relative;
+}
+.dialog__body > :first-child {
+  margin-top: 0;
+}
+.dialog__body > :last-child {
+  margin-bottom: 0;
 }
 .dialog__close {
   right: 0;
@@ -43,7 +64,18 @@
 .dialog__close:focus {
   color: #0654ba;
 }
+.dialog__heading .dialog__close {
+  align-self: center;
+  float: auto;
+  padding: 0;
+  position: relative;
+}
 .dialog__window {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   left: 0;
   margin: auto;
   max-width: 616px;
@@ -83,13 +115,6 @@
 .dialog__window--left .dialog__body,
 .dialog__window--right .dialog__body {
   min-height: auto;
-}
-.dialog__window--full .dialog__close,
-.dialog__window--left .dialog__close,
-.dialog__window--right .dialog__close {
-  float: right;
-  position: -webkit-sticky;
-  position: sticky;
 }
 .dialog__window--fill {
   min-height: 70vh;
