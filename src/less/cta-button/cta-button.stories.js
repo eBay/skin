@@ -1,6 +1,6 @@
 export default { title: 'cta-button' };
 
-export const defaultButton = () => `
+export const base = () => `
 <a class="cta-btn" href="http://www.ebay.com">
     <span class="cta-btn__cell">
         <span>Link</span>
@@ -11,7 +11,7 @@ export const defaultButton = () => `
 </a>
 `;
 
-export const inheritColorRed = () => `
+export const overrideColor = () => `
 <a class="cta-btn" href="http://www.ebay.com" style="color: red">
     <span class="cta-btn__cell">
         <span>Link</span>
@@ -22,7 +22,7 @@ export const inheritColorRed = () => `
 </a>
 `;
 
-export const inheritFontSize200Percent = () => `
+export const overrideFontSize = () => `
 <a class="cta-btn" href="http://www.ebay.com" style="font-size: 200%">
     <span class="cta-btn__cell">
         <span>Link</span>

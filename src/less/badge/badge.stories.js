@@ -1,24 +1,18 @@
 export default { title: 'badge' };
 
-export const badgeOneDigit = () => `
-<p>
-    <span class="badge">1</span>
-</p>
+export const oneDigit = () => `
+<span class="badge">1</span>
 `;
 
-export const badgeTwoDigits = () => `
-<p>
-    <span class="badge">10</span>
-</p>
+export const twoDigits = () => `
+<span class="badge">10</span>
 `;
 
-export const badgeThreeDigits = () => `
-<p>
-    <span class="badge">99+</span>
-</p>
+export const threeDigits = () => `
+<span class="badge">99+</span>
 `;
 
-export const badgedIconButtonOneDigit = () => `
+export const iconButtonOneDigit = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -27,7 +21,7 @@ export const badgedIconButtonOneDigit = () => `
 </button>
 `;
 
-export const badgeIconButtonTwoDigits = () => `
+export const iconButtonTwoDigits = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -36,7 +30,7 @@ export const badgeIconButtonTwoDigits = () => `
 </button>
 `;
 
-export const badgeIconButtonThreeDigits = () => `
+export const iconButtonThreeDigits = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -45,7 +39,7 @@ export const badgeIconButtonThreeDigits = () => `
 </button>
 `;
 
-export const badgedIconLinkOneDigit = () => `
+export const iconLinkOneDigit = () => `
 <a aria-label="Settings" class="icon-link icon-link--badged" href="http://www.ebay.com">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -54,7 +48,7 @@ export const badgedIconLinkOneDigit = () => `
 </a>
 `;
 
-export const badgedIconLinkTwoDigits = () => `
+export const iconLinkTwoDigits = () => `
 <a aria-label="Settings" class="icon-link icon-link--badged" href="http://www.ebay.com">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -63,7 +57,7 @@ export const badgedIconLinkTwoDigits = () => `
 </a>
 `;
 
-export const badgedIconLinkThreeDigits = () => `
+export const iconLinkThreeDigits = () => `
 <a aria-label="Settings" class="icon-link icon-link--badged" href="http://www.ebay.com">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -72,7 +66,7 @@ export const badgedIconLinkThreeDigits = () => `
 </a>
 `;
 
-export const badgedMenu = () => `
+export const menu = () => `
 <span class="menu">
     <span class="menu__items" role="menu">
         <div class="menu__item" role="menuitem"><span>Button 1<span class="badge">1</span></span></div>

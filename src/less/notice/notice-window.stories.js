@@ -1,6 +1,6 @@
 export default { title: 'notice-window' };
 
-export const windowNoticeButton = () => `
+export const base = () => `
 <section aria-labelledby="window-notice-title" class="window-notice" role="region">
     <h2 id="window-notice-title">
         <svg class="icon icon--confirmation-filled" focusable="false" height="35" width="35" role="img" aria-label="Success">
@@ -13,7 +13,7 @@ export const windowNoticeButton = () => `
 </section>
 `;
 
-export const windowNoticeButtonFill = () => `
+export const fill = () => `
 <div class="demo" style="width: 320px; max-width:90vw">
     <div class="demo__inner" style="height: 500px; max-height: 90vh">
         <section aria-labelledby="window-notice-title" class="window-notice window-notice--fill" role="region">
