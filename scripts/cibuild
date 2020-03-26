@@ -4,11 +4,6 @@ set -e # halt script on error
 JEKYLL_ENV=production bundle exec jekyll build --config docs/_config.yml
 bundle exec htmlproofer ./_site/index.html --disable-external --empty_alt_ignore --allow_hash_href
 
-# snapshot index pages and test pages
-#bundle exec npx percy snapshot _site --snapshot-files=index.html,ds6/index.html,test/**/ds4/index.html,test/**/ds6/index.html --ignore-files=test/card,test/dialog
-
-# snapshot index pages only
-#bundle exec npx percy snapshot _site --snapshot-files=index.html,ds6/index.html
-
-# snapshot test pages only
-#bundle exec npx percy snapshot _site --snapshot-files=test/**/ds4/index.html,test/**/ds6/index.html --ignore-files=test/card,test/dialog
+# snapshot storybook
+# disabled until we get a full license
+#bundle exec npx @percy/storybook percy-storybook --widths=320,1280 --build_dir=docs/storybook
