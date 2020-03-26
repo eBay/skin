@@ -36,7 +36,7 @@
     "transpile": "babel docs/src/js --out-dir docs/_babel",
     "snapshot": "npm run storybook:build && percy-storybook --widths=320,1280 --build_dir=docs/storybook",
     "storybook:copy-svg-icons": "node scripts/storybook/copy-svg-icons",
-    "storybook:build": "STORYBOOK_DS=4 npm run storybook:copy-svg-icons build-storybook -o ./docs/ds4/storybook && STORYBOOK_DS=6 build-storybook -o ./docs/storybook",
+    "storybook:build": "npm run storybook:copy-svg-icons && STORYBOOK_DS=4 build-storybook -o ./docs/ds4/storybook && STORYBOOK_DS=6 build-storybook -o ./docs/storybook",
     "storybook:start-proper": "start-storybook -s .",
     "storybook:start": "cross-env STORYBOOK_DS=6 npm-run-all -s storybook:copy-svg-icons storybook:start-proper"
   },
