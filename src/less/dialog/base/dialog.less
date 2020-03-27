@@ -45,6 +45,7 @@
 .dialog__heading {
     display: flex;
     margin: 16px 16px 0;
+    position: relative;
 }
 
 .dialog__heading h2 {
@@ -162,10 +163,10 @@
         min-height: auto;
     }
 
-    // .dialog__close {
-    //     float: right;
-    //     position: sticky;
-    // }
+    .dialog__close {
+        float: right;
+        position: sticky;
+    }
 }
 
 .dialog__window--fill {
@@ -293,26 +294,31 @@
 
 @media (min-width: 601px) {
     .dialog__heading {
-        margin: 24px 24px 0;
+        margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
     }
 
     .dialog__heading > :last-child {
-        margin-left: 24px;
-        margin-top: auto;
+        margin-left: @dialog-large-gutter-size;
+        margin-top: initial;
     }
 
     .dialog__body {
-        margin: 24px;
+        margin: @dialog-large-gutter-size;
     }
 
     .dialog__footer {
         flex-direction: row;
         justify-content: end;
-        margin: 0 24px 24px;
+        margin: 0 @dialog-large-gutter-size @dialog-large-gutter-size;
     }
 
     .dialog__footer > :not(:first-child) {
-        margin-left: 24px;
-        margin-top: auto;
+        margin-left: @dialog-large-gutter-size;
+        margin-top: initial;
+    }
+
+    .dialog__back,
+    .dialog__close {
+        padding: @dialog-large-gutter-size;
     }
 }

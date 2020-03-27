@@ -17,6 +17,7 @@
   display: -webkit-box;
   display: flex;
   margin: 16px 16px 0;
+  position: relative;
 }
 .dialog__heading h2 {
   -webkit-box-flex: 1;
@@ -128,6 +129,13 @@
 .dialog__window--left .dialog__body,
 .dialog__window--right .dialog__body {
   min-height: auto;
+}
+.dialog__window--full .dialog__close,
+.dialog__window--left .dialog__close,
+.dialog__window--right .dialog__close {
+  float: right;
+  position: -webkit-sticky;
+  position: sticky;
 }
 .dialog__window--fill {
   min-height: 70vh;
@@ -247,14 +255,14 @@
 }
 @media (min-width: 601px) {
   .dialog__heading {
-    margin: 24px 24px 0;
+    margin: 16px 16px 0;
   }
   .dialog__heading > :last-child {
-    margin-top: auto;
-    margin-left: 24px;
+    margin-left: 16px;
+    margin-top: initial;
   }
   .dialog__body {
-    margin: 24px;
+    margin: 16px;
   }
   .dialog__footer {
     -webkit-box-orient: horizontal;
@@ -262,11 +270,15 @@
             flex-direction: row;
     -webkit-box-pack: end;
             justify-content: end;
-    margin: 0 24px 24px;
+    margin: 0 16px 16px;
   }
   .dialog__footer > :not(:first-child) {
-    margin-top: auto;
-    margin-left: 24px;
+    margin-left: 16px;
+    margin-top: initial;
+  }
+  .dialog__back,
+  .dialog__close {
+    padding: 16px;
   }
 }
 .dialog__back,
@@ -280,6 +292,27 @@
 .dialog__close svg {
   height: 16px;
   width: 16px;
+}
+.dialog__heading {
+  background-color: white;
+  margin: 0;
+}
+.dialog__heading > h2 {
+  border-bottom: 1px solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1.125rem;
+  font-weight: 400;
+  left: 0;
+  overflow: hidden;
+  padding: 8px 50px;
+  text-align: center;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+.dialog__heading > .dialog__close {
+  position: absolute;
 }
 .dialog__body {
   font-size: 0.875rem;
