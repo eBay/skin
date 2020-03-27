@@ -72,6 +72,17 @@
     margin-bottom: 0;
 }
 
+.dialog__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 16px 16px;
+}
+
+.dialog__footer > :not(:first-child) {
+    margin-top: 16px;
+}
+
 .dialog__close {
     right: 0;
 }
@@ -277,5 +288,31 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .dialog__window:not(.dialog__window--full) {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
+    }
+}
+
+@media (min-width: 601px) {
+    .dialog__heading {
+        margin: 24px 24px 0;
+    }
+
+    .dialog__heading > :last-child {
+        margin-left: 24px;
+        margin-top: auto;
+    }
+
+    .dialog__body {
+        margin: 24px;
+    }
+
+    .dialog__footer {
+        flex-direction: row;
+        justify-content: end;
+        margin: 0 24px 24px;
+    }
+
+    .dialog__footer > :not(:first-child) {
+        margin-left: 24px;
+        margin-top: auto;
     }
 }
