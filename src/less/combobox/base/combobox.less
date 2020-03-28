@@ -62,13 +62,14 @@ span.combobox {
     }
 }
 
+// refactor in v11 to use .combobox__control--actionable (added in 10.3.0)
 .combobox__control {
     button.icon-btn {
         padding: 0;
         position: absolute;
         right: 0;
 
-        svg.icon {
+        svg {
             left: 0;
             margin: 0;
             right: 0;
@@ -101,7 +102,6 @@ span.combobox {
     margin-left: 0;
     margin-right: 0;
     padding: @combobox-input-padding;
-    text-align: left;
 
     &[readonly] {
         // fixes the cursor in firefox (1 of 2)
@@ -179,16 +179,14 @@ span.combobox {
 
 // RTL
 [dir="rtl"] {
-    .combobox__control {
-        & > input {
-            padding: 0 16px 0 32px;
-        }
-    
-        & > svg {
-            left: 17px;
-            margin-left: 0;
-            margin-right: 8px;
-            right: unset;
-        }
+    .combobox__control > input {
+        padding: 0 16px 0 32px;
+    }
+
+    .combobox__control > svg.icon {
+        left: 17px;
+        margin-left: 0;
+        margin-right: 8px;
+        right: unset;
     }
 }
