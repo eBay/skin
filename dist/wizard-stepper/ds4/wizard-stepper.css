@@ -8,37 +8,31 @@
   padding: 0;
 }
 hr.wizard-stepper__separator {
-  border: 0 none;
-  height: 24px;
-  margin: 0;
-  position: relative;
-  width: 100%;
-}
-hr.wizard-stepper__separator::after {
   background-color: green;
-  content: '';
+  border: 0 none;
   display: inline-block;
   height: 2px;
-  position: absolute;
+  margin: 0;
+  position: relative;
   top: 11px;
   width: 100%;
 }
-hr.wizard-stepper__separator--confirmation::after {
+hr.wizard-stepper__separator--confirmation {
   background-color: #3ac952 !important;
 }
-hr.wizard-stepper__separator--default::after {
+hr.wizard-stepper__separator--default {
   background-color: #111820 !important;
 }
-hr.wizard-stepper__separator--error::after {
+hr.wizard-stepper__separator--error {
   background-color: #e62048 !important;
 }
-hr.wizard-stepper__separator--insufficient::after {
+hr.wizard-stepper__separator--insufficient {
   background-color: #3665f3 !important;
 }
-hr.wizard-stepper__separator--inprogress::after {
+hr.wizard-stepper__separator--inprogress {
   background-color: #3ac952 !important;
 }
-hr.wizard-stepper__separator--upcoming::after {
+hr.wizard-stepper__separator--upcoming {
   background-color: #c7c7c7 !important;
 }
 .wizard-stepper__icon {
@@ -87,6 +81,7 @@ hr.wizard-stepper__separator--upcoming::after {
 }
 .wizard-stepper__item {
   margin: 0 auto;
+  min-width: 80px;
   position: relative;
   text-align: center;
 }
@@ -162,18 +157,14 @@ hr.wizard-stepper__separator--upcoming::after {
   display: block;
 }
 .wizard-stepper.wizard-stepper--vertical .wizard-stepper__separator {
-  display: block;
-}
-.wizard-stepper.wizard-stepper--vertical .wizard-stepper__separator::after {
-  height: 100%;
-  left: 11px;
-  top: 0;
-  width: 2px;
-  z-index: 1;
+  display: inline;
+  height: auto;
+  width: auto;
 }
 .wizard-stepper.wizard-stepper--vertical .wizard-stepper__item {
   display: -webkit-box;
   display: flex;
+  margin-bottom: 16px;
   margin-left: 0;
 }
 .wizard-stepper.wizard-stepper--vertical .wizard-stepper__icon {
@@ -182,7 +173,7 @@ hr.wizard-stepper__separator--upcoming::after {
 }
 .wizard-stepper.wizard-stepper--vertical .wizard-stepper__icon::after,
 .wizard-stepper.wizard-stepper--vertical .wizard-stepper__icon::before {
-  height: 100%;
+  height: calc(100% - 8px);
   left: 11px;
   position: absolute;
   top: 24px;
