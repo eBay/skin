@@ -68,6 +68,14 @@ Interested in contributing? Head over to our [contributing guide](CONTRIBUTING.m
 
 Contributions don't have to be code! They can be ideas, inspiration, discussion or filing bugs!
 
+### Developing
+
+For adding a new module, you can execute the following script which generates required files and its appropriate wiring.
+
+```
+node scripts/develop-module.js --module-name="Your Module Name"
+```
+
 ## People
 
 The original creator of Skin is [Senthil Padmanabhan](https://github.com/senthilp).
