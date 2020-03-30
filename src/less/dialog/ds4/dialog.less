@@ -14,6 +14,7 @@
 
 @dialog-transitions-hide-mask-fade-background-color: @color-text-default;
 @dialog-transitions-show-mask-fade-background-color: @color-text-default;
+@dialog-large-gutter-size: 16px;
 
 @import "../base/dialog.less";
 
@@ -30,6 +31,30 @@
     }
 }
 
+.dialog__header {
+    background-color: white;
+    margin: 0;
+}
+
+.dialog__header > h2 {
+    border-bottom: 1px solid @color-core-gray-light;
+    box-sizing: border-box;
+    font-size: @font-size-18;
+    font-weight: 400;
+    left: 0;
+    overflow: hidden;
+    padding: 8px 50px;
+    text-align: center;
+    text-overflow: ellipsis;
+    top: 0;
+    white-space: nowrap;
+}
+
+.dialog__header > .dialog__close {
+    position: absolute;
+}
+
+.dialog__main,
 .dialog__body {
     font-size: @font-size-14;
     padding-top: calc(1.125rem ~"+" 14px);
@@ -66,6 +91,7 @@
         }
     }
 
+    .dialog__main h2:first-of-type,
     .dialog__body h2:first-of-type {
         padding-left: 16px;
         padding-right: 16px;

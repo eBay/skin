@@ -67,7 +67,7 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
 document.querySelectorAll('.dialog-button').forEach(function(btn) {
     let cancel;
     const dialog = btn.nextElementSibling;
-    const dialogBody = dialog.querySelector('.dialog__body');
+    const dialogBody = dialog.querySelector('.dialog__body, .dialog__main');
     const dialogClose = dialog.querySelector('.dialog__close');
     btn.addEventListener('click', handleOpen);
 

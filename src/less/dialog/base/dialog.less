@@ -42,11 +42,49 @@
     background-color: transparent;
 }
 
+.dialog__header {
+    display: flex;
+    margin: 16px 16px 0;
+    position: relative;
+}
+
+.dialog__header h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.dialog__header > :last-child {
+    margin-left: 16px;
+}
+
+.dialog__main,
 .dialog__body {
     box-sizing: border-box;
+    flex: 1;
     margin: 16px;
     min-height: 100%;
     position: relative;
+}
+
+.dialog__main > :first-child,
+.dialog__body > :first-child {
+    margin-top: 0;
+}
+
+.dialog__main > :last-child,
+.dialog__body > :last-child {
+    margin-bottom: 0;
+}
+
+.dialog__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 16px 16px;
+}
+
+.dialog__footer > :not(:first-child) {
+    margin-top: 16px;
 }
 
 .dialog__close {
@@ -57,6 +95,7 @@
     left: 0;
 }
 
+// TODO refactor in next major version
 .dialog__back,
 .dialog__close {
     background-color: @dialog-back-close-background-color;
@@ -74,7 +113,17 @@
     }
 }
 
+.dialog__header .dialog__close {
+    // TODO remove the nested selector in next major version
+    align-self: center;
+    float: auto;
+    padding: 0;
+    position: relative;
+}
+
 .dialog__window {
+    display: flex;
+    flex-direction: column;
     left: 0;
     margin: auto;
     max-width: @dialog_max_width;
@@ -113,6 +162,7 @@
         display: none;
     }
 
+    .dialog__main,
     .dialog__body {
         min-height: auto;
     }
@@ -196,6 +246,11 @@
     .dialog__window--slide.dialog__window--right {
         transform: translateX(100%);
     }
+
+    // code smell, chained modifier
+    .dialog__window--slide.dialog__window--full {
+        transform: translateY(100%);
+    }
 }
 
 // Apply show animation.
@@ -238,5 +293,37 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .dialog__window:not(.dialog__window--full) {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
+    }
+}
+
+@media (min-width: 601px) {
+    .dialog__header {
+        margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
+    }
+
+    .dialog__header > :last-child {
+        margin-left: @dialog-large-gutter-size;
+        margin-top: initial;
+    }
+
+    .dialog__main,
+    .dialog__body {
+        margin: @dialog-large-gutter-size;
+    }
+
+    .dialog__footer {
+        flex-direction: row;
+        justify-content: end;
+        margin: 0 @dialog-large-gutter-size @dialog-large-gutter-size;
+    }
+
+    .dialog__footer > :not(:first-child) {
+        margin-left: @dialog-large-gutter-size;
+        margin-top: initial;
+    }
+
+    .dialog__back,
+    .dialog__close {
+        padding: @dialog-large-gutter-size;
     }
 }
