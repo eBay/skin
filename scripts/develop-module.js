@@ -72,10 +72,9 @@ function processNewModuleRequest() {
     addTests(newModuleData);
 
     log.info('Generated boilerplate code for the new module %s', moduleName);
-    log.info('Add documentation in %s, styles in files under %s folder and then test in %s. ',
-        newModuleData.moduleDocFilePath,
-        newModuleData.srcFolderPath,
-        newModuleData.testFilePath);
+    log.info('Add documentation in file ~ %s', newModuleData.moduleDocFilePath);
+    log.info('Add styles in folder ~ %s', newModuleData.srcFolderPath);
+    log.info('Add tests in file ~ %s', newModuleData.testFilePath);
 }
 
 function addStyles(newModuleData) {
@@ -205,7 +204,7 @@ function addDocsModuleDoc(newModuleData) {
         return;
     }
     const moduleDocContent = `<div id="${newModuleData.id}">
-    {% include common/section-header.html name="label" version=page.versions.label %}
+    {% include common/section-header.html name="${newModuleData.id}" version=page.versions.${newModuleData.id} %}
 
     <p>This is generated documentation for ${newModuleData.moduleName}. Update it!</p>
 
@@ -235,7 +234,10 @@ function addDocsModuleList(newModuleData) {
         return;
     }
 
-    const moduleListContent = `<li><a href="#${newModuleData.id}">${newModuleData.moduleName}</a></li>\n`;
+    const { moduleName: newModuleName } = newModuleData;
+    const listItemName = newModuleName.charAt(0).toUpperCase() + newModuleName.slice(1);
+
+    const moduleListContent = `<li><a href="#${newModuleData.id}">${listItemName}</a></li>\n`;
     fs.appendFileSync(moduleListFilePath, moduleListContent);
 }
 
