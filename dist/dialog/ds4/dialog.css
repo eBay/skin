@@ -13,20 +13,21 @@
 .dialog--no-mask[role="dialog"] {
   background-color: transparent;
 }
-.dialog__heading {
+.dialog__header {
   display: -webkit-box;
   display: flex;
   margin: 16px 16px 0;
   position: relative;
 }
-.dialog__heading h2 {
+.dialog__header h2 {
   -webkit-box-flex: 1;
           flex: 1;
   margin: 0;
 }
-.dialog__heading > :last-child {
+.dialog__header > :last-child {
   margin-left: 16px;
 }
+.dialog__main,
 .dialog__body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -36,9 +37,11 @@
   min-height: 100%;
   position: relative;
 }
+.dialog__main > :first-child,
 .dialog__body > :first-child {
   margin-top: 0;
 }
+.dialog__main > :last-child,
 .dialog__body > :last-child {
   margin-bottom: 0;
 }
@@ -78,7 +81,7 @@
 .dialog__close:focus {
   color: #0654ba;
 }
-.dialog__heading .dialog__close {
+.dialog__header .dialog__close {
   align-self: center;
   float: auto;
   padding: 0;
@@ -125,6 +128,9 @@
 .dialog__window--right::before {
   display: none;
 }
+.dialog__window--full .dialog__main,
+.dialog__window--left .dialog__main,
+.dialog__window--right .dialog__main,
 .dialog__window--full .dialog__body,
 .dialog__window--left .dialog__body,
 .dialog__window--right .dialog__body {
@@ -254,13 +260,14 @@
   }
 }
 @media (min-width: 601px) {
-  .dialog__heading {
+  .dialog__header {
     margin: 16px 16px 0;
   }
-  .dialog__heading > :last-child {
+  .dialog__header > :last-child {
     margin-left: 16px;
     margin-top: initial;
   }
+  .dialog__main,
   .dialog__body {
     margin: 16px;
   }
@@ -293,11 +300,11 @@
   height: 16px;
   width: 16px;
 }
-.dialog__heading {
+.dialog__header {
   background-color: white;
   margin: 0;
 }
-.dialog__heading > h2 {
+.dialog__header > h2 {
   border-bottom: 1px solid #eee;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -311,13 +318,15 @@
   top: 0;
   white-space: nowrap;
 }
-.dialog__heading > .dialog__close {
+.dialog__header > .dialog__close {
   position: absolute;
 }
+.dialog__main,
 .dialog__body {
   font-size: 0.875rem;
   padding-top: calc(1.125rem + 14px);
 }
+.dialog__main h2:first-of-type,
 .dialog__body h2:first-of-type {
   background-color: #fff;
   border-bottom: 1px solid #eee;
@@ -345,6 +354,7 @@
     min-width: auto;
     width: calc(100% - 32px);
   }
+  .dialog__main h2:first-of-type,
   .dialog__body h2:first-of-type {
     padding-left: 16px;
     padding-right: 16px;

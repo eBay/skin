@@ -42,21 +42,22 @@
     background-color: transparent;
 }
 
-.dialog__heading {
+.dialog__header {
     display: flex;
     margin: 16px 16px 0;
     position: relative;
 }
 
-.dialog__heading h2 {
+.dialog__header h2 {
     flex: 1;
     margin: 0;
 }
 
-.dialog__heading > :last-child {
+.dialog__header > :last-child {
     margin-left: 16px;
 }
 
+.dialog__main,
 .dialog__body {
     box-sizing: border-box;
     flex: 1;
@@ -65,10 +66,12 @@
     position: relative;
 }
 
+.dialog__main > :first-child,
 .dialog__body > :first-child {
     margin-top: 0;
 }
 
+.dialog__main > :last-child,
 .dialog__body > :last-child {
     margin-bottom: 0;
 }
@@ -110,7 +113,7 @@
     }
 }
 
-.dialog__heading .dialog__close {
+.dialog__header .dialog__close {
     // TODO remove the nested selector in next major version
     align-self: center;
     float: auto;
@@ -159,6 +162,7 @@
         display: none;
     }
 
+    .dialog__main,
     .dialog__body {
         min-height: auto;
     }
@@ -293,15 +297,16 @@
 }
 
 @media (min-width: 601px) {
-    .dialog__heading {
+    .dialog__header {
         margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
     }
 
-    .dialog__heading > :last-child {
+    .dialog__header > :last-child {
         margin-left: @dialog-large-gutter-size;
         margin-top: initial;
     }
 
+    .dialog__main,
     .dialog__body {
         margin: @dialog-large-gutter-size;
     }
