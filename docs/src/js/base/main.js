@@ -13,7 +13,7 @@ const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
-const Switch = require('./switch.js');
+const Switch = require('makeup-switch-class');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
@@ -273,5 +273,13 @@ document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
 
 // SWITCH - JAVASCRIPT BASED VERSION
 document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
-    pageWidgets.push(new Switch(widgetEl));
+    pageWidgets.push(new Switch(widgetEl, {
+        bem: {
+            control: '.switch__control'
+        }
+    }));
+
+    widgetEl.addEventListener('makeup-switch-toggle', function(e) {
+        console.log(e.type, e.detail);
+    });
 });
