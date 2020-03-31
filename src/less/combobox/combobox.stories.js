@@ -154,6 +154,34 @@ export const rtl = () => `
 </div>
 `;
 
+export const actionableIconRtl = () => `
+<div dir="rtl">
+    <span class="combobox combobox--expanded">
+        <span class="combobox__control combobox__control--actionable">
+            <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox5" />
+            <button class="icon-btn" type="button" aria-label="Expand Suggestions">
+                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-dropdown"></use>
+                </svg>
+            </button>
+        </span>
+        <div class="combobox__listbox">
+            <div id="listbox5" class="combobox__options" role="listbox">
+                <div class="combobox__option" role="option">
+                    <span>Option 1</span>
+                </div>
+                <div class="combobox__option" role="option">
+                    <span>Option 2</span>
+                </div>
+                <div class="combobox__option" role="option">
+                    <span>Option 3</span>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+`;
+
 export const inheritColour = () => `
 <div style="color: red">
     <span class="combobox combobox--expanded">
