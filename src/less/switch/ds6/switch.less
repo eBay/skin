@@ -2,9 +2,25 @@
 @import "../../variables/ds6/icon-variables.less";
 @import "../../variables/ds6/typography-variables.less";
 
-@switch-button-background-color: @color-grey5;
-@switch-button-background-color-after: @color-white;
-@switch-button-disabled-background-color: @color-grey3;
-@switch-button-input-checked-background-color: @color-b4;
+// custom properties (ds6 only)
+.switch {
+    --switch-background-color-unchecked: @color-grey5;
+    --switch-background-color-checked: @color-b5;
+    --switch-background-color-disabled: @color-grey3;
+    --switch-foreground-color: @color-white;
+}
+
+@media (prefers-color-scheme: dark) {
+    .switch {
+        --switch-background-color-checked: #5192ff;
+    }
+}
+
+// ie11 fallbacks
+@switch-background-color-unchecked: @color-grey5;
+@switch-background-color-checked: @color-b4;
+@switch-background-color-disabled: @color-grey3;
+@switch-foreground-color: @color-white;
+@switch-outline-color: @color-control-outline;
 
 @import "../base/switch.less";

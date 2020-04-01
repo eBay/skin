@@ -1,22 +1,23 @@
 .switch {
-    div& {
-        display: flex;
-    }
-
-    span& {
-        display: inline-flex;
-    }
-
     box-sizing: border-box;
     height: 40px;
     position: relative;
     vertical-align: middle;
 }
 
+div.switch {
+    display: flex;
+}
+
+span.switch {
+    display: inline-flex;
+}
+
 span.switch__button {
     align-self: center;
     background: gray none repeat scroll 0 0;
-    background-color: @switch-button-background-color;
+    background-color: @switch-background-color-unchecked; // ie11
+    background-color: var(--switch-background-color-unchecked, @switch-background-color-unchecked);
     border-radius: 400px;
     color: transparent;
     display: inline-block;
@@ -28,7 +29,8 @@ span.switch__button {
 
     &::after {
         background: white none repeat scroll 0 0;
-        background-color: @switch-button-background-color-after;
+        background-color: @switch-foreground-color; // ie11
+        background-color: var(--switch-foreground-color, @switch-foreground-color);
         border-radius: 50%;
         content: "";
         display: block;
@@ -58,12 +60,13 @@ input.switch__control {
     opacity: 0;
 
     &:focus + span.switch__button {
-        outline: 1px dotted @color-control-outline;
+        outline: 1px dotted @switch-outline-color;
     }
 }
 
 input.switch__control[disabled] + span.switch__button {
-    background-color: @switch-button-disabled-background-color;
+    background-color: @switch-background-color-disabled; // ie11
+    background-color: var(--switch-background-color-disabled, @switch-background-color-disabled);
 }
 
 input.switch__control:checked + span.switch__button::after {
@@ -71,7 +74,8 @@ input.switch__control:checked + span.switch__button::after {
 }
 
 span.switch__control[aria-disabled="true"] + span.switch__button {
-    background-color: @switch-button-disabled-background-color;
+    background-color: @switch-background-color-disabled; // ie11
+    background-color: var(--switch-background-color-disabled, @switch-background-color-disabled);
 }
 
 span.switch__control[aria-checked="true"] + span.switch__button::after {
@@ -80,7 +84,8 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
-    background-color: @switch-button-input-checked-background-color;
+    background-color: @switch-background-color-checked; // ie11
+    background-color: var(--switch-background-color-checked, @switch-background-color-checked);
 }
 
 @media screen and (-ms-high-contrast: active) {
