@@ -15,6 +15,23 @@ const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
 const Switch = require('makeup-switch-class');
 
+const defaultToastMessageShowButton = document.getElementById('default-toast-message-btn-show');
+const defaultToastMessageElement = document.getElementById('default-toast-message');
+
+defaultToastMessageShowButton.addEventListener('click', function() {
+    defaultToastMessageElement.classList.add('toast-message--show');
+    defaultToastMessageElement.classList.remove('toast-message--hide');
+
+    const defaultToastMessageHideButton = document.getElementById('default-toast-message-btn-hide');
+    function handleToastMessageClose() {
+        defaultToastMessageElement.classList.remove('toast-message--show');
+        defaultToastMessageElement.classList.add('toast-message--hide');
+        defaultToastMessageHideButton.removeEventListener('click', handleToastMessageClose);
+    }
+
+    defaultToastMessageHideButton.addEventListener('click', handleToastMessageClose);
+});
+
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn-example').forEach(function(el) {

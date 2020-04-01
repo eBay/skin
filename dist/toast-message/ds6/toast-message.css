@@ -1,0 +1,141 @@
+:root {
+  --ebay-skin-toast-message-spacing: 24px;
+}
+.toast-message__mobile {
+  --ebay-skin-toast-message-spacing: 16px;
+}
+.toast-message {
+  background-color: #3665f3;
+  bottom: 16px;
+  color: #fff;
+  left: 16px;
+  max-height: 40vh;
+  max-width: 480px;
+  min-width: 320px;
+  position: fixed;
+  -webkit-transform: translateY(110%);
+          transform: translateY(110%);
+  z-index: 1;
+}
+.toast-message.toast-message__mobile {
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
+.toast-message.toast-message--hide {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-name: slide-out;
+          animation-name: slide-out;
+  -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+          animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+  opacity: 0;
+}
+.toast-message.toast-message--show {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-name: slide-in;
+          animation-name: slide-in;
+  -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+          animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.toast-message__header {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  padding: var(--ebay-skin-toast-message-spacing);
+}
+.toast-message__header > h3 {
+  margin: 0;
+  padding: 0;
+}
+.toast-message__header > button {
+  cursor: pointer;
+}
+.toast-message__header > button > svg {
+  color: #fff;
+}
+.toast-message > .toast-message__body {
+  margin: 0;
+  padding: var(--ebay-skin-toast-message-spacing);
+  padding-top: 0;
+}
+.toast-message__actions {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  padding: var(--ebay-skin-toast-message-spacing);
+  padding-top: 0;
+}
+.toast-message__actions > button {
+  margin-right: var(--ebay-skin-toast-message-spacing);
+}
+.toast-message__actions > button:nth-last-child(1) {
+  margin-right: 0;
+}
+.toast-message__actions button.btn--secondary {
+  background-color: #fff;
+  color: #3665f3;
+}
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(110%);
+            transform: translateY(110%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(110%);
+            transform: translateY(110%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes slide-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(110%);
+            transform: translateY(110%);
+  }
+}
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(110%);
+            transform: translateY(110%);
+  }
+}
