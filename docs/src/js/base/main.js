@@ -115,6 +115,65 @@ document.querySelectorAll('.dialog-button').forEach(function(btn) {
     }
 });
 
+// Drawer
+document.querySelectorAll('.drawer-button').forEach(function(btn) {
+    let cancel;
+    const dialog = btn.nextElementSibling;
+    const dialogBody = dialog.querySelector('.drawer__window');
+    const dialogClose = dialog.querySelector('.drawer__close');
+    btn.addEventListener('click', handleOpen);
+
+    function toggleHandle() {
+        dialog.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
+    }
+
+    function handleOpen() {
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'drawer--show', handleTransitionEnd(true));
+        dialog.removeAttribute('hidden');
+        btn.removeEventListener('click', handleOpen);
+        dialog.addEventListener('click', handleClose, true);
+        document.body.setAttribute('style', 'overflow:hidden');
+        Modal.modal(dialog.querySelector('.drawer__window'));
+
+        dialog.querySelector('.drawer__handle').addEventListener('click', toggleHandle);
+    }
+
+    function handleClose(ev) {
+        if (dialogBody.contains(ev.target) && !ev.target.classList.contains('drawer__close')) {
+            return;
+        }
+
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'drawer--hide', handleTransitionEnd(false));
+        dialog.setAttribute('hidden', '');
+        btn.addEventListener('click', handleOpen);
+        dialog.removeEventListener('click', handleClose, true);
+        dialog.querySelector('.drawer__handle').removeEventListener('click', toggleHandle, true);
+        document.body.removeAttribute('style');
+        Modal.unmodal();
+        btn.focus();
+    }
+
+    function handleTransitionEnd(isOpening) {
+        // focus on the close button
+        if (isOpening) {
+            // hack: safari needs an additional timeout
+            window.setTimeout(function() {
+                dialogClose.focus();
+            }, 250);
+        }
+
+        cancel = undefined;
+    }
+});
+
 // TOOLTIP
 document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
     pageWidgets.push(new Expander(widgetEl, {

@@ -33,18 +33,15 @@
     z-index: 100000; // because global header has an element with 99999
 }
 
-.dialog-window() {
+.dialog-window(@width: @dialog_max_width) {
     display: flex;
     flex-direction: column;
     left: 0;
     margin: auto;
-    max-width: @dialog_max_width;
+    max-width: @width;
     min-height: 55px;
-    padding-bottom: 15vh;
     position: absolute;
     right: 0;
-    top: 15%;
-    width: calc(100% - 32px);
     will-change: opacity, transform;
 
     // The background for the dialog window is on this pseudo element.
@@ -64,9 +61,7 @@
     background-color: @dialog-window-before-modifiers-background-color;
     bottom: 0;
     -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
     padding-bottom: 0;
-    top: 0;
 
     &::before {
         display: none;
@@ -75,6 +70,8 @@
 
 .dialog-header-content() {
     display: flex;
+    // Fix for Safari not honoring min-height
+    flex-shrink: 0;
     margin: 16px 16px 0;
     position: relative;
 
@@ -83,7 +80,7 @@
         margin: 0;
     }
 
-    & > :last-child {
+    & > :last-child:not(:only-child) {
         margin-left: 16px;
     }
 }
@@ -101,7 +98,6 @@
     box-sizing: border-box;
     flex: 1;
     margin: 16px;
-    min-height: 100%;
     position: relative;
 
     & > :first-child {

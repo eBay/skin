@@ -16,6 +16,7 @@
 .dialog__header {
   display: -webkit-box;
   display: flex;
+  flex-shrink: 0;
   margin: 16px 16px 0;
   position: relative;
 }
@@ -24,7 +25,7 @@
           flex: 1;
   margin: 0;
 }
-.dialog__header > :last-child {
+.dialog__header > :last-child:not(:only-child) {
   margin-left: 16px;
 }
 .dialog__main,
@@ -34,8 +35,8 @@
   -webkit-box-flex: 1;
           flex: 1;
   margin: 16px;
-  min-height: 100%;
   position: relative;
+  min-height: 100%;
 }
 .dialog__main > :first-child,
 .dialog__body > :first-child {
@@ -97,12 +98,12 @@
   margin: auto;
   max-width: 616px;
   min-height: 55px;
-  padding-bottom: 15vh;
   position: absolute;
   right: 0;
+  will-change: opacity, transform;
+  padding-bottom: 15vh;
   top: 15%;
   width: calc(100% - 32px);
-  will-change: opacity, transform;
 }
 .dialog__window::before {
   background-color: #f0eeec;
@@ -119,8 +120,8 @@
   background-color: #f0eeec;
   bottom: 0;
   -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
   padding-bottom: 0;
+  overflow-y: auto;
   top: 0;
 }
 .dialog__window--full::before,

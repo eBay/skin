@@ -1,0 +1,139 @@
+
+.drawer[role="dialog"] {
+    .dialog-base();
+}
+
+.drawer--no-mask[role="dialog"] {
+    background-color: transparent;
+}
+
+.drawer__header {
+    .dialog-header-content();
+}
+
+.drawer__handle {
+    background-color: transparent;
+    border: none;
+    left: 0;
+    margin: -11px auto;
+    padding: 8px;
+    position: relative;
+    right: 0;
+    top: 11px;
+}
+
+// Added :after class in order to increase parent hit box
+.drawer__handle::after {
+    background-color: @dialog-handle-color;
+    border-radius: 5px;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 20px;
+}
+
+.drawer__main {
+    .dialog-body-content();
+
+    min-height: auto;
+    overflow: auto;
+}
+
+.drawer__footer {
+    .dialog-footer-content();
+}
+
+.drawer__back,
+.drawer__close {
+    background-color: @dialog-back-close-background-color;
+    border: 0;
+    color: @dialog-back-close-color;
+    z-index: 1;
+
+    &:hover,
+    &:focus {
+        color: @dialog-back-close-hover-focus-color;
+    }
+}
+
+.drawer__window {
+    .dialog-window(100%);
+
+    .dialog-window-filler();
+
+    border-radius: 16px 16px 0 0;
+    bottom: 0;
+    max-height: 50%;
+    overflow-y: hidden;
+}
+
+.drawer__window--expanded {
+    max-height: 95%;
+}
+
+.drawer__window--slide {
+    transition: max-height 0.32s ease-out;
+}
+
+.drawer--show,
+.drawer--hide {
+    // Root animations.
+    &.drawer--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.drawer--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    // Child animations.
+    .drawer__window--fade {
+        transition: opacity 0.16s ease-out;
+    }
+
+    .drawer__window--slide {
+        transition: transform 0.32s ease-out;
+    }
+}
+
+// Apply hide animation.
+.drawer--hide,
+.drawer--show-init {
+    && {
+        display: block;
+    }
+
+    // Root animations.
+    &.drawer--mask-fade,
+    &.drawer--mask-fade-slow {
+        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+    }
+
+    // code smell, chained modifier
+    .drawer__window--slide {
+        transform: translateY(100%);
+    }
+}
+
+// Apply show animation.
+.drawer--show,
+.drawer--hide-init {
+    && {
+        display: block;
+    }
+
+    // Root animations.
+    &.drawer--mask-fade,
+    &.drawer--mask-fade-slow {
+        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+    }
+
+    // Child animations.
+    .drawer__window--fade {
+        opacity: 1;
+    }
+
+    .drawer__window--slide {
+        transform: translateX(0);
+    }
+}
