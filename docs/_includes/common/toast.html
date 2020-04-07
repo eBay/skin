@@ -1,0 +1,76 @@
+<div id="toast">
+    {% include common/section-header.html name="toast" version=page.versions.toast %}
+
+    <ul>
+        <li>Toast messages should be used to present actions that have site wide ramifications.</li>
+        <li>Unlike modals, toasts capture the users’ attention but allow users to continue their current actions.</li>
+        <li>Toasts should appear rarely and generally they should not be user initiated.</li>
+    </ul>
+
+    <h3>Toast Message</h3>
+    <p>
+        A toast must remain in a <span class="highlight">hidden</span> state for all users and devices until called upon.
+    </p>
+
+    <h5>Show Toast</h5>
+    <ul>
+        <li>Use <em>toast--show</em> along with the <em>toast</em> container element</li>
+        <li>Remove HTML <span class="highlight">hidden</span> attribute from the toast class container</li>
+    </ul>
+
+    <h5>Hide Toast</h5>
+    <ul>
+        <li>Use <em>toast--hide</em> along with the <em>toast</em> container element</li>
+        <li>Remove <em>toast--show</em> from the container element</li>
+        <li>Add HTML <span class="highlight">hidden</span> attribute to the toast class container after a delay of 300 ms.</li>
+    </ul>
+
+    <h4>Mobile Layout</h4>
+    <p>
+        Use <em>toast__mobile</em> on smaller screens so that the toast message container will be edge to edge.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary" id="default-toast-btn-show">Show Toast</button>
+            <aside class="toast" id="default-toast" hidden>
+                <header class="toast__header">
+                    <h3>User Privacy Preferences</h3>
+                    <button id="default-toast-btn-hide" class="icon-btn" type="button" aria-label="Close toast">
+                        <svg class="icon icon--close" focusable="false" height="24" width="24">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </button>
+                </header>
+                <p class="toast__body">
+                    We detected something unusual about a recent sign-in to your eBay account.
+                    To help keep you safe, we recommend you change the password.
+                </p>
+                <section class="toast__actions">
+                    <button class="btn btn--delete">Reject</button>
+                    <button class="btn btn--secondary">Accept</button>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    {% highlight html %}
+<aside class="toast" hidden>
+    <header class="toast__header">
+        <h3>User Privacy Preferences</h3>
+        <button class="icon-btn" type="button" aria-label="Close toast">
+            <svg class="icon icon--close" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
+    </header>
+    <p class="toast__body">
+        We detected something unusual about a recent sign-in to your eBay account.
+        To help keep you safe, we recommend you change the password.
+    </p>
+    <section class="toast__actions">
+        <button class="btn btn--delete">Reject</button>
+        <button class="btn btn--secondary">Accept</button>
+    </section>
+</aside>
+{% endhighlight %}

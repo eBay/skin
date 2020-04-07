@@ -1,0 +1,115 @@
+:root {
+    --ebay-skin-toast-spacing: 24px;
+}
+
+.toast__mobile {
+    --ebay-skin-toast-spacing: 16px;
+}
+
+.toast {
+    background-color: @toast-box-color;
+    bottom: 16px;
+    color: @white-color;
+    left: 16px;
+    max-height: 40vh;
+    max-width: 480px;
+    min-width: 320px;
+    position: fixed;
+    transform: translateY(110%);
+    z-index: 1;
+}
+
+.toast.toast__mobile {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.toast.toast--hide {
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-name: slide-out;
+    animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+    opacity: 0;
+}
+
+.toast.toast--show {
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-name: slide-in;
+    animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast__header {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: space-between;
+    padding: var(--ebay-skin-toast-spacing);
+
+    > h3 {
+        margin: 0;
+        padding: 0;
+    }
+
+    > button {
+        cursor: pointer;
+    }
+
+    > button > svg {
+        color: @white-color;
+    }
+}
+
+.toast > .toast__body {
+    margin: 0;
+    padding: var(--ebay-skin-toast-spacing);
+    padding-top: 0;
+}
+
+.toast__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--ebay-skin-toast-spacing);
+    padding-top: 0;
+
+    > button {
+        margin-right: var(--ebay-skin-toast-spacing);
+    }
+
+    > button:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    button.btn--secondary {
+        background-color: @white-color;
+        color: @blue-color;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+}

@@ -342,3 +342,28 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
         console.log(e.type, e.detail);
     });
 });
+
+function configureToastModule() {
+    const defaultToastMessageShowButton = document.getElementById('default-toast-btn-show');
+    const defaultToastMessageElement = document.getElementById('default-toast');
+
+    defaultToastMessageShowButton.addEventListener('click', function() {
+        defaultToastMessageElement.removeAttribute('hidden');
+        defaultToastMessageElement.classList.add('toast--show');
+        defaultToastMessageElement.classList.remove('toast--hide');
+
+        const defaultToastMessageHideButton = document.getElementById('default-toast-btn-hide');
+        function handleToastMessageClose() {
+            defaultToastMessageElement.classList.remove('toast--show');
+            defaultToastMessageElement.classList.add('toast--hide');
+            setTimeout(() => {
+                defaultToastMessageElement.setAttribute('hidden', '');
+            }, 300);
+            defaultToastMessageHideButton.removeEventListener('click', handleToastMessageClose);
+        }
+
+        defaultToastMessageHideButton.addEventListener('click', handleToastMessageClose);
+    });
+}
+
+configureToastModule();
