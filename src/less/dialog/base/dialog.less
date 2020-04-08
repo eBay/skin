@@ -1,41 +1,11 @@
 // UTILITIES
 //-----------------------------
 
-@dialog_max_width: 616px;
-
-// Element width in percentage - (No of gutters * gutter width / number of elements)px
-.create-grid(@cols, @gutter: 0, @gutter-exponent: 4, @size: 0, @min: 0, @max: 0) {
-    & when not (@size = 0) {
-        width: calc(round(@size / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@min = 0) {
-        min-width: calc(round(@min / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@max = 0) {
-        max-width: calc(round(@max / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when (@max = 0) {
-        max-width: @dialog_max_width;
-    }
-}
-
 // BLOCK
 //-----------------------------
 
 .dialog[role="dialog"] {
-    background-color: fade(@dialog-background-color, 70%);
-    bottom: 0;
-    left: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    position: fixed;
-    right: 0;
-    top: 0;
-    will-change: background-color;
-    z-index: 100000; // because global header has an element with 99999
+    .dialog-base();
 }
 
 .dialog--no-mask[role="dialog"] {
@@ -43,48 +13,18 @@
 }
 
 .dialog__header {
-    display: flex;
-    margin: 16px 16px 0;
-    position: relative;
-}
-
-.dialog__header h2 {
-    flex: 1;
-    margin: 0;
-}
-
-.dialog__header > :last-child {
-    margin-left: 16px;
+    .dialog-header-content();
 }
 
 .dialog__main,
 .dialog__body {
-    box-sizing: border-box;
-    flex: 1;
-    margin: 16px;
+    .dialog-body-content();
+
     min-height: 100%;
-    position: relative;
-}
-
-.dialog__main > :first-child,
-.dialog__body > :first-child {
-    margin-top: 0;
-}
-
-.dialog__main > :last-child,
-.dialog__body > :last-child {
-    margin-bottom: 0;
 }
 
 .dialog__footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 16px 16px;
-}
-
-.dialog__footer > :not(:first-child) {
-    margin-top: 16px;
+    .dialog-footer-content();
 }
 
 .dialog__close {
@@ -122,45 +62,20 @@
 }
 
 .dialog__window {
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    margin: auto;
-    max-width: @dialog_max_width;
-    min-height: 55px;
+    .dialog-window();
+
     padding-bottom: 15vh;
-    position: absolute;
-    right: 0;
     top: 15%;
     width: calc(100% - 32px);
-    will-change: opacity, transform;
-
-    // The background for the dialog window is on this pseudo element.
-    // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
-    &::before {
-        background-color: @dialog-window-before-background-color;
-        bottom: 15vh;
-        content: "";
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
 }
 
 .dialog__window--full,
 .dialog__window--left,
 .dialog__window--right {
-    background-color: @dialog-window-before-modifiers-background-color;
-    bottom: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    padding-bottom: 0;
-    top: 0;
+    .dialog-window-filler();
 
-    &::before {
-        display: none;
-    }
+    overflow-y: auto;
+    top: 0;
 
     .dialog__main,
     .dialog__body {
@@ -298,28 +213,16 @@
 
 @media (min-width: 601px) {
     .dialog__header {
-        margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
-    }
-
-    .dialog__header > :last-child {
-        margin-left: @dialog-large-gutter-size;
-        margin-top: initial;
+        .dialog-header-content-large();
     }
 
     .dialog__main,
     .dialog__body {
-        margin: @dialog-large-gutter-size;
+        .dialog-body-content-large();
     }
 
     .dialog__footer {
-        flex-direction: row;
-        justify-content: end;
-        margin: 0 @dialog-large-gutter-size @dialog-large-gutter-size;
-    }
-
-    .dialog__footer > :not(:first-child) {
-        margin-left: @dialog-large-gutter-size;
-        margin-top: initial;
+        .dialog-footer-content-large();
     }
 
     .dialog__back,
