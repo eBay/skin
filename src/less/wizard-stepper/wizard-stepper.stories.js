@@ -9,7 +9,7 @@ export const wizardStepperDefault = () => `
                     <use xlink:href="#icon-confirmation-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">started</span>
+            <span class="wizard-stepper__text">Started</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
         <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
@@ -18,7 +18,7 @@ export const wizardStepperDefault = () => `
                     <use xlink:href="#icon-confirmation-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">shipped</span>
+            <span class="wizard-stepper__text">Shipped</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
         <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
@@ -27,7 +27,7 @@ export const wizardStepperDefault = () => `
                     <use xlink:href="#icon-circle"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">transit</span>
+            <span class="wizard-stepper__text">Transit</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
         <div class="wizard-stepper__item wizard-stepper__item--upcoming" role="listitem">
@@ -36,7 +36,7 @@ export const wizardStepperDefault = () => `
                     <use xlink:href="#icon-circle"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">delivered</span>
+            <span class="wizard-stepper__text">Delivered</span>
         </div>
     </div>
 </div>
