@@ -3,40 +3,40 @@ export default { title: 'WizardStepper' };
 export const wizardStepperDefault = () => `
 <div class="wizard-stepper">
     <div class="wizard-stepper__items" role="list">
-        <div class="wizard-stepper__item wizard-stepper__item--confirmation wizard-stepper__item--transition-confirmation" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-confirmation-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Started</span>
+            <span class="wizard-stepper__text">started</span>
         </div>
-        <hr class="wizard-stepper__separator wizard-stepper__separator--confirmation" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--confirmation wizard-stepper__item--transition-inprogress" role="listitem">
+        <hr class="wizard-stepper__separator" role="presentation" />
+        <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-confirmation-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Shipped</span>
+            <span class="wizard-stepper__text">shipped</span>
         </div>
-        <hr class="wizard-stepper__separator wizard-stepper__separator--inprogress" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress wizard-stepper__item--transition-upcoming" role="listitem">
+        <hr class="wizard-stepper__separator" role="presentation" />
+        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Transit</span>
+            <span class="wizard-stepper__text">transit</span>
         </div>
-        <hr class="wizard-stepper__separator wizard-stepper__separator--upcoming" role="presentation" />
+        <hr class="wizard-stepper__separator" role="presentation" />
         <div class="wizard-stepper__item wizard-stepper__item--upcoming" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Delivered</span>
+            <span class="wizard-stepper__text">delivered</span>
         </div>
     </div>
 </div>
@@ -45,7 +45,7 @@ export const wizardStepperDefault = () => `
 export const wizardStepperVertical = () => `
 <div class="wizard-stepper wizard-stepper--vertical">
     <div class="wizard-stepper__items" role="list">
-        <div class="wizard-stepper__item wizard-stepper__item--confirmation wizard-stepper__item--transition-upcoming" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-confirmation-filled"></use>
@@ -57,8 +57,8 @@ export const wizardStepperVertical = () => `
                 <p>Order total $220</p>
             </span>
         </div>
-        <hr class="wizard-stepper__separator wizard-stepper__separator--upcoming" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--upcoming wizard-stepper__item--transition-upcoming" role="listitem">
+        <hr class="wizard-stepper__separator" role="presentation" />
+        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -69,7 +69,7 @@ export const wizardStepperVertical = () => `
                 <p>We will notify you once it ships.</p>
             </span>
         </div>
-        <hr class="wizard-stepper__separator wizard-stepper__separator--upcoming" role="presentation" />
+        <hr class="wizard-stepper__separator" role="presentation" />
         <div class="wizard-stepper__item wizard-stepper__item--upcoming" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
