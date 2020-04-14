@@ -38,7 +38,7 @@ hr.wizard-stepper__separator {
     display: inline-block;
     height: 2px;
     margin: 0;
-    min-width: 36px;
+    min-width: 10px;
     position: relative;
     top: 11px;
     width: 100%;
@@ -47,28 +47,28 @@ hr.wizard-stepper__separator {
 .wizard-stepper__icon {
     align-items: center;
     display: flex;
+}
 
-    .badge {
-        background-color: white;
-        border: 1px solid @wizard-step-default-color;
-        color: @wizard-step-default-color;
-        height: @wizard-stepper-list-icon-size;
-        top: 0;
-        width: 24px; // This width makes the badge to have 24px width for some reason!
-    }
+.wizard-stepper__icon .badge {
+    background-color: white;
+    border: 1px solid @wizard-step-default-color;
+    color: @wizard-step-default-color;
+    height: @wizard-stepper-list-icon-size;
+    top: 0;
+    width: 24px; // This width makes the badge to have 24px width for some reason!
+}
 
-    svg.icon {
-        min-height: @wizard-stepper-list-icon-size;
-        min-width: @wizard-stepper-list-icon-size;
-    }
+.wizard-stepper__icon svg.icon {
+    min-height: @wizard-stepper-list-icon-size;
+    min-width: @wizard-stepper-list-icon-size;
+}
 
-    &::before,
-    &::after {
-        content: '';
-        display: block;
-        flex: 1;
-        height: 2px;
-    }
+.wizard-stepper__icon::before,
+.wizard-stepper__icon::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 2px;
 }
 
 .wizard-stepper__item--confirmation {
@@ -106,6 +106,11 @@ hr.wizard-stepper__separator {
     .highlight-upcoming(@wizard-step-default-color);
 }
 
+.wizard-stepper__text {
+    margin-top: 8px;
+    text-align: center;
+}
+
 .wizard-stepper__item--inprogress .wizard-stepper__text,
 .wizard-stepper__item--default .wizard-stepper__text {
     color: @wizard-step-default-color;
@@ -117,31 +122,28 @@ hr.wizard-stepper__separator {
 }
 
 .wizard-stepper__item {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     margin-bottom: 25px;
     position: relative;
     text-align: center;
-
-    .wizard-stepper__text {
-        min-width: 80px;
-        text-align: center;
-    }
 }
 
 .wizard-stepper__item:first-child {
     margin-left: 0;
+}
 
-    .wizard-stepper__icon::before {
-        height: 0;
-    }
+.wizard-stepper__item:first-child .wizard-stepper__icon::before {
+    height: 0;
 }
 
 .wizard-stepper__item:last-child {
     margin-right: 0;
+}
 
-    .wizard-stepper__icon::after {
-        height: 0;
-    }
+.wizard-stepper__item:last-child .wizard-stepper__icon::after {
+    height: 0;
 }
 
 .wizard-stepper {
@@ -164,6 +166,7 @@ hr.wizard-stepper__separator {
 
     .wizard-stepper__item {
         display: flex;
+        flex-direction: row;
         margin-bottom: 16px;
         margin-left: 0;
     }
@@ -171,15 +174,15 @@ hr.wizard-stepper__separator {
     .wizard-stepper__icon {
         display: inline-block;
         width: auto;
+    }
 
-        &::after,
-        &::before {
-            height: calc(100% - 8px);
-            left: 11px;
-            position: absolute;
-            top: 24px;
-            width: 2px;
-        }
+    .wizard-stepper__icon::after,
+    .wizard-stepper__icon::before {
+        height: calc(100% - 8px);
+        left: 11px;
+        position: absolute;
+        top: 24px;
+        width: 2px;
     }
 
     .wizard-stepper__text {
@@ -205,10 +208,10 @@ hr.wizard-stepper__separator {
 
     .wizard-stepper__item:last-child {
         margin-right: auto;
+    }
 
-        .wizard-stepper__icon::before,
-        .wizard-stepper__icon::after {
-            height: 0;
-        }
+    .wizard-stepper__item:last-child .wizard-stepper__icon::after,
+    .wizard-stepper__item:last-child .wizard-stepper__icon::before {
+        height: 0;
     }
 }
