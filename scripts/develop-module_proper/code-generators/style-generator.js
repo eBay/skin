@@ -88,12 +88,14 @@ class StyleGenerator extends BaseGenerator {
 
     _addPackagingStyleDependencies() {
         const newLineContent = `        "./${this.moduleId}"`;
+
         writeLine({
             filePathFromRoot: 'index.browser.json',
             sectionPredicate: line => line.match(/"dependencies"\s*\t*:\s*\t*\[/),
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: nextLine && nextLine.match(/]/) || currentLine > newLineContent,
+                shouldAppend: nextLine && nextLine.match(/]/)
+                    || (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
                 prevLineSuffix: prevLine && !prevLine.endsWith(',') ? ',' : '',
                 newLineSuffix: !nextLine || nextLine.match(/]/) ? '' : ','
             })
@@ -116,9 +118,14 @@ class StyleGenerator extends BaseGenerator {
             filePathFromRoot,
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent
+                shouldAppend: !nextLine
+                    || (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent)
             })
         });
+    }
+
+    static _isLegacyLine(currentLine) {
+        return currentLine.match(/global/) || currentLine.match(/utility/);
     }
 }
 
