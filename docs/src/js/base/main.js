@@ -343,17 +343,27 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
     });
 });
 
-function configureToastModule(toastVariant, onOpenOptions, onCloseOptions) {
+function getDefaultToastOptions() {
+    return ({
+        attributesToAdd: [],
+        attributesToRemove: [],
+        classToAdd: [],
+        classToRemove: []
+    });
+}
+
+function configureToastModule(toastVariant, onOpenOptionsParam = {}, onCloseOptionsParam = {}) {
+    const onOpenOptions = Object.assign(getDefaultToastOptions(), onOpenOptionsParam);
+    const onCloseOptions = Object.assign(getDefaultToastOptions(), onCloseOptionsParam);
+
     const toastMessageShowButton = document.getElementById(`${toastVariant}-toast-btn-show`);
     const toastMessageElement = document.getElementById(`${toastVariant}-toast`);
 
     function handleToastEvent(options) {
         options.attributesToRemove.forEach(attributeToRemove => {
-            console.log('Remove attribute');
             toastMessageElement.removeAttribute(attributeToRemove);
         });
         options.attributesToAdd.forEach(attributeToAdd => {
-            console.log('Add attribute');
             toastMessageElement.setAttribute(attributeToAdd, '');
         });
         options.classToRemove.forEach(clazz => {
@@ -371,7 +381,6 @@ function configureToastModule(toastVariant, onOpenOptions, onCloseOptions) {
         function handleToastClose() {
             handleToastEvent(onCloseOptions);
             setTimeout(() => {
-                console.log('Timeout');
                 toastMessageElement.setAttribute('hidden', '');
             }, 300);
             toastMessageHideButton.removeEventListener('click', handleToastClose);
@@ -382,25 +391,15 @@ function configureToastModule(toastVariant, onOpenOptions, onCloseOptions) {
 }
 
 configureToastModule('default', {
-    attributesToAdd: [],
-    attributesToRemove: ['hidden'],
-    classToAdd: [],
-    classToRemove: []
+    attributesToRemove: ['hidden']
 }, {
-    attributesToAdd: ['hidden'],
-    attributesToRemove: [],
-    classToAdd: [],
-    classToRemove: []
+    attributesToAdd: ['hidden']
 });
 
 configureToastModule('transition', {
-    attributesToAdd: [],
-    attributesToRemove: [],
     classToAdd: ['toast--show'],
     classToRemove: ['toast--hide']
 }, {
-    attributesToAdd: [],
-    attributesToRemove: [],
     classToAdd: ['toast--hide'],
     classToRemove: ['toast--show']
 });
