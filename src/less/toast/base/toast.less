@@ -15,8 +15,12 @@
     max-width: 480px;
     min-width: 320px;
     position: fixed;
-    transform: translateY(110%);
     z-index: 1;
+
+    &.toast--slide {
+        display: block;
+        transform: translateY(110%);
+    }
 }
 
 .toast.toast__mobile {
@@ -25,21 +29,19 @@
     width: 100vw;
 }
 
-.toast.toast--hide {
+.toast.toast--slide.toast--hide {
     animation-duration: 0.2s;
     animation-iteration-count: 1;
     animation-name: slide-out;
     animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-    opacity: 0;
+    transform: translateY(110%);
 }
 
-.toast.toast--show {
+.toast.toast--slide.toast--show {
     animation-duration: 0.2s;
     animation-iteration-count: 1;
     animation-name: slide-in;
     animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-    display: block;
-    opacity: 1;
     transform: translateY(0);
 }
 

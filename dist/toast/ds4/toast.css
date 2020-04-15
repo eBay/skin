@@ -13,16 +13,19 @@
   max-width: 480px;
   min-width: 320px;
   position: fixed;
+  z-index: 1;
+}
+.toast.toast--slide {
+  display: block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
-  z-index: 1;
 }
 .toast.toast__mobile {
   bottom: 0;
   left: 0;
   width: 100vw;
 }
-.toast.toast--hide {
+.toast.toast--slide.toast--hide {
   -webkit-animation-duration: 0.2s;
           animation-duration: 0.2s;
   -webkit-animation-iteration-count: 1;
@@ -31,9 +34,10 @@
           animation-name: slide-out;
   -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
           animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-  opacity: 0;
+  -webkit-transform: translateY(110%);
+          transform: translateY(110%);
 }
-.toast.toast--show {
+.toast.toast--slide.toast--show {
   -webkit-animation-duration: 0.2s;
           animation-duration: 0.2s;
   -webkit-animation-iteration-count: 1;
@@ -42,8 +46,6 @@
           animation-name: slide-in;
   -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
           animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-  display: block;
-  opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }

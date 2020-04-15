@@ -343,27 +343,64 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
     });
 });
 
-function configureToastModule() {
-    const defaultToastMessageShowButton = document.getElementById('default-toast-btn-show');
-    const defaultToastMessageElement = document.getElementById('default-toast');
+function configureToastModule(toastVariant, onOpenOptions, onCloseOptions) {
+    const toastMessageShowButton = document.getElementById(`${toastVariant}-toast-btn-show`);
+    const toastMessageElement = document.getElementById(`${toastVariant}-toast`);
 
-    defaultToastMessageShowButton.addEventListener('click', function() {
-        defaultToastMessageElement.removeAttribute('hidden');
-        defaultToastMessageElement.classList.add('toast--show');
-        defaultToastMessageElement.classList.remove('toast--hide');
+    function handleToastEvent(options) {
+        options.attributesToRemove.forEach(attributeToRemove => {
+            console.log('Remove attribute');
+            toastMessageElement.removeAttribute(attributeToRemove);
+        });
+        options.attributesToAdd.forEach(attributeToAdd => {
+            console.log('Add attribute');
+            toastMessageElement.setAttribute(attributeToAdd, '');
+        });
+        options.classToRemove.forEach(clazz => {
+            toastMessageElement.classList.remove(clazz);
+        });
+        options.classToAdd.forEach(clazz => {
+            toastMessageElement.classList.add(clazz);
+        });
+    }
 
-        const defaultToastMessageHideButton = document.getElementById('default-toast-btn-hide');
-        function handleToastMessageClose() {
-            defaultToastMessageElement.classList.remove('toast--show');
-            defaultToastMessageElement.classList.add('toast--hide');
+    toastMessageShowButton.addEventListener('click', function() {
+        handleToastEvent(onOpenOptions);
+
+        const toastMessageHideButton = document.getElementById(`${toastVariant}-toast-btn-hide`);
+        function handleToastClose() {
+            handleToastEvent(onCloseOptions);
             setTimeout(() => {
-                defaultToastMessageElement.setAttribute('hidden', '');
+                console.log('Timeout');
+                toastMessageElement.setAttribute('hidden', '');
             }, 300);
-            defaultToastMessageHideButton.removeEventListener('click', handleToastMessageClose);
+            toastMessageHideButton.removeEventListener('click', handleToastClose);
         }
 
-        defaultToastMessageHideButton.addEventListener('click', handleToastMessageClose);
+        toastMessageHideButton.addEventListener('click', handleToastClose);
     });
 }
 
-configureToastModule();
+configureToastModule('default', {
+    attributesToAdd: [],
+    attributesToRemove: ['hidden'],
+    classToAdd: [],
+    classToRemove: []
+}, {
+    attributesToAdd: ['hidden'],
+    attributesToRemove: [],
+    classToAdd: [],
+    classToRemove: []
+});
+
+configureToastModule('transition', {
+    attributesToAdd: [],
+    attributesToRemove: [],
+    classToAdd: ['toast--show'],
+    classToRemove: ['toast--hide']
+}, {
+    attributesToAdd: [],
+    attributesToRemove: [],
+    classToAdd: ['toast--hide'],
+    classToRemove: ['toast--show']
+});

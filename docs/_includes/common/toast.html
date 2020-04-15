@@ -7,29 +7,39 @@
         <li>Toasts should appear rarely and generally they should not be user initiated.</li>
     </ul>
 
-    <h3>Toast Message</h3>
+    <h2>Toast Message</h2>
     <p>
         A toast must remain in a <span class="highlight">hidden</span> state for all users and devices until called upon.
     </p>
+    {% highlight html %}
+<aside class="toast" hidden aria-label="Notification" aria-live="polite">
+    <div class="toast__header">
+        <h3>User Privacy Preferences</h3>
+        <button class="icon-btn" type="button" aria-label="Close toast">
+            <svg class="icon icon--close" focusable="false" height="24" width="24">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
+    </div>
+    <div class="toast__main">
+        We detected something unusual about a recent sign-in to your eBay account.
+        To help keep you safe, we recommend you change the password.
+    </div>
+    <div class="toast__footer">
+        <button class="btn btn--delete">Reject</button>
+        <button class="btn btn--secondary">Accept</button>
+    </div>
+</aside>
+    {% endhighlight %}
 
-    <h5>Show Toast</h5>
-    <ul>
-        <li>Use <em>toast--show</em> along with the <em>toast</em> container element</li>
-        <li>Remove HTML <span class="highlight">hidden</span> attribute from the toast class container</li>
-    </ul>
-
-    <h5>Hide Toast</h5>
-    <ul>
-        <li>Use <em>toast--hide</em> along with the <em>toast</em> container element</li>
-        <li>Remove <em>toast--show</em> from the container element</li>
-        <li>Add HTML <span class="highlight">hidden</span> attribute to the toast class container after a delay of 300 ms.</li>
-    </ul>
-
-    <h4>Mobile Layout</h4>
     <p>
-        Use <em>toast__mobile</em> on smaller screens so that the toast message container will be edge to edge.
+        Showing and hiding of toast has 2 flavors:
     </p>
-
+    <ol>
+        <li>Without transitions</li>
+        <li>With transitions</li>
+    </ol>
+    <h4>Without Transitions</h4>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary" id="default-toast-btn-show">Show Toast</button>
@@ -53,24 +63,70 @@
             </aside>
         </div>
     </div>
-
-    {% highlight html %}
+    <ul>
+        <li>
+            Use <span class="highlight">hidden</span> HTML attribute on the toast container element to hide toast.
+            {% highlight html %}
 <aside class="toast" hidden>
-    <header class="toast__header">
-        <h3>User Privacy Preferences</h3>
-        <button class="icon-btn" type="button" aria-label="Close toast">
-            <svg class="icon icon--close" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-close"></use>
-            </svg>
-        </button>
-    </header>
-    <p class="toast__body">
-        We detected something unusual about a recent sign-in to your eBay account.
-        To help keep you safe, we recommend you change the password.
-    </p>
-    <section class="toast__actions">
-        <button class="btn btn--delete">Reject</button>
-        <button class="btn btn--secondary">Accept</button>
-    </section>
+    <!-- Content hidden for brevity -->
 </aside>
-{% endhighlight %}
+            {% endhighlight %}
+        </li>
+        <li>
+            Remove <span class="highlight">hidden</span> HTML attribute on the toast container element to show toast.
+            {% highlight html %}
+<aside class="toast">
+    <!-- Content hidden for brevity -->
+</aside>
+            {% endhighlight %}
+        </li>
+    </ul>
+    <h4>With Transitions</h4>
+    <p>Add <span class="highlight">toast--slide</span> to the toast container element to enable slide transitions first.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary" id="transition-toast-btn-show">Show Toast</button>
+            <aside class="toast toast--slide" id="transition-toast" hidden aria-label="Notification" aria-live="polite">
+                <div class="toast__header">
+                    <h3>User Privacy Preferences</h3>
+                    <button id="transition-toast-btn-hide" class="icon-btn" type="button" aria-label="Close toast">
+                        <svg class="icon icon--close" focusable="false" height="24" width="24">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="toast__main">
+                    We detected something unusual about a recent sign-in to your eBay account.
+                    To help keep you safe, we recommend you change the password.
+                </div>
+                <div class="toast__footer">
+                    <button class="btn btn--delete">Reject</button>
+                    <button class="btn btn--secondary">Accept</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <ul>
+        <li>
+            Add <em>toast--show</em> on the container element to show.
+            {% highlight html %}
+<aside class="toast toast--slide toast--show">
+    <!-- Content hidden for brevity -->
+</aside>
+            {% endhighlight %}
+        </li>
+        <li>
+            Remove <span class="highlight">toast--show</span> and add <span class="highlight">toast--hide</span> to hide. Add <span class="highlight">hidden</span> attribute after 300ms.
+            {% highlight html %}
+<aside class="toast toast--slide toast--hide" hidden>
+    <!-- Content hidden for brevity -->
+</aside>
+            {% endhighlight %}
+        </li>
+    </ul>
+
+    <h3>Mobile Layout</h3>
+    <p>
+        Use <span class="highlight">toast__mobile</span> on smaller screens so that the toast message container will be edge to edge.
+    </p>
+</div>
