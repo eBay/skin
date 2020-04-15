@@ -88,6 +88,20 @@ Here are some of the changes we consider as new functionality:
 
 Minor version updates are a signal that there is something new (no matter how small) that an app might be interested in using!
 
+#### New Module
+
+For adding a new module, you can execute the following script which generates required files and its appropriate wiring.
+
+```
+./scripts/develop-module -m "Your Module Name"
+```
+
+*Example*
+
+```
+./scripts/develop-module -m toast
+```
+
 ### Bug Fix
 
 Rather than creating a list, bug fixes can perhaps best be summed up as: "fixing something that does not work as expected or documented".
