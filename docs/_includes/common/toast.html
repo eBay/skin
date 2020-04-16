@@ -15,7 +15,7 @@
 <aside class="toast" hidden aria-label="Notification" aria-live="polite">
     <div class="toast__header">
         <h3>User Privacy Preferences</h3>
-        <button class="icon-btn" type="button" aria-label="Close toast">
+        <button class="toast__close" type="button" aria-label="Close toast">
             <svg class="icon icon--close" focusable="false" height="24" width="24">
                 <use xlink:href="#icon-close"></use>
             </svg>
@@ -46,7 +46,7 @@
             <aside class="toast" id="default-toast" hidden aria-label="Notification" aria-live="polite">
                 <div class="toast__header">
                     <h3>User Privacy Preferences</h3>
-                    <button id="default-toast-btn-hide" class="icon-btn" type="button" aria-label="Close toast">
+                    <button id="default-toast-btn-hide" class="toast__close" type="button" aria-label="Close toast">
                         <svg class="icon icon--close" focusable="false" height="24" width="24">
                             <use xlink:href="#icon-close"></use>
                         </svg>
@@ -82,14 +82,14 @@
         </li>
     </ul>
     <h4>With Transitions</h4>
-    <p>Add <span class="highlight">toast--slide</span> to the toast container element to enable slide transitions first.</p>
+    <p>Add <span class="highlight">toast--transition</span> to the toast container element to enable slide transitions first.</p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary" id="transition-toast-btn-show">Show Toast</button>
-            <aside class="toast toast--slide" id="transition-toast" hidden aria-label="Notification" aria-live="polite">
+            <aside class="toast toast--transition" id="transition-toast" hidden aria-label="Notification" aria-live="polite">
                 <div class="toast__header">
                     <h3>User Privacy Preferences</h3>
-                    <button id="transition-toast-btn-hide" class="icon-btn" type="button" aria-label="Close toast">
+                    <button id="transition-toast-btn-hide" class="toast__close" type="button" aria-label="Close toast">
                         <svg class="icon icon--close" focusable="false" height="24" width="24">
                             <use xlink:href="#icon-close"></use>
                         </svg>
@@ -108,17 +108,18 @@
     </div>
     <ul>
         <li>
-            Add <em>toast--show</em> on the container element to show.
+            Add <em>toast--show</em> on the container element and remove <span class="highlight">hidden</span> attribute to show toast.
             {% highlight html %}
-<aside class="toast toast--slide toast--show">
+<aside class="toast toast--transition toast--show">
     <!-- Content hidden for brevity -->
 </aside>
             {% endhighlight %}
         </li>
         <li>
-            Remove <span class="highlight">toast--show</span> and add <span class="highlight">toast--hide</span> to hide. Add <span class="highlight">hidden</span> attribute after 300ms.
+            Remove <span class="highlight">toast--show</span> and add <span class="highlight">toast--hide</span> to hide toast.
+            &nbsp;Add <span class="highlight">hidden</span> attribute after 300ms.
             {% highlight html %}
-<aside class="toast toast--slide toast--hide" hidden>
+<aside class="toast toast--transition toast--hide" hidden>
     <!-- Content hidden for brevity -->
 </aside>
             {% endhighlight %}

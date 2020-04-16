@@ -15,7 +15,7 @@
   position: fixed;
   z-index: 1;
 }
-.toast.toast--slide {
+.toast.toast--transition {
   display: block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
@@ -25,29 +25,23 @@
   left: 0;
   width: 100vw;
 }
-.toast.toast--slide.toast--hide {
-  -webkit-animation-duration: 0.2s;
-          animation-duration: 0.2s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-name: slide-out;
-          animation-name: slide-out;
-  -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-          animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+.toast.toast--transition.toast--hide {
+  opacity: 0;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
+  -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
-.toast.toast--slide.toast--show {
-  -webkit-animation-duration: 0.2s;
-          animation-duration: 0.2s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-name: slide-in;
-          animation-name: slide-in;
-  -webkit-animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
-          animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+.toast.toast--transition.toast--show {
+  opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+  -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
 .toast__header {
   -webkit-box-align: center;
@@ -64,11 +58,12 @@
   margin: 0;
   padding: 0;
 }
-.toast__header > button {
-  cursor: pointer;
-}
-.toast__header > button > svg {
+.toast__close {
+  background-color: #3665f3;
+  border: 0;
   color: #fff;
+  cursor: pointer;
+  margin: 0;
 }
 .toast > .toast__main {
   margin: 0;
@@ -92,52 +87,4 @@
 .toast__footer button.btn--secondary {
   background-color: #fff;
   color: #0654ba;
-}
-@-webkit-keyframes slide-in {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(110%);
-            transform: translateY(110%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(110%);
-            transform: translateY(110%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-@-webkit-keyframes slide-out {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(110%);
-            transform: translateY(110%);
-  }
-}
-@keyframes slide-out {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(110%);
-            transform: translateY(110%);
-  }
 }

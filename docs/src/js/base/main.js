@@ -397,6 +397,7 @@ configureToastModule('default', {
 });
 
 configureToastModule('transition', {
+    attributesToRemove: ['hidden'],
     classToAdd: ['toast--show'],
     classToRemove: ['toast--hide']
 }, {

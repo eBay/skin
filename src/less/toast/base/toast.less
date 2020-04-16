@@ -6,6 +6,12 @@
     --ebay-skin-toast-spacing: 16px;
 }
 
+.transition() {
+    transition:
+        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
 .toast {
     background-color: @toast-box-color;
     bottom: 16px;
@@ -17,7 +23,7 @@
     position: fixed;
     z-index: 1;
 
-    &.toast--slide {
+    &.toast--transition {
         display: block;
         transform: translateY(110%);
     }
@@ -29,20 +35,18 @@
     width: 100vw;
 }
 
-.toast.toast--slide.toast--hide {
-    animation-duration: 0.2s;
-    animation-iteration-count: 1;
-    animation-name: slide-out;
-    animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+.toast.toast--transition.toast--hide {
+    opacity: 0;
     transform: translateY(110%);
+
+    .transition();
 }
 
-.toast.toast--slide.toast--show {
-    animation-duration: 0.2s;
-    animation-iteration-count: 1;
-    animation-name: slide-in;
-    animation-timing-function: cubic-bezier(0.21, 0.31, 1, 1.22);
+.toast.toast--transition.toast--show {
+    opacity: 1;
     transform: translateY(0);
+
+    .transition();
 }
 
 .toast__header {
@@ -56,14 +60,14 @@
         margin: 0;
         padding: 0;
     }
+}
 
-    > button {
-        cursor: pointer;
-    }
-
-    > button > svg {
-        color: @white-color;
-    }
+.toast__close {
+    background-color: #3665f3;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    margin: 0;
 }
 
 .toast > .toast__main {
@@ -89,29 +93,5 @@
     button.btn--secondary {
         background-color: @white-color;
         color: @blue-color;
-    }
-}
-
-@keyframes slide-in {
-    0% {
-        opacity: 0;
-        transform: translateY(110%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-out {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(110%);
     }
 }
