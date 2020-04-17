@@ -15,18 +15,13 @@
   position: fixed;
   z-index: 1;
 }
-.toast.toast--transition {
-  display: block;
-  -webkit-transform: translateY(110%);
-          transform: translateY(110%);
-}
 .toast.toast__mobile {
   bottom: 0;
   left: 0;
   width: 100vw;
 }
-.toast.toast--transition.toast--hide {
-  opacity: 0;
+.toast--transition {
+  display: block;
   -webkit-transform: translateY(110%);
           transform: translateY(110%);
   -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
@@ -34,55 +29,51 @@
   transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
   transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
-.toast.toast--transition.toast--show {
+.toast--hide {
+  opacity: 0;
+  -webkit-transform: translateY(110%);
+          transform: translateY(110%);
+}
+.toast--show {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
-  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
-  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
-  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
 .toast__header {
-  -webkit-box-align: center;
-          align-items: center;
+  margin: 16px 16px 0;
   display: -webkit-box;
   display: flex;
-  -webkit-box-flex: 0;
-          flex: 0 1 auto;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  padding: var(--ebay-skin-toast-spacing);
 }
-.toast__header > h3 {
-  margin: 0;
-  padding: 0;
+.toast__header > :last-child {
+  margin-left: 16px;
+  margin-top: initial;
 }
 .toast__close {
-  background-color: #3665f3;
+  background-color: #0654ba;
   border: 0;
   color: #fff;
   cursor: pointer;
   margin: 0;
 }
-.toast > .toast__main {
+.toast__main {
   margin: 0;
   padding: var(--ebay-skin-toast-spacing);
-  padding-top: 0;
 }
 .toast__footer {
   display: -webkit-box;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
   -webkit-box-pack: end;
           justify-content: flex-end;
-  padding: var(--ebay-skin-toast-spacing);
-  padding-top: 0;
+  margin: 0 16px 16px;
 }
-.toast__footer > button {
-  margin-right: var(--ebay-skin-toast-spacing);
-}
-.toast__footer > button:nth-last-child(1) {
-  margin-right: 0;
+.toast__footer > :not(:first-child) {
+  margin-left: 16px;
+  margin-top: initial;
 }
 .toast__footer button.btn--secondary {
   background-color: #fff;

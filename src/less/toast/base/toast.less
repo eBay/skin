@@ -6,11 +6,7 @@
     --ebay-skin-toast-spacing: 16px;
 }
 
-.transition() {
-    transition:
-        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
-        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
-}
+@dialog-large-gutter-size: var(--ebay-skin-toast-spacing);
 
 .toast {
     background-color: @toast-box-color;
@@ -22,11 +18,6 @@
     min-width: 320px;
     position: fixed;
     z-index: 1;
-
-    &.toast--transition {
-        display: block;
-        transform: translateY(110%);
-    }
 }
 
 .toast.toast__mobile {
@@ -35,60 +26,48 @@
     width: 100vw;
 }
 
-.toast.toast--transition.toast--hide {
-    opacity: 0;
+.toast--transition {
+    display: block;
     transform: translateY(110%);
-
-    .transition();
+    transition:
+        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
 
-.toast.toast--transition.toast--show {
+.toast--hide {
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.toast--show {
     opacity: 1;
     transform: translateY(0);
-
-    .transition();
 }
 
 .toast__header {
-    align-items: center;
-    display: flex;
-    flex: 0 1 auto;
-    justify-content: space-between;
-    padding: var(--ebay-skin-toast-spacing);
+    .dialog-header-content-large();
 
-    > h3 {
-        margin: 0;
-        padding: 0;
-    }
+    display: flex;
+    justify-content: space-between;
 }
 
 .toast__close {
-    background-color: #3665f3;
+    background-color: @blue-color;
     border: 0;
-    color: #fff;
+    color: @white-color;
     cursor: pointer;
     margin: 0;
 }
 
-.toast > .toast__main {
+.toast__main {
     margin: 0;
     padding: var(--ebay-skin-toast-spacing);
-    padding-top: 0;
 }
 
 .toast__footer {
     display: flex;
-    justify-content: flex-end;
-    padding: var(--ebay-skin-toast-spacing);
-    padding-top: 0;
 
-    > button {
-        margin-right: var(--ebay-skin-toast-spacing);
-    }
-
-    > button:nth-last-child(1) {
-        margin-right: 0;
-    }
+    .dialog-footer-content-large();
 
     button.btn--secondary {
         background-color: @white-color;
