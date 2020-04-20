@@ -343,64 +343,36 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
     });
 });
 
-function getDefaultToastOptions() {
-    return ({
-        attributesToAdd: [],
-        attributesToRemove: [],
-        classToAdd: [],
-        classToRemove: []
-    });
-}
-
-function configureToastModule(toastVariant, onOpenOptionsParam = {}, onCloseOptionsParam = {}) {
-    const onOpenOptions = Object.assign(getDefaultToastOptions(), onOpenOptionsParam);
-    const onCloseOptions = Object.assign(getDefaultToastOptions(), onCloseOptionsParam);
-
-    const toastMessageShowButton = document.getElementById(`${toastVariant}-toast-btn-show`);
-    const toastMessageElement = document.getElementById(`${toastVariant}-toast`);
-
-    function handleToastEvent(options) {
-        options.attributesToRemove.forEach(attributeToRemove => {
-            toastMessageElement.removeAttribute(attributeToRemove);
-        });
-        options.attributesToAdd.forEach(attributeToAdd => {
-            toastMessageElement.setAttribute(attributeToAdd, '');
-        });
-        options.classToRemove.forEach(clazz => {
-            toastMessageElement.classList.remove(clazz);
-        });
-        options.classToAdd.forEach(clazz => {
-            toastMessageElement.classList.add(clazz);
-        });
+// TOAST
+document.querySelectorAll('.toast-button').forEach(function(openToastButton) {
+    const toastElement = openToastButton.nextElementSibling;
+    if (!toastElement.classList.contains('toast')) {
+        console.warn(`Unexpected element ${toastElement.tagName} after show toast button! Expected toast element.`);
+        return;
     }
 
-    toastMessageShowButton.addEventListener('click', function() {
-        handleToastEvent(onOpenOptions);
+    const isTransitionToast = toastElement.classList.contains('toast--transition');
+    let closeToastButton;
 
-        const toastMessageHideButton = document.getElementById(`${toastVariant}-toast-btn-hide`);
-        function handleToastClose() {
-            handleToastEvent(onCloseOptions);
-            setTimeout(() => {
-                toastMessageElement.setAttribute('hidden', '');
-            }, 300);
-            toastMessageHideButton.removeEventListener('click', handleToastClose);
+    function handleToastClose() {
+        toastElement.setAttribute('hidden', '');
+        if (isTransitionToast) {
+            toastElement.classList.remove('toast--show');
+            toastElement.classList.add('toast--hide');
         }
 
-        toastMessageHideButton.addEventListener('click', handleToastClose);
-    });
-}
+        closeToastButton.removeEventListener('click', handleToastClose);
+    }
 
-configureToastModule('default', {
-    attributesToRemove: ['hidden']
-}, {
-    attributesToAdd: ['hidden']
-});
+    function handleToastOpen() {
+        toastElement.removeAttribute('hidden');
+        if (isTransitionToast) {
+            toastElement.classList.add('toast--show');
+        }
 
-configureToastModule('transition', {
-    attributesToRemove: ['hidden'],
-    classToAdd: ['toast--show'],
-    classToRemove: ['toast--hide']
-}, {
-    classToAdd: ['toast--hide'],
-    classToRemove: ['toast--show']
+        closeToastButton = toastElement.querySelector('.toast__close');
+        closeToastButton.addEventListener('click', handleToastClose);
+    }
+
+    openToastButton.addEventListener('click', handleToastOpen);
 });
