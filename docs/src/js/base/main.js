@@ -372,6 +372,7 @@ document.querySelectorAll('.toast-button').forEach(function(openToastButton) {
 
         closeToastButton = toastElement.querySelector('.toast__close');
         closeToastButton.addEventListener('click', handleToastClose);
+        closeToastButton.focus();
     }
 
     openToastButton.addEventListener('click', handleToastOpen);
