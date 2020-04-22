@@ -70,34 +70,43 @@ hr.wizard-stepper__separator {
 .wizard-stepper__item--default {
   color: #111820;
 }
-.wizard-stepper__item--inprogress {
+.wizard-stepper__item--default .wizard-stepper__icon::after {
+  background-color: #111820;
+}
+.wizard-stepper__item--default + hr.wizard-stepper__separator {
+  background-color: #111820;
+}
+.wizard-stepper__item--default + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
+  background-color: #111820;
+}
+.wizard-stepper__item--current {
   color: #3ac952;
 }
-.wizard-stepper__item--inprogress .wizard-stepper__icon::after {
+.wizard-stepper__item--current .wizard-stepper__icon::after {
   background-color: #c7c7c7;
 }
-.wizard-stepper__item--inprogress + hr.wizard-stepper__separator {
+.wizard-stepper__item--current + hr.wizard-stepper__separator {
   background-color: #c7c7c7;
 }
-.wizard-stepper__item--inprogress + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
+.wizard-stepper__item--current + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
   background-color: #c7c7c7;
 }
-.wizard-stepper__item--transition-error .wizard-stepper__icon::after {
+.wizard-stepper__item--transition-attention .wizard-stepper__icon::after {
   background-color: #e62048;
 }
-.wizard-stepper__item--transition-error + hr.wizard-stepper__separator {
+.wizard-stepper__item--transition-attention + hr.wizard-stepper__separator {
   background-color: #e62048;
 }
-.wizard-stepper__item--transition-error + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
+.wizard-stepper__item--transition-attention + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
   background-color: #e62048;
 }
-.wizard-stepper__item--transition-insufficient .wizard-stepper__icon::after {
+.wizard-stepper__item--transition-information .wizard-stepper__icon::after {
   background-color: #3665f3;
 }
-.wizard-stepper__item--transition-insufficient + hr.wizard-stepper__separator {
+.wizard-stepper__item--transition-information + hr.wizard-stepper__separator {
   background-color: #3665f3;
 }
-.wizard-stepper__item--transition-insufficient + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
+.wizard-stepper__item--transition-information + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
   background-color: #3665f3;
 }
 .wizard-stepper__item--transition-default .wizard-stepper__icon::after {
@@ -113,12 +122,11 @@ hr.wizard-stepper__separator {
   margin-top: 8px;
   text-align: center;
 }
-.wizard-stepper__item--inprogress .wizard-stepper__text,
+.wizard-stepper__item--current .wizard-stepper__text,
 .wizard-stepper__item--default .wizard-stepper__text {
   color: #111820;
 }
-.wizard-stepper__item--inprogress .wizard-stepper__text,
-.wizard-stepper__item--confirmation .wizard-stepper__text.wizard-stepper__text--bold {
+.wizard-stepper__item[aria-current="step"] {
   font-weight: bold;
 }
 .wizard-stepper__item {
@@ -128,7 +136,6 @@ hr.wizard-stepper__separator {
   -webkit-box-direction: normal;
           flex-direction: column;
   margin: 0 auto;
-  margin-bottom: 25px;
   position: relative;
   text-align: center;
 }
