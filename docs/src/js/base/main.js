@@ -342,3 +342,38 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
         console.log(e.type, e.detail);
     });
 });
+
+// TOAST
+document.querySelectorAll('.toast-button').forEach(function(openToastButton) {
+    const toastElement = openToastButton.nextElementSibling;
+    if (!toastElement.classList.contains('toast')) {
+        console.warn(`Unexpected element ${toastElement.tagName} after show toast button! Expected toast element.`);
+        return;
+    }
+
+    const isTransitionToast = toastElement.classList.contains('toast--transition');
+    let closeToastButton;
+
+    function handleToastClose() {
+        toastElement.setAttribute('hidden', '');
+        if (isTransitionToast) {
+            toastElement.classList.remove('toast--show');
+            toastElement.classList.add('toast--hide');
+        }
+
+        closeToastButton.removeEventListener('click', handleToastClose);
+    }
+
+    function handleToastOpen() {
+        toastElement.removeAttribute('hidden');
+        if (isTransitionToast) {
+            toastElement.classList.add('toast--show');
+        }
+
+        closeToastButton = toastElement.querySelector('.toast__close');
+        closeToastButton.addEventListener('click', handleToastClose);
+        closeToastButton.focus();
+    }
+
+    openToastButton.addEventListener('click', handleToastOpen);
+});

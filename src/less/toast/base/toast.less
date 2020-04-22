@@ -1,0 +1,89 @@
+@import './variables.less';
+
+.toast {
+    background-color: @toast-box-color;
+    bottom: 16px;
+    color: @white-color;
+    left: 16px;
+    max-height: 40vh;
+    max-width: 480px;
+    min-width: 320px;
+    position: fixed;
+    z-index: 1;
+}
+
+.toast--mobile {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.toast--transition {
+    display: block;
+    transform: translateY(110%);
+    transition:
+        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
+.toast--hide {
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.toast--show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast__header {
+    .dialog-header-content-large();
+
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toast__close {
+    &:extend(.icon--close);
+
+    background-color: @blue-color;
+    border: 0;
+    color: @white-color;
+    cursor: pointer;
+    margin: 0;
+    padding: 1px;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 2px 2px @white-color;
+        outline: 0.2px solid @white-color;
+    }
+}
+
+.toast__main {
+    margin: 0;
+    padding: var(--ebay-skin-toast-spacing);
+}
+
+.toast__footer {
+    display: flex;
+
+    .dialog-footer-content-large();
+
+    .btn {
+        cursor: pointer;
+    }
+
+    .btn--primary {
+        background-color: @white-color;
+        color: @blue-color;
+    }
+
+    .btn--secondary {
+        background-color: transparent;
+        border: 1px solid @white-color;
+        color: @white-color;
+        font-weight: 700;
+    }
+}
