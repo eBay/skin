@@ -1,0 +1,215 @@
+@wizard-step-confirmation-color: #3ac952;
+@wizard-step-information-color: #3665f3;
+@wizard-step-attention-color: #e62048;
+@wizard-step-default-color: #111820;
+@wizard-step-upcoming-color: #c7c7c7;
+@wizard-step-title-bold-color: #111820;
+@wizard-step-title-light-color: #767676;
+@wizard-stepper-list-line-height: 2px;
+@wizard-stepper-list-line-spacing: 5px;
+@wizard-stepper-list-icon-size: 24px;
+
+// This mixin takes the upcoming color.
+// This colors the current icons :after, the hr, and the next item's :before
+.highlight-upcoming(@upcoming) {
+    .wizard-stepper__icon::after {
+        background-color: @upcoming;
+    }
+
+    & + hr.wizard-stepper__separator {
+        background-color: @upcoming;
+    }
+
+    & + hr.wizard-stepper__separator + .wizard-stepper__item .wizard-stepper__icon::before {
+        background-color: @upcoming;
+    }
+}
+
+.wizard-stepper__items {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+hr.wizard-stepper__separator {
+    border: 0 none;
+    display: inline-block;
+    height: 2px;
+    margin: 0;
+    min-width: 10px;
+    position: relative;
+    top: 11px;
+    width: 100%;
+}
+
+.wizard-stepper__icon {
+    align-items: center;
+    display: flex;
+}
+
+.wizard-stepper__icon .badge {
+    background-color: white;
+    border: 1px solid @wizard-step-default-color;
+    color: @wizard-step-default-color;
+    height: @wizard-stepper-list-icon-size;
+    top: 0;
+    width: 24px; // This width makes the badge to have 24px width for some reason!
+}
+
+.wizard-stepper__icon svg.icon {
+    min-height: @wizard-stepper-list-icon-size;
+    min-width: @wizard-stepper-list-icon-size;
+}
+
+.wizard-stepper__icon::before,
+.wizard-stepper__icon::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 2px;
+}
+
+.wizard-stepper__item--confirmation {
+    .highlight-upcoming(@wizard-step-confirmation-color);
+
+    color: @wizard-step-title-light-color;
+}
+
+.wizard-stepper__item--upcoming {
+    .highlight-upcoming(@wizard-step-upcoming-color);
+
+    color: @wizard-step-upcoming-color;
+}
+
+.wizard-stepper__item--default {
+    .highlight-upcoming(@wizard-step-default-color);
+
+    color: @wizard-step-default-color;
+}
+
+.wizard-stepper__item--current {
+    .highlight-upcoming(@wizard-step-upcoming-color);
+
+    color: @wizard-step-confirmation-color;
+}
+
+// Place transitions at end to take higher priority
+.wizard-stepper__item--transition-attention {
+    .highlight-upcoming(@wizard-step-attention-color);
+}
+
+.wizard-stepper__item--transition-information {
+    .highlight-upcoming(@wizard-step-information-color);
+}
+
+.wizard-stepper__item--transition-default {
+    .highlight-upcoming(@wizard-step-default-color);
+}
+
+.wizard-stepper__text {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.wizard-stepper__item--current .wizard-stepper__text,
+.wizard-stepper__item--default .wizard-stepper__text {
+    color: @wizard-step-default-color;
+}
+
+.wizard-stepper__item[aria-current="step"] {
+    font-weight: bold;
+}
+
+.wizard-stepper__item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.wizard-stepper__item:first-child {
+    margin-left: 0;
+}
+
+.wizard-stepper--vertical .wizard-stepper__icon::after,
+.wizard-stepper--vertical .wizard-stepper__icon::before {
+    height: calc(100% - 8px);
+    left: 11px;
+    position: absolute;
+    top: 24px;
+    width: 2px;
+}
+
+.wizard-stepper__item:first-child .wizard-stepper__icon::before {
+    height: 0;
+}
+
+.wizard-stepper__item:last-child {
+    margin-right: 0;
+}
+
+.wizard-stepper__item:last-child .wizard-stepper__icon::after {
+    height: 0;
+}
+
+.wizard-stepper {
+    margin: 16px 0;
+    overflow: auto;
+}
+
+.wizard-stepper--vertical {
+    display: block;
+}
+
+.wizard-stepper--vertical .wizard-stepper__items {
+    display: block;
+}
+
+.wizard-stepper--vertical .wizard-stepper__separator {
+    display: inline;
+}
+
+.wizard-stepper--vertical .wizard-stepper__item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+    margin-left: 0;
+}
+
+.wizard-stepper--vertical .wizard-stepper__icon {
+    display: inline-block;
+    width: auto;
+}
+
+.wizard-stepper--vertical .wizard-stepper__text {
+    align-self: center;
+    margin-left: 8px;
+    margin-top: -4px;
+    max-width: auto;
+    text-align: left;
+}
+
+.wizard-stepper--vertical .wizard-stepper__text p:first-child,
+.wizard-stepper__text h3:first-child {
+    margin-top: 8px;
+}
+
+.wizard-stepper--vertical .wizard-stepper__text p:last-child {
+    margin-bottom: 0;
+}
+
+.wizard-stepper--vertical .wizard-stepper__item:first-child .wizard-stepper__icon::before {
+    width: 0;
+}
+
+.wizard-stepper--vertical .wizard-stepper__item:last-child {
+    margin-right: auto;
+}
+
+.wizard-stepper--vertical .wizard-stepper__item:last-child .wizard-stepper__icon::after,
+.wizard-stepper--vertical .wizard-stepper__item:last-child .wizard-stepper__icon::before {
+    height: 0;
+}

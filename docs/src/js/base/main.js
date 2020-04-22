@@ -13,7 +13,7 @@ const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
-const Switch = require('./switch.js');
+const Switch = require('makeup-switch-class');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
@@ -67,7 +67,7 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
 document.querySelectorAll('.dialog-button').forEach(function(btn) {
     let cancel;
     const dialog = btn.nextElementSibling;
-    const dialogBody = dialog.querySelector('.dialog__body');
+    const dialogBody = dialog.querySelector('.dialog__body, .dialog__main');
     const dialogClose = dialog.querySelector('.dialog__close');
     btn.addEventListener('click', handleOpen);
 
@@ -97,6 +97,65 @@ document.querySelectorAll('.dialog-button').forEach(function(btn) {
         dialog.setAttribute('hidden', '');
         btn.addEventListener('click', handleOpen);
         dialog.removeEventListener('click', handleClose, true);
+        document.body.removeAttribute('style');
+        Modal.unmodal();
+        btn.focus();
+    }
+
+    function handleTransitionEnd(isOpening) {
+        // focus on the close button
+        if (isOpening) {
+            // hack: safari needs an additional timeout
+            window.setTimeout(function() {
+                dialogClose.focus();
+            }, 250);
+        }
+
+        cancel = undefined;
+    }
+});
+
+// Drawer
+document.querySelectorAll('.drawer-button').forEach(function(btn) {
+    let cancel;
+    const dialog = btn.nextElementSibling;
+    const dialogBody = dialog.querySelector('.drawer__window');
+    const dialogClose = dialog.querySelector('.drawer__close');
+    btn.addEventListener('click', handleOpen);
+
+    function toggleHandle() {
+        dialog.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
+    }
+
+    function handleOpen() {
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'drawer--show', handleTransitionEnd(true));
+        dialog.removeAttribute('hidden');
+        btn.removeEventListener('click', handleOpen);
+        dialog.addEventListener('click', handleClose, true);
+        document.body.setAttribute('style', 'overflow:hidden');
+        Modal.modal(dialog.querySelector('.drawer__window'));
+
+        dialog.querySelector('.drawer__handle').addEventListener('click', toggleHandle);
+    }
+
+    function handleClose(ev) {
+        if (dialogBody.contains(ev.target) && !ev.target.classList.contains('drawer__close')) {
+            return;
+        }
+
+        if (cancel) {
+            cancel();
+        }
+
+        cancel = transition(dialog, 'drawer--hide', handleTransitionEnd(false));
+        dialog.setAttribute('hidden', '');
+        btn.addEventListener('click', handleOpen);
+        dialog.removeEventListener('click', handleClose, true);
+        dialog.querySelector('.drawer__handle').removeEventListener('click', toggleHandle, true);
         document.body.removeAttribute('style');
         Modal.unmodal();
         btn.focus();
@@ -273,5 +332,13 @@ document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
 
 // SWITCH - JAVASCRIPT BASED VERSION
 document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
-    pageWidgets.push(new Switch(widgetEl));
+    pageWidgets.push(new Switch(widgetEl, {
+        bem: {
+            control: '.switch__control'
+        }
+    }));
+
+    widgetEl.addEventListener('makeup-switch-toggle', function(e) {
+        console.log(e.type, e.detail);
+    });
 });

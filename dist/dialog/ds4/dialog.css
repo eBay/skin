@@ -13,12 +13,51 @@
 .dialog--no-mask[role="dialog"] {
   background-color: transparent;
 }
+.dialog__header {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
+  margin: 16px 16px 0;
+  position: relative;
+}
+.dialog__header h2 {
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  margin: 0;
+}
+.dialog__header > :last-child:not(:only-child) {
+  margin-left: 16px;
+}
+.dialog__main,
 .dialog__body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
   margin: 16px;
-  min-height: 100%;
   position: relative;
+  min-height: 18px;
+}
+.dialog__main > :first-child,
+.dialog__body > :first-child {
+  margin-top: 0;
+}
+.dialog__main > :last-child,
+.dialog__body > :last-child {
+  margin-bottom: 0;
+}
+.dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 0 16px 16px;
+}
+.dialog__footer > :not(:first-child) {
+  margin-top: 16px;
 }
 .dialog__close {
   right: 0;
@@ -43,17 +82,28 @@
 .dialog__close:focus {
   color: #0654ba;
 }
+.dialog__header .dialog__close {
+  align-self: center;
+  float: auto;
+  padding: 0;
+  position: relative;
+}
 .dialog__window {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   left: 0;
   margin: auto;
   max-width: 616px;
   min-height: 55px;
-  padding-bottom: 15vh;
   position: absolute;
   right: 0;
+  will-change: opacity, transform;
+  padding-bottom: 15vh;
   top: 15%;
   width: calc(100% - 32px);
-  will-change: opacity, transform;
 }
 .dialog__window::before {
   background-color: #f0eeec;
@@ -70,8 +120,8 @@
   background-color: #f0eeec;
   bottom: 0;
   -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
   padding-bottom: 0;
+  overflow-y: auto;
   top: 0;
 }
 .dialog__window--full::before,
@@ -79,17 +129,13 @@
 .dialog__window--right::before {
   display: none;
 }
+.dialog__window--full .dialog__main,
+.dialog__window--left .dialog__main,
+.dialog__window--right .dialog__main,
 .dialog__window--full .dialog__body,
 .dialog__window--left .dialog__body,
 .dialog__window--right .dialog__body {
   min-height: auto;
-}
-.dialog__window--full .dialog__close,
-.dialog__window--left .dialog__close,
-.dialog__window--right .dialog__close {
-  float: right;
-  position: -webkit-sticky;
-  position: sticky;
 }
 .dialog__window--fill {
   min-height: 70vh;
@@ -161,6 +207,11 @@
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
+.dialog--hide .dialog__window--slide.dialog__window--full,
+.dialog--show-init .dialog__window--slide.dialog__window--full {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
 .dialog--show.dialog--show,
 .dialog--show.dialog--hide-init,
 .dialog--hide-init.dialog--show,
@@ -202,6 +253,35 @@
     max-width: 616px;
   }
 }
+@media (min-width: 601px) {
+  .dialog__header {
+    margin: 16px 16px 0;
+  }
+  .dialog__header > :last-child {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+  .dialog__main,
+  .dialog__body {
+    margin: 16px;
+  }
+  .dialog__footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: end;
+            justify-content: end;
+    margin: 0 16px 16px;
+  }
+  .dialog__footer > :not(:first-child) {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+  .dialog__back,
+  .dialog__close {
+    padding: 16px;
+  }
+}
 .dialog__back,
 .dialog__close {
   font-size: 0.875rem;
@@ -214,10 +294,33 @@
   height: 16px;
   width: 16px;
 }
+.dialog__header {
+  background-color: white;
+  margin: 0;
+}
+.dialog__header > h2 {
+  border-bottom: 1px solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1.125rem;
+  font-weight: 400;
+  left: 0;
+  overflow: hidden;
+  padding: 8px 50px;
+  text-align: center;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+.dialog__header > .dialog__close {
+  position: absolute;
+}
+.dialog__main,
 .dialog__body {
   font-size: 0.875rem;
   padding-top: calc(1.125rem + 14px);
 }
+.dialog__main h2:first-of-type,
 .dialog__body h2:first-of-type {
   background-color: #fff;
   border-bottom: 1px solid #eee;
@@ -245,6 +348,7 @@
     min-width: auto;
     width: calc(100% - 32px);
   }
+  .dialog__main h2:first-of-type,
   .dialog__body h2:first-of-type {
     padding-left: 16px;
     padding-right: 16px;

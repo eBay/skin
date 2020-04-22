@@ -17,6 +17,7 @@ span.switch__button {
   align-self: center;
   background: gray none repeat scroll 0 0;
   background-color: #767676;
+  background-color: var(--switch-background-color-unchecked, #767676);
   border-radius: 400px;
   color: transparent;
   display: inline-block;
@@ -30,6 +31,7 @@ span.switch__button {
 span.switch__button::after {
   background: white none repeat scroll 0 0;
   background-color: #fff;
+  background-color: var(--switch-foreground-color, #fff);
   border-radius: 50%;
   content: "";
   display: block;
@@ -62,12 +64,14 @@ input.switch__control:focus + span.switch__button {
 }
 input.switch__control[disabled] + span.switch__button {
   background-color: #ccc;
+  background-color: var(--switch-background-color-disabled, #ccc);
 }
 input.switch__control:checked + span.switch__button::after {
   left: 19px;
 }
 span.switch__control[aria-disabled="true"] + span.switch__button {
   background-color: #ccc;
+  background-color: var(--switch-background-color-disabled, #ccc);
 }
 span.switch__control[aria-checked="true"] + span.switch__button::after {
   left: 19px;
@@ -75,6 +79,7 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
   background-color: #0654ba;
+  background-color: var(--switch-background-color-checked, #0654ba);
 }
 @media screen and (-ms-high-contrast: active) {
   input.switch__control {
