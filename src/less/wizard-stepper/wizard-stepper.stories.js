@@ -21,7 +21,7 @@ export const wizardStepperDefault = () => `
             <span class="wizard-stepper__text">Shipped</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -58,7 +58,7 @@ export const wizardStepperVertical = () => `
             </span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>

@@ -4,8 +4,8 @@
     <p>Wizard steppers portray progress through a sequence of steps.</p>
 
     <h3 id="wizard-stepper-default">Default Wizard Stepper</h3>
-    <p>The default wizard stepper has <em>horizontally aligned</em> steps. The wizard stepper fills all available space and evenly distributes its steps.</p>
-    <p>Note that we have <em>transition*</em> for each of the steps. This will let the outgoing transition wizard step to match its color with the next wizard step state.</p>
+    <p>The default wizard stepper has a horizontal layout. The wizard stepper fills all available space and evenly distributes its steps.</p>
+    <p>Use the <span class="highlight">aria-current</span> attribute to denote the current step in the list.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -29,7 +29,7 @@
                         <span class="wizard-stepper__text">Shipped</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+                    <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-circle"></use>
@@ -71,7 +71,7 @@
             <span class="wizard-stepper__text">Shipped</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -116,7 +116,7 @@
                         <span class="wizard-stepper__text">Shipped</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+                    <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-circle"></use>
@@ -159,7 +159,7 @@
             <span class="wizard-stepper__text">Shipped</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -181,7 +181,7 @@
     {% endhighlight %}
 
     <h3 id="wizard-stepper-vertical">Vertical Wizard Stepper</h3>
-    <p>Use the <em>wizard-stepper--vertical</em> modifier for vertically aligned steps.</p>
+    <p>Use the <em>wizard-stepper--vertical</em> modifier for a wizard stepper with vertical layout.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -200,7 +200,7 @@
                         </span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+                    <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-circle"></use>
@@ -244,7 +244,7 @@
             </span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -273,6 +273,7 @@
     {% endhighlight %}
 
     <h3 id="wizard-stepper-states">States of Wizard Stepper</h3>
+    <p>To transition to an "information" or "attention" state, use the relevant <span class="highlight">wizard-stepper__item--transition-information</span> or <span class="highlight">wizard-stepper__item--transition-attention</span> modifier class.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -287,25 +288,16 @@
                         <span class="wizard-stepper__text">Confirmation</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
-                        <span class="wizard-stepper__icon">
-                            <svg class="icon" focusable="false" height="24" width="24">
-                                <use xlink:href="#icon-confirmation-filled"></use>
-                            </svg>
-                        </span>
-                        <span class="wizard-stepper__text wizard-stepper__text--bold">Confirmation Bold</span>
-                    </div>
-                    <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+                    <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-circle"></use>
                             </svg>
                         </span>
-                        <span class="wizard-stepper__text">In Progress</span>
+                        <span class="wizard-stepper__text">Current</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--upcoming wizard-stepper__item--transition-default" role="listitem">
+                    <div class="wizard-stepper__item wizard-stepper__item--upcoming" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-circle"></use>
@@ -314,29 +306,29 @@
                         <span class="wizard-stepper__text">Upcoming</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--default wizard-stepper__item--transition-insufficient" role="listitem">
+                    <div class="wizard-stepper__item wizard-stepper__item--default wizard-stepper__item--transition-information" role="listitem">
                         <span class="wizard-stepper__icon">
                             <span class="badge" role="img" aria-label="1">1</span>
                         </span>
                         <span class="wizard-stepper__text">Default</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--insufficient wizard-stepper__item--transition-error" role="listitem">
+                    <div class="wizard-stepper__item wizard-stepper__item--information wizard-stepper__item--transition-attention" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-information-filled"></use>
                             </svg>
                         </span>
-                        <span class="wizard-stepper__text">Insufficient</span>
+                        <span class="wizard-stepper__text">Information</span>
                     </div>
                     <hr class="wizard-stepper__separator" role="presentation" />
-                    <div class="wizard-stepper__item wizard-stepper__item--error" role="listitem">
+                    <div class="wizard-stepper__item wizard-stepper__item--attention" role="listitem">
                         <span class="wizard-stepper__icon">
                             <svg class="icon" focusable="false" height="24" width="24">
                                 <use xlink:href="#icon-attention-filled"></use>
                             </svg>
                         </span>
-                        <span class="wizard-stepper__text">Error</span>
+                        <span class="wizard-stepper__text">Attention</span>
                     </div>
                 </div>
             </div>
@@ -355,25 +347,16 @@
             <span class="wizard-stepper__text">Confirmation</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
-            <span class="wizard-stepper__icon">
-                <svg class="icon" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-confirmation-filled"></use>
-                </svg>
-            </span>
-            <span class="wizard-stepper__text wizard-stepper__text--bold">Confirmation Bold</span>
-        </div>
-        <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--inprogress" role="listitem">
+        <div aria-current="step" class="wizard-stepper__item wizard-stepper__item--current" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">In Progress</span>
+            <span class="wizard-stepper__text">Current</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--upcoming wizard-stepper__item--transition-default" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--upcoming" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-circle"></use>
@@ -382,29 +365,29 @@
             <span class="wizard-stepper__text">Upcoming</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--default wizard-stepper__item--transition-insufficient" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--default wizard-stepper__item--transition-information" role="listitem">
             <span class="wizard-stepper__icon">
                 <span class="badge" role="img" aria-label="1">1</span>
             </span>
             <span class="wizard-stepper__text">Default</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--insufficient wizard-stepper__item--transition-error" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--information wizard-stepper__item--transition-attention" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-information-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Insufficient</span>
+            <span class="wizard-stepper__text">Information</span>
         </div>
         <hr class="wizard-stepper__separator" role="presentation" />
-        <div class="wizard-stepper__item wizard-stepper__item--error" role="listitem">
+        <div class="wizard-stepper__item wizard-stepper__item--attention" role="listitem">
             <span class="wizard-stepper__icon">
                 <svg class="icon" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-attention-filled"></use>
                 </svg>
             </span>
-            <span class="wizard-stepper__text">Error</span>
+            <span class="wizard-stepper__text">Attention</span>
         </div>
     </div>
 </div>
