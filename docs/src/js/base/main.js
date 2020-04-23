@@ -334,7 +334,7 @@ document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
 document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
     pageWidgets.push(new Switch(widgetEl, {
         bem: {
-            control: '.switch__control'
+            control: 'switch__control'
         }
     }));
 
