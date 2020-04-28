@@ -2,13 +2,12 @@
 
 const pageWidgets = [];
 
-const Modal = require('makeup-modal');
-const transition = require('./transition');
 const RovingTabindex = require('makeup-roving-tabindex');
 const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const Combobox = require('./combobox.js');
+const DialogButton = require('./dialog-button.js');
 const Listbox = require('./listbox.js');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
@@ -64,114 +63,20 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
 });
 
 // DIALOG
-document.querySelectorAll('.dialog-button').forEach(function(btn) {
-    let cancel;
-    const dialog = btn.nextElementSibling;
-    const dialogBody = dialog.querySelector('.dialog__body, .dialog__main');
-    const dialogClose = dialog.querySelector('.dialog__close');
-    btn.addEventListener('click', handleOpen);
-
-    function handleOpen() {
-        if (cancel) {
-            cancel();
-        }
-
-        cancel = transition(dialog, 'dialog--show', handleTransitionEnd(true));
-        dialog.removeAttribute('hidden');
-        btn.removeEventListener('click', handleOpen);
-        dialog.addEventListener('click', handleClose, true);
-        document.body.setAttribute('style', 'overflow:hidden');
-        Modal.modal(dialog.querySelector('.dialog__window'));
-    }
-
-    function handleClose(ev) {
-        if (dialogBody.contains(ev.target)) {
-            return;
-        }
-
-        if (cancel) {
-            cancel();
-        }
-
-        cancel = transition(dialog, 'dialog--hide', handleTransitionEnd(false));
-        dialog.setAttribute('hidden', '');
-        btn.addEventListener('click', handleOpen);
-        dialog.removeEventListener('click', handleClose, true);
-        document.body.removeAttribute('style');
-        Modal.unmodal();
-        btn.focus();
-    }
-
-    function handleTransitionEnd(isOpening) {
-        // focus on the close button
-        if (isOpening) {
-            // hack: safari needs an additional timeout
-            window.setTimeout(function() {
-                dialogClose.focus();
-            }, 250);
-        }
-
-        cancel = undefined;
-    }
+document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl));
 });
 
-// Drawer
-document.querySelectorAll('.drawer-button').forEach(function(btn) {
-    let cancel;
-    const dialog = btn.nextElementSibling;
-    const dialogBody = dialog.querySelector('.drawer__window');
-    const dialogClose = dialog.querySelector('.drawer__close');
-    btn.addEventListener('click', handleOpen);
+// DRAWER (modal dialog)
+document.querySelectorAll('.drawer-button').forEach(function(widgetEl) {
+    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer' });
 
-    function toggleHandle() {
-        dialog.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
-    }
+    pageWidgets.push(widget);
 
-    function handleOpen() {
-        if (cancel) {
-            cancel();
-        }
-
-        cancel = transition(dialog, 'drawer--show', handleTransitionEnd(true));
-        dialog.removeAttribute('hidden');
-        btn.removeEventListener('click', handleOpen);
-        dialog.addEventListener('click', handleClose, true);
-        document.body.setAttribute('style', 'overflow:hidden');
-        Modal.modal(dialog.querySelector('.drawer__window'));
-
-        dialog.querySelector('.drawer__handle').addEventListener('click', toggleHandle);
-    }
-
-    function handleClose(ev) {
-        if (dialogBody.contains(ev.target) && !ev.target.classList.contains('drawer__close')) {
-            return;
-        }
-
-        if (cancel) {
-            cancel();
-        }
-
-        cancel = transition(dialog, 'drawer--hide', handleTransitionEnd(false));
-        dialog.setAttribute('hidden', '');
-        btn.addEventListener('click', handleOpen);
-        dialog.removeEventListener('click', handleClose, true);
-        dialog.querySelector('.drawer__handle').removeEventListener('click', toggleHandle, true);
-        document.body.removeAttribute('style');
-        Modal.unmodal();
-        btn.focus();
-    }
-
-    function handleTransitionEnd(isOpening) {
-        // focus on the close button
-        if (isOpening) {
-            // hack: safari needs an additional timeout
-            window.setTimeout(function() {
-                dialogClose.focus();
-            }, 250);
-        }
-
-        cancel = undefined;
-    }
+    // this bit is a little hacky until I create a drawer.js subclass
+    widget.dialog._el.querySelector('.drawer__handle').addEventListener('click', function() {
+        widget.dialog._el.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
+    });
 });
 
 // TOOLTIP
@@ -321,7 +226,7 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     });
 });
 
-// SWITCH - FORM BASED VERSION
+// SWITCH - CHECKBOX/FORM VERSION
 document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
     widgetEl.setAttribute('aria-checked', widgetEl.checked ? 'true' : 'false');
 
@@ -330,7 +235,7 @@ document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
     });
 });
 
-// SWITCH - JAVASCRIPT BASED VERSION
+// SWITCH - ARIA/JAVASCRIPT VERSION
 document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetEl) {
     pageWidgets.push(new Switch(widgetEl, {
         bem: {
@@ -343,37 +248,7 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
     });
 });
 
-// TOAST
-document.querySelectorAll('.toast-button').forEach(function(openToastButton) {
-    const toastElement = openToastButton.nextElementSibling;
-    if (!toastElement.classList.contains('toast')) {
-        console.warn(`Unexpected element ${toastElement.tagName} after show toast button! Expected toast element.`);
-        return;
-    }
-
-    const isTransitionToast = toastElement.classList.contains('toast--transition');
-    let closeToastButton;
-
-    function handleToastClose() {
-        toastElement.setAttribute('hidden', '');
-        if (isTransitionToast) {
-            toastElement.classList.remove('toast--show');
-            toastElement.classList.add('toast--hide');
-        }
-
-        closeToastButton.removeEventListener('click', handleToastClose);
-    }
-
-    function handleToastOpen() {
-        toastElement.removeAttribute('hidden');
-        if (isTransitionToast) {
-            toastElement.classList.add('toast--show');
-        }
-
-        closeToastButton = toastElement.querySelector('.toast__close');
-        closeToastButton.addEventListener('click', handleToastClose);
-        closeToastButton.focus();
-    }
-
-    openToastButton.addEventListener('click', handleToastOpen);
+// TOAST (non-modal dialog)
+document.querySelectorAll('.toast-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast' }));
 });
