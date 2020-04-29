@@ -1,29 +1,40 @@
-@import './variables.less';
-
 .toast {
-    background-color: @toast-box-color;
-    bottom: 16px;
-    color: @white-color;
-    left: 16px;
+    background-color: @toast-background-color;
+    bottom: 0;
+    color: @toast-foreground-color;
+    left: 0;
     max-height: 40vh;
-    max-width: 480px;
     min-width: 320px;
     position: fixed;
+    transform: translateY(110%);
+    width: 100vw;
+    will-change: opacity, transform;
     z-index: 1;
 }
 
-.toast--mobile {
-    bottom: 0;
-    left: 0;
-    width: 100vw;
+.toast[role="dialog"]:not([hidden]) {
+    transform: translateY(0);
 }
 
 .toast--transition {
-    display: block;
-    transform: translateY(110%);
     transition:
         opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
         transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
+.toast--show-init {
+    display: block;
+    opacity: 0;
+}
+
+.toast--show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast--hide-init {
+    opacity: 1;
 }
 
 .toast--hide {
@@ -31,59 +42,86 @@
     transform: translateY(110%);
 }
 
-.toast--show {
-    opacity: 1;
-    transform: translateY(0);
+.toast__window {
+    margin: 16px;
 }
 
 .toast__header {
-    .dialog-header-content-large();
-
-    align-items: center;
     display: flex;
-    justify-content: space-between;
+}
+
+.toast__title {
+    margin: 0;
 }
 
 .toast__close {
-    &:extend(.icon--close);
-
-    background-color: @blue-color;
+    align-self: center;
+    background-color: @toast-background-color;
     border: 0;
-    color: @white-color;
-    cursor: pointer;
-    margin: 0;
-    padding: 1px;
+    color: @toast-foreground-color;
+    margin: 0 0 0 auto;
+    padding: 0;
 
-    &:hover,
     &:focus {
-        box-shadow: 0 0 2px 2px @white-color;
-        outline: 0.2px solid @white-color;
+        outline: 1px dotted @toast-foreground-color;
+        outline-offset: 4px;
     }
-}
-
-.toast__main {
-    margin: 0;
-    padding: var(--ebay-skin-toast-spacing);
 }
 
 .toast__footer {
     display: flex;
+    justify-content: flex-end;
 
-    .dialog-footer-content-large();
-
-    .btn {
-        cursor: pointer;
+    button::first-letter {
+        text-decoration: underline;
     }
 
     .btn--primary {
-        background-color: @white-color;
-        color: @blue-color;
+        background-color: @toast-foreground-color;
+        border: 1px solid @toast-foreground-color;
+        color: @toast-background-color;
+
+        &:focus,
+        &:hover {
+            background-color: @toast-foreground-color;
+            border: 1px solid @toast-foreground-color;
+        }
+
+        &:focus {
+            outline: 1px dotted @toast-foreground-color;
+            outline-offset: 4px;
+        }
     }
 
     .btn--secondary {
         background-color: transparent;
-        border: 1px solid @white-color;
-        color: @white-color;
+        border: 1px solid @toast-foreground-color;
+        color: @toast-foreground-color;
         font-weight: 700;
+        margin-right: 8px;
+
+        &:focus,
+        &:hover {
+            border: 1px solid @toast-foreground-color;
+            color: @toast-foreground-color;
+        }
+
+        &:focus {
+            outline: 1px dotted @toast-foreground-color;
+            outline-offset: 4px;
+        }
+    }
+}
+
+@media (min-width: 601px) {
+    .toast {
+        bottom: 16px;
+        left: 16px;
+        max-width: 480px;
+        width: auto;
+    }
+
+    .toast__window {
+        margin: 24px;
     }
 }
