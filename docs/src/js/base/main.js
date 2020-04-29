@@ -189,6 +189,10 @@ document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
 
 // INFOTIP
 document.querySelectorAll('.infotip').forEach(function(widgetEl) {
+    if (widgetEl.classList.contains('dialog')) {
+        return;
+    }
+
     const widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
