@@ -10,6 +10,12 @@ const getBaseStyleContent = moduleId => `// This is boilerplate generated style.
 }
 `;
 const getReferBaseStyleContent = moduleId => `@import '../base/${moduleId}.less';\n`;
+const getModuleBrowserContent = moduleId => `{
+    "dependencies": [
+        "./dist/${moduleId}/ds6/${moduleId}.css"
+    ]
+}
+`;
 
 /**
  * Code generation for stylesheets
@@ -80,17 +86,64 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addPackagingStyles() {
-        this._addPackagingStyleDependencies();
+        this._addPackagingIndexDependencies();
+        this._addPackagingBrowserDependencies();
+        this._addPackagingModuleBrowserDependencies();
         this._addPackagingStylesDsReference('ds4');
         this._addPackagingStylesDsReference('ds6');
         this._addPackagingStylesIndexReference();
     }
 
-    _addPackagingStyleDependencies() {
-        const newLineContent = `        "./${this.moduleId}"`;
+    _addPackagingIndexDependencies() {
+        this._addDependencies(`        "./${this.moduleId}"`, 'index.browser.json');
+    }
 
+    _addPackagingBrowserDependencies() {
+        this._addDependencies(`    "./${this.moduleId}"`, 'browser.json');
+
+        const from = `./dist/${this.moduleId}/ds6/${this.moduleId}.css`;
+        const newMappingItem = {
+            from,
+            to: `./dist/${this.moduleId}/ds4/${this.moduleId}.css`,
+            'if-flag': 'ds-4'
+        };
+        const browserJsonFile = path.join(__dirname, '..', '..', '..', 'browser.json');
+        const newMappings = [];
+        const browserJson = require(browserJsonFile);
+        let newItemAdded = false;
+        browserJson.requireRemap.forEach(item => {
+            if (!newItemAdded && item.from > from) {
+                newItemAdded = true;
+                newMappings.push(newMappingItem);
+            }
+            newMappings.push(item);
+        });
+
+        if (!newItemAdded) {
+            newItemAdded = true;
+            newMappings.push(newMappingItem);
+        }
+
+        browserJson.requireRemap = newMappings;
+
+        fs.writeFileSync(browserJsonFile, JSON.stringify(browserJson, null, 2));
+    }
+
+    _addPackagingModuleBrowserDependencies() {
+        const projectRootPath = path.join(__dirname, '..', '..', '..');
+        const moduleBrowserPath = path.join(projectRootPath, `${this.moduleId}.browser.json`);
+
+        if (fs.existsSync(moduleBrowserPath)) {
+            log.warn('[STYLES][%s] Module browser content already exists!', moduleBrowserPath);
+            return;
+        }
+
+        fs.writeFileSync(moduleBrowserPath, getModuleBrowserContent(this.moduleId));
+    }
+
+    _addDependencies(newLineContent, filePathFromRoot) {
         writeLine({
-            filePathFromRoot: 'index.browser.json',
+            filePathFromRoot,
             sectionPredicate: line => line.match(/"dependencies"\s*\t*:\s*\t*\[/),
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
@@ -125,7 +178,7 @@ class StyleGenerator extends BaseGenerator {
     }
 
     static _isLegacyLine(currentLine) {
-        return currentLine.match(/global/) || currentLine.match(/utility/);
+        return currentLine.match(/global/) || currentLine.match(/utility/) || currentLine.match(/root/);
     }
 }
 
