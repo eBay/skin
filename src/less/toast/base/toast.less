@@ -6,14 +6,13 @@
     max-height: 40vh;
     min-width: 320px;
     position: fixed;
-    transform: translateY(110%);
     width: 100vw;
     will-change: opacity, transform;
     z-index: 1;
 }
 
-.toast[role="dialog"]:not([hidden]) {
-    transform: translateY(0);
+.toast a {
+    color: @toast-foreground-color;
 }
 
 .toast--transition {
@@ -22,22 +21,16 @@
         transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
 
-.toast--show-init {
-    display: block;
-    opacity: 0;
-}
-
-.toast--show {
+.toast--show,
+.toast--hide-init {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
 
-.toast--hide-init {
-    opacity: 1;
-}
-
+.toast--show-init,
 .toast--hide {
+    display: block;
     opacity: 0;
     transform: translateY(110%);
 }
