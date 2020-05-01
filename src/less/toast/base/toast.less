@@ -1,3 +1,8 @@
+.toast-outline() {
+    outline: 1px dotted @toast-foreground-color;
+    outline-offset: 4px;
+}
+
 .toast {
     background-color: @toast-background-color;
     bottom: 0;
@@ -15,6 +20,10 @@
 
 .toast a {
     color: @toast-foreground-color;
+
+    &:focus {
+        .toast-outline();
+    }
 }
 
 .toast--transition {
@@ -58,8 +67,7 @@
     padding: 0;
 
     &:focus {
-        outline: 1px dotted @toast-foreground-color;
-        outline-offset: 4px;
+        .toast-outline();
     }
 }
 
@@ -83,8 +91,7 @@
         }
 
         &:focus {
-            outline: 1px dotted @toast-foreground-color;
-            outline-offset: 4px;
+            .toast-outline();
         }
     }
 
