@@ -1,3 +1,8 @@
+.toast-outline() {
+    outline: 1px dotted @toast-foreground-color;
+    outline-offset: 4px;
+}
+
 .toast {
     background-color: @toast-background-color;
     bottom: 0;
@@ -6,14 +11,19 @@
     max-height: 40vh;
     min-width: 320px;
     position: fixed;
-    transform: translateY(110%);
+    // Setting translateY to 0 to fix a bug in safari which does a double transform
+    transform: translateY(0);
     width: 100vw;
     will-change: opacity, transform;
     z-index: 1;
 }
 
-.toast[role="dialog"]:not([hidden]) {
-    transform: translateY(0);
+.toast a {
+    color: @toast-foreground-color;
+
+    &:focus {
+        .toast-outline();
+    }
 }
 
 .toast--transition {
@@ -22,22 +32,16 @@
         transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
 }
 
-.toast--show-init {
-    display: block;
-    opacity: 0;
-}
-
-.toast--show {
+.toast--show,
+.toast--hide-init {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
 
-.toast--hide-init {
-    opacity: 1;
-}
-
+.toast--show-init,
 .toast--hide {
+    display: block;
     opacity: 0;
     transform: translateY(110%);
 }
@@ -63,8 +67,7 @@
     padding: 0;
 
     &:focus {
-        outline: 1px dotted @toast-foreground-color;
-        outline-offset: 4px;
+        .toast-outline();
     }
 }
 
@@ -88,8 +91,7 @@
         }
 
         &:focus {
-            outline: 1px dotted @toast-foreground-color;
-            outline-offset: 4px;
+            .toast-outline();
         }
     }
 
