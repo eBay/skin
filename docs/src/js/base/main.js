@@ -106,6 +106,11 @@ document.querySelectorAll('.infotip').forEach(function(widgetEl) {
     });
 });
 
+// DIALOG INFOTIP
+document.querySelectorAll('.dialog-infotip-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'dialog-infotip' }));
+});
+
 // TOURTIP
 document.querySelectorAll('.tourtip').forEach(function(widgetEl) {
     widgetEl.querySelector('.tourtip__close').addEventListener('click', function() {
