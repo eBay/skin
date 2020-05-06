@@ -22,15 +22,22 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        color: @actionable-icon-color-active;
+        fill: @actionable-icon-foreground-color;
+        fill: var(--actionable-icon-foreground-color, @actionable-icon-foreground-color);
         height: 100%; // vertical centering
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
     }
 
     &:active > svg {
-        color: @actionable-icon-color-active;
+        fill: @actionable-icon-foreground-color-active;
+        fill: var(--actionable-icon-foreground-color-active, @actionable-icon-foreground-color-active);
     }
+}
+
+a.icon-link:visited > svg {
+    fill: @actionable-icon-foreground-color-visited;
+    fill: var(--actionable-icon-foreground-color-visited, @actionable-icon-foreground-color-visited);
 }
 
 // disabled & partially disabled states
@@ -55,6 +62,7 @@ a.icon-link--badged {
 
     .badge {
         border: 2px solid @actionable-badge-border-color;
+        border: 2px solid var(--actionable-badge-border-color, @actionable-badge-border-color);
         display: block;
         height: 24px;
         left: 16px;
@@ -75,17 +83,19 @@ a.img-link {
     &[href] {
         &:hover,
         &:focus {
-            border-color: @actionable-image-link-border-color-hover;
+            border-color: @actionable-image-border-color-hover;
+            border-color: var(--actionable-image-border-color-hover, @actionable-image-border-color-hover);
         }
 
         &:active {
-            border-color: @actionable-image-link-border-color-active;
+            border-color: @actionable-image-border-color-active;
         }
     }
 }
 
 a.img-link--visit:visited {
-    background-color: @actionable-image-link-background-color-visited;
+    background-color: @actionable-image-background-color-visited;
+    background-color: var(--actionable-image-background-color-visited, @actionable-image-background-color-visited);
 }
 
 a.img-link,
@@ -101,11 +111,13 @@ button.img-btn {
     &:not([disabled]) {
         &:hover,
         &:focus {
-            border-color: @actionable-image-button-border-color-hover;
+            border-color: @actionable-image-border-color-hover;
+            border-color: var(--actionable-image-border-color-hover, @actionable-image-border-color-hover);
         }
 
         &:active {
-            border-color: @actionable-image-button-border-color-active;
+            border-color: @actionable-image-border-color-active;
+            border-color: var(--actionable-image-border-color-active, @actionable-image-border-color-active);
         }
     }
 }
