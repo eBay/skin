@@ -233,19 +233,7 @@
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
-.dialog-infotip[role="dialog"] {
-  background-color: rgba(17, 24, 32, 0.7);
-  bottom: 0;
-  left: 0;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-  will-change: background-color;
-  z-index: 100000;
-}
-.dialog-infotip__window {
+.dialog.dialog--mini .dialog__window {
   display: -webkit-box;
   display: flex;
   margin: auto;
@@ -264,7 +252,7 @@
   -webkit-transform: translateY(-25%);
           transform: translateY(-25%);
 }
-.dialog-infotip__window::before {
+.dialog.dialog--mini .dialog__window::before {
   background-color: #fff;
   bottom: 15vh;
   content: "";
@@ -273,10 +261,10 @@
   top: 0;
   width: 100%;
 }
-.dialog-infotip__window::before {
+.dialog.dialog--mini .dialog__window::before {
   border-radius: 7px;
 }
-.dialog-infotip__header {
+.dialog.dialog--mini .dialog__header {
   display: -webkit-box;
   display: flex;
   flex-shrink: 0;
@@ -284,16 +272,17 @@
   position: relative;
   -webkit-box-align: start;
           align-items: flex-start;
+  align-self: flex-start;
 }
-.dialog-infotip__header h2 {
+.dialog.dialog--mini .dialog__header h2 {
   -webkit-box-flex: 1;
           flex: 1 1 auto;
   margin: 0;
 }
-.dialog-infotip__header > :last-child:not(:only-child) {
+.dialog.dialog--mini .dialog__header > :last-child:not(:only-child) {
   margin-left: 16px;
 }
-.dialog-infotip__close {
+.dialog.dialog--mini .dialog__close {
   background-color: #fff;
   border: 0;
   color: #111820;
@@ -301,24 +290,13 @@
   padding: 8px;
   z-index: 1;
 }
-.dialog-infotip__close:hover,
-.dialog-infotip__close:focus {
+.dialog.dialog--mini .dialog__close:hover,
+.dialog.dialog--mini .dialog__close:focus {
   color: #3665f3;
 }
-.dialog-infotip__main {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
-  margin: 16px;
-  position: relative;
-  margin-right: 0;
-}
-.dialog-infotip__main > :first-child {
-  margin-top: 0;
-}
-.dialog-infotip__main > :last-child {
-  margin-bottom: 0;
+.dialog.dialog--mini .dialog__main {
+  margin: 0;
+  padding: 16px 0 16px 16px;
 }
 @media (max-width: 600px) {
   .dialog__window:not(.dialog__window--full) {
@@ -326,7 +304,7 @@
     min-width: calc(100% - 32px);
     max-width: calc(100% - 32px);
   }
-  .dialog-infotip__window {
+  .dialog--mini .dialog__window {
     max-width: 344px;
   }
 }

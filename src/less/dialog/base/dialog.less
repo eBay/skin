@@ -189,49 +189,47 @@
 }
 
 // Mini dialog (A.K.A Dialog Infotip) variant
-.dialog-infotip[role="dialog"] {
-    .dialog-base();
-}
+.dialog.dialog--mini {
+    .dialog__window {
+        .dialog-window(400px);
 
-.dialog-infotip__window {
-    .dialog-window(400px);
+        flex-direction: row-reverse;
+        left: 0;
+        min-width: 200px;
+        padding-bottom: 15vh;
+        top: 50%;
+        transform: translateY(-25%);
 
-    flex-direction: row-reverse;
-    left: 0;
-    min-width: 200px;
-    padding-bottom: 15vh;
-    top: 50%;
-    transform: translateY(-25%);
-
-    &::before {
-        border-radius: 7px;
+        &::before {
+            border-radius: 7px;
+        }
     }
-}
 
-.dialog-infotip__header {
-    .dialog-header-content(0);
+    .dialog__header {
+        .dialog-header-content(0);
 
-    align-items: flex-start;
-}
-
-.dialog-infotip__close {
-    background-color: @dialog-back-close-background-color;
-    border: 0;
-    color: @dialog-back-close-color;
-    margin: 8px;
-    padding: 8px;
-    z-index: 1;
-
-    &:hover,
-    &:focus {
-        color: @dialog-back-close-hover-focus-color;
+        align-items: flex-start;
+        align-self: flex-start;
     }
-}
 
-.dialog-infotip__main {
-    .dialog-body-content();
+    .dialog__close {
+        background-color: @dialog-back-close-background-color;
+        border: 0;
+        color: @dialog-back-close-color;
+        margin: 8px;
+        padding: 8px;
+        z-index: 1;
 
-    margin-right: 0;
+        &:hover,
+        &:focus {
+            color: @dialog-back-close-hover-focus-color;
+        }
+    }
+
+    .dialog__main {
+        margin: 0;
+        padding: 16px 0 16px 16px;
+    }
 }
 
 // MEDIA QUERIES
@@ -241,7 +239,7 @@
         .create-grid(@cols: 8, @gutter: 8px, @gutter-exponent: 4, @size: 8, @min: 8, @max: 8);
     }
 
-    .dialog-infotip__window {
+    .dialog--mini .dialog__window {
         max-width: 344px;
     }
 }
