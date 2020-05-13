@@ -1,3 +1,34 @@
+a.icon-link,
+button.icon-btn {
+  --actionable-icon-foreground-color: #111820;
+  --actionable-icon-foreground-color-active: #111820;
+  --actionable-icon-foreground-color-visited: #111820;
+  --actionable-icon-foreground-color-hover: #3665f3;
+  --actionable-badge-border-color: #fff;
+  --actionable-image-border-color-hover: #767676;
+}
+a.img-link,
+button.img-btn {
+  --actionable-image-border-color-hover: #767676;
+  --actionable-image-border-color-active: #767676;
+  --actionable-image-background-color-visited: #e5e5e5;
+}
+@media (prefers-color-scheme: dark) {
+  a.icon-link,
+  button.icon-btn {
+    --actionable-icon-foreground-color: #dcdcdc;
+    --actionable-icon-foreground-color-active: #dcdcdc;
+    --actionable-icon-foreground-color-visited: #dcdcdc;
+    --actionable-icon-foreground-color-hover: #5192ff;
+    --actionable-badge-border-color: #171717;
+  }
+  a.img-link,
+  button.img-btn {
+    --actionable-image-border-color-hover: #5192ff;
+    --actionable-image-border-color-active: #767676;
+    --actionable-image-background-color-visited: #e5e5e5;
+  }
+}
 a.icon-link {
   -webkit-box-align: center;
           align-items: center;
@@ -21,14 +52,20 @@ a.icon-link {
 }
 button.icon-btn > svg,
 a.icon-link > svg {
-  color: #111820;
+  fill: #111820;
+  fill: var(--actionable-icon-foreground-color, #111820);
   height: 100%;
   max-width: 100%;
   position: relative;
 }
 button.icon-btn:active > svg,
 a.icon-link:active > svg {
-  color: #111820;
+  fill: #111820;
+  fill: var(--actionable-icon-foreground-color-active, #111820);
+}
+a.icon-link:visited > svg {
+  fill: #111820;
+  fill: var(--actionable-icon-foreground-color-visited, #111820);
 }
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
@@ -50,6 +87,7 @@ a.icon-link--badged {
 button.icon-btn--badged .badge,
 a.icon-link--badged .badge {
   border: 2px solid #fff;
+  border: 2px solid var(--actionable-badge-border-color, #fff);
   display: block;
   height: 24px;
   left: 16px;
@@ -64,12 +102,14 @@ a.icon-link--badged .badge {
 a.img-link[href]:hover,
 a.img-link[href]:focus {
   border-color: #767676;
+  border-color: var(--actionable-image-border-color-hover, #767676);
 }
 a.img-link[href]:active {
   border-color: #767676;
 }
 a.img-link--visit:visited {
   background-color: #e5e5e5;
+  background-color: var(--actionable-image-background-color-visited, #e5e5e5);
 }
 a.img-link,
 button.img-btn {
@@ -84,13 +124,17 @@ button.img-btn {
 button.img-btn:not([disabled]):hover,
 button.img-btn:not([disabled]):focus {
   border-color: #767676;
+  border-color: var(--actionable-image-border-color-hover, #767676);
 }
 button.img-btn:not([disabled]):active {
   border-color: #767676;
+  border-color: var(--actionable-image-border-color-active, #767676);
 }
+/* stylelint-disable-next-line no-duplicate-selectors */
 button.icon-btn:focus svg,
 a.icon-link:focus svg,
 button.icon-btn:hover svg,
 a.icon-link:hover svg {
   fill: #3665f3;
+  fill: var(--actionable-icon-foreground-color-hover, #3665f3);
 }
