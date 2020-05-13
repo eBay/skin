@@ -1,5 +1,6 @@
 
 @dialog_max_width: 616px;
+@dialog_header_default_margin: 16px 16px 0;
 
 // Element width in percentage - (No of gutters * gutter width / number of elements)px
 .create-grid(@cols, @gutter: 0, @gutter-exponent: 4, @size: 0, @min: 0, @max: 0) {
@@ -35,8 +36,6 @@
 
 .dialog-window(@width: @dialog_max_width) {
     display: flex;
-    flex-direction: column;
-    left: 0;
     margin: auto;
     max-width: @width;
     min-height: 55px;
@@ -68,11 +67,11 @@
     }
 }
 
-.dialog-header-content() {
+.dialog-header-content(@margin: @dialog_header_default_margin) {
     display: flex;
     // Fix for Safari not honoring min-height
     flex-shrink: 0;
-    margin: 16px 16px 0;
+    margin: @margin;
     position: relative;
 
     h2 {
