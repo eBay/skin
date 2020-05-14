@@ -22,3 +22,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.customProperty(@property, @propertyValue) {
+    // Gotta be careful with the escaping the @, see: http://lesscss.org/#escaping
+    // and http://lesscss.org/features/#variables-feature-variable-interpolation
+    @property: ~"@"@propertyValue;
+    @property: ~"var(--@{propertyValue}, @@{propertyValue})";
+}

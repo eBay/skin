@@ -1,8 +1,13 @@
+@import "src/less/mixins/utility/utility-mixins.less";
+
 // the non-plural classname is deprecated in v10
 nav.breadcrumb,
 nav.breadcrumbs {
-    color: @breadcrumbs-item-color;
-    color: var(--breadcrumbs-item-color, @breadcrumbs-item-color);
+    // color: @breadcrumbs-item-color;
+    // color: var(--breadcrumbs-item-color, @breadcrumbs-item-color);
+    @property: "color";
+    @propertyValue: "breadcrumbs-item-color";
+
     font-size: @font-size-12;
     height: fit-content;
     margin: 8px 0;
@@ -47,14 +52,20 @@ nav.breadcrumbs {
 
         &:focus,
         &:hover {
-            color: @breadcrumbs-item-focus-hover-color;
-            color: var(--breadcrumbs-item-focus-hover-color, @breadcrumbs-item-focus-hover-color);
+            // color: @breadcrumbs-item-focus-hover-color;
+            // color: var(--breadcrumbs-item-focus-hover-color, @breadcrumbs-item-focus-hover-color);
+            @property: "color";
+            @propertyValue: "breadcrumbs-item-focus-hover-color";
+
             text-decoration: underline;
         }
 
         &[aria-current] {
-            color: @breadcrumbs-item-current-color;
-            color: var(--breadcrumbs-item-current-color, @breadcrumbs-item-current-color);
+            // color: @breadcrumbs-item-current-color;
+            // color: var(--breadcrumbs-item-current-color, @breadcrumbs-item-current-color);
+            @property: "color";
+            @propertyValue: "breadcrumbs-item-current-color";
+
             text-decoration: none;
         }
     }
