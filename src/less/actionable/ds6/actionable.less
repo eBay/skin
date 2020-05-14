@@ -2,21 +2,61 @@
 @import "../../variables/ds6/icon-variables.less";
 @import "../../variables/ds6/typography-variables.less";
 
-@actionable-icon-color-active: @color-text-default;
-@actionable-badge-border-color: @color-badge-text;
+// CSS Custom properties (DS6 only)
+a.icon-link,
+button.icon-btn {
+    --actionable-icon-foreground-color: @color-text-default;
+    --actionable-icon-foreground-color-active: @color-text-default;
+    --actionable-icon-foreground-color-visited: @color-text-default;
+    --actionable-icon-foreground-color-hover: @color-b4;
+    --actionable-badge-border-color: @color-background-default;
+    --actionable-image-border-color-hover: @color-grey5;
+}
+
+a.img-link,
+button.img-btn {
+    --actionable-image-border-color-hover: @color-grey5;
+    --actionable-image-border-color-active: @color-text-secondary;
+    --actionable-image-background-color-visited: @color-grey2;
+}
+
+@media (prefers-color-scheme: dark) {
+    a.icon-link,
+    button.icon-btn {
+        --actionable-icon-foreground-color: @color-text-default-dark-mode;
+        --actionable-icon-foreground-color-active: @color-text-default-dark-mode;
+        --actionable-icon-foreground-color-visited: @color-text-default-dark-mode;
+        --actionable-icon-foreground-color-hover: @color-b4-dark-mode;
+        --actionable-badge-border-color: @color-background-default-dark-mode;
+    }
+
+    a.img-link,
+    button.img-btn {
+        --actionable-image-border-color-hover: @color-b4-dark-mode;
+        --actionable-image-border-color-active: @color-text-secondary; //tbc
+        --actionable-image-background-color-visited: @color-grey2; // tbc
+    }
+}
+
+// IE11 fallbacks
+@actionable-icon-foreground-color: @color-text-default;
+@actionable-icon-foreground-color-active: @color-text-default;
+@actionable-icon-foreground-color-visited: @color-text-default;
+@actionable-icon-foreground-color-hover: @color-b4;
+@actionable-badge-border-color: @color-background-default;
 @actionable-badge-font-size: @font-size-12;
-@actionable-image-link-border-color-hover: @color-grey5;
-@actionable-image-link-border-color-active: @color-text-secondary;
-@actionable-image-link-background-color-visited: @color-grey2;
-@actionable-image-button-border-color-hover: @color-grey5;
-@actionable-image-button-border-color-active: @color-text-secondary;
+@actionable-image-border-color-hover: @color-grey5;
+@actionable-image-border-color-active: @color-text-secondary;
+@actionable-image-background-color-visited: @color-grey2;
 
 @import "../base/actionable.less";
 
+/* stylelint-disable-next-line no-duplicate-selectors */
 button.icon-btn,
 a.icon-link {
     &:focus svg,
     &:hover svg {
-        fill: #3665f3;
+        fill: @actionable-icon-foreground-color-hover;
+        fill: var(--actionable-icon-foreground-color-hover, @actionable-icon-foreground-color-hover);
     }
 }
