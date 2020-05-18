@@ -3,11 +3,12 @@
 @import "../../variables/ds6/typography-variables.less";
 @import "../../mixins/icon/ds6/icon-mixins.less";
 
-@breadcrumbs-item-color: @color-text-default;
-@breadcrumbs-item-focus-hover-color: @color-link-default;
-@breadcrumbs-item-current-color: @color-grey5;
-
 // CSS Custom Properties for DS6 only
+.breadcrumbs {
+    --breadcrumbs-item-color: @color-text-default;
+    --breadcrumbs-item-current-color: @breadcrumbs-item-current-color;
+    --breadcrumbs-item-focus-hover-color: @color-link-default;
+}
 
 @media (prefers-color-scheme: dark) {
     .breadcrumbs {
@@ -16,5 +17,10 @@
         --breadcrumbs-item-focus-hover-color: @color-link-default-dark-mode;
     }
 }
+
+// IE11 fallbacks
+@breadcrumbs-item-color: @color-text-default;
+@breadcrumbs-item-focus-hover-color: @color-link-default;
+@breadcrumbs-item-current-color: @color-grey5;
 
 @import "../base/breadcrumbs.less";
