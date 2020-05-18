@@ -23,9 +23,11 @@
     white-space: nowrap;
 }
 
-// .customProperty(@propertyValue) {
-//     // Gotta be careful with the escaping the @, see: http://lesscss.org/#escaping
-//     // and http://lesscss.org/features/#variables-feature-variable-interpolation
-//     color: ~"@@{propertyValue}";
-//     color: ~"var(--@{propertyValue}, @@{propertyValue})";
-// }
+.customProperty(@property, @token) {
+    @{property}: @@token;
+    @{property}: var(~"--@{token}", @@token);
+}
+
+.customColorProperty(@token) {
+    .customProperty(color, @token);
+}
