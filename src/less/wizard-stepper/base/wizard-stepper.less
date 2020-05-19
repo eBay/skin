@@ -1,14 +1,3 @@
-// As of v10.5.0, the wizard-stepper module is deprecated in favour of stepper
-
-// todo: these variables should be normalized into the ds4 and ds6 folder
-@wizard-step-confirmation-color: #3ac952;
-@wizard-step-information-color: #3665f3;
-@wizard-step-attention-color: #e62048;
-@wizard-step-default-color: #111820;
-@wizard-step-upcoming-color: #c7c7c7;
-@wizard-step-title-light-color: #767676;
-@wizard-stepper-list-icon-size: 24px;
-
 // This mixin takes the upcoming color.
 // This colors the current icons :after, the hr, and the next item's :before
 .highlight-upcoming(@upcoming) {
@@ -49,18 +38,19 @@ hr.wizard-stepper__separator {
     display: flex;
 }
 
+// todo: refactor out dependency on badge module. I don't think it should be used in this context.
 .wizard-stepper__icon .badge {
     background-color: white;
-    border: 1px solid @wizard-step-default-color;
-    color: @wizard-step-default-color;
-    height: @wizard-stepper-list-icon-size;
+    border: 1px solid @stepper-text-dark-color;
+    color: @stepper-text-dark-color;
+    height: @stepper-icon-size;
     top: 0;
     width: 24px; // This width makes the badge to have 24px width for some reason!
 }
 
 .wizard-stepper__icon svg.icon {
-    min-height: @wizard-stepper-list-icon-size;
-    min-width: @wizard-stepper-list-icon-size;
+    min-height: @stepper-icon-size;
+    min-width: @stepper-icon-size;
 }
 
 .wizard-stepper__icon::before,
@@ -72,40 +62,44 @@ hr.wizard-stepper__separator {
 }
 
 .wizard-stepper__item--confirmation {
-    .highlight-upcoming(@wizard-step-confirmation-color);
+    .highlight-upcoming(@stepper-confirmation-color);
 
-    color: @wizard-step-title-light-color;
+    color: @stepper-text-light-color;
 }
 
 .wizard-stepper__item--upcoming {
-    .highlight-upcoming(@wizard-step-upcoming-color);
+    .highlight-upcoming(@stepper-upcoming-color);
 
-    color: @wizard-step-upcoming-color;
+    color: @stepper-text-light-color;
+
+    svg {
+        fill: @stepper-upcoming-color;
+    }
 }
 
 .wizard-stepper__item--default {
-    .highlight-upcoming(@wizard-step-default-color);
+    .highlight-upcoming(@stepper-text-dark-color;);
 
-    color: @wizard-step-default-color;
+    color: @stepper-text-dark-color;
 }
 
 .wizard-stepper__item--current {
-    .highlight-upcoming(@wizard-step-upcoming-color);
+    .highlight-upcoming(@stepper-upcoming-color);
 
-    color: @wizard-step-confirmation-color;
+    color: @stepper-confirmation-color;
 }
 
 // Place transitions at end to take higher priority
 .wizard-stepper__item--transition-attention {
-    .highlight-upcoming(@wizard-step-attention-color);
+    .highlight-upcoming(@stepper-attention-color);
 }
 
 .wizard-stepper__item--transition-information {
-    .highlight-upcoming(@wizard-step-information-color);
+    .highlight-upcoming(@stepper-information-color);
 }
 
 .wizard-stepper__item--transition-default {
-    .highlight-upcoming(@wizard-step-default-color);
+    .highlight-upcoming(@stepper-text-dark-color;);
 }
 
 .wizard-stepper__text {
@@ -115,7 +109,7 @@ hr.wizard-stepper__separator {
 
 .wizard-stepper__item--current .wizard-stepper__text,
 .wizard-stepper__item--default .wizard-stepper__text {
-    color: @wizard-step-default-color;
+    color: @stepper-text-dark-color;
 }
 
 .wizard-stepper__item[aria-current="step"] {
