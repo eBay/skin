@@ -22,3 +22,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.customProperty(@property, @token) {
+    @{property}: @@token;
+    @{property}: var(~"--@{token}", @@token);
+}
+
+.customColorProperty(@token) {
+    .customProperty(color, @token);
+}
