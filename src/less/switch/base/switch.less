@@ -1,3 +1,5 @@
+@import "src/less/mixins/utility/utility-mixins.less";
+
 .switch {
     box-sizing: border-box;
     height: 40px;
@@ -14,10 +16,9 @@ span.switch {
 }
 
 span.switch__button {
+    .customBackgroundColorProperty('switch-background-color-unchecked');
+
     align-self: center;
-    background: gray none repeat scroll 0 0;
-    background-color: @switch-background-color-unchecked; // ie11
-    background-color: var(--switch-background-color-unchecked, @switch-background-color-unchecked);
     border-radius: 400px;
     color: transparent;
     display: inline-block;
@@ -65,8 +66,7 @@ input.switch__control {
 }
 
 input.switch__control[disabled] + span.switch__button {
-    background-color: @switch-background-color-disabled; // ie11
-    background-color: var(--switch-background-color-disabled, @switch-background-color-disabled);
+    .customBackgroundColorProperty('switch-background-color-disabled');
 }
 
 input.switch__control:checked + span.switch__button::after {
@@ -74,8 +74,7 @@ input.switch__control:checked + span.switch__button::after {
 }
 
 span.switch__control[aria-disabled="true"] + span.switch__button {
-    background-color: @switch-background-color-disabled; // ie11
-    background-color: var(--switch-background-color-disabled, @switch-background-color-disabled);
+    .customBackgroundColorProperty('switch-background-color-disabled');
 }
 
 span.switch__control[aria-checked="true"] + span.switch__button::after {
@@ -84,8 +83,7 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
-    background-color: @switch-background-color-checked; // ie11
-    background-color: var(--switch-background-color-checked, @switch-background-color-checked);
+    .customBackgroundColorProperty('switch-background-color-checked');
 }
 
 @media screen and (-ms-high-contrast: active) {

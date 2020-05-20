@@ -1,3 +1,5 @@
+@import "src/less/mixins/utility/utility-mixins.less";
+
 // icons
 //-----------------------------
 
@@ -22,22 +24,20 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        fill: @actionable-icon-foreground-color;
-        fill: var(--actionable-icon-foreground-color, @actionable-icon-foreground-color);
+        .customFillProperty('actionable-icon-foreground-color');
+
         height: 100%; // vertical centering
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
     }
 
     &:active > svg {
-        fill: @actionable-icon-foreground-color-active;
-        fill: var(--actionable-icon-foreground-color-active, @actionable-icon-foreground-color-active);
+        .customFillProperty('actionable-icon-foreground-color-active');
     }
 }
 
 a.icon-link:visited > svg {
-    fill: @actionable-icon-foreground-color-visited;
-    fill: var(--actionable-icon-foreground-color-visited, @actionable-icon-foreground-color-visited);
+    .customFillProperty('actionable-icon-foreground-color-visited');
 }
 
 // disabled & partially disabled states
@@ -61,8 +61,10 @@ a.icon-link--badged {
     position: relative;
 
     .badge {
-        border: 2px solid @actionable-badge-border-color;
-        border: 2px solid var(--actionable-badge-border-color, @actionable-badge-border-color);
+        .customBorderColorProperty('actionable-badge-border-color');
+
+        border-style: solid;
+        border-width: 2px;
         display: block;
         height: 24px;
         left: 16px;
@@ -83,8 +85,7 @@ a.img-link {
     &[href] {
         &:hover,
         &:focus {
-            border-color: @actionable-image-border-color-hover;
-            border-color: var(--actionable-image-border-color-hover, @actionable-image-border-color-hover);
+            .customBorderColorProperty('actionable-image-border-color-hover');
         }
 
         &:active {
@@ -94,8 +95,7 @@ a.img-link {
 }
 
 a.img-link--visit:visited {
-    background-color: @actionable-image-background-color-visited;
-    background-color: var(--actionable-image-background-color-visited, @actionable-image-background-color-visited);
+    .customBackgroundColorProperty('actionable-image-background-color-visited');
 }
 
 a.img-link,
@@ -111,13 +111,11 @@ button.img-btn {
     &:not([disabled]) {
         &:hover,
         &:focus {
-            border-color: @actionable-image-border-color-hover;
-            border-color: var(--actionable-image-border-color-hover, @actionable-image-border-color-hover);
+            .customBorderColorProperty('actionable-image-border-color-hover');
         }
 
         &:active {
-            border-color: @actionable-image-border-color-active;
-            border-color: var(--actionable-image-border-color-active, @actionable-image-border-color-active);
+            .customBorderColorProperty('actionable-image-border-color-active');
         }
     }
 }
