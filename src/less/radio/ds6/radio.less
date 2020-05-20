@@ -4,11 +4,23 @@
 @import "../../mixins/icon/ds6/icon-mixins.less";
 @import "../base/radio.less";
 
+.radio {
+    --radio-checked-color: @radio-checked-color;
+    --radio-unchecked-color: @radio-unchecked-color;
+}
+
 .radio__icon svg,
 .radio__control[type="radio"] {
     height: 24px;
     min-width: 24px;
     width: 24px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .radio {
+        --radio-checked-color: @radio-checked-color-dark-mode;
+        --radio-unchecked-color: @radio-unchecked-color-dark-mode;// TBD
+    }
 }
 
 // refactor. this media query needs revisiting in v11

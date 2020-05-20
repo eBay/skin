@@ -25,9 +25,11 @@ svg.radio__unchecked {
 }
 svg.radio__checked {
   color: #3665f3;
+  color: var(--radio-checked-color, #3665f3);
 }
 svg.radio__unchecked {
   color: #111820;
+  color: var(--radio-unchecked-color, #111820);
 }
 input.radio__control[type="radio"] {
   font-size: 100%;
@@ -55,11 +57,21 @@ input.radio__control[type="radio"]:focus + span.radio__icon {
 input.radio__control[type="radio"][disabled] + span.radio__icon {
   opacity: 0.25;
 }
+.radio {
+  --radio-checked-color: #3665f3;
+  --radio-unchecked-color: #111820;
+}
 .radio__icon svg,
 .radio__control[type="radio"] {
   height: 24px;
   min-width: 24px;
   width: 24px;
+}
+@media (prefers-color-scheme: dark) {
+  .radio {
+    --radio-checked-color: #5192ff;
+    --radio-unchecked-color: #171717;
+  }
 }
 @media (min-width: 601px) {
   .radio__icon svg,
