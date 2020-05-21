@@ -34,13 +34,15 @@ a.icon-link {
     &:active > svg {
         .customFillProperty('actionable-icon-foreground-color-active');
     }
-}
 
-a.icon-link:visited > svg {
-    .customFillProperty('actionable-icon-foreground-color-visited');
+    &:focus > svg,
+    &:hover > svg {
+        .customFillProperty('actionable-icon-foreground-color-hover');
+    }
 }
 
 // disabled & partially disabled states
+// todo: change opacity to a color
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
 a:not([href]).icon-link,
@@ -49,6 +51,18 @@ a[aria-disabled="true"].icon-link {
 
     > svg {
         background-color: transparent;
+    }
+}
+
+// visited link state
+a.icon-link:visited {
+    & > svg {
+        .customFillProperty('actionable-icon-foreground-color');
+    }
+
+    &:hover > svg,
+    &:focus > svg {
+        .customFillProperty('actionable-icon-foreground-color-hover');
     }
 }
 

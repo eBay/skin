@@ -4,7 +4,6 @@ button.icon-btn {
   --actionable-icon-foreground-color: #111820;
   --actionable-icon-foreground-color-active: #111820;
   --actionable-icon-foreground-color-hover: #3665f3;
-  --actionable-icon-foreground-color-visited: #111820;
   --actionable-image-border-color-hover: #767676;
 }
 a.img-link,
@@ -20,7 +19,6 @@ button.img-btn {
     --actionable-icon-foreground-color: #dcdcdc;
     --actionable-icon-foreground-color-active: #dcdcdc;
     --actionable-icon-foreground-color-hover: #5192ff;
-    --actionable-icon-foreground-color-visited: #dcdcdc;
   }
   a.img-link,
   button.img-btn {
@@ -63,9 +61,12 @@ a.icon-link:active > svg {
   fill: #111820;
   fill: var(--actionable-icon-foreground-color-active, #111820);
 }
-a.icon-link:visited > svg {
-  fill: #111820;
-  fill: var(--actionable-icon-foreground-color-visited, #111820);
+button.icon-btn:focus > svg,
+a.icon-link:focus > svg,
+button.icon-btn:hover > svg,
+a.icon-link:hover > svg {
+  fill: #3665f3;
+  fill: var(--actionable-icon-foreground-color-hover, #3665f3);
 }
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
@@ -78,6 +79,15 @@ button[aria-disabled="true"].icon-btn > svg,
 a:not([href]).icon-link > svg,
 a[aria-disabled="true"].icon-link > svg {
   background-color: transparent;
+}
+a.icon-link:visited > svg {
+  fill: #111820;
+  fill: var(--actionable-icon-foreground-color, #111820);
+}
+a.icon-link:visited:hover > svg,
+a.icon-link:visited:focus > svg {
+  fill: #3665f3;
+  fill: var(--actionable-icon-foreground-color-hover, #3665f3);
 }
 button.icon-btn--badged,
 a.icon-link--badged {
@@ -131,12 +141,4 @@ button.img-btn:not([disabled]):focus {
 button.img-btn:not([disabled]):active {
   border-color: #767676;
   border-color: var(--actionable-image-border-color-active, #767676);
-}
-/* stylelint-disable-next-line no-duplicate-selectors */
-button.icon-btn:focus svg,
-a.icon-link:focus svg,
-button.icon-btn:hover svg,
-a.icon-link:hover svg {
-  fill: #3665f3;
-  fill: var(--actionable-icon-foreground-color-hover, #3665f3);
 }
