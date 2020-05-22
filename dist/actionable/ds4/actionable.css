@@ -1,3 +1,17 @@
+a.icon-link,
+button.icon-btn {
+  --actionable-badge-border-color: #fff;
+  --actionable-icon-foreground-color: #555;
+  --actionable-icon-foreground-color-active: #555;
+  --actionable-icon-foreground-color-hover: #767676;
+  --actionable-image-border-color-hover: #999;
+}
+a.img-link,
+button.img-btn {
+  --actionable-image-background-color-visited: #ddd;
+  --actionable-image-border-color-active: #767676;
+  --actionable-image-border-color-hover: #767676;
+}
 a.icon-link {
   -webkit-box-align: center;
           align-items: center;
@@ -32,9 +46,12 @@ a.icon-link:active > svg {
   fill: #555;
   fill: var(--actionable-icon-foreground-color-active, #555);
 }
-a.icon-link:visited > svg {
+button.icon-btn:focus > svg,
+a.icon-link:focus > svg,
+button.icon-btn:hover > svg,
+a.icon-link:hover > svg {
   fill: #333;
-  fill: var(--actionable-icon-foreground-color-visited, #333);
+  fill: var(--actionable-icon-foreground-color-hover, #333);
 }
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
@@ -48,6 +65,15 @@ a:not([href]).icon-link > svg,
 a[aria-disabled="true"].icon-link > svg {
   background-color: transparent;
 }
+a.icon-link:visited > svg {
+  fill: #555;
+  fill: var(--actionable-icon-foreground-color, #555);
+}
+a.icon-link:visited:hover > svg,
+a.icon-link:visited:focus > svg {
+  fill: #333;
+  fill: var(--actionable-icon-foreground-color-hover, #333);
+}
 button.icon-btn--badged,
 a.icon-link--badged {
   overflow: visible;
@@ -55,8 +81,10 @@ a.icon-link--badged {
 }
 button.icon-btn--badged .badge,
 a.icon-link--badged .badge {
-  border: 2px solid #fff;
-  border: 2px solid var(--actionable-badge-border-color, #fff);
+  border-color: #fff;
+  border-color: var(--actionable-badge-border-color, #fff);
+  border-style: solid;
+  border-width: 2px;
   display: block;
   height: 24px;
   left: 16px;
@@ -98,10 +126,4 @@ button.img-btn:not([disabled]):focus {
 button.img-btn:not([disabled]):active {
   border-color: #767676;
   border-color: var(--actionable-image-border-color-active, #767676);
-}
-button.icon-btn:focus,
-a.icon-link:focus,
-button.icon-btn:hover,
-a.icon-link:hover {
-  opacity: 0.65;
 }

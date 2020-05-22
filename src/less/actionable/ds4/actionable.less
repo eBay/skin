@@ -1,24 +1,31 @@
 @import "../../variables/ds4/color-variables.less";
-@import "../../variables/ds4/icon-variables.less";
 @import "../../variables/ds4/typography-variables.less";
 
-@actionable-icon-foreground-color: @color-icon-actionable-default;
-@actionable-icon-foreground-color-active: @color-icon-actionable-default;
-@actionable-icon-foreground-color-visited: @color-text-default;
-@actionable-icon-foreground-color-hover: @color-text-default;
+// CSS Custom properties
+a.icon-link,
+button.icon-btn {
+    --actionable-badge-border-color: @color-background-default;
+    --actionable-icon-foreground-color: @color-icon-actionable-default;
+    --actionable-icon-foreground-color-active: @color-icon-actionable-default;
+    --actionable-icon-foreground-color-hover: @color-core-gray-dim;
+    --actionable-image-border-color-hover: @color-core-gray-spanish;
+}
+
+a.img-link,
+button.img-btn {
+    --actionable-image-background-color-visited: @color-grey2;
+    --actionable-image-border-color-active: @color-text-secondary;
+    --actionable-image-border-color-hover: @color-grey5;
+}
+
+// IE11 fallbacks
 @actionable-badge-border-color: @color-background-default;
 @actionable-badge-font-size: @font-size-12;
+@actionable-icon-foreground-color: @color-icon-actionable-default;
+@actionable-icon-foreground-color-active: @color-icon-actionable-default;
+@actionable-icon-foreground-color-hover: @color-text-default;
+@actionable-image-background-color-visited: @color-core-gray-light;
 @actionable-image-border-color-hover: @color-core-gray-spanish;
 @actionable-image-border-color-active: @color-core-gray-dim;
-@actionable-image-background-color-visited: @color-core-gray-light;
 
 @import "../base/actionable.less";
-
-// todo: normalize ds4 & ds6
-button.icon-btn,
-a.icon-link {
-    &:focus,
-    &:hover {
-        opacity: 0.65;
-    }
-}

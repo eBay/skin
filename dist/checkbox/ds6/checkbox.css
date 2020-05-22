@@ -25,9 +25,11 @@ svg.checkbox__unchecked {
 }
 svg.checkbox__checked {
   color: #3665f3;
+  color: var(--checkbox-checked-color, #3665f3);
 }
 svg.checkbox__unchecked {
   color: #111820;
+  color: var(--checkbox-unchecked-color, #111820);
 }
 input.checkbox__control[type="checkbox"] {
   font-size: 100%;
@@ -54,6 +56,16 @@ input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
 }
 input.checkbox__control[type="checkbox"][disabled] + span.checkbox__icon {
   opacity: 0.25;
+}
+.checkbox {
+  --checkbox-checked-color: #3665f3;
+  --checkbox-unchecked-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .checkbox {
+    --checkbox-checked-color: #5192ff;
+    --checkbox-unchecked-color: #171717;
+  }
 }
 .checkbox__icon svg,
 .checkbox__control[type="checkbox"] {
