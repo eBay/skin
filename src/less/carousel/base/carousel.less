@@ -13,7 +13,9 @@
         width: 100%;
 
         &--controls-disabled .carousel__control.carousel__control {
-            opacity: 0;
+            // When controls are disabled, should hide them
+            // If we set opacity to 0, this is removed when we :hover
+            display: none;
         }
     }
 
@@ -126,7 +128,7 @@ span.carousel__container {
             scroll-snap-type: mandatory;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin; // Firefox scrollbar
-            transition: border-color 0.5s;
+            transition: border-color 0.5s, transform @ebay-carousel-transition-time @ebay-carousel-transition-function;
 
             &:hover {
                 border-color: rgba(0, 0, 0, 0.4);

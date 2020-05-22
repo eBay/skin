@@ -8,6 +8,12 @@
 .fake-menu-button__menu {
     .dropdown();
     .dropdown-overlay-constraints();
+
+    // In ebayui there is a bug where if tabindex=-1 outside the menu button
+    // Any clicks inside will trigger on the outher tabindex=-1. In order to fix it
+    // We added a tabindex=-1 on the popup menu root (on root so you can scroll)
+    // This forces a focus ring, so this focus ring is removed from the root.
+    outline: 0;
 }
 
 span.menu-button__button,
