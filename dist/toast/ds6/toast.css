@@ -1,0 +1,113 @@
+.toast {
+  background-color: #3665f3;
+  bottom: 0;
+  color: #fff;
+  left: 0;
+  max-height: 40vh;
+  min-width: 320px;
+  position: fixed;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  width: 100vw;
+  will-change: opacity, transform;
+  z-index: 2;
+}
+.toast a {
+  color: #fff;
+}
+.toast a:focus {
+  outline: 1px dotted #fff;
+  outline-offset: 4px;
+}
+.toast--transition {
+  -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+.toast--show,
+.toast--hide-init {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.toast--show-init,
+.toast--hide {
+  display: block;
+  opacity: 0;
+  -webkit-transform: translateY(110%);
+          transform: translateY(110%);
+}
+.toast__window {
+  margin: 16px;
+}
+.toast__header {
+  display: -webkit-box;
+  display: flex;
+}
+.toast__title {
+  margin: 0;
+}
+.toast__close {
+  align-self: center;
+  background-color: #3665f3;
+  border: 0;
+  color: #fff;
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+.toast__close:focus {
+  outline: 1px dotted #fff;
+  outline-offset: 4px;
+}
+.toast__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+.toast__footer button::first-letter {
+  text-decoration: underline;
+}
+.toast__footer .btn--primary {
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #3665f3;
+}
+.toast__footer .btn--primary:focus,
+.toast__footer .btn--primary:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+.toast__footer .btn--primary:focus {
+  outline: 1px dotted #fff;
+  outline-offset: 4px;
+}
+.toast__footer .btn--secondary {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 8px;
+}
+.toast__footer .btn--secondary:focus,
+.toast__footer .btn--secondary:hover {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.toast__footer .btn--secondary:focus {
+  outline: 1px dotted #fff;
+  outline-offset: 4px;
+}
+@media (min-width: 601px) {
+  .toast {
+    bottom: 16px;
+    left: 16px;
+    max-width: 480px;
+    width: auto;
+  }
+  .toast__window {
+    margin: 24px;
+  }
+}

@@ -1,0 +1,129 @@
+.toast-outline() {
+    outline: 1px dotted @toast-foreground-color;
+    outline-offset: 4px;
+}
+
+.toast {
+    background-color: @toast-background-color;
+    bottom: 0;
+    color: @toast-foreground-color;
+    left: 0;
+    max-height: 40vh;
+    min-width: 320px;
+    position: fixed;
+    // Setting translateY to 0 to fix a bug in safari which does a double transform
+    transform: translateY(0);
+    width: 100vw;
+    will-change: opacity, transform;
+    z-index: 2;
+}
+
+.toast a {
+    color: @toast-foreground-color;
+
+    &:focus {
+        .toast-outline();
+    }
+}
+
+.toast--transition {
+    transition:
+        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
+.toast--show,
+.toast--hide-init {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast--show-init,
+.toast--hide {
+    display: block;
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.toast__window {
+    margin: 16px;
+}
+
+.toast__header {
+    display: flex;
+}
+
+.toast__title {
+    margin: 0;
+}
+
+.toast__close {
+    align-self: center;
+    background-color: @toast-background-color;
+    border: 0;
+    color: @toast-foreground-color;
+    margin: 0 0 0 auto;
+    padding: 0;
+
+    &:focus {
+        .toast-outline();
+    }
+}
+
+.toast__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button::first-letter {
+        text-decoration: underline;
+    }
+
+    .btn--primary {
+        background-color: @toast-foreground-color;
+        border: 1px solid @toast-foreground-color;
+        color: @toast-background-color;
+
+        &:focus,
+        &:hover {
+            background-color: @toast-foreground-color;
+            border: 1px solid @toast-foreground-color;
+        }
+
+        &:focus {
+            .toast-outline();
+        }
+    }
+
+    .btn--secondary {
+        background-color: transparent;
+        border: 1px solid @toast-foreground-color;
+        color: @toast-foreground-color;
+        font-weight: 700;
+        margin-right: 8px;
+
+        &:focus,
+        &:hover {
+            border: 1px solid @toast-foreground-color;
+            color: @toast-foreground-color;
+        }
+
+        &:focus {
+            outline: 1px dotted @toast-foreground-color;
+            outline-offset: 4px;
+        }
+    }
+}
+
+@media (min-width: 601px) {
+    .toast {
+        bottom: 16px;
+        left: 16px;
+        max-width: 480px;
+        width: auto;
+    }
+
+    .toast__window {
+        margin: 24px;
+    }
+}
