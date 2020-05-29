@@ -54,7 +54,7 @@ async function writeSymbols(result, dsVersion) {
 }
 
 function rawSvgToHtml(data) {
-    return data.replace(/<svg.*>/, '<div hidden>\n<svg>').replace('</svg>', '</div>\n</svg>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
+    return data.replace(/<svg.*>/, '<div hidden>\n<svg>').replace('</svg>', '</svg>\n</div>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
 }
 
 class SVGGenerator {
