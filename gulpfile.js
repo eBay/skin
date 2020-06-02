@@ -38,7 +38,8 @@ function modules () {
        '!./src/less/grid/**/*.less',
        '!./src/less/less/**/*.less',
        '!./src/less/mixins/**/*.less',
-       '!./src/less/variables/**/*.less'
+       '!./src/less/variables/**/*.less',
+       '!./src/less/properties/**/*.less'
     ])
     .pipe(less({plugins: [autoprefixPlugin]}))
     .pipe(gulp.dest(distTarget))
