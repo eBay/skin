@@ -1,16 +1,18 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 button.btn,
 a.fake-btn {
     .btn-base();
+    .customBorderRadiusProperty(button-border-radius);
 
     background-color: transparent;
     border-color: inherit;
-    border-radius: @btn-border-radius;
     color: inherit;
     display: inline-block;
     font-size: @font-size-14;
     max-width: 100%;
     min-height: 40px;
-    padding: @btn-padding;
+    padding: @button-padding;
 }
 
 a.fake-btn:visited {
@@ -47,62 +49,62 @@ a.fake-btn__cell--fixed-height svg.icon {
 
 button.btn--primary,
 a.fake-btn--primary {
-    background-color: @button-primary-background-color;
-    border-color: @button-primary-border-color;
-    color: @button-primary-color;
+    .customBackgroundColorProperty(button-primary-background-color);
+    .customBorderColorProperty(button-primary-border-color);
+    .customColorProperty(button-primary-foreground-color);
 }
 
 a.fake-btn--primary:visited {
-    color: @button-primary-fake-visited-color;
+    .customColorProperty(button-primary-foreground-color);
 }
 
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
-    background-color: @button-primary-disabled-background-color;
-    border-color: @button-primary-disabled-border-color;
-    color: @button-primary-disabled-color;
+    .customBackgroundColorProperty(button-primary-disabled-background-color);
+    .customBorderColorProperty(button-primary-disabled-border-color);
+    .customColorProperty(button-primary-disabled-foreground-color);
 
     svg.icon {
-        color: @button-primary-disabled-svg-color;
+        .customFillProperty(button-primary-disabled-foreground-color);
     }
 
     &:hover,
     &:focus {
-        background-color: @button-primary-disabled-hover-background-color;
-        border-color: @button-primary-disabled-hover-border-color;
+        .customBackgroundColorProperty(button-primary-disabled-background-color);
+        .customBorderColorProperty(button-primary-disabled-border-color);
     }
 }
 
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
-    background-color: @button-primary-partially-disabled-background-color;
-    border-color: @button-primary-partially-disabled-border-color;
-    color: @button-primary-partially-disabled-color;
+    .customBackgroundColorProperty(button-primary-disabled-background-color);
+    .customBorderColorProperty(button-primary-disabled-border-color);
+    .customColorProperty(button-primary-disabled-foreground-color);
 }
 
 button.btn--secondary,
 a.fake-btn--secondary {
-    background-color: @button-secondary-background-color;
-    border-color: @button-secondary-border-color;
-    color: @button-secondary-color;
+    .customBackgroundColorProperty(button-secondary-background-color);
+    .customBorderColorProperty(button-secondary-border-color);
+    .customColorProperty(button-secondary-foreground-color);
 }
 
 a.fake-btn--secondary:visited {
-    color: @button-secondary-fake-visited-color;
+    .customColorProperty(button-secondary-foreground-color);
 }
 
 button.btn--delete,
 a.fake-btn--delete {
-    background-color: @button-delete-background-color;
-    border-color: @button-delete-border-color;
-    color: @button-delete-color;
+    .customBackgroundColorProperty(button-delete-background-color);
+    .customBorderColorProperty(button-delete-border-color);
+    .customColorProperty(button-delete-foreground-color);
 
     &:focus,
     &:hover,
     &:active,
     &:visited {
-        border-color: @button-delete-border-color;
-        color: @button-delete-color;
+        .customBorderColorProperty(button-delete-border-color);
+        .customColorProperty(button-delete-foreground-color);
     }
 }
 
@@ -110,19 +112,19 @@ button.btn--secondary[disabled],
 button.btn--secondary[aria-disabled="true"],
 button.btn--delete[disabled],
 button.btn--delete[aria-disabled="true"] {
-    background-color: @button-secondary-disabled-background-color;
-    border-color: @button-secondary-disabled-border-color;
-    color: @button-secondary-disabled-color;
+    .customBackgroundColorProperty(button-secondary-disabled-background-color);
+    .customBorderColorProperty(button-secondary-disabled-border-color);
+    .customColorProperty(button-secondary-disabled-foreground-color);
 
     svg.icon {
-        color: @button-secondary-disabled-svg-color;
+        .customFillProperty(button-secondary-disabled-foreground-color);
     }
 
     &:hover,
     &:focus,
     &:active {
-        background-color: @button-secondary-disabled-hover-background-color;
-        border-color: @button-secondary-disabled-hover-border-color;
+        .customBackgroundColorProperty(button-secondary-disabled-background-color);
+        .customBorderColorProperty(button-secondary-disabled-border-color);
     }
 }
 
@@ -130,8 +132,8 @@ a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
 a.fake-btn--delete:not([href]),
 a.fake-btn--delete[aria-disabled="true"] {
-    border-color: @button-secondary-partially-disabled-border-color;
-    color: @button-secondary-partially-disabled-color;
+    .customBorderColorProperty(button-secondary-disabled-border-color);
+    .customColorProperty(button-secondary-disabled-foreground-color);
 }
 
 button.btn--large,

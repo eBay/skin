@@ -1,3 +1,22 @@
+button.button,
+a.fake-button {
+  --button-border-radius: 0;
+  --button-primary-background-color: #3665f3;
+  --button-primary-border-color: #3665f3;
+  --button-primary-foreground-color: #fff;
+  --button-primary-disabled-background-color: #c7c7c7;
+  --button-primary-disabled-border-color: #c7c7c7;
+  --button-primary-disabled-foreground-color: #fff;
+  --button-secondary-background-color: #fff;
+  --button-secondary-border-color: #3665f3;
+  --button-secondary-foreground-color: #3665f3;
+  --button-secondary-disabled-background-color: #fff;
+  --button-secondary-disabled-border-color: #c7c7c7;
+  --button-secondary-disabled-foreground-color: #c7c7c7;
+  --button-delete-background-color: #fff;
+  --button-delete-border-color: #e62048;
+  --button-delete-foreground-color: #e62048;
+}
 button.btn,
 a.fake-btn {
   border: 1px solid;
@@ -8,9 +27,10 @@ a.fake-btn {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
+  border-radius: 0;
+  border-radius: var(--button-border-radius, 0);
   background-color: transparent;
   border-color: inherit;
-  border-radius: 0;
   color: inherit;
   display: inline-block;
   font-size: 0.875rem;
@@ -96,49 +116,69 @@ a.fake-btn__cell--fixed-height svg.icon {
 button.btn--primary,
 a.fake-btn--primary {
   background-color: #3665f3;
+  background-color: var(--button-primary-background-color, #3665f3);
   border-color: #3665f3;
+  border-color: var(--button-primary-border-color, #3665f3);
   color: #fff;
+  color: var(--button-primary-foreground-color, #fff);
 }
 a.fake-btn--primary:visited {
   color: #fff;
+  color: var(--button-primary-foreground-color, #fff);
 }
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
   background-color: #c7c7c7;
+  background-color: var(--button-primary-disabled-background-color, #c7c7c7);
   border-color: #c7c7c7;
+  border-color: var(--button-primary-disabled-border-color, #c7c7c7);
   color: #fff;
+  color: var(--button-primary-disabled-foreground-color, #fff);
 }
 button.btn--primary[disabled] svg.icon,
 button.btn--primary[aria-disabled="true"] svg.icon {
-  color: #fff;
+  fill: #fff;
+  fill: var(--button-primary-disabled-foreground-color, #fff);
 }
 button.btn--primary[disabled]:hover,
 button.btn--primary[aria-disabled="true"]:hover,
 button.btn--primary[disabled]:focus,
 button.btn--primary[aria-disabled="true"]:focus {
   background-color: #c7c7c7;
+  background-color: var(--button-primary-disabled-background-color, #c7c7c7);
   border-color: #c7c7c7;
+  border-color: var(--button-primary-disabled-border-color, #c7c7c7);
 }
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
   background-color: #c7c7c7;
+  background-color: var(--button-primary-disabled-background-color, #c7c7c7);
   border-color: #c7c7c7;
+  border-color: var(--button-primary-disabled-border-color, #c7c7c7);
   color: #fff;
+  color: var(--button-primary-disabled-foreground-color, #fff);
 }
 button.btn--secondary,
 a.fake-btn--secondary {
   background-color: #fff;
+  background-color: var(--button-secondary-background-color, #fff);
   border-color: #3665f3;
+  border-color: var(--button-secondary-border-color, #3665f3);
   color: #3665f3;
+  color: var(--button-secondary-foreground-color, #3665f3);
 }
 a.fake-btn--secondary:visited {
   color: #3665f3;
+  color: var(--button-secondary-foreground-color, #3665f3);
 }
 button.btn--delete,
 a.fake-btn--delete {
   background-color: #fff;
+  background-color: var(--button-delete-background-color, #fff);
   border-color: #e62048;
+  border-color: var(--button-delete-border-color, #e62048);
   color: #e62048;
+  color: var(--button-delete-foreground-color, #e62048);
 }
 button.btn--delete:focus,
 a.fake-btn--delete:focus,
@@ -149,21 +189,27 @@ a.fake-btn--delete:active,
 button.btn--delete:visited,
 a.fake-btn--delete:visited {
   border-color: #e62048;
+  border-color: var(--button-delete-border-color, #e62048);
   color: #e62048;
+  color: var(--button-delete-foreground-color, #e62048);
 }
 button.btn--secondary[disabled],
 button.btn--secondary[aria-disabled="true"],
 button.btn--delete[disabled],
 button.btn--delete[aria-disabled="true"] {
   background-color: #fff;
+  background-color: var(--button-secondary-disabled-background-color, #fff);
   border-color: #c7c7c7;
+  border-color: var(--button-secondary-disabled-border-color, #c7c7c7);
   color: #c7c7c7;
+  color: var(--button-secondary-disabled-foreground-color, #c7c7c7);
 }
 button.btn--secondary[disabled] svg.icon,
 button.btn--secondary[aria-disabled="true"] svg.icon,
 button.btn--delete[disabled] svg.icon,
 button.btn--delete[aria-disabled="true"] svg.icon {
-  color: #c7c7c7;
+  fill: #c7c7c7;
+  fill: var(--button-secondary-disabled-foreground-color, #c7c7c7);
 }
 button.btn--secondary[disabled]:hover,
 button.btn--secondary[aria-disabled="true"]:hover,
@@ -178,14 +224,18 @@ button.btn--secondary[aria-disabled="true"]:active,
 button.btn--delete[disabled]:active,
 button.btn--delete[aria-disabled="true"]:active {
   background-color: #fff;
+  background-color: var(--button-secondary-disabled-background-color, #fff);
   border-color: #c7c7c7;
+  border-color: var(--button-secondary-disabled-border-color, #c7c7c7);
 }
 a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
 a.fake-btn--delete:not([href]),
 a.fake-btn--delete[aria-disabled="true"] {
   border-color: #c7c7c7;
+  border-color: var(--button-secondary-disabled-border-color, #c7c7c7);
   color: #c7c7c7;
+  color: var(--button-secondary-disabled-foreground-color, #c7c7c7);
 }
 button.btn--large,
 a.fake-btn--large {
