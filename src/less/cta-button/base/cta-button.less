@@ -1,35 +1,37 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 a.cta-btn {
     .btn-base();
+    .customBackgroundColorProperty(cta-button-background-color);
+    .customBorderRadiusProperty(button-border-radius);
+    .customColorProperty(cta-button-foreground-color);
 
-    background-color: @btn-cta-background-color;
     border-color: currentColor;
-    border-radius: @btn-border-radius;
-    color: @btn-cta-color;
     display: inline-block;
-    font-size: @btn-font-size;
+    font-size: @button-font-size;
     max-width: 100%;
-    padding: @btn-padding;
+    padding: @button-padding;
 }
 
 a.cta-btn:visited {
-    color: @btn-cta-visited-color;
+    .customColorProperty(cta-button-visited-foreground-color);
 }
 
 a.cta-btn:focus,
 a.cta-btn:hover {
-    background-color: @btn-cta-focus-hover-background-color;
-    border-color: @btn-cta-focus-hover-border-color;
-    color: @btn-cta-focus-hover-color;
+    .customBackgroundColorProperty(cta-button-hover-background-color);
+    .customBorderColorProperty(cta-button-hover-border-color);
+    .customColorProperty(cta-button-hover-foreground-color);
 }
 
 a.cta-btn:not([href]),
 a.cta-btn[aria-disabled="true"] {
-    background-color: @btn-cta-no-href-background-color;
-    border-color: @btn-cta-no-href-border-color;
-    color: @btn-cta-no-href-color;
+    .customBackgroundColorProperty(cta-button-disabled-background-color);
+    .customBorderColorProperty(cta-button-disabled-border-color);
+    .customColorProperty(cta-button-disabled-foreground-color);
 }
 
-a.cta-btn--fluid {
+a.cta-button--fluid {
     width: 100%;
 }
 
@@ -52,16 +54,16 @@ span.cta-btn__cell--fixed-height svg.icon {
     width: 1rem;
 }
 
-a.cta-btn--large {
+a.cta-button--large {
     min-height: 48px;
 }
 
-a.cta-btn--large-truncated {
+a.cta-button--large-truncated {
     .btn-truncate();
 
     height: 48px;
 }
 
-a.cta-btn--large-fixed-height {
+a.cta-button--large-fixed-height {
     height: 48px;
 }
