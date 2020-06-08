@@ -175,6 +175,8 @@ Skin variables are categorised into three levels:
 
 These three levels form the basis of our token based system.
 
+### Global Variables
+
 Global variables are our primitives. They represent the colour palette and type ramp. For example:
 
 * color-b1
@@ -182,12 +184,16 @@ Global variables are our primitives. They represent the colour palette and type 
 
 Naming of global variables starts with the style related property and ends with the primitive.
 
+### Product Variables
+
 Product variables are aliases of global variables. They represent an aspect of the product that is used across many pages and components. For example, confirmations and actions:
 
 * color-confirmation-text
 * color-action-primary
 
 Naming of product variables starts with the style related property and ends with the product aspect.
+
+### Component Variables
 
 Component variables are aliases of global variables and product variables. They represent aspects of a specific component only, for example a textbox component:
 
