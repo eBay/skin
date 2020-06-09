@@ -1,3 +1,10 @@
+.listbox {
+  --dropdown-items-background-color: #fff;
+  --dropdown-items-border-color: #ccc;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #eee;
+  --dropdown-item-icon-color: #ccc;
+}
 div.listbox {
   margin: 16px 0;
 }
@@ -19,8 +26,11 @@ div.listbox__options--reverse[role="listbox"] {
   right: 0;
 }
 div.listbox__option[role="option"] {
+  border-color: transparent;
+  border-color: var(--dropdown-item-border-color, transparent);
   background-color: transparent;
-  border: 1px solid transparent;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -39,6 +49,7 @@ div.listbox__option[role="option"]:focus {
 }
 div.listbox__option[role="option"]:hover {
   background-color: #eee;
+  background-color: var(--dropdown-item-hover-background-color, #eee);
 }
 div.listbox__option[role="option"]:active {
   font-weight: normal;
@@ -62,10 +73,12 @@ div.listbox__option svg.icon {
 }
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
   background-color: #eee;
+  background-color: var(--dropdown-item-hover-background-color, #eee);
 }
 div.listbox__option[aria-selected="true"] svg.icon {
   opacity: 1;
 }
 div.listbox__option[role="option"]:active svg.icon {
   color: #ccc;
+  color: var(--dropdown-item-active-status-color, #ccc);
 }

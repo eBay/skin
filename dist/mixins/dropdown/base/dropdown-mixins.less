@@ -1,6 +1,9 @@
 .dropdown-base() {
-    background-color: @dropdown-items-background-color;
-    border: 1px solid @dropdown-items-border-color;
+    .customBackgroundColorProperty(dropdown-items-background-color);
+    .customBorderColorProperty(dropdown-items-border-color);
+
+    border-style: solid;
+    border-width: 1px;
     box-sizing: border-box;
     min-width: 100%;
     width: auto;
@@ -27,8 +30,11 @@
 }
 
 .dropdown-option-base() {
+    .customBorderColorProperty(dropdown-item-border-color);
+
     background-color: transparent;
-    border: 1px solid @dropdown-item-border-color;
+    border-style: solid;
+    border-width: 1px;
     box-sizing: border-box;
     display: inline-flex;
     font-family: inherit;
@@ -45,7 +51,7 @@
     }
 
     &:hover {
-        background-color: @dropdown-item-hover-background-color;
+        .customBackgroundColorProperty(dropdown-item-hover-background-color);
     }
 
     &:active {
