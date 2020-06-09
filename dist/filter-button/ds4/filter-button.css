@@ -1,3 +1,12 @@
+button.filter-button,
+a.filter-link {
+  --filter-button-background-color: #eee;
+  --filter-button-foreground-color: #333;
+  --filter-button-hover-background-color: #e1e1e1;
+  --filter-button-selected-background-color: #dbeafe;
+  --filter-button-selected-foreground-color: #333;
+  --filter-button-selected-hover-background-color: #a9cdfc;
+}
 div.filter-group {
   display: -webkit-box;
   display: flex;
@@ -33,6 +42,7 @@ a.filter-link {
   text-decoration: none;
   vertical-align: bottom;
   background-color: #eee;
+  background-color: var(--filter-button-background-color, #eee);
 }
 button.filter-button + button.filter-button,
 button.filter-button + a.filter-link,
@@ -47,6 +57,7 @@ a.filter-link:hover,
 button.filter-button:active,
 a.filter-link:active {
   background-color: #e1e1e1;
+  background-color: var(--filter-button-hover-background-color, #e1e1e1);
 }
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
@@ -58,14 +69,17 @@ a.filter-link .filter-link__cell {
   white-space: nowrap;
 }
 a.filter-link:visited {
-  color: inherit;
   color: #333;
+  color: var(--filter-button-foreground-color, #333);
+  color: inherit;
 }
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
   font-weight: bold;
   background-color: #dbeafe;
+  background-color: var(--filter-button-selected-background-color, #dbeafe);
   color: #333;
+  color: var(--filter-button-selected-foreground-color, #333);
 }
 button.filter-button[aria-pressed="true"]:focus,
 a.filter-link--selected:focus,
@@ -74,6 +88,7 @@ a.filter-link--selected:hover,
 button.filter-button[aria-pressed="true"]:active,
 a.filter-link--selected:active {
   background-color: #a9cdfc;
+  background-color: var(--filter-button-selected-hover-background-color, #a9cdfc);
 }
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],

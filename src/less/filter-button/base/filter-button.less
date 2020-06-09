@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 div.filter-group {
     .filter-group();
 }
@@ -5,38 +7,41 @@ div.filter-group {
 button.filter-button,
 a.filter-link {
     .filter-button-base();
-
-    background-color: @filter-button-background-color;
+    .customBackgroundColorProperty(filter-button-background-color);
 
     &:focus,
     &:hover,
     &:active {
-        background-color: @filter-button-hover-background-color;
+        .customBackgroundColorProperty(filter-button-hover-background-color);
     }
 }
 
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
-    .filter-button-cell();
+    display: inline-block;
+    max-width: 258px;
+    overflow: hidden;
+    pointer-events: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 a.filter-link:visited {
-    .filter-link-visited();
+    .customColorProperty(filter-button-foreground-color);
 
-    color: @filter-button-color;
+    color: inherit;
 }
 
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
     .filter-button-selected();
-
-    background-color: @filter-button-selected-background-color; // should we just lighten @color-b4;
-    color: @filter-button-selected-color;
+    .customBackgroundColorProperty(filter-button-selected-background-color);
+    .customColorProperty(filter-button-selected-foreground-color);
 
     &:focus,
     &:hover,
     &:active {
-        background-color: @filter-button-selected-hover-background-color; // should we just lighten @color-b4;
+        .customBackgroundColorProperty(filter-button-selected-hover-background-color);
     }
 }
 
@@ -50,12 +55,12 @@ a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
     .filter-button-disabled();
 
-    color: @filter-button-disabled-color;
+    color: @filter-button-disabled-foreground-color;
 
     &:hover,
     &:focus {
         background-color: @filter-button-background-color;
-        color: @filter-button-disabled-color;
+        color: @filter-button-disabled-foreground-color;
     }
 }
 
