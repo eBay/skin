@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .combobox {
     box-sizing: border-box;
     line-height: normal;
@@ -46,7 +48,7 @@ span.combobox {
     }
 
     &:hover {
-        background-color: @dropdown-item-hover-background-color;
+        .customBackgroundColorProperty(dropdown-item-hover-background-color);
     }
 
     svg.icon {
@@ -55,7 +57,7 @@ span.combobox {
 }
 
 .combobox__option--active[role^="option"] {
-    background-color: @dropdown-item-hover-background-color;
+    .customBackgroundColorProperty(dropdown-item-hover-background-color);
 
     svg.icon {
         opacity: 1;
@@ -90,40 +92,43 @@ span.combobox {
 }
 
 .combobox__control > input {
+    .customBackgroundColorProperty(combobox-background-color);
+    .customBorderColorProperty(combobox-border-color);
+    .customBorderRadiusProperty(combobox-border-radius);
+
     appearance: none;
-    background-color: @combobox-input-background-color;
-    border: 1px solid @combobox-input-border-color;
-    border-radius: @combobox-input-border-radius;
+    border-style: solid;
+    border-width: 1px;
     box-sizing: border-box;
     color: inherit;
     font-family: inherit;
     font-size: inherit;
-    height: @combobox-input-height;
+    height: @combobox-height;
     margin-left: 0;
     margin-right: 0;
-    padding: @combobox-input-padding;
+    padding: @combobox-padding;
 
     &[readonly] {
         // fixes the cursor in firefox (1 of 2)
         color: transparent;
         cursor: default;
         // fixes the cursor in firefox (2 of 2)
-        text-shadow: 0 0 0 @combobox-input-readonly-text-shadow-color;
+        text-shadow: 0 0 0 @combobox-readonly-text-shadow-color;
         -webkit-user-select: none; // Fix to get rid of unintended cursor in iOS mobile
 
         &::-moz-selection,
         &::selection {
-            background: @combobox-input-readonly-selection-background;
+            background: @combobox-readonly-selection-background;
         }
     }
 
     &[disabled],
     &[aria-disabled="true"] {
-        border-color: @combobox-input-disabled-border-color;
-        color: @combobox-input-disabled-color;
+        border-color: @combobox-disabled-border-color;
+        color: @combobox-disabled-foreground-color;
 
         &[readonly] {
-            text-shadow: 0 0 0 @combobox-input-disabled-readonly-text-shadow-color;
+            text-shadow: 0 0 0 @combobox-disabled-foreground-color;
         }
 
         & + svg {
@@ -137,7 +142,7 @@ span.combobox {
     }
 
     &[aria-invalid="true"] {
-        border-color: @combobox-input-invalid-color;
+        border-color: @combobox-invalid-foreground-color;
     }
 
     &::-ms-clear {
@@ -152,7 +157,8 @@ span.combobox {
 }
 
 .combobox__control > input:focus {
-    border-color: @combobox-input-focus-border-color;
+    .customBorderColorProperty(combobox-focus-border-color);
+
     outline: 0;
 }
 
@@ -167,6 +173,19 @@ span.combobox {
     .combobox__control > input {
         width: 100%;
     }
+}
+
+.combobox--large .combobox__control > input {
+    font-size: @combobox-large-font-size;
+    height: @combobox-height + 8px;
+}
+
+.combobox__control > input[disabled] {
+    background-color: @combobox-disabled-background-color;
+}
+
+.combobox__option--active[role="option"] {
+    font-weight: @combobox-item-active-font-weight;
 }
 
 @media all and (-ms-high-contrast: active),
