@@ -1,6 +1,15 @@
 .filter-menu,
 .filter-menu-form {
+  --filter-menu-border-color: #e1e1e1;
+  --filter-menu-checkbox-unchecked-color: #767676;
+  --filter-menu-checkbox-checked-color: #3665f3;
+  --filter-menu-item-background-color: #fff;
+  --filter-menu-item-focus-background-color: #f5f5f5;
+}
+.filter-menu,
+.filter-menu-form {
   background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   min-width: 144px;
   overflow: hidden;
 }
@@ -29,6 +38,7 @@ span.filter-menu__checkbox {
 span.filter-menu__status svg.icon--checkbox-unchecked,
 span.filter-menu__checkbox svg.icon--checkbox-unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
   display: block;
   height: 18px;
   width: 18px;
@@ -36,6 +46,7 @@ span.filter-menu__checkbox svg.icon--checkbox-unchecked {
 span.filter-menu__status svg.icon--checkbox-checked,
 span.filter-menu__checkbox svg.icon--checkbox-checked {
   color: #3665f3;
+  color: var(--filter-menu-checkbox-checked-color, #3665f3);
   display: none;
   height: 18px;
   width: 18px;
@@ -51,9 +62,11 @@ span.filter-menu__checkbox svg.icon--checkbox-checked {
 }
 .filter-menu-form__item span.checkbox svg.checkbox__unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
 }
 .filter-menu-form__item span.checkbox svg.checkbox__checked {
   color: #3665f3;
+  color: var(--filter-menu-checkbox-checked-color, #3665f3);
 }
 span.filter-menu__item[role="menuitemcheckbox"],
 span.filter-menu-form__item {
@@ -94,6 +107,7 @@ span.filter-menu-form__item {
 .filter-menu__item[role="menuitemcheckbox"]:hover,
 .filter-menu-form__item:hover {
   background-color: #f5f5f5;
+  background-color: var(--filter-menu-item-focus-background-color, #f5f5f5);
 }
 .filter-menu__item[role="menuitemcheckbox"]:last-child,
 .filter-menu-form__item:last-child {
@@ -113,8 +127,11 @@ button.filter-menu-form__footer[type="submit"] {
   line-height: 1.4em;
   margin: 0;
   width: 100%;
+  border-color: #e1e1e1;
+  border-color: var(--filter-menu-border-color, #e1e1e1);
   border: none;
-  border-top: 1px solid #e1e1e1;
+  border-top-style: solid;
+  border-top-width: 1px;
   bottom: 0;
   padding: 16px;
 }
@@ -137,6 +154,7 @@ button.filter-menu-form__footer[type="submit"]:focus,
 button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: #f5f5f5;
+  background-color: var(--filter-menu-item-focus-background-color, #f5f5f5);
 }
 .filter-menu__text,
 .filter-menu-form__text {

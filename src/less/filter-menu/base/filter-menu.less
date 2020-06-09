@@ -1,6 +1,9 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .filter-menu,
 .filter-menu-form {
-    background-color: @filter-menu-item-background-color;
+    .customBackgroundColorProperty(filter-menu-item-background-color);
+
     min-width: 144px;
     overflow: hidden;
 }
@@ -32,14 +35,16 @@ span.filter-menu__checkbox {
     width: 18px;
 
     svg.icon--checkbox-unchecked {
-        color: @filter-menu-checkbox-color;
+        .customColorProperty(filter-menu-checkbox-unchecked-color);
+
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--checkbox-checked {
-        color: @filter-menu-checkbox-checked-color;
+        .customColorProperty(filter-menu-checkbox-checked-color);
+
         display: none;
         height: 18px;
         width: 18px;
@@ -53,11 +58,11 @@ span.filter-menu__checkbox {
     justify-content: center;
 
     svg.checkbox__unchecked {
-        color: @filter-menu-checkbox-color;
+        .customColorProperty(filter-menu-checkbox-unchecked-color);
     }
 
     svg.checkbox__checked {
-        color: @filter-menu-checkbox-checked-color;
+        .customColorProperty(filter-menu-checkbox-checked-color);
     }
 }
 
@@ -78,7 +83,7 @@ span.filter-menu-form__item {
 
     &:focus,
     &:hover {
-        background-color: @filter-menu-item-focus-background-color;
+        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
     }
 
     &:last-child {
@@ -89,9 +94,11 @@ span.filter-menu-form__item {
 button.filter-menu__footer,
 button.filter-menu-form__footer[type="submit"] {
     .filter-menu-item-base();
+    .customBorderColorProperty(filter-menu-border-color);
 
     border: none;
-    border-top: 1px solid @filter-menu-border-color;
+    border-top-style: solid;
+    border-top-width: 1px;
     bottom: 0;
     padding: 16px;
 
@@ -101,7 +108,7 @@ button.filter-menu-form__footer[type="submit"] {
 
     &:focus,
     &:hover {
-        background-color: @filter-menu-item-focus-background-color;
+        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
     }
 }
 
