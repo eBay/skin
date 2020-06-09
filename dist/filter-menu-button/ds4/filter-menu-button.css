@@ -1,3 +1,6 @@
+button.filter-menu-button {
+  --filter-menu-button-icon-color: #767676;
+}
 div.filter-group {
   display: -webkit-box;
   display: flex;
@@ -39,6 +42,7 @@ button.filter-menu-button__button {
   text-decoration: none;
   vertical-align: bottom;
   background-color: #eee;
+  background-color: var(--filter-button-background-color, #eee);
 }
 button.filter-menu-button__button + button.filter-menu-button__button {
   margin-left: 8px;
@@ -47,17 +51,20 @@ button.filter-menu-button__button:focus,
 button.filter-menu-button__button:hover,
 button.filter-menu-button__button:active {
   background-color: #e1e1e1;
+  background-color: var(--filter-button-hover-background-color, #e1e1e1);
 }
 button.filter-menu-button__button[aria-expanded="true"] {
   background-color: #e1e1e1;
+  background-color: var(--filter-button-hover-background-color, #e1e1e1);
 }
 .filter-menu-button__button-cell {
   display: -webkit-box;
   display: flex;
 }
 .filter-menu-button__button-cell svg.icon {
-  align-self: center;
   color: #767676;
+  color: var(--filter-menu-button-icon-color, #767676);
+  align-self: center;
   height: 7px;
   margin-left: 8px;
   width: 12px;
@@ -76,15 +83,19 @@ button.filter-menu-button__button[aria-expanded="true"] {
 button.filter-menu-button__button[aria-pressed="true"] {
   font-weight: bold;
   background-color: #dbeafe;
+  background-color: var(--filter-button-selected-background-color, #dbeafe);
   color: #333;
+  color: var(--filter-button-selected-foreground-color, #333);
 }
 button.filter-menu-button__button[aria-pressed="true"]:focus,
 button.filter-menu-button__button[aria-pressed="true"]:hover,
 button.filter-menu-button__button[aria-pressed="true"]:active {
   background-color: #a9cdfc;
+  background-color: var(--filter-button-selected-hover-background-color, #a9cdfc);
 }
 button.filter-menu-button__button[aria-expanded="true"][aria-pressed="true"] {
   background-color: #a9cdfc;
+  background-color: var(--filter-button-selected-hover-background-color, #a9cdfc);
 }
 button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
@@ -113,9 +124,11 @@ button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] .fi
 button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
   background-color: #dbeafe;
+  background-color: var(--filter-button-selected-background-color, #dbeafe);
 }
 .filter-menu-button__menu {
   background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   border: none;
   border-radius: 16px;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -155,6 +168,7 @@ span.filter-menu-button__checkbox {
 span.filter-menu-button__status svg.icon--checkbox-unchecked,
 span.filter-menu-button__checkbox svg.icon--checkbox-unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
   display: block;
   height: 18px;
   width: 18px;
@@ -162,12 +176,14 @@ span.filter-menu-button__checkbox svg.icon--checkbox-unchecked {
 span.filter-menu-button__status svg.icon--checkbox-checked,
 span.filter-menu-button__checkbox svg.icon--checkbox-checked {
   color: #0654ba;
+  color: var(--filter-menu-checkbox-checked-color, #0654ba);
   display: none;
   height: 18px;
   width: 18px;
 }
 .filter-menu-button__item {
-  background: #fff;
+  background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -187,6 +203,7 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item:focus,
 .filter-menu-button__item:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu-button__item:focus {
   outline: none;
@@ -194,6 +211,7 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item:focus,
 .filter-menu-button__item:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu-button__item:last-child {
   margin-bottom: 8px;
@@ -209,15 +227,18 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 }
 .filter-menu-button__item svg.checkbox__unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
 }
 .filter-menu-button__item svg.checkbox__checked {
   color: #0654ba;
+  color: var(--filter-menu-checkbox-checked-color, #0654ba);
 }
 span.filter-menu-button__item {
   display: block;
 }
 button.filter-menu-button__footer {
-  background: #fff;
+  background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -229,8 +250,11 @@ button.filter-menu-button__footer {
   line-height: 1.4em;
   margin: 0;
   width: 100%;
+  border-color: #ccc;
+  border-color: var(--filter-menu-border-color, #ccc);
   border: none;
-  border-top: 1px solid #ccc;
+  border-top-style: solid;
+  border-top-width: 1px;
   bottom: 0;
   padding: 16px;
 }
@@ -240,6 +264,7 @@ button.filter-menu-button__footer:focus {
 button.filter-menu-button__footer:focus,
 button.filter-menu-button__footer:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 button.filter-menu-button__footer:focus {
   outline: none;
@@ -247,6 +272,7 @@ button.filter-menu-button__footer:focus {
 button.filter-menu-button__footer:focus,
 button.filter-menu-button__footer:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu-button__text {
   -webkit-box-flex: 1;

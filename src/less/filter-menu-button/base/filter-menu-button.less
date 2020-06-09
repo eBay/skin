@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 div.filter-group {
     .filter-group();
 }
@@ -11,26 +13,26 @@ span.filter-menu-button {
 
 button.filter-menu-button__button {
     .filter-button-base();
-
-    background-color: @filter-button-background-color;
+    .customBackgroundColorProperty(filter-button-background-color);
 
     &:focus,
     &:hover,
     &:active {
-        background-color: @filter-button-hover-background-color;
+        .customBackgroundColorProperty(filter-button-hover-background-color);
     }
 }
 
 button.filter-menu-button__button[aria-expanded="true"] {
-    background-color: @filter-button-hover-background-color;
+    .customBackgroundColorProperty(filter-button-hover-background-color);
 }
 
 .filter-menu-button__button-cell {
     display: flex;
 
     svg.icon {
+        .customColorProperty(filter-menu-button-icon-color);
+
         align-self: center;
-        color: @filter-menu-button-chevron-color;
         height: 7px;
         margin-left: 8px;
         width: 12px;
@@ -51,19 +53,18 @@ button.filter-menu-button__button[aria-expanded="true"] {
 
 button.filter-menu-button__button[aria-pressed="true"] {
     .filter-button-selected();
-
-    background-color: @filter-button-selected-background-color; // should we just lighten @color-b4;
-    color: @filter-button-selected-foreground-color;
+    .customBackgroundColorProperty(filter-button-selected-background-color);
+    .customColorProperty(filter-button-selected-foreground-color);
 
     &:focus,
     &:hover,
     &:active {
-        background-color: @filter-button-selected-hover-background-color; // should we just lighten @color-b4;
+        .customBackgroundColorProperty(filter-button-selected-hover-background-color);
     }
 }
 
 button.filter-menu-button__button[aria-expanded="true"][aria-pressed="true"] {
-    background-color: @filter-button-selected-hover-background-color; // should we just lighten @color-b4;
+    .customBackgroundColorProperty(filter-button-selected-hover-background-color);
 }
 
 button.filter-menu-button__button[disabled],
@@ -87,11 +88,12 @@ button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
 
 button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
-    background-color: @filter-button-selected-background-color;
+    .customBackgroundColorProperty(filter-button-selected-background-color);
 }
 
 .filter-menu-button__menu {
-    background-color: @filter-menu-item-background-color;
+    .customBackgroundColorProperty(filter-menu-item-background-color);
+
     border: none;
     border-radius: 16px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -131,14 +133,16 @@ span.filter-menu-button__checkbox {
     width: 18px;
 
     svg.icon--checkbox-unchecked {
-        color: @filter-menu-checkbox-unchecked-color;
+        .customColorProperty(filter-menu-checkbox-unchecked-color);
+
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--checkbox-checked {
-        color: @filter-menu-checkbox-checked-color;
+        .customColorProperty(filter-menu-checkbox-checked-color);
+
         display: none;
         height: 18px;
         width: 18px;
@@ -156,7 +160,7 @@ span.filter-menu-button__checkbox {
 
     &:focus,
     &:hover {
-        background-color: @filter-menu-item-focus-background-color;
+        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
     }
 
     &:last-child {
@@ -171,11 +175,11 @@ span.filter-menu-button__checkbox {
     }
 
     svg.checkbox__unchecked {
-        color: @filter-menu-checkbox-unchecked-color;
+        .customColorProperty(filter-menu-checkbox-unchecked-color);
     }
 
     svg.checkbox__checked {
-        color: @filter-menu-checkbox-checked-color;
+        .customColorProperty(filter-menu-checkbox-checked-color);
     }
 }
 
@@ -185,9 +189,11 @@ span.filter-menu-button__item {
 
 button.filter-menu-button__footer {
     .filter-menu-item-base();
+    .customBorderColorProperty(filter-menu-border-color);
 
     border: none;
-    border-top: 1px solid @filter-menu-border-color;
+    border-top-style: solid;
+    border-top-width: 1px;
     bottom: 0;
     padding: 16px;
 
@@ -197,7 +203,7 @@ button.filter-menu-button__footer {
 
     &:focus,
     &:hover {
-        background-color: @filter-menu-item-focus-background-color;
+        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
     }
 }
 
