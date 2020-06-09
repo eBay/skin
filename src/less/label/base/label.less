@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .floating-label {
     margin-top: 14px;
     position: relative;
@@ -12,7 +14,8 @@ div.floating-label {
 }
 
 label.floating-label__label {
-    color: @label-floating-label-color;
+    .customColorProperty(floating-label-color);
+
     display: block;
     left: 0;
     pointer-events: none;
@@ -24,7 +27,7 @@ label.floating-label__label {
 
 label.floating-label__label--inline {
     bottom: 0.4375rem; // a11y: the position must be relative to the text size
-    font-size: @label-floating-label-inline-font-size;
+    font-size: @floating-label-inline-font-size;
     transform: none;
 }
 
@@ -33,6 +36,7 @@ label.floating-label__label--animate {
 }
 
 label.floating-label__label--disabled {
-    color: @label-floating-label-disabled-color;
-    left: @label-floating-label-disabled-left;
+    .customColorProperty(floating-label-disabled-color);
+
+    left: @floating-label-disabled-left;
 }
