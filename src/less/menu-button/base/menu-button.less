@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .menu-button,
 .fake-menu-button {
     line-height: normal;
@@ -53,7 +55,8 @@ div.menu-button__item[role^="menuitem"] {
 
 // anchor tag specific
 a.fake-menu-button__item {
-    color: @dropdown-fake-anchor-color;
+    .customColorProperty(dropdown-fake-anchor-color);
+
     text-decoration: none;
 
     &:focus {
@@ -62,14 +65,15 @@ a.fake-menu-button__item {
 
     &:hover,
     &:visited {
-        color: @dropdown-fake-anchor-color;
+        .customColorProperty(dropdown-fake-anchor-color);
     }
 }
 
 // button tag specific
 button.fake-menu-button__item {
-    background-color: @dropdown-fake-button-background-color;
-    color: @dropdown-fake-button-color;
+    .customBackgroundColorProperty(dropdown-fake-button-background-color);
+    .customColorProperty(dropdown-fake-button-color);
+
     font-family: inherit;
     font-size: 1em;
     text-align: left;
@@ -77,7 +81,7 @@ button.fake-menu-button__item {
 
 button.fake-menu-button__item:active svg.icon,
 a.fake-menu-button__item:active svg.icon {
-    color: @dropdown-item-active-status-color;
+    .customColorProperty(dropdown-item-active-status-color);
 }
 
 a.fake-menu-button__item[aria-current="page"] svg.icon,
@@ -86,7 +90,7 @@ button.fake-menu-button__item[aria-current="page"] svg.icon {
 }
 
 div.menu-button__item[role^="menuitem"]:active svg.icon {
-    color: @dropdown-item-active-status-color;
+    .customColorProperty(dropdown-item-active-status-color);
 }
 
 div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
@@ -165,7 +169,14 @@ div.menu-button__item[role^="menuitem"] span.badge {
     top: 41px; // button height plus one px, to meet design guidelines
 }
 
+div.menu-button__option--active[role="option"] {
+    font-weight: @menu-button-item-active-font-weight;
+}
+
 hr.menu-button__separator {
-    border: 1px solid @color-grey2;
+    .customBorderColorProperty(dropdown-separator-color);
+
+    border-style: solid;
+    border-width: 1px;
     margin: 0;
 }
