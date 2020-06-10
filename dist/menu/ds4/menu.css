@@ -1,6 +1,16 @@
+.menu,
+.fake-menu {
+  --dropdown-separator-color: #ddd;
+  --dropdown-items-background-color: #fff;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #eee;
+  --dropdown-item-active-status-color: #ccc;
+  --dropdown-fake-anchor-color: #333;
+}
 .menu__items,
 .fake-menu__items {
   background-color: #fff;
+  background-color: var(--dropdown-items-background-color, #fff);
   cursor: default;
 }
 span.menu,
@@ -35,6 +45,7 @@ span.fake-menu__items {
 }
 a.fake-menu__item {
   color: #333;
+  color: var(--dropdown-fake-anchor-color, #333);
   text-decoration: none;
 }
 button.fake-menu__item {
@@ -85,6 +96,7 @@ a.fake-menu__item:focus {
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
   color: #ccc;
+  color: var(--dropdown-item-active-status-color, #ccc);
 }
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
@@ -92,6 +104,7 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
   color: #ccc;
+  color: var(--dropdown-item-active-status-color, #ccc);
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
@@ -134,5 +147,8 @@ div.menu__item[role^="menuitem"] span.badge {
   text-decoration: underline;
 }
 hr.menu__separator {
-  border: 1px solid #ddd;
+  border-color: #ddd;
+  border-color: var(--dropdown-separator-color, #ddd);
+  border-style: solid;
+  border-width: 1px;
 }

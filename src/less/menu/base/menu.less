@@ -1,7 +1,10 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .menu__items,
 .fake-menu__items {
-    background-color: #fff;
-    cursor: default; // needed to override text cursor
+    .customBackgroundColorProperty(dropdown-items-background-color);
+
+    cursor: default; // override text cursor
 }
 
 span.menu,
@@ -33,7 +36,8 @@ span.fake-menu__items {
 }
 
 a.fake-menu__item {
-    color: @dropdown-fake-anchor-color;
+    .customColorProperty(dropdown-fake-anchor-color);
+
     text-decoration: none;
 }
 
@@ -53,7 +57,7 @@ a.fake-menu__item:focus {
 
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-    color: @dropdown-item-active-status-color;
+    .customColorProperty(dropdown-item-active-status-color);
 }
 
 a.fake-menu__item[aria-current="page"] svg.icon,
@@ -62,7 +66,7 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 }
 
 div.menu__item[role^="menuitem"]:active svg.icon {
-    color: @dropdown-item-active-status-color;
+    .customColorProperty(dropdown-item-active-status-color);
 }
 
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
@@ -111,5 +115,8 @@ div.menu__item[role^="menuitem"] span.badge {
 }
 
 hr.menu__separator {
-    border: 1px solid @color-grey2;
+    .customBorderColorProperty(dropdown-separator-color);
+
+    border-style: solid;
+    border-width: 1px;
 }
