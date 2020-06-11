@@ -1,3 +1,11 @@
+.pagination {
+  --pagination-item-foreground-color: #111820;
+  --pagination-item-active-foreground-color: #111820;
+  --pagination-item-current-background-color: transparent;
+  --pagination-item-current-border-color: #3665f3;
+  --pagination-item-current-foreground-color: #3665f3;
+  --pagination-paddle-focus-foreground-color: #2b0eaf;
+}
 nav.pagination {
   -webkit-box-align: center;
           align-items: center;
@@ -6,6 +14,7 @@ nav.pagination {
   -webkit-box-pack: center;
           justify-content: center;
   color: #111820;
+  color: var(--pagination-item-foreground-color, #111820);
   font-family: inherit;
   font-size: 1rem;
   margin: 8px 0;
@@ -57,6 +66,7 @@ ol.pagination__items li:not([hidden]) {
 .pagination__next:hover svg,
 .pagination__previous:hover svg {
   fill: #2b0eaf;
+  fill: var(--pagination-paddle-focus-foreground-color, #2b0eaf);
 }
 .pagination__next[aria-disabled="true"] svg,
 .pagination__previous[aria-disabled="true"] svg {
@@ -84,16 +94,23 @@ button.pagination__previous {
 }
 .pagination__item:active {
   color: #111820;
+  color: var(--pagination-item-active-foreground-color, #111820);
 }
 .pagination__item:focus,
 .pagination__item:hover {
   color: #2b0eaf;
+  color: var(--pagination-item-focus-foreground-color, #2b0eaf);
   text-decoration: underline;
 }
 .pagination__item[aria-current="page"] {
   background-color: transparent;
-  border: 2px solid #3665f3;
+  background-color: var(--pagination-item-current-background-color, transparent);
+  border-color: #3665f3;
+  border-color: var(--pagination-item-current-border-color, #3665f3);
   color: #3665f3;
+  color: var(--pagination-item-current-foreground-color, #3665f3);
+  border-style: solid;
+  border-width: 2px;
   font-weight: 700;
 }
 button.pagination__item {
