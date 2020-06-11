@@ -1,5 +1,8 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .window-notice {
-    background-color: @window-notice-background-color;
+    .customBackgroundColorProperty(window-notice-background-color);
+
     box-sizing: border-box;
     margin: 16px 0;
     text-align: center;
@@ -40,7 +43,8 @@
 }
 
 .window-notice__content {
-    color: @window-notice-content-color;
+    .customColorProperty(window-notice-main-color);
+
     margin: 20px 0 0;
 }
 
@@ -54,13 +58,16 @@
 
     & > a.fake-btn,
     & > button.btn {
+        .customColorProperty(page-notice-button-color);
+
+        border-color: currentColor;
         margin: 0 16px 16px;
         width: 100%;
     }
 }
 
 .section-notice {
-    background-color: @page-notice-light-background-color;
+    background-color: @section-notice-default-background-color;
 }
 
 div[role="region"].page-notice,
@@ -115,7 +122,6 @@ span[role="region"].section-notice {
 .page-notice__status,
 .section-notice__status {
     align-items: center;
-    color: @color-white;
     padding: 16px 0 16px 16px;
 }
 
@@ -134,26 +140,16 @@ span[role="region"].section-notice {
     width: 50px;
 }
 
-.page-notice--celebration {
-    color: @page-notice-celebration-text-color;
-}
-
 .page-notice--fluid,
 .section-notice--fluid {
     width: 100%;
 }
 
 .page-notice--celebration .page-notice__title {
-    color: @page-notice-celebration-title-color;
     display: inline-block;
     font-size: @font-size-large-1;
     font-weight: bold;
     margin-bottom: 4px;
-}
-
-.page-notice--celebration .btn {
-    border-color: black;
-    color: @page-notice-celebration-color;
 }
 
 .page-notice__close,
@@ -214,6 +210,40 @@ span.inline-notice {
 
 .inline-notice__content {
     margin-left: 8px;
+}
+
+.page-notice--confirmation,
+.page-notice--celebration,
+.section-notice--confirmation {
+    .customBackgroundColorProperty(page-notice-confirmation-background-color);
+    .customBorderColorProperty(page-notice-confirmation-border-color);
+}
+
+.page-notice--attention,
+.section-notice--attention {
+    .customBackgroundColorProperty(page-notice-attention-background-color);
+    .customBorderColorProperty(page-notice-attention-border-color);
+}
+
+.page-notice--information,
+.section-notice--information {
+    .customBackgroundColorProperty(page-notice-information-background-color);
+    .customBorderColorProperty(page-notice-information-border-color);
+}
+
+.page-notice--attention,
+.section-notice--attention,
+a.page-notice--attention,
+a.section-notice--attention {
+    color: @page-notice-attention-foreground-color;
+}
+
+.page-notice--confirmation,
+.page-notice--attention,
+.page-notice--information,
+.page-notice--celebration {
+    border-style: solid;
+    border-width: @page-notice-border-width;
 }
 
 /* LARGE SCREENS */
