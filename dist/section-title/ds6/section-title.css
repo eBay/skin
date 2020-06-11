@@ -1,4 +1,14 @@
 .section-title {
+  --section-title-foreground-color: #111820;
+  --section-title-subtitle-color: #767676;
+  --section-title-separator-color: #e5e5e5;
+}
+@media (prefers-color-scheme: dark) {
+  .section-title {
+    --section-title-foreground-color: #dcdcdc;
+  }
+}
+.section-title {
   display: -webkit-box;
   display: flex;
   margin: 30px 0 10px 0;
@@ -16,6 +26,7 @@
   font-size: 0.875rem;
   line-height: 20px;
   color: #767676;
+  color: var(--section-title-subtitle-color, #767676);
 }
 .section-title__cta {
   font-size: 1rem;
@@ -33,16 +44,19 @@
 .section-title__cta > a,
 .section-title__title > a {
   color: #111820;
+  color: var(--section-title-foreground-color, #111820);
   text-decoration: none;
 }
 .section-title__cta > a:hover,
 .section-title__title > a:hover {
   color: #111820;
+  color: var(--section-title-foreground-color, #111820);
   text-decoration: underline;
 }
 .section-title__cta > a:visited,
 .section-title__title > a:visited {
   color: #111820;
+  color: var(--section-title-foreground-color, #111820);
 }
 .section-title__cta-text {
   display: none;
@@ -118,7 +132,10 @@
     margin: 0 16px;
   }
   .section-title__cta > a {
-    border-left: 2px solid #e5e5e5;
+    border-color: #e5e5e5;
+    border-color: var(--section-title-separator-color, #e5e5e5);
+    border-left-style: solid;
+    border-left-width: 2px;
     line-height: 1.125rem;
     padding-left: 16px;
   }

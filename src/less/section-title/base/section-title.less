@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .section-title {
     display: flex;
     margin: 30px 0 10px 0;
@@ -15,8 +17,7 @@
 
 .section-title__subtitle {
     .typography-regular();
-
-    color: @color-grey5;
+    .customColorProperty(section-title-subtitle-color);
 }
 
 .section-title__cta {
@@ -34,16 +35,18 @@
 
 .section-title__cta > a,
 .section-title__title > a {
-    color: @color-black;
+    .customColorProperty(section-title-foreground-color);
+
     text-decoration: none;
 
     &:hover {
-        color: @color-black;
+        .customColorProperty(section-title-foreground-color);
+
         text-decoration: underline;
     }
 
     &:visited {
-        color: @color-black;
+        .customColorProperty(section-title-foreground-color);
     }
 }
 
@@ -130,7 +133,10 @@
         margin: 0 16px;
 
         > a {
-            border-left: 2px solid @color-grey2;
+            .customBorderColorProperty(section-title-separator-color);
+
+            border-left-style: solid;
+            border-left-width: 2px;
             line-height: 1.125rem;
             padding-left: 16px;
         }
