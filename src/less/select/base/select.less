@@ -1,6 +1,9 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .select {
-    color: @select-select-color;
-    font-size: @select-select-font-size;
+    .customColorProperty(select-foreground-color);
+
+    font-size: @select-font-size;
     position: relative;
 }
 
@@ -9,15 +12,18 @@ span.select {
 }
 
 .select select {
+    .customBackgroundColorProperty(select-background-color);
+    .customBorderColorProperty(select-border-color);
+    .customBorderRadiusProperty(select-border-radius);
+
     appearance: none;
-    background-color: @select-select-background-color;
-    border: 1px solid @select-select-border-color;
-    border-radius: @select-select-border-radius;
+    border-style: solid;
+    border-width: 1px;
     color: inherit;
-    font-family: @select-select-font-family;
+    font-family: @select-font-family;
     font-size: 1em;
     height: 40px;
-    padding: @select-select-padding;
+    padding: @select-padding;
 }
 
 .select svg.icon--dropdown {
@@ -26,6 +32,11 @@ span.select {
     position: absolute;
     right: 16px;
     top: 0;
+}
+
+.select--large select {
+    font-size: @select-large-font-size;
+    height: 48px;
 }
 
 .select--fluid {
@@ -42,13 +53,20 @@ span.select {
     padding-left: 0;
     width: auto;
 
+    &[disabled] {
+        background-color: @select-borderless-disabled-background-color;
+        color: @select-borderless-disabled-color;
+    }
+
     &:focus {
+        border-color: @select-borderless-focus-border-color;
         text-decoration: underline;
     }
 }
 
 .select select:focus {
-    border-color: @select-select-focus-border-color;
+    .customBorderColorProperty(select-focus-border-color);
+
     outline: 0;
 }
 
@@ -58,19 +76,28 @@ span.select {
 }
 
 .select select[disabled] {
-    background-color: @select-select-disabled-background-color;
+    background-color: @select-disabled-background-color;
     border: 0;
-    color: @select-select-disabled-color;
+    color: @select-disabled-color;
+}
+
+.select select[readonly] {
+    background-color: @color-grey1;
+    border-color: @color-grey3;
+    color: @color-grey5;
 }
 
 .select select[aria-invalid="true"] {
-    border: 1px solid @select-aria-invalid-border-color;
+    .customBorderColorProperty(select-invalid-border-color);
+
+    border-style: solid;
+    border-width: 1px;
 }
 
 [dir="rtl"] {
     .select > select {
-        padding-left: @select-select-rtl-padding-left;
-        padding-right: @select-select-rtl-padding-right;
+        padding-left: 30px;
+        padding-right: 16px;
     }
 
     .select svg {

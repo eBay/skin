@@ -1,5 +1,13 @@
 .select {
+  --select-background-color: #fff;
+  --select-border-color: #a2a2a2;
+  --select-border-radius: initial;
+  --select-foreground-color: #111820;
+  --select-focus-border-color: #3665f3;
+}
+.select {
   color: #111820;
+  color: var(--select-foreground-color, #111820);
   font-size: 0.875rem;
   position: relative;
 }
@@ -7,12 +15,17 @@ span.select {
   display: inline-block;
 }
 .select select {
+  background-color: #fff;
+  background-color: var(--select-background-color, #fff);
+  border-color: #a2a2a2;
+  border-color: var(--select-border-color, #a2a2a2);
+  border-radius: initial;
+  border-radius: var(--select-border-radius, initial);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #fff;
-  border: 1px solid #a2a2a2;
-  border-radius: initial;
+  border-style: solid;
+  border-width: 1px;
   color: inherit;
   font-family: "Market Sans", Arial, sans-serif;
   font-size: 1em;
@@ -26,6 +39,10 @@ span.select {
   right: 16px;
   top: 0;
 }
+.select--large select {
+  font-size: 1.125rem;
+  height: 48px;
+}
 .select--fluid {
   width: 100%;
 }
@@ -38,11 +55,17 @@ span.select {
   padding-left: 0;
   width: auto;
 }
+.select--borderless select[disabled] {
+  background-color: #fff;
+  color: #e5e5e5;
+}
 .select--borderless select:focus {
+  border-color: #121258;
   text-decoration: underline;
 }
 .select select:focus {
   border-color: #3665f3;
+  border-color: var(--select-focus-border-color, #3665f3);
   outline: 0;
 }
 .select select::-ms-expand {
@@ -53,8 +76,16 @@ span.select {
   border: 0;
   color: #c7c7c7;
 }
+.select select[readonly] {
+  background-color: #f5f5f5;
+  border-color: #c7c7c7;
+  color: #767676;
+}
 .select select[aria-invalid="true"] {
-  border: 1px solid #e62048;
+  border-color: #e62048;
+  border-color: var(--select-invalid-border-color, #e62048);
+  border-style: solid;
+  border-width: 1px;
 }
 [dir="rtl"] .select > select {
   padding-left: 30px;
@@ -66,15 +97,4 @@ span.select {
 }
 .select select[disabled] + svg {
   opacity: 0.5;
-}
-.select--large select {
-  font-size: 1.125rem;
-  height: 48px;
-}
-.select--borderless select:focus {
-  border-color: #121258;
-}
-.select--borderless select[disabled] {
-  background-color: #fff;
-  color: #e5e5e5;
 }
