@@ -1,3 +1,14 @@
+.stepper {
+  --stepper-badge-background-color: #fff;
+  --stepper-text-dark-color: #111820;
+  --stepper-text-light-color: #767676;
+}
+@media (prefers-color-scheme: dark) {
+  .stepper {
+    --stepper-badge-background-color: black;
+    --stepper-text-dark-color: #dcdcdc;
+  }
+}
 .stepper__items {
   display: -webkit-box;
   display: flex;
@@ -24,9 +35,14 @@ hr.stepper__separator {
   display: flex;
 }
 .stepper__icon .badge {
-  background-color: white;
-  border: 1px solid #111820;
   color: #111820;
+  color: var(--stepper-text-dark-color, #111820);
+  background-color: #fff;
+  background-color: var(--stepper-badge-background-color, #fff);
+  border-color: #111820;
+  border-color: var(--stepper-text-dark-color, #111820);
+  border-style: solid;
+  border-width: 1px;
   height: 24px;
   top: 0;
   width: 24px;
@@ -46,6 +62,7 @@ hr.stepper__separator {
 }
 .stepper__item--confirmation {
   color: #767676;
+  color: var(--stepper-text-light-color, #767676);
 }
 .stepper__item--confirmation .stepper__icon::after {
   background-color: #36cf57;
@@ -58,6 +75,7 @@ hr.stepper__separator {
 }
 .stepper__item--upcoming {
   color: #767676;
+  color: var(--stepper-text-light-color, #767676);
 }
 .stepper__item--upcoming .stepper__icon::after {
   background-color: #c7c7c7;
@@ -73,6 +91,7 @@ hr.stepper__separator {
 }
 .stepper__item--default {
   color: #111820;
+  color: var(--stepper-text-dark-color, #111820);
 }
 .stepper__item--default .stepper__icon::after {
   background-color: #111820;
@@ -129,6 +148,7 @@ hr.stepper__separator {
 .stepper__item--current .stepper__text,
 .stepper__item--default .stepper__text {
   color: #111820;
+  color: var(--stepper-text-dark-color, #111820);
 }
 .stepper__item[aria-current="step"] {
   font-weight: bold;
