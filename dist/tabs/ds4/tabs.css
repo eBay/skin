@@ -1,7 +1,13 @@
+.tabs,
+.fake-tabs {
+  --tabs-item-foreground-color: #767676;
+  --tabs-item-hover-foreground-color: #767676;
+  --tabs-item-hover-border-bottom-color: transparent;
+  --tabs-item-selected-foreground-color: #333;
+}
 span.tabs,
 span.fake-tabs {
-  background-color: #fff;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid transparent;
   display: inline-block;
 }
 div.tabs__items[role="tablist"],
@@ -15,6 +21,8 @@ ul.fake-tabs__items {
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 div.tabs__items--large[role="tablist"],
 ul.fake-tabs__items--large {
@@ -35,10 +43,17 @@ li.fake-tabs__item {
   -webkit-box-flex: 1;
           flex: 1;
   min-height: 40px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.15);
+  -webkit-tap-highlight-color: #ccc;
+}
+div.tabs__item[role="tab"]:hover,
+li.fake-tabs__item:hover {
+  border-bottom-color: transparent;
+  border-bottom-color: var(--tabs-item-hover-border-bottom-color, transparent);
 }
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
+  color: #767676;
+  color: var(--tabs-item-foreground-color, #767676);
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 1;
@@ -49,23 +64,33 @@ li.fake-tabs__item > a {
   text-align: center;
   text-decoration: none;
 }
+div.tabs__item[role="tab"]:hover > span,
+li.fake-tabs__item:hover > a {
+  color: #767676;
+  color: var(--tabs-item-hover-foreground-color, #767676);
+}
 div.tabs__item[role="tab"][aria-selected="true"],
 li.fake-tabs__item--current {
   border-bottom-color: #333;
+  border-bottom-color: var(--tabs-item-selected-foreground-color, #333);
 }
 div.tabs__item[role="tab"][aria-selected="true"] > span,
 li.fake-tabs__item--current > a[aria-current="page"] {
   color: #333;
+  color: var(--tabs-item-selected-foreground-color, #333);
+  font-weight: normal;
 }
 .tabs__cell,
 .fake-tabs__cell {
   margin: 16px;
 }
+.tabs__content,
+.fake-tabs__content {
+  border-top: 0 solid transparent;
+  position: relative;
+  top: -1px;
+}
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
   margin: 0 2px;
-}
-div.tabs__item[role="tab"] > span,
-li.fake-tabs__item > a {
-  color: #767676;
 }
