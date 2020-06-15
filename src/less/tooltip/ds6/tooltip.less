@@ -1,55 +1,73 @@
-@import "../../variables/ds6/color-variables.less";
-@import "../../variables/ds6/typography-variables.less";
-@import "../../mixins/icon/ds6/icon-mixins.less";
+@import "../../properties/ds6/tooltip-properties.less";
 @import "../../mixins/bubble/ds6/bubble-mixins.less";
 @import "../../mixins/dialog/ds6/dialog-mixins.less";
+@import "../../mixins/icon/ds6/icon-mixins.less";
 @import "../base/tooltip.less";
+
+// todo in v11: normalize ds4 so that these ds6 rules can be moved to base file
 
 .tooltip__cell,
 .tourtip__cell {
     a {
-        color: @color-white;
+        .customColorProperty(tooltip-foreground-color);
     }
 
     a:focus {
-        outline: 1px dashed @color-white;
+        .customOutlineColorProperty(tooltip-foreground-color);
+
+        outline-style: dashed;
+        outline-width: 1px;
     }
+}
+
+.infotip__mask {
+    .customBackgroundColorProperty(infotip-background-color);
+    .customColorProperty(infotip-foreground-color);
 }
 
 .tooltip__mask,
 .tourtip__mask {
-    background-color: @color-b4;
-    color: @color-white;
+    .customBackgroundColorProperty(tooltip-background-color);
+    .customColorProperty(tooltip-foreground-color);
+}
+
+.infotip__pointer {
+    .customBackgroundColorProperty(infotip-background-color);
 }
 
 .tooltip__pointer,
 .tourtip__pointer {
-    background-color: @color-b4;
+    .customBackgroundColorProperty(tooltip-background-color);
 }
 
 .infotip__overlay {
-    background-color: @color-white;
-    color: @color-black;
+    .customBackgroundColorProperty(infotip-background-color);
+    .customColorProperty(infotip-foreground-color);
 }
 
 button.tourtip__close {
-    color: @color-white;
+    .customColorProperty(tooltip-foreground-color);
 
     &:focus,
     &:hover {
-        color: @color-white;
+        .customColorProperty(tooltip-foreground-color);
     }
 
     &:focus {
-        outline: 1px dashed @color-white;
+        .customOutlineColorProperty(tooltip-foreground-color);
+
+        outline-style: dashed;
+        outline-width: 1px;
     }
 }
 
 button.infotip__close {
+    .customColorProperty(infotip-foreground-color);
+
     &:focus,
     &:hover {
         svg {
-            fill: @color-b4;
+            fill: @infotip-close-hover-foreground-color;
         }
     }
 }
@@ -61,7 +79,7 @@ button.infotip__host.icon-btn {
         opacity: 100;
 
         svg {
-            fill: @color-b4;
+            fill: @infotip-close-hover-foreground-color;
         }
     }
 }
