@@ -1,8 +1,4 @@
-// UTILITIES
-//-----------------------------
-
-// BLOCK
-//-----------------------------
+@import "../../mixins/utility/utility-mixins.less";
 
 .dialog[role="dialog"] {
     .dialog-base();
@@ -38,9 +34,10 @@
 // TODO refactor in next major version
 .dialog__back,
 .dialog__close {
-    background-color: @dialog-back-close-background-color;
+    .customColorProperty(dialog-back-close-foreground-color);
+
+    background-color: transparent;
     border: 0;
-    color: @dialog-back-close-color;
     margin: 0;
     padding: 16px;
     position: absolute;
@@ -49,7 +46,7 @@
 
     &:hover,
     &:focus {
-        color: @dialog-back-close-hover-focus-color;
+        color: @dialog-back-close-hover-foreground-color;
     }
 }
 
@@ -212,16 +209,17 @@
     }
 
     .dialog__close {
-        background-color: @dialog-back-close-background-color;
+        .customColorProperty(dialog-back-close-foreground-color);
+
+        background-color: transparent;
         border: 0;
-        color: @dialog-back-close-color;
         margin: 8px;
         padding: 8px;
         z-index: 1;
 
         &:hover,
         &:focus {
-            color: @dialog-back-close-hover-focus-color;
+            color: @dialog-back-close-hover-foreground-color;
         }
     }
 
