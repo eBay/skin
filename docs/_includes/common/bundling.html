@@ -3,7 +3,7 @@
     <p>Skin supports <a href="https://webpack.js.org">Webpack</a> and <a href="https://github.com/lasso-js/lasso">Lasso.js</a>.</p>
 
     <h3>Webpack</h3>
-    <p>Add <span class="highlight">@ebay/skin</span>, <span class="highlight">@ebay/browserslist-config</span> as dependencies and <span class="highlight">less</span>, <span class="highlight">less-loader</span> as dev dependencies to <span class="highlight">package.json</span>.</p>
+    <p>Add <span class="highlight">@ebay/skin</span> and <span class="highlight">@ebay/browserslist-config</span> as dependencies to <span class="highlight">package.json</span>. The Skin webpack modules will import CSS so make sure you have <span class="highlight">css-loader</span> and <span class="highlight">style-loader</span> on your dev dependencies.</p>
     {% highlight json %}
 {
     "dependencies": {
@@ -11,8 +11,8 @@
         "@ebay/skin": "^{{ page.version | slice: 0, 2 }}",
     },
     "devDependencies": {
-        "less": "^3",
-        "less-loader": "^5"
+        "css-loader": "^3",
+        "style-loader": "^1"
     }
 }
     {% endhighlight %}
@@ -23,8 +23,11 @@ module.exports = {
     module: {
         rules: [
         {
-            test: /\.less$/,
-            loader: 'less-loader', // compiles Less to CSS
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader',
+            ],
         },
         ],
     },
@@ -33,12 +36,7 @@ module.exports = {
 
     <h4>Usage</h4>
     {% highlight js %}
-import "@ebay/skin/button.less";
-    {% endhighlight %}
-
-    <p>You can also leverage webpack's webpack-resolver:</p>
-    {% highlight js %}
-import "~@ebay/skin/button.less";
+import "@ebay/skin/button";
     {% endhighlight %}
 
     <h3>Lasso.js</h3>
