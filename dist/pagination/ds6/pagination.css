@@ -1,10 +1,18 @@
 .pagination {
   --pagination-item-foreground-color: #111820;
   --pagination-item-active-foreground-color: #111820;
+  --pagination-item-hover-foreground-color: #2b0eaf;
   --pagination-item-current-background-color: transparent;
   --pagination-item-current-border-color: #3665f3;
   --pagination-item-current-foreground-color: #3665f3;
-  --pagination-paddle-focus-foreground-color: #2b0eaf;
+  --pagination-paddle-hover-foreground-color: #2b0eaf;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .pagination {
+    --pagination-item-foreground-color: #dcdcdc;
+    --pagination-item-hover-foreground-color: #5192ff;
+    --pagination-paddle-hover-foreground-color: #5192ff;
+  }
 }
 nav.pagination {
   -webkit-box-align: center;
@@ -66,7 +74,7 @@ ol.pagination__items li:not([hidden]) {
 .pagination__next:hover svg,
 .pagination__previous:hover svg {
   fill: #2b0eaf;
-  fill: var(--pagination-paddle-focus-foreground-color, #2b0eaf);
+  fill: var(--pagination-paddle-hover-foreground-color, #2b0eaf);
 }
 .pagination__next[aria-disabled="true"] svg,
 .pagination__previous[aria-disabled="true"] svg {
@@ -99,7 +107,7 @@ button.pagination__previous {
 .pagination__item:focus,
 .pagination__item:hover {
   color: #2b0eaf;
-  color: var(--pagination-item-focus-foreground-color, #2b0eaf);
+  color: var(--pagination-item-hover-foreground-color, #2b0eaf);
   text-decoration: underline;
 }
 .pagination__item[aria-current="page"] {
@@ -120,10 +128,6 @@ button.pagination__item {
 }
 a.pagination__item {
   text-decoration: none;
-}
-a.pagination__item:visited,
-a.pagination__item:link:not([aria-current]) {
-  color: inherit;
 }
 nav.pagination--fluid {
   width: 100%;
