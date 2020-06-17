@@ -64,6 +64,8 @@
 .dialog__window {
     .dialog-window();
 
+    flex-direction: column;
+    left: 0;
     padding-bottom: 15vh;
     top: 15%;
     width: calc(100% - 32px);
@@ -186,11 +188,58 @@
     }
 }
 
+// Mini dialog (A.K.A Dialog Infotip) variant
+// CODE SMELL: chained selector. refactor in v11
+.dialog__window.dialog__window--mini {
+    .dialog-window(400px);
+
+    flex-direction: row-reverse;
+    left: 0;
+    min-width: 200px;
+    padding-bottom: 15vh;
+    top: 50%;
+    transform: translateY(-25%);
+
+    &::before {
+        border-radius: 7px;
+    }
+
+    .dialog__header {
+        .dialog-header-content(0);
+
+        align-items: flex-start;
+        align-self: flex-start;
+    }
+
+    .dialog__close {
+        background-color: @dialog-back-close-background-color;
+        border: 0;
+        color: @dialog-back-close-color;
+        margin: 8px;
+        padding: 8px;
+        z-index: 1;
+
+        &:hover,
+        &:focus {
+            color: @dialog-back-close-hover-focus-color;
+        }
+    }
+
+    .dialog__main {
+        margin: 0;
+        padding: 16px 0 16px 16px;
+    }
+}
+
 // MEDIA QUERIES
 //-----------------------------
 @media (max-width: 600px) {
     .dialog__window:not(.dialog__window--full) {
         .create-grid(@cols: 8, @gutter: 8px, @gutter-exponent: 4, @size: 8, @min: 8, @max: 8);
+    }
+
+    .dialog__window--mini {
+        max-width: 344px;
     }
 }
 

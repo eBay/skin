@@ -1,4 +1,12 @@
 .listbox-button {
+  --listbox-button-invalid-border-color: #e62048;
+  --dropdown-items-background-color: #fff;
+  --dropdown-items-border-color: #c7c7c7;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #e5e5e5;
+  --dropdown-item-active-status-color: #c7c7c7;
+}
+.listbox-button {
   line-height: normal;
   position: relative;
   vertical-align: bottom;
@@ -12,7 +20,11 @@ span.listbox-button--fluid .expand-btn {
 }
 div.listbox-button__listbox {
   background-color: #fff;
-  border: 1px solid #c7c7c7;
+  background-color: var(--dropdown-items-background-color, #fff);
+  border-color: #c7c7c7;
+  border-color: var(--dropdown-items-border-color, #c7c7c7);
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   min-width: 100%;
@@ -32,6 +44,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 .listbox-button button[aria-invalid="true"] {
   border-color: #e62048;
+  border-color: var(--listbox-button-invalid-border-color, #e62048);
 }
 .listbox-button button.expand-btn--borderless {
   background-color: transparent;
@@ -51,6 +64,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
   background-color: #e5e5e5;
+  background-color: var(--dropdown-item-hover-background-color, #e5e5e5);
 }
 .listbox-button__option svg.icon {
   align-self: center;
@@ -72,10 +86,14 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
 }
 div.listbox-button__option[role="option"]:active svg.icon {
   color: #c7c7c7;
+  color: var(--dropdown-item-active-status-color, #c7c7c7);
 }
 div.listbox-button__option[role="option"] {
+  border-color: #fff;
+  border-color: var(--dropdown-item-border-color, #fff);
   background-color: transparent;
-  border: 1px solid #fff;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -95,8 +113,12 @@ div.listbox-button__option[role="option"]:focus {
 }
 div.listbox-button__option[role="option"]:hover {
   background-color: #e5e5e5;
+  background-color: var(--dropdown-item-hover-background-color, #e5e5e5);
 }
 div.listbox-button__option[role="option"]:active {
+  font-weight: bold;
+}
+div.listbox-button__option--active[role="option"] {
   font-weight: bold;
 }
 span.listbox-button__value {
@@ -105,7 +127,4 @@ span.listbox-button__value {
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
-}
-div.listbox-button__option--active[role="option"] {
-  font-weight: bold;
 }

@@ -10,6 +10,7 @@ This page contains instructions and guidelines for anybody contributing code to 
 * [Branching Strategy](#branching-strategy)
 * [Pull Requests](#pull-requests)
 * [Style Guide](#style-guide)
+* [Variables](#variables)
 * [Testing Guide](#testing-guide)
 * [Website Setup](#website-setup)
 * [Scripts](#scripts)
@@ -163,6 +164,50 @@ When contributing to Skin, please bear the following guidelines in mind:
 * Avoid over specificity (unless required for accessibility safeguarding). The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
 [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
 * Please do not commit commented out code to production.
+
+## Variables
+
+Skin variables are categorised into three levels:
+
+* global
+* product
+* component
+
+These three levels form the basis of our token based system.
+
+### Global Variables
+
+Global variables are our primitives. They represent the colour palette and type ramp. For example:
+
+* color-b1
+* font-size-12
+
+Naming of global variables starts with the style related property and ends with the primitive.
+
+### Product Variables
+
+Product variables are aliases of global variables. They represent an aspect of the product that is used across many pages and components. For example, confirmations and actions:
+
+* color-confirmation-text
+* color-action-primary
+
+Naming of product variables starts with the style related property and ends with the product aspect.
+
+### Component Variables
+
+Component variables are aliases of global variables and product variables. They represent aspects of a specific component only, for example a textbox component:
+
+* textbox-background-color
+* textbox-border-color
+
+Naming of component variables starts with the component name and ends with the style related property.
+
+Component variables also need to take into account certain states, such as hover, focus and disabled. For example:
+
+* textbox-disabled-background-color
+* textbox-disabled-border-color
+
+The naming convention is: component name - state - style property.
 
 ## Testing Guide
 

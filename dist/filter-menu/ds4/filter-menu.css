@@ -1,6 +1,16 @@
 .filter-menu,
+.filter-menu-form,
+.filter-menu-button {
+  --filter-menu-border-color: #ccc;
+  --filter-menu-checkbox-unchecked-color: #767676;
+  --filter-menu-checkbox-checked-color: #0654ba;
+  --filter-menu-item-background-color: #fff;
+  --filter-menu-item-focus-background-color: #eee;
+}
+.filter-menu,
 .filter-menu-form {
   background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   min-width: 144px;
   overflow: hidden;
 }
@@ -29,6 +39,7 @@ span.filter-menu__checkbox {
 span.filter-menu__status svg.icon--checkbox-unchecked,
 span.filter-menu__checkbox svg.icon--checkbox-unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
   display: block;
   height: 18px;
   width: 18px;
@@ -36,6 +47,7 @@ span.filter-menu__checkbox svg.icon--checkbox-unchecked {
 span.filter-menu__status svg.icon--checkbox-checked,
 span.filter-menu__checkbox svg.icon--checkbox-checked {
   color: #0654ba;
+  color: var(--filter-menu-checkbox-checked-color, #0654ba);
   display: none;
   height: 18px;
   width: 18px;
@@ -51,9 +63,11 @@ span.filter-menu__checkbox svg.icon--checkbox-checked {
 }
 .filter-menu-form__item span.checkbox svg.checkbox__unchecked {
   color: #767676;
+  color: var(--filter-menu-checkbox-unchecked-color, #767676);
 }
 .filter-menu-form__item span.checkbox svg.checkbox__checked {
   color: #0654ba;
+  color: var(--filter-menu-checkbox-checked-color, #0654ba);
 }
 span.filter-menu__item[role="menuitemcheckbox"],
 span.filter-menu-form__item {
@@ -61,7 +75,8 @@ span.filter-menu-form__item {
 }
 .filter-menu__item[role="menuitemcheckbox"],
 .filter-menu-form__item {
-  background: #fff;
+  background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -84,6 +99,7 @@ span.filter-menu-form__item {
 .filter-menu__item[role="menuitemcheckbox"]:hover,
 .filter-menu-form__item:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu__item[role="menuitemcheckbox"]:focus,
 .filter-menu-form__item:focus {
@@ -94,6 +110,7 @@ span.filter-menu-form__item {
 .filter-menu__item[role="menuitemcheckbox"]:hover,
 .filter-menu-form__item:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu__item[role="menuitemcheckbox"]:last-child,
 .filter-menu-form__item:last-child {
@@ -101,7 +118,8 @@ span.filter-menu-form__item {
 }
 button.filter-menu__footer,
 button.filter-menu-form__footer[type="submit"] {
-  background: #fff;
+  background-color: #fff;
+  background-color: var(--filter-menu-item-background-color, #fff);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -113,8 +131,11 @@ button.filter-menu-form__footer[type="submit"] {
   line-height: 1.4em;
   margin: 0;
   width: 100%;
+  border-color: #ccc;
+  border-color: var(--filter-menu-border-color, #ccc);
   border: none;
-  border-top: 1px solid #ccc;
+  border-top-style: solid;
+  border-top-width: 1px;
   bottom: 0;
   padding: 16px;
 }
@@ -127,6 +148,7 @@ button.filter-menu-form__footer[type="submit"]:focus,
 button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 button.filter-menu__footer:focus,
 button.filter-menu-form__footer[type="submit"]:focus {
@@ -137,6 +159,7 @@ button.filter-menu-form__footer[type="submit"]:focus,
 button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: #eee;
+  background-color: var(--filter-menu-item-focus-background-color, #eee);
 }
 .filter-menu__text,
 .filter-menu-form__text {

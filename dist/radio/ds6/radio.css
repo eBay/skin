@@ -1,4 +1,14 @@
 .radio {
+  --radio-checked-color: #3665f3;
+  --radio-unchecked-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .radio {
+    --radio-checked-color: #5192ff;
+    --radio-unchecked-color: #171717;
+  }
+}
+.radio {
   display: -webkit-inline-box;
   display: inline-flex;
   font-size: 1rem;
@@ -25,9 +35,11 @@ svg.radio__unchecked {
 }
 svg.radio__checked {
   color: #3665f3;
+  color: var(--radio-checked-color, #3665f3);
 }
 svg.radio__unchecked {
   color: #111820;
+  color: var(--radio-unchecked-color, #111820);
 }
 input.radio__control[type="radio"] {
   font-size: 100%;

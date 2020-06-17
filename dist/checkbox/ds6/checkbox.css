@@ -1,4 +1,14 @@
 .checkbox {
+  --checkbox-checked-color: #3665f3;
+  --checkbox-unchecked-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .checkbox {
+    --checkbox-checked-color: #5192ff;
+    --checkbox-unchecked-color: #171717;
+  }
+}
+.checkbox {
   display: -webkit-inline-box;
   display: inline-flex;
   font-size: 1rem;
@@ -25,9 +35,11 @@ svg.checkbox__unchecked {
 }
 svg.checkbox__checked {
   color: #3665f3;
+  color: var(--checkbox-checked-color, #3665f3);
 }
 svg.checkbox__unchecked {
   color: #111820;
+  color: var(--checkbox-unchecked-color, #111820);
 }
 input.checkbox__control[type="checkbox"] {
   font-size: 100%;

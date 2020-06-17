@@ -1,6 +1,16 @@
+.menu,
+.fake-menu {
+  --dropdown-separator-color: #e5e5e5;
+  --dropdown-items-background-color: #fff;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #e5e5e5;
+  --dropdown-item-active-status-color: #c7c7c7;
+  --dropdown-fake-anchor-color: #111820;
+}
 .menu__items,
 .fake-menu__items {
   background-color: #fff;
+  background-color: var(--dropdown-items-background-color, #fff);
   cursor: default;
 }
 span.menu,
@@ -35,6 +45,7 @@ span.fake-menu__items {
 }
 a.fake-menu__item {
   color: #111820;
+  color: var(--dropdown-fake-anchor-color, #111820);
   text-decoration: none;
 }
 button.fake-menu__item {
@@ -43,8 +54,11 @@ button.fake-menu__item {
 button.fake-menu__item,
 a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
+  border-color: #fff;
+  border-color: var(--dropdown-item-border-color, #fff);
   background-color: transparent;
-  border: 1px solid #fff;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -69,6 +83,7 @@ button.fake-menu__item:hover,
 a.fake-menu__item:hover,
 div.menu__item[role^="menuitem"]:hover {
   background-color: #e5e5e5;
+  background-color: var(--dropdown-item-hover-background-color, #e5e5e5);
 }
 button.fake-menu__item:active,
 a.fake-menu__item:active,
@@ -81,6 +96,7 @@ a.fake-menu__item:focus {
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
   color: #c7c7c7;
+  color: var(--dropdown-item-active-status-color, #c7c7c7);
 }
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
@@ -88,6 +104,7 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
   color: #c7c7c7;
+  color: var(--dropdown-item-active-status-color, #c7c7c7);
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
@@ -130,5 +147,8 @@ div.menu__item[role^="menuitem"] span.badge {
   text-decoration: underline;
 }
 hr.menu__separator {
-  border: 1px solid #e5e5e5;
+  border-color: #e5e5e5;
+  border-color: var(--dropdown-separator-color, #e5e5e5);
+  border-style: solid;
+  border-width: 1px;
 }

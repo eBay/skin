@@ -1,7 +1,10 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 // the non-plural classname is deprecated in v10
 nav.breadcrumb,
 nav.breadcrumbs {
-    color: @breadcrumbs-item-color;
+    .customColorProperty(breadcrumbs-item-foreground-color);
+
     font-size: @font-size-12;
     height: fit-content;
     margin: 8px 0;
@@ -46,12 +49,14 @@ nav.breadcrumbs {
 
         &:focus,
         &:hover {
-            color: @breadcrumbs-item-focus-hover-color;
+            .customColorProperty(breadcrumbs-item-hover-foreground-color);
+
             text-decoration: underline;
         }
 
         &[aria-current] {
-            color: @breadcrumbs-item-current-color;
+            .customColorProperty(breadcrumbs-item-current-foreground-color);
+
             text-decoration: none;
         }
     }

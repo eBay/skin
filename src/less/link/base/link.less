@@ -1,14 +1,18 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 a {
     &.nav-link {
-        color: @link-nav-color;
+        .customColorProperty(nav-link-color);
+
         text-decoration: none;
 
         &:visited {
-            color: @link-nav-color-visited;
+            .customColorProperty(nav-link-color);
         }
 
         &:hover {
-            color: @color-link-default;
+            .customColorProperty(nav-link-hover-color);
+
             text-decoration: underline;
         }
     }
@@ -19,11 +23,12 @@ a {
 
 button {
     &.fake-link {
+        .customColorProperty(fake-link-color);
+
         background-color: transparent;
         border: 0;
-        color: @link-fake-color;
-        cursor: pointer;
-        font-size: @link-fake-font-size;
+        font-family: inherit;
+        font-size: @fake-link-font-size;
         padding: 0;
         text-decoration: underline;
 
@@ -32,7 +37,7 @@ button {
         }
 
         &:hover {
-            color: @link-nav-color-hover;
+            color: @color-link-hover;
         }
     }
 }

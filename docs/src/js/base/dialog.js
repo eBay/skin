@@ -128,6 +128,7 @@ module.exports = class {
 
                 if (this._isModal) {
                     doFocusManagement(this);
+                    Modal.modal(this._el);
                 }
 
                 this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
@@ -146,6 +147,7 @@ module.exports = class {
                     this._onCloseTransitionEndListener
                 );
             } else {
+                Modal.unmodal();
                 this._el.hidden = true;
                 this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
             }

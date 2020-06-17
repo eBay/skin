@@ -1,4 +1,12 @@
 .listbox-button {
+  --listbox-button-invalid-border-color: #dd1e31;
+  --dropdown-items-background-color: #fff;
+  --dropdown-items-border-color: #ccc;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #eee;
+  --dropdown-item-active-status-color: #ccc;
+}
+.listbox-button {
   line-height: normal;
   position: relative;
   vertical-align: bottom;
@@ -12,7 +20,11 @@ span.listbox-button--fluid .expand-btn {
 }
 div.listbox-button__listbox {
   background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--dropdown-items-background-color, #fff);
+  border-color: #ccc;
+  border-color: var(--dropdown-items-border-color, #ccc);
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   min-width: 100%;
@@ -32,6 +44,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 .listbox-button button[aria-invalid="true"] {
   border-color: #dd1e31;
+  border-color: var(--listbox-button-invalid-border-color, #dd1e31);
 }
 .listbox-button button.expand-btn--borderless {
   background-color: transparent;
@@ -51,6 +64,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
   background-color: #eee;
+  background-color: var(--dropdown-item-hover-background-color, #eee);
 }
 .listbox-button__option svg.icon {
   align-self: center;
@@ -72,10 +86,14 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
 }
 div.listbox-button__option[role="option"]:active svg.icon {
   color: #ccc;
+  color: var(--dropdown-item-active-status-color, #ccc);
 }
 div.listbox-button__option[role="option"] {
+  border-color: transparent;
+  border-color: var(--dropdown-item-border-color, transparent);
   background-color: transparent;
-  border: 1px solid transparent;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -95,8 +113,12 @@ div.listbox-button__option[role="option"]:focus {
 }
 div.listbox-button__option[role="option"]:hover {
   background-color: #eee;
+  background-color: var(--dropdown-item-hover-background-color, #eee);
 }
 div.listbox-button__option[role="option"]:active {
+  font-weight: normal;
+}
+div.listbox-button__option--active[role="option"] {
   font-weight: normal;
 }
 span.listbox-button__value {

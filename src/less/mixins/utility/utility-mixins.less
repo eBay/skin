@@ -22,3 +22,28 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.customProperty(@property, @token) {
+    @{property}: @@token;
+    @{property}: var(~"--@{token}", @@token);
+}
+
+.customColorProperty(@token) {
+    .customProperty(color, @token);
+}
+
+.customBackgroundColorProperty(@token) {
+    .customProperty(background-color, @token);
+}
+
+.customBorderColorProperty(@token) {
+    .customProperty(border-color, @token);
+}
+
+.customBorderRadiusProperty(@token) {
+    .customProperty(border-radius, @token);
+}
+
+.customFillProperty(@token) {
+    .customProperty(fill, @token);
+}

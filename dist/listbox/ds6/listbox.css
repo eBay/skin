@@ -1,3 +1,10 @@
+.listbox {
+  --dropdown-items-background-color: #fff;
+  --dropdown-items-border-color: #c7c7c7;
+  --dropdown-item-background-color: #fff;
+  --dropdown-item-hover-background-color: #e5e5e5;
+  --dropdown-item-active-status-color: #c7c7c7;
+}
 div.listbox {
   margin: 16px 0;
 }
@@ -19,8 +26,11 @@ div.listbox__options--reverse[role="listbox"] {
   right: 0;
 }
 div.listbox__option[role="option"] {
+  border-color: #fff;
+  border-color: var(--dropdown-item-border-color, #fff);
   background-color: transparent;
-  border: 1px solid #fff;
+  border-style: solid;
+  border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -39,6 +49,7 @@ div.listbox__option[role="option"]:focus {
 }
 div.listbox__option[role="option"]:hover {
   background-color: #e5e5e5;
+  background-color: var(--dropdown-item-hover-background-color, #e5e5e5);
 }
 div.listbox__option[role="option"]:active {
   font-weight: bold;
@@ -62,10 +73,12 @@ div.listbox__option svg.icon {
 }
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
   background-color: #e5e5e5;
+  background-color: var(--dropdown-item-hover-background-color, #e5e5e5);
 }
 div.listbox__option[aria-selected="true"] svg.icon {
   opacity: 1;
 }
 div.listbox__option[role="option"]:active svg.icon {
   color: #c7c7c7;
+  color: var(--dropdown-item-active-status-color, #c7c7c7);
 }

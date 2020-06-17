@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .listbox-button {
     line-height: normal;
     position: relative;
@@ -24,7 +26,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button button[aria-invalid="true"] {
-    border-color: @listbox-button-aria-invalid-border-color;
+    .customBorderColorProperty(listbox-button-invalid-border-color);
 }
 
 // todo: refactor to use a button mixin rather than .expand-btn class
@@ -49,7 +51,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
-    background-color: @dropdown-item-hover-background-color;
+    .customBackgroundColorProperty(dropdown-item-hover-background-color);
 }
 
 .listbox-button__option svg.icon {
@@ -68,13 +70,17 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
 }
 
 div.listbox-button__option[role="option"]:active svg.icon {
-    color: @dropdown-item-active-status-color;
+    .customColorProperty(dropdown-item-active-status-color);
 }
 
 div.listbox-button__option[role="option"] {
     .dropdown-option-base();
 
     cursor: default; // needed to override text cursor
+}
+
+div.listbox-button__option--active[role="option"] {
+    font-weight: @listbox-button-item-active-font-weight;
 }
 
 span.listbox-button__value {

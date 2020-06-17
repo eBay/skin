@@ -1,0 +1,218 @@
+// This mixin takes the upcoming color.
+// This colors the current icons :after, the hr, and the next item's :before
+.highlight-upcoming(@upcoming) {
+    .stepper__icon::after {
+        background-color: @upcoming;
+    }
+
+    & + hr.stepper__separator {
+        background-color: @upcoming;
+    }
+
+    & + hr.stepper__separator + .stepper__item .stepper__icon::before {
+        background-color: @upcoming;
+    }
+}
+
+.stepper__items {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+hr.stepper__separator {
+    border: 0 none;
+    display: inline-block;
+    height: 2px;
+    margin: 0;
+    min-width: 10px;
+    position: relative;
+    top: 11px;
+    width: 100%;
+}
+
+.stepper__icon {
+    align-items: center;
+    display: flex;
+}
+
+// todo: refactor out dependency on badge module. I don't think it should be used in this context.
+.stepper__icon .badge {
+    background-color: white;
+    border: 1px solid @stepper-text-dark-color;
+    color: @stepper-text-dark-color;
+    height: @stepper-icon-size;
+    top: 0;
+    width: 24px; // This width makes the badge to have 24px width for some reason!
+}
+
+.stepper__icon svg.icon {
+    margin: auto 2px;
+    min-height: @stepper-icon-size;
+    min-width: @stepper-icon-size;
+}
+
+.stepper__icon::before,
+.stepper__icon::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 2px;
+}
+
+.stepper__item--confirmation {
+    .highlight-upcoming(@stepper-confirmation-color);
+
+    color: @stepper-text-light-color;
+}
+
+.stepper__item--upcoming {
+    .highlight-upcoming(@stepper-upcoming-color);
+
+    color: @stepper-text-light-color;
+
+    svg {
+        fill: @stepper-upcoming-color;
+    }
+}
+
+.stepper__item--default {
+    .highlight-upcoming(@stepper-text-dark-color;);
+
+    color: @stepper-text-dark-color;
+}
+
+.stepper__item--current {
+    .highlight-upcoming(@stepper-upcoming-color);
+
+    color: @stepper-confirmation-color;
+}
+
+// Place transitions at end to take higher priority
+.stepper__item--transition-upcoming {
+    .highlight-upcoming(@stepper-upcoming-color);
+}
+
+.stepper__item--transition-attention {
+    .highlight-upcoming(@stepper-attention-color);
+}
+
+.stepper__item--transition-information {
+    .highlight-upcoming(@stepper-information-color);
+}
+
+.stepper__item--transition-default {
+    .highlight-upcoming(@stepper-text-dark-color;);
+}
+
+.stepper__text {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.stepper__item--current .stepper__text,
+.stepper__item--default .stepper__text {
+    color: @stepper-text-dark-color;
+}
+
+.stepper__item[aria-current="step"] {
+    font-weight: bold;
+}
+
+.stepper__item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.stepper__item:first-child {
+    margin-left: 0;
+}
+
+.stepper--vertical .stepper__icon::after,
+.stepper--vertical .stepper__icon::before {
+    height: calc(100% - 12px);
+    left: 11px;
+    position: absolute;
+    top: 28px;
+    width: 2px;
+}
+
+.stepper__item:first-child .stepper__icon::before {
+    height: 0;
+}
+
+.stepper__item:last-child {
+    margin-right: 0;
+}
+
+.stepper__item:last-child .stepper__icon::after {
+    height: 0;
+}
+
+.stepper {
+    margin: 16px 0;
+    overflow: auto;
+}
+
+.stepper--vertical {
+    display: block;
+}
+
+.stepper--vertical .stepper__items {
+    display: block;
+}
+
+.stepper--vertical .stepper__separator {
+    display: inline;
+}
+
+.stepper--vertical .stepper__item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+    margin-left: 0;
+}
+
+.stepper--vertical .stepper__icon {
+    display: inline-block;
+    width: auto;
+}
+
+.stepper--vertical .stepper__icon svg {
+    margin: 2px auto;
+}
+
+.stepper--vertical .stepper__text {
+    align-self: center;
+    margin-left: 8px;
+    margin-top: -4px;
+    max-width: auto;
+    text-align: left;
+}
+
+.stepper--vertical .stepper__text p:first-child,
+.stepper__text h3:first-child {
+    margin-top: 8px;
+}
+
+.stepper--vertical .stepper__text p:last-child {
+    margin-bottom: 0;
+}
+
+.stepper--vertical .stepper__item:first-child .stepper__icon::before {
+    width: 0;
+}
+
+.stepper--vertical .stepper__item:last-child {
+    margin-right: auto;
+}
+
+.stepper--vertical .stepper__item:last-child .stepper__icon::after,
+.stepper--vertical .stepper__item:last-child .stepper__icon::before {
+    height: 0;
+}
