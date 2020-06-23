@@ -52,6 +52,32 @@ export const expanded = () => `
 </span>
 `;
 
+export const expandedDisabledItem = () => `
+<span class="menu-button">
+    <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div aria-disabled="true" class="menu-button__item" role="menuitem">
+                <span>Item 10000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem" tabindex="0">
+                <span>Item 20000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 30000</span>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
 export const radioItems = () => `
 <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
@@ -87,6 +113,41 @@ export const radioItems = () => `
 </span>
 `;
 
+export const radioItemsDisabledItem = () => `
+<span class="menu-button">
+    <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitemradio" aria-checked="true" aria-disabled="true">
+                <span>Item 10000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemradio" tabindex="0">
+                <span>Item 20000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemradio">
+                <span>Item 30000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
 export const checkboxItems = () => `
 <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
@@ -106,6 +167,41 @@ export const checkboxItems = () => `
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox">
+                <span>Item 20000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
+                <span>Item 30000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
+export const checkboxItemsDisabledItem = () => `
+<span class="menu-button">
+    <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true" aria-disabled="true">
+                <span>Item 10000</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="menu-button__item" role="menuitemcheckbox" tabindex="0">
                 <span>Item 20000</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
                     <use xlink:href="#icon-tick-small"></use>
@@ -174,37 +270,7 @@ export const menuFixWidth = () => `
 </span>
 `;
 
-export const fakeMenuFixWidth = () => `
-<span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-    <ul class="fake-menu-button__menu fake-menu-button__menu--fix-width">
-        <li>
-            <a class="fake-menu-button__item" href="http://www.ebay.com" aria-current="page">
-                <span>Link 10000</span>
-            </a>
-        </li>
-        <li>
-            <a href="http://www.ebay.com" class="fake-menu-button__item">
-                <span>Link 20000</span>
-            </a>
-        </li>
-        <li>
-            <a href="http://www.ebay.com" class="fake-menu-button__item">
-                <span>Link 30000</span>
-            </a>
-        </li>
-    </ul>
-</span>
-`;
-
-export const grouped = () => `
+export const separator = () => `
 <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="expand-btn__cell">

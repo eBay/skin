@@ -1,4 +1,4 @@
-export default { title: 'Stepper' };
+export default { title: 'stepper' };
 
 export const stepperDefault = () => `
 <div class="stepper">
