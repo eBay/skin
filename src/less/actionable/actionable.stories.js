@@ -24,27 +24,51 @@ export const iconLinkSettings = () => `
 </a>
 `;
 
-export const iconButtonDisabled = () => `
+export const iconButtonDisabledMenu = () => `
 <button type="button" class="icon-btn" aria-label="menu" disabled>
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
  </button>
  `;
 
-export const iconLinkDisabled = () => `
+export const iconButtonDisabledSettings = () => `
+<button type="button" class="icon-btn" aria-label="menu" disabled>
+    <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+ </button>
+ `;
+
+export const iconLinkDisabledMenu = () => `
 <a class="icon-link">
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
 </a>
 `;
 
-export const iconButtonPartiallyDisabled = () => `
+export const iconLinkDisabledSettings = () => `
+<a class="icon-link">
+    <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+</a>
+`;
+
+export const iconButtonPartiallyDisabledMenu = () => `
 <button type="button" class="icon-btn" aria-label="menu" aria-disabled="true">
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
 </button>
 `;
 
-export const iconLinkPartiallyDisabled = () => `
+export const iconButtonPartiallyDisabledSettings = () => `
+<button type="button" class="icon-btn" aria-label="menu" aria-disabled="true">
+    <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+</button>
+`;
+
+export const iconLinkPartiallyDisabledMenu = () => `
 <a class="icon-link" href="http://www.ebay.com" aria-disabled="true">
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
+</a>
+`;
+
+export const iconLinkPartiallyDisabledSettings = () => `
+<a class="icon-link" href="http://www.ebay.com" aria-disabled="true">
+    <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
 </a>
 `;
 
