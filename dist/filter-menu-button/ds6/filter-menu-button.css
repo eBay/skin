@@ -159,7 +159,8 @@ span.filter-menu-button__items {
   display: inline-block;
 }
 span.filter-menu-button__status,
-span.filter-menu-button__checkbox {
+span.filter-menu-button__checkbox,
+span.filter-menu-button__radio {
   display: block;
   flex-shrink: 1;
   height: 18px;
@@ -178,6 +179,20 @@ span.filter-menu-button__status svg.icon--checkbox-checked,
 span.filter-menu-button__checkbox svg.icon--checkbox-checked {
   color: #3665f3;
   color: var(--filter-menu-checkbox-checked-color, #3665f3);
+  display: none;
+  height: 18px;
+  width: 18px;
+}
+span.filter-menu-button__radio svg.icon--radio-unchecked {
+  color: #767676;
+  color: var(--filter-menu-radio-unchecked-color, #767676);
+  display: block;
+  height: 18px;
+  width: 18px;
+}
+span.filter-menu-button__radio svg.icon--radio-checked {
+  color: #3665f3;
+  color: var(--filter-menu-radio-checked-color, #3665f3);
   display: none;
   height: 18px;
   width: 18px;
@@ -221,7 +236,8 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item:last-child {
   margin-bottom: 8px;
 }
-.filter-menu-button__item span.checkbox {
+.filter-menu-button__item span.checkbox,
+.filter-menu-button__item span.radio {
   -webkit-box-align: start;
           align-items: flex-start;
   display: -webkit-box;
@@ -237,6 +253,14 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item svg.checkbox__checked {
   color: #3665f3;
   color: var(--filter-menu-checkbox-checked-color, #3665f3);
+}
+.filter-menu-button__item svg.radio__unchecked {
+  color: #767676;
+  color: var(--filter-menu-radio-unchecked-color, #767676);
+}
+.filter-menu-button__item svg.radio__checked {
+  color: #3665f3;
+  color: var(--filter-menu-radio-checked-color, #3665f3);
 }
 span.filter-menu-button__item {
   display: block;
@@ -292,5 +316,11 @@ button.filter-menu-button__footer:hover {
   display: none;
 }
 .filter-menu-button__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked {
+  display: block;
+}
+.filter-menu-button__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-unchecked {
+  display: none;
+}
+.filter-menu-button__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-checked {
   display: block;
 }
