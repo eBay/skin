@@ -1,6 +1,6 @@
 export default { title: 'Button/Default' };
 
-export const button = () => '<button class="btn">Button</button>';
+export const base = () => '<button class="btn">Button</button>';
 
 export const disabled = () => '<button class="btn" disabled>Button</button>';
 

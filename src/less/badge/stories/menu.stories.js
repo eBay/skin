@@ -1,4 +1,4 @@
-export default { title: 'Badge/Menu' };
+export default { title: 'Badge' };
 
 export const menu = () => `
 <span class="menu">

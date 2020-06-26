@@ -1,6 +1,6 @@
 export default { title: 'Drawer' };
 
-export const drawerEmpty = () => `
+export const empty = () => `
 <div aria-labelledby="drawer-title" aria-modal="true" class="drawer drawer--mask-fade-slow" role="dialog">
     <div class="drawer__window drawer__window--slide">
         <button class="drawer__handle"></button>
@@ -18,7 +18,7 @@ export const drawerEmpty = () => `
 </div>
 `;
 
-export const drawerPartial = () => `
+export const partial = () => `
 <div aria-labelledby="drawer-title" aria-modal="true" class="drawer drawer--mask-fade-slow" role="dialog">
     <div class="drawer__window drawer__window--slide">
         <button class="drawer__handle"></button>
@@ -41,7 +41,7 @@ export const drawerPartial = () => `
 </div>
 `;
 
-export const drawerHalf = () => `
+export const half = () => `
 <div aria-labelledby="drawer-title" aria-modal="true" class="drawer drawer--mask-fade-slow" role="dialog">
     <div class="drawer__window drawer__window--slide">
         <button class="drawer__handle"></button>
@@ -100,7 +100,7 @@ export const drawerHalf = () => `
 </div>
 `;
 
-export const drawerFull = () => `
+export const full = () => `
 <div aria-labelledby="drawer-title" aria-modal="true" class="drawer drawer--mask-fade-slow" role="dialog">
     <div class="drawer__window drawer__window--slide drawer__window--expanded">
         <button class="drawer__handle"></button>

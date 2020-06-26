@@ -1,6 +1,6 @@
 export default { title: 'Badge/Icon Button' };
 
-export const iconButtonOneDigit = () => `
+export const oneDigit = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -9,7 +9,7 @@ export const iconButtonOneDigit = () => `
 </button>
 `;
 
-export const iconButtonTwoDigits = () => `
+export const twoDigits = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
@@ -18,7 +18,7 @@ export const iconButtonTwoDigits = () => `
 </button>
 `;
 
-export const iconButtonThreeDigits = () => `
+export const threeDigits = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">
     <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
         <use xlink:href="#icon-menu"></use>
