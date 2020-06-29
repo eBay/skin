@@ -1,51 +1,18 @@
-export default { title: 'expand-button' };
+export default { title: 'Expand Button/Default/Collapsed' };
 
-export const collapsed = () => `
+export const base = () => `
 <button type="button" class="expand-btn">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const expanded = () => `
-<button type="button" class="expand-btn" aria-expanded="true">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
+     <span class="expand-btn__cell">
+         <span>Button</span>
+         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+             <use xlink:href="#icon-dropdown"></use>
+         </svg>
+     </span>
+ </button>
 `;
 
 export const disabled = () => `
 <button type="button" class="expand-btn" disabled>
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const primary = () => `
-<button type="button" class="expand-btn expand-btn--primary">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const primaryDisabled = () => `
-<button type="button" class="expand-btn expand-btn--primary" disabled>
     <span class="expand-btn__cell">
         <span>Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
@@ -77,8 +44,8 @@ export const secondaryDisabled = () => `
 </button>
 `;
 
-export const large = () => `
-<button type="button" class="expand-btn expand-btn--large">
+export const primary = () => `
+<button type="button" class="expand-btn expand-btn--primary">
     <span class="expand-btn__cell">
         <span>Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
@@ -87,6 +54,34 @@ export const large = () => `
     </span>
 </button>
 `;
+
+export const primaryDisabled = () => `
+<button type="button" class="expand-btn expand-btn--primary" disabled>
+    <span class="expand-btn__cell">
+        <span>Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+`;
+
+export const rtl = () => `
+<div dir="rtl">
+    <button type="button" class="expand-btn">
+        <span class="expand-btn__cell">
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+</div>
+`;
+
+rtl.story = {
+    name: 'RTL'
+}
 
 export const longText = () => `
 <button type="button" class="expand-btn">
@@ -110,6 +105,10 @@ export const longTextFixedWidth = () => `
 </button>
 `;
 
+longTextFixedWidth.story = {
+    name: 'Long Text, Fixed Width'
+}
+
 export const longTextFixedWidthFixedHeightIntentionallyBrokenOverflow = () => `
 <button style="width: 200px;" type="button" class="expand-btn expand-btn--fixed-height">
     <span class="expand-btn__cell expand-btn__cell--fixed-height">
@@ -120,6 +119,10 @@ export const longTextFixedWidthFixedHeightIntentionallyBrokenOverflow = () => `
     </span>
 </button>
 `;
+
+longTextFixedWidthFixedHeightIntentionallyBrokenOverflow.story = {
+    name: 'Long Text, Fixed Width, Fixed height (Intentionally Broken Overflow)'
+}
 
 export const longTextFixedWidthFixedHeightTruncated = () => `
 <button style="width: 200px;" type="button" class="expand-btn expand-btn--fixed-height expand-btn--truncated">
@@ -132,64 +135,13 @@ export const longTextFixedWidthFixedHeightTruncated = () => `
 </button>
 `;
 
-export const rtl = () => `
-<div dir="rtl">
-    <button type="button" class="expand-btn">
-        <span class="expand-btn__cell">
-            <span>Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-</div>
-`;
+longTextFixedWidthFixedHeightTruncated.story = {
+    name: 'Long Text, Fixed Width, Fixed height, Truncated'
+}
 
-export const inheritColour = () => `
-<div style="color: green">
-    <button type="button" class="expand-btn">
-        <span class="expand-btn__cell">
-            <span>Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-</div>
-`;
-
-export const inheritFontSize = () => `
-<div style="font-size: 200%">
-    <button type="button" class="expand-btn">
-        <span class="expand-btn__cell">
-            <span>Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-</div>
-`;
-
-export const largeInheritFontSize = () => `
-<div style="font-size: 200%">
-    <button type="button" class="expand-btn expand-btn--large">
-        <span class="expand-btn__cell">
-            <span>Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-</div>
-`;
-
-export const iconCollapsed = () => `
-<button type="button" class="expand-btn">
+export const inheritColourGreen = () => `
+<button type="button" class="expand-btn" style="color: green">
     <span class="expand-btn__cell">
-        <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
-            <use xlink:href="#icon-settings"></use>
-        </svg>
         <span>Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
             <use xlink:href="#icon-dropdown"></use>
@@ -198,8 +150,42 @@ export const iconCollapsed = () => `
 </button>
 `;
 
-export const iconExpanded = () => `
-<button type="button" class="expand-btn" aria-expanded="true">
+inheritColourGreen.story = {
+    name: 'Inherit Colour (Green)'
+}
+
+export const inheritFontSize200Percent = () => `
+<button type="button" class="expand-btn" style="font-size: 200%">
+    <span class="expand-btn__cell">
+        <span>Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+`;
+
+inheritFontSize200Percent.story = {
+    name: 'Inherit Font-Size (200%)'
+}
+
+export const longTextFixedWidthFixedHeightTruncatedInheritFontSize200Percent = () => `
+<button style="font-size: 200%; width: 200px;" type="button" class="expand-btn expand-btn--fixed-height expand-btn--truncated">
+    <span class="expand-btn__cell expand-btn__cell--fixed-height expand-btn__cell--truncated">
+        <span>Button with a lot of text that should wrap with some truncation</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+`;
+
+longTextFixedWidthFixedHeightTruncatedInheritFontSize200Percent.story = {
+    name: 'Long text, Fixed width, Fixed height, Truncated, Inherit Font-Size (200%)'
+}
+
+export const icon = () => `
+<button type="button" class="expand-btn">
     <span class="expand-btn__cell">
         <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
             <use xlink:href="#icon-settings"></use>
@@ -227,3 +213,7 @@ export const iconRTL = () => `
     </button>
 </div>
 `;
+
+
+
+

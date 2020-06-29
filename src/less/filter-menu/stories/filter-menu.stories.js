@@ -1,6 +1,6 @@
-export default { title: 'filter-menu' };
+export default { title: 'Filter/Menu' };
 
-export const defaultFilterMenu = () => `
+export const base = () => `
 <span class="filter-menu">
     <div class="filter-menu__items" role="menu">
         <div class="filter-menu__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">

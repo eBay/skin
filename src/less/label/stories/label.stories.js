@@ -1,4 +1,4 @@
-export default { title: 'label' };
+export default { title: 'Label' };
 
 export const base = () => `
 <span class="floating-label">
