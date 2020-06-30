@@ -1,4 +1,4 @@
-export default { title: 'section-title' };
+export default { title: 'Section Title' };
 
 export const heading = () => `
 <div class="section-title">

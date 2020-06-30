@@ -1,4 +1,4 @@
-export default { title: 'notice-window' };
+export default { title: 'Notice/Window' };
 
 export const base = () => `
 <section aria-labelledby="window-notice-title" class="window-notice" role="region">

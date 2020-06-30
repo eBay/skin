@@ -1,16 +1,6 @@
-export default { title: 'menu' };
+export default { title: 'Menu/Menu/Single Select' };
 
-export const stateless = () => `
-<span class="menu">
-    <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitem" tabindex="0"><span>Item 1</span></div>
-        <div class="menu__item" role="menuitem"><span>Item 2</span></div>
-        <div class="menu__item" role="menuitem"><span>Item 3</span></div>
-    </div>
-</span>
-`;
-
-export const singleSelect = () => `
+export const base = () => `
 <span class="menu">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
@@ -35,7 +25,7 @@ export const singleSelect = () => `
 </span>
 `;
 
-export const singleSelectSelected = () => `
+export const selected = () => `
 <span class="menu">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
@@ -60,7 +50,7 @@ export const singleSelectSelected = () => `
 </span>
 `;
 
-export const singleSelectDisabled = () => `
+export const disabled = () => `
 <span class="menu">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true" aria-disabled="true" tabindex="0">
@@ -85,57 +75,7 @@ export const singleSelectDisabled = () => `
 </span>
 `;
 
-export const multiSelectSelected = () => `
-<span class="menu">
-    <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true" tabindex="0">
-            <span>Item 1</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <span>Item 2</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <span>Item 3</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-    </div>
-</span>
-`;
-
-export const multiSelectDisabled = () => `
-<span class="menu">
-    <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true" aria-disabled="true" tabindex="0">
-            <span>Item 1</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <span>Item 2</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-        <div class="menu__item" role="menuitemcheckbox" aria-checked="true">
-            <span>Item 3</span>
-            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
-            </svg>
-        </div>
-    </div>
-</span>
-`;
-
-export const singleSelectInheritColour = () => `
+export const inheritColour = () => `
 <span class="menu" style="color: red">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
@@ -160,8 +100,11 @@ export const singleSelectInheritColour = () => `
 </span>
 `;
 
-export const singleSelectInheritFontSize = () => `
-<h2 style="color: red">Broken, spacing should not scale</h2>
+inheritColour.story = {
+    name: 'Selected, Inherit Colour, Red'
+}
+
+export const inheritFontSize = () => `
 <span class="menu" style="font-size: 200%">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
@@ -186,13 +129,6 @@ export const singleSelectInheritFontSize = () => `
 </span>
 `;
 
-export const separator = () => `
-<span class="menu">
-    <div class="menu__items" role="menu">
-        <div class="menu__item" role="menuitem" tabindex="0"><span>Item 1</span></div>
-        <hr class="menu__separator" role="separator" />
-        <div class="menu__item" role="menuitem"><span>Item 2</span></div>
-        <div class="menu__item" role="menuitem"><span>Item 3</span></div>
-    </div>
-</span>
-`;
+inheritFontSize.story = {
+    name: 'Selected, Inherit Font-Size (200%) (broken, spacing should not scale)'
+}

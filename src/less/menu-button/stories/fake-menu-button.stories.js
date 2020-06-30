@@ -1,4 +1,4 @@
-export default { title: 'menu-button-fake' };
+export default { title: 'Menu/Fake Button Menu' };
 
 export const links = () => `
 <span class="fake-menu-button">
@@ -96,7 +96,7 @@ export const linksDisabled = () => `
 </span>
 `;
 
-export const linksFixWidth = () => `
+export const linksFixedWidth = () => `
 <span class="fake-menu-button">
     <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="expand-btn__cell">
