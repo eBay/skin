@@ -1,4 +1,4 @@
-export default { title: 'listbox' };
+export default { title: 'Listbox' };
 
 export const singleSelectNoSelection = () => `
 <span class="listbox">
