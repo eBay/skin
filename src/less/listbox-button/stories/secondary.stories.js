@@ -2,7 +2,7 @@ export default { title: 'Listbox Button/Secondary' };
 
 export const base = () => `
 <span class="listbox-button">
-    <button class="expand-btn expand-btn--secondary" aria-expanded="true" aria-haspopup="listbox">
+    <button class="expand-btn expand-btn--secondary" aria-expanded="true" aria-haspopup="listbox">notice
         <span class="expand-btn__cell">
             <span class="expand-btn__text">Options</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">

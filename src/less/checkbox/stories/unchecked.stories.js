@@ -28,7 +28,7 @@ export const disabled = () => `
 </span>
 `;
 
-export const colour = () => `
+export const customColour = () => `
 <span class="checkbox">
     <input aria-label="Foreground SVG checkbox example" class="checkbox__control" type="checkbox" />
     <span class="checkbox__icon" hidden>
@@ -42,7 +42,7 @@ export const colour = () => `
 </span>
 `;
 
-export const icon = () => `
+export const customIcon = () => `
 <span class="checkbox">
     <input aria-label="Custom checkbox example" class="checkbox__control" type="checkbox" />
     <span class="checkbox__icon" hidden>

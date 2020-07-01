@@ -1,6 +1,6 @@
-export default { title: 'stepper' };
+export default { title: 'Stepper' };
 
-export const stepperDefault = () => `
+export const base = () => `
 <div class="stepper">
     <div class="stepper__items" role="list">
         <div class="stepper__item stepper__item--confirmation" role="listitem">
@@ -42,7 +42,7 @@ export const stepperDefault = () => `
 </div>
 `;
 
-export const stepperVertical = () => `
+export const vertical = () => `
 <div class="stepper stepper--vertical">
     <div class="stepper__items" role="list">
         <div class="stepper__item stepper__item--confirmation" role="listitem">
