@@ -1,6 +1,6 @@
-export default { title: 'WizardStepper' };
+export default { title: 'Wizard Stepper' };
 
-export const wizardStepperDefault = () => `
+export const base = () => `
 <div class="wizard-stepper">
     <div class="wizard-stepper__items" role="list">
         <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">
@@ -42,7 +42,7 @@ export const wizardStepperDefault = () => `
 </div>
 `;
 
-export const wizardStepperVertical = () => `
+export const vertical = () => `
 <div class="wizard-stepper wizard-stepper--vertical">
     <div class="wizard-stepper__items" role="list">
         <div class="wizard-stepper__item wizard-stepper__item--confirmation" role="listitem">

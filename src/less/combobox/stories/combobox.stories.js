@@ -105,7 +105,7 @@ export const longOptions = () => `
 </span>
 `;
 
-export const actionableIcon = () => `
+export const actionable = () => `
 <span class="combobox combobox--expanded">
     <span class="combobox__control">
         <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox1" />
@@ -154,7 +154,7 @@ export const rtl = () => `
 </div>
 `;
 
-export const actionableIconRtl = () => `
+export const actionableRtl = () => `
 <div dir="rtl">
     <span class="combobox combobox--expanded">
         <span class="combobox__control combobox__control--actionable">

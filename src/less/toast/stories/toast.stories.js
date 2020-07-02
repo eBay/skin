@@ -1,6 +1,6 @@
 export default { title: 'Toast' };
 
-export const toastPrimaryAction = () => `
+export const primaryAction = () => `
 <aside class="toast" aria-label="Notification" aria-live="polite" aria-modal="false" role="dialog">
     <div class="toast__window">
         <div class="toast__header">
@@ -22,7 +22,7 @@ export const toastPrimaryAction = () => `
 </aside>
 `;
 
-export const toastSecondaryAction = () => `
+export const secondaryAction = () => `
 <aside class="toast" aria-label="Notification" aria-live="polite" aria-modal="false" role="dialog">
     <div class="toast__window">
         <div class="toast__header">

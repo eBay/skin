@@ -1,4 +1,4 @@
-export default { title: 'Menu/Button Menu' };
+export default { title: 'Menu Button' };
 
 export const collapsed = () => `
 <span class="menu-button">
