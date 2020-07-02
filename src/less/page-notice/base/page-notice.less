@@ -1,0 +1,112 @@
+@import "../../mixins/utility/utility-mixins.less";
+
+.page-notice {
+    border-style: solid;
+    border-width: 1px;
+    font-size: @font-size-14;
+    margin: 8px 0;
+    padding: 16px;
+}
+
+div[role="region"].page-notice,
+section.page-notice {
+    display: flex;
+}
+
+span[role="region"].page-notice {
+    display: inline-flex;
+}
+
+.page-notice--attention {
+    .customBackgroundColorProperty(page-notice-attention-background-color);
+    .customBorderColorProperty(page-notice-attention-border-color);
+
+    color: @page-notice-attention-foreground-color;
+}
+
+.page-notice--confirmation {
+    .customBackgroundColorProperty(page-notice-confirmation-background-color);
+    .customBorderColorProperty(page-notice-confirmation-border-color);
+}
+
+.page-notice--information {
+    .customBackgroundColorProperty(page-notice-information-background-color);
+    .customBorderColorProperty(page-notice-information-border-color);
+}
+
+.page-notice--celebration {
+    .customBackgroundColorProperty(page-notice-celebration-background-color);
+    .customBorderColorProperty(page-notice-celebration-border-color);
+}
+
+.page-notice__header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.page-notice__status {
+    margin: 0 16px 0 0;
+}
+
+.page-notice__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.page-notice__title {
+    font-size: @font-size-14;
+    font-weight: normal;
+    margin: 0;
+}
+
+.page-notice__title--multiline {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.page-notice__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+.page-notice__main p {
+    margin: 0;
+}
+
+.page-notice--celebration .page-notice__title {
+    font-size: @font-size-large-1;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* LARGE SCREEN OVERRIDES */
+
+@media (min-width: 601px) {
+    section.page-notice,
+    div[role="region"].page-notice {
+        font-size: @font-size-16;
+        margin: 16px 0;
+    }
+
+    .page-notice--celebration {
+        padding: 24px;
+    }
+
+    .page-notice__title {
+        font-size: @font-size-16;
+    }
+
+    .page-notice--celebration .page-notice__status {
+        margin-right: 24px;
+    }
+
+    .page-notice--celebration .page-notice__title {
+        font-size: @font-size-giant-1;
+        margin-bottom: 8px;
+    }
+}
