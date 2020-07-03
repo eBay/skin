@@ -1,3 +1,8 @@
+.stepper {
+  --stepper-badge-background-color: #fff;
+  --stepper-text-dark-color: #333;
+  --stepper-text-light-color: #767676;
+}
 .stepper__items {
   display: -webkit-box;
   display: flex;
@@ -24,9 +29,14 @@ hr.stepper__separator {
   display: flex;
 }
 .stepper__icon .badge {
-  background-color: white;
-  border: 1px solid #000;
-  color: #000;
+  color: #333;
+  color: var(--stepper-text-dark-color, #333);
+  background-color: #fff;
+  background-color: var(--stepper-badge-background-color, #fff);
+  border-color: #333;
+  border-color: var(--stepper-text-dark-color, #333);
+  border-style: solid;
+  border-width: 1px;
   height: 24px;
   top: 0;
   width: 24px;
@@ -46,6 +56,7 @@ hr.stepper__separator {
 }
 .stepper__item--confirmation {
   color: #767676;
+  color: var(--stepper-text-light-color, #767676);
 }
 .stepper__item--confirmation .stepper__icon::after {
   background-color: #5ba71b;
@@ -58,51 +69,53 @@ hr.stepper__separator {
 }
 .stepper__item--upcoming {
   color: #767676;
+  color: var(--stepper-text-light-color, #767676);
 }
 .stepper__item--upcoming .stepper__icon::after {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--upcoming + hr.stepper__separator {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--upcoming + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--upcoming svg {
-  fill: #ccc;
+  fill: #999;
 }
 .stepper__item--default {
-  color: #000;
+  color: #333;
+  color: var(--stepper-text-dark-color, #333);
 }
 .stepper__item--default .stepper__icon::after {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__item--default + hr.stepper__separator {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__item--default + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__item--current {
   color: #5ba71b;
 }
 .stepper__item--current .stepper__icon::after {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--current + hr.stepper__separator {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--current + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--transition-upcoming .stepper__icon::after {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--transition-upcoming + hr.stepper__separator {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--transition-upcoming + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #ccc;
+  background-color: #999;
 }
 .stepper__item--transition-attention .stepper__icon::after {
   background-color: #dd1e31;
@@ -123,13 +136,13 @@ hr.stepper__separator {
   background-color: #0654ba;
 }
 .stepper__item--transition-default .stepper__icon::after {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__item--transition-default + hr.stepper__separator {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__item--transition-default + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #000;
+  background-color: #333;
 }
 .stepper__text {
   margin-top: 8px;
@@ -137,7 +150,8 @@ hr.stepper__separator {
 }
 .stepper__item--current .stepper__text,
 .stepper__item--default .stepper__text {
-  color: #000;
+  color: #333;
+  color: var(--stepper-text-dark-color, #333);
 }
 .stepper__item[aria-current="step"] {
   font-weight: bold;

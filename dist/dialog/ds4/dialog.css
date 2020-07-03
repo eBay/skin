@@ -1,3 +1,8 @@
+.dialog {
+  --dialog-mask-background-color: #333;
+  --dialog-window-background-color: #f0eeec;
+  --dialog-back-close-foreground-color: #333;
+}
 .dialog[role="dialog"] {
   background-color: rgba(51, 51, 51, 0.7);
   bottom: 0;
@@ -55,6 +60,7 @@
   -webkit-box-pack: center;
           justify-content: center;
   margin: 0 16px 16px;
+  position: relative;
 }
 .dialog__footer > :not(:first-child) {
   margin-top: 16px;
@@ -67,9 +73,10 @@
 }
 .dialog__back,
 .dialog__close {
-  background-color: #fff;
-  border: 0;
   color: #333;
+  color: var(--dialog-back-close-foreground-color, #333);
+  background-color: transparent;
+  border: 0;
   margin: 0;
   padding: 16px;
   position: absolute;
@@ -87,6 +94,16 @@
   float: auto;
   padding: 0;
   position: relative;
+}
+.dialog__header .dialog__end-btn {
+  border: none;
+  padding: 0;
+}
+.dialog__title:not(:first-child) {
+  margin-left: 16px;
+}
+.dialog__title--center {
+  text-align: center;
 }
 .dialog__window {
   display: -webkit-box;
@@ -107,6 +124,7 @@
 }
 .dialog__window::before {
   background-color: #f0eeec;
+  background-color: var(--dialog-window-background-color, #f0eeec);
   bottom: 15vh;
   content: "";
   left: 0;
@@ -118,6 +136,7 @@
 .dialog__window--left,
 .dialog__window--right {
   background-color: #f0eeec;
+  background-color: var(--dialog-window-background-color, #f0eeec);
   bottom: 0;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0;
@@ -254,6 +273,7 @@
 }
 .dialog__window.dialog__window--mini::before {
   background-color: #f0eeec;
+  background-color: var(--dialog-window-background-color, #f0eeec);
   bottom: 15vh;
   content: "";
   left: 0;
@@ -283,9 +303,10 @@
   margin-left: 16px;
 }
 .dialog__window.dialog__window--mini .dialog__close {
-  background-color: #fff;
-  border: 0;
   color: #333;
+  color: var(--dialog-back-close-foreground-color, #333);
+  background-color: transparent;
+  border: 0;
   margin: 8px;
   padding: 8px;
   z-index: 1;

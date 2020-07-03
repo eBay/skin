@@ -2,6 +2,7 @@
   --combobox-background-color: #fff;
   --combobox-border-color: #ccc;
   --combobox-border-radius: 3px;
+  --combobox-foreground-color: #333;
   --combobox-focus-border-color: #0654ba;
   --dropdown-items-background-color: #fff;
   --dropdown-items-border-color: #ccc;
@@ -24,13 +25,6 @@ span.combobox {
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
-}
-.combobox svg {
-  margin-left: 8px;
-  pointer-events: none;
-  position: absolute;
-  right: 17px;
-  top: calc(50% - 4px);
 }
 .combobox__options--fix-width[role="listbox"] {
   width: 100%;
@@ -61,6 +55,8 @@ span.combobox {
 .combobox__option[role^="option"] {
   border-color: transparent;
   border-color: var(--dropdown-item-border-color, transparent);
+  color: #333;
+  color: var(--dropdown-item-foreground-color, #333);
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
@@ -85,6 +81,8 @@ span.combobox {
 .combobox__option[role^="option"]:hover {
   background-color: #eee;
   background-color: var(--dropdown-item-hover-background-color, #eee);
+  color: #333;
+  color: var(--dropdown-item-hover-foreground-color, #333);
 }
 .combobox__option[role^="option"]:active {
   font-weight: normal;
@@ -133,11 +131,20 @@ span.combobox {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+.combobox__control > svg.icon--dropdown {
+  margin-left: 8px;
+  pointer-events: none;
+  position: absolute;
+  right: 17px;
+  top: calc(50% - 4px);
+}
 .combobox__control > input {
   background-color: #fff;
   background-color: var(--combobox-background-color, #fff);
   border-color: #ccc;
   border-color: var(--combobox-border-color, #ccc);
+  color: #333;
+  color: var(--combobox-foreground-color, #333);
   border-radius: 3px;
   border-radius: var(--combobox-border-radius, 3px);
   -webkit-appearance: none;
@@ -147,7 +154,6 @@ span.combobox {
   border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: inherit;
   font-family: inherit;
   font-size: inherit;
   height: 40px;
@@ -156,7 +162,8 @@ span.combobox {
   padding: 0 32px 0 16px;
 }
 .combobox__control > input[readonly] {
-  color: transparent;
+  color: #333;
+  color: var(--combobox-foreground-color, #333);
   cursor: default;
   text-shadow: 0 0 0 #555;
   -webkit-user-select: none;
@@ -220,6 +227,8 @@ span.combobox {
   background-color: #eee;
 }
 .combobox__option--active[role="option"] {
+  color: #333;
+  color: var(--dropdown-item-hover-foreground-color, #333);
   font-weight: normal;
 }
 @media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {

@@ -3,11 +3,14 @@
 
     <p>Pagination allows a user to navigate back and forwards through a URL based dataset, or jump directly to any specific
         URL in that set.</p>
-    <p>Pagination links may update the results immediately on the client via AJAX, or on the server via a full page reload.</p>
+    <p>Pagination controls may reload the entire page, or update the results immediately on the client via JavaScript.</p>
+
+    <h3 id="pagination-links">Server-Side Pagination</h3>
+    <p>Server-side pagination uses links that reload the entire page when clicked.</p>
     <div class="demo">
         <div class="demo__inner">
             <nav class="pagination" aria-labelledby="pagination-heading-1" role="navigation">
-                <span aria-live="polite" role="status">
+                <span aria-live="off" role="status">
                     <h2 class="clipped" id="pagination-heading-1">Results Pagination - Page 1</h2>
                 </span>
                 <a aria-disabled="true" aria-label="Previous Page" class="pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
@@ -42,7 +45,7 @@
     </div>
     {% highlight html %}
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">
-    <span aria-live="polite" role="status">
+    <span aria-live="off" role="status">
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
@@ -70,7 +73,9 @@
 </nav>
     {% endhighlight html %}
 
-    <p>When performing client side navigation, use buttons instead of links.</p>
+    <h3 id="pagination-buttons">Client-Side Pagination</h3>
+    <p>Client-side pagination uses buttons that immediately re-render the page when clicked. The ARIA live-region must now be set to "polite".</p>
+    <p><strong>NOTE</strong>: No JavaScript behaviour or state has been implemented in this simple demo.</p>
     <div class="demo">
         <div class="demo__inner">
             <nav class="pagination" aria-labelledby="pagination-heading-2" role="navigation">
@@ -190,7 +195,7 @@
     </div>
     {% highlight html %}
 <nav class="pagination pagination--fluid" aria-labelledby="pagination-heading" role="navigation">
-    <span aria-live="polite" role="status">
+    <span aria-live="off" role="status">
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
@@ -217,5 +222,4 @@
     </a>
 </nav>
     {% endhighlight html %}
-    <p><strong>NOTE:</strong> The heading wrapper only needs these two ARIA live-region related attributes if client-side pagination is implemented (i.e. partial page updates).</p>
 </div>

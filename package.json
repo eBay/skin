@@ -1,7 +1,7 @@
 {
   "name": "@ebay/skin",
   "description": "Skin - CSS modules that represent the brand eBay",
-  "version": "10.5.1",
+  "version": "10.6.0-0",
   "license": "MIT",
   "main": "./index.js",
   "maintainers": [
@@ -37,9 +37,10 @@
     "transpile": "babel docs/src/js --out-dir docs/_babel",
     "snapshot": "npm run storybook:build && percy-storybook --widths=320,1280 --build_dir=docs/storybook",
     "storybook:copy-svg-icons": "node scripts/storybook/copy-svg-icons",
+    "storybook:copy-custom-styles": "node scripts/storybook/copy-custom-styles",
     "storybook:build": "npm run storybook:copy-svg-icons && STORYBOOK_DS=4 build-storybook -o ./docs/ds4/storybook && STORYBOOK_DS=6 build-storybook -o ./docs/storybook",
     "storybook:start-proper": "start-storybook -s .",
-    "storybook:start": "cross-env STORYBOOK_DS=6 npm-run-all -s storybook:copy-svg-icons storybook:start-proper"
+    "storybook:start": "cross-env STORYBOOK_DS=6 npm-run-all -s storybook:copy-svg-icons storybook:copy-custom-styles storybook:start-proper"
   },
   "devDependencies": {
     "@babel/cli": "^7",

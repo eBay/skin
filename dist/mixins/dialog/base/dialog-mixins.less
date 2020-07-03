@@ -1,3 +1,4 @@
+@import "../../utility/utility-mixins.less";
 
 @dialog_max_width: 616px;
 @dialog_header_default_margin: 16px 16px 0;
@@ -22,7 +23,7 @@
 }
 
 .dialog-base() {
-    background-color: fade(@dialog-background-color, 70%);
+    background-color: fade(@dialog-mask-background-color, 70%);
     bottom: 0;
     left: 0;
     -webkit-overflow-scrolling: touch;
@@ -46,7 +47,8 @@
     // The background for the dialog window is on this pseudo element.
     // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
     &::before {
-        background-color: @dialog-window-before-background-color;
+        .customBackgroundColorProperty(dialog-window-background-color);
+
         bottom: 15vh;
         content: "";
         left: 0;
@@ -57,7 +59,8 @@
 }
 
 .dialog-window-filler() {
-    background-color: @dialog-window-before-modifiers-background-color;
+    .customBackgroundColorProperty(dialog-window-background-color);
+
     bottom: 0;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0;
@@ -117,6 +120,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 0 16px 16px;
+    position: relative;
 
     & > :not(:first-child) {
         margin-top: 16px;

@@ -1,3 +1,13 @@
+.drawer {
+  --dialog-window-background-color: #fff;
+  --dialog-back-close-foreground-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .drawer {
+    --dialog-window-background-color: #212121;
+    --dialog-back-close-foreground-color: #dcdcdc;
+  }
+}
 .drawer[role="dialog"] {
   background-color: rgba(17, 24, 32, 0.7);
   bottom: 0;
@@ -71,15 +81,17 @@
   -webkit-box-pack: center;
           justify-content: center;
   margin: 0 16px 16px;
+  position: relative;
 }
 .drawer__footer > :not(:first-child) {
   margin-top: 16px;
 }
 .drawer__back,
 .drawer__close {
-  background-color: #fff;
-  border: 0;
   color: #111820;
+  color: var(--dialog-back-close-foreground-color, #111820);
+  background-color: transparent;
+  border: 0;
   z-index: 1;
 }
 .drawer__back:hover,
@@ -98,6 +110,7 @@
   right: 0;
   will-change: opacity, transform;
   background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0;
   border-radius: 16px 16px 0 0;
@@ -111,6 +124,7 @@
 }
 .drawer__window::before {
   background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
   bottom: 15vh;
   content: "";
   left: 0;

@@ -56,6 +56,8 @@ a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
   border-color: transparent;
   border-color: var(--dropdown-item-border-color, transparent);
+  color: #333;
+  color: var(--dropdown-item-foreground-color, #333);
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
@@ -84,6 +86,8 @@ a.fake-menu__item:hover,
 div.menu__item[role^="menuitem"]:hover {
   background-color: #eee;
   background-color: var(--dropdown-item-hover-background-color, #eee);
+  color: #333;
+  color: var(--dropdown-item-hover-foreground-color, #333);
 }
 button.fake-menu__item:active,
 a.fake-menu__item:active,
@@ -101,6 +105,11 @@ a.fake-menu__item:active svg.icon {
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
   opacity: 1;
+}
+a.fake-menu__item:not([href]),
+button.fake-menu__item[disabled],
+div.menu__item[role^="menuitem"][aria-disabled="true"] {
+  color: #999;
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
   color: #ccc;

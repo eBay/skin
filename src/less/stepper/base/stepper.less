@@ -1,5 +1,8 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 // This mixin takes the upcoming color.
 // This colors the current icons :after, the hr, and the next item's :before
+// todo: refactor to work with custom properties
 .highlight-upcoming(@upcoming) {
     .stepper__icon::after {
         background-color: @upcoming;
@@ -40,9 +43,12 @@ hr.stepper__separator {
 
 // todo: refactor out dependency on badge module. I don't think it should be used in this context.
 .stepper__icon .badge {
-    background-color: white;
-    border: 1px solid @stepper-text-dark-color;
-    color: @stepper-text-dark-color;
+    .customColorProperty(stepper-text-dark-color);
+    .customBackgroundColorProperty(stepper-badge-background-color);
+    .customBorderColorProperty(stepper-text-dark-color);
+
+    border-style: solid;
+    border-width: 1px;
     height: @stepper-icon-size;
     top: 0;
     width: 24px; // This width makes the badge to have 24px width for some reason!
@@ -64,14 +70,12 @@ hr.stepper__separator {
 
 .stepper__item--confirmation {
     .highlight-upcoming(@stepper-confirmation-color);
-
-    color: @stepper-text-light-color;
+    .customColorProperty(stepper-text-light-color);
 }
 
 .stepper__item--upcoming {
     .highlight-upcoming(@stepper-upcoming-color);
-
-    color: @stepper-text-light-color;
+    .customColorProperty(stepper-text-light-color);
 
     svg {
         fill: @stepper-upcoming-color;
@@ -79,9 +83,8 @@ hr.stepper__separator {
 }
 
 .stepper__item--default {
-    .highlight-upcoming(@stepper-text-dark-color;);
-
-    color: @stepper-text-dark-color;
+    .highlight-upcoming(@stepper-text-dark-color);
+    .customColorProperty(stepper-text-dark-color);
 }
 
 .stepper__item--current {
@@ -104,7 +107,7 @@ hr.stepper__separator {
 }
 
 .stepper__item--transition-default {
-    .highlight-upcoming(@stepper-text-dark-color;);
+    .highlight-upcoming(@stepper-text-dark-color);
 }
 
 .stepper__text {
@@ -114,7 +117,7 @@ hr.stepper__separator {
 
 .stepper__item--current .stepper__text,
 .stepper__item--default .stepper__text {
-    color: @stepper-text-dark-color;
+    .customColorProperty(stepper-text-dark-color);
 }
 
 .stepper__item[aria-current="step"] {
