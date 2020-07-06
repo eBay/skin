@@ -1,7 +1,11 @@
-// this mixin is used by the flyout notice and tooltip modules
+// this mixin is used by infotip, tooltip, infotip
 // this mixin is internal only for now
 
+@left-box-shadow: -2px 2px 2px @bubble-box-shadow-color;
+@right-box-shadow: 2px -2px 2px @bubble-box-shadow-color;
+
 .bubble() {
+    box-shadow: 0 -2px 2px @bubble-box-shadow-color, 2px 0 2px @bubble-box-shadow-color, 0 2px 2px @bubble-box-shadow-color, -2px 0 2px @bubble-box-shadow-color,;
     font-size: 14px;
     max-width: 344px;
     min-width: 320px;
@@ -9,7 +13,6 @@
 }
 
 .bubble-mask() {
-    background-color: @bubble-background-color;
     position: relative;
     z-index: 1;
 }
@@ -41,8 +44,12 @@
     align-self: flex-start;
     background: none;
     border: 0;
+    flex-shrink: 0;
+    height: 32px;
+    margin: -8px -8px 0 8px;
     padding: 0;
     white-space: nowrap;
+    width: 32px;
 }
 
 // styles common to all pointers
@@ -55,22 +62,17 @@
 }
 
 .pointer-bottom() {
-    background-color: white;
     bottom: -7px;
+    box-shadow: 2px 2px 2px @bubble-box-shadow-color;
     top: auto;
 }
 
-.pointer-side() {
-    background-color: white;
-}
-
 .pointer-side-middle() {
-    .pointer-side;
-
     top: calc(50% - 8px);
 }
 
 .pointer-top() {
+    box-shadow: -2px -2px 2px @bubble-box-shadow-color;
     top: -7px;
 }
 
@@ -121,16 +123,14 @@
 }
 
 .pointer-left-top() {
-    .pointer-side;
-
+    box-shadow: @left-box-shadow;
     left: -7px;
     top: 12px;
 }
 
 .pointer-left-bottom() {
-    .pointer-side();
-
     bottom: 12px;
+    box-shadow: @left-box-shadow;
     left: -7px;
     top: auto;
 }
@@ -138,22 +138,21 @@
 .pointer-right() {
     .pointer-side-middle();
 
+    box-shadow: @right-box-shadow;
     left: auto;
     right: -7px;
 }
 
 .pointer-right-top() {
-    .pointer-side();
-
+    box-shadow: @right-box-shadow;
     left: auto;
     right: -7px;
     top: 12px;
 }
 
 .pointer-right-bottom() {
-    .pointer-side();
-
     bottom: 12px;
+    box-shadow: @right-box-shadow;
     left: auto;
     right: -7px;
     top: auto;
