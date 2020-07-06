@@ -1,9 +1,9 @@
 export default { title: 'Page Notice/Deprecated' };
 
 export const footer = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-labelledby="confirmation-status">
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>

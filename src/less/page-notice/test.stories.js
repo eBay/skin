@@ -1,9 +1,9 @@
 export default { title: 'Page Notice/Tests' };
 
 export const longText = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-labelledby="confirmation-status">
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>
@@ -15,9 +15,9 @@ export const longText = () => `
 `;
 
 export const longTextAndLink = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-labelledby="confirmation-status">
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>
@@ -30,9 +30,9 @@ export const longTextAndLink = () => `
 `;
 
 export const multiParagraph = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-labelledby="confirmation-status">
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>
@@ -45,9 +45,9 @@ export const multiParagraph = () => `
 `;
 
 export const multiParagraphWithLink = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-labelledby="confirmation-status">
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>
@@ -63,7 +63,7 @@ export const multiParagraphWithLink = () => `
 export const noTitle = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled" focusable="false" height="24" width="24">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
             <use xlink:href="#icon-confirmation-filled"></use>
         </svg>
     </div>
