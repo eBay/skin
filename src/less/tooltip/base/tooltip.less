@@ -1,5 +1,17 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+.tooltip,
+.infotip,
+.tourtip {
+    position: relative;
+}
+
+span.tooltip,
+span.infotip,
+span.tourtip {
+    display: inline-block;
+}
+
 .tooltip__overlay,
 .infotip__overlay,
 .tourtip__overlay {
@@ -7,6 +19,17 @@
 
     display: none;
     position: absolute;
+}
+
+.tooltip__overlay,
+.infotip__overlay {
+    left: 0 - 10px;
+    margin-top: 16px;
+}
+
+.infotip__overlay {
+    .customBackgroundColorProperty(infotip-background-color);
+    .customColorProperty(infotip-foreground-color);
 }
 
 .tooltip__mask,
@@ -27,6 +50,20 @@ span.tourtip__mask {
     .bubble-cell();
 }
 
+.tooltip__cell,
+.tourtip__cell {
+    a {
+        .customColorProperty(tooltip-foreground-color);
+
+        &:focus {
+            .customOutlineColorProperty(tooltip-foreground-color);
+
+            outline-style: dashed;
+            outline-width: 1px;
+        }
+    }
+}
+
 .tooltip__content,
 .infotip__content,
 .tourtip__content {
@@ -39,12 +76,60 @@ button.tourtip__close {
     .bubble-close();
 }
 
+button.tourtip__close {
+    .customColorProperty(tooltip-foreground-color);
+
+    &:focus,
+    &:hover {
+        .customColorProperty(tooltip-foreground-color);
+    }
+
+    &:focus {
+        .customOutlineColorProperty(tooltip-foreground-color);
+
+        outline-style: dashed;
+        outline-width: 1px;
+    }
+}
+
+button.infotip__close {
+    .customColorProperty(infotip-foreground-color);
+
+    &:focus,
+    &:hover {
+        svg {
+            fill: @infotip-close-hover-foreground-color;
+        }
+    }
+}
+
+button.infotip__host.icon-btn {
+    &:focus,
+    &:hover,
+    &:active {
+        opacity: 100;
+
+        svg {
+            fill: @infotip-close-hover-foreground-color;
+        }
+    }
+}
+
 .tooltip__pointer,
 .infotip__pointer,
 .tourtip__pointer {
     .pointer-base();
     .pointer-top();
     .pointer-center();
+}
+
+.tooltip__pointer,
+.tourtip__pointer {
+    .customBackgroundColorProperty(tooltip-background-color);
+}
+
+.infotip__pointer {
+    .customBackgroundColorProperty(infotip-background-color);
 }
 
 .tooltip__pointer--top-left,
@@ -119,12 +204,6 @@ button.tourtip__close {
     .pointer-right-top();
 }
 
-.tooltip,
-.infotip,
-.tourtip {
-    position: relative;
-}
-
 .infotip__heading,
 .tourtip__heading {
     font-size: 1em;
@@ -137,16 +216,15 @@ span.tourtip__heading {
     display: block;
 }
 
-span.tooltip,
-span.infotip,
-span.tourtip {
-    display: inline-block;
+.infotip__mask {
+    .customBackgroundColorProperty(infotip-background-color);
+    .customColorProperty(infotip-foreground-color);
 }
 
-.tooltip__overlay,
-.infotip__overlay {
-    left: 0 - 10px;
-    margin-top: 16px;
+.tooltip__mask,
+.tourtip__mask {
+    .customBackgroundColorProperty(tooltip-background-color);
+    .customColorProperty(tooltip-foreground-color);
 }
 
 .tooltip--expanded .tooltip__overlay,
@@ -156,6 +234,7 @@ span.tourtip {
     display: block;
 }
 
+// todo: refactor out this dependency. Use a mixin instead
 .infotip .icon-btn {
     height: 20px;
     overflow: visible;

@@ -4,25 +4,44 @@
   --tooltip-background-color: #fff;
   --tooltip-foreground-color: #333;
 }
+.tooltip,
+.infotip,
+.tourtip {
+  position: relative;
+}
+span.tooltip,
+span.infotip,
+span.tourtip {
+  display: inline-block;
+}
 .tooltip__overlay,
 .infotip__overlay,
 .tourtip__overlay {
+  -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
   z-index: 1;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
   display: none;
   position: absolute;
+}
+.tooltip__overlay,
+.infotip__overlay {
+  left: -10px;
+  margin-top: 16px;
+}
+.infotip__overlay {
+  background-color: #fff;
+  background-color: var(--infotip-background-color, #fff);
+  color: #333;
+  color: var(--infotip-foreground-color, #333);
 }
 .tooltip__mask,
 .infotip__mask,
 .tourtip__mask {
-  background-color: #fff;
   position: relative;
   z-index: 1;
-  border-top: 2px solid #ccc;
 }
 span.tooltip__mask,
 span.infotip__mask,
@@ -36,6 +55,18 @@ span.tourtip__mask {
   display: flex;
   padding: 16px;
   word-break: break-word;
+}
+.tooltip__cell a,
+.tourtip__cell a {
+  color: #333;
+  color: var(--tooltip-foreground-color, #333);
+}
+.tooltip__cell a:focus,
+.tourtip__cell a:focus {
+  outline-color: #333;
+  outline-color: var(--tooltip-foreground-color, #333);
+  outline-style: dashed;
+  outline-width: 1px;
 }
 .tooltip__content,
 .infotip__content,
@@ -59,21 +90,45 @@ button.tourtip__close {
   align-self: flex-start;
   background: none;
   border: 0;
+  flex-shrink: 0;
+  height: 32px;
+  margin: -8px -8px 0 8px;
   padding: 0;
   white-space: nowrap;
-  margin: 0 0 0 16px;
+  width: 32px;
 }
-button.tooltip__close svg,
-button.infotip__close svg,
-button.tourtip__close svg {
-  display: inline-block;
-  fill: currentColor;
-  pointer-events: none;
-  stroke: currentColor;
-  stroke-width: 0;
-  vertical-align: middle;
-  height: 12px;
-  width: 12px;
+button.tourtip__close {
+  color: #333;
+  color: var(--tooltip-foreground-color, #333);
+}
+button.tourtip__close:focus,
+button.tourtip__close:hover {
+  color: #333;
+  color: var(--tooltip-foreground-color, #333);
+}
+button.tourtip__close:focus {
+  outline-color: #333;
+  outline-color: var(--tooltip-foreground-color, #333);
+  outline-style: dashed;
+  outline-width: 1px;
+}
+button.infotip__close {
+  color: #333;
+  color: var(--infotip-foreground-color, #333);
+}
+button.infotip__close:focus svg,
+button.infotip__close:hover svg {
+  fill: rgba(153, 153, 153, 0.9);
+}
+button.infotip__host.icon-btn:focus,
+button.infotip__host.icon-btn:hover,
+button.infotip__host.icon-btn:active {
+  opacity: 100;
+}
+button.infotip__host.icon-btn:focus svg,
+button.infotip__host.icon-btn:hover svg,
+button.infotip__host.icon-btn:active svg {
+  fill: rgba(153, 153, 153, 0.9);
 }
 .tooltip__pointer,
 .infotip__pointer,
@@ -84,126 +139,123 @@ button.tourtip__close svg {
           transform: rotate(45deg);
   width: 16px;
   z-index: 0;
+  -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
   top: -7px;
-  background-color: #ccc;
   left: calc(50% - 8px);
+}
+.tooltip__pointer,
+.tourtip__pointer {
+  background-color: #fff;
+  background-color: var(--tooltip-background-color, #fff);
+}
+.infotip__pointer {
+  background-color: #fff;
+  background-color: var(--infotip-background-color, #fff);
 }
 .tooltip__pointer--top-left,
 .infotip__pointer--top-left,
 .tourtip__pointer--top-left {
+  -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
   top: -7px;
-  background-color: #ccc;
   left: 12px;
 }
 .tooltip__pointer--top,
 .infotip__pointer--top,
 .tourtip__pointer--top {
+  -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
   top: -7px;
   left: calc(50% - 8px);
-  background-color: #ccc;
 }
 .tooltip__pointer--top-right,
 .infotip__pointer--top-right,
 .tourtip__pointer--top-right {
+  -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
   top: -7px;
-  background-color: #ccc;
   left: auto;
   right: 12px;
 }
 .tooltip__pointer--bottom-left,
 .infotip__pointer--bottom-left,
 .tourtip__pointer--bottom-left {
-  background-color: white;
   bottom: -7px;
-  top: auto;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  top: auto;
   left: 12px;
 }
 .tooltip__pointer--bottom,
 .infotip__pointer--bottom,
 .tourtip__pointer--bottom {
-  background-color: white;
   bottom: -7px;
-  top: auto;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  top: auto;
   left: calc(50% - 8px);
 }
 .tooltip__pointer--bottom-right,
 .infotip__pointer--bottom-right,
 .tourtip__pointer--bottom-right {
-  background-color: white;
   bottom: -7px;
-  top: auto;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  top: auto;
   left: auto;
   right: 12px;
 }
 .tooltip__pointer--left,
 .infotip__pointer--left,
 .tourtip__pointer--left {
-  background-color: white;
   top: calc(50% - 8px);
   left: -7px;
-  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .tooltip__pointer--left-bottom,
 .infotip__pointer--left-bottom,
 .tourtip__pointer--left-bottom {
-  background-color: white;
   bottom: 12px;
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
   left: -7px;
   top: auto;
-  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .tooltip__pointer--left-top,
 .infotip__pointer--left-top,
 .tourtip__pointer--left-top {
-  background-color: white;
+  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
   left: -7px;
   top: 12px;
-  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .tooltip__pointer--right,
 .infotip__pointer--right,
 .tourtip__pointer--right {
-  background-color: white;
   top: calc(50% - 8px);
+  -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
   left: auto;
   right: -7px;
-  -webkit-box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
 }
 .tooltip__pointer--right-bottom,
 .infotip__pointer--right-bottom,
 .tourtip__pointer--right-bottom {
-  background-color: white;
   bottom: 12px;
+  -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
   left: auto;
   right: -7px;
   top: auto;
-  -webkit-box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
 }
 .tooltip__pointer--right-top,
 .infotip__pointer--right-top,
 .tourtip__pointer--right-top {
-  background-color: white;
+  -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
   left: auto;
   right: -7px;
   top: 12px;
-  -webkit-box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px -3px 3px rgba(0, 0, 0, 0.1);
-}
-.tooltip,
-.infotip,
-.tourtip {
-  position: relative;
 }
 .infotip__heading,
 .tourtip__heading {
@@ -215,15 +267,18 @@ span.infotip__heading,
 span.tourtip__heading {
   display: block;
 }
-span.tooltip,
-span.infotip,
-span.tourtip {
-  display: inline-block;
+.infotip__mask {
+  background-color: #fff;
+  background-color: var(--infotip-background-color, #fff);
+  color: #333;
+  color: var(--infotip-foreground-color, #333);
 }
-.tooltip__overlay,
-.infotip__overlay {
-  left: -10px;
-  margin-top: 16px;
+.tooltip__mask,
+.tourtip__mask {
+  background-color: #fff;
+  background-color: var(--tooltip-background-color, #fff);
+  color: #333;
+  color: var(--tooltip-foreground-color, #333);
 }
 .tooltip--expanded .tooltip__overlay,
 .tourtip--expanded .tourtip__overlay,
@@ -242,34 +297,4 @@ span.tourtip {
   .tourtip__overlay {
     max-width: 400px;
   }
-}
-.tooltip__mask,
-.infotip__mask,
-.tourtip__mask {
-  border-top: 2px solid #0654ba;
-}
-.tooltip__pointer--top-left,
-.tooltip__pointer--top,
-.tooltip__pointer--top-right,
-.infotip__pointer--top-left,
-.infotip__pointer--top,
-.infotip__pointer--top-right,
-.tourtip__pointer--top-left,
-.tourtip__pointer--top,
-.tourtip__pointer--top-right {
-  background-color: #0654ba;
-}
-button.infotip__close,
-button.tourtip__close {
-  color: #555;
-}
-button.infotip__close:focus,
-button.tourtip__close:focus,
-button.infotip__close:hover,
-button.tourtip__close:hover {
-  color: rgba(153, 153, 153, 0.9);
-}
-button.infotip__close:active,
-button.tourtip__close:active {
-  color: #333;
 }
