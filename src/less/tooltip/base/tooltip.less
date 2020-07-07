@@ -1,57 +1,35 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-.tooltip,
-.infotip,
-.tourtip {
+.tooltip {
     position: relative;
 }
 
-span.tooltip,
-span.infotip,
-span.tourtip {
+span.tooltip {
     display: inline-block;
 }
 
-.tooltip__overlay,
-.infotip__overlay,
-.tourtip__overlay {
+.tooltip__overlay {
     .bubble();
 
     display: none;
+    left: 0 - 10px;
+    margin-top: 16px;
     position: absolute;
 }
 
-.tooltip__overlay,
-.infotip__overlay {
-    left: 0 - 10px;
-    margin-top: 16px;
-}
-
-.infotip__overlay {
-    .customBackgroundColorProperty(infotip-background-color);
-    .customColorProperty(infotip-foreground-color);
-}
-
-.tooltip__mask,
-.infotip__mask,
-.tourtip__mask {
+.tooltip__mask {
     .bubble-mask();
+    .customBackgroundColorProperty(tooltip-background-color);
+    .customColorProperty(tooltip-foreground-color);
 }
 
-span.tooltip__mask,
-span.infotip__mask,
-span.tourtip__mask {
+span.tooltip__mask {
     display: block;
 }
 
-.tooltip__cell,
-.infotip__cell,
-.tourtip__cell {
+.tooltip__cell {
     .bubble-cell();
-}
 
-.tooltip__cell,
-.tourtip__cell {
     a {
         .customColorProperty(tooltip-foreground-color);
 
@@ -64,187 +42,76 @@ span.tourtip__mask {
     }
 }
 
-.tooltip__content,
-.infotip__content,
-.tourtip__content {
+.tooltip__content {
     .bubble-content();
 }
 
-button.tooltip__close,
-button.infotip__close,
-button.tourtip__close {
+button.tooltip__close {
     .bubble-close();
 }
 
-button.tourtip__close {
-    .customColorProperty(tooltip-foreground-color);
-
-    &:focus,
-    &:hover {
-        .customColorProperty(tooltip-foreground-color);
-    }
-
-    &:focus {
-        .customOutlineColorProperty(tooltip-foreground-color);
-
-        outline-style: dashed;
-        outline-width: 1px;
-    }
-}
-
-button.infotip__close {
-    .customColorProperty(infotip-foreground-color);
-
-    &:focus,
-    &:hover {
-        svg {
-            fill: @infotip-close-hover-foreground-color;
-        }
-    }
-}
-
-button.infotip__host.icon-btn {
-    &:focus,
-    &:hover,
-    &:active {
-        opacity: 100;
-
-        svg {
-            fill: @infotip-close-hover-foreground-color;
-        }
-    }
-}
-
-.tooltip__pointer,
-.infotip__pointer,
-.tourtip__pointer {
+.tooltip__pointer {
     .pointer-base();
     .pointer-top();
     .pointer-center();
-}
-
-.tooltip__pointer,
-.tourtip__pointer {
     .customBackgroundColorProperty(tooltip-background-color);
 }
 
-.infotip__pointer {
-    .customBackgroundColorProperty(infotip-background-color);
-}
-
-.tooltip__pointer--top-left,
-.infotip__pointer--top-left,
-.tourtip__pointer--top-left {
+.tooltip__pointer--top-left {
     .pointer-top-left();
 }
 
-.tooltip__pointer--top,
-.infotip__pointer--top,
-.tourtip__pointer--top {
+.tooltip__pointer--top {
     .pointer-top-center();
 }
 
-.tooltip__pointer--top-right,
-.infotip__pointer--top-right,
-.tourtip__pointer--top-right {
+.tooltip__pointer--top-right {
     .pointer-top-right();
 }
 
-.tooltip__pointer--bottom-left,
-.infotip__pointer--bottom-left,
-.tourtip__pointer--bottom-left {
+.tooltip__pointer--bottom-left {
     .pointer-bottom-left();
 }
 
-.tooltip__pointer--bottom,
-.infotip__pointer--bottom,
-.tourtip__pointer--bottom {
+.tooltip__pointer--bottom {
     .pointer-bottom-center();
 }
 
-.tooltip__pointer--bottom-right,
-.infotip__pointer--bottom-right,
-.tourtip__pointer--bottom-right {
+.tooltip__pointer--bottom-right {
     .pointer-bottom-right();
 }
 
-.tooltip__pointer--left,
-.infotip__pointer--left,
-.tourtip__pointer--left {
+.tooltip__pointer--left {
     .pointer-left();
 }
 
-.tooltip__pointer--left-bottom,
-.infotip__pointer--left-bottom,
-.tourtip__pointer--left-bottom {
+.tooltip__pointer--left-bottom {
     .pointer-left-bottom();
 }
 
-.tooltip__pointer--left-top,
-.infotip__pointer--left-top,
-.tourtip__pointer--left-top {
+.tooltip__pointer--left-top {
     .pointer-left-top();
 }
 
-.tooltip__pointer--right,
-.infotip__pointer--right,
-.tourtip__pointer--right {
+.tooltip__pointer--right {
     .pointer-right();
 }
 
-.tooltip__pointer--right-bottom,
-.infotip__pointer--right-bottom,
-.tourtip__pointer--right-bottom {
+.tooltip__pointer--right-bottom {
     .pointer-right-bottom();
 }
 
-.tooltip__pointer--right-top,
-.infotip__pointer--right-top,
-.tourtip__pointer--right-top {
+.tooltip__pointer--right-top {
     .pointer-right-top();
 }
 
-.infotip__heading,
-.tourtip__heading {
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0 0 4px 0;
-}
-
-span.infotip__heading,
-span.tourtip__heading {
-    display: block;
-}
-
-.infotip__mask {
-    .customBackgroundColorProperty(infotip-background-color);
-    .customColorProperty(infotip-foreground-color);
-}
-
-.tooltip__mask,
-.tourtip__mask {
-    .customBackgroundColorProperty(tooltip-background-color);
-    .customColorProperty(tooltip-foreground-color);
-}
-
 .tooltip--expanded .tooltip__overlay,
-.tourtip--expanded .tourtip__overlay,
-.tooltip__host[aria-expanded="true"] ~ .tooltip__overlay,
-.infotip__host[aria-expanded="true"] ~ .infotip__overlay {
+.tooltip__host[aria-expanded="true"] ~ .tooltip__overlay {
     display: block;
-}
-
-// todo: refactor out this dependency. Use a mixin instead
-.infotip .icon-btn {
-    height: 20px;
-    overflow: visible;
-    width: 20px;
 }
 
 @media (min-width: 601px) {
-    .tooltip__overlay,
-    .infotip__overlay,
-    .tourtip__overlay {
+    .tooltip__overlay {
         .bubble-large-screen();
     }
 }
