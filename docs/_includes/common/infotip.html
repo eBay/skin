@@ -1,0 +1,165 @@
+<div id="infotip">
+    {% include common/section-header.html name="infotip" version=page.versions.infotip %}
+
+    <p>An infotip is a standalone button that activates only on click. The purpose of the infotip is to inform the user about a <em>non</em>-clickable element or page section.</p>
+    <p>Toggle the <span class="highlight">aria-expanded</span> state of the button to expand or collapse the infotip.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="infotip">
+                <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+                    <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
+                        <use xlink:href="#icon-information-small"></use>
+                    </svg>
+                </button>
+                <div class="infotip__overlay">
+                    <span class="infotip__pointer infotip__pointer--top-left"></span>
+                    <div class="infotip__mask">
+                        <div class="infotip__cell">
+                            <span class="infotip__content">
+                                <h3 class="infotip__heading">Infotip</h3>
+                                <p>Here's a tip to help you be successful at your task.</p>
+                            </span>
+                            <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                                <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="infotip">
+    <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+        <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
+            <use xlink:href="#icon-information-small"></use>
+        </svg>
+    </button>
+    <div class="infotip__overlay">
+        <span class="infotip__pointer infotip__pointer--top-left"></span>
+        <div class="infotip__mask">
+            <div class="infotip__cell">
+                <span class="infotip__content">
+                    <h3 class="infotip__heading">Infotip</h3>
+                    <p>Here's a tip to help you be successful at your task.</p>
+                </span>
+                <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use xlink:href="#icon-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <p>If nesting an infotip inside of a paragraph element, make sure that there are no block level elements, such as <span class="highlight">div</span>, <span class="highlight">h1-6</span>, or <span class="highlight">p</span> elements.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <p>
+                Inside paragraph
+                <span class="infotip">
+                    <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+                        <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
+                            <use xlink:href="#icon-information-small"></use>
+                        </svg>
+                    </button>
+                    <span class="infotip__overlay">
+                        <span class="infotip__pointer infotip__pointer--top-left"></span>
+                        <span class="infotip__mask">
+                            <span class="infotip__cell">
+                                <span class="infotip__content">
+                                    <span class="infotip__heading" role="heading" aria-level=5>Infotip</span>
+                                    <span>Here's a tip to help you be successful at your task.</span>
+                                </span>
+                                <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
+                                        <use xlink:href="#icon-close"></use>
+                                    </svg>
+                                </button>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </p>
+        </div>
+    </div>
+    {% highlight html %}
+<p>
+    Inside paragraph
+    <span class="infotip">
+        <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+            <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
+                <use xlink:href="#icon-information-small"></use>
+            </svg>
+        </button>
+        <span class="infotip__overlay">
+            <span class="infotip__pointer infotip__pointer--top-left"></span>
+            <span class="infotip__mask">
+                <span class="infotip__cell">
+                    <span class="infotip__content">
+                        <span class="infotip__heading" role="heading" aria-level=5>Infotip</span>
+                        <span>Here's a tip to help you be successful at your task.</span>
+                    </span>
+                    <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                        <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </button>
+                </span>
+            </span>
+        </span>
+    </span>
+</p>
+    {% endhighlight %}
+
+    <h3 id="infotip-modal">Modal Infotip</h3>
+    <p>On small screens, the infotip should launch a modal dialog.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="icon-btn dialog-button" type="button" data-makeup-dialog-button-for="dialog-mini-infotip-0" aria-expanded="false" aria-label="Help">
+                <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
+                    <use xlink:href="#icon-information-small"></use>
+                </svg>
+            </button>
+            <div aria-labelledby="dialog--title-default" aria-modal="true" hidden class="dialog dialog--mini" id="dialog-mini-infotip-0" role="dialog">
+                <div class="dialog__window dialog__window--mini">
+                    <div class="dialog__header">
+                        <button aria-label="Close dialog" class="dialog__close" type="button">
+                            <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
+                                <use xlink:href="#icon-close"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="dialog__main">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div aria-labelledby="dialog--title-default" aria-modal="true" hidden class="dialog dialog--mini" id="dialog-mini-default-0" role="dialog">
+    <div class="dialog__window dialog__window--mini">
+        <div class="dialog__header">
+            <button aria-label="Close dialog" class="dialog__close" type="button">
+                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="dialog__main">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+</div>
