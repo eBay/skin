@@ -9,6 +9,7 @@ require('./checkbox');
 require('./color');
 require('./combobox');
 require('./dialog');
+require('./dialog-mini');
 require('./field');
 require('./filter-button');
 require('./filter-menu-button');
