@@ -12,8 +12,7 @@
     .dialog-header-content();
 }
 
-.dialog__main,
-.dialog__body {
+.dialog__main {
     .dialog-body-content();
 
     min-height: 18px;
@@ -23,44 +22,21 @@
     .dialog-footer-content();
 }
 
-.dialog__close {
-    right: 0;
-}
-
-.dialog__back {
-    left: 0;
-}
-
-// TODO refactor in next major version
 .dialog__back,
 .dialog__close {
     .customColorProperty(dialog-back-close-foreground-color);
 
+    align-self: center;
     background-color: transparent;
     border: 0;
-    margin: 0;
-    padding: 16px;
-    position: absolute;
-    top: 0;
+    padding: 0;
+    position: relative;
     z-index: 1;
 
     &:hover,
     &:focus {
         color: @dialog-back-close-hover-foreground-color;
     }
-}
-
-.dialog__header .dialog__close {
-    // TODO remove the nested selector in next major version
-    align-self: center;
-    float: auto;
-    padding: 0;
-    position: relative;
-}
-
-.dialog__header .dialog__end-btn {
-    border: none;
-    padding: 0;
 }
 
 .dialog__title {
@@ -90,11 +66,12 @@
 
     overflow-y: auto;
     top: 0;
+}
 
-    .dialog__main,
-    .dialog__body {
-        min-height: auto;
-    }
+.dialog__window--full .dialog__main,
+.dialog__window--left .dialog__main,
+.dialog__window--right .dialog__main {
+    min-height: auto;
 }
 
 .dialog__window--fill {
@@ -138,6 +115,8 @@
         transition: opacity 0.16s ease-out;
     }
 
+    .dialog__window--slide-left,
+    .dialog__window--slide-right,
     .dialog__window--slide {
         transition: transform 0.32s ease-out;
     }
@@ -162,17 +141,17 @@
     }
 
     // code smell, chained modifier
-    .dialog__window--slide.dialog__window--left {
+    .dialog__window--slide-left {
         transform: translateX(-100%);
     }
 
     // code smell, chained modifier
-    .dialog__window--slide.dialog__window--right {
+    .dialog__window--slide-right {
         transform: translateX(100%);
     }
 
     // code smell, chained modifier
-    .dialog__window--slide.dialog__window--full {
+    .dialog__window--slide {
         transform: translateY(100%);
     }
 }
@@ -195,52 +174,10 @@
         opacity: 1;
     }
 
+    .dialog__window--slide-left,
+    .dialog__window--slide-right,
     .dialog__window--slide {
         transform: translateX(0);
-    }
-}
-
-// Mini dialog (A.K.A Dialog Infotip) variant
-// CODE SMELL: chained selector. refactor in v11
-.dialog__window.dialog__window--mini {
-    .dialog-window(400px);
-
-    flex-direction: row-reverse;
-    left: 0;
-    min-width: 200px;
-    padding-bottom: 15vh;
-    top: 50%;
-    transform: translateY(-25%);
-
-    &::before {
-        border-radius: 7px;
-    }
-
-    .dialog__header {
-        .dialog-header-content(0);
-
-        align-items: flex-start;
-        align-self: flex-start;
-    }
-
-    .dialog__close {
-        .customColorProperty(dialog-back-close-foreground-color);
-
-        background-color: transparent;
-        border: 0;
-        margin: 8px;
-        padding: 8px;
-        z-index: 1;
-
-        &:hover,
-        &:focus {
-            color: @dialog-back-close-hover-foreground-color;
-        }
-    }
-
-    .dialog__main {
-        margin: 0;
-        padding: 16px 0 16px 16px;
     }
 }
 
@@ -273,17 +210,11 @@
         .dialog-header-content-large();
     }
 
-    .dialog__main,
-    .dialog__body {
+    .dialog__main {
         .dialog-body-content-large();
     }
 
     .dialog__footer {
         .dialog-footer-content-large();
-    }
-
-    .dialog__back,
-    .dialog__close {
-        padding: @dialog-large-gutter-size;
     }
 }
