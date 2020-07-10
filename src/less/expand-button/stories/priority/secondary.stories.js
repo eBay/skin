@@ -1,7 +1,7 @@
-export default { title: 'Expand Button/Large/Expanded' };
+export default { title: 'Expand Button/Priority/Secondary' };
 
-export const base = () => `
-<button type="button" class="expand-btn expand-btn--large" aria-expanded="true">
+export const active = () => `
+<button type="button" class="expand-btn expand-btn--secondary">
     <span class="expand-btn__cell">
         <span>Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
@@ -11,8 +11,8 @@ export const base = () => `
 </button>
 `;
 
-export const inheritFontSize200Percent = () => `
-<button type="button" class="expand-btn expand-btn--large" style="font-size: 200%" aria-expanded="true">
+export const disabled = () => `
+<button type="button" class="expand-btn expand-btn--secondary" disabled>
     <span class="expand-btn__cell">
         <span>Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
@@ -21,7 +21,3 @@ export const inheritFontSize200Percent = () => `
     </span>
 </button>
 `;
-
-inheritFontSize200Percent.story = {
-    name: 'Inherit Font-Size (200%)'
-}

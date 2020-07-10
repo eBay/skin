@@ -15,6 +15,13 @@ a.fake-btn {
     padding: @button-padding;
 }
 
+button.btn[disabled],
+a.fake-btn:not([href]),
+button.btn[aria-disabled="true"],
+a.fake-btn[aria-disabled="true"] {
+    opacity: @button-disabled-opacity;
+}
+
 a.fake-btn:visited {
     color: inherit;
 }
@@ -52,6 +59,15 @@ a.fake-btn--primary {
     .customBackgroundColorProperty(button-primary-background-color);
     .customBorderColorProperty(button-primary-border-color);
     .customColorProperty(button-primary-foreground-color);
+
+    font-weight: @button-primary-font-weight;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @button-primary-hover-background-color;
+        border-color: @button-primary-hover-border-color;
+    }
 }
 
 a.fake-btn--primary:visited {
@@ -112,6 +128,15 @@ a.fake-btn--primary[aria-disabled="true"] {
     .customBackgroundColorProperty(button-primary-disabled-background-color);
     .customBorderColorProperty(button-primary-disabled-border-color);
     .customColorProperty(button-primary-disabled-foreground-color);
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: @button-primary-disabled-background-color;
+        border-color: @button-primary-disabled-border-color;
+        color: @button-primary-disabled-foreground-color;
+        opacity: @button-disabled-opacity;
+    }
 }
 
 button.btn--secondary,
@@ -119,6 +144,13 @@ a.fake-btn--secondary {
     .customBackgroundColorProperty(button-secondary-background-color);
     .customBorderColorProperty(button-secondary-border-color);
     .customColorProperty(button-secondary-foreground-color);
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: @button-secondary-hover-background-color;
+        border-color: @button-secondary-hover-border-color;
+    }
 }
 
 a.fake-btn--secondary:visited {
@@ -170,7 +202,9 @@ a.fake-btn--delete[aria-disabled="true"] {
 
 button.btn--large,
 a.fake-btn--large {
+    font-size: @button-large-font-size;
     min-height: 48px;
+    padding: @button-large-padding;
 }
 
 button.btn--transparent,
@@ -186,6 +220,7 @@ a.fake-btn--fixed-height {
 button.btn--large-fixed-height,
 a.fake-btn--large-fixed-height {
     height: 48px;
+    min-height: 48px;
     padding-top: calc(27px - 0.75em);
 }
 
@@ -198,5 +233,8 @@ button.btn--large-truncated,
 a.fake-btn--large-truncated {
     .btn-truncate();
 
+    font-size: @button-large-font-size;
     height: 48px;
+    min-height: 48px;
+    padding: @button-large-padding;
 }
