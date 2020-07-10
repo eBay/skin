@@ -214,6 +214,27 @@ export const iconRTL = () => `
 </div>
 `;
 
+export const centered = () => `
+<button type="button" class="expand-btn" style="width: 200px;">
+    <span class="expand-btn__cell expand-btn__cell--center">
+        <span>Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+`;
 
-
+export const centeredRtl = () => `
+<div dir="rtl">
+    <button type="button" class="expand-btn" style="width: 200px;">
+        <span class="expand-btn__cell expand-btn__cell--center">
+            <span>Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+</div>
+`;
 
