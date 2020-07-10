@@ -39,8 +39,7 @@
 .dialog__header > :last-child:not(:only-child) {
   margin-left: 16px;
 }
-.dialog__main,
-.dialog__body {
+.dialog__main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -49,12 +48,10 @@
   position: relative;
   min-height: 18px;
 }
-.dialog__main > :first-child,
-.dialog__body > :first-child {
+.dialog__main > :first-child {
   margin-top: 0;
 }
-.dialog__main > :last-child,
-.dialog__body > :last-child {
+.dialog__main > :last-child {
   margin-bottom: 0;
 }
 .dialog__footer {
@@ -71,22 +68,15 @@
 .dialog__footer > :not(:first-child) {
   margin-top: 16px;
 }
-.dialog__close {
-  right: 0;
-}
-.dialog__back {
-  left: 0;
-}
 .dialog__back,
 .dialog__close {
   color: #111820;
   color: var(--dialog-back-close-foreground-color, #111820);
+  align-self: center;
   background-color: transparent;
   border: 0;
-  margin: 0;
-  padding: 16px;
-  position: absolute;
-  top: 0;
+  padding: 0;
+  position: relative;
   z-index: 1;
 }
 .dialog__back:hover,
@@ -94,16 +84,6 @@
 .dialog__back:focus,
 .dialog__close:focus {
   color: #3665f3;
-}
-.dialog__header .dialog__close {
-  align-self: center;
-  float: auto;
-  padding: 0;
-  position: relative;
-}
-.dialog__header .dialog__end-btn {
-  border: none;
-  padding: 0;
 }
 .dialog__title:not(:first-child) {
   margin-left: 16px;
@@ -156,10 +136,7 @@
 }
 .dialog__window--full .dialog__main,
 .dialog__window--left .dialog__main,
-.dialog__window--right .dialog__main,
-.dialog__window--full .dialog__body,
-.dialog__window--left .dialog__body,
-.dialog__window--right .dialog__body {
+.dialog__window--right .dialog__main {
   min-height: auto;
 }
 .dialog__window--fill {
@@ -199,6 +176,10 @@
   -webkit-transition: opacity 0.16s ease-out;
   transition: opacity 0.16s ease-out;
 }
+.dialog--show .dialog__window--slide-left,
+.dialog--hide .dialog__window--slide-left,
+.dialog--show .dialog__window--slide-right,
+.dialog--hide .dialog__window--slide-right,
 .dialog--show .dialog__window--slide,
 .dialog--hide .dialog__window--slide {
   -webkit-transition: -webkit-transform 0.32s ease-out;
@@ -222,18 +203,18 @@
 .dialog--show-init .dialog__window--fade {
   opacity: 0;
 }
-.dialog--hide .dialog__window--slide.dialog__window--left,
-.dialog--show-init .dialog__window--slide.dialog__window--left {
+.dialog--hide .dialog__window--slide-left,
+.dialog--show-init .dialog__window--slide-left {
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
 }
-.dialog--hide .dialog__window--slide.dialog__window--right,
-.dialog--show-init .dialog__window--slide.dialog__window--right {
+.dialog--hide .dialog__window--slide-right,
+.dialog--show-init .dialog__window--slide-right {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
-.dialog--hide .dialog__window--slide.dialog__window--full,
-.dialog--show-init .dialog__window--slide.dialog__window--full {
+.dialog--hide .dialog__window--slide,
+.dialog--show-init .dialog__window--slide {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
@@ -253,77 +234,14 @@
 .dialog--hide-init .dialog__window--fade {
   opacity: 1;
 }
+.dialog--show .dialog__window--slide-left,
+.dialog--hide-init .dialog__window--slide-left,
+.dialog--show .dialog__window--slide-right,
+.dialog--hide-init .dialog__window--slide-right,
 .dialog--show .dialog__window--slide,
 .dialog--hide-init .dialog__window--slide {
   -webkit-transform: translateX(0);
           transform: translateX(0);
-}
-.dialog__window.dialog__window--mini {
-  display: -webkit-box;
-  display: flex;
-  margin: auto;
-  max-width: 400px;
-  min-height: 55px;
-  position: absolute;
-  right: 0;
-  will-change: opacity, transform;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-          flex-direction: row-reverse;
-  left: 0;
-  min-width: 200px;
-  padding-bottom: 15vh;
-  top: 50%;
-  -webkit-transform: translateY(-25%);
-          transform: translateY(-25%);
-}
-.dialog__window.dialog__window--mini::before {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 15vh;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.dialog__window.dialog__window--mini::before {
-  border-radius: 7px;
-}
-.dialog__window.dialog__window--mini .dialog__header {
-  display: -webkit-box;
-  display: flex;
-  flex-shrink: 0;
-  margin: 0;
-  position: relative;
-  -webkit-box-align: start;
-          align-items: flex-start;
-  align-self: flex-start;
-}
-.dialog__window.dialog__window--mini .dialog__header h2 {
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
-  margin: 0;
-}
-.dialog__window.dialog__window--mini .dialog__header > :last-child:not(:only-child) {
-  margin-left: 16px;
-}
-.dialog__window.dialog__window--mini .dialog__close {
-  color: #111820;
-  color: var(--dialog-back-close-foreground-color, #111820);
-  background-color: transparent;
-  border: 0;
-  margin: 8px;
-  padding: 8px;
-  z-index: 1;
-}
-.dialog__window.dialog__window--mini .dialog__close:hover,
-.dialog__window.dialog__window--mini .dialog__close:focus {
-  color: #3665f3;
-}
-.dialog__window.dialog__window--mini .dialog__main {
-  margin: 0;
-  padding: 16px 0 16px 16px;
 }
 @media (max-width: 600px) {
   .dialog__window:not(.dialog__window--full) {
@@ -356,8 +274,7 @@
     margin-left: 24px;
     margin-top: initial;
   }
-  .dialog__main,
-  .dialog__body {
+  .dialog__main {
     margin: 24px;
   }
   .dialog__footer {
@@ -371,9 +288,5 @@
   .dialog__footer > :not(:first-child) {
     margin-left: 24px;
     margin-top: initial;
-  }
-  .dialog__back,
-  .dialog__close {
-    padding: 24px;
   }
 }

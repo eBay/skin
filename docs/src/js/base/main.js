@@ -67,6 +67,11 @@ document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl));
 });
 
+// DIALOG-MINI
+document.querySelectorAll('.dialog-mini-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'dialog-mini' }));
+});
+
 // DRAWER (modal dialog)
 document.querySelectorAll('.drawer-button').forEach(function(widgetEl) {
     const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer' });
