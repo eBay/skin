@@ -16,7 +16,7 @@ const Switch = require('makeup-switch-class');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-document.querySelectorAll('.expand-btn-example').forEach(function(el) {
+document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
     el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);

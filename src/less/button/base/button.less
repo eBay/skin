@@ -139,6 +139,11 @@ a.fake-btn--primary[aria-disabled="true"] {
     }
 }
 
+/* stylelint-disable no-descending-specificity */
+a.fake-btn--secondary:visited {
+    .customColorProperty(button-secondary-foreground-color);
+}
+
 button.btn--secondary,
 a.fake-btn--secondary {
     .customBackgroundColorProperty(button-secondary-background-color);
@@ -150,12 +155,10 @@ a.fake-btn--secondary {
     &:active {
         background-color: @button-secondary-hover-background-color;
         border-color: @button-secondary-hover-border-color;
+        color: @button-secondary-hover-foreground-color;
     }
 }
-
-a.fake-btn--secondary:visited {
-    .customColorProperty(button-secondary-foreground-color);
-}
+/* stylelint-enable no-descending-specificity */
 
 button.btn--delete,
 a.fake-btn--delete {
