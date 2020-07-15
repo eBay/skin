@@ -1,7 +1,7 @@
-export default { title: 'Expand Button/Default/Collapsed' };
+export default { title: 'Expand Button/Layout/Base' };
 
-export const base = () => `
-<button type="button" class="expand-btn">
+export const expanded = () => `
+<button type="button" class="expand-btn" aria-expanded="true">
      <span class="expand-btn__cell">
          <span>Button</span>
          <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
@@ -9,61 +9,6 @@ export const base = () => `
          </svg>
      </span>
  </button>
-`;
-
-export const disabled = () => `
-<button type="button" class="expand-btn" disabled>
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const secondary = () => `
-<button type="button" class="expand-btn expand-btn--secondary">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const secondaryDisabled = () => `
-<button type="button" class="expand-btn expand-btn--secondary" disabled>
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const primary = () => `
-<button type="button" class="expand-btn expand-btn--primary">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const primaryDisabled = () => `
-<button type="button" class="expand-btn expand-btn--primary" disabled>
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
 `;
 
 export const rtl = () => `
@@ -139,36 +84,6 @@ longTextFixedWidthFixedHeightTruncated.story = {
     name: 'Long Text, Fixed Width, Fixed height, Truncated'
 }
 
-export const inheritColourGreen = () => `
-<button type="button" class="expand-btn" style="color: green">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-inheritColourGreen.story = {
-    name: 'Inherit Colour (Green)'
-}
-
-export const inheritFontSize200Percent = () => `
-<button type="button" class="expand-btn" style="font-size: 200%">
-    <span class="expand-btn__cell">
-        <span>Button</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-inheritFontSize200Percent.story = {
-    name: 'Inherit Font-Size (200%)'
-}
-
 export const longTextFixedWidthFixedHeightTruncatedInheritFontSize200Percent = () => `
 <button style="font-size: 200%; width: 200px;" type="button" class="expand-btn expand-btn--fixed-height expand-btn--truncated">
     <span class="expand-btn__cell expand-btn__cell--fixed-height expand-btn__cell--truncated">
@@ -184,7 +99,7 @@ longTextFixedWidthFixedHeightTruncatedInheritFontSize200Percent.story = {
     name: 'Long text, Fixed width, Fixed height, Truncated, Inherit Font-Size (200%)'
 }
 
-export const icon = () => `
+export const iconAndText = () => `
 <button type="button" class="expand-btn">
     <span class="expand-btn__cell">
         <svg aria-hidden="true" class="icon icon--settings" focusable="false" height="16" width="16">
@@ -198,7 +113,7 @@ export const icon = () => `
 </button>
 `;
 
-export const iconRTL = () => `
+export const iconAndTextRTL = () => `
 <div dir="rtl">
     <button type="button" class="expand-btn">
         <span class="expand-btn__cell">
@@ -237,4 +152,3 @@ export const centeredRtl = () => `
     </button>
 </div>
 `;
-
