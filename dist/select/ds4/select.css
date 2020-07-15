@@ -1,5 +1,13 @@
 .select {
+  --select-background-color: #fff;
+  --select-border-color: #ccc;
+  --select-border-radius: 3px;
+  --select-foreground-color: #555;
+  --select-focus-border-color: #0654ba;
+}
+.select {
   color: #555;
+  color: var(--select-foreground-color, #555);
   font-size: 0.875rem;
   position: relative;
 }
@@ -7,12 +15,17 @@ span.select {
   display: inline-block;
 }
 .select select {
+  background-color: #fff;
+  background-color: var(--select-background-color, #fff);
+  border-color: #ccc;
+  border-color: var(--select-border-color, #ccc);
+  border-radius: 3px;
+  border-radius: var(--select-border-radius, 3px);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
   color: inherit;
   font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
   font-size: 1em;
@@ -26,11 +39,25 @@ span.select {
   right: 16px;
   top: 0;
 }
+.select--large select {
+  font-size: 1rem;
+  height: 48px;
+}
 .select--fluid {
   width: 100%;
 }
 .select--fluid select {
   width: 100%;
+}
+.select--underline select {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  height: 1.875rem;
+  padding-left: 0;
+}
+.select--underline svg.icon {
+  right: 0;
 }
 .select--borderless select {
   background-color: transparent;
@@ -38,11 +65,17 @@ span.select {
   padding-left: 0;
   width: auto;
 }
+.select--borderless select[disabled] {
+  background-color: #eee;
+  color: #ccc;
+}
 .select--borderless select:focus {
+  border-color: inherit;
   text-decoration: underline;
 }
 .select select:focus {
   border-color: #0654ba;
+  border-color: var(--select-focus-border-color, #0654ba);
   outline: 0;
 }
 .select select::-ms-expand {
@@ -53,35 +86,29 @@ span.select {
   border: 0;
   color: #ccc;
 }
+.select select[readonly] {
+  background-color: #eee;
+  border-color: #ccc;
+  color: #767676;
+}
 .select select[aria-invalid="true"] {
-  border: 1px solid #dd1e31;
+  border-color: #dd1e31;
+  border-color: var(--select-invalid-border-color, #dd1e31);
+  border-style: solid;
+  border-width: 1px;
 }
 [dir="rtl"] .select > select {
-  padding-left: 40px;
+  padding-left: 30px;
   padding-right: 16px;
 }
 [dir="rtl"] .select svg {
   left: 16px;
   right: auto;
 }
+[dir="rtl"] .select--underline svg.icon {
+  left: 0;
+  right: auto;
+}
 .select select[disabled] + svg {
   opacity: 0.5;
-}
-.select select[readonly] {
-  background-color: #eee;
-  border-color: #ccc;
-  color: #767676;
-}
-.select--large select {
-  font-size: 1rem;
-  height: 48px;
-}
-.select--borderless select {
-  background-color: transparent;
-  border: 0;
-  padding-left: 0;
-  width: auto;
-}
-.select--borderless select:focus {
-  text-decoration: underline;
 }

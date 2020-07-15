@@ -1,7 +1,9 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 nav.pagination {
     .flex-items-centered(inline-flex);
+    .customColorProperty(pagination-item-foreground-color);
 
-    color: @pagination-item-color;
     font-family: inherit;
     font-size: 1rem;
     margin: 8px 0;
@@ -41,12 +43,12 @@ ol.pagination__items {
     &:focus,
     &:hover {
         svg {
-            fill: @pagination-icon-focus-color;
+            .customFillProperty(pagination-paddle-hover-foreground-color);
         }
     }
 
     &[aria-disabled="true"] svg {
-        fill: @pagination-icon-disabled-color;
+        fill: @pagination-paddle-disabled-foreground-color;
     }
 }
 
@@ -67,19 +69,23 @@ button.pagination__previous {
     width: 48px;
 
     &:active {
-        color: @pagination-item-active-color;
+        .customColorProperty(pagination-item-active-foreground-color);
     }
 
     &:focus,
     &:hover {
-        color: @pagination-item-focus-color;
+        .customColorProperty(pagination-item-hover-foreground-color);
+
         text-decoration: underline;
     }
 
     &[aria-current="page"] {
-        background-color: @pagination-item-current-background-color; // DS4-only
-        border: @pagination-item-current-border;
-        color: @pagination-item-current-color;
+        .customBackgroundColorProperty(pagination-item-current-background-color);
+        .customBorderColorProperty(pagination-item-current-border-color);
+        .customColorProperty(pagination-item-current-foreground-color);
+
+        border-style: solid;
+        border-width: 2px;
         font-weight: @pagination-item-current-font-weight;
     }
 }
@@ -92,11 +98,6 @@ button.pagination__item {
 
 a.pagination__item {
     text-decoration: none;
-
-    &:visited,
-    &:link:not([aria-current]) {
-        color: inherit;
-    }
 }
 
 nav.pagination--fluid {

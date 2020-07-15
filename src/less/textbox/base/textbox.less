@@ -1,10 +1,11 @@
-// Textbox text should NOT scale with root font-size. All font-size defined with px.
+@import "../../mixins/utility/utility-mixins.less";
 
-/* stylelint-disable  no-descending-specificity */
+/* stylelint-disable no-descending-specificity */
 
 .textbox {
-    color: @textbox-control-color;
-    font-size: @textbox-control-font-size;
+    .customColorProperty(textbox-foreground-color);
+
+    font-size: @textbox-font-size;
     position: relative;
 
     button.icon-btn {
@@ -38,52 +39,136 @@ input.textbox__control {
 
 input.textbox__control,
 textarea.textbox__control {
-    .placeholder;
+    .customBackgroundColorProperty(textbox-background-color);
+    .customBorderColorProperty(textbox-border-color);
+    .customColorProperty(textbox-foreground-color);
 
     appearance: none;
-    background: @textbox-control-background;
-    border: 1px solid @textbox-control-border-color;
-    border-radius: @textbox-control-border-radius;
+    border-radius: @textbox-border-radius;
+    border-style: solid;
+    border-width: 1px;
     box-sizing: border-box;
-    color: inherit;
-    font-family: @textbox-control-font-family;
+    font-family: @textbox-font-family;
     font-size: 1em;
-    height: @textbox-control-height;
+    height: @textbox-height;
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .placeholder-disabled;
+        .customBackgroundColorProperty(textbox-disabled-background-color);
+        .customColorProperty(textbox-disabled-foreground-color);
 
-        color: @textbox-control-disabled-color;
+        border-color: @textbox-disabled-border-color;
+        border-width: @textbox-disabled-border-width;
+
+        &::-webkit-input-placeholder {
+            color: @textbox-disabled-placeholder-color;
+        }
+
+        &::-moz-placeholder {
+            color: @textbox-disabled-placeholder-color;
+        }
+
+        &:-ms-input-placeholder {
+            color: @textbox-disabled-placeholder-color;
+        }
     }
 
     &[readonly] {
-        border-color: @textbox-control-readonly-color;
+        background-color: @textbox-readonly-background-color;
+        border-color: @textbox-readonly-border-color;
+        color: @textbox-readonly-foreground-color;
     }
 
     &[aria-invalid="true"] {
-        border-color: @textbox-control-invalid-color;
+        border-color: @textbox-invalid-foreground-color;
     }
 
     &:focus {
-        border-color: @textbox-control-focus-border-color;
+        .customBorderColorProperty(textbox-focus-border-color);
+
         outline: 0;
+    }
+
+    &::-webkit-input-placeholder {
+        color: @textbox-placeholder-color;
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        color: @textbox-placeholder-color;
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        color: @textbox-placeholder-color;
+        font-weight: 200;
+    }
+
+    &::placeholder {
+        color: @textbox-placeholder-color;
+        font-weight: 200;
     }
 }
 
 input.textbox__control--underline {
-    .placeholder-floated;
-    .placeholder-floated--focus;
-
-    &[disabled] {
-        .placeholder-floated;
-    }
-
     border: none;
-    border-bottom: 1px solid @textbox-control-underline-border-bottom-color;
+    border-bottom: 1px solid @textbox-underline-border-bottom-color;
+    border-radius: 0;
     font-weight: bold;
     height: 1.875rem; // a11y: has to be relative to the text size
     padding: 0 0 1px 0;
+
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &[disabled] {
+        &::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        &::-moz-placeholder {
+            color: transparent;
+        }
+
+        &:-ms-input-placeholder {
+            color: transparent;
+        }
+
+        &::placeholder {
+            color: transparent;
+        }
+    }
+
+    &:focus {
+        &::-webkit-input-placeholder {
+            color: @textbox-focus-placeholder-color;
+        }
+
+        &::-moz-placeholder {
+            color: @textbox-focus-placeholder-color;
+        }
+
+        &:-ms-input-placeholder {
+            color: @textbox-focus-placeholder-color;
+        }
+
+        &::placeholder {
+            color: @textbox-focus-placeholder-color;
+        }
+    }
 }
 
 .textbox svg {
@@ -96,8 +181,6 @@ input.textbox__control--underline {
     top: 0;
     width: @textbox-icon-width;
 }
-
-// BLOCK MODIFIERS
 
 .textbox svg:first-child {
     left: 16px;
@@ -119,13 +202,17 @@ input.textbox__control--underline {
     }
 }
 
-// ELEMENT MODIFIERS
+.textbox--large {
+    input.textbox__control,
+    textarea.textbox__control {
+        font-size: @textbox-large-font-size; // for Market Sans to align with buttons and select, it needs same font-size
+        height: 48px;
+    }
+}
 
 .textbox__control--fluid {
     width: 100%;
 }
-
-// RTL
 
 [dir="rtl"] {
     .textbox svg:first-child {
@@ -141,6 +228,11 @@ input.textbox__control--underline {
         input.textbox__control,
         textarea.textbox__control {
             padding-left: 40px;
+        }
+
+        button.icon-btn {
+            left: 0;
+            right: auto;
         }
 
         > svg:last-child {

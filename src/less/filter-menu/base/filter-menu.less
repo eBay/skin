@@ -27,13 +27,18 @@ span.filter-menu-form__items {
 
 // __status deprecated in v10.0.0 favour of __checkbox
 span.filter-menu__status,
-span.filter-menu__checkbox {
+span.filter-menu__checkbox,
+span.filter-menu__radio {
     display: block;
     flex-shrink: 1;
     height: 18px;
     min-width: 18px;
     width: 18px;
+}
 
+// __status deprecated in v10.0.0 favour of __checkbox
+span.filter-menu__status,
+span.filter-menu__checkbox {
     svg.icon--checkbox-unchecked {
         .customColorProperty(filter-menu-checkbox-unchecked-color);
 
@@ -44,6 +49,24 @@ span.filter-menu__checkbox {
 
     svg.icon--checkbox-checked {
         .customColorProperty(filter-menu-checkbox-checked-color);
+
+        display: none;
+        height: 18px;
+        width: 18px;
+    }
+}
+
+span.filter-menu__radio {
+    svg.icon--radio-unchecked {
+        .customColorProperty(filter-menu-radio-unchecked-color);
+
+        display: block;
+        height: 18px;
+        width: 18px;
+    }
+
+    svg.icon--radio-checked {
+        .customColorProperty(filter-menu-radio-checked-color);
 
         display: none;
         height: 18px;
@@ -66,12 +89,29 @@ span.filter-menu__checkbox {
     }
 }
 
+.filter-menu-form__item span.radio {
+    align-items: flex-start;
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+
+    svg.radio__unchecked {
+        .customColorProperty(filter-menu-radio-unchecked-color);
+    }
+
+    svg.radio__checked {
+        .customColorProperty(filter-menu-radio-checked-color);
+    }
+}
+
 span.filter-menu__item[role="menuitemcheckbox"],
+span.filter-menu__item[role="menuitemradio"],
 span.filter-menu-form__item {
     display: block;
 }
 
 .filter-menu__item[role="menuitemcheckbox"],
+.filter-menu__item[role="menuitemradio"],
 .filter-menu-form__item {
     .filter-menu-item-base();
 
@@ -83,7 +123,7 @@ span.filter-menu-form__item {
 
     &:focus,
     &:hover {
-        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
+        .customBackgroundColorProperty(filter-menu-item-hover-background-color);
     }
 
     &:last-child {
@@ -108,7 +148,7 @@ button.filter-menu-form__footer[type="submit"] {
 
     &:focus,
     &:hover {
-        .customBackgroundColorProperty(filter-menu-item-focus-background-color);
+        .customBackgroundColorProperty(filter-menu-item-hover-background-color);
     }
 }
 
@@ -118,10 +158,12 @@ button.filter-menu-form__footer[type="submit"] {
     margin-left: 8px;
 }
 
-.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-unchecked {
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-unchecked,
+.filter-menu__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-unchecked {
     display: none;
 }
 
-.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked {
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked,
+.filter-menu__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-checked {
     display: block;
 }

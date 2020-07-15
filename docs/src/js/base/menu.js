@@ -37,7 +37,7 @@ function processMenuItemAction(widgetEl, menuItemEl) {
             doMenuItemRadio(
                 widgetEl,
                 menuItemRootEl,
-                widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemEl.dataset.menuitemradioName}]`)
+                widgetEl.querySelectorAll(`[data-menuitemradio-name=${menuItemRootEl.dataset.menuitemradioName}]`)
             );
             break;
         default:

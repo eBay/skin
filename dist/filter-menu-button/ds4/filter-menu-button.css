@@ -14,13 +14,14 @@ span.filter-menu-button + span.filter-menu-button {
   margin-left: 8px;
 }
 button.filter-menu-button__button {
+  color: #333;
+  color: var(--filter-button-foreground-color, #333);
   -webkit-box-align: center;
           align-items: center;
   border: none;
   border-radius: 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: inherit;
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-flex: 0;
@@ -158,7 +159,8 @@ span.filter-menu-button__items {
   display: inline-block;
 }
 span.filter-menu-button__status,
-span.filter-menu-button__checkbox {
+span.filter-menu-button__checkbox,
+span.filter-menu-button__radio {
   display: block;
   flex-shrink: 1;
   height: 18px;
@@ -181,9 +183,25 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
   height: 18px;
   width: 18px;
 }
+span.filter-menu-button__radio svg.icon--radio-unchecked {
+  color: #767676;
+  color: var(--filter-menu-radio-unchecked-color, #767676);
+  display: block;
+  height: 18px;
+  width: 18px;
+}
+span.filter-menu-button__radio svg.icon--radio-checked {
+  color: #0654ba;
+  color: var(--filter-menu-radio-checked-color, #0654ba);
+  display: none;
+  height: 18px;
+  width: 18px;
+}
 .filter-menu-button__item {
   background-color: #fff;
   background-color: var(--filter-menu-item-background-color, #fff);
+  color: #333;
+  color: var(--filter-menu-item-foreground-color, #333);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -203,7 +221,9 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item:focus,
 .filter-menu-button__item:hover {
   background-color: #eee;
-  background-color: var(--filter-menu-item-focus-background-color, #eee);
+  background-color: var(--filter-menu-item-hover-background-color, #eee);
+  color: #333;
+  color: var(--filter-menu-item-hover-foreground-color, #333);
 }
 .filter-menu-button__item:focus {
   outline: none;
@@ -211,12 +231,13 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
 .filter-menu-button__item:focus,
 .filter-menu-button__item:hover {
   background-color: #eee;
-  background-color: var(--filter-menu-item-focus-background-color, #eee);
+  background-color: var(--filter-menu-item-hover-background-color, #eee);
 }
 .filter-menu-button__item:last-child {
   margin-bottom: 8px;
 }
-.filter-menu-button__item span.checkbox {
+.filter-menu-button__item span.checkbox,
+.filter-menu-button__item span.radio {
   -webkit-box-align: start;
           align-items: flex-start;
   display: -webkit-box;
@@ -233,12 +254,22 @@ span.filter-menu-button__checkbox svg.icon--checkbox-checked {
   color: #0654ba;
   color: var(--filter-menu-checkbox-checked-color, #0654ba);
 }
+.filter-menu-button__item svg.radio__unchecked {
+  color: #767676;
+  color: var(--filter-menu-radio-unchecked-color, #767676);
+}
+.filter-menu-button__item svg.radio__checked {
+  color: #0654ba;
+  color: var(--filter-menu-radio-checked-color, #0654ba);
+}
 span.filter-menu-button__item {
   display: block;
 }
 button.filter-menu-button__footer {
   background-color: #fff;
   background-color: var(--filter-menu-item-background-color, #fff);
+  color: #333;
+  color: var(--filter-menu-item-foreground-color, #333);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-inline-box;
@@ -264,7 +295,9 @@ button.filter-menu-button__footer:focus {
 button.filter-menu-button__footer:focus,
 button.filter-menu-button__footer:hover {
   background-color: #eee;
-  background-color: var(--filter-menu-item-focus-background-color, #eee);
+  background-color: var(--filter-menu-item-hover-background-color, #eee);
+  color: #333;
+  color: var(--filter-menu-item-hover-foreground-color, #333);
 }
 button.filter-menu-button__footer:focus {
   outline: none;
@@ -272,7 +305,7 @@ button.filter-menu-button__footer:focus {
 button.filter-menu-button__footer:focus,
 button.filter-menu-button__footer:hover {
   background-color: #eee;
-  background-color: var(--filter-menu-item-focus-background-color, #eee);
+  background-color: var(--filter-menu-item-hover-background-color, #eee);
 }
 .filter-menu-button__text {
   -webkit-box-flex: 1;
@@ -283,5 +316,11 @@ button.filter-menu-button__footer:hover {
   display: none;
 }
 .filter-menu-button__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked {
+  display: block;
+}
+.filter-menu-button__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-unchecked {
+  display: none;
+}
+.filter-menu-button__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-checked {
   display: block;
 }

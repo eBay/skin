@@ -1,3 +1,7 @@
+.drawer {
+  --dialog-window-background-color: #f0eeec;
+  --dialog-back-close-foreground-color: #333;
+}
 .drawer[role="dialog"] {
   background-color: rgba(51, 51, 51, 0.7);
   bottom: 0;
@@ -71,15 +75,17 @@
   -webkit-box-pack: center;
           justify-content: center;
   margin: 0 16px 16px;
+  position: relative;
 }
 .drawer__footer > :not(:first-child) {
   margin-top: 16px;
 }
 .drawer__back,
 .drawer__close {
-  background-color: #fff;
-  border: 0;
   color: #333;
+  color: var(--dialog-back-close-foreground-color, #333);
+  background-color: transparent;
+  border: 0;
   z-index: 1;
 }
 .drawer__back:hover,
@@ -98,6 +104,7 @@
   right: 0;
   will-change: opacity, transform;
   background-color: #f0eeec;
+  background-color: var(--dialog-window-background-color, #f0eeec);
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0;
   border-radius: 16px 16px 0 0;
@@ -111,6 +118,7 @@
 }
 .drawer__window::before {
   background-color: #f0eeec;
+  background-color: var(--dialog-window-background-color, #f0eeec);
   bottom: 15vh;
   content: "";
   left: 0;
@@ -189,6 +197,10 @@
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
+.drawer__handle {
+  top: 8px;
+  z-index: 2;
+}
 .drawer__header {
   background-color: white;
   margin: 0;
@@ -206,4 +218,9 @@
   text-overflow: ellipsis;
   top: 0;
   white-space: nowrap;
+}
+.drawer__header > .drawer__close {
+  position: absolute;
+  right: 3px;
+  top: 16px;
 }
