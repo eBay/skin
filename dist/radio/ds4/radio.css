@@ -5,27 +5,26 @@
 .radio {
   display: -webkit-inline-box;
   display: inline-flex;
-  font-size: 1rem;
   vertical-align: text-bottom;
+}
+.radio__control[type="radio"] {
+  height: 18px;
+  min-width: 18px;
+  width: 18px;
+}
+.radio--large .radio__control[type="radio"] {
+  height: 24px;
+  min-width: 24px;
+  width: 24px;
 }
 span.radio__icon {
   display: -webkit-inline-box;
   display: inline-flex;
-  font-size: 1em;
   outline-offset: 1px;
 }
 span.radio__icon[hidden] {
   display: -webkit-inline-box;
   display: inline-flex;
-}
-svg.radio__checked,
-svg.radio__unchecked {
-  display: inline-block;
-  fill: currentColor;
-  pointer-events: none;
-  stroke: currentColor;
-  stroke-width: 0;
-  vertical-align: middle;
 }
 svg.radio__checked {
   color: #0654ba;
@@ -42,6 +41,20 @@ input.radio__control[type="radio"] {
   padding: 0;
   position: absolute;
   z-index: 1;
+}
+.radio svg {
+  display: inline-block;
+  fill: currentColor;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-width: 0;
+  vertical-align: middle;
+  height: 18px;
+  width: 18px;
+}
+.radio--large svg {
+  height: 24px;
+  width: 24px;
 }
 input.radio__control[type="radio"] + span.radio__icon svg.radio__checked {
   display: none;
@@ -60,9 +73,4 @@ input.radio__control[type="radio"]:focus + span.radio__icon {
 }
 input.radio__control[type="radio"][disabled] + span.radio__icon {
   opacity: 0.5;
-}
-.radio__icon svg,
-.radio__control[type="radio"] {
-  height: 18px;
-  width: 18px;
 }
