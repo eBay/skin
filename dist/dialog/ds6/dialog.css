@@ -21,8 +21,59 @@
   will-change: background-color;
   z-index: 100000;
 }
-.dialog--no-mask[role="dialog"] {
-  background-color: transparent;
+.dialog__window {
+  display: -webkit-box;
+  display: flex;
+  margin: auto;
+  max-width: 616px;
+  min-height: 55px;
+  position: absolute;
+  right: 0;
+  will-change: opacity, transform;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  left: 0;
+  padding-bottom: 15vh;
+  top: 15%;
+  width: calc(100% - 32px);
+}
+.dialog__window::before {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.dialog__window--left,
+.dialog__window--right {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  width: calc(88% - 32px);
+  min-width: calc(88% - 32px);
+  max-width: calc(100% - 32px);
+  overflow-y: auto;
+  top: 0;
+}
+.dialog__window--left::before,
+.dialog__window--right::before {
+  display: none;
+}
+.dialog__window--left {
+  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  right: auto;
+}
+.dialog__window--right {
+  border-left: 1px solid rgba(153, 153, 153, 0.18);
+  left: auto;
+}
+.dialog__window--fill {
+  min-height: 70vh;
 }
 .dialog__header {
   display: -webkit-box;
@@ -91,75 +142,9 @@
 .dialog__title--center {
   text-align: center;
 }
-.dialog__window {
-  display: -webkit-box;
-  display: flex;
-  margin: auto;
-  max-width: 616px;
-  min-height: 55px;
-  position: absolute;
-  right: 0;
-  will-change: opacity, transform;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  left: 0;
-  padding-bottom: 15vh;
-  top: 15%;
-  width: calc(100% - 32px);
-}
-.dialog__window::before {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 15vh;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.dialog__window--full,
-.dialog__window--left,
-.dialog__window--right {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 0;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 0;
-  overflow-y: auto;
-  top: 0;
-}
-.dialog__window--full::before,
-.dialog__window--left::before,
-.dialog__window--right::before {
-  display: none;
-}
-.dialog__window--full .dialog__main,
 .dialog__window--left .dialog__main,
 .dialog__window--right .dialog__main {
   min-height: auto;
-}
-.dialog__window--fill {
-  min-height: 70vh;
-}
-.dialog__window--full {
-  bottom: 0;
-  max-width: 100%;
-  width: 100%;
-}
-.dialog__window--left,
-.dialog__window--right {
-  width: calc(88% - 32px);
-  min-width: calc(88% - 32px);
-  max-width: calc(100% - 32px);
-}
-.dialog__window--left {
-  border-right: 1px solid rgba(153, 153, 153, 0.18);
-  right: auto;
-}
-.dialog__window--right {
-  border-left: 1px solid rgba(153, 153, 153, 0.18);
-  left: auto;
 }
 .dialog--show.dialog--mask-fade,
 .dialog--hide.dialog--mask-fade {
@@ -179,9 +164,7 @@
 .dialog--show .dialog__window--slide-left,
 .dialog--hide .dialog__window--slide-left,
 .dialog--show .dialog__window--slide-right,
-.dialog--hide .dialog__window--slide-right,
-.dialog--show .dialog__window--slide,
-.dialog--hide .dialog__window--slide {
+.dialog--hide .dialog__window--slide-right {
   -webkit-transition: -webkit-transform 0.32s ease-out;
   transition: -webkit-transform 0.32s ease-out;
   transition: transform 0.32s ease-out;
@@ -213,11 +196,6 @@
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
-.dialog--hide .dialog__window--slide,
-.dialog--show-init .dialog__window--slide {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
 .dialog--show.dialog--show,
 .dialog--show.dialog--hide-init,
 .dialog--hide-init.dialog--show,
@@ -237,14 +215,12 @@
 .dialog--show .dialog__window--slide-left,
 .dialog--hide-init .dialog__window--slide-left,
 .dialog--show .dialog__window--slide-right,
-.dialog--hide-init .dialog__window--slide-right,
-.dialog--show .dialog__window--slide,
-.dialog--hide-init .dialog__window--slide {
+.dialog--hide-init .dialog__window--slide-right {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 @media (max-width: 600px) {
-  .dialog__window:not(.dialog__window--full) {
+  .dialog__window {
     width: calc(100% - 32px);
     min-width: calc(100% - 32px);
     max-width: calc(100% - 32px);
@@ -254,14 +230,14 @@
   }
 }
 @media (min-width: 601px) and (max-width: 768px) {
-  .dialog__window:not(.dialog__window--full) {
+  .dialog__window {
     width: calc(88% - 32px);
     min-width: calc(88% - 32px);
     max-width: calc(88% - 32px);
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
-  .dialog__window:not(.dialog__window--full) {
+  .dialog__window {
     width: calc(75% - 32px);
     max-width: 616px;
   }

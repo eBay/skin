@@ -72,6 +72,11 @@ document.querySelectorAll('.dialog-mini-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'dialog-mini' }));
 });
 
+// DIALOG-MINI
+document.querySelectorAll('.dialog-fullscreen-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'fullscreen-dialog' }));
+});
+
 // DRAWER (modal dialog)
 document.querySelectorAll('.drawer-button').forEach(function(widgetEl) {
     const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer' });

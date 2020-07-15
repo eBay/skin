@@ -4,8 +4,37 @@
     .dialog-base();
 }
 
-.dialog--no-mask[role="dialog"] {
-    background-color: transparent;
+.dialog__window {
+    .dialog-window();
+
+    flex-direction: column;
+    left: 0;
+    padding-bottom: 15vh;
+    top: 15%;
+    width: calc(100% - 32px);
+}
+
+.dialog__window--left,
+.dialog__window--right {
+    .dialog-window-filler();
+    .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
+
+    overflow-y: auto;
+    top: 0;
+}
+
+.dialog__window--left {
+    border-right: 1px solid rgba(153, 153, 153, 0.18);
+    right: auto;
+}
+
+.dialog__window--right {
+    border-left: 1px solid rgba(153, 153, 153, 0.18);
+    left: auto;
+}
+
+.dialog__window--fill {
+    min-height: 70vh;
 }
 
 .dialog__header {
@@ -49,54 +78,9 @@
     text-align: center;
 }
 
-.dialog__window {
-    .dialog-window();
-
-    flex-direction: column;
-    left: 0;
-    padding-bottom: 15vh;
-    top: 15%;
-    width: calc(100% - 32px);
-}
-
-.dialog__window--full,
-.dialog__window--left,
-.dialog__window--right {
-    .dialog-window-filler();
-
-    overflow-y: auto;
-    top: 0;
-}
-
-.dialog__window--full .dialog__main,
 .dialog__window--left .dialog__main,
 .dialog__window--right .dialog__main {
     min-height: auto;
-}
-
-.dialog__window--fill {
-    min-height: 70vh;
-}
-
-.dialog__window--full {
-    bottom: 0;
-    max-width: 100%;
-    width: 100%;
-}
-
-.dialog__window--left,
-.dialog__window--right {
-    .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
-}
-
-.dialog__window--left {
-    border-right: 1px solid rgba(153, 153, 153, 0.18);
-    right: auto;
-}
-
-.dialog__window--right {
-    border-left: 1px solid rgba(153, 153, 153, 0.18);
-    left: auto;
 }
 
 .dialog--show,
@@ -116,8 +100,7 @@
     }
 
     .dialog__window--slide-left,
-    .dialog__window--slide-right,
-    .dialog__window--slide {
+    .dialog__window--slide-right {
         transition: transform 0.32s ease-out;
     }
 }
@@ -149,11 +132,6 @@
     .dialog__window--slide-right {
         transform: translateX(100%);
     }
-
-    // code smell, chained modifier
-    .dialog__window--slide {
-        transform: translateY(100%);
-    }
 }
 
 // Apply show animation.
@@ -175,8 +153,7 @@
     }
 
     .dialog__window--slide-left,
-    .dialog__window--slide-right,
-    .dialog__window--slide {
+    .dialog__window--slide-right {
         transform: translateX(0);
     }
 }
@@ -184,7 +161,7 @@
 // MEDIA QUERIES
 //-----------------------------
 @media (max-width: 600px) {
-    .dialog__window:not(.dialog__window--full) {
+    .dialog__window {
         .create-grid(@cols: 8, @gutter: 8px, @gutter-exponent: 4, @size: 8, @min: 8, @max: 8);
     }
 
@@ -194,13 +171,13 @@
 }
 
 @media (min-width: 601px) and (max-width: 768px) {
-    .dialog__window:not(.dialog__window--full) {
+    .dialog__window {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 14, @min: 14, @max: 14);
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .dialog__window:not(.dialog__window--full) {
+    .dialog__window {
         .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
     }
 }
