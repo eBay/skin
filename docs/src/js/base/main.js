@@ -72,9 +72,14 @@ document.querySelectorAll('.dialog-mini-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'dialog-mini' }));
 });
 
-// DIALOG-MINI
+// DIALOG-FULLSCREEN
 document.querySelectorAll('.dialog-fullscreen-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'fullscreen-dialog' }));
+});
+
+// DIALOG-PANEL
+document.querySelectorAll('.dialog-panel-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'panel-dialog' }));
 });
 
 // DRAWER (modal dialog)

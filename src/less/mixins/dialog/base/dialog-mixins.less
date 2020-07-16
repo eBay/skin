@@ -36,13 +36,14 @@
     z-index: 100000; // because global header has an element with 99999
 }
 
-.dialog-window(@width: @dialog_max_width) {
+// appears that most of these rules are for lightbox type dialog
+.dialog-window() {
+    .customBackgroundColorProperty(dialog-window-background-color);
+
     display: flex;
     margin: auto;
-    max-width: @width;
     min-height: 55px;
     position: absolute;
-    right: 0;
     will-change: opacity, transform;
 
     // The background for the dialog window is on this pseudo element.
@@ -60,8 +61,6 @@
 }
 
 .dialog-window-filler() {
-    .customBackgroundColorProperty(dialog-window-background-color);
-
     bottom: 0;
     -webkit-overflow-scrolling: touch;
 
@@ -87,15 +86,6 @@
     }
 }
 
-.dialog-header-content-large() {
-    margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
-
-    & > :last-child {
-        margin-left: @dialog-large-gutter-size;
-        margin-top: initial;
-    }
-}
-
 .dialog-body-content(@margin: @dialog_main_default_margin) {
     box-sizing: border-box;
     flex: 1 1 auto;
@@ -111,10 +101,6 @@
     }
 }
 
-.dialog-body-content-large() {
-    margin: @dialog-large-gutter-size;
-}
-
 .dialog-footer-content() {
     display: flex;
     flex-direction: column;
@@ -125,6 +111,21 @@
     & > :not(:first-child) {
         margin-top: 16px;
     }
+}
+
+/* large screens */
+
+.dialog-header-content-large() {
+    margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
+
+    & > :last-child {
+        margin-left: @dialog-large-gutter-size;
+        margin-top: initial;
+    }
+}
+
+.dialog-body-content-large() {
+    margin: @dialog-large-gutter-size;
 }
 
 .dialog-footer-content-large() {
