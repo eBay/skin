@@ -2,6 +2,10 @@
     .dialog-base();
 }
 
+.fullscreen-dialog--no-mask[role="dialog"] {
+    background-color: transparent;
+}
+
 .fullscreen-dialog__window {
     .dialog-window();
     .dialog-window-filler();
@@ -50,6 +54,14 @@
 
 .fullscreen-dialog--show,
 .fullscreen-dialog--hide {
+    &.fullscreen-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.fullscreen-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
     .fullscreen-dialog__window--fade {
         transition: opacity 0.16s ease-out;
     }
@@ -65,6 +77,11 @@
         display: block;
     }
 
+    &.fullscreen-dialog--mask-fade,
+    &.fullscreen-dialog--mask-fade-slow {
+        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+    }
+
     .fullscreen-dialog__window--fade {
         opacity: 0;
     }
@@ -78,6 +95,11 @@
 .fullscreen-dialog--hide-init {
     && {
         display: block;
+    }
+
+    &.fullscreen-dialog--mask-fade,
+    &.fullscreen-dialog--mask-fade-slow {
+        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
     }
 
     .fullscreen-dialog__window--fade {

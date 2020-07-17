@@ -1,4 +1,4 @@
-export default { title: 'Dialog' };
+export default { title: 'Lightbox Dialog' };
 
 export const lightbox = () => `
 <div aria-labelledby="dialog-title" aria-modal="true" class="dialog" id="dialog_window" role="dialog">

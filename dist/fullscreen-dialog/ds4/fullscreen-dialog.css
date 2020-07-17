@@ -18,6 +18,9 @@
   will-change: background-color;
   z-index: 100000;
 }
+.fullscreen-dialog--no-mask[role="dialog"] {
+  background-color: transparent;
+}
 .fullscreen-dialog__window {
   background-color: #fff;
   background-color: var(--dialog-window-background-color, #fff);
@@ -91,7 +94,7 @@
           flex-direction: column;
   -webkit-box-pack: center;
           justify-content: center;
-  margin: 0 16px 16px;
+  padding: 16px;
   position: relative;
 }
 .fullscreen-dialog__footer > :not(:first-child) {
@@ -114,6 +117,16 @@
 .fullscreen-dialog__close:focus {
   color: #0654ba;
 }
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade-slow {
+  -webkit-transition: background-color 0.32s ease-out;
+  transition: background-color 0.32s ease-out;
+}
 .fullscreen-dialog--show .fullscreen-dialog__window--fade,
 .fullscreen-dialog--hide .fullscreen-dialog__window--fade {
   -webkit-transition: opacity 0.16s ease-out;
@@ -132,6 +145,12 @@
 .fullscreen-dialog--show-init.fullscreen-dialog--show-init {
   display: block;
 }
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--show-init.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--show-init.fullscreen-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0);
+}
 .fullscreen-dialog--hide .fullscreen-dialog__window--fade,
 .fullscreen-dialog--show-init .fullscreen-dialog__window--fade {
   opacity: 0;
@@ -146,6 +165,12 @@
 .fullscreen-dialog--hide-init.fullscreen-dialog--show,
 .fullscreen-dialog--hide-init.fullscreen-dialog--hide-init {
   display: block;
+}
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0.7);
 }
 .fullscreen-dialog--show .fullscreen-dialog__window--fade,
 .fullscreen-dialog--hide-init .fullscreen-dialog__window--fade {
@@ -173,7 +198,6 @@
             flex-direction: row;
     -webkit-box-pack: end;
             justify-content: flex-end;
-    margin: 0 16px 16px;
   }
   .fullscreen-dialog__footer > :not(:first-child) {
     margin-left: 16px;
