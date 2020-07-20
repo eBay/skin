@@ -169,8 +169,11 @@ module.exports = class {
 
     observeEvents() {
         if (this._destroyed !== true) {
-            this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
             document.addEventListener('keydown', this._onKeyDownListener);
+
+            if (this._closeButtonEl) {
+                this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+            }
 
             if (this._confirmButtonEl) {
                 this._confirmButtonEl.addEventListener('click', this._onConfirmButtonClickListener);

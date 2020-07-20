@@ -62,6 +62,11 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
     });
 });
 
+// CONFIRM-DIALOG
+document.querySelectorAll('.dialog-confirm-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'confirm-dialog' }));
+});
+
 // LIGHTBOX-DIALOG
 document.querySelectorAll('.dialog-lightbox-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'lightbox-dialog' }));
