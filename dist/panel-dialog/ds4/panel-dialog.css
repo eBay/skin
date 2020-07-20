@@ -1,0 +1,235 @@
+/* large screens */
+.panel-dialog {
+  --dialog-mask-background-color: #333;
+  --dialog-window-background-color: #fff;
+  --dialog-back-close-foreground-color: #333;
+}
+.panel-dialog[role="dialog"] {
+  background-color: rgba(51, 51, 51, 0.7);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 100000;
+}
+.panel-dialog__window {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  display: -webkit-box;
+  display: flex;
+  margin: auto;
+  min-height: 55px;
+  position: absolute;
+  will-change: opacity, transform;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  width: calc(88% - 32px);
+  min-width: calc(88% - 32px);
+  max-width: calc(100% - 32px);
+  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  left: 0;
+  overflow-y: auto;
+  padding-bottom: 15vh;
+  right: auto;
+  top: 0;
+}
+.panel-dialog__window::before {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.panel-dialog__window::before {
+  display: none;
+}
+.panel-dialog__window--end {
+  border-left: 1px solid rgba(153, 153, 153, 0.18);
+  left: auto;
+  right: 0;
+}
+.panel-dialog__header {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
+  margin: 16px 16px 0;
+  position: relative;
+}
+.panel-dialog__header h2 {
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 0;
+}
+.panel-dialog__header > :last-child:not(:only-child) {
+  margin-left: 16px;
+}
+.panel-dialog__main {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 16px;
+  position: relative;
+}
+.panel-dialog__main > :first-child {
+  margin-top: 0;
+}
+.panel-dialog__main > :last-child {
+  margin-bottom: 0;
+}
+.panel-dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding: 16px;
+  position: relative;
+}
+.panel-dialog__footer > :not(:first-child) {
+  margin-top: 16px;
+}
+.panel-dialog__back,
+.panel-dialog__close {
+  color: #333;
+  color: var(--dialog-back-close-foreground-color, #333);
+  align-self: center;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+.panel-dialog__back:hover,
+.panel-dialog__close:hover,
+.panel-dialog__back:focus,
+.panel-dialog__close:focus {
+  color: #0654ba;
+}
+.panel-dialog__title:not(:first-child) {
+  margin-left: 16px;
+}
+.panel-dialog__title--center {
+  text-align: center;
+}
+.panel-dialog--show.panel-dialog--mask-fade,
+.panel-dialog--hide.panel-dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
+.panel-dialog--show.panel-dialog--mask-fade-slow,
+.panel-dialog--hide.panel-dialog--mask-fade-slow {
+  -webkit-transition: background-color 0.32s ease-out;
+  transition: background-color 0.32s ease-out;
+}
+.panel-dialog--show .panel-dialog__window--slide,
+.panel-dialog--hide .panel-dialog__window--slide {
+  -webkit-transition: -webkit-transform 0.32s ease-out;
+  transition: -webkit-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
+}
+.panel-dialog--hide.panel-dialog--hide,
+.panel-dialog--hide.panel-dialog--show-init,
+.panel-dialog--show-init.panel-dialog--hide,
+.panel-dialog--show-init.panel-dialog--show-init {
+  display: block;
+}
+.panel-dialog--hide.panel-dialog--mask-fade,
+.panel-dialog--show-init.panel-dialog--mask-fade,
+.panel-dialog--hide.panel-dialog--mask-fade-slow,
+.panel-dialog--show-init.panel-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0);
+}
+.panel-dialog--hide .panel-dialog__window--slide-left,
+.panel-dialog--show-init .panel-dialog__window--slide-left {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.panel-dialog--hide .panel-dialog__window--slide-right,
+.panel-dialog--show-init .panel-dialog__window--slide-right {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.panel-dialog--hide .panel-dialog__window--slide,
+.panel-dialog--show-init .panel-dialog__window--slide {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.panel-dialog--hide .panel-dialog__window--end.panel-dialog__window--slide,
+.panel-dialog--show-init .panel-dialog__window--end.panel-dialog__window--slide {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.panel-dialog--show.panel-dialog--show,
+.panel-dialog--show.panel-dialog--hide-init,
+.panel-dialog--hide-init.panel-dialog--show,
+.panel-dialog--hide-init.panel-dialog--hide-init {
+  display: block;
+}
+.panel-dialog--show.panel-dialog--mask-fade,
+.panel-dialog--hide-init.panel-dialog--mask-fade,
+.panel-dialog--show.panel-dialog--mask-fade-slow,
+.panel-dialog--hide-init.panel-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0.7);
+}
+.panel-dialog--show .panel-dialog__window--slide,
+.panel-dialog--hide-init .panel-dialog__window--slide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+@media (max-width: 600px) {
+  .panel-dialog__window {
+    width: calc(100% - 32px);
+    min-width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  .panel-dialog__window {
+    width: calc(88% - 32px);
+    min-width: calc(88% - 32px);
+    max-width: calc(88% - 32px);
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .panel-dialog__window {
+    width: calc(75% - 32px);
+    max-width: 616px;
+  }
+}
+@media (min-width: 601px) {
+  .panel-dialog__header {
+    margin: 16px 16px 0;
+  }
+  .panel-dialog__header > :last-child {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+  .panel-dialog__main {
+    margin: 16px;
+  }
+  .panel-dialog__footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+  }
+  .panel-dialog__footer > :not(:first-child) {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+}

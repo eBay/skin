@@ -1,0 +1,221 @@
+/* large screens */
+.lightbox-dialog {
+  --dialog-mask-background-color: #333;
+  --dialog-window-background-color: #fff;
+  --dialog-back-close-foreground-color: #333;
+}
+.lightbox-dialog[role="dialog"],
+.lightbox-dialog[role="alertdialog"] {
+  background-color: rgba(51, 51, 51, 0.7);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 100000;
+}
+.lightbox-dialog__window {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  display: -webkit-box;
+  display: flex;
+  margin: auto;
+  min-height: 55px;
+  position: absolute;
+  will-change: opacity, transform;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  left: 0;
+  max-width: 616px;
+  right: 0;
+  top: 15%;
+  width: calc(100% - 32px);
+}
+.lightbox-dialog__window::before {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.lightbox-dialog__window--mini {
+  -webkit-box-align: start;
+          align-items: flex-start;
+  align-self: center;
+  border-radius: 7px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  max-width: 400px;
+  min-height: 55px;
+  min-width: 200px;
+  top: 50%;
+}
+.lightbox-dialog__window--alert,
+.lightbox-dialog__window--confirm {
+  text-align: center;
+}
+.lightbox-dialog__header {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
+  margin: 16px 16px 0;
+  position: relative;
+}
+.lightbox-dialog__header h2 {
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 0;
+}
+.lightbox-dialog__header > :last-child:not(:only-child) {
+  margin-left: 16px;
+}
+.lightbox-dialog__main {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 16px;
+  position: relative;
+  min-height: 18px;
+}
+.lightbox-dialog__main > :first-child {
+  margin-top: 0;
+}
+.lightbox-dialog__main > :last-child {
+  margin-bottom: 0;
+}
+.lightbox-dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding: 16px;
+  position: relative;
+}
+.lightbox-dialog__footer > :not(:first-child) {
+  margin-top: 16px;
+}
+.lightbox-dialog__back,
+.lightbox-dialog__close {
+  color: #333;
+  color: var(--dialog-back-close-foreground-color, #333);
+  align-self: center;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+.lightbox-dialog__back:hover,
+.lightbox-dialog__close:hover,
+.lightbox-dialog__back:focus,
+.lightbox-dialog__close:focus {
+  color: #0654ba;
+}
+.lightbox-dialog__title:not(:first-child) {
+  margin-left: 16px;
+}
+.lightbox-dialog__title--center {
+  text-align: center;
+}
+.lightbox-dialog--show.lightbox-dialog--mask-fade,
+.lightbox-dialog--hide.lightbox-dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
+.lightbox-dialog--show.lightbox-dialog--mask-fade-slow,
+.lightbox-dialog--hide.lightbox-dialog--mask-fade-slow {
+  -webkit-transition: background-color 0.32s ease-out;
+  transition: background-color 0.32s ease-out;
+}
+.lightbox-dialog--show .lightbox-dialog__window--fade,
+.lightbox-dialog--hide .lightbox-dialog__window--fade {
+  -webkit-transition: opacity 0.16s ease-out;
+  transition: opacity 0.16s ease-out;
+}
+.lightbox-dialog--hide.lightbox-dialog--hide,
+.lightbox-dialog--hide.lightbox-dialog--show-init,
+.lightbox-dialog--show-init.lightbox-dialog--hide,
+.lightbox-dialog--show-init.lightbox-dialog--show-init {
+  display: block;
+}
+.lightbox-dialog--hide.lightbox-dialog--mask-fade,
+.lightbox-dialog--show-init.lightbox-dialog--mask-fade,
+.lightbox-dialog--hide.lightbox-dialog--mask-fade-slow,
+.lightbox-dialog--show-init.lightbox-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0);
+}
+.lightbox-dialog--hide .lightbox-dialog__window--fade,
+.lightbox-dialog--show-init .lightbox-dialog__window--fade {
+  opacity: 0;
+}
+.lightbox-dialog--show.lightbox-dialog--show,
+.lightbox-dialog--show.lightbox-dialog--hide-init,
+.lightbox-dialog--hide-init.lightbox-dialog--show,
+.lightbox-dialog--hide-init.lightbox-dialog--hide-init {
+  display: block;
+}
+.lightbox-dialog--show.lightbox-dialog--mask-fade,
+.lightbox-dialog--hide-init.lightbox-dialog--mask-fade,
+.lightbox-dialog--show.lightbox-dialog--mask-fade-slow,
+.lightbox-dialog--hide-init.lightbox-dialog--mask-fade-slow {
+  background-color: rgba(51, 51, 51, 0.7);
+}
+.lightbox-dialog--show .lightbox-dialog__window--fade,
+.lightbox-dialog--hide-init .lightbox-dialog__window--fade {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .lightbox-dialog__window {
+    width: calc(100% - 32px);
+    min-width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  .lightbox-dialog__window {
+    width: calc(88% - 32px);
+    min-width: calc(88% - 32px);
+    max-width: calc(88% - 32px);
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lightbox-dialog__window {
+    width: calc(75% - 32px);
+    max-width: 616px;
+  }
+}
+@media (min-width: 601px) {
+  .lightbox-dialog__header {
+    margin: 16px 16px 0;
+  }
+  .lightbox-dialog__header > :last-child {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+  .lightbox-dialog__main {
+    margin: 16px;
+  }
+  .lightbox-dialog__footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+  }
+  .lightbox-dialog__footer > :not(:first-child) {
+    margin-left: 16px;
+    margin-top: initial;
+  }
+}

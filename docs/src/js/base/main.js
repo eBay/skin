@@ -62,14 +62,24 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
     });
 });
 
-// DIALOG
-document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl));
+// CONFIRM-DIALOG
+document.querySelectorAll('.dialog-confirm-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'confirm-dialog' }));
 });
 
-// DIALOG-MINI
-document.querySelectorAll('.dialog-mini-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'dialog-mini' }));
+// LIGHTBOX-DIALOG
+document.querySelectorAll('.dialog-lightbox-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'lightbox-dialog' }));
+});
+
+// FULLSCREEN-DIALOG
+document.querySelectorAll('.dialog-fullscreen-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'fullscreen-dialog' }));
+});
+
+// PANEL-DIALOG
+document.querySelectorAll('.dialog-panel-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'panel-dialog' }));
 });
 
 // DRAWER (modal dialog)

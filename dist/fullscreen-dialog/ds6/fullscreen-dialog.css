@@ -1,0 +1,210 @@
+/* large screens */
+.fullscreen-dialog {
+  --dialog-mask-background-color: #111820;
+  --dialog-window-background-color: #fff;
+  --dialog-back-close-foreground-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .fullscreen-dialog {
+    --dialog-window-background-color: #212121;
+    --dialog-back-close-foreground-color: #dcdcdc;
+  }
+}
+.fullscreen-dialog[role="dialog"] {
+  background-color: rgba(17, 24, 32, 0.7);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 100000;
+}
+.fullscreen-dialog--no-mask[role="dialog"] {
+  background-color: transparent;
+}
+.fullscreen-dialog__window {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  display: -webkit-box;
+  display: flex;
+  margin: auto;
+  min-height: 55px;
+  position: absolute;
+  will-change: opacity, transform;
+  -webkit-overflow-scrolling: touch;
+  bottom: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  left: 0;
+  max-width: 100%;
+  overflow-y: auto;
+  padding-bottom: 15vh;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.fullscreen-dialog__window::before {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  bottom: 15vh;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.fullscreen-dialog__window::before {
+  display: none;
+}
+.fullscreen-dialog__header {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
+  margin: 16px 16px 0;
+  position: relative;
+}
+.fullscreen-dialog__header h2 {
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 0;
+}
+.fullscreen-dialog__header > :last-child:not(:only-child) {
+  margin-left: 16px;
+}
+.fullscreen-dialog__main {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 16px;
+  position: relative;
+  min-height: auto;
+}
+.fullscreen-dialog__main > :first-child {
+  margin-top: 0;
+}
+.fullscreen-dialog__main > :last-child {
+  margin-bottom: 0;
+}
+.fullscreen-dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding: 16px;
+  position: relative;
+}
+.fullscreen-dialog__footer > :not(:first-child) {
+  margin-top: 16px;
+}
+.fullscreen-dialog__back,
+.fullscreen-dialog__close {
+  color: #111820;
+  color: var(--dialog-back-close-foreground-color, #111820);
+  align-self: center;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+.fullscreen-dialog__back:hover,
+.fullscreen-dialog__close:hover,
+.fullscreen-dialog__back:focus,
+.fullscreen-dialog__close:focus {
+  color: #3665f3;
+}
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade-slow {
+  -webkit-transition: background-color 0.32s ease-out;
+  transition: background-color 0.32s ease-out;
+}
+.fullscreen-dialog--show .fullscreen-dialog__window--fade,
+.fullscreen-dialog--hide .fullscreen-dialog__window--fade {
+  -webkit-transition: opacity 0.16s ease-out;
+  transition: opacity 0.16s ease-out;
+}
+.fullscreen-dialog--show .fullscreen-dialog__window--slide,
+.fullscreen-dialog--hide .fullscreen-dialog__window--slide {
+  -webkit-transition: -webkit-transform 0.32s ease-out;
+  transition: -webkit-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
+}
+.fullscreen-dialog--hide.fullscreen-dialog--hide,
+.fullscreen-dialog--hide.fullscreen-dialog--show-init,
+.fullscreen-dialog--show-init.fullscreen-dialog--hide,
+.fullscreen-dialog--show-init.fullscreen-dialog--show-init {
+  display: block;
+}
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--show-init.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--show-init.fullscreen-dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0);
+}
+.fullscreen-dialog--hide .fullscreen-dialog__window--fade,
+.fullscreen-dialog--show-init .fullscreen-dialog__window--fade {
+  opacity: 0;
+}
+.fullscreen-dialog--hide .fullscreen-dialog__window--slide,
+.fullscreen-dialog--show-init .fullscreen-dialog__window--slide {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+.fullscreen-dialog--show.fullscreen-dialog--show,
+.fullscreen-dialog--show.fullscreen-dialog--hide-init,
+.fullscreen-dialog--hide-init.fullscreen-dialog--show,
+.fullscreen-dialog--hide-init.fullscreen-dialog--hide-init {
+  display: block;
+}
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade,
+.fullscreen-dialog--show.fullscreen-dialog--mask-fade-slow,
+.fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0.7);
+}
+.fullscreen-dialog--show .fullscreen-dialog__window--fade,
+.fullscreen-dialog--hide-init .fullscreen-dialog__window--fade {
+  opacity: 1;
+}
+.fullscreen-dialog--show .fullscreen-dialog__window--slide,
+.fullscreen-dialog--hide-init .fullscreen-dialog__window--slide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+@media (min-width: 601px) {
+  .fullscreen-dialog__header {
+    margin: 24px 24px 0;
+  }
+  .fullscreen-dialog__header > :last-child {
+    margin-left: 24px;
+    margin-top: initial;
+  }
+  .fullscreen-dialog__main {
+    margin: 24px;
+  }
+  .fullscreen-dialog__footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+  }
+  .fullscreen-dialog__footer > :not(:first-child) {
+    margin-left: 24px;
+    margin-top: initial;
+  }
+}
