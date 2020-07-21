@@ -1,1 +1,1 @@
-require('./dist/notice/ds6/notice.css');
+require('./dist/inline-notice/ds6/inline-notice.css');
