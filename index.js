@@ -38,4 +38,3 @@ require('./tooltip');
 require('./tourtip');
 require('./typography');
 require('./window-notice');
-require('./wizard-stepper');
