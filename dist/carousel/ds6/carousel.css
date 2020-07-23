@@ -1,3 +1,13 @@
+.carousel {
+  --carousel-control-background-color: #fff;
+  --carousel-control-foreground-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .carousel {
+    --carousel-control-background-color: #171717;
+    --carousel-control-foreground-color: #dcdcdc;
+  }
+}
 /* stylelint-disable no-descending-specificity, comment-empty-line-before */
 .carousel {
   position: relative;
@@ -57,6 +67,83 @@
 }
 div.carousel {
   margin: 16px 0;
+}
+.carousel__control {
+  background-color: #fff;
+  background-color: var(--carousel-control-background-color, #fff);
+  -webkit-box-align: center;
+          align-items: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  display: -webkit-box;
+  display: flex;
+  font-size: 18px;
+  height: 32px;
+  -webkit-box-pack: center;
+          justify-content: center;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: opacity 0.45s ease-in-out;
+  transition: opacity 0.45s ease-in-out;
+  width: 32px;
+  z-index: 1;
+}
+.carousel__control--prev {
+  left: 0;
+}
+.carousel__control--next {
+  right: 0;
+}
+.carousel__control .icon--carousel-next {
+  margin-left: 2px;
+}
+.carousel__control .icon--carousel-prev {
+  margin-left: -2px;
+}
+.carousel__control svg {
+  color: #111820;
+  color: var(--carousel-control-foreground-color, #111820);
+}
+@media (min-width: 601px) {
+  .carousel:focus-within .carousel__control {
+    opacity: 0.92;
+  }
+  .carousel:focus-within .carousel__control[aria-disabled="true"] {
+    opacity: 0.3;
+  }
+  .carousel:hover .carousel__control {
+    opacity: 0.92;
+  }
+  .carousel:hover .carousel__control[aria-disabled="true"] {
+    opacity: 0.3;
+  }
+}
+.carousel__control--show,
+.carousel__control:focus {
+  opacity: 0.92;
+}
+.carousel__control--show[aria-disabled="true"],
+.carousel__control:focus[aria-disabled="true"] {
+  opacity: 0.3;
+}
+.carousel__control:hover {
+  background-color: #767676;
+  border-color: #767676;
+}
+.carousel__control:hover svg {
+  color: #fff;
+}
+.carousel__control:active {
+  background-color: #414141;
+}
+.carousel__control:active svg {
+  color: #fff;
 }
 span.carousel,
 span.carousel__container {
@@ -146,79 +233,4 @@ span.carousel__container {
       margin: 16px 0;
     }
   }
-}
-.carousel__control {
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  font-size: 18px;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transition: opacity 0.45s ease-in-out;
-  transition: opacity 0.45s ease-in-out;
-  z-index: 1;
-  -webkit-box-align: center;
-          align-items: center;
-  border-radius: 16px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-  display: -webkit-box;
-  display: flex;
-  height: 32px;
-  -webkit-box-pack: center;
-          justify-content: center;
-  width: 32px;
-}
-.carousel__control svg {
-  color: #111820;
-}
-@media (min-width: 601px) {
-  .carousel:focus-within .carousel__control {
-    opacity: 0.92;
-  }
-  .carousel:focus-within .carousel__control[aria-disabled="true"] {
-    opacity: 0.3;
-  }
-  .carousel:hover .carousel__control {
-    opacity: 0.92;
-  }
-  .carousel:hover .carousel__control[aria-disabled="true"] {
-    opacity: 0.3;
-  }
-}
-.carousel__control--show,
-.carousel__control:focus {
-  opacity: 0.92;
-}
-.carousel__control--show[aria-disabled="true"],
-.carousel__control:focus[aria-disabled="true"] {
-  opacity: 0.3;
-}
-.carousel__control:hover {
-  background-color: #767676;
-  border-color: #767676;
-}
-.carousel__control:hover svg {
-  color: #fff;
-}
-.carousel__control:active {
-  background-color: #414141;
-}
-.carousel__control:active svg {
-  color: #fff;
-}
-.carousel__control--prev {
-  left: 8px;
-}
-.carousel__control--next {
-  right: 8px;
-}
-.carousel__control .icon--carousel-next {
-  margin-left: 2px;
-}
-.carousel__control .icon--carousel-prev {
-  margin-left: -2px;
 }

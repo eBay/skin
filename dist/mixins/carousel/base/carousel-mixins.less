@@ -8,19 +8,43 @@
 }
 
 .carousel-control-mixin-base() {
-    background-color: @carousel-control-background-color;
+    .customBackgroundColorProperty(carousel-control-background-color);
+
+    &--prev {
+        left: 0;
+    }
+
+    &--next {
+        right: 0;
+    }
+
+    .icon--carousel-next {
+        margin-left: 2px;
+    }
+
+    .icon--carousel-prev {
+        margin-left: -2px;
+    }
+
+    align-items: center;
     border: 1px solid @carousel-control-border-color;
+    border-radius: 16px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
     font-size: 18px;
+    height: 32px;
+    justify-content: center;
     opacity: 0;
     padding: 0; // override browser default
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
+    width: 32px;
     z-index: 1;
 
     svg {
-        color: @carousel-control-svg-color;
+        .customColorProperty(carousel-control-foreground-color);
     }
 
     // progressive enhancement for browsers with support
