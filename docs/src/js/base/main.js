@@ -1,5 +1,9 @@
 /* eslint-disable no-console */
 
+// SVG for Everybody adds SVG External Content support to all browsers.
+// https://github.com/jonathantneal/svg4everybody
+svg4everybody();
+
 const pageWidgets = [];
 
 const RovingTabindex = require('makeup-roving-tabindex');
