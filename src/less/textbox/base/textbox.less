@@ -9,15 +9,12 @@
     position: relative;
 
     button.icon-btn {
+        display: inline-flex;
+        justify-content: center;
         padding: 0;
         position: absolute;
         right: 0;
-
-        svg.icon {
-            left: 0;
-            right: 0;
-            width: @textbox-actionable-icon-width;
-        }
+        top: 0;
     }
 }
 
@@ -170,7 +167,8 @@ input.textbox__control--underline {
     }
 }
 
-.textbox svg {
+.textbox > svg,
+.textbox .icon-btn > svg {
     color: @textbox-icon-color;
     display: inline-flex;
     fill: @textbox-icon-fill;
@@ -181,7 +179,7 @@ input.textbox__control--underline {
     width: @textbox-icon-width;
 }
 
-.textbox svg:first-child {
+.textbox > svg:first-child {
     left: 16px;
 
     + input.textbox__control,
@@ -196,7 +194,7 @@ input.textbox__control--underline {
         padding-right: 40px;
     }
 
-    svg:last-child {
+    > svg:last-child {
         right: 16px;
     }
 }
@@ -214,7 +212,7 @@ input.textbox__control--underline {
 }
 
 [dir="rtl"] {
-    .textbox svg:first-child {
+    .textbox > svg:first-child {
         right: 16px;
 
         & + input.textbox__control,
