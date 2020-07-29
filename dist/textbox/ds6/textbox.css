@@ -20,14 +20,14 @@
   position: relative;
 }
 .textbox button.icon-btn {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-pack: center;
+          justify-content: center;
   padding: 0;
   position: absolute;
   right: 0;
-}
-.textbox button.icon-btn svg.icon {
-  left: 0;
-  right: 0;
-  width: 14px;
+  top: 0;
 }
 span.textbox {
   display: inline-block;
@@ -69,7 +69,7 @@ textarea.textbox__control[disabled] {
   background-color: var(--textbox-disabled-background-color, #fff);
   color: #c7c7c7;
   color: var(--textbox-disabled-foreground-color, #c7c7c7);
-  border-color: #a2a2a2;
+  border-color: #c7c7c7;
   border-width: 1px;
 }
 input.textbox__control[disabled]::-webkit-input-placeholder,
@@ -178,7 +178,8 @@ input.textbox__control--underline:focus::-ms-input-placeholder {
 input.textbox__control--underline:focus::placeholder {
   color: #767676;
 }
-.textbox svg {
+.textbox > svg,
+.textbox .icon-btn > svg {
   color: #c7c7c7;
   display: -webkit-inline-box;
   display: inline-flex;
@@ -189,18 +190,18 @@ input.textbox__control--underline:focus::placeholder {
   top: 0;
   width: 14px;
 }
-.textbox svg:first-child {
+.textbox > svg:first-child {
   left: 16px;
 }
-.textbox svg:first-child + input.textbox__control,
-.textbox svg:first-child + textarea.textbox__control {
+.textbox > svg:first-child + input.textbox__control,
+.textbox > svg:first-child + textarea.textbox__control {
   padding-left: 40px;
 }
 .textbox--icon-end input.textbox__control,
 .textbox--icon-end textarea.textbox__control {
   padding-right: 40px;
 }
-.textbox--icon-end svg:last-child {
+.textbox--icon-end > svg:last-child {
   right: 16px;
 }
 .textbox--large input.textbox__control,
@@ -211,11 +212,11 @@ input.textbox__control--underline:focus::placeholder {
 .textbox__control--fluid {
   width: 100%;
 }
-[dir="rtl"] .textbox svg:first-child {
+[dir="rtl"] .textbox > svg:first-child {
   right: 16px;
 }
-[dir="rtl"] .textbox svg:first-child + input.textbox__control,
-[dir="rtl"] .textbox svg:first-child + textarea.textbox__control {
+[dir="rtl"] .textbox > svg:first-child + input.textbox__control,
+[dir="rtl"] .textbox > svg:first-child + textarea.textbox__control {
   padding-right: 40px;
 }
 [dir="rtl"] .textbox--icon-end input.textbox__control,
