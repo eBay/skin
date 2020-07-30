@@ -1,15 +1,20 @@
-// Core Colours
+// Old DS4 aliases mapped to new DS6.5 palette
+// TODO: deprecate these aliases, replace throughout system with 6.5 aliases
 //-----------------------------
 
-@color-core-black: #000;
-@color-core-gray-jet: #333;
-@color-core-gray-davys: #555;
-@color-core-gray-dim: #767676;
-@color-core-gray-spanish: #999;
-@color-core-gray-silver: #ccc;
-@color-core-gray-gainsboro: #ddd;
-@color-core-gray-light: #eee;
-@color-core-white: #fff;
+@color-core-white: @color-white;
+@color-core-gray-light: @color-grey1;
+@color-core-gray-gainsboro: @color-grey2;
+@color-core-gray-silver: @color-grey3;
+@color-core-gray-spanish: @color-grey4;
+@color-core-gray-dim: @color-grey5;
+@color-core-gray-davys: #555; // todo: remove from system
+@color-core-gray-jet: @color-grey6;
+@color-core-black: @color-black;
+
+// Core DS4 Colours
+// TODO: deprecate these aliases, replace with 6.5 aliases
+//-----------------------------
 
 @color-core-orange: #f18e0c;
 @color-core-red: #dd1e31;
@@ -17,116 +22,104 @@
 @color-core-blue-dark: #00489f;
 @color-core-blue: #0654ba;
 @color-core-violet: #b1a9dc;
-@color-core-green: #5ba71b;
-
+@color-core-green: #5ba71b; // todo: does not pass a11y color contrast
 @color-core-beige: #f0eeec;
 @color-core-beige-light: #f5f5f5;
 
-// Transparent Shades
+// DS4 Transparent Shades (deprecated - vars unused in system)
 //-----------------------------
 
 @color-transparent-black: fade(#000, 100%);
 @color-transparent-gray-dim: fade(#000, 50%);
-@color-transparent-gray-spanish: fade(@color-core-gray-spanish, 90%);
+@color-transparent-gray-spanish: fade(@color-grey4, 90%);
 @color-transparent-gray-silver: fade(#000, 30%);
 @color-transparent-gray-gainsboro: fade(#000, 15%);
 @color-transparent-white: fade(@color-core-white, 90%);
 
-// Text Colours
+// DS4 Text Colours (deprecated - vars unused in system)
 //-----------------------------
 
-@color-text-subheader: @color-core-gray-dim;
-@color-text-footnote: @color-core-gray-spanish;
+@color-text-subheader: @color-grey5;
+@color-text-footnote: @color-grey4;
 @color-text-critical: @color-core-red;
 @color-text-positive: #447d14;
 
-// Interface Colours
+// DS4 Interface Colours
+// TODO: deprecate these aliases
 //-----------------------------
 
 @color-interface-hot: @color-core-red;
 @color-interface-cta-dark: @color-core-blue-dark;
 @color-interface-cta: @color-core-blue;
 @color-interface-cta-light: #81a9dc;
-@color-interface-positive: @color-core-green;
-
-@color-interface-line-separator: @color-core-gray-gainsboro;
+@color-interface-positive: @color-text-positive;
+@color-interface-line-separator: @color-grey2;
 @color-interface-view-background: @color-core-beige;
 @color-interface-base: @color-core-beige;
 @color-interface-base-light: @color-core-beige-light;
-@color-interface-card-visited: @color-core-beige-light;
-@color-interface-card-background: @color-core-white;
-
-@color-interface-modal-shadow: @color-transparent-gray-silver;
-@color-interface-menu-shadow: @color-transparent-gray-gainsboro;
-@color-interface-card-selection: @color-core-gray-gainsboro;
-@color-interface-card-highlight: @color-core-beige-light;
+@color-interface-modal-shadow: fade(#000, 30%);
+@color-interface-menu-shadow: fade(#000, 15%);
 @color-interface-inline-text-edit: #fdfbe8;
 
-// Infographic Colours
+// DS4 Infographic Colours
+// TODO: deprecate these aliases
 //-----------------------------
 
 @color-infographic-red-interaction: #ad1f3a;
 @color-infographic-red: @color-core-red;
 @color-infographic-red-light: fade(@color-infographic-red, 60%);
 @color-infographic-red-lightest: fade(@color-infographic-red, 20%);
-
 @color-infographic-green-interaction: #457016;
 @color-infographic-green: @color-core-green;
 @color-infographic-green-light: fade(@color-infographic-green, 60%);
 @color-infographic-green-lightest: fade(@color-infographic-green, 20%);
-
 @color-infographic-blue-interaction: #00407a;
 @color-infographic-blue: @color-core-blue;
 @color-infographic-blue-light: fade(@color-infographic-blue, 60%);
 @color-infographic-blue-lightest: fade(@color-infographic-blue, 20%);
-
 @color-infographic-orange-interaction: #d36c07;
 @color-infographic-orange: @color-core-orange;
 @color-infographic-orange-light: fade(@color-infographic-orange, 60%);
 @color-infographic-orange-lightest: fade(@color-infographic-orange, 20%);
-
 @color-infographic-purple-interaction: #3d1c7c;
 @color-infographic-purple: @color-core-purple;
 @color-infographic-purple-light: fade(@color-infographic-purple, 60%);
 @color-infographic-purple-lightest: fade(@color-infographic-purple, 20%);
-
-@color-infographic-gray-interaction: @color-core-gray-jet;
+@color-infographic-gray-interaction: @color-grey6;
 @color-infographic-gray: @color-core-gray-davys;
 @color-infographic-gray-light: fade(@color-infographic-gray, 60%);
 @color-infographic-gray-lightest: fade(@color-infographic-gray, 20%);
 
-// Icon Colours
+// DS6.5 greys
+
+@color-black: #000;
+@color-grey7: #111820;
+@color-grey6: #333;
+@color-grey5: #767676;
+@color-grey4: #999;
+@color-grey3: #ccc;
+@color-grey2: #ddd;
+@color-grey1: #eee;
+@color-white: #fff;
+
+// DS6.5 product aliases (enables us to normalize module-level variables)
 //-----------------------------
 
-@color-icon: @color-core-gray-dim;
-@color-icon-null: @color-core-gray-spanish;
-@color-icon-disabled: @color-core-gray-silver;
-
-@color-icon-actionable-default: @color-core-gray-davys;
-@color-icon-actionable-hover: fadeout(@color-core-gray-spanish, 10%);
-@color-icon-actionable-focus: @color-icon-actionable-hover;
-@color-icon-actionable-active: @color-core-gray-jet;
-@color-icon-actionable-disabled: @color-core-gray-silver;
-
-// DS6 Aliases (enables us to normalize the "Color" module)
-//-----------------------------
-
-@color-text-default: @color-core-gray-jet;
-@color-text-secondary: @color-text-subheader;
-@color-text-disabled: @color-core-gray-spanish;
-@color-image-border: @color-core-gray-light;
-@color-divider: @color-core-gray-light;
+@color-text-default: @color-grey6;
+@color-text-secondary: @color-grey5;
+@color-text-disabled: @color-grey4;
+@color-image-border: @color-grey1;
+@color-divider: @color-grey1;
 @color-background-default: @color-white;
-
-@color-action-secondary: @color-text-subheader;
+@color-disabled: @color-grey3;
+@color-action-secondary: @color-grey5;
 @color-action-primary: @color-core-blue;
 @color-action-hover: #0654ba;
 @color-action-visited: @color-core-purple;
-@color-action-destroy: @color-text-critical;
+@color-action-destroy: @color-core-red;
 @color-link-default: @color-action-primary;
 @color-link-hover: @color-action-hover;
 @color-link-visited: @color-action-visited;
-
 @color-information-background: @color-infographic-blue-lightest;
 @color-information-text: @color-core-blue;
 @color-information-icon: @color-core-blue;
@@ -135,18 +128,9 @@
 @color-confirmation-icon: @color-core-green;
 @color-confirmation-border: @color-core-green;
 @color-attention-background: @color-infographic-red-lightest;
-@color-attention-text: @color-text-critical;
-@color-attention-icon: @color-text-critical;
-
-// More DS6 Aliases
-//-----------------------------
-
-// Grey
-@color-white: @color-core-white;
-@color-grey1: @color-core-gray-light;
-@color-grey2: @color-core-gray-gainsboro;
-@color-grey3: @color-core-gray-silver;
-@color-grey4: @color-core-gray-spanish;
-@color-grey5: @color-core-gray-dim;
-@color-grey6: @color-core-gray-jet;
-@color-black: @color-core-black;
+@color-attention-text: @color-core-red;
+@color-attention-icon: @color-core-red;
+@color-icon-disabled: @color-disabled;
+@color-icon-actionable-default: @color-core-gray-davys;
+@color-icon-actionable-hover: @color-grey6;
+@color-icon-actionable-active: @color-core-gray-davys;
