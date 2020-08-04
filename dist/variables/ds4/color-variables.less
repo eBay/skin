@@ -1,3 +1,78 @@
+// Grey
+@color-white: #fff;
+@color-grey1: #eee;
+@color-grey2: #ddd;
+@color-grey3: #ccc;
+@color-grey4: #999;
+@color-grey5: #767676;
+@color-grey6: #333;
+@color-grey7: #111820;
+@color-black: #000;
+
+// Orange
+@color-o1: fade(@color-o4, 20%);
+@color-o3: fade(@color-o4, 60%);
+@color-o4: #f18e0c;
+@color-o6: #d36c07;
+
+// Red
+@color-r1: fade(@color-r4, 20%);
+@color-r3: fade(@color-r4, 60%);
+@color-r4: #dd1e31;
+@color-r6: #ad1f3a;
+
+// Magenta/Purple
+@color-m1: fade(@color-m4, 20%);
+@color-m3: fade(@color-m4, 60%);
+@color-m4: #6a29b9;
+@color-m6: #3d1c7c;
+
+// Blue
+@color-b1: fade(@color-b4, 20%);
+@color-b3: fade(@color-b4, 60%);
+@color-b4: #0654ba;
+@color-b6: #00489f;
+
+// Green
+@color-g1: fade(@color-g4, 20%);
+@color-g3: fade(@color-g4, 60%);
+@color-g4: #5ba71b;
+@color-g6: #457016;
+
+// Product aliases
+@color-text-default: @color-grey6;
+@color-text-secondary: @color-grey5;
+@color-text-disabled: @color-grey4;
+@color-image-border: @color-grey1;
+@color-divider: @color-grey1;
+@color-background-default: @color-white;
+@color-disabled: @color-grey3;
+@color-action-primary: @color-b4;
+@color-action-hover: @color-b6;
+@color-action-disabled: @color-action-primary;
+@color-action-visited: @color-m4;
+@color-action-secondary: @color-grey5;
+@color-action-destroy: @color-r4;
+@color-link-default: @color-action-primary;
+@color-link-hover: @color-action-hover;
+@color-link-visited: @color-action-visited;
+@color-information-background: @color-b1;
+@color-information-text: @color-b4;
+@color-information-icon: @color-b4;
+@color-confirmation-background: @color-g1;
+@color-confirmation-text: @color-g6;
+@color-confirmation-icon: @color-g4;
+@color-confirmation-border: @color-g4;
+@color-attention-background: @color-r1;
+@color-attention-text: @color-r4;
+@color-attention-icon: @color-r4;
+@color-icon-disabled: @color-disabled;
+@color-icon-actionable-default: @color-core-gray-davys;
+@color-icon-actionable-hover: @color-grey6;
+@color-icon-actionable-active: @color-core-gray-davys;
+@color-action-primary-disabled: @color-action-disabled;
+@color-action-disabled-opactity: 0.5;
+
 // Old DS4 aliases mapped to new DS6.5 palette
 // TODO: deprecate these aliases, replace throughout system with 6.5 aliases
 //-----------------------------
@@ -13,20 +88,21 @@
 @color-core-black: @color-black;
 
 // Core DS4 Colours
-// TODO: deprecate these aliases, replace with 6.5 aliases
+// deprecated aliases
 //-----------------------------
 
-@color-core-orange: #f18e0c;
-@color-core-red: #dd1e31;
-@color-core-purple: #6a29b9;
-@color-core-blue-dark: #00489f;
-@color-core-blue: #0654ba;
-@color-core-violet: #b1a9dc;
-@color-core-green: #5ba71b; // todo: does not pass a11y color contrast
-@color-core-beige: #f0eeec;
-@color-core-beige-light: #f5f5f5;
+@color-core-orange: @color-o4;
+@color-core-red: @color-r4;
+@color-core-blue: @color-b4;
+@color-core-blue-dark: @color-b6;
+@color-core-green: @color-g4; // todo: does not pass a11y color contrast
+@color-core-purple: @color-m4;
+@color-core-violet: #b1a9dc; // no ds6 mapping
+@color-core-beige: #f0eeec; // no ds6 mapping
+@color-core-beige-light: #f5f5f5; // no ds6 mapping
 
-// DS4 Transparent Shades (deprecated - vars unused in system)
+// DS4 Transparent Shades
+// deprecated aliases
 //-----------------------------
 
 @color-transparent-black: fade(#000, 100%);
@@ -34,25 +110,26 @@
 @color-transparent-gray-spanish: fade(@color-grey4, 90%);
 @color-transparent-gray-silver: fade(#000, 30%);
 @color-transparent-gray-gainsboro: fade(#000, 15%);
-@color-transparent-white: fade(@color-core-white, 90%);
+@color-transparent-white: fade(@color-white, 90%);
 
-// DS4 Text Colours (deprecated - vars unused in system)
+// DS4 Text Colours
+// deprecated aliases
 //-----------------------------
 
 @color-text-subheader: @color-grey5;
 @color-text-footnote: @color-grey4;
-@color-text-critical: @color-core-red;
-@color-text-positive: #447d14;
+@color-text-critical: @color-r4;
+@color-text-positive: @color-confirmation-text;
 
 // DS4 Interface Colours
-// TODO: deprecate these aliases
+// deprecated aliases
 //-----------------------------
 
-@color-interface-hot: @color-core-red;
-@color-interface-cta-dark: @color-core-blue-dark;
-@color-interface-cta: @color-core-blue;
+@color-interface-hot: @color-r4;
+@color-interface-cta-dark: @color-b6;
+@color-interface-cta: @color-b4;
 @color-interface-cta-light: #81a9dc;
-@color-interface-positive: @color-text-positive;
+@color-interface-positive: @color-confirmation-text;
 @color-interface-line-separator: @color-grey2;
 @color-interface-view-background: @color-core-beige;
 @color-interface-base: @color-core-beige;
@@ -62,75 +139,30 @@
 @color-interface-inline-text-edit: #fdfbe8;
 
 // DS4 Infographic Colours
-// TODO: deprecate these aliases
+// deprecated aliases
 //-----------------------------
 
-@color-infographic-red-interaction: #ad1f3a;
-@color-infographic-red: @color-core-red;
-@color-infographic-red-light: fade(@color-infographic-red, 60%);
-@color-infographic-red-lightest: fade(@color-infographic-red, 20%);
-@color-infographic-green-interaction: #457016;
-@color-infographic-green: @color-core-green;
-@color-infographic-green-light: fade(@color-infographic-green, 60%);
-@color-infographic-green-lightest: fade(@color-infographic-green, 20%);
-@color-infographic-blue-interaction: #00407a;
-@color-infographic-blue: @color-core-blue;
-@color-infographic-blue-light: fade(@color-infographic-blue, 60%);
-@color-infographic-blue-lightest: fade(@color-infographic-blue, 20%);
-@color-infographic-orange-interaction: #d36c07;
-@color-infographic-orange: @color-core-orange;
-@color-infographic-orange-light: fade(@color-infographic-orange, 60%);
-@color-infographic-orange-lightest: fade(@color-infographic-orange, 20%);
-@color-infographic-purple-interaction: #3d1c7c;
-@color-infographic-purple: @color-core-purple;
-@color-infographic-purple-light: fade(@color-infographic-purple, 60%);
-@color-infographic-purple-lightest: fade(@color-infographic-purple, 20%);
+@color-infographic-red-interaction: @color-r6;
+@color-infographic-red: @color-r4;
+@color-infographic-red-light: @color-r3;
+@color-infographic-red-lightest: @color-r1;
+@color-infographic-green-interaction: @color-g6;
+@color-infographic-green: @color-g4;
+@color-infographic-green-light: @color-g3;
+@color-infographic-green-lightest: @color-g1;
+@color-infographic-blue-interaction: @color-b6;
+@color-infographic-blue: @color-b4;
+@color-infographic-blue-light: @color-b3;
+@color-infographic-blue-lightest: @color-b1;
+@color-infographic-orange-interaction: @color-o6;
+@color-infographic-orange: @color-o4;
+@color-infographic-orange-light: @color-o3;
+@color-infographic-orange-lightest: @color-o1;
+@color-infographic-purple-interaction: @color-m6;
+@color-infographic-purple: @color-m4;
+@color-infographic-purple-light: @color-m3;
+@color-infographic-purple-lightest: @color-m1;
 @color-infographic-gray-interaction: @color-grey6;
 @color-infographic-gray: @color-core-gray-davys;
-@color-infographic-gray-light: fade(@color-infographic-gray, 60%);
-@color-infographic-gray-lightest: fade(@color-infographic-gray, 20%);
-
-// DS6.5 greys
-
-@color-black: #000;
-@color-grey7: #111820;
-@color-grey6: #333;
-@color-grey5: #767676;
-@color-grey4: #999;
-@color-grey3: #ccc;
-@color-grey2: #ddd;
-@color-grey1: #eee;
-@color-white: #fff;
-
-// DS6.5 product aliases (enables us to normalize module-level variables)
-//-----------------------------
-
-@color-text-default: @color-grey6;
-@color-text-secondary: @color-grey5;
-@color-text-disabled: @color-grey4;
-@color-image-border: @color-grey1;
-@color-divider: @color-grey1;
-@color-background-default: @color-white;
-@color-disabled: @color-grey3;
-@color-action-secondary: @color-grey5;
-@color-action-primary: @color-core-blue;
-@color-action-hover: #0654ba;
-@color-action-visited: @color-core-purple;
-@color-action-destroy: @color-core-red;
-@color-link-default: @color-action-primary;
-@color-link-hover: @color-action-hover;
-@color-link-visited: @color-action-visited;
-@color-information-background: @color-infographic-blue-lightest;
-@color-information-text: @color-core-blue;
-@color-information-icon: @color-core-blue;
-@color-confirmation-background: @color-infographic-green-lightest;
-@color-confirmation-text: @color-text-positive;
-@color-confirmation-icon: @color-core-green;
-@color-confirmation-border: @color-core-green;
-@color-attention-background: @color-infographic-red-lightest;
-@color-attention-text: @color-core-red;
-@color-attention-icon: @color-core-red;
-@color-icon-disabled: @color-disabled;
-@color-icon-actionable-default: @color-core-gray-davys;
-@color-icon-actionable-hover: @color-grey6;
-@color-icon-actionable-active: @color-core-gray-davys;
+@color-infographic-gray-light: fade(@color-core-gray-davys, 60%);
+@color-infographic-gray-lightest: fade(@color-core-gray-davys, 20%);
