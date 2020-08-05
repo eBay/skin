@@ -26,6 +26,7 @@ require('./pagination');
 require('./radio');
 require('./select');
 require('./spinner');
+require('./stepper');
 require('./switch');
 require('./tab');
 require('./textbox');
