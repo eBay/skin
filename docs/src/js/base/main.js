@@ -2,6 +2,7 @@
 
 // SVG for Everybody adds SVG External Content support to all browsers.
 // https://github.com/jonathantneal/svg4everybody
+// eslint-disable-next-line no-undef
 svg4everybody();
 
 const pageWidgets = [];
