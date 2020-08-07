@@ -20,6 +20,12 @@
   top: 0;
   will-change: background-color;
   z-index: 100000;
+  -webkit-box-align: end;
+          align-items: flex-end;
+}
+.drawer[role="dialog"]:not([hidden]) {
+  display: -webkit-box;
+  display: flex;
 }
 .drawer--no-mask[role="dialog"] {
   background-color: transparent;
@@ -107,35 +113,18 @@
   background-color: var(--dialog-window-background-color, #fff);
   display: -webkit-box;
   display: flex;
-  margin: auto;
-  min-height: 55px;
-  position: absolute;
-  will-change: opacity, transform;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 16px 16px 0 0;
-  bottom: 0;
+  -webkit-box-flex: 1;
+          flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  left: 0;
+  min-height: 55px;
+  will-change: opacity, transform;
+  border-radius: 16px 16px 0 0;
   max-height: 50%;
   max-width: 100%;
+  -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
-  padding-bottom: 0;
-  right: 0;
-}
-.drawer__window::before {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 15vh;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.drawer__window::before {
-  display: none;
 }
 .drawer__window--expanded {
   height: 95%;
@@ -171,7 +160,8 @@
 .drawer--hide.drawer--show-init,
 .drawer--show-init.drawer--hide,
 .drawer--show-init.drawer--show-init {
-  display: block;
+  display: -webkit-box;
+  display: flex;
 }
 .drawer--hide.drawer--mask-fade,
 .drawer--show-init.drawer--mask-fade,
@@ -188,7 +178,8 @@
 .drawer--show.drawer--hide-init,
 .drawer--hide-init.drawer--show,
 .drawer--hide-init.drawer--hide-init {
-  display: block;
+  display: -webkit-box;
+  display: flex;
 }
 .drawer--show.drawer--mask-fade,
 .drawer--hide-init.drawer--mask-fade,

@@ -15,48 +15,35 @@
   top: 0;
   will-change: background-color;
   z-index: 100000;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+.panel-dialog[role="dialog"]:not([hidden]) {
+  display: -webkit-box;
+  display: flex;
 }
 .panel-dialog__window {
   background-color: #fff;
   background-color: var(--dialog-window-background-color, #fff);
   display: -webkit-box;
   display: flex;
-  margin: auto;
-  min-height: 55px;
-  position: absolute;
-  will-change: opacity, transform;
-  bottom: 0;
-  -webkit-overflow-scrolling: touch;
-  width: calc(88% - 32px);
-  min-width: calc(88% - 32px);
-  max-width: calc(100% - 32px);
-  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  -webkit-box-flex: 1;
+          flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  left: 0;
+  min-height: 55px;
+  will-change: opacity, transform;
+  border-right: 1px solid rgba(153, 153, 153, 0.18);
+  -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   padding-bottom: 15vh;
-  right: auto;
-  top: 0;
-}
-.panel-dialog__window::before {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 15vh;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.panel-dialog__window::before {
-  display: none;
+  width: calc(100% - 32px);
 }
 .panel-dialog__window--end {
+  align-self: flex-end;
   border-left: 1px solid rgba(153, 153, 153, 0.18);
-  left: auto;
-  right: 0;
 }
 .panel-dialog__header {
   display: -webkit-box;
@@ -145,7 +132,8 @@
 .panel-dialog--hide.panel-dialog--show-init,
 .panel-dialog--show-init.panel-dialog--hide,
 .panel-dialog--show-init.panel-dialog--show-init {
-  display: block;
+  display: -webkit-box;
+  display: flex;
 }
 .panel-dialog--hide.panel-dialog--mask-fade,
 .panel-dialog--show-init.panel-dialog--mask-fade,
@@ -177,7 +165,8 @@
 .panel-dialog--show.panel-dialog--hide-init,
 .panel-dialog--hide-init.panel-dialog--show,
 .panel-dialog--hide-init.panel-dialog--hide-init {
-  display: block;
+  display: -webkit-box;
+  display: flex;
 }
 .panel-dialog--show.panel-dialog--mask-fade,
 .panel-dialog--hide-init.panel-dialog--mask-fade,
@@ -190,27 +179,10 @@
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
-@media (max-width: 600px) {
-  .panel-dialog__window {
-    width: calc(100% - 32px);
-    min-width: calc(100% - 32px);
-    max-width: calc(100% - 32px);
-  }
-}
-@media (min-width: 601px) and (max-width: 768px) {
+@media (min-width: 601px) {
   .panel-dialog__window {
     width: calc(88% - 32px);
-    min-width: calc(88% - 32px);
-    max-width: calc(88% - 32px);
   }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .panel-dialog__window {
-    width: calc(75% - 32px);
-    max-width: 616px;
-  }
-}
-@media (min-width: 601px) {
   .panel-dialog__header {
     margin: 16px 16px 0;
   }
