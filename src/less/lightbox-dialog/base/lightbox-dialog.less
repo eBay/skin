@@ -3,17 +3,18 @@
 .lightbox-dialog[role="dialog"],
 .lightbox-dialog[role="alertdialog"] {
     .dialog-base();
+
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .lightbox-dialog__window {
     .dialog-window();
 
-    flex-direction: column;
-    left: 0;
-    max-width: 616px;
-    right: 0;
-    top: 15%;
-    width: calc(100% - 32px);
+    // This is needed for IE11 in order to show the right size
+    flex-basis: @dialog-max-width;
+    margin-top: 15vh;
+    max-width: calc(100% - 32px);
 }
 
 .lightbox-dialog__window--mini {
@@ -21,10 +22,10 @@
     align-self: center;
     border-radius: 7px;
     flex-direction: row;
+    margin-top: 0;
     max-width: 400px;
     min-height: 55px;
     min-width: 200px;
-    top: 50%; // todo: use flex justify instead
 }
 
 .lightbox-dialog__window--alert,
@@ -91,7 +92,7 @@
 .lightbox-dialog--hide,
 .lightbox-dialog--show-init {
     && {
-        display: block;
+        display: flex;
     }
 
     &.lightbox-dialog--mask-fade,
@@ -107,7 +108,7 @@
 .lightbox-dialog--show,
 .lightbox-dialog--hide-init {
     && {
-        display: block;
+        display: flex;
     }
 
     &.lightbox-dialog--mask-fade,
@@ -120,23 +121,16 @@
     }
 }
 
-// MEDIA QUERIES
-//-----------------------------
-@media (max-width: 600px) {
-    .lightbox-dialog__window {
-        .create-grid(@cols: 8, @gutter: 8px, @gutter-exponent: 4, @size: 8, @min: 8, @max: 8);
-    }
-}
-
+// In order to prevent the margins to meet the ege of the page at medium screen sizes
 @media (min-width: 601px) and (max-width: 768px) {
     .lightbox-dialog__window {
-        .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 14, @min: 14, @max: 14);
+        max-width: calc(88% - 32px);
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) {
     .lightbox-dialog__window {
-        .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
+        max-width: @dialog-max-width;
     }
 }
 

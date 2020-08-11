@@ -1,28 +1,5 @@
 @import "../../utility/utility-mixins.less";
 
-@dialog_max_width: 616px;
-@dialog_header_default_margin: 16px 16px 0;
-@dialog_main_default_margin: 16px;
-
-// Element width in percentage - (No of gutters * gutter width / number of elements)px
-.create-grid(@cols, @gutter: 0, @gutter-exponent: 4, @size: 0, @min: 0, @max: 0) {
-    & when not (@size = 0) {
-        width: calc(round(@size / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@min = 0) {
-        min-width: calc(round(@min / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@max = 0) {
-        max-width: calc(round(@max / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when (@max = 0) {
-        max-width: @dialog_max_width;
-    }
-}
-
 .dialog-base() {
     background-color: fade(@dialog-mask-background-color, 70%);
     bottom: 0;
@@ -34,46 +11,27 @@
     top: 0;
     will-change: background-color;
     z-index: 100000; // because global header has an element with 99999
+
+    &:not([hidden]) {
+        display: flex;
+    }
 }
 
-// appears that most of these rules are for lightbox type dialog
 .dialog-window() {
     .customBackgroundColorProperty(dialog-window-background-color);
 
     display: flex;
-    margin: auto;
+    flex: 1 0 auto;
+    flex-direction: column;
     min-height: 55px;
-    position: absolute; // todo: can we not position with flex instead?
     will-change: opacity, transform;
-
-    // The background for the dialog window is on this pseudo element.
-    // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
-    &::before {
-        .customBackgroundColorProperty(dialog-window-background-color);
-
-        bottom: 15vh;
-        content: "";
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
 }
 
-.dialog-window-filler() {
-    bottom: 0;
-    -webkit-overflow-scrolling: touch;
-
-    &::before {
-        display: none;
-    }
-}
-
-.dialog-header-content(@margin: @dialog_header_default_margin) {
+.dialog-header-content() {
     display: flex;
     // Fix for Safari not honoring min-height
     flex-shrink: 0;
-    margin: @margin;
+    margin: @dialog-small-gutter-size @dialog-small-gutter-size 0;
     position: relative;
 
     h2 {
@@ -86,10 +44,10 @@
     }
 }
 
-.dialog-body-content(@margin: @dialog_main_default_margin) {
+.dialog-body-content() {
     box-sizing: border-box;
     flex: 1 1 auto;
-    margin: @margin;
+    margin: @dialog-small-gutter-size;
     position: relative;
 
     & > :first-child {

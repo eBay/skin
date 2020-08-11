@@ -2,26 +2,23 @@
 
 .panel-dialog[role="dialog"] {
     .dialog-base();
+
+    flex-direction: column;
 }
 
 .panel-dialog__window {
     .dialog-window();
-    .dialog-window-filler();
-    .create-grid(@cols: 8, @gutter: 8px, @size: 7, @min: 7, @max: 8);
 
     border-right: 1px solid rgba(153, 153, 153, 0.18);
-    flex-direction: column;
-    left: 0;
+    -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     padding-bottom: 15vh;
-    right: auto;
-    top: 0;
+    width: calc(100% - 32px);
 }
 
 .panel-dialog__window--end {
+    align-self: flex-end;
     border-left: 1px solid rgba(153, 153, 153, 0.18);
-    left: auto;
-    right: 0;
 }
 
 .panel-dialog__header {
@@ -81,7 +78,7 @@
 .panel-dialog--hide,
 .panel-dialog--show-init {
     && {
-        display: block;
+        display: flex;
     }
 
     &.panel-dialog--mask-fade,
@@ -111,7 +108,7 @@
 .panel-dialog--show,
 .panel-dialog--hide-init {
     && {
-        display: block;
+        display: flex;
     }
 
     &.panel-dialog--mask-fade,
@@ -126,25 +123,12 @@
 
 // MEDIA QUERIES
 //-----------------------------
-@media (max-width: 600px) {
-    .panel-dialog__window {
-        .create-grid(@cols: 8, @gutter: 8px, @gutter-exponent: 4, @size: 8, @min: 8, @max: 8);
-    }
-}
-
-@media (min-width: 601px) and (max-width: 768px) {
-    .panel-dialog__window {
-        .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 14, @min: 14, @max: 14);
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .panel-dialog__window {
-        .create-grid(@cols: 16, @gutter: 16px, @gutter-exponent: 2, @size: 12, @min: 0, @max: 0);
-    }
-}
 
 @media (min-width: 601px) {
+    .panel-dialog__window {
+        width: calc(88% - 32px);
+    }
+
     .panel-dialog__header {
         .dialog-header-content-large();
     }

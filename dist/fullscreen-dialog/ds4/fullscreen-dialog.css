@@ -16,6 +16,10 @@
   will-change: background-color;
   z-index: 100000;
 }
+.fullscreen-dialog[role="dialog"]:not([hidden]) {
+  display: -webkit-box;
+  display: flex;
+}
 .fullscreen-dialog--no-mask[role="dialog"] {
   background-color: transparent;
 }
@@ -24,35 +28,15 @@
   background-color: var(--dialog-window-background-color, #fff);
   display: -webkit-box;
   display: flex;
-  margin: auto;
-  min-height: 55px;
-  position: absolute;
-  will-change: opacity, transform;
-  -webkit-overflow-scrolling: touch;
-  bottom: 0;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  left: 0;
-  max-width: 100%;
+  min-height: 55px;
+  will-change: opacity, transform;
+  -webkit-overflow-scrolling: touch;
   overflow-y: auto;
-  padding-bottom: 15vh;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-.fullscreen-dialog__window::before {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  bottom: 15vh;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.fullscreen-dialog__window::before {
-  display: none;
 }
 .fullscreen-dialog__header {
   display: -webkit-box;
@@ -162,7 +146,8 @@
 .fullscreen-dialog--show.fullscreen-dialog--hide-init,
 .fullscreen-dialog--hide-init.fullscreen-dialog--show,
 .fullscreen-dialog--hide-init.fullscreen-dialog--hide-init {
-  display: block;
+  display: -webkit-box;
+  display: flex;
 }
 .fullscreen-dialog--show.fullscreen-dialog--mask-fade,
 .fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade,
