@@ -4,13 +4,15 @@
 .lightbox-dialog[role="alertdialog"] {
     .dialog-base();
 
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: center;
 }
 
 .lightbox-dialog__window {
     .dialog-window();
 
+    // This is needed for IE11 in order to show the right size
+    flex-basis: @dialog-max-width;
     margin-top: 15vh;
     max-width: calc(100% - 32px);
 }
