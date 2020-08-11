@@ -31,6 +31,7 @@ require('./radio');
 require('./section-notice');
 require('./select');
 require('./spinner');
+require('./stepper');
 require('./switch');
 require('./tab');
 require('./textbox');
