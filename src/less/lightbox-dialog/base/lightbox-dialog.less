@@ -8,6 +8,7 @@
     justify-content: center;
 }
 
+.lightbox-dialog__window--compact,
 .lightbox-dialog__window {
     .dialog-window();
 
@@ -28,22 +29,9 @@
     min-width: 200px;
 }
 
-.lightbox-dialog__window--alert,
-.lightbox-dialog__window--confirm {
+.lightbox-dialog__window--compact {
     text-align: center;
 }
-
-.lightbox-dialog__window--alert .lightbox-dialog__footer ,
-.lightbox-dialog__window--confirm .lightbox-dialog__footer  {
-    flex-direction: row;
-    padding-top: 0;
-}
-
-.lightbox-dialog__window--confirm .lightbox-dialog__reject {
-    margin-top: 16px;
-    margin-right: 5px;
-}
-
 
 .lightbox-dialog__header {
     .dialog-header-content();
@@ -57,6 +45,16 @@
 
 .lightbox-dialog__footer {
     .dialog-footer-content();
+}
+
+.lightbox-dialog__window--compact .lightbox-dialog__footer {
+    flex-direction: row;
+    padding-top: 0;
+
+    & > :first-child {
+        margin-right: 5px;
+        margin-top: 16px;
+    }
 }
 
 .lightbox-dialog__back,
@@ -135,19 +133,21 @@
 
 // In order to prevent the margins to meet the ege of the page at medium screen sizes
 @media (min-width: 601px) and (max-width: 768px) {
-    .lightbox-dialog__window {
+    .lightbox-dialog__window,
+    .lightbox-dialog__window--compact {
         max-width: calc(88% - 32px);
     }
 }
 
 @media (min-width: 769px) {
-    .lightbox-dialog__window {
+    .lightbox-dialog__window,
+    .lightbox-dialog__window--compact {
         max-width: @dialog-max-width;
     }
 }
 
 @media (min-width: 601px) {
-    .lightbox-dialog__window:not(.lightbox-dialog__window--alert):not(.lightbox-dialog__window--confirm) {
+    .lightbox-dialog__window {
         .lightbox-dialog__header {
             .dialog-header-content-large();
         }
