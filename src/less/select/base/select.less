@@ -67,13 +67,7 @@ span.select {
     padding-left: 0;
     width: auto;
 
-    &[disabled] {
-        background-color: @select-borderless-disabled-background-color;
-        color: @select-borderless-disabled-color;
-    }
-
     &:focus {
-        border-color: @select-borderless-focus-border-color;
         text-decoration: underline;
     }
 }
@@ -91,8 +85,12 @@ span.select {
 
 .select select[disabled] {
     background-color: @select-disabled-background-color;
-    border: 0;
-    color: @select-disabled-color;
+    color: @select-disabled-foregound-color;
+}
+
+.select--borderless select[disabled] {
+    background-color: @select-borderless-disabled-background-color;
+    color: @select-borderless-disabled-foregound-color;
 }
 
 .select select[readonly] {
@@ -126,5 +124,5 @@ span.select {
 }
 
 .select select[disabled] + svg {
-    opacity: 0.5;
+    color: @select-disabled-foregound-color;
 }
