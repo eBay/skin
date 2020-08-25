@@ -112,7 +112,7 @@
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-lightbox-button" data-makeup-dialog-button-for="lightbox-dialog-fade-0" type="button">Open Lightbox Dialog with Fade Transition</button>
-            <div aria-labelledby="lightbox-dialog-fade-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" data-makeup-dialog-has-transitions="true" hidden id="lightbox-dialog-fade-0" role="dialog">
+            <div aria-labelledby="lightbox-dialog-fade-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-fade-0" role="dialog">
                 <div class="lightbox-dialog__window lightbox-dialog__window--fade">
                     <div class="lightbox-dialog__header">
                         <h2 id="lightbox-dialog-fade-title" class="large-text-1 bold-text">Heading</h2>
@@ -165,7 +165,7 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn btn--primary dialog-lightbox-button" data-makeup-dialog-button-for="lightbox-dialog-mini-0" data-makeup-dialog-has-transitions="true" type="button">Open Mini Lightbox Dialog</button>
+            <button class="btn btn--primary dialog-lightbox-button" data-makeup-dialog-button-for="lightbox-dialog-mini-0" type="button">Open Mini Lightbox Dialog</button>
             <div aria-label="Infotip" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-mini-0" role="dialog">
                 <div class="lightbox-dialog__window lightbox-dialog__window--mini lightbox-dialog__window--fade">
                     <div class="lightbox-dialog__main">
@@ -272,12 +272,18 @@
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-lightbox-button" data-makeup-dialog-button-for="lightbox-dialog-confirm-0" type="button">Open Confirmation Dialog</button>
-            <div aria-labelledby="lightbox-dialog-confirmation-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" data-makeup-dialog-has-transitions="true" hidden id="lightbox-dialog-confirm-0" role="dialog">
-                <div class="lightbox-dialog__window lightbox-dialog__window--confirm lightbox-dialog__window--fade">
-                    <h2 id="lightbox-dialog-confirmation-title" class="large-text-1 bold-text">Delete Address?</h2>
-                    <p id="confirmation-description-0">You will permanently lose this address.<p>
-                    <button class="btn lightbox-dialog__reject">Cancel</button>
-                    <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="confirmation-description-0">Delete</button>
+            <div aria-labelledby="lightbox-dialog-confirmation-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-confirm-0" role="dialog">
+                <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+                    <div class="lightbox-dialog__header">
+                        <h2 id="lightbox-dialog-confirmation-title" class="large-text-1 bold-text">Delete Address?</h2>
+                    </div>
+                    <div class="lightbox-dialog__main">
+                    <p id="confirmation-description-0">You will permanently lose this address.</p>
+                    </div>
+                    <div class="lightbox-dialog__footer">
+                        <button class="btn lightbox-dialog__reject">Cancel</button>
+                        <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="confirmation-description-0">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,11 +292,17 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden role="dialog">
     <div class="lightbox-dialog__window lightbox-dialog__window--fade">
-        <div class="lightbox-dialog__window lightbox-dialog__window--confirm lightbox-dialog__window--fade">
-            <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Delete Address?</h2>
-            <p id="confirmation-description">You will permanently lose this address.<p>
-            <button class="btn lightbox-dialog__reject">Cancel</button>
-            <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="confirmation-description">Delete</button>
+        <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+            <div class="lightbox-dialog__header">
+                <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Delete Address?</h2>
+            </div>
+            <div class="lightbox-dialog__main">
+                <p id="confirmation-description">You will permanently lose this address.<p>
+            </div>
+            <div class="lightbox-dialog__footer">
+                <button class="btn lightbox-dialog__reject">Cancel</button>
+                <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="confirmation-description">Delete</button>
+            </div>
         </div>
     </div>
 </div>
@@ -304,23 +316,33 @@
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary dialog-lightbox-button" data-makeup-dialog-button-for="lightbox-dialog-alert-0" type="button">Open Alert Dialog</button>
-            <div aria-labelledby="lightbox-dialog-alert-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" data-makeup-dialog-has-transitions="true" hidden id="lightbox-dialog-alert-0" role="alertdialog">
-                <div class="lightbox-dialog__window lightbox-dialog__window--alert lightbox-dialog__window--fade">
-                    <h2 id="lightbox-dialog-alert-title" class="large-text-1 bold-text">Alert!</h2>
-                    <p id="alert-description-0">You must acknowledge this alert to continue.<p>
-                    <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="alert-description-0">OK</button>
+            <div aria-labelledby="lightbox-dialog-alert-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-alert-0" role="alertdialog">
+                <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+                    <div class="lightbox-dialog__header">
+                        <h2 id="lightbox-dialog-alert-title" class="large-text-1 bold-text">Alert!</h2>
+                    </div>
+                    <div class="lightbox-dialog__main">
+                        <p id="alert-description-0">You must acknowledge this alert to continue.</p>
+                    </div>
+                    <div class="lightbox-dialog__footer">
+                        <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="alert-description-0">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden role="alertdialog">
-    <div class="lightbox-dialog__window lightbox-dialog__window--fade">
-        <div class="lightbox-dialog__window lightbox-dialog__window--alert lightbox-dialog__window--fade">
-            <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Alert!</h2>
-            <p id="alert-description">You must acknowledge this alert to continue.<p>
-            <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="alert-description">OK</button>
+<div aria-labelledby="lightbox-dialog-alert-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-alert-0" role="alertdialog">
+    <div class="lightbox-dialog__compact-window lightbox-dialog__compact-window--fade">
+        <div class="lightbox-dialog__header">
+            <h2 id="lightbox-dialog-alert-title" class="large-text-1 bold-text">Alert!</h2>
+        </div>
+        <div class="lightbox-dialog__main">
+            <p id="alert-description-0">You must acknowledge this alert to continue.</p>
+        </div>
+        <div class="lightbox-dialog__footer">
+            <button class="btn btn--primary lightbox-dialog__confirm" aria-describedby="alert-description-0">OK</button>
         </div>
     </div>
 </div>
