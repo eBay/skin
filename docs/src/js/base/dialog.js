@@ -45,6 +45,14 @@ function onCloseTransitionEnd() {
     this.observeEvents();
 }
 
+function onResetButtonClick() {
+    this.open = false;
+}
+
+function onDoneButtonClick() {
+    this.open = false;
+}
+
 function onRejectButtonClick() {
     this.open = false;
 }
@@ -80,10 +88,14 @@ module.exports = class {
 
         this._windowEl = this._el.querySelector(`.${baseClass}__window`);
         this._closeButtonEl = this._el.querySelector(`.${baseClass}__close`);
+        this._resetButtonEl = this._el.querySelector(`.${baseClass}__reset`);
+        this._doneButtonEl = this._el.querySelector(`.${baseClass}__done`);
         this._confirmButtonEl = this._el.querySelector(`.${baseClass}__confirm`);
         this._rejectButtonEl = this._el.querySelector(`.${baseClass}__reject`);
 
         this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
+        this._onResetButtonClickListener = onResetButtonClick.bind(this);
+        this._onDoneButtonClickListener = onDoneButtonClick.bind(this);
         this._onConfirmButtonClickListener = onConfirmButtonClick.bind(this);
         this._onRejectButtonClickListener = onRejectButtonClick.bind(this);
         this._onKeyDownListener = onKeyDown.bind(this);
@@ -158,6 +170,14 @@ module.exports = class {
         this._el.removeEventListener('click', this._onCloseButtonClickListener);
         document.removeEventListener('keydown', this._onKeyDownListener);
 
+        if (this._resetButtonEl) {
+            this._resetButtonEl.removeEventListener('click', this._onResetButtonClickListener);
+        }
+
+        if (this._doneButtonEl) {
+            this._doneButtonEl.removeEventListener('click', this._onDoneButtonClickListener);
+        }
+
         if (this._confirmButtonEl) {
             this._confirmButtonEl.removeEventListener('click', this._onConfirmButtonClickListener);
         }
@@ -175,6 +195,14 @@ module.exports = class {
                 this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
             }
 
+            if (this._resetButtonEl) {
+                this._resetButtonEl.addEventListener('click', this._onResetButtonClickListener);
+            }
+
+            if (this._doneButtonEl) {
+                this._doneButtonEl.addEventListener('click', this._onDoneButtonClickListener);
+            }
+
             if (this._confirmButtonEl) {
                 this._confirmButtonEl.addEventListener('click', this._onConfirmButtonClickListener);
             }
@@ -190,6 +218,8 @@ module.exports = class {
         this.unobserveEvents();
 
         this._onCloseButtonClickListener = null;
+        this._onResetButtonClickListener = null;
+        this._onDoneButtonClickListener = null;
         this._onConfirmButtonClickListener = null;
         this._onRejectButtonClickListener = null;
         this._onKeyDownListener = null;
