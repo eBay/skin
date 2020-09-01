@@ -16,7 +16,7 @@ require('./fullscreen-dialog');
 require('./icon');
 require('./infotip');
 require('./inline-notice');
-require('./label');
+require('./floating-label');
 require('./lightbox-dialog');
 require('./link');
 require('./listbox-button');
