@@ -88,14 +88,14 @@ document.querySelectorAll('.dialog-panel-button').forEach(function(widgetEl) {
 });
 
 // DRAWER (modal dialog)
-document.querySelectorAll('.drawer-button').forEach(function(widgetEl) {
-    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer' });
+document.querySelectorAll('.dialog-drawer-button').forEach(function(widgetEl) {
+    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer-dialog' });
 
     pageWidgets.push(widget);
 
     // this bit is a little hacky until I create a drawer.js subclass
-    widget.dialog._el.querySelector('.drawer__handle').addEventListener('click', function() {
-        widget.dialog._el.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
+    widget.dialog._el.querySelector('.drawer-dialog__handle').addEventListener('click', function() {
+        widget.dialog._el.querySelector('.drawer-dialog__window').classList.toggle('drawer-dialog__window--expanded');
     });
 });
 
@@ -269,6 +269,6 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 });
 
 // TOAST (non-modal dialog)
-document.querySelectorAll('.toast-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast' }));
+document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
 });

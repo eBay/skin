@@ -1,0 +1,198 @@
+.drawer-dialog {
+  --dialog-window-background-color: #fff;
+  --dialog-back-close-foreground-color: #111820;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-1 .drawer-dialog {
+    --dialog-window-background-color: #212121;
+    --dialog-back-close-foreground-color: #dcdcdc;
+  }
+}
+/* large screens */
+.drawer-dialog[role="dialog"] {
+  background-color: rgba(17, 24, 32, 0.7);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 100000;
+  -webkit-box-align: end;
+          align-items: flex-end;
+}
+.drawer-dialog[role="dialog"]:not([hidden]) {
+  display: -webkit-box;
+  display: flex;
+}
+.drawer-dialog--no-mask[role="dialog"] {
+  background-color: transparent;
+}
+.drawer-dialog__header {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
+  margin: 16px 16px 0;
+  position: relative;
+}
+.drawer-dialog__header h2 {
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 0;
+}
+.drawer-dialog__header > :last-child:not(:only-child) {
+  margin-left: 16px;
+}
+.drawer-dialog__handle {
+  background-color: transparent;
+  border: none;
+  left: 0;
+  margin: -11px auto;
+  padding: 8px;
+  position: relative;
+  right: 0;
+  top: 11px;
+  z-index: 2;
+}
+.drawer-dialog__handle::after {
+  background-color: #a2a2a2;
+  border-radius: 5px;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 20px;
+}
+.drawer-dialog__main {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  margin: 16px;
+  position: relative;
+  min-height: auto;
+  overflow: auto;
+}
+.drawer-dialog__main > :first-child {
+  margin-top: 0;
+}
+.drawer-dialog__main > :last-child {
+  margin-bottom: 0;
+}
+.drawer-dialog__footer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding: 16px;
+  position: relative;
+}
+.drawer-dialog__footer > :not(:first-child) {
+  margin-top: 16px;
+}
+.drawer-dialog__back,
+.drawer-dialog__close {
+  color: #111820;
+  color: var(--dialog-back-close-foreground-color, #111820);
+  background-color: transparent;
+  border: 0;
+  z-index: 1;
+}
+.drawer-dialog__back:hover,
+.drawer-dialog__close:hover,
+.drawer-dialog__back:focus,
+.drawer-dialog__close:focus {
+  color: #3665f3;
+}
+.drawer-dialog__window {
+  background-color: #fff;
+  background-color: var(--dialog-window-background-color, #fff);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  min-height: 55px;
+  will-change: opacity, transform;
+  border-radius: 16px 16px 0 0;
+  max-height: 50%;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+}
+.drawer-dialog__window--expanded {
+  height: 95%;
+  max-height: 95%;
+}
+.drawer-dialog__window--slide {
+  -webkit-transition: max-height 0.32s ease-out;
+  transition: max-height 0.32s ease-out;
+}
+.drawer-dialog--show.drawer-dialog--mask-fade,
+.drawer-dialog--hide.drawer-dialog--mask-fade {
+  -webkit-transition: background-color 0.16s ease-out;
+  transition: background-color 0.16s ease-out;
+}
+.drawer-dialog--show.drawer-dialog--mask-fade-slow,
+.drawer-dialog--hide.drawer-dialog--mask-fade-slow {
+  -webkit-transition: background-color 0.32s ease-out;
+  transition: background-color 0.32s ease-out;
+}
+.drawer-dialog--show .drawer-dialog__window--fade,
+.drawer-dialog--hide .drawer-dialog__window--fade {
+  -webkit-transition: opacity 0.16s ease-out;
+  transition: opacity 0.16s ease-out;
+}
+.drawer-dialog--show .drawer-dialog__window--slide,
+.drawer-dialog--hide .drawer-dialog__window--slide {
+  -webkit-transition: -webkit-transform 0.32s ease-out;
+  transition: -webkit-transform 0.32s ease-out;
+  transition: transform 0.32s ease-out;
+  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
+}
+.drawer-dialog--hide.drawer-dialog--hide,
+.drawer-dialog--hide.drawer-dialog--show-init,
+.drawer-dialog--show-init.drawer-dialog--hide,
+.drawer-dialog--show-init.drawer-dialog--show-init {
+  display: -webkit-box;
+  display: flex;
+}
+.drawer-dialog--hide.drawer-dialog--mask-fade,
+.drawer-dialog--show-init.drawer-dialog--mask-fade,
+.drawer-dialog--hide.drawer-dialog--mask-fade-slow,
+.drawer-dialog--show-init.drawer-dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0);
+}
+.drawer-dialog--hide .drawer-dialog__window--slide,
+.drawer-dialog--show-init .drawer-dialog__window--slide {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+.drawer-dialog--show.drawer-dialog--show,
+.drawer-dialog--show.drawer-dialog--hide-init,
+.drawer-dialog--hide-init.drawer-dialog--show,
+.drawer-dialog--hide-init.drawer-dialog--hide-init {
+  display: -webkit-box;
+  display: flex;
+}
+.drawer-dialog--show.drawer-dialog--mask-fade,
+.drawer-dialog--hide-init.drawer-dialog--mask-fade,
+.drawer-dialog--show.drawer-dialog--mask-fade-slow,
+.drawer-dialog--hide-init.drawer-dialog--mask-fade-slow {
+  background-color: rgba(17, 24, 32, 0.7);
+}
+.drawer-dialog--show .drawer-dialog__window--fade,
+.drawer-dialog--hide-init .drawer-dialog__window--fade {
+  opacity: 1;
+}
+.drawer-dialog--show .drawer-dialog__window--slide,
+.drawer-dialog--hide-init .drawer-dialog__window--slide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
