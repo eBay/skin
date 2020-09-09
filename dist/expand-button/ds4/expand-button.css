@@ -1,4 +1,19 @@
 button.expand-btn {
+  --button-border-radius: 3px;
+  --button-primary-background-color: #0654ba;
+  --button-primary-border-color: #0654ba;
+  --button-primary-foreground-color: #fff;
+  --button-primary-disabled-background-color: #0654ba;
+  --button-primary-disabled-border-color: #0654ba;
+  --button-primary-disabled-foreground-color: #fff;
+  --button-secondary-background-color: rgba(238, 238, 238, 0.5);
+  --button-secondary-border-color: #999;
+  --button-secondary-foreground-color: #555;
+  --button-secondary-disabled-background-color: #ccc;
+  --button-secondary-disabled-border-color: #999;
+  --button-secondary-disabled-foreground-color: #555;
+}
+button.expand-btn {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: inherit;
@@ -69,8 +84,19 @@ span.expand-btn__cell--truncated > svg {
 }
 button.expand-btn--primary {
   background-color: #0654ba;
+  background-color: var(--button-primary-background-color, #0654ba);
   border-color: #0654ba;
+  border-color: var(--button-primary-border-color, #0654ba);
   color: #fff;
+  color: var(--button-primary-foreground-color, #fff);
+}
+button.expand-btn--primary:focus,
+button.expand-btn--primary:hover,
+button.expand-btn--primary:active {
+  background-color: #00489f;
+  background-color: var(--button-primary-hover-background-color, #00489f);
+  border-color: #0654ba;
+  border-color: var(--button-primary-hover-foreground-color, #0654ba);
 }
 span.expand-btn__cell--fixed-height svg.icon {
   align-self: center;
@@ -98,26 +124,47 @@ button.expand-btn[aria-disabled="true"] {
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
   background-color: #0654ba;
+  background-color: var(--button-primary-disabled-background-color, #0654ba);
   border-color: #0654ba;
+  border-color: var(--button-primary-disabled-border-color, #0654ba);
   color: #fff;
+  color: var(--button-primary-disabled-foreground-color, #fff);
 }
 button.expand-btn--primary[disabled]:hover,
 button.expand-btn--primary[aria-disabled="true"]:hover,
 button.expand-btn--primary[disabled]:focus,
 button.expand-btn--primary[aria-disabled="true"]:focus {
   background-color: #0654ba;
+  background-color: var(--button-primary-disabled-background-color, #0654ba);
   border-color: #0654ba;
+  border-color: var(--button-primary-disabled-border-color, #0654ba);
 }
 button.expand-btn--secondary {
   background-color: rgba(238, 238, 238, 0.5);
+  background-color: var(--button-secondary-background-color, rgba(238, 238, 238, 0.5));
   border-color: #999;
+  border-color: var(--button-secondary-border-color, #999);
   color: #555;
+  color: var(--button-secondary-foreground-color, #555);
+}
+button.expand-btn--secondary:focus,
+button.expand-btn--secondary:hover,
+button.expand-btn--secondary:active {
+  background-color: rgba(221, 221, 221, 0.5);
+  background-color: var(--button-secondary-hover-background-color, rgba(221, 221, 221, 0.5));
+  border-color: #555;
+  border-color: var(--button-secondary-hover-foreground-color, #555);
+  color: #555;
+  color: var(--button-secondary-hover-foreground-color, #555);
 }
 button.expand-btn--secondary[disabled],
 button.expand-btn--secondary[aria-disabled="true"] {
   background-color: #ccc;
+  background-color: var(--button-secondary-disabled-background-color, #ccc);
   border-color: #999;
+  border-color: var(--button-secondary-disabled-border-color, #999);
   color: #555;
+  color: var(--button-secondary-disabled-foreground-color, #555);
 }
 button.expand-btn--secondary[disabled]:hover,
 button.expand-btn--secondary[aria-disabled="true"]:hover,
@@ -126,7 +173,9 @@ button.expand-btn--secondary[aria-disabled="true"]:focus,
 button.expand-btn--secondary[disabled]:active,
 button.expand-btn--secondary[aria-disabled="true"]:active {
   background-color: #ccc;
+  background-color: var(--button-secondary-disabled-background-color, #ccc);
   border-color: #999;
+  border-color: var(--button-secondary-disabled-border-color, #999);
 }
 button.expand-btn svg.icon:only-child {
   display: -webkit-box;
