@@ -1,14 +1,19 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+// .filter-group also exists in filter-button
+// todo: move to utility/layout class
 div.filter-group {
-    .filter-group();
+    display: flex;
+    flex-wrap: wrap;
 }
 
 span.filter-menu-button {
-    .filter-button-sibling-spacing();
-
     display: inline-block;
     position: relative;
+
+    & + & {
+        margin-left: 8px;
+    }
 }
 
 button.filter-menu-button__button {
@@ -52,9 +57,10 @@ button.filter-menu-button__button[aria-expanded="true"] {
 }
 
 button.filter-menu-button__button[aria-pressed="true"] {
-    .filter-button-selected();
     .customBackgroundColorProperty(filter-button-selected-background-color);
     .customColorProperty(filter-button-selected-foreground-color);
+
+    font-weight: bold;
 
     &:focus,
     &:hover,
@@ -71,9 +77,8 @@ button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
 button.filter-menu-button__button[aria-pressed="true"][disabled],
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
-    .filter-button-disabled();
-
     color: @filter-button-disabled-foreground-color;
+    font-weight: normal;
 
     &:hover,
     &:focus {
