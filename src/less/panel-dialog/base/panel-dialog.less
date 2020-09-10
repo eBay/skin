@@ -26,6 +26,7 @@
 }
 
 .panel-dialog__header .fake-link {
+    outline-offset: 4px;
     text-decoration: none;
 }
 
@@ -37,21 +38,16 @@
     .dialog-footer-content();
 }
 
-.panel-dialog__back,
-.panel-dialog__close {
-    .customColorProperty(dialog-back-close-foreground-color);
-
+// inherits from .icon-btn
+button.panel-dialog__close {
     align-self: center;
-    background-color: transparent;
     border: 0;
+    height: auto;
+    outline-offset: 4px;
     padding: 0;
     position: relative;
+    width: auto;
     z-index: 1;
-
-    &:hover,
-    &:focus {
-        color: @dialog-back-close-hover-foreground-color;
-    }
 }
 
 .panel-dialog__title {
@@ -87,7 +83,7 @@
 
     &.panel-dialog--mask-fade,
     &.panel-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+        background-color: fade(@dialog-mask-background-color, 0%);
     }
 
     .panel-dialog__window--slide-left {
@@ -117,7 +113,7 @@
 
     &.panel-dialog--mask-fade,
     &.panel-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+        background-color: fade(@dialog-mask-background-color, 70%);
     }
 
     .panel-dialog__window--slide {

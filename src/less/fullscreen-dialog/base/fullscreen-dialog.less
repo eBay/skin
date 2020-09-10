@@ -28,21 +28,16 @@
     .dialog-footer-content();
 }
 
-.fullscreen-dialog__back,
-.fullscreen-dialog__close {
-    .customColorProperty(dialog-back-close-foreground-color);
-
+// inherits from .icon-btn
+button.fullscreen-dialog__close {
     align-self: center;
-    background-color: transparent;
     border: 0;
+    height: auto;
+    outline-offset: 4px;
     padding: 0;
     position: relative;
+    width: auto;
     z-index: 1;
-
-    &:hover,
-    &:focus {
-        color: @dialog-back-close-hover-foreground-color;
-    }
 }
 
 .fullscreen-dialog--show,
@@ -72,7 +67,7 @@
 
     &.fullscreen-dialog--mask-fade,
     &.fullscreen-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+        background-color: fade(@dialog-mask-background-color, 0%);
     }
 
     .fullscreen-dialog__window--fade {
@@ -92,7 +87,7 @@
 
     &.fullscreen-dialog--mask-fade,
     &.fullscreen-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+        background-color: fade(@dialog-mask-background-color, 70%);
     }
 
     .fullscreen-dialog__window--fade {
