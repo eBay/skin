@@ -5,7 +5,7 @@ export const primaryAction = () => `
     <div class="toast-dialog__window">
         <div class="toast-dialog__header">
             <h2>User Privacy Preferences</h2>
-            <button class="icon-btn" type="button" aria-label="Close notification dialog">
+            <button class="icon-btn toast-dialog__close" type="button" aria-label="Close notification dialog">
                 <svg class="icon icon--close" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-close"></use>
                 </svg>
@@ -27,7 +27,7 @@ export const secondaryAction = () => `
     <div class="toast-dialog__window">
         <div class="toast-dialog__header">
             <h2>User Privacy Preferences</h2>
-            <button class="icon-btn" type="button" aria-label="Close notification dialog">
+            <button class="icon-btn toast-dialog__close" type="button" aria-label="Close notification dialog">
                 <svg class="icon icon--close" focusable="false" height="24" width="24">
                     <use xlink:href="#icon-close"></use>
                 </svg>

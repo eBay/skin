@@ -47,18 +47,14 @@
     .dialog-footer-content();
 }
 
-.drawer-dialog__back,
-.drawer-dialog__close {
-    .customColorProperty(dialog-back-close-foreground-color);
-
+// inherits from .icon-btn
+button.drawer-dialog__close {
     background-color: transparent;
     border: 0;
+    height: auto;
+    outline-offset: 4px;
+    width: auto;
     z-index: 1;
-
-    &:hover,
-    &:focus {
-        color: @dialog-back-close-hover-foreground-color;
-    }
 }
 
 .drawer-dialog__window {
@@ -111,7 +107,7 @@
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-hide-mask-fade-background-color, 0%);
+        background-color: fade(@dialog-mask-background-color, 0%);
     }
 
     // code smell, chained modifier
@@ -130,7 +126,7 @@
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-transitions-show-mask-fade-background-color, 70%);
+        background-color: fade(@dialog-mask-background-color, 70%);
     }
 
     // Child animations.

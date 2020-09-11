@@ -66,14 +66,20 @@
     margin: 0;
 }
 
-.toast-dialog__close {
-    .customBackgroundColorProperty(toast-dialog-background-color);
-    .customColorProperty(toast-dialog-foreground-color);
-
+// inherits from .icon-btn
+button.toast-dialog__close {
     align-self: center;
     border: 0;
+    height: auto;
     margin: 0 0 0 auto;
     padding: 0;
+    width: auto;
+
+    > svg,
+    &:hover > svg,
+    &:focus > svg {
+        .customFillProperty(toast-dialog-foreground-color);
+    }
 
     &:focus {
         .toast-dialog-outline();

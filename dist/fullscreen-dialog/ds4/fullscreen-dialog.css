@@ -2,7 +2,6 @@
 .fullscreen-dialog {
   --dialog-mask-background-color: #333;
   --dialog-window-background-color: #fff;
-  --dialog-back-close-foreground-color: #333;
 }
 .fullscreen-dialog[role="dialog"] {
   background-color: rgba(51, 51, 51, 0.7);
@@ -54,6 +53,10 @@
 .fullscreen-dialog__header > :last-child:not(:only-child) {
   margin-left: 16px;
 }
+.fullscreen-dialog__header .fake-link {
+  outline-offset: 4px;
+  text-decoration: none;
+}
 .fullscreen-dialog__main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -83,22 +86,15 @@
 .fullscreen-dialog__footer > :not(:first-child) {
   margin-top: 16px;
 }
-.fullscreen-dialog__back,
-.fullscreen-dialog__close {
-  color: #333;
-  color: var(--dialog-back-close-foreground-color, #333);
+button.fullscreen-dialog__close,
+button.fullscreen-dialog__back {
   align-self: center;
-  background-color: transparent;
   border: 0;
+  outline-offset: 4px;
   padding: 0;
   position: relative;
+  width: auto;
   z-index: 1;
-}
-.fullscreen-dialog__back:hover,
-.fullscreen-dialog__close:hover,
-.fullscreen-dialog__back:focus,
-.fullscreen-dialog__close:focus {
-  color: #0654ba;
 }
 .fullscreen-dialog--show.fullscreen-dialog--mask-fade,
 .fullscreen-dialog--hide.fullscreen-dialog--mask-fade {
