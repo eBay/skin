@@ -31,12 +31,18 @@
     display: flex;
     // Fix for Safari not honoring min-height
     flex-shrink: 0;
-    margin: @dialog-small-gutter-size @dialog-small-gutter-size 0;
+    margin: @dialog-small-gutter-size (@dialog-small-gutter-size - 8) 0;
     position: relative;
 
-    h2 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        align-self: center;
         flex: 1 1 auto;
-        margin: 0;
+        margin: 0 8px;
     }
 
     & > :last-child:not(:only-child) {
@@ -74,16 +80,11 @@
 /* large screens */
 
 .dialog-header-content-large() {
-    margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
-
-    & > :last-child {
-        margin-left: @dialog-large-gutter-size;
-        margin-top: initial;
-    }
+    margin: (@dialog-large-gutter-size - 8px) (@dialog-large-gutter-size - 8px) 0;
 }
 
 .dialog-body-content-large() {
-    margin: @dialog-large-gutter-size;
+    margin: (@dialog-large-gutter-size - 8px) @dialog-large-gutter-size @dialog-large-gutter-size;
 }
 
 .dialog-footer-content-large() {
