@@ -25,7 +25,7 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        .customFillProperty(actionable-icon-foreground-color);
+        .customFillProperty(icon-button-icon-foreground-color);
 
         height: 100%; // vertical centering
         max-width: 100%; // helps when width & height HTML attrs not set
@@ -33,12 +33,12 @@ a.icon-link {
     }
 
     &:active > svg {
-        .customFillProperty(actionable-icon-active-foreground-color);
+        .customFillProperty(icon-button-icon-active-foreground-color);
     }
 
     &:focus > svg,
     &:hover > svg {
-        .customFillProperty(actionable-icon-hover-foreground-color);
+        .customFillProperty(icon-button-icon-hover-foreground-color);
     }
 }
 
@@ -58,12 +58,12 @@ a[aria-disabled="true"].icon-link {
 // visited link state
 a.icon-link:visited {
     & > svg {
-        .customFillProperty(actionable-icon-foreground-color);
+        .customFillProperty(icon-button-icon-foreground-color);
     }
 
     &:hover > svg,
     &:focus > svg {
-        .customFillProperty(actionable-icon-hover-foreground-color);
+        .customFillProperty(icon-button-icon-hover-foreground-color);
     }
 }
 
@@ -76,7 +76,7 @@ a.icon-link--badged {
     position: relative;
 
     .badge {
-        .customBorderColorProperty(actionable-badge-border-color);
+        .customBorderColorProperty(icon-button-badge-border-color);
 
         border-style: solid;
         border-width: 2px;
@@ -93,40 +93,24 @@ a.icon-link--badged {
     }
 }
 
-// images
+// actionable images
+// todo: move to "button" module
 //-----------------------------
-
-a.img-link {
-    &[href] {
-        &:hover,
-        &:focus {
-            .customBorderColorProperty(actionable-image-hover-border-color);
-        }
-
-        &:active {
-            border-color: @actionable-image-active-border-color;
-        }
-    }
-}
-
-a.img-link,
-button.img-btn {
-    border: 1px solid transparent;
-    display: inline-flex;
-}
 
 button.img-btn {
     background-color: transparent;
+    border: 1px solid transparent;
+    display: inline-flex;
     padding: 0;
 
     &:not([disabled]) {
         &:hover,
         &:focus {
-            .customBorderColorProperty(actionable-image-hover-border-color);
+            border-color: @color-action-secondary;
         }
 
         &:active {
-            .customBorderColorProperty(actionable-image-active-border-color);
+            border-color: @color-text-secondary;
         }
     }
 }

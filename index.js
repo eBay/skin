@@ -1,6 +1,5 @@
 require('./global');
 require('./utility');
-require('./actionable');
 require('./badge');
 require('./breadcrumb');
 require('./button');
@@ -14,6 +13,7 @@ require('./filter-menu-button');
 require('./filter-menu');
 require('./fullscreen-dialog');
 require('./icon');
+require('./icon-button');
 require('./infotip');
 require('./inline-notice');
 require('./floating-label');

@@ -1,4 +1,4 @@
-export default { title: 'Actionable/Icon Link' };
+export default { title: 'Fake Icon Button' };
 
 export const menu = () => `
 <a aria-label="menu" class="icon-link" href="http://www.ebay.com">

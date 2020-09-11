@@ -1,4 +1,4 @@
-export default { title: 'Actionable/Icon Button' };
+export default { title: 'Icon Button' };
 
 export const menu = () => `
 <button aria-label="menu" type="button" class="icon-btn">
