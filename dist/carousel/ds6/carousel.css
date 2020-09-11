@@ -1,11 +1,15 @@
 .carousel {
   --carousel-paddle-background-color: #fff;
   --carousel-paddle-foreground-color: #111820;
+  --carousel-playback-background-color: rgba(0, 0, 0, 0.45);
+  --carousel-playback-foreground-color: #fff;
 }
 @media (prefers-color-scheme: dark) {
   .skin-experiment-1 .carousel {
-    --carousel-control-background-color: #171717;
-    --carousel-control-foreground-color: #dcdcdc;
+    --carousel-paddle-background-color: #171717;
+    --carousel-paddle-foreground-color: #dcdcdc;
+    --carousel-playback-background-color: #171717;
+    --carousel-playback-foreground-color: #dcdcdc;
   }
 }
 /* stylelint-disable no-descending-specificity, comment-empty-line-before */
@@ -43,12 +47,14 @@
 }
 .carousel__playback {
   background-color: rgba(0, 0, 0, 0.45);
+  background-color: var(--carousel-playback-background-color, rgba(0, 0, 0, 0.45));
+  color: #fff;
+  color: var(--carousel-playback-foreground-color, #fff);
   border: 0;
   border-radius: 50%;
   bottom: 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #fff;
   height: 40px;
   margin-bottom: 19px;
   margin-right: 19px;
