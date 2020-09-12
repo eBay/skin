@@ -39,58 +39,54 @@
 @color-g4: #5ba71b;
 @color-g6: #457016;
 
-// Product aliases
+// 6.5 Product aliases
+@color-background-default: @color-white;
 @color-text-default: @color-grey6;
 @color-text-secondary: @color-grey5;
 @color-text-disabled: @color-grey4;
+@color-text-confirmation: @color-g6;
+@color-separator: @color-grey1;
 @color-image-border: @color-grey1;
-@color-divider: @color-grey1;
-@color-background-default: @color-white;
-@color-disabled: @color-grey3;
+@color-action-disabled: @color-grey3;
 @color-action-primary: @color-b4;
+@color-action-secondary: @color-grey5;
 @color-action-hover: @color-b6;
-@color-action-disabled: @color-action-primary;
-@color-action-visited: @color-m4;
+@color-action-disabled: @color-grey3;
 @color-action-secondary: @color-grey5;
 @color-action-destroy: @color-r4;
 @color-link-default: @color-action-primary;
 @color-link-hover: @color-action-hover;
-@color-link-visited: @color-action-visited;
-@color-information-background: @color-b1;
-@color-information-text: @color-b4;
-@color-information-icon: @color-b4;
-@color-confirmation-background: @color-g1;
-@color-confirmation-text: @color-g6;
-@color-confirmation-icon: @color-g6;
-@color-attention-background: @color-r1;
-@color-attention-text: @color-r4;
-@color-attention-icon: @color-r4;
+@color-link-visited: @color-m4;
+@color-status-attention: @color-r4;
+@color-status-confirmation: @color-g4;
+@color-status-information: @color-b4;
+@color-disabled: @color-action-disabled;
+
+// secret colours
+@color-status-attention-light: @color-r1;
+@color-status-confirmation-light: @color-g1;
+@color-status-information-light: @color-b1;
 
 // following variables added to bridge some gaps between ds4 to ds6.
 // these might be temporary...
 
-@color-icon-disabled: @color-disabled;
+@color-icon-disabled: @color-grey3;
 @color-icon-actionable-default: @color-core-gray-davys;
 @color-icon-actionable-hover: @color-grey6;
 @color-icon-actionable-active: @color-core-gray-davys;
-
-@color-action-primary-disabled: @color-action-disabled;
+@color-action-primary-disabled: @color-action-primary;
 @color-action-disabled-opacity: 0.5;
-
 @color-flyout-box-shadow: fade(#000, 15%);
-
 @color-form-control-border: @color-grey3;
 @color-form-control-underline: @color-grey3;
 @color-form-control-background: @color-background-default;
 @color-form-control-foreground: @color-core-gray-davys;
 @color-form-control-disabled-background: @color-grey1;
-@color-form-control-disabled-placeholder: @color-disabled;
+@color-form-control-disabled-placeholder: @color-action-disabled;
 @color-form-control-readonly-foreground: @color-grey6;
 @color-form-control-label-disabled: @color-core-gray-davys;
-
 @color-dropdown-item-hover-background: @color-grey1;
 @color-dropdown-item-active-background: @color-grey3;
-
 @color-filter-selected-background: lighten(@color-b4, 55%);
 @color-filter-selected-hover-background: lighten(@color-b4, 45%);
 
@@ -126,6 +122,10 @@
 @color-link-hover-dark-mode: @color-link-hover;
 @color-link-visited-dark-mode: @color-link-visited;
 
+// Deprecated product aliases
+@color-action-visited: @color-link-visited;
+@color-divider: @color-separator;
+
 // Old DS4 aliases mapped to new DS6.5 palette
 // TODO: deprecate these aliases, replace throughout system with 6.5 aliases
 //-----------------------------
@@ -154,68 +154,11 @@
 @color-core-beige: #f0eeec; // no ds6 mapping
 @color-core-beige-light: #f5f5f5; // no ds6 mapping
 
-// DS4 Transparent Shades
-// deprecated aliases
-//-----------------------------
-
-@color-transparent-black: fade(#000, 100%);
-@color-transparent-gray-dim: fade(#000, 50%);
-@color-transparent-gray-spanish: fade(@color-grey4, 90%);
-@color-transparent-gray-silver: fade(#000, 30%);
-@color-transparent-gray-gainsboro: fade(#000, 15%);
-@color-transparent-white: fade(@color-white, 90%);
-
 // DS4 Text Colours
 // deprecated aliases
 //-----------------------------
 
 @color-text-subheader: @color-grey5;
 @color-text-footnote: @color-grey4;
-@color-text-critical: @color-r4;
-@color-text-positive: @color-confirmation-text;
-
-// DS4 Interface Colours
-// deprecated aliases
-//-----------------------------
-
-@color-interface-hot: @color-r4;
-@color-interface-cta-dark: @color-b6;
-@color-interface-cta: @color-b4;
-@color-interface-cta-light: #81a9dc;
-@color-interface-positive: @color-confirmation-text;
-@color-interface-line-separator: @color-grey2;
-@color-interface-view-background: @color-core-beige;
-@color-interface-base: @color-core-beige;
-@color-interface-base-light: @color-core-beige-light;
-@color-interface-modal-shadow: fade(#000, 30%);
-@color-interface-menu-shadow: fade(#000, 15%);
-@color-interface-inline-text-edit: #fdfbe8;
-
-// DS4 Infographic Colours
-// deprecated aliases
-//-----------------------------
-
-@color-infographic-red-interaction: @color-r6;
-@color-infographic-red: @color-r4;
-@color-infographic-red-light: @color-r3;
-@color-infographic-red-lightest: @color-r1;
-@color-infographic-green-interaction: @color-g6;
-@color-infographic-green: @color-g4;
-@color-infographic-green-light: @color-g3;
-@color-infographic-green-lightest: @color-g1;
-@color-infographic-blue-interaction: @color-b6;
-@color-infographic-blue: @color-b4;
-@color-infographic-blue-light: @color-b3;
-@color-infographic-blue-lightest: @color-b1;
-@color-infographic-orange-interaction: @color-o6;
-@color-infographic-orange: @color-o4;
-@color-infographic-orange-light: @color-o3;
-@color-infographic-orange-lightest: @color-o1;
-@color-infographic-purple-interaction: @color-m6;
-@color-infographic-purple: @color-m4;
-@color-infographic-purple-light: @color-m3;
-@color-infographic-purple-lightest: @color-m1;
-@color-infographic-gray-interaction: @color-grey6;
-@color-infographic-gray: @color-core-gray-davys;
-@color-infographic-gray-light: fade(@color-core-gray-davys, 60%);
-@color-infographic-gray-lightest: fade(@color-core-gray-davys, 20%);
+@color-text-critical: @color-status-attention;
+@color-text-positive: @color-status-confirmation;
