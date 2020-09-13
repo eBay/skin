@@ -1,37 +1,37 @@
-export default { title: 'Icon Button' };
+export default { title: 'Icon Button/Link' };
 
 export const menu = () => `
-<button aria-label="menu" type="button" class="icon-btn">
-    <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
-</button>
+<a aria-label="menu" class="icon-link" href="http://www.ebay.com">
+     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
+</a>
 `;
 
 export const settings = () => `
-<button aria-label="menu" type="button" class="icon-btn">
-    <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
-</button>
+<a aria-label="menu" class="icon-link" href="http://www.ebay.com">
+     <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+</a>
 `;
 
 export const disabledMenu = () => `
-<button type="button" class="icon-btn" aria-label="menu" disabled>
+<a class="icon-link">
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
- </button>
- `;
+</a>
+`;
 
 export const disabledSettings = () => `
-<button type="button" class="icon-btn" aria-label="menu" disabled>
+<a class="icon-link">
     <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
- </button>
- `;
+</a>
+`;
 
 export const partiallyDisabledMenu = () => `
-<button type="button" class="icon-btn" aria-label="menu" aria-disabled="true">
+<a class="icon-link" href="http://www.ebay.com" aria-disabled="true">
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
-</button>
+</a>
 `;
 
 export const partiallyDisabledSettings = () => `
-<button type="button" class="icon-btn" aria-label="menu" aria-disabled="true">
+<a class="icon-link" href="http://www.ebay.com" aria-disabled="true">
     <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
-</button>
+</a>
 `;
