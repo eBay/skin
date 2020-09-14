@@ -27,7 +27,6 @@ a.icon-link {
     > svg {
         .customFillProperty(icon-button-icon-foreground-color);
 
-        height: 100%; // vertical centering
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
     }
@@ -42,25 +41,29 @@ a.icon-link {
     }
 }
 
+// visited link state
+a.icon-link:visited > svg {
+    .customFillProperty(icon-button-icon-foreground-color);
+}
+
 // disabled & partially disabled states
-// todo: change opacity to a color
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
 a:not([href]).icon-link,
 a[aria-disabled="true"].icon-link {
-    opacity: 0.5;
-
     > svg {
         background-color: transparent;
+        fill: @color-action-disabled;
+    }
+
+    &:focus > svg,
+    &:hover > svg {
+        fill: @color-action-disabled;
     }
 }
 
-// visited link state
+// visited link hover/focus states
 a.icon-link:visited {
-    & > svg {
-        .customFillProperty(icon-button-icon-foreground-color);
-    }
-
     &:hover > svg,
     &:focus > svg {
         .customFillProperty(icon-button-icon-hover-foreground-color);
