@@ -13,5 +13,3 @@ export const fake = () => `<button class="fake-link" type="button">Button</butto
 export const fakeAction = () => `<button class="fake-link fake-link--action" type="button">Button</button>`;
 
 export const nav = () => `<a class="nav-link" href="https://www.ebay.com/?r=${Math.floor(Math.random() * Math.floor(1000))}">Link 1</a></li>`;
-
-export const image = () => `<a class="img-link" href="http://www.ebay.com"><img src="https://ebay.github.io/skin/static/iphone.jpg" alt="iphone" /></a>`;
