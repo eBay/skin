@@ -17,10 +17,10 @@ export const base = () => `
 </section>
 `;
 
-export const fullscreen = () => `
+export const screen = () => `
 <div class="demo" style="width: 320px; max-width:90vw">
     <div class="demo__inner" style="height: 500px; max-height: 90vh">
-    <section class="window-notice window-notice--screeb" role="region" aria-label="Congratulations" aria-roledescription="Notice">
+    <section class="window-notice window-notice--screen" role="region" aria-label="Congratulations" aria-roledescription="Notice">
         <div class="window-notice__header">
             <svg class="icon icon--confirmation-filled" focusable="false" height="35" width="35" role="img" aria-label="Congratulations">
                 <use xlink:href="#icon-confirmation-filled"></use>
