@@ -28,10 +28,6 @@ export const large = () => `
 </button>
 `;
 
-export const formSubmit = () => '<button type="submit" class="btn">Submit</button>';
-
-export const formReset = () => '<button type="reset" class="btn">Reset</button>';
-
 export const fluid = () => '<button class="btn btn--fluid">Button</button>';
 
 export const fixedWidth = () => `
@@ -39,3 +35,7 @@ export const fixedWidth = () => `
     Button with a lot of text that should wrap
 </button>
 `;
+
+export const formSubmit = () => '<button type="submit" class="btn">Submit</button>';
+
+export const formReset = () => '<button type="reset" class="btn">Reset</button>';
