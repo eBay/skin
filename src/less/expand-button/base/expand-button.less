@@ -12,6 +12,12 @@ button.expand-btn {
     font-size: 1em;
     max-width: 100%;
     padding: @button-padding;
+
+    &:hover,
+    &:focus {
+        .customBorderColorProperty(expand-button-hover-foreground-color);
+        .customColorProperty(expand-button-hover-foreground-color);
+    }
 }
 
 button.expand-btn svg.icon {
@@ -30,6 +36,7 @@ span.expand-btn__cell {
     justify-content: space-between;
 }
 
+/* primary variant is DEPRECATED */
 button.expand-btn--primary {
     .customBackgroundColorProperty(button-primary-background-color);
     .customBorderColorProperty(button-primary-border-color);
@@ -67,6 +74,7 @@ button.expand-btn[aria-disabled="true"] {
     color: @button-secondary-disabled-foreground-color;
 }
 
+/* primary variant is DEPRECATED */
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
     .customBackgroundColorProperty(button-primary-disabled-background-color);
@@ -80,6 +88,7 @@ button.expand-btn--primary[aria-disabled="true"] {
     }
 }
 
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary {
     .customBackgroundColorProperty(button-secondary-background-color);
     .customBorderColorProperty(button-secondary-border-color);
@@ -94,6 +103,7 @@ button.expand-btn--secondary {
     }
 }
 
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary[disabled],
 button.expand-btn--secondary[aria-disabled="true"] {
     .customBackgroundColorProperty(button-secondary-disabled-background-color);
@@ -163,13 +173,15 @@ button.expand-btn--large-truncated {
 }
 
 // code smell (chained modifier)
-button.expand-btn.expand-btn--no-text {
+button.expand-btn.expand-btn--no-text,
+button.expand-btn.expand-btn--no-padding {
     height: 40px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
 // code smell (chained modifier)
-button.expand-btn--no-text.expand-btn--large {
+button.expand-btn--no-text.expand-btn--large,
+button.expand-btn--no-padding.expand-btn--large {
     height: 48px;
 }

@@ -130,7 +130,7 @@
 <a class="fake-btn fake-btn--primary fake-btn--large" href="http://www.ebay.com">Large Link</a>
     {% endhighlight %}
 
-    <h3 id="button-icon">Icon Button</h3>
+    <h3 id="button-icon-adjacent">Adjacent Icon Button</h3>
     <p>Any SVG icon can be placed adjacent to the button text. To flip position of text and icon, simply swap the DOM order.</p>
     <div class="demo">
         <div class="demo__inner">
@@ -258,6 +258,30 @@
                 <use xlink:href="#icon-chevron-down"></use>
             </svg>
         </span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h3 id="button-icon-standalone">Standalone Icon Button</h3>
+    <p>If no text is present, only and icon, apply the <span class="highlight">btn-no--padding</span> modifier. The button also requires an aria-label.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--no-padding" aria-label="Standalone icon button">
+                <span class="btn__cell">
+                    <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
+                        {% include common/symbol.html name="menu" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--primary" aria-label="Standalone icon button">
+    <span class="btn__cell">
+        <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
     </span>
 </button>
     {% endhighlight %}
