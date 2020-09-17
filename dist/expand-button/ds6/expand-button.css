@@ -1,5 +1,7 @@
 button.expand-btn {
   --button-border-radius: 0;
+  --expand-button-hover-foreground-color: #2b0eaf;
+  /* following properties are deprecated  */
   --button-primary-background-color: #3665f3;
   --button-primary-border-color: #3665f3;
   --button-primary-foreground-color: #fff;
@@ -15,6 +17,8 @@ button.expand-btn {
 }
 @media (prefers-color-scheme: dark) {
   .skin-experiment-1 button.expand-btn {
+    --expand-button-hover-foreground-color: #94bcff;
+    /* following properties are deprecated  */
     --button-primary-background-color: #5192ff;
     --button-primary-foreground-color: #171717;
     --button-primary-hover-background-color: #94bcff;
@@ -62,6 +66,13 @@ button.expand-btn--truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+button.expand-btn:hover,
+button.expand-btn:focus {
+  border-color: #2b0eaf;
+  border-color: var(--expand-button-hover-foreground-color, #2b0eaf);
+  color: #2b0eaf;
+  color: var(--expand-button-hover-foreground-color, #2b0eaf);
+}
 button.expand-btn svg.icon {
   align-self: center;
   flex-shrink: 0;
@@ -100,6 +111,7 @@ span.expand-btn__cell--truncated > svg {
   align-self: baseline;
   max-width: calc(100% - 32px);
 }
+/* primary variant is DEPRECATED */
 button.expand-btn--primary {
   background-color: #3665f3;
   background-color: var(--button-primary-background-color, #3665f3);
@@ -113,8 +125,8 @@ button.expand-btn--primary:hover,
 button.expand-btn--primary:active {
   background-color: #2b0eaf;
   background-color: var(--button-primary-hover-background-color, #2b0eaf);
-  border-color: #3665f3;
-  border-color: var(--button-primary-hover-foreground-color, #3665f3);
+  border-color: #fff;
+  border-color: var(--button-primary-hover-foreground-color, #fff);
 }
 span.expand-btn__cell--fixed-height svg.icon {
   align-self: center;
@@ -139,6 +151,7 @@ button.expand-btn[aria-disabled="true"] {
   border-color: #c7c7c7;
   color: #c7c7c7;
 }
+/* primary variant is DEPRECATED */
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
   background-color: #c7c7c7;
@@ -157,6 +170,7 @@ button.expand-btn--primary[aria-disabled="true"]:focus {
   border-color: #c7c7c7;
   border-color: var(--button-primary-disabled-border-color, #c7c7c7);
 }
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary {
   background-color: #fff;
   background-color: var(--button-secondary-background-color, #fff);
@@ -175,6 +189,7 @@ button.expand-btn--secondary:active {
   color: #2b0eaf;
   color: var(--button-secondary-hover-foreground-color, #2b0eaf);
 }
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary[disabled],
 button.expand-btn--secondary[aria-disabled="true"] {
   background-color: #fff;
@@ -244,11 +259,13 @@ button.expand-btn--large-truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-button.expand-btn.expand-btn--no-text {
+button.expand-btn.expand-btn--no-text,
+button.expand-btn.expand-btn--icon-only {
   height: 40px;
   padding-left: 8px;
   padding-right: 8px;
 }
-button.expand-btn--no-text.expand-btn--large {
+button.expand-btn--no-text.expand-btn--large,
+button.expand-btn--icon-only.expand-btn--large {
   height: 48px;
 }
