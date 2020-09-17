@@ -3,7 +3,7 @@ export default { title: 'Button/Base' };
 export const textOnly = () => '<button class="btn">Button</button>';
 
 export const iconOnly = () => `
-<button type="button" class="btn">
+<button type="button" class="btn btn--icon-only">
     <span class="btn__cell">
         <svg class="icon icon--settings" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
     </span>
