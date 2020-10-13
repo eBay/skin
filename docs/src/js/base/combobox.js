@@ -10,6 +10,10 @@ const Expander = require('makeup-expander');
 const Listbox = require('./listbox.js');
 const Util = require('./util.js');
 
+function onInputFocus() {
+    this.resetFilter();
+}
+
 function onButtonClick() {
     this._expander.toggle();
 }
@@ -113,8 +117,7 @@ function filter(widget) {
     const currentValue = widget._inputEl.value.toLowerCase();
 
     if (numChars === 0) {
-        widget._listboxWidget._activeDescendant.reset();
-        widget._listboxWidget.items.forEach(el => (el.hidden = false));
+        widget.resetFilter();
     } else {
         const matchedItems = Util.nodeListToArray(widget._listboxWidget.items).filter((el) => {
             return el.innerText.substring(0, numChars).toLowerCase() === currentValue;
@@ -166,6 +169,7 @@ module.exports = class {
 
         this._destroyed = false;
 
+        this._onInputFocusListener = onInputFocus.bind(this);
         this._onButtonClickListener = onButtonClick.bind(this);
         this._onButtonFocusListener = onButtonFocus.bind(this);
         this._onListboxClickListener = onListboxClick.bind(this);
@@ -183,6 +187,11 @@ module.exports = class {
         return this._inputEl.getAttribute('aria-autocomplete');
     }
 
+    resetFilter() {
+        this._listboxWidget._activeDescendant.reset();
+        this._listboxWidget.items.forEach(el => (el.hidden = false));
+    }
+
     sleep() {
         if (this._buttonEl) {
             this._buttonEl.removeEventListener('click', this._onButtonClickListener);
@@ -193,6 +202,7 @@ module.exports = class {
             'listbox-active-descendant-change',
             this._onListboxActiveDescendantChangeListener
         );
+        this._inputEl.removeEventListener('focus', this._onInputFocusListener);
         this._inputEl.removeEventListener('keydown', this._onTextboxKeyDownListener);
         this._inputEl.removeEventListener('input', this._onTextboxInputListener);
         this._inputEl.removeEventListener('click', this._onTextboxClickListener);
@@ -209,6 +219,7 @@ module.exports = class {
                 'listbox-active-descendant-change',
                 this._onListboxActiveDescendantChangeListener
             );
+            this._inputEl.addEventListener('focus', this._onInputFocusListener);
             this._inputEl.addEventListener('keydown', this._onTextboxKeyDownListener);
             this._inputEl.addEventListener('input', this._onTextboxInputListener);
             this._inputEl.addEventListener('click', this._onTextboxClickListener);
@@ -220,6 +231,7 @@ module.exports = class {
 
         this.sleep();
 
+        this._onInputFocusListener = null;
         this._onButtonClickListener = null;
         this._onButtonFocusListener = null;
         this._onListboxClickListener = null;
