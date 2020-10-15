@@ -31,8 +31,13 @@
             .show-control();
         }
 
-        .carousel:hover & {
-            .show-control();
+        // This is needed for some touch devices like Ipad
+        // When clicking a link in the carousel it forces a focus on :hover elements
+        // This removes hover elements on Ipad
+        @media (hover: hover) {
+            .carousel:hover & {
+                .show-control();
+            }
         }
     }
 
