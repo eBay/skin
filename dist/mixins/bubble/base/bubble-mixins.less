@@ -1,11 +1,10 @@
 // this mixin is used by infotip, tooltip, infotip
 // this mixin is internal only for now
 
-@left-box-shadow: -2px 2px 2px @bubble-box-shadow-color;
-@right-box-shadow: 2px -2px 2px @bubble-box-shadow-color;
-
 .bubble() {
-    box-shadow: 0 -2px 2px @bubble-box-shadow-color, 2px 0 2px @bubble-box-shadow-color, 0 2px 2px @bubble-box-shadow-color, -2px 0 2px @bubble-box-shadow-color,;
+    .customBorderRadiusProperty(bubble-border-radius);
+    .customBoxShadowProperty(bubble-base-box-shadow);
+
     font-size: 14px;
     max-width: 344px;
     min-width: 320px;
@@ -13,6 +12,8 @@
 }
 
 .bubble-mask() {
+    .customBorderRadiusProperty(bubble-border-radius);
+
     position: relative;
     z-index: 1;
 }
@@ -62,8 +63,9 @@
 }
 
 .pointer-bottom() {
+    .customBoxShadowProperty(bubble-bottom-box-shadow);
+
     bottom: -7px;
-    box-shadow: 2px 2px 2px @bubble-box-shadow-color;
     top: auto;
 }
 
@@ -72,7 +74,8 @@
 }
 
 .pointer-top() {
-    box-shadow: -2px -2px 2px @bubble-box-shadow-color;
+    .customBoxShadowProperty(bubble-top-box-shadow);
+
     top: -7px;
 }
 
@@ -123,36 +126,40 @@
 }
 
 .pointer-left-top() {
-    box-shadow: @left-box-shadow;
+    .customBoxShadowProperty(bubble-left-box-shadow);
+
     left: -7px;
     top: 12px;
 }
 
 .pointer-left-bottom() {
+    .customBoxShadowProperty(bubble-left-box-shadow);
+
     bottom: 12px;
-    box-shadow: @left-box-shadow;
     left: -7px;
     top: auto;
 }
 
 .pointer-right() {
     .pointer-side-middle();
+    .customBoxShadowProperty(bubble-right-box-shadow);
 
-    box-shadow: @right-box-shadow;
     left: auto;
     right: -7px;
 }
 
 .pointer-right-top() {
-    box-shadow: @right-box-shadow;
+    .customBoxShadowProperty(bubble-right-box-shadow);
+
     left: auto;
     right: -7px;
     top: 12px;
 }
 
 .pointer-right-bottom() {
+    .customBoxShadowProperty(bubble-right-box-shadow);
+
     bottom: 12px;
-    box-shadow: @right-box-shadow;
     left: auto;
     right: -7px;
     top: auto;
