@@ -9,28 +9,30 @@ span.tooltip {
   display: inline-block;
 }
 .tooltip__overlay {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
           box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15));
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
   z-index: 1;
-  border-radius: 0;
-  border-radius: var(--tooltip-border-radius, 0);
   display: none;
   left: -10px;
   margin-top: 16px;
   position: absolute;
 }
 .tooltip__mask {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   position: relative;
   z-index: 1;
   background-color: #0654ba;
   background-color: var(--tooltip-background-color, #0654ba);
   color: #fff;
   color: var(--tooltip-foreground-color, #fff);
-  border-radius: 0;
-  border-radius: var(--tooltip-border-radius, 0);
 }
 span.tooltip__mask {
   display: block;
@@ -81,6 +83,8 @@ button.tooltip__close {
   z-index: 0;
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: calc(50% - 8px);
   background-color: #0654ba;
@@ -89,40 +93,52 @@ button.tooltip__close {
 .tooltip__pointer--top-left {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: 12px;
 }
 .tooltip__pointer--top {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: calc(50% - 8px);
 }
 .tooltip__pointer--top-right {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: auto;
   right: 12px;
 }
 .tooltip__pointer--bottom-left {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: 12px;
 }
 .tooltip__pointer--bottom {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: calc(50% - 8px);
 }
 .tooltip__pointer--bottom-right {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: auto;
   right: 12px;
@@ -132,15 +148,19 @@ button.tooltip__close {
   left: -7px;
 }
 .tooltip__pointer--left-bottom {
-  bottom: 12px;
   -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: 12px;
   left: -7px;
   top: auto;
 }
 .tooltip__pointer--left-top {
   -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
   left: -7px;
   top: 12px;
 }
@@ -148,13 +168,17 @@ button.tooltip__close {
   top: calc(50% - 8px);
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
   left: auto;
   right: -7px;
 }
 .tooltip__pointer--right-bottom {
-  bottom: 12px;
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+  bottom: 12px;
   left: auto;
   right: -7px;
   top: auto;
@@ -162,6 +186,8 @@ button.tooltip__close {
 .tooltip__pointer--right-top {
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
   left: auto;
   right: -7px;
   top: 12px;
