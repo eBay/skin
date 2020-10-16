@@ -2,9 +2,13 @@
   --tourtip-background-color: #3665f3;
   --tourtip-foreground-color: #fff;
 }
-.skin-experiment-rounded .tourtip__overlay,
-.skin-experiment-rounded .tourtip__mask {
-  --tourtip-border-radius: 4px;
+.skin-experiment-rounded .tourtip {
+  --bubble-border-radius: 4px;
+  --bubble-base-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
+  --bubble-left-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
+  --bubble-right-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
+  --bubble-bottom-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
+  --bubble-top-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
 }
 .tourtip {
   position: relative;
@@ -13,26 +17,28 @@ span.tourtip {
   display: inline-block;
 }
 .tourtip__overlay {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   -webkit-box-shadow: 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5);
           box-shadow: 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(199, 199, 199, 0.5), 2px 0 2px rgba(199, 199, 199, 0.5), 0 2px 2px rgba(199, 199, 199, 0.5), -2px 0 2px rgba(199, 199, 199, 0.5));
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
   z-index: 1;
-  border-radius: 0;
-  border-radius: var(--tourtip-border-radius, 0);
   display: none;
   position: absolute;
 }
 .tourtip__mask {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   position: relative;
   z-index: 1;
   background-color: #3665f3;
   background-color: var(--tourtip-background-color, #3665f3);
   color: #fff;
   color: var(--tourtip-foreground-color, #fff);
-  border-radius: 0;
-  border-radius: var(--tourtip-border-radius, 0);
 }
 span.tourtip__mask {
   display: block;
@@ -95,6 +101,8 @@ button.tourtip__close:focus {
   z-index: 0;
   -webkit-box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
   top: -7px;
   left: calc(50% - 8px);
   background-color: #3665f3;
@@ -103,40 +111,52 @@ button.tourtip__close:focus {
 .tourtip__pointer--top-left {
   -webkit-box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
   top: -7px;
   left: 12px;
 }
 .tourtip__pointer--top {
   -webkit-box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
   top: -7px;
   left: calc(50% - 8px);
 }
 .tourtip__pointer--top-right {
   -webkit-box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(199, 199, 199, 0.5));
   top: -7px;
   left: auto;
   right: 12px;
 }
 .tourtip__pointer--bottom-left {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+  bottom: -7px;
   top: auto;
   left: 12px;
 }
 .tourtip__pointer--bottom {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+  bottom: -7px;
   top: auto;
   left: calc(50% - 8px);
 }
 .tourtip__pointer--bottom-right {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px 2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(199, 199, 199, 0.5));
+  bottom: -7px;
   top: auto;
   left: auto;
   right: 12px;
@@ -146,15 +166,19 @@ button.tourtip__close:focus {
   left: -7px;
 }
 .tourtip__pointer--left-bottom {
-  bottom: 12px;
   -webkit-box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(199, 199, 199, 0.5));
+  bottom: 12px;
   left: -7px;
   top: auto;
 }
 .tourtip__pointer--left-top {
   -webkit-box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: -2px 2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(199, 199, 199, 0.5));
   left: -7px;
   top: 12px;
 }
@@ -162,13 +186,17 @@ button.tourtip__close:focus {
   top: calc(50% - 8px);
   -webkit-box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
   left: auto;
   right: -7px;
 }
 .tourtip__pointer--right-bottom {
-  bottom: 12px;
   -webkit-box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
+  bottom: 12px;
   left: auto;
   right: -7px;
   top: auto;
@@ -176,6 +204,8 @@ button.tourtip__close:focus {
 .tourtip__pointer--right-top {
   -webkit-box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
           box-shadow: 2px -2px 2px rgba(199, 199, 199, 0.5);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(199, 199, 199, 0.5));
   left: auto;
   right: -7px;
   top: 12px;
