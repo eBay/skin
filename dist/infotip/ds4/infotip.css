@@ -9,8 +9,12 @@ span.infotip {
   display: inline-block;
 }
 .infotip__overlay {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
           box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-base-box-shadow, 0 -2px 2px rgba(0, 0, 0, 0.15), 2px 0 2px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), -2px 0 2px rgba(0, 0, 0, 0.15));
   font-size: 14px;
   max-width: 344px;
   min-width: 320px;
@@ -25,6 +29,8 @@ span.infotip {
   position: absolute;
 }
 .infotip__mask {
+  border-radius: 0;
+  border-radius: var(--bubble-border-radius, 0);
   position: relative;
   z-index: 1;
   background-color: #fff;
@@ -62,46 +68,60 @@ span.infotip__mask {
   z-index: 0;
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: calc(50% - 8px);
 }
 .infotip__pointer--top-left {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: 12px;
 }
 .infotip__pointer--top {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: calc(50% - 8px);
 }
 .infotip__pointer--top-right {
   -webkit-box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: auto;
   right: 12px;
 }
 .infotip__pointer--bottom-left {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: 12px;
 }
 .infotip__pointer--bottom {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: calc(50% - 8px);
 }
 .infotip__pointer--bottom-right {
-  bottom: -7px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-bottom-box-shadow, 2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: -7px;
   top: auto;
   left: auto;
   right: 12px;
@@ -111,15 +131,19 @@ span.infotip__mask {
   left: -7px;
 }
 .infotip__pointer--left-bottom {
-  bottom: 12px;
   -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+  bottom: 12px;
   left: -7px;
   top: auto;
 }
 .infotip__pointer--left-top {
   -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-left-box-shadow, -2px 2px 2px rgba(0, 0, 0, 0.15));
   left: -7px;
   top: 12px;
 }
@@ -127,13 +151,17 @@ span.infotip__mask {
   top: calc(50% - 8px);
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
   left: auto;
   right: -7px;
 }
 .infotip__pointer--right-bottom {
-  bottom: 12px;
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+  bottom: 12px;
   left: auto;
   right: -7px;
   top: auto;
@@ -141,6 +169,8 @@ span.infotip__mask {
 .infotip__pointer--right-top {
   -webkit-box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
+          box-shadow: var(--bubble-right-box-shadow, 2px -2px 2px rgba(0, 0, 0, 0.15));
   left: auto;
   right: -7px;
   top: 12px;

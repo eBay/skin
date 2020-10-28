@@ -4,6 +4,7 @@
   --pagination-item-hover-foreground-color: #2b0eaf;
   --pagination-item-current-background-color: transparent;
   --pagination-item-current-border-color: #3665f3;
+  --pagination-item-current-border-radius: 0;
   --pagination-item-current-foreground-color: #3665f3;
 }
 @media (prefers-color-scheme: dark) {
@@ -11,6 +12,9 @@
     --pagination-item-foreground-color: #dcdcdc;
     --pagination-item-hover-foreground-color: #5192ff;
   }
+}
+.skin-experiment-rounded .pagination__item[aria-current="page"] {
+  --pagination-item-current-border-radius: 8px;
 }
 nav.pagination {
   -webkit-box-align: center;
@@ -99,6 +103,8 @@ button.pagination__previous {
   border-color: var(--pagination-item-current-border-color, #3665f3);
   color: #3665f3;
   color: var(--pagination-item-current-foreground-color, #3665f3);
+  border-radius: 0;
+  border-radius: var(--pagination-item-current-border-radius, 0);
   border-style: solid;
   border-width: 2px;
   font-weight: 700;
