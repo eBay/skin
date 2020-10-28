@@ -65,3 +65,14 @@ export const fixedWidth = () => `
     </span>
 </button>
 `;
+
+export const wide = () => `
+<button type="button" class="expand-btn expand-btn--wide" aria-expanded="false">
+     <span class="expand-btn__cell">
+         <span>Button</span>
+         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+             <use xlink:href="#icon-dropdown"></use>
+         </svg>
+     </span>
+ </button>
+`;

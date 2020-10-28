@@ -39,3 +39,5 @@ export const fixedWidth = () => `
 export const formSubmit = () => '<button type="submit" class="btn">Submit</button>';
 
 export const formReset = () => '<button type="reset" class="btn">Reset</button>';
+
+export const wide = () => '<button class="btn btn--wide">Button</button>';
