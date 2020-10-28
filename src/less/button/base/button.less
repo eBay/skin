@@ -4,6 +4,7 @@ button.btn,
 a.fake-btn {
     .btn-base();
     .customBorderRadiusProperty(button-border-radius);
+    .customPaddingProperty(button-padding-vertical, button-padding-horizontal);
 
     background-color: transparent;
     border-color: inherit;
@@ -12,7 +13,12 @@ a.fake-btn {
     font-size: @font-size-14;
     max-width: 100%;
     min-height: 40px;
-    padding: @button-padding;
+}
+
+button.btn--wide,
+a.fake-btn--wide {
+    padding-left: @button-wide-padding-horizontal;
+    padding-right: @button-wide-padding-horizontal;
 }
 
 button.btn[disabled],
@@ -207,9 +213,10 @@ a.fake-btn--delete[aria-disabled="true"] {
 
 button.btn--large,
 a.fake-btn--large {
+    .customPaddingProperty(button-large-padding-vertical, button-padding-horizontal);
+
     font-size: @button-large-font-size;
     min-height: 48px;
-    padding: @button-large-padding;
 }
 
 button.btn--transparent,
@@ -241,12 +248,12 @@ a.fake-btn--truncated {
 
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
+    .customPaddingProperty(button-large-padding-vertical, button-padding-horizontal);
     .btn-truncate();
 
     font-size: @button-large-font-size;
     height: 48px;
     min-height: 48px;
-    padding: @button-large-padding;
 }
 
 button.btn--icon-only,
