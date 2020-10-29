@@ -4,6 +4,7 @@
     .customBackgroundColorProperty(section-notice-default-background-color);
     .customBorderRadiusProperty(section-notice-border-radius);
 
+    flex-wrap: wrap;
     font-size: @font-size-14;
     margin: 8px 0;
     padding: 16px;
@@ -45,7 +46,7 @@ span[role="region"].section-notice {
 }
 
 .section-notice__main {
-    width: 100%;
+    flex: 1;
 }
 
 .section-notice__title {
@@ -54,7 +55,9 @@ span[role="region"].section-notice {
 }
 
 .section-notice__footer {
-    padding-left: 16px;
+    margin-top: 8px;
+    padding-left: 0;
+    width: 100%;
 }
 
 .section-notice__main p {
@@ -66,11 +69,18 @@ span[role="region"].section-notice {
 @media (min-width: 601px) {
     section.section-notice,
     div[role="region"].section-notice {
+        flex-wrap: nowrap;
         font-size: @font-size-16;
         margin: 16px 0;
     }
 
     .section-notice__title {
         font-size: @font-size-16;
+    }
+
+    .section-notice__footer {
+        margin-top: 0;
+        padding-left: 0;
+        width: auto;
     }
 }
