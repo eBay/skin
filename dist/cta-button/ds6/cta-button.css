@@ -1,23 +1,18 @@
-a.cta-btn {
-  --cta-button-background-color: #fff;
-  --cta-button-foreground-color: #111820;
-  --cta-button-disabled-background-color: #fff;
-  --cta-button-disabled-border-color: #fff;
-  --cta-button-disabled-foreground-color: #fff;
-  --cta-button-hover-background-color: #111820;
-  --cta-button-hover-border-color: #111820;
-  --cta-button-hover-foreground-color: #fff;
-  --cta-button-visited-foreground-color: #3665f3;
-}
 @media (prefers-color-scheme: dark) {
-  .skin-experiment-1 a.cta-btn {
+  .skin-experiment-dark-mode a.cta-btn {
     --cta-button-background-color: #171717;
-    --cta-button-foreground-color: #5192ff;
-    --cta-button-visited-foreground-color: #5192ff;
-    --cta-button-hover-background-color: #171717;
-    --cta-button-hover-foreground-color: #fff;
-    --cta-button-hover-border-color: #fff;
+    --cta-button-foreground-color: #dcdcdc;
+    --cta-button-visited-foreground-color: #dcdcdc;
+    --cta-button-hover-background-color: #dcdcdc;
+    --cta-button-hover-foreground-color: #171717;
+    --cta-button-hover-border-color: #dcdcdc;
   }
+}
+.skin-experiment-rounded a.cta-btn {
+  --button-border-radius: 48px;
+}
+.skin-experiment-rounded a.cta-button--large {
+  --button-border-radius: 48px;
 }
 a.cta-btn {
   border: 1px solid;
@@ -34,11 +29,12 @@ a.cta-btn {
   border-radius: var(--button-border-radius, 0);
   color: #111820;
   color: var(--cta-button-foreground-color, #111820);
+  padding: 11px 16px;
+  padding: var(--button-padding-vertical, 11px) var(--button-padding-horizontal, 16px);
   border-color: currentColor;
   display: inline-block;
   font-size: 0.875rem;
   max-width: 100%;
-  padding: 9.5px 16px;
 }
 a.cta-btn--fixed-height {
   height: 40px;
@@ -54,8 +50,8 @@ a.cta-btn--truncated span {
   white-space: nowrap;
 }
 a.cta-btn:visited {
-  color: #3665f3;
-  color: var(--cta-button-visited-foreground-color, #3665f3);
+  color: #111820;
+  color: var(--cta-button-visited-foreground-color, #111820);
 }
 a.cta-btn:focus,
 a.cta-btn:hover {
@@ -75,7 +71,11 @@ a.cta-btn[aria-disabled="true"] {
   color: #c7c7c7;
   color: var(--cta-button-disabled-foreground-color, #c7c7c7);
 }
-a.cta-button--fluid {
+a.cta-btn--wide {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+a.cta-btn--fluid {
   width: 100%;
 }
 span.cta-btn__cell {
@@ -106,6 +106,8 @@ span.cta-btn__cell--truncated > svg {
 a.cta-btn svg.icon {
   align-self: center;
   flex-shrink: 0;
+  height: 10px;
+  width: 10px;
 }
 a.cta-btn svg.icon:first-child {
   margin-right: 8px;
@@ -119,90 +121,22 @@ span.cta-btn__cell--fixed-height svg.icon {
   overflow: visible;
   width: 1rem;
 }
-a.cta-button--large {
+a.cta-btn--large {
+  font-size: 1rem;
   min-height: 48px;
 }
-a.cta-button--large-truncated {
+a.cta-btn--large-truncated {
+  font-size: 1rem;
   height: 48px;
 }
-a.cta-button--large-truncated,
-a.cta-button--large-truncated span {
+a.cta-btn--large-truncated,
+a.cta-btn--large-truncated span {
   line-height: 1.4em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-a.cta-button--large-fixed-height {
-  height: 48px;
-}
-a.cta-btn--b4 {
-  background-color: #3665f3;
-  border-color: #c5e5fb;
-  color: #c5e5fb;
-}
-a.cta-btn--b4:visited {
-  color: #c5e5fb;
-}
-a.cta-btn--b4:focus,
-a.cta-btn--b4:hover {
-  background-color: #c5e5fb;
-  border-color: #c5e5fb;
-  color: #3665f3;
-}
-a.cta-btn--b4:active {
-  background-color: #3665f3;
-  border-color: #3665f3;
-  color: #fff;
-}
-a.cta-btn--b4:not([href]),
-a.cta-btn--b4[aria-disabled="true"] {
-  background-color: #c7c7c7;
-  border-color: #c7c7c7;
-  color: #f5f5f5;
-}
-a.cta-btn--r4 {
-  background-color: #e62048;
-  border-color: #ffd1dd;
-  color: #ffd1dd;
-}
-a.cta-btn--r4:visited {
-  color: #ffd1dd;
-}
-a.cta-btn--r4:focus,
-a.cta-btn--r4:hover {
-  background-color: #ffd1dd;
-  border-color: #ffd1dd;
-  color: #e62048;
-}
-a.cta-btn--r4:active {
-  background-color: #e62048;
-  border-color: #e62048;
-  color: #ffd1dd;
-}
-a.cta-btn--r4:not([href]),
-a.cta-btn--r4[aria-disabled="true"] {
-  background-color: #c7c7c7;
-  border-color: #c7c7c7;
-  color: #f5f5f5;
-}
-a.cta-btn svg.icon {
-  height: 10px;
-  width: 9.75px;
-}
-a.cta-btn {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-a.cta-btn--large {
-  font-size: 1.125rem;
-  padding-bottom: 12px;
-  padding-top: 12px;
-}
 a.cta-btn--large-fixed-height {
-  padding-bottom: 12px;
-  padding-top: 12px;
-}
-a.cta-btn--large-truncated {
-  padding-bottom: 12px;
-  padding-top: 12px;
+  font-size: 1rem;
+  height: 48px;
 }

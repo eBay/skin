@@ -1,0 +1,57 @@
+<div id="icon-button">
+    {% include common/section-header.html name="icon-button" version=page.versions.icon-button %}
+
+    <p>Use the <span class="highlight">icon-btn</span> class (for buttons) or the <span class="highlight">icon-link</span> class (for links) and any of the available <a href="#icon">icons</a> for a borderless, actionable icon style.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="icon-btn" type="button" aria-label="Menu">
+                <svg class="icon icon--menu" focusable="false" width="16" height="16" aria-hidden="true">
+                    {% include common/symbol.html name="menu" %}
+                </svg>
+            </button>
+            <a class="icon-link" href="http://www.ebay.com" aria-label="Settings">
+                <svg class="icon icon--settings" focusable="false" width="16" height="16" aria-hidden="true">
+                    {% include common/symbol.html name="settings" %}
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="icon-btn" type="button" aria-label="Menu">
+    <svg class="icon icon--menu" focusable="false" width="16" height="16" aria-hidden="true">
+        <use xlink:href="icons.svg#icon-menu"></use>
+    </svg>
+</button>
+<a class="icon-link" href="http://www.ebay.com" aria-label="Settings">
+    <svg class="icon icon--settings" focusable="false" width="16" height="16" aria-hidden="true">
+        <use xlink:href="icons.svg#icon-settings"></use>
+    </svg>
+</a>
+    {% endhighlight %}
+
+    <h3 id="icon-button-badged">Badged Icon Button</h3>
+    <p>An icon button can be badged using the <a href="#badge">badge</a> module.</p>
+    <p>The button or anchor element requires an additional <span class="highlight">icon-btn--badged</span> or <span class="highlight">icon-link--badged</span> modifier, respectively.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
+                <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
+                    {% include common/symbol.html name="menu" %}
+                </svg>
+                <span aria-hidden="true" class="badge">4</span>
+            </button>
+        </div>
+    </div>
+    {% highlight html %}
+<button aria-label="Menu (4 notifications)" class="icon-btn icon-btn--badged" type="button">
+    <svg class="icon icon--menu" focusable="false" width="24" height="24" aria-hidden="true">
+        <use xlink:href="#icon-menu"></use>
+    </svg>
+    <span aria-hidden="true" class="badge">4</span>
+</button>
+    {% endhighlight %}
+
+</div>

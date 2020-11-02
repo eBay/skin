@@ -7,7 +7,7 @@
     <div class="demo">
         <div class="demo__inner">
             <svg aria-label="Icon example" class="icon icon--information" focusable="false" height="24" width="24" role="img">
-                <use xlink:href="#icon-information"></use>
+                {% include common/symbol.html name="information" %}
             </svg>
         </div>
     </div>
@@ -21,31 +21,17 @@
     <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
 
     <h3>Including an Icon</h3>
-    <p>Before an icon can be used, its <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> must be stamped on the page inside of a hidden SVG block. In future, when we drop support for Internet Explorer, symbols can be included via the <a href="#svg">SVG module</a>.</p>
+    <p>An icon <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> declaration can be referenced from the same file or an <a href="#svg">external SVG</a> file. If in the same file, the symbol must be stamped on the page inside of a hidden SVG block.</p>
 
-    {% if page.ds == 4 %}
     {% highlight html %}
 <div hidden>
     <svg>
         <symbol id="icon-information" viewBox="0 0 24 24">
-            <path fill="#0654ba" d="M12.007 9.753a.849.849 0 00-.849.849v6.553a.85.85 0 001.683.004v-6.557a.849.849 0 00-.834-.849zm1.057-2.88a1.016 1.016 0 11-2.032 0 1.016 1.016 0 012.032 0zm-1.057 17.141C5.376 24.014 0 18.638 0 12.007 0 5.376 5.376 0 12.007 0c6.631 0 12.007 5.376 12.007 12.007v.015c-.008 6.625-5.381 11.992-12.007 11.992zm0-22.261c-5.671 0-10.268 4.597-10.268 10.268s4.597 10.268 10.268 10.268 10.268-4.597 10.268-10.268S17.678 1.753 12.007 1.753z"/>
+            <path d="M0 12C0 5.373 5.373 0 12 0c6.625.006 11.994 5.375 12 12 0 6.627-5.373 12-12 12S0 18.627 0 12zm2 0c0 5.523 4.477 10 10 10 5.52-.006 9.994-4.48 10-10 0-5.523-4.477-10-10-10S2 6.477 2 12zm10-2a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm1-3a1 1 0 11-2 0 1 1 0 012 0z"/>
         </symbol>
     </svg>
 </div>
     {% endhighlight %}
-    {% endif %}
-
-    {% if page.ds == 6 %}
-    {% highlight html %}
-<div hidden>
-    <svg>
-        <symbol id="icon-information" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M0 12C0 5.373 5.373 0 12 0c6.625.006 11.994 5.375 12 12 0 6.627-5.373 12-12 12S0 18.627 0 12zm2 0c0 5.523 4.477 10 10 10 5.52-.006 9.994-4.48 10-10 0-5.523-4.477-10-10-10S2 6.477 2 12zm10-2a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm1-3a1 1 0 11-2 0 1 1 0 012 0z"/>
-        </symbol>
-    </svg>
-</div>
-    {% endhighlight %}
-    {% endif %}
 
     <p><strong>NOTE:</strong> the SVG tag does not support the <span class="highlight">hidden</span> attribute, hence a hidden wrapper element is needed.</p>
 
@@ -89,7 +75,6 @@
                 {% if page.ds == 6 %}
                 <th>DEFAULT</th>
                 <th>SMALL</th>
-                <th>EXTRA-SMALL</th>
                 <th>LARGE</th>
                 <th>FILLED</th>
                 <th>FILLED-SMALL</th>
@@ -98,15 +83,15 @@
             </tr>
         </thead>
         <tbody>
-            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bank, bids, calendar, camera, cart, categories, chat, close, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, credit-card, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, filter-single-selected, fingerprint, following, information, tablet-condensed-grid, tablet-relaxed-grid, tablet-vertical-split, help, home, location, locked, menu, messages, mic, mobile, mobile-signal, notification, overflow, package, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, photo-contrast, photo-flash, photo-flip-camera, photo-sharpen, play, profile, purchases, red-laser, refresh, remove, save, save-bold, save-selected, search, search-bold, selling, send, settings, share, star-empty, star-filled, star-filled-grey, star-half, star-undefined, store, text-messaging, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, unlocked, watch, window" | split: ", " %}
-            {% for icon in icons %}
+            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bank, bids, calendar, camera, cart, categories, chat, close, chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, credit-card, delete, edit, deals, download, event, fast-n-free, filter-gallery, filter-list, filter-single, filter-single-selected, fingerprint, following, information, tablet-condensed-grid, tablet-relaxed-grid, tablet-vertical-split, help, home, location, locked, menu, messages, mic, mobile, mobile-signal, notification, overflow, package, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, photo-contrast, photo-flash, photo-flip-camera, photo-sharpen, play, profile, purchases, red-laser, refresh, remove, save, save-bold, save-selected, search, search-bold, selling, send, settings, share, star-empty, star-full, star-half, star-undefined, store, text-messaging, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, unlocked, watch, window" | split: ", " %}
+            {% for iconName in icons %}
             <tr>
-                <td>{{ icon }}</td>
+                <td>{{ iconName }}</td>
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}" focusable="false" height="24" width="24">
-                                <use xlink:href="#icon-{{ icon }}"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
+                                {% include common/symbol.html name=iconName %}
                             </svg>
                         </span>
                     </span>
@@ -115,8 +100,8 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-small" focusable="false" height="16" width="16">
-                                <use xlink:href="#icon-{{ icon }}-small"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-small" focusable="false" height="16" width="16">
+                                {% include common/symbol.html name=iconName postfix="-small" %}
                             </svg>
                         </span>
                     </span>
@@ -124,8 +109,8 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-extra-small" focusable="false" height="8" width="8">
-                                <use xlink:href="#icon-{{ icon }}-extra-small"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-large" focusable="false" height="64" width="64">
+                                {% include common/symbol.html name=iconName postfix="-large" %}
                             </svg>
                         </span>
                     </span>
@@ -133,8 +118,8 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-large" focusable="false" height="64" width="64">
-                                <use xlink:href="#icon-{{ icon }}-large"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled" focusable="false" height="24" width="24">
+                                {% include common/symbol.html name=iconName postfix="-filled" %}
                             </svg>
                         </span>
                     </span>
@@ -142,8 +127,8 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled" focusable="false" height="24" width="24">
-                                <use xlink:href="#icon-{{ icon }}-filled"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled-small" focusable="false" height="16" width="16">
+                                {% include common/symbol.html name=iconName postfix="-filled-small" %}
                             </svg>
                         </span>
                     </span>
@@ -151,17 +136,8 @@
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled-small" focusable="false" height="16" width="16">
-                                <use xlink:href="#icon-{{ icon }}-filled-small"></use>
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}-filled-large" focusable="false" height="64" width="64">
-                                <use xlink:href="#icon-{{ icon }}-filled-large"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled-large" focusable="false" height="64" width="64">
+                                {% include common/symbol.html name=iconName postfix="-filled-large" %}
                             </svg>
                         </span>
                     </span>
@@ -183,7 +159,7 @@
     <div class="demo">
         <div class="demo__inner">
             <svg aria-label="Disabled icon example" class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24" role="img">
-                <use xlink:href="#icon-chevron-right"></use>
+                {% include common/symbol.html name="chevron-right" %}
             </svg>
         </div>
     </div>
@@ -207,14 +183,14 @@
         </thead>
         <tbody>
             {% assign icons = "back, carousel-prev, carousel-next, cta, dropdown, pagination-prev, pagination-next" | split: ", " %}
-            {% for icon in icons %}
+            {% for iconName in icons %}
             <tr>
-                <td>{{ icon }}</td>
+                <td>{{ iconName }}</td>
                 <td>
                     <span class="demo">
                         <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ icon }}" focusable="false" height="24" width="24">
-                                <use xlink:href="#icon-{{ icon }}"></use>
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
+                                {% include common/symbol.html name=iconName %}
                             </svg>
                         </span>
                     </span>

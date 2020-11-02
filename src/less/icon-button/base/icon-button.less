@@ -1,0 +1,119 @@
+@import "../../mixins/utility/utility-mixins.less";
+
+// icons
+//-----------------------------
+
+a.icon-link {
+    align-items: center;
+    display: inline-flex;
+
+    > svg {
+        margin: 0 auto; // horizontal centering
+    }
+}
+
+button.icon-btn,
+a.icon-link {
+    background-color: transparent;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    font-family: inherit;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-bottom;
+    width: 40px;
+
+    > svg {
+        .customFillProperty(icon-button-icon-foreground-color);
+
+        max-width: 100%; // helps when width & height HTML attrs not set
+        position: relative; // Safari centering
+    }
+
+    &:active > svg {
+        .customFillProperty(icon-button-icon-active-foreground-color);
+    }
+
+    &:focus > svg,
+    &:hover > svg {
+        .customFillProperty(icon-button-icon-hover-foreground-color);
+    }
+}
+
+// visited link state
+a.icon-link:visited > svg {
+    .customFillProperty(icon-button-icon-foreground-color);
+}
+
+// disabled & partially disabled states
+button[disabled].icon-btn,
+button[aria-disabled="true"].icon-btn,
+a:not([href]).icon-link,
+a[aria-disabled="true"].icon-link {
+    > svg {
+        background-color: transparent;
+        fill: @color-action-disabled;
+    }
+
+    &:focus > svg,
+    &:hover > svg {
+        fill: @color-action-disabled;
+    }
+}
+
+// visited link hover/focus states
+a.icon-link:visited {
+    &:hover > svg,
+    &:focus > svg {
+        .customFillProperty(icon-button-icon-hover-foreground-color);
+    }
+}
+
+// badged icons
+//-----------------------------
+
+button.icon-btn--badged,
+a.icon-link--badged {
+    overflow: visible;
+    position: relative;
+
+    .badge {
+        .customBorderColorProperty(icon-button-badge-border-color);
+
+        border-style: solid;
+        border-width: 2px;
+        display: block;
+        height: 24px;
+        left: 16px;
+        min-width: 24px;
+        padding-top: 2px;
+        pointer-events: none;
+        position: absolute;
+        text-align: center;
+        top: -2px;
+        z-index: 1;
+    }
+}
+
+// actionable images
+// todo: move to "button" module
+//-----------------------------
+
+button.img-btn {
+    background-color: transparent;
+    border: 1px solid transparent;
+    display: inline-flex;
+    padding: 0;
+
+    &:not([disabled]) {
+        &:hover,
+        &:focus {
+            border-color: @color-action-secondary;
+        }
+
+        &:active {
+            border-color: @color-text-secondary;
+        }
+    }
+}

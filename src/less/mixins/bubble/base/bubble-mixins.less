@@ -1,7 +1,10 @@
-// this mixin is used by the flyout notice and tooltip modules
+// this mixin is used by infotip, tooltip, infotip
 // this mixin is internal only for now
 
 .bubble() {
+    .customBorderRadiusProperty(bubble-border-radius);
+    .customBoxShadowProperty(bubble-base-box-shadow);
+
     font-size: 14px;
     max-width: 344px;
     min-width: 320px;
@@ -9,7 +12,8 @@
 }
 
 .bubble-mask() {
-    background-color: @bubble-background-color;
+    .customBorderRadiusProperty(bubble-border-radius);
+
     position: relative;
     z-index: 1;
 }
@@ -41,8 +45,12 @@
     align-self: flex-start;
     background: none;
     border: 0;
+    flex-shrink: 0;
+    height: 32px;
+    margin: -8px -8px 0 8px;
     padding: 0;
     white-space: nowrap;
+    width: 32px;
 }
 
 // styles common to all pointers
@@ -55,22 +63,19 @@
 }
 
 .pointer-bottom() {
-    background-color: white;
+    .customBoxShadowProperty(bubble-bottom-box-shadow);
+
     bottom: -7px;
     top: auto;
 }
 
-.pointer-side() {
-    background-color: white;
-}
-
 .pointer-side-middle() {
-    .pointer-side;
-
     top: calc(50% - 8px);
 }
 
 .pointer-top() {
+    .customBoxShadowProperty(bubble-top-box-shadow);
+
     top: -7px;
 }
 
@@ -121,14 +126,14 @@
 }
 
 .pointer-left-top() {
-    .pointer-side;
+    .customBoxShadowProperty(bubble-left-box-shadow);
 
     left: -7px;
     top: 12px;
 }
 
 .pointer-left-bottom() {
-    .pointer-side();
+    .customBoxShadowProperty(bubble-left-box-shadow);
 
     bottom: 12px;
     left: -7px;
@@ -137,13 +142,14 @@
 
 .pointer-right() {
     .pointer-side-middle();
+    .customBoxShadowProperty(bubble-right-box-shadow);
 
     left: auto;
     right: -7px;
 }
 
 .pointer-right-top() {
-    .pointer-side();
+    .customBoxShadowProperty(bubble-right-box-shadow);
 
     left: auto;
     right: -7px;
@@ -151,7 +157,7 @@
 }
 
 .pointer-right-bottom() {
-    .pointer-side();
+    .customBoxShadowProperty(bubble-right-box-shadow);
 
     bottom: 12px;
     left: auto;

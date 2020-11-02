@@ -1,5 +1,10 @@
 /* eslint-disable no-console */
 
+// SVG for Everybody adds SVG External Content support to all browsers.
+// https://github.com/jonathantneal/svg4everybody
+// eslint-disable-next-line no-undef
+svg4everybody();
+
 const pageWidgets = [];
 
 const RovingTabindex = require('makeup-roving-tabindex');
@@ -16,7 +21,7 @@ const Switch = require('makeup-switch-class');
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-document.querySelectorAll('.expand-btn-example').forEach(function(el) {
+document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
     el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
@@ -62,20 +67,35 @@ document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
     });
 });
 
-// DIALOG
-document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl));
+// CONFIRM-DIALOG
+document.querySelectorAll('.dialog-confirm-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'confirm-dialog' }));
+});
+
+// LIGHTBOX-DIALOG
+document.querySelectorAll('.dialog-lightbox-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'lightbox-dialog' }));
+});
+
+// FULLSCREEN-DIALOG
+document.querySelectorAll('.dialog-fullscreen-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'fullscreen-dialog' }));
+});
+
+// PANEL-DIALOG
+document.querySelectorAll('.dialog-panel-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'panel-dialog' }));
 });
 
 // DRAWER (modal dialog)
-document.querySelectorAll('.drawer-button').forEach(function(widgetEl) {
-    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer' });
+document.querySelectorAll('.dialog-drawer-button').forEach(function(widgetEl) {
+    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer-dialog' });
 
     pageWidgets.push(widget);
 
     // this bit is a little hacky until I create a drawer.js subclass
-    widget.dialog._el.querySelector('.drawer__handle').addEventListener('click', function() {
-        widget.dialog._el.querySelector('.drawer__window').classList.toggle('drawer__window--expanded');
+    widget.dialog._el.querySelector('.drawer-dialog__handle').addEventListener('click', function() {
+        widget.dialog._el.querySelector('.drawer-dialog__window').classList.toggle('drawer-dialog__window--expanded');
     });
 });
 
@@ -249,6 +269,6 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 });
 
 // TOAST (non-modal dialog)
-document.querySelectorAll('.toast-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast' }));
+document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
 });

@@ -4,6 +4,7 @@ button.btn,
 a.fake-btn {
     .btn-base();
     .customBorderRadiusProperty(button-border-radius);
+    .customPaddingProperty(button-padding-vertical, button-padding-horizontal);
 
     background-color: transparent;
     border-color: inherit;
@@ -12,7 +13,19 @@ a.fake-btn {
     font-size: @font-size-14;
     max-width: 100%;
     min-height: 40px;
-    padding: @button-padding;
+}
+
+button.btn--wide,
+a.fake-btn--wide {
+    padding-left: @button-wide-padding-horizontal;
+    padding-right: @button-wide-padding-horizontal;
+}
+
+button.btn[disabled],
+a.fake-btn:not([href]),
+button.btn[aria-disabled="true"],
+a.fake-btn[aria-disabled="true"] {
+    opacity: @button-disabled-opacity;
 }
 
 a.fake-btn:visited {
@@ -36,6 +49,7 @@ a.fake-btn svg.icon {
     .btn-icon-base();
 
     flex-shrink: 0;
+    height: 100%;
     width: 1em;
 }
 
@@ -52,11 +66,19 @@ a.fake-btn--primary {
     .customBackgroundColorProperty(button-primary-background-color);
     .customBorderColorProperty(button-primary-border-color);
     .customColorProperty(button-primary-foreground-color);
-}
 
-a.fake-btn--primary:visited {
-    // .customColorProperty(button-primary-foreground-color);
-    color: @button-primary-foreground-color;
+    font-weight: @button-primary-font-weight;
+
+    &:focus,
+    &:hover,
+    &:active {
+        .customBackgroundColorProperty(button-primary-hover-background-color);
+        .customBorderColorProperty(button-primary-hover-border-color);
+    }
+
+    &:visited {
+        .customColorProperty(button-primary-foreground-color);
+    }
 }
 
 button.btn .spinner {
@@ -113,6 +135,21 @@ a.fake-btn--primary[aria-disabled="true"] {
     .customBackgroundColorProperty(button-primary-disabled-background-color);
     .customBorderColorProperty(button-primary-disabled-border-color);
     .customColorProperty(button-primary-disabled-foreground-color);
+
+    &:focus,
+    &:hover,
+    &:active {
+        .customBackgroundColorProperty(button-primary-disabled-background-color);
+        .customBorderColorProperty(button-primary-disabled-border-color);
+        .customColorProperty(button-primary-disabled-foreground-color);
+
+        opacity: @button-disabled-opacity;
+    }
+}
+
+/* stylelint-disable no-descending-specificity */
+a.fake-btn--secondary:visited {
+    .customColorProperty(button-secondary-foreground-color);
 }
 
 button.btn--secondary,
@@ -120,24 +157,28 @@ a.fake-btn--secondary {
     .customBackgroundColorProperty(button-secondary-background-color);
     .customBorderColorProperty(button-secondary-border-color);
     .customColorProperty(button-secondary-foreground-color);
-}
 
-a.fake-btn--secondary:visited {
-    // .customColorProperty(button-secondary-foreground-color);
-    color: @button-secondary-foreground-color;
+    &:hover,
+    &:focus,
+    &:active {
+        .customBackgroundColorProperty(button-secondary-hover-background-color);
+        .customBorderColorProperty(button-secondary-hover-foreground-color);
+        .customColorProperty(button-secondary-hover-foreground-color);
+    }
 }
+/* stylelint-enable no-descending-specificity */
 
 button.btn--delete,
 a.fake-btn--delete {
     .customBackgroundColorProperty(button-delete-background-color);
-    .customBorderColorProperty(button-delete-border-color);
+    .customBorderColorProperty(button-delete-foreground-color);
     .customColorProperty(button-delete-foreground-color);
 
     &:focus,
     &:hover,
     &:active,
     &:visited {
-        .customBorderColorProperty(button-delete-border-color);
+        .customBorderColorProperty(button-delete-foreground-color);
         .customColorProperty(button-delete-foreground-color);
     }
 }
@@ -172,12 +213,20 @@ a.fake-btn--delete[aria-disabled="true"] {
 
 button.btn--large,
 a.fake-btn--large {
+    .customPaddingProperty(button-large-padding-vertical, button-padding-horizontal);
+
+    font-size: @button-large-font-size;
     min-height: 48px;
 }
 
 button.btn--transparent,
 a.fake-btn--transparent {
     background-color: transparent;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
 }
 
 button.btn--fixed-height,
@@ -188,6 +237,7 @@ a.fake-btn--fixed-height {
 button.btn--large-fixed-height,
 a.fake-btn--large-fixed-height {
     height: 48px;
+    min-height: 48px;
     padding-top: calc(27px - 0.75em);
 }
 
@@ -198,7 +248,15 @@ a.fake-btn--truncated {
 
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
+    .customPaddingProperty(button-large-padding-vertical, button-padding-horizontal);
     .btn-truncate();
 
+    font-size: @button-large-font-size;
     height: 48px;
+    min-height: 48px;
+}
+
+button.btn--icon-only,
+a.fake-btn--icon-only {
+    padding: 0;
 }

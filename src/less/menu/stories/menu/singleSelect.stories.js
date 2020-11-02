@@ -1,6 +1,6 @@
 export default { title: 'Menu/Single Select' };
 
-export const base = () => `
+export const unselected = () => `
 <span class="menu">
     <div class="menu__items" role="menu">
         <div class="menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
@@ -101,7 +101,7 @@ export const inheritColour = () => `
 `;
 
 inheritColour.story = {
-    name: 'Selected, Inherit Colour, Red'
+    name: 'Selected, Inherit Colour, Red (broken)'
 }
 
 export const inheritFontSize = () => `

@@ -1,43 +1,36 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-a {
-    &.nav-link {
+a.nav-link {
+    .customColorProperty(nav-link-color);
+
+    text-decoration: none;
+
+    &:visited {
         .customColorProperty(nav-link-color);
+    }
 
-        text-decoration: none;
+    &:hover {
+        .customColorProperty(nav-link-hover-color);
 
-        &:visited {
-            .customColorProperty(nav-link-color);
-        }
-
-        &:hover {
-            .customColorProperty(nav-link-hover-color);
-
-            text-decoration: underline;
-        }
+        text-decoration: underline;
     }
 }
 
-// FAKE-LINK
-//-----------------------------
+button.fake-link {
+    .customColorProperty(fake-link-color);
 
-button {
-    &.fake-link {
-        .customColorProperty(fake-link-color);
+    background-color: transparent;
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: underline;
 
-        background-color: transparent;
-        border: 0;
-        font-family: inherit;
-        font-size: @fake-link-font-size;
-        padding: 0;
-        text-decoration: underline;
+    &[disabled] {
+        opacity: 0.5;
+    }
 
-        &[disabled] {
-            opacity: 0.5;
-        }
-
-        &:hover {
-            .customColorProperty(fake-link-hover-color);
-        }
+    &:hover {
+        .customColorProperty(fake-link-hover-color);
     }
 }

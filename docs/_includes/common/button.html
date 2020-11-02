@@ -130,14 +130,14 @@
 <a class="fake-btn fake-btn--primary fake-btn--large" href="http://www.ebay.com">Large Link</a>
     {% endhighlight %}
 
-    <h3 id="button-icon">Icon Button</h3>
+    <h3 id="button-icon-adjacent">Adjacent Icon Button</h3>
     <p>Any SVG icon can be placed adjacent to the button text. To flip position of text and icon, simply swap the DOM order.</p>
     <div class="demo">
         <div class="demo__inner">
             <button class="btn btn--primary">
                 <span class="btn__cell">
                     <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
-                        <use xlink:href="#icon-menu"></use>
+                        {% include common/symbol.html name="menu" %}
                     </svg>
                     <span>Button</span>
                 </span>
@@ -146,7 +146,7 @@
                 <span class="btn__cell">
                     <span>Button</span>
                     <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
-                        <use xlink:href="#icon-menu"></use>
+                        {% include common/symbol.html name="menu" %}
                     </svg>
                 </span>
             </button>
@@ -210,7 +210,7 @@
                 <button aria-label="Success" class="btn btn--confirmation">
                     <span class="btn__cell">
                         <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="16" width="16">
-                            <use xlink:href="#icon-tick-unfilled"></use>
+                            {% include common/symbol.html name="tick" %}
                         </svg>
                     </span>
                 </button>
@@ -240,7 +240,7 @@
                     <span style="display: inline-flex;">
                         <span>Any</span>
                         <svg aria-hidden="true" class="icon icon--chevron-down" focusable="false" width="8" height="8">
-                            <use xlink:href="#icon-chevron-down"></use>
+                            {% include common/symbol.html name="chevron-down" %}
                         </svg>
                     </span>
                 </span>
@@ -258,6 +258,30 @@
                 <use xlink:href="#icon-chevron-down"></use>
             </svg>
         </span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h3 id="button-icon-standalone">Standalone Icon Button</h3>
+    <p>If no text is present, only and icon, apply the <span class="highlight">btn--icon-only</span> modifier. The button also requires an aria-label.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary btn--icon-only" aria-label="Standalone icon button">
+                <span class="btn__cell">
+                    <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
+                        {% include common/symbol.html name="menu" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--primary" aria-label="Standalone icon button">
+    <span class="btn__cell">
+        <svg aria-hidden="true" class="icon icon--menu" focusable="false" height="16" width="16">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
     </span>
 </button>
     {% endhighlight %}
@@ -284,9 +308,9 @@
 </button>
     {% endhighlight %}
 
-    <h3 id="button-fixed-width">Fixed Width Button</h3>
+    <h3 id="button-constrained-width">Constrained Width Button</h3>
 
-    <p>Button text will begin to wrap naturally once the button grows to its constrained width.</p>
+    <p>Buttons naturally grow wider with their text. The text will wrap naturally once the button width grows to exceed its constrained width.</p>
 
     <div class="demo">
         <div class="demo__inner" style="max-width: 200px; word-break: normal;">
@@ -306,7 +330,7 @@
 
     <h3 id="button-fixed-width-and-height">Fixed Width and Height Button</h3>
 
-    <p>Of course, with a fixed width <em>and</em> a fixed height, the text will begin to overflow.</p>
+    <p>Of course, with a constrained width <em>and</em> a fixed height, the text will begin to overflow.</p>
 
     <div class="demo">
         <div class="demo__inner" style="max-width: 200px;">
@@ -339,4 +363,19 @@
     </button>
 </div>
     {% endhighlight %}
+
+    <h3 id="button-wide">Wide Button</h3>
+
+    <p>For a wider button, use the <span class="highlight">btn--wide</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--wide">Button</button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--wide">Button</button>
+    {% endhighlight %}
+
 </div>

@@ -1,3 +1,5 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 /* stylelint-disable no-descending-specificity, comment-empty-line-before */
 
 @ebay-carousel-transition-time: 0.45s;
@@ -38,12 +40,13 @@
     }
 
     &__playback {
-        background-color: rgba(0, 0, 0, 0.45);
+        .customBackgroundColorProperty(carousel-playback-background-color);
+        .customColorProperty(carousel-playback-foreground-color);
+
         border: 0;
         border-radius: 50%;
         bottom: 16px; // accounts for padding.
         box-sizing: border-box;
-        color: @carousel-play-pause-color;
         height: 40px;
         margin-bottom: 19px;
         margin-right: 19px;
@@ -69,13 +72,17 @@ div.carousel {
     margin: 16px 0;
 }
 
+.carousel__control {
+    .carousel-paddle-mixin-base();
+}
+
 span.carousel,
 span.carousel__container {
     display: inline-block;
 }
 
 .carousel__viewport--mask {
-    mask-image: linear-gradient(to right, @carousel-control-background-color 85%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to right, @carousel-paddle-background-color 85%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* autoprefixer: ignore next */

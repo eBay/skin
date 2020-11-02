@@ -1,0 +1,63 @@
+<h2 id="animation">Animation</h2>
+<p>This section provides information on CSS animations/transitions that are common across one or more modules.</p>
+
+<h3 id="dialog-transitions">Dialog Transitions</h3>
+<p>Skin currently supports two types of dialog transition: fade and slide.
+Because CSS cannot transition an element to and from <span class="highlight">hidden</span> (i.e. "display:none"), transitions are acheived using two classes applied during different stages of the animation.
+Before applying an animation class to the dialog component you must first apply the primer class which will be <span class="highlight">$name-init</span> where <span class="highlight">$name</span> is the base class.
+The dialog component has two different animation base classes <span class="highlight">dialog--show</span> and <span class="highlight">dialog--hide</span>.
+</p>
+<p>Firstly the <span class="highlight">-init</span> postfix must be applied to dialog component to prime animation.
+One animation frame later the <span class="highlight">-init</span> postfix must be removed and the base class applied to start the animation.
+Finally once the animation has completed remove the base class.
+</p>
+
+<p>An example implementation is shown below.</p>
+
+{% highlight js %}
+const dialogEl = document.querySelector(".dialog");
+const windowEl = dialogEl.querySelector(".dialog__window");
+const openBtnEl = document.querySelector("#dialog-open");
+const closeBtnEl = dialogEl.querySelector(".dialog__close");
+
+// Trigger dialog show animation.
+openBtnEl.addEventListener("click", () => {
+dialogEl.classList.add("dialog--show-init");
+dialogEl.removeAttribute("hidden");
+
+requestAnimationFrame(() => requestAnimationFrame(() => {
+    // Two RAFS to ensure this happens on the next animation frame.
+    dialogEl.classList.remove("dialog--show-init");
+    dialogEl.classList.add("dialog--show");
+
+    windowEl.addEventListener("transitionend", () => {
+        /**
+         * The window animation is the longest, so we wait for it to
+         * finish before removing the classes.
+         */
+        dialogEl.classList.remove("dialog--show");
+    }, { once: true });
+}));
+});
+
+// Trigger dialog hide animation. (In the real world the dialog mask) should also be handled.
+closeBtnEl.addEventListener("click", () => {
+dialogEl.classList.add("dialog--hide-init");
+dialogEl.setAttribute("hidden", "");
+
+requestAnimationFrame(() => requestAnimationFrame(() => {
+    // Two RAFS to ensure this happens on the next animation frame.
+    dialogEl.classList.remove("dialog--hide-init");
+    dialogEl.classList.add("dialog--hide");
+
+    windowEl.addEventListener("transitionend", () => {
+        /**
+         * The window animation is the longest, so we wait for it to
+         * finish before removing the classes.
+         */
+        dialogEl.classList.remove("dialog--hide");
+    }, { once: true });
+}));
+});
+
+{% endhighlight %}

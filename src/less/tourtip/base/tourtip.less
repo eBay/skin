@@ -1,0 +1,137 @@
+@import "../../mixins/utility/utility-mixins.less";
+
+.tourtip {
+    position: relative;
+}
+
+span.tourtip {
+    display: inline-block;
+}
+
+.tourtip__overlay {
+    .bubble();
+
+    display: none;
+    position: absolute;
+}
+
+.tourtip__mask {
+    .bubble-mask();
+    .customBackgroundColorProperty(tourtip-background-color);
+    .customColorProperty(tourtip-foreground-color);
+}
+
+span.tourtip__mask {
+    display: block;
+}
+
+.tourtip__cell {
+    .bubble-cell();
+
+    a {
+        .customColorProperty(tourtip-foreground-color);
+
+        &:focus {
+            .customOutlineColorProperty(tourtip-foreground-color);
+
+            outline-style: dashed;
+            outline-width: 1px;
+        }
+    }
+}
+
+.tourtip__content {
+    .bubble-content();
+}
+
+button.tourtip__close {
+    .bubble-close();
+
+    > svg,
+    &:focus > svg,
+    &:hover > svg {
+        .customFillProperty(tourtip-foreground-color);
+    }
+
+    &:focus {
+        .customOutlineColorProperty(tourtip-foreground-color);
+
+        outline-style: dashed;
+        outline-width: 1px;
+    }
+}
+
+.tourtip__pointer {
+    .pointer-base();
+    .pointer-top();
+    .pointer-center();
+    .customBackgroundColorProperty(tourtip-background-color);
+}
+
+.tourtip__pointer--top-left {
+    .pointer-top-left();
+}
+
+.tourtip__pointer--top {
+    .pointer-top-center();
+}
+
+.tourtip__pointer--top-right {
+    .pointer-top-right();
+}
+
+.tourtip__pointer--bottom-left {
+    .pointer-bottom-left();
+}
+
+.tourtip__pointer--bottom {
+    .pointer-bottom-center();
+}
+
+.tourtip__pointer--bottom-right {
+    .pointer-bottom-right();
+}
+
+.tourtip__pointer--left {
+    .pointer-left();
+}
+
+.tourtip__pointer--left-bottom {
+    .pointer-left-bottom();
+}
+
+.tourtip__pointer--left-top {
+    .pointer-left-top();
+}
+
+.tourtip__pointer--right {
+    .pointer-right();
+}
+
+.tourtip__pointer--right-bottom {
+    .pointer-right-bottom();
+}
+
+.tourtip__pointer--right-top {
+    .pointer-right-top();
+}
+
+.tourtip__heading {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+span.tourtip__heading {
+    display: block;
+}
+
+.tourtip--expanded .tourtip__overlay {
+    display: block;
+}
+
+@media (min-width: 601px) {
+    .tourtip__overlay {
+        .bubble-large-screen();
+    }
+}

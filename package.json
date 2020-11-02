@@ -1,7 +1,7 @@
 {
   "name": "@ebay/skin",
   "description": "Skin - CSS modules that represent the brand eBay",
-  "version": "10.7.1",
+  "version": "11.0.0-5",
   "license": "MIT",
   "main": "./index.js",
   "maintainers": [
@@ -29,10 +29,11 @@
     "lint:less": "stylelint docs/src/less src/less --config .stylelintrc-less",
     "lint:css": "stylelint dist --config .stylelintrc-css",
     "lint:js": "eslint docs/src/js/base > lint.log",
-    "copy": "npm run copy:variablesToDist && npm run copy:mixinsToDist && npm run copy:svgToDist",
+    "copy": "npm run copy:variablesToDist && npm run copy:mixinsToDist && npm run copy:svgToDist && npm run copy:svgToDocs",
     "copy:variablesToDist": "mkdirp dist/variables && ncp src/less/variables dist/variables",
     "copy:mixinsToDist": "mkdirp dist/mixins && ncp src/less/mixins dist/mixins",
     "copy:svgToDist": "mkdirp dist/svg && ncp src/svg dist/svg",
+    "copy:svgToDocs": "ncp dist/svg docs/static",
     "version": "node scripts/jekyll-config && npm run storybook:build && npm run build && git add -A dist docs",
     "transpile": "babel docs/src/js --out-dir docs/_babel",
     "snapshot": "npm run storybook:build && percy-storybook --widths=320,1280 --build_dir=docs/storybook",
@@ -69,7 +70,7 @@
     "lasso-autoprefixer": "^4",
     "lasso-cli": "^2",
     "lasso-less": "^3",
-    "less-loader": "^6",
+    "less-loader": "^7",
     "less-plugin-autoprefix": "^2",
     "less-plugin-clean-css": "^1",
     "makeup-active-descendant": "~0.3.9",
@@ -86,6 +87,7 @@
     "nodelist-foreach-polyfill": "^1",
     "npm-run-all": "^4",
     "percy": "~0.28.1",
+    "postcss-loader": "^4.0.3",
     "rimraf": "^3",
     "stylelint": "^13",
     "stylelint-config-standard": "^20",
@@ -93,7 +95,7 @@
     "stylelint-order": "^4",
     "svgo": "^1",
     "winston": "^3",
-    "yargs": "^15"
+    "yargs": "^16"
   },
   "keywords": [
     "eBay",

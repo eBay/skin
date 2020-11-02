@@ -1,13 +1,4 @@
 .filter-menu,
-.filter-menu-form,
-.filter-menu-button {
-  --filter-menu-border-color: #ccc;
-  --filter-menu-checkbox-unchecked-color: #767676;
-  --filter-menu-checkbox-checked-color: #0654ba;
-  --filter-menu-item-background-color: #fff;
-  --filter-menu-item-hover-background-color: #eee;
-}
-.filter-menu,
 .filter-menu-form {
   background-color: #fff;
   background-color: var(--filter-menu-item-background-color, #fff);
@@ -28,7 +19,6 @@ span.filter-menu__items[role="menu"],
 span.filter-menu-form__items {
   display: inline-block;
 }
-span.filter-menu__status,
 span.filter-menu__checkbox,
 span.filter-menu__radio {
   display: block;
@@ -37,32 +27,30 @@ span.filter-menu__radio {
   min-width: 18px;
   width: 18px;
 }
-span.filter-menu__status svg.icon--checkbox-unchecked,
 span.filter-menu__checkbox svg.icon--checkbox-unchecked {
   color: #767676;
-  color: var(--filter-menu-checkbox-unchecked-color, #767676);
+  color: var(--filter-menu-item-unchecked-color, #767676);
   display: block;
   height: 18px;
   width: 18px;
 }
-span.filter-menu__status svg.icon--checkbox-checked,
 span.filter-menu__checkbox svg.icon--checkbox-checked {
   color: #0654ba;
-  color: var(--filter-menu-checkbox-checked-color, #0654ba);
+  color: var(--filter-menu-item-checked-color, #0654ba);
   display: none;
   height: 18px;
   width: 18px;
 }
 span.filter-menu__radio svg.icon--radio-unchecked {
   color: #767676;
-  color: var(--filter-menu-radio-unchecked-color, #767676);
+  color: var(--filter-menu-item-unchecked-color, #767676);
   display: block;
   height: 18px;
   width: 18px;
 }
 span.filter-menu__radio svg.icon--radio-checked {
   color: #0654ba;
-  color: var(--filter-menu-radio-checked-color, #0654ba);
+  color: var(--filter-menu-item-checked-color, #0654ba);
   display: none;
   height: 18px;
   width: 18px;
@@ -78,11 +66,11 @@ span.filter-menu__radio svg.icon--radio-checked {
 }
 .filter-menu-form__item span.checkbox svg.checkbox__unchecked {
   color: #767676;
-  color: var(--filter-menu-checkbox-unchecked-color, #767676);
+  color: var(--filter-menu-item-unchecked-color, #767676);
 }
 .filter-menu-form__item span.checkbox svg.checkbox__checked {
   color: #0654ba;
-  color: var(--filter-menu-checkbox-checked-color, #0654ba);
+  color: var(--filter-menu-item-checked-color, #0654ba);
 }
 .filter-menu-form__item span.radio {
   -webkit-box-align: start;
@@ -95,11 +83,11 @@ span.filter-menu__radio svg.icon--radio-checked {
 }
 .filter-menu-form__item span.radio svg.radio__unchecked {
   color: #767676;
-  color: var(--filter-menu-radio-unchecked-color, #767676);
+  color: var(--filter-menu-item-unchecked-color, #767676);
 }
 .filter-menu-form__item span.radio svg.radio__checked {
   color: #0654ba;
-  color: var(--filter-menu-radio-checked-color, #0654ba);
+  color: var(--filter-menu-item-checked-color, #0654ba);
 }
 span.filter-menu__item[role="menuitemcheckbox"],
 span.filter-menu__item[role="menuitemradio"],
@@ -117,7 +105,6 @@ span.filter-menu-form__item {
           box-sizing: border-box;
   display: -webkit-inline-box;
   display: inline-flex;
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
   font-size: 0.875rem;
   -webkit-box-pack: justify;
           justify-content: space-between;
@@ -139,22 +126,11 @@ span.filter-menu-form__item {
 .filter-menu-form__item:hover {
   background-color: #eee;
   background-color: var(--filter-menu-item-hover-background-color, #eee);
-  color: #333;
-  color: var(--filter-menu-item-hover-foreground-color, #333);
 }
 .filter-menu__item[role="menuitemcheckbox"]:focus,
 .filter-menu__item[role="menuitemradio"]:focus,
 .filter-menu-form__item:focus {
   outline: none;
-}
-.filter-menu__item[role="menuitemcheckbox"]:focus,
-.filter-menu__item[role="menuitemradio"]:focus,
-.filter-menu-form__item:focus,
-.filter-menu__item[role="menuitemcheckbox"]:hover,
-.filter-menu__item[role="menuitemradio"]:hover,
-.filter-menu-form__item:hover {
-  background-color: #eee;
-  background-color: var(--filter-menu-item-hover-background-color, #eee);
 }
 .filter-menu__item[role="menuitemcheckbox"]:last-child,
 .filter-menu__item[role="menuitemradio"]:last-child,
@@ -163,6 +139,7 @@ span.filter-menu-form__item {
 }
 button.filter-menu__footer,
 button.filter-menu-form__footer[type="submit"] {
+  border: none;
   background-color: #fff;
   background-color: var(--filter-menu-item-background-color, #fff);
   color: #333;
@@ -171,16 +148,14 @@ button.filter-menu-form__footer[type="submit"] {
           box-sizing: border-box;
   display: -webkit-inline-box;
   display: inline-flex;
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
   font-size: 0.875rem;
   -webkit-box-pack: justify;
           justify-content: space-between;
   line-height: 1.4em;
   margin: 0;
   width: 100%;
-  border-color: #ccc;
-  border-color: var(--filter-menu-border-color, #ccc);
-  border: none;
+  border-top-color: #eee;
+  border-top-color: var(--filter-menu-border-color, #eee);
   border-top-style: solid;
   border-top-width: 1px;
   bottom: 0;
@@ -196,8 +171,6 @@ button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: #eee;
   background-color: var(--filter-menu-item-hover-background-color, #eee);
-  color: #333;
-  color: var(--filter-menu-item-hover-foreground-color, #333);
 }
 button.filter-menu__footer:focus,
 button.filter-menu-form__footer[type="submit"]:focus {

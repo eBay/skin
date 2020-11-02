@@ -3,25 +3,30 @@
 
 .radio {
     display: inline-flex;
-    font-size: @font-size-16;
     position: relative;
     vertical-align: text-bottom;
 }
 
+.radio__control[type="radio"] {
+    height: @radio-dimensions;
+    min-width: @radio-dimensions;
+    width: @radio-dimensions;
+}
+
+.radio--large .radio__control[type="radio"] {
+    height: @radio-large-dimensions;
+    min-width: @radio-large-dimensions;
+    width: @radio-large-dimensions;
+}
+
 span.radio__icon {
     display: inline-flex;
-    font-size: 1em;
     outline-offset: 1px;
 }
 
 // progressive enhancement - override hidden SVG
 span.radio__icon[hidden] {
     display: inline-flex;
-}
-
-svg.radio__checked,
-svg.radio__unchecked {
-    .foreground-icon-base-mixin();
 }
 
 svg.radio__checked {
@@ -41,6 +46,18 @@ input.radio__control[type="radio"] {
     z-index: 1;
 }
 
+.radio svg {
+    .foreground-icon-base-mixin();
+
+    height: @radio-dimensions;
+    width: @radio-dimensions;
+}
+
+.radio--large svg {
+    height: @radio-large-dimensions;
+    width: @radio-large-dimensions;
+}
+
 input.radio__control[type="radio"] + span.radio__icon svg.radio__checked {
     display: none;
 }
@@ -58,9 +75,13 @@ input.radio__control[type="radio"]:checked + span.radio__icon svg.radio__uncheck
 }
 
 input.radio__control[type="radio"]:focus + span.radio__icon {
-    outline: 1px dotted @color-control-outline;
+    outline: 1px dotted @radio-custom-outline-color;
 }
 
 input.radio__control[type="radio"][disabled] + span.radio__icon {
     opacity: @radio-disabled-opacity;
+
+    svg {
+        fill: @radio-disabled-color;
+    }
 }

@@ -1,14 +1,19 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+// .filter-group also exists in filter-button
+// todo: move to utility/layout class
 div.filter-group {
-    .filter-group();
+    display: flex;
+    flex-wrap: wrap;
 }
 
 span.filter-menu-button {
-    .filter-button-sibling-spacing();
-
     display: inline-block;
     position: relative;
+
+    & + & {
+        margin-left: 8px;
+    }
 }
 
 button.filter-menu-button__button {
@@ -52,9 +57,9 @@ button.filter-menu-button__button[aria-expanded="true"] {
 }
 
 button.filter-menu-button__button[aria-pressed="true"] {
-    .filter-button-selected();
     .customBackgroundColorProperty(filter-button-selected-background-color);
-    .customColorProperty(filter-button-selected-foreground-color);
+
+    font-weight: bold;
 
     &:focus,
     &:hover,
@@ -71,9 +76,8 @@ button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
 button.filter-menu-button__button[aria-pressed="true"][disabled],
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
-    .filter-button-disabled();
-
     color: @filter-button-disabled-foreground-color;
+    font-weight: normal;
 
     &:hover,
     &:focus {
@@ -123,8 +127,6 @@ span.filter-menu-button__items {
     display: inline-block;
 }
 
-// __status deprecated in v10.0.0 favour of __checkbox
-span.filter-menu-button__status,
 span.filter-menu-button__checkbox,
 span.filter-menu-button__radio {
     display: block;
@@ -134,11 +136,9 @@ span.filter-menu-button__radio {
     width: 18px;
 }
 
-// __status deprecated in v10.0.0 favour of __checkbox
-span.filter-menu-button__status,
 span.filter-menu-button__checkbox {
     svg.icon--checkbox-unchecked {
-        .customColorProperty(filter-menu-checkbox-unchecked-color);
+        .customColorProperty(filter-menu-item-unchecked-color);
 
         display: block;
         height: 18px;
@@ -146,7 +146,7 @@ span.filter-menu-button__checkbox {
     }
 
     svg.icon--checkbox-checked {
-        .customColorProperty(filter-menu-checkbox-checked-color);
+        .customColorProperty(filter-menu-item-checked-color);
 
         display: none;
         height: 18px;
@@ -156,7 +156,7 @@ span.filter-menu-button__checkbox {
 
 span.filter-menu-button__radio {
     svg.icon--radio-unchecked {
-        .customColorProperty(filter-menu-radio-unchecked-color);
+        .customColorProperty(filter-menu-item-unchecked-color);
 
         display: block;
         height: 18px;
@@ -164,7 +164,7 @@ span.filter-menu-button__radio {
     }
 
     svg.icon--radio-checked {
-        .customColorProperty(filter-menu-radio-checked-color);
+        .customColorProperty(filter-menu-item-checked-color);
 
         display: none;
         height: 18px;
@@ -199,19 +199,19 @@ span.filter-menu-button__radio {
     }
 
     svg.checkbox__unchecked {
-        .customColorProperty(filter-menu-checkbox-unchecked-color);
+        .customColorProperty(filter-menu-item-unchecked-color);
     }
 
     svg.checkbox__checked {
-        .customColorProperty(filter-menu-checkbox-checked-color);
+        .customColorProperty(filter-menu-item-checked-color);
     }
 
     svg.radio__unchecked {
-        .customColorProperty(filter-menu-radio-unchecked-color);
+        .customColorProperty(filter-menu-item-unchecked-color);
     }
 
     svg.radio__checked {
-        .customColorProperty(filter-menu-radio-checked-color);
+        .customColorProperty(filter-menu-item-checked-color);
     }
 }
 

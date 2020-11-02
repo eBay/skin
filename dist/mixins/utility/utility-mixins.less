@@ -28,6 +28,11 @@
     @{property}: var(~"--@{token}", @@token);
 }
 
+.customProperty(@property, @token1, @token2) {
+    @{property}: @@token1 @@token2;
+    @{property}: var(~"--@{token1}", @@token1) var(~"--@{token2}", @@token2);
+}
+
 .customColorProperty(@token) {
     .customProperty(color, @token);
 }
@@ -44,8 +49,16 @@
     .customProperty(border-bottom-color, @token);
 }
 
+.customBorderTopColorProperty(@token) {
+    .customProperty(border-top-color, @token);
+}
+
 .customBorderRadiusProperty(@token) {
     .customProperty(border-radius, @token);
+}
+
+.customBoxShadowProperty(@token) {
+    .customProperty(box-shadow, @token);
 }
 
 .customFillProperty(@token) {
@@ -54,4 +67,8 @@
 
 .customOutlineColorProperty(@token) {
     .customProperty(outline-color, @token);
+}
+
+.customPaddingProperty(@token1, @token2) {
+    .customProperty(padding, @token1, @token2);
 }

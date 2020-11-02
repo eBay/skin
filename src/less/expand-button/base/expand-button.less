@@ -1,21 +1,34 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 button.expand-btn {
     .btn-base();
+    .customBorderRadiusProperty(expand-button-border-radius);
+    .customPaddingProperty(button-padding-vertical, button-padding-horizontal);
 
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
-    border-radius: @button-border-radius;
     color: inherit;
     display: inline-block;
     font-size: 1em;
     max-width: 100%;
-    padding: @button-padding;
+
+    &:hover,
+    &:focus {
+        .customBorderColorProperty(expand-button-hover-foreground-color);
+        .customColorProperty(expand-button-hover-foreground-color);
+    }
 }
 
 button.expand-btn svg.icon {
     .btn-icon-base();
 
     flex-shrink: 0;
+}
+
+button.expand-button--wide {
+    padding-left: @button-wide-padding-horizontal;
+    padding-right: @button-wide-padding-horizontal;
 }
 
 button.expand-btn--fluid {
@@ -28,10 +41,19 @@ span.expand-btn__cell {
     justify-content: space-between;
 }
 
+/* primary variant is DEPRECATED */
 button.expand-btn--primary {
-    background-color: @button-primary-background-color;
-    border-color: @button-primary-border-color;
-    color: @button-primary-foreground-color;
+    .customBackgroundColorProperty(button-primary-background-color);
+    .customBorderColorProperty(button-primary-border-color);
+    .customColorProperty(button-primary-foreground-color);
+
+    &:focus,
+    &:hover,
+    &:active {
+        .customBackgroundColorProperty(button-primary-hover-background-color);
+        .customBorderColorProperty(button-primary-hover-foreground-color);
+        .customColorProperty(button-primary-hover-foreground-color);
+    }
 }
 
 span.expand-btn__cell--fixed-height svg.icon {
@@ -58,36 +80,47 @@ button.expand-btn[aria-disabled="true"] {
     color: @button-secondary-disabled-foreground-color;
 }
 
+/* primary variant is DEPRECATED */
 button.expand-btn--primary[disabled],
 button.expand-btn--primary[aria-disabled="true"] {
-    background-color: @button-primary-disabled-background-color;
-    border-color: @button-primary-disabled-border-color;
-    color: @button-primary-disabled-foreground-color;
+    .customBackgroundColorProperty(button-primary-disabled-background-color);
+    .customBorderColorProperty(button-primary-disabled-border-color);
+    .customColorProperty(button-primary-disabled-foreground-color);
 
     &:hover,
     &:focus {
-        background-color: @button-primary-disabled-background-color;
-        border-color: @button-primary-disabled-border-color;
+        .customBackgroundColorProperty(button-primary-disabled-background-color);
+        .customBorderColorProperty(button-primary-disabled-border-color);
     }
 }
 
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary {
-    background-color: @button-secondary-background-color;
-    border-color: @button-secondary-border-color;
-    color: @button-secondary-foreground-color;
+    .customBackgroundColorProperty(button-secondary-background-color);
+    .customBorderColorProperty(button-secondary-border-color);
+    .customColorProperty(button-secondary-foreground-color);
+
+    &:focus,
+    &:hover,
+    &:active {
+        .customBackgroundColorProperty(button-secondary-hover-background-color);
+        .customBorderColorProperty(button-secondary-hover-foreground-color);
+        .customColorProperty(button-secondary-hover-foreground-color);
+    }
 }
 
+/* secondary variant is DEPRECATED */
 button.expand-btn--secondary[disabled],
 button.expand-btn--secondary[aria-disabled="true"] {
-    background-color: @button-secondary-disabled-background-color;
-    border-color: @button-secondary-disabled-border-color;
-    color: @button-secondary-disabled-foreground-color;
+    .customBackgroundColorProperty(button-secondary-disabled-background-color);
+    .customBorderColorProperty(button-secondary-disabled-border-color);
+    .customColorProperty(button-secondary-disabled-foreground-color);
 
     &:hover,
     &:focus,
     &:active {
-        background-color: @button-secondary-disabled-background-color;
-        border-color: @expand-button-secondary-disabled-border-color;
+        .customBackgroundColorProperty(button-secondary-disabled-background-color);
+        .customBorderColorProperty(button-secondary-disabled-border-color);
     }
 }
 
@@ -146,13 +179,15 @@ button.expand-btn--large-truncated {
 }
 
 // code smell (chained modifier)
-button.expand-btn.expand-btn--no-text {
+button.expand-btn.expand-btn--no-text,
+button.expand-btn.expand-btn--icon-only {
     height: 40px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
 // code smell (chained modifier)
-button.expand-btn--no-text.expand-btn--large {
+button.expand-btn--no-text.expand-btn--large,
+button.expand-btn--icon-only.expand-btn--large {
     height: 48px;
 }

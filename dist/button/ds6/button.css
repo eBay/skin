@@ -1,40 +1,35 @@
-button.btn,
-a.fake-btn {
-  --button-border-radius: 0;
-  --button-primary-background-color: #3665f3;
-  --button-primary-border-color: #3665f3;
-  --button-primary-foreground-color: #fff;
-  --button-primary-disabled-background-color: #c7c7c7;
-  --button-primary-disabled-border-color: #c7c7c7;
-  --button-primary-disabled-foreground-color: #fff;
-  --button-secondary-background-color: #fff;
-  --button-secondary-border-color: #3665f3;
-  --button-secondary-foreground-color: #3665f3;
-  --button-secondary-disabled-background-color: #fff;
-  --button-secondary-disabled-border-color: #c7c7c7;
-  --button-secondary-disabled-foreground-color: #c7c7c7;
-  --button-delete-background-color: #fff;
-  --button-delete-border-color: #e62048;
-  --button-delete-foreground-color: #e62048;
-}
 @media (prefers-color-scheme: dark) {
-  .skin-experiment-1 button.btn,
-  .skin-experiment-1 a.fake-btn {
+  .skin-experiment-dark-mode button.btn,
+  .skin-experiment-dark-mode a.fake-btn {
     --button-primary-background-color: #5192ff;
     --button-primary-foreground-color: #171717;
+    --button-primary-hover-background-color: #94bcff;
     --button-secondary-background-color: #171717;
     --button-secondary-border-color: #5192ff;
     --button-secondary-foreground-color: #5192ff;
+    --button-secondary-hover-background-color: #171717;
+    --button-secondary-hover-foreground-color: #94bcff;
     --button-delete-background-color: #171717;
-    --button-delete-border-color: #e75064;
     --button-delete-foreground-color: #e75064;
-    --button-primary-disabled-background-color: #171717;
+    --button-primary-disabled-background-color: #4d4d4d;
     --button-primary-disabled-foreground-color: #767676;
     --button-primary-disabled-border-color: #767676;
     --button-secondary-disabled-background-color: #171717;
-    --button-secondary-disabled-foreground-color: #767676;
-    --button-secondary-disabled-border-color: #767676;
+    --button-secondary-disabled-foreground-color: #4d4d4d;
+    --button-secondary-disabled-border-color: #4d4d4d;
   }
+}
+.skin-experiment-rounded button.btn,
+.skin-experiment-rounded a.fake-btn {
+  --button-border-radius: 48px;
+}
+.skin-experiment-rounded button.btn--large,
+.skin-experiment-rounded a.fake-btn--large {
+  --button-border-radius: 48px;
+}
+.skin-experiment-rounded a.fake-btn--icon-only,
+.skin-experiment-rounded button.btn--icon-only {
+  --button-border-radius: 8px;
 }
 button.btn,
 a.fake-btn {
@@ -48,6 +43,8 @@ a.fake-btn {
   vertical-align: bottom;
   border-radius: 0;
   border-radius: var(--button-border-radius, 0);
+  padding: 11px 16px;
+  padding: var(--button-padding-vertical, 11px) var(--button-padding-horizontal, 16px);
   background-color: transparent;
   border-color: inherit;
   color: inherit;
@@ -55,7 +52,6 @@ a.fake-btn {
   font-size: 0.875rem;
   max-width: 100%;
   min-height: 40px;
-  padding: 9.5px 16px;
 }
 button.btn--fixed-height,
 a.fake-btn--fixed-height {
@@ -73,6 +69,17 @@ a.fake-btn--truncated span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+button.btn--wide,
+a.fake-btn--wide {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+button.btn[disabled],
+a.fake-btn:not([href]),
+button.btn[aria-disabled="true"],
+a.fake-btn[aria-disabled="true"] {
+  opacity: 1;
 }
 a.fake-btn:visited {
   color: inherit;
@@ -115,6 +122,7 @@ button.btn svg.icon,
 a.fake-btn svg.icon {
   align-self: center;
   flex-shrink: 0;
+  height: 100%;
   width: 1em;
 }
 button.btn svg.icon:first-child,
@@ -140,16 +148,30 @@ a.fake-btn--primary {
   border-color: var(--button-primary-border-color, #3665f3);
   color: #fff;
   color: var(--button-primary-foreground-color, #fff);
+  font-weight: bold;
 }
+button.btn--primary:focus,
+a.fake-btn--primary:focus,
+button.btn--primary:hover,
+a.fake-btn--primary:hover,
+button.btn--primary:active,
+a.fake-btn--primary:active {
+  background-color: #2b0eaf;
+  background-color: var(--button-primary-hover-background-color, #2b0eaf);
+  border-color: #3665f3;
+  border-color: var(--button-primary-hover-border-color, #3665f3);
+}
+button.btn--primary:visited,
 a.fake-btn--primary:visited {
   color: #fff;
+  color: var(--button-primary-foreground-color, #fff);
 }
 button.btn .spinner {
   height: 19px;
   width: 19px;
 }
 button.btn--confirmation {
-  background-color: #1bab49;
+  background-color: #28a443;
   border-color: #28a443;
   color: #fff;
 }
@@ -202,6 +224,25 @@ a.fake-btn--primary[aria-disabled="true"] {
   color: #fff;
   color: var(--button-primary-disabled-foreground-color, #fff);
 }
+a.fake-btn--primary:not([href]):focus,
+a.fake-btn--primary[aria-disabled="true"]:focus,
+a.fake-btn--primary:not([href]):hover,
+a.fake-btn--primary[aria-disabled="true"]:hover,
+a.fake-btn--primary:not([href]):active,
+a.fake-btn--primary[aria-disabled="true"]:active {
+  background-color: #c7c7c7;
+  background-color: var(--button-primary-disabled-background-color, #c7c7c7);
+  border-color: #c7c7c7;
+  border-color: var(--button-primary-disabled-border-color, #c7c7c7);
+  color: #fff;
+  color: var(--button-primary-disabled-foreground-color, #fff);
+  opacity: 1;
+}
+/* stylelint-disable no-descending-specificity */
+a.fake-btn--secondary:visited {
+  color: #3665f3;
+  color: var(--button-secondary-foreground-color, #3665f3);
+}
 button.btn--secondary,
 a.fake-btn--secondary {
   background-color: #fff;
@@ -211,15 +252,26 @@ a.fake-btn--secondary {
   color: #3665f3;
   color: var(--button-secondary-foreground-color, #3665f3);
 }
-a.fake-btn--secondary:visited {
-  color: #3665f3;
+button.btn--secondary:hover,
+a.fake-btn--secondary:hover,
+button.btn--secondary:focus,
+a.fake-btn--secondary:focus,
+button.btn--secondary:active,
+a.fake-btn--secondary:active {
+  background-color: #fff;
+  background-color: var(--button-secondary-hover-background-color, #fff);
+  border-color: #2b0eaf;
+  border-color: var(--button-secondary-hover-foreground-color, #2b0eaf);
+  color: #2b0eaf;
+  color: var(--button-secondary-hover-foreground-color, #2b0eaf);
 }
+/* stylelint-enable no-descending-specificity */
 button.btn--delete,
 a.fake-btn--delete {
   background-color: #fff;
   background-color: var(--button-delete-background-color, #fff);
   border-color: #e62048;
-  border-color: var(--button-delete-border-color, #e62048);
+  border-color: var(--button-delete-foreground-color, #e62048);
   color: #e62048;
   color: var(--button-delete-foreground-color, #e62048);
 }
@@ -232,7 +284,7 @@ a.fake-btn--delete:active,
 button.btn--delete:visited,
 a.fake-btn--delete:visited {
   border-color: #e62048;
-  border-color: var(--button-delete-border-color, #e62048);
+  border-color: var(--button-delete-foreground-color, #e62048);
   color: #e62048;
   color: var(--button-delete-foreground-color, #e62048);
 }
@@ -282,10 +334,19 @@ a.fake-btn--delete[aria-disabled="true"] {
 }
 button.btn--large,
 a.fake-btn--large {
+  padding: 14px 16px;
+  padding: var(--button-large-padding-vertical, 14px) var(--button-padding-horizontal, 16px);
+  font-size: 1rem;
   min-height: 48px;
 }
 button.btn--transparent,
 a.fake-btn--transparent {
+  background-color: transparent;
+}
+button.btn--transparent:hover,
+a.fake-btn--transparent:hover,
+button.btn--transparent:focus,
+a.fake-btn--transparent:focus {
   background-color: transparent;
 }
 button.btn--fixed-height,
@@ -295,6 +356,7 @@ a.fake-btn--fixed-height {
 button.btn--large-fixed-height,
 a.fake-btn--large-fixed-height {
   height: 48px;
+  min-height: 48px;
   padding-top: calc(27px - 0.75em);
 }
 button.btn--truncated,
@@ -308,7 +370,11 @@ a.fake-btn--truncated span {
 }
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
+  padding: 14px 16px;
+  padding: var(--button-large-padding-vertical, 14px) var(--button-padding-horizontal, 16px);
+  font-size: 1rem;
   height: 48px;
+  min-height: 48px;
 }
 button.btn--large-truncated,
 a.fake-btn--large-truncated,
@@ -319,90 +385,7 @@ a.fake-btn--large-truncated span {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-button.btn--primary,
-a.fake-btn--primary {
-  font-weight: bold;
-}
-button.btn--primary:focus,
-a.fake-btn--primary:focus,
-button.btn--primary:hover,
-a.fake-btn--primary:hover,
-button.btn--primary:active,
-a.fake-btn--primary:active {
-  background-color: #2b0eaf;
-  border-color: #2b0eaf;
-}
-a.fake-btn--primary:not([href]):focus,
-a.fake-btn--primary[aria-disabled="true"]:focus,
-a.fake-btn--primary:not([href]):hover,
-a.fake-btn--primary[aria-disabled="true"]:hover,
-a.fake-btn--primary:not([href]):active,
-a.fake-btn--primary[aria-disabled="true"]:active {
-  background-color: #c7c7c7;
-  border-color: #c7c7c7;
-  color: #fff;
-}
-button.btn--secondary:focus,
-a.fake-btn--secondary:focus,
-button.btn--secondary:hover,
-a.fake-btn--secondary:hover,
-button.btn--secondary:active,
-a.fake-btn--secondary:active {
-  border-color: #2b0eaf;
-  color: #2b0eaf;
-}
-button.btn--secondary[disabled]:focus,
-a.fake-btn--secondary[disabled]:focus,
-a.fake-btn--secondary:not([href]):focus,
-a.fake-btn--secondary[aria-disabled="true"]:focus,
-button.btn--secondary[disabled]:hover,
-a.fake-btn--secondary[disabled]:hover,
-a.fake-btn--secondary:not([href]):hover,
-a.fake-btn--secondary[aria-disabled="true"]:hover,
-button.btn--secondary[disabled]:active,
-a.fake-btn--secondary[disabled]:active,
-a.fake-btn--secondary:not([href]):active,
-a.fake-btn--secondary[aria-disabled="true"]:active {
-  background-color: #fff;
-  border-color: #c7c7c7;
-  color: #c7c7c7;
-}
-button.btn {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-button.btn--fixed-height {
-  padding-bottom: 10px;
-}
-button.btn--truncated {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-a.fake-btn {
-  padding-bottom: 9px;
-  padding-top: 11px;
-}
-a.fake-btn--fixed-height {
-  padding-bottom: 9px;
-}
-a.fake-btn--truncated {
-  padding-bottom: 9px;
-  padding-top: 11px;
-}
-button.btn--large,
-a.fake-btn--large {
-  font-size: 1rem;
-  padding-bottom: 13px;
-  padding-top: 15px;
-}
-button.btn--large-fixed-height,
-a.fake-btn--large-fixed-height {
-  min-height: 48px;
-  padding-bottom: 13px;
-}
-button.btn--large-truncated,
-a.fake-btn--large-truncated {
-  min-height: 48px;
-  padding-bottom: 13px;
-  padding-top: 15px;
+button.btn--icon-only,
+a.fake-btn--icon-only {
+  padding: 0;
 }

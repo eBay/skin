@@ -1,14 +1,8 @@
-.textbox {
-  --textbox-background-color: #fff;
-  --textbox-foreground-color: #555;
-  --textbox-border-color: #ccc;
-  --textbox-focus-border-color: #0654ba;
-}
 /* stylelint-disable no-descending-specificity */
 .textbox {
   color: #555;
   color: var(--textbox-foreground-color, #555);
-  font-size: inherit;
+  font-size: 0.875rem;
   position: relative;
 }
 .textbox button.icon-btn {
@@ -25,6 +19,7 @@ span.textbox {
   display: inline-block;
 }
 textarea.textbox__control {
+  font-family: inherit;
   min-height: 200px;
   overflow: auto;
   padding: 16px;
@@ -33,6 +28,7 @@ textarea.textbox__control {
 }
 input.textbox__control {
   padding: 0 16px 0 16px;
+  vertical-align: middle;
 }
 input.textbox__control,
 textarea.textbox__control {
@@ -42,15 +38,15 @@ textarea.textbox__control {
   border-color: var(--textbox-border-color, #ccc);
   color: #555;
   color: var(--textbox-foreground-color, #555);
+  border-radius: 3px;
+  border-radius: var(--textbox-border-radius, 3px);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
   font-size: 1em;
   height: 40px;
   margin: 0;
@@ -62,7 +58,6 @@ textarea.textbox__control[disabled] {
   color: #ccc;
   color: var(--textbox-disabled-foreground-color, #ccc);
   border-color: #ccc;
-  border-width: 0;
 }
 input.textbox__control[disabled]::-webkit-input-placeholder,
 textarea.textbox__control[disabled]::-webkit-input-placeholder {
@@ -78,9 +73,7 @@ textarea.textbox__control[disabled]:-ms-input-placeholder {
 }
 input.textbox__control[readonly],
 textarea.textbox__control[readonly] {
-  background-color: #ccc;
-  border-color: #ccc;
-  color: #767676;
+  color: #333;
 }
 input.textbox__control[aria-invalid="true"],
 textarea.textbox__control[aria-invalid="true"] {
@@ -172,15 +165,15 @@ input.textbox__control--underline:focus::placeholder {
 }
 .textbox > svg,
 .textbox .icon-btn > svg {
-  color: #999;
+  color: #767676;
   display: -webkit-inline-box;
   display: inline-flex;
-  fill: #999;
+  fill: #767676;
   height: 100%;
   pointer-events: none;
   position: absolute;
   top: 0;
-  width: 1em;
+  width: 14px;
 }
 .textbox > svg:first-child {
   left: 16px;
@@ -222,19 +215,4 @@ input.textbox__control--underline:focus::placeholder {
 [dir="rtl"] .textbox--icon-end > svg:last-child {
   left: 16px;
   right: auto;
-}
-.textbox svg {
-  stroke-width: 0.5;
-}
-.textbox--small input.textbox__control,
-.textbox--small textarea.textbox__control {
-  font-size: 0.75rem;
-  height: 32px;
-}
-.textbox--extra-large {
-  font-size: 1.125rem;
-}
-.textbox--extra-large input.textbox__control,
-.textbox--extra-large textarea.textbox__control {
-  height: 56px;
 }

@@ -1,4 +1,4 @@
 require('./core');
-require('./dialog');
+require('./lightbox-dialog');
 require('./form');
 require('./spinner');

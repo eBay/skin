@@ -1,7 +1,10 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+// .filter-group also exists in filter-menu-button
+// todo: move to utility/layout class
 div.filter-group {
-    .filter-group();
+    display: flex;
+    flex-wrap: wrap;
 }
 
 button.filter-button,
@@ -32,9 +35,9 @@ a.filter-link:visited {
 
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-    .filter-button-selected();
     .customBackgroundColorProperty(filter-button-selected-background-color);
-    .customColorProperty(filter-button-selected-foreground-color);
+
+    font-weight: bold;
 
     &:focus,
     &:hover,
@@ -51,13 +54,13 @@ a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
-    .filter-button-disabled();
-
     color: @filter-button-disabled-foreground-color;
+    font-weight: normal;
 
     &:hover,
     &:focus {
-        background-color: @filter-button-background-color;
+        .customBackgroundColorProperty(filter-button-background-color);
+
         color: @filter-button-disabled-foreground-color;
     }
 }

@@ -1,27 +1,5 @@
 @import "../../utility/utility-mixins.less";
 
-@dialog_max_width: 616px;
-@dialog_header_default_margin: 16px 16px 0;
-
-// Element width in percentage - (No of gutters * gutter width / number of elements)px
-.create-grid(@cols, @gutter: 0, @gutter-exponent: 4, @size: 0, @min: 0, @max: 0) {
-    & when not (@size = 0) {
-        width: calc(round(@size / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@min = 0) {
-        min-width: calc(round(@min / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when not (@max = 0) {
-        max-width: calc(round(@max / @cols * 100%) ~"-" round(@gutter * @gutter-exponent));
-    }
-
-    & when (@max = 0) {
-        max-width: @dialog_max_width;
-    }
-}
-
 .dialog-base() {
     background-color: fade(@dialog-mask-background-color, 70%);
     bottom: 0;
@@ -33,53 +11,38 @@
     top: 0;
     will-change: background-color;
     z-index: 100000; // because global header has an element with 99999
-}
 
-.dialog-window(@width: @dialog_max_width) {
-    display: flex;
-    margin: auto;
-    max-width: @width;
-    min-height: 55px;
-    position: absolute;
-    right: 0;
-    will-change: opacity, transform;
-
-    // The background for the dialog window is on this pseudo element.
-    // This was done because `margin-bottom` in safari does not work properly with position absolute elements.
-    &::before {
-        .customBackgroundColorProperty(dialog-window-background-color);
-
-        bottom: 15vh;
-        content: "";
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
+    &:not([hidden]) {
+        display: flex;
     }
 }
 
-.dialog-window-filler() {
+.dialog-window() {
     .customBackgroundColorProperty(dialog-window-background-color);
 
-    bottom: 0;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0;
-
-    &::before {
-        display: none;
-    }
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    min-height: 55px;
+    will-change: opacity, transform;
 }
 
-.dialog-header-content(@margin: @dialog_header_default_margin) {
+.dialog-header-content() {
     display: flex;
     // Fix for Safari not honoring min-height
     flex-shrink: 0;
-    margin: @margin;
+    margin: @dialog-small-gutter-size (@dialog-small-gutter-size - 8) 0;
     position: relative;
 
-    h2 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        align-self: center;
         flex: 1 1 auto;
-        margin: 0;
+        margin: 0 8px;
     }
 
     & > :last-child:not(:only-child) {
@@ -87,19 +50,10 @@
     }
 }
 
-.dialog-header-content-large() {
-    margin: @dialog-large-gutter-size @dialog-large-gutter-size 0;
-
-    & > :last-child {
-        margin-left: @dialog-large-gutter-size;
-        margin-top: initial;
-    }
-}
-
 .dialog-body-content() {
     box-sizing: border-box;
     flex: 1 1 auto;
-    margin: 16px;
+    margin: @dialog-small-gutter-size;
     position: relative;
 
     & > :first-child {
@@ -111,15 +65,11 @@
     }
 }
 
-.dialog-body-content-large() {
-    margin: @dialog-large-gutter-size;
-}
-
 .dialog-footer-content() {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 16px 16px;
+    padding: 16px;
     position: relative;
 
     & > :not(:first-child) {
@@ -127,10 +77,19 @@
     }
 }
 
+/* large screens */
+
+.dialog-header-content-large() {
+    margin: (@dialog-large-gutter-size - 8px) (@dialog-large-gutter-size - 8px) 0;
+}
+
+.dialog-body-content-large() {
+    margin: (@dialog-large-gutter-size - 8px) @dialog-large-gutter-size @dialog-large-gutter-size;
+}
+
 .dialog-footer-content-large() {
     flex-direction: row;
     justify-content: flex-end;
-    margin: 0 @dialog-large-gutter-size @dialog-large-gutter-size;
 
     & > :not(:first-child) {
         margin-left: @dialog-large-gutter-size;

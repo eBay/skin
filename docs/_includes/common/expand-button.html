@@ -1,15 +1,16 @@
 <div id="expand-button">
     {% include common/section-header.html name="expand-button" version=page.versions.expand-button %}
 
-    <h3>Default Expand Button</h3>
-    <p>Use the <span class="highlight">expand-btn</span> base class on a button that expands and collapses content.</p>
+    <p>Use the <span class="highlight">expand-btn</span> base class for any button that expands and collapses content.</p>
+    <p>The expand button is used in the <a href="#menu-button">menu-button</a> and <a href="#listbox-button">listbox-button</a> modules.</p>
+
     <div class="demo">
         <div class="demo__inner">
-            <button class="expand-btn expand-btn-example" type="button" aria-expanded="false" >
+            <button class="expand-btn" type="button" aria-expanded="false" >
                 <span class="expand-btn__cell">
                     <span class="expand-btn__text">Expand</span>
                     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use xlink:href="#icon-dropdown"></use>
+                        {% include common/symbol.html name="dropdown" %}
                     </svg>
                 </span>
             </button>
@@ -27,21 +28,76 @@
 </button>
     {% endhighlight %}
 
-    <h3>Icon Only Expand Button</h3>
-    <p>Use the <span class="highlight">expand-btn--no-text</span> modifier for an expand button with no visible text. The button requires an <span class="highlight">aria-label</span> for assistive technology.</p>
+<!-- primary and secondary variants are deprecated -->
+<!--
+    <h3 id="expand-button-primary">Primary Expand Button</h3>
+    <p>Use the <span class="highlight">expand-btn--primary</span> modifier class on a button that expands and collapses content.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="expand-btn expand-btn--primary" type="button" aria-expanded="false" >
+                <span class="expand-btn__cell">
+                    <span class="expand-btn__text">Expand</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include common/symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="expand-btn expand-btn--primary" type="button" aria-expanded="false">
+    <span class="expand-btn__cell">
+        <span class="expand-btn__text">Expand</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h3 id="expand-button-secondary">Secondary Expand Button</h3>
+    <p>Use the <span class="highlight">expand-btn--secondary</span> modifier class on a button that expands and collapses content.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="expand-btn expand-btn--secondary" type="button" aria-expanded="false" >
+                <span class="expand-btn__cell">
+                    <span class="expand-btn__text">Expand</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include common/symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="expand-btn expand-btn--secondary" type="button" aria-expanded="false">
+    <span class="expand-btn__cell">
+        <span class="expand-btn__text">Expand</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+-->
+
+    <h3 id="expand-button-minimal">Minimal Expand Button</h3>
+    <p>Use the <span class="highlight">expand-btn--icon-only</span> modifier for a minimal expand button with no visible text. The button requires an <span class="highlight">aria-label</span> for assistive technology.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="expand-btn expand-btn--no-text expand-btn-example" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+            <button class="expand-btn expand-btn--icon-only expand-btn-example" type="button" aria-expanded="false" aria-label="Expand/Collapse">
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    {% include common/symbol.html name="dropdown" %}
                 </svg>
             </button>
         </div>
     </div>
 
     {% highlight html %}
-<button class="expand-btn expand-btn--no-text" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+<button class="expand-btn expand-btn--icon-only" type="button" aria-expanded="false" aria-label="Expand/Collapse">
     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
         <use xlink:href="#icon-dropdown"></use>
     </svg>

@@ -23,6 +23,7 @@ span.textbox {
 }
 
 textarea.textbox__control {
+    font-family: inherit;
     min-height: 200px;
     overflow: auto;
     padding: 16px;
@@ -32,6 +33,7 @@ textarea.textbox__control {
 
 input.textbox__control {
     padding: 0 16px 0 16px;
+    vertical-align: middle;
 }
 
 input.textbox__control,
@@ -39,13 +41,12 @@ textarea.textbox__control {
     .customBackgroundColorProperty(textbox-background-color);
     .customBorderColorProperty(textbox-border-color);
     .customColorProperty(textbox-foreground-color);
+    .customBorderRadiusProperty(textbox-border-radius);
 
     appearance: none;
-    border-radius: @textbox-border-radius;
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    font-family: @textbox-font-family;
     font-size: 1em;
     height: @textbox-height;
     margin: 0; // Remove the margin in Firefox and Safari.
@@ -55,7 +56,6 @@ textarea.textbox__control {
         .customColorProperty(textbox-disabled-foreground-color);
 
         border-color: @textbox-disabled-border-color;
-        border-width: @textbox-disabled-border-width;
 
         &::-webkit-input-placeholder {
             color: @textbox-disabled-placeholder-color;
@@ -71,8 +71,6 @@ textarea.textbox__control {
     }
 
     &[readonly] {
-        background-color: @textbox-readonly-background-color;
-        border-color: @textbox-readonly-border-color;
         color: @textbox-readonly-foreground-color;
     }
 
@@ -109,7 +107,7 @@ textarea.textbox__control {
 
 input.textbox__control--underline {
     border: none;
-    border-bottom: 1px solid @textbox-underline-border-bottom-color;
+    border-bottom: 1px solid @textbox-underline-color;
     border-radius: 0;
     font-weight: bold;
     height: 1.875rem; // a11y: has to be relative to the text size
@@ -172,7 +170,7 @@ input.textbox__control--underline {
 .textbox .icon-btn > svg {
     color: @textbox-icon-color;
     display: inline-flex;
-    fill: @textbox-icon-fill;
+    fill: @textbox-icon-color;
     height: 100%;
     pointer-events: none;
     position: absolute;

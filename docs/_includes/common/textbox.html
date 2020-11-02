@@ -24,8 +24,24 @@
 </span>
     {% endhighlight %}
 
+    <h3>Readonly Textbox</h3>
+    <p>Use the <span class="highlight">readonly</span> attribute to prevent any modification of the value.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <input aria-label="Textbox demo" class="textbox__control" type="text" value="Readonly textbox" readonly />
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <input class="textbox__control" type="text" value="Readonly textbox"  readonly />
+</span>
+    {% endhighlight %}
+
     <h3>Disabled Textbox</h3>
-    <p>Use the <span class="highlight">disabled</span> attribute to disable any input.</p>
+    <p>Use the <span class="highlight">disabled</span> attribute to completely disable the input and any value.</p>
     <div class="demo">
         <div class="demo__inner">
             <span class="textbox">
@@ -96,7 +112,7 @@
         <div class="demo__inner">
             <span class="textbox">
                 <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-messages"></use>
+                    {% include common/symbol.html name="messages" %}
                 </svg>
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
             </span>
@@ -119,7 +135,7 @@
             <span class="textbox textbox--icon-end">
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
                 <svg class="icon icon--messages" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-messages"></use>
+                    {% include common/symbol.html name="messages" %}
                 </svg>
             </span>
         </div>
@@ -135,8 +151,8 @@
     {% endhighlight %}
     <p><strong>NOTE:</strong> The icon is presentational, and therefore hidden from assistive technology using <span class="highlight">aria-hidden</span>. Remember, the purpose of the field must be conveyed using a label.</p>
 
-    <h3 id="textbox-icon-actionable">Textbox with Actionable Icon</h3>
-    <p>Single-line textboxes also support an <a href="#actionable">actionable</a> icon.</p>
+    <h3 id="textbox-icon-button">Textbox with Icon Button</h3>
+    <p>Single-line textboxes also support an <a href="#icon-button">icon button</a> in the end position.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -144,7 +160,7 @@
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
                 <button class="icon-btn" type="button" aria-label="Choose Contact">
                     <svg aria-hidden="true" class="icon icon--clear" focusable="false" width="16" height="16">
-                        <use xlink:href="#icon-clear"></use>
+                        {% include common/symbol.html name="clear" %}
                     </svg>
                 </button>
             </span>
@@ -162,19 +178,18 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="textbox-icon-actionable">Textbox with two icons, one actionable</h3>
-    <p>Single-line textboxes also support to have two icons, with the last one being an <a href="#actionable">actionable</a> icon.</p>
+    <p>An icon button in the end position can also be teamed up with a static icon in the start position.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="textbox textbox--icon-end">
                 <svg class="icon icon--search" focusable="false" width="16" height="16" aria-hidden="true">
-                    <use xlink:href="#icon-search"></use>
+                    {% include common/symbol.html name="search" %}
                 </svg>
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
                 <button class="icon-btn" type="button" aria-label="Choose Contact">
                     <svg aria-hidden="true" class="icon icon--clear" focusable="false" width="16" height="16">
-                        <use xlink:href="#icon-clear"></use>
+                        {% include common/symbol.html name="clear" %}
                     </svg>
                 </button>
             </span>
@@ -199,7 +214,7 @@
 
     <h3 id="textbox-underline">Underline Textbox</h3>
     <p>Use <span class="highlight">textbox__control--underline</span> modifier to style the textbox with only a bottom border to be used in conjuction with floating labels.</p>
-    <p>Please see the <a href="#label">label</a> module for details on labelling controls. Remember: every textbox requires a label!</p>
+    <p>Please see the <a href="#floating-label">label</a> module for details on labelling controls. Remember: every textbox requires a label!</p>
     <div class="demo">
         <div class="demo__inner">
             <span class="textbox">
