@@ -1,4 +1,4 @@
-export default { title: 'Page Notice' };
+export default { title: 'Page Notice/Page Notice' };
 
 export const confirmation = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">

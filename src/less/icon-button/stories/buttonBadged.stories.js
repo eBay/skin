@@ -1,4 +1,4 @@
-export default { title: 'Icon Button/Button/Badged' };
+export default { title: 'Icon Button/Icon Button/Button/Badged' };
 
 export const oneDigit = () => `
 <button aria-label="Menu" class="icon-btn icon-btn--badged" type="button">

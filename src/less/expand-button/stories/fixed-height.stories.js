@@ -1,4 +1,4 @@
-export default { title: 'Expand Button/Fixed Height' };
+export default { title: 'Expand Button/Expand Button/Fixed Height' };
 
 export const nonTruncated = () => `
 <button style="width: 200px;" type="button" class="expand-btn expand-btn--fixed-height">

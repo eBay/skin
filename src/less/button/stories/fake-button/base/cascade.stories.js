@@ -1,4 +1,4 @@
-export default { title: 'Fake Button/Base/Cascade' };
+export default { title: 'Fake Button/Fake Button/Base/Cascade' };
 
 export const color = () => `
 <a class="fake-btn" href="http://www.ebay.com" style="color: red;">

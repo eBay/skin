@@ -1,4 +1,4 @@
-export default { title: 'Fake Button/Base/Fixed Height' };
+export default { title: 'Fake Button/Fake Button/Base/Fixed Height' };
 
 export const nonTruncated = () => `
 <a style="width: 200px;" class="fake-btn fake-btn--fixed-height" href="http://www.ebay.com">

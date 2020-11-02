@@ -1,4 +1,4 @@
-export default { title: 'Button/Base/Fixed Height' };
+export default { title: 'Button/Button/Base/Fixed Height' };
 
 export const nonTruncated = () => `
 <button style="width: 200px;" type="button" class="btn btn--fixed-height">

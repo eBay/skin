@@ -1,4 +1,4 @@
-export default { title: 'Textbox/Icon' };
+export default { title: 'Textbox/Textbox/Icon' };
 
 export const base = () => `
 <span class="textbox">

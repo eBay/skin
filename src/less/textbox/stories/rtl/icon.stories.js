@@ -1,4 +1,4 @@
-export default { title: 'Textbox/RTL/Icon' };
+export default { title: 'Textbox/Textbox/RTL/Icon' };
 
 export const base = () => `
 <div dir="rtl">
