@@ -51,6 +51,20 @@ Skin can usually considered to be in one of two modes of development:
 
 The vast majority of this guide is relevant to both modes.
 
+### New Module Creation
+
+Executing the following script will generate all files and references for a new module:
+
+```
+./scripts/develop-module -m "Your Module Name"
+```
+
+*Example*
+
+```
+./scripts/develop-module -m toast-dialog
+```
+
 ## Versioning
 
 Skin follows [Semantic Versioning](http://semver.org):
@@ -89,20 +103,6 @@ Here are some of the changes we consider as new functionality:
 * Update of a CSS property that does not affect the modules layout in page
 
 Minor version updates are a signal that there is something new (no matter how small) that an app might be interested in using!
-
-#### New Module
-
-For adding a new module, you can execute the following script which generates required files and its appropriate wiring.
-
-```
-./scripts/develop-module -m "Your Module Name"
-```
-
-*Example*
-
-```
-./scripts/develop-module -m toast
-```
 
 ### Bug Fix
 
@@ -323,3 +323,13 @@ Git tags to the rescue! Git tags allow us to go back to any moment in time on ou
 1. For your sanity, run `git log` to ensure branch only has commit history up to the selected tag
 1. Make your changes in the branch as usual then commit and push your branch
 1. Do your your NPM & CDN release from this hotfix branch
+
+### Website Archive
+
+The website archive under `/docs/archive` should be updated each time a minor or major release is published.
+
+1. In a local branch, checkout the tag of the previous version, e.g. `git checkout v10.7.5`
+1. Run `yarn`
+1. Run `yarn build`
+1. Copy relevant generated files only from `/_site` to a subfolder of `/docs/archive`
+1. Create a pull request
