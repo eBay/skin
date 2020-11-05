@@ -12,28 +12,51 @@ label.floating-label__label {
   color: #767676;
   color: var(--floating-label-color, #767676);
   display: block;
-  left: 0;
+  left: 15px;
   pointer-events: none;
   position: absolute;
-  -webkit-transform: scale(0.75, 0.75) translate(0, -24px);
-          transform: scale(0.75, 0.75) translate(0, -24px);
+  -webkit-transform: scale(0.75, 0.75) translate(0, 2px);
+          transform: scale(0.75, 0.75) translate(0, 2px);
   -webkit-transform-origin: left;
           transform-origin: left;
   z-index: 1;
 }
+label.floating-label__label--focus {
+  color: #767676;
+  color: var(--floating-label-focus-color, #767676);
+}
+.floating-label--large label.floating-label__label {
+  -webkit-transform: scale(0.75, 0.75) translate(0, 3px);
+          transform: scale(0.75, 0.75) translate(0, 3px);
+}
 label.floating-label__label--inline {
-  bottom: 0.4375rem;
   font-size: 0.875rem;
-  -webkit-transform: none;
-          transform: none;
+  -webkit-transform: translate(0, 10px);
+          transform: translate(0, 10px);
+}
+.floating-label--large label.floating-label__label--inline {
+  -webkit-transform: translate(0, 13px);
+          transform: translate(0, 13px);
 }
 label.floating-label__label--animate {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -webkit-transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 label.floating-label__label--disabled {
   color: #555;
   color: var(--floating-label-disabled-color, #555);
+}
+label.floating-label__label--invalid {
+  color: #767676;
+  color: var(--floating-label-invalid-color, #767676);
+}
+.floating-label .textbox__control {
+  padding-bottom: 2px;
+  padding-top: 18px;
+}
+.floating-label--large .textbox__control {
+  padding-bottom: 5px;
+  padding-top: 23px;
 }
