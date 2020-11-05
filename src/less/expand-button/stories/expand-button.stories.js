@@ -1,4 +1,4 @@
-export default { title: 'Expand Button' };
+export default { title: 'Expand Button/Expand Button' };
 
 export const collapsed = () => `
 <button type="button" class="expand-btn" aria-expanded="false">

@@ -1,4 +1,4 @@
-export default { title: 'Icon Button/Link/Badged' };
+export default { title: 'Icon Button/Icon Button/Link/Badged' };
 
 export const oneDigit = () => `
 <a aria-label="Settings" class="icon-link icon-link--badged" href="http://www.ebay.com">

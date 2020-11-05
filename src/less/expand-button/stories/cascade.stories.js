@@ -1,4 +1,4 @@
-export default { title: 'Expand Button/Cascade' };
+export default { title: 'Expand Button/Expand Button/Cascade' };
 
 export const color = () => `
 <button type="button" class="expand-btn" style="color: green">

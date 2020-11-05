@@ -1,4 +1,4 @@
-export default { title: 'Button/Primary' };
+export default { title: 'Button/Button/Primary' };
 
 export const textOnly = () => '<button class="btn btn--primary">Button</button>';
 

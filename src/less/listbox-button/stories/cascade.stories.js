@@ -1,4 +1,4 @@
-export default { title: 'Listbox Button/Base/Cascade' };
+export default { title: 'Listbox Button/Listbox Button/Base/Cascade' };
 
 export const RTL = () => `
 <div dir="rtl">
