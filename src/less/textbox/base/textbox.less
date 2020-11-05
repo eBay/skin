@@ -76,11 +76,17 @@ textarea.textbox__control {
 
     &[aria-invalid="true"] {
         .customBackgroundColorProperty(textbox-invalid-background-color);
+
         border-color: @textbox-invalid-foreground-color;
+    }
+
+    &[aria-invalid="true"] + .textbox__helper-text {
+        .customColorProperty(textbox-helper-text-invalid-color);
     }
 
     &:focus {
         .customBorderColorProperty(textbox-focus-border-color);
+        .customBackgroundColorProperty(textbox-focus-background-color);
 
         outline: 0;
     }
@@ -152,6 +158,13 @@ input.textbox__control--large {
 
 .textbox__control--fluid {
     width: 100%;
+}
+
+.textbox__helper-text {
+    .customColorProperty(textbox-helper-text-color);
+
+    font-size: @textbox-helper-text-size;
+    margin: 2px 16px 0;
 }
 
 [dir="rtl"] {
