@@ -30,7 +30,7 @@
     .dropdown-overlay();
 }
 
-.dropdown-option-base() {
+.dropdown-option-color() {
     .customBorderColorProperty(dropdown-item-border-color);
     .customColorProperty(dropdown-item-foreground-color);
 
@@ -72,4 +72,21 @@
     stroke: currentColor;
     stroke-width: 0;
     width: 8px;
+}
+
+.dropdown-option-radius() {
+    &:first-child {
+        .customBorderTopLeftRadiusProperty(dropdown-items-border-radius);
+        .customBorderTopRightRadiusProperty(dropdown-items-border-radius);
+    }
+
+    &:last-child {
+        .customBorderBottomLeftRadiusProperty(dropdown-items-border-radius);
+        .customBorderBottomRightRadiusProperty(dropdown-items-border-radius);
+    }
+}
+
+.dropdown-option-base() {
+    .dropdown-option-color();
+    .dropdown-option-radius();
 }
