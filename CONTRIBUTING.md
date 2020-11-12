@@ -4,24 +4,37 @@ This page contains instructions and guidelines for anybody contributing code to 
 
 ## Table of Contents
 
-* [System Requirements](#system-requirements)
-* [Contribution Steps](#contribution-steps)
-* [Versioning](#versioning)
-* [Branching](#branching)
-* [Pull Requests](#pull-requests)
-* [Style Guide](#style-guide)
-* [Variables](#variables)
-* [Storybook](#storybook)
-* [Percy](#percy)
-* [Website](#website)
-* [Scripts](#scripts)
-* [Icon Creation](#icon-creation)
-* [Releases](#releases)
+- [Contributing](#contributing)
+  - [Table of Contents](#table-of-contents)
+  - [System Requirements](#system-requirements)
+  - [Contribution Steps](#contribution-steps)
+  - [Development Modes](#development-modes)
+  - [Versioning](#versioning)
+    - [API Change](#api-change)
+    - [New Functionality](#new-functionality)
+      - [New Module](#new-module)
+    - [Bug Fix](#bug-fix)
+  - [Branching](#branching)
+  - [Pull Requests](#pull-requests)
+  - [Style Guide](#style-guide)
+  - [Variables](#variables)
+    - [Global Variables](#global-variables)
+    - [Product Variables](#product-variables)
+    - [Component Variables](#component-variables)
+  - [Storybook](#storybook)
+  - [Percy](#percy)
+  - [Website](#website)
+  - [Scripts](#scripts)
+  - [Icon Creation](#icon-creation)
+  - [Releases](#releases)
+    - [Pre-Release](#pre-release)
+    - [Final Release](#final-release)
+    - [GitHub Release](#github-release)
+    - [Hotfix Release](#hotfix-release)
 
 ## System Requirements
 
 * [Node.js](https://nodejs.org/en/)
-* [Yarn](https://yarnpkg.com/en/)
 * [Ruby](https://www.ruby-lang.org/en/)
 * [Bundler](http://bundler.io)
 * [Jekyll](https://jekyllrb.com) ([install via Bundler](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler))
@@ -226,7 +239,7 @@ Percy visual regression testing coming soon.
 
 ## Website
 
-First, be sure to Run `yarn install` to install all dependencies from NPM.
+First, be sure to Run `npm install` to install all dependencies from NPM.
 
 We use [Jekyll](http://jekyllrb.com) to generate HTML from templates, and [Lasso](https://github.com/lasso-js/lasso) to bundle static files such as CSS & JS. The website can be run and hosted locally (see next section) during development.
 
@@ -255,11 +268,11 @@ In order to start developing the website simply run: `npm start` which will buil
 
 ## Scripts
 
-The following scripts are available via npm or yarn:
+The following scripts are available via npm:
 
-* `yarn start` - Runs a build and starts local BrowserSync server on port 3000
-* `yarn test` - Runs a build and lints CSS and LESS files
-* `yarn build` - Runs a build only (no server)
+* `npm start` - Runs a build and starts local BrowserSync server on port 3000
+* `npm test` - Runs a build and lints CSS and LESS files
+* `npm run build` - Runs a build only (no server)
 
 ## Icon Creation
 
