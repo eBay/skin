@@ -11,7 +11,7 @@
             <span class="floating-label">
                 <label class="floating-label__label" for="first-name-1">First Name</label>
                 <span class="textbox">
-                    <input class="textbox__control textbox__control--underline" id="first-name-1" type="text" />
+                    <input class="textbox__control" id="first-name-1" type="text" />
                 </span>
             </span>
         </div>
@@ -21,7 +21,7 @@
 <span class="floating-label">
     <label class="floating-label__label" for="first-name">First Name</label>
     <span class="textbox">
-        <input class="textbox__control textbox__control--underline" id="first-name" type="text" />
+        <input class="textbox__control" id="first-name" type="text" />
     </span>
 </span>
     {% endhighlight %}
@@ -34,7 +34,7 @@
             <span class="floating-label">
                 <label class="floating-label__label" for="last-name-1">Last Name</label>
                 <span class="textbox">
-                    <input class="textbox__control textbox__control--underline" id="last-name-1" type="text" value="Smith" />
+                    <input class="textbox__control" id="last-name-1" type="text" value="Smith" />
                 </span>
             </span>
         </div>
@@ -44,30 +44,29 @@
 <span class="floating-label">
     <label class="floating-label__label" for="last-name">Last Name</label>
     <span class="textbox">
-        <input class="textbox__control textbox__control--underline" id="last-name" type="text" value="Smith" />
+        <input class="textbox__control" id="last-name" type="text" value="Smith" />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Floating Label with Placeholder</h3>
-    <p>The placeholder always remains obscured until the textbox gains focus.</p>
+    <h3>Large floating label</h3>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="floating-label">
+            <span class="floating-label floating-label--large">
                 <label class="floating-label__label" for="dob-1">Date Of Birth</label>
                 <span class="textbox">
-                    <input class="textbox__control textbox__control--underline" id="dob-1" type="text" placeholder="MM/DD/YYYY" />
+                    <input class="textbox__control textbox__control--large" id="dob-1" type="text"/>
                 </span>
             </span>
         </div>
     </div>
 
     {% highlight html %}
-<span class="floating-label">
+<span class="floating-label floating-label--large">
     <label class="floating-label__label" for="dob">Date Of Birth</label>
     <span class="textbox">
-        <input class="textbox__control textbox__control--underline" id="dob" type="text" placeholder="MM/DD/YYYY" />
+        <input class="textbox__control" id="dob" type="text" />
     </span>
 </span>
     {% endhighlight %}
@@ -80,7 +79,7 @@
             <span class="floating-label">
                 <label class="floating-label__label floating-label__label--disabled" for="first-name-2">First Name</label>
                 <span class="textbox">
-                    <input class="textbox__control textbox__control--underline" id="first-name-2" type="text" disabled />
+                    <input class="textbox__control" id="first-name-2" type="text" disabled />
                 </span>
             </span>
         </div>
@@ -90,20 +89,20 @@
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--disabled" for="first-name">First Name</label>
     <span class="textbox">
-        <input class="textbox__control textbox__control--underline" id="first-name" type="text" disabled />
+        <input class="textbox__control" id="first-name" type="text" disabled />
     </span>
 </span>
     {% endhighlight %}
 
-    <h3>Floating Label with Invalid Textbox</h3>
-    <p>Set the <span class="highlight">aria-invalid</span> property to <span class="highlight">true</span> to semantically and visually highlight the invalid state.</p>
+    <h3>Floating Label with placeholders</h3>
+    <p>The placeholder should only be shown when the textbox is focused and there is no text</p>
 
     <div class="demo">
         <div class="demo__inner">
             <span class="floating-label">
-                <label class="floating-label__label" for="first-name-3">First Name</label>
+                <label class="floating-label__label" for="first-name-2">First Name</label>
                 <span class="textbox">
-                    <input class="textbox__control textbox__control--underline" id="first-name-3" type="text" aria-invalid="true" />
+                    <input class="textbox__control" id="first-name-2" type="text" placeholder="No spaces or numbers allowed" />
                 </span>
             </span>
         </div>
@@ -113,10 +112,58 @@
 <span class="floating-label">
     <label class="floating-label__label" for="first-name">First Name</label>
     <span class="textbox">
-        <input class="textbox__control textbox__control--underline" id="first-name" type="text" aria-invalid="true" />
+        <input class="textbox__control" id="first-name" type="text" placeholder="No spaces or numbers allowed"/>
     </span>
 </span>
     {% endhighlight %}
+
+    <h3>Floating Label with Invalid Textbox</h3>
+    <p>Set the <span class="highlight">aria-invalid</span> property to <span class="highlight">true</span> and add <span class="highlight">floating-label__label--invalid</span> to the label to semantically and visually highlight the invalid state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name-3">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="first-name-3" type="text" aria-invalid="true" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--invalid" for="first-name">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" aria-invalid="true" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="textbox-multi-line">Multi-line Textbox</h3>
+    <p>Use the textarea tag for a multi-line textbox.</p>
+    <p>A multi-line textbox allows line breaks and has a minimum height of 200px.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name">Enter list of users</label>
+                <span class="textbox">
+                    <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">Enter list of users</label>
+    <span class="textbox">
+        <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
+    </span>
+</span>
+    {% endhighlight %}
+
+
 
     <h3 id="floating-label-transitions">Floating Label Transitions</h3>
     <p>By default, with only the base markup shown above, the label remains in a floating state above the input. This default state ensures that the label does not obscure the textbox value while we wait for JavaScript.</p>

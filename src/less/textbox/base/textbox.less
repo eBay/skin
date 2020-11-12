@@ -75,11 +75,14 @@ textarea.textbox__control {
     }
 
     &[aria-invalid="true"] {
+        .customBackgroundColorProperty(textbox-invalid-background-color);
+
         border-color: @textbox-invalid-foreground-color;
     }
 
     &:focus {
         .customBorderColorProperty(textbox-focus-border-color);
+        .customBackgroundColorProperty(textbox-focus-background-color);
 
         outline: 0;
     }
@@ -105,65 +108,8 @@ textarea.textbox__control {
     }
 }
 
-input.textbox__control--underline {
-    border: none;
-    border-bottom: 1px solid @textbox-underline-color;
-    border-radius: 0;
-    font-weight: bold;
-    height: 1.875rem; // a11y: has to be relative to the text size
-    padding: 0 0 1px 0;
-
-    &::-webkit-input-placeholder {
-        color: transparent;
-    }
-
-    &::-moz-placeholder {
-        color: transparent;
-    }
-
-    &:-ms-input-placeholder {
-        color: transparent;
-    }
-
-    &::placeholder {
-        color: transparent;
-    }
-
-    &[disabled] {
-        &::-webkit-input-placeholder {
-            color: transparent;
-        }
-
-        &::-moz-placeholder {
-            color: transparent;
-        }
-
-        &:-ms-input-placeholder {
-            color: transparent;
-        }
-
-        &::placeholder {
-            color: transparent;
-        }
-    }
-
-    &:focus {
-        &::-webkit-input-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &::-moz-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &:-ms-input-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &::placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-    }
+input.textbox__control--large {
+    height: @textbox-large-height;
 }
 
 .textbox > svg,

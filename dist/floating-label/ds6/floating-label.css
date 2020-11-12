@@ -15,31 +15,54 @@ div.floating-label {
   display: block;
 }
 label.floating-label__label {
-  color: #767676;
-  color: var(--floating-label-color, #767676);
+  color: #414141;
+  color: var(--floating-label-color, #414141);
   display: block;
-  left: 0;
+  left: 16px;
   pointer-events: none;
   position: absolute;
-  -webkit-transform: scale(0.75, 0.75) translate(0, -24px);
-          transform: scale(0.75, 0.75) translate(0, -24px);
+  -webkit-transform: scale(0.75, 0.75) translate(0, 2px);
+          transform: scale(0.75, 0.75) translate(0, 2px);
   -webkit-transform-origin: left;
           transform-origin: left;
   z-index: 1;
 }
+label.floating-label__label--focus {
+  color: #3665f3;
+  color: var(--floating-label-focus-color, #3665f3);
+}
+.floating-label--large label.floating-label__label {
+  -webkit-transform: scale(0.75, 0.75) translate(0, 3px);
+          transform: scale(0.75, 0.75) translate(0, 3px);
+}
 label.floating-label__label--inline {
-  bottom: 0.4375rem;
   font-size: 0.875rem;
-  -webkit-transform: none;
-          transform: none;
+  -webkit-transform: translate(0, 12px);
+          transform: translate(0, 12px);
+}
+.floating-label--large label.floating-label__label--inline {
+  -webkit-transform: translate(0, 16px);
+          transform: translate(0, 16px);
 }
 label.floating-label__label--animate {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -webkit-transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 label.floating-label__label--disabled {
-  color: #e5e5e5;
-  color: var(--floating-label-disabled-color, #e5e5e5);
+  color: #a2a2a2;
+  color: var(--floating-label-disabled-color, #a2a2a2);
+}
+label.floating-label__label--invalid {
+  color: #e62048;
+  color: var(--floating-label-invalid-color, #e62048);
+}
+.floating-label .textbox__control {
+  padding-bottom: 2px;
+  padding-top: 18px;
+}
+.floating-label--large .textbox__control {
+  padding-bottom: 5px;
+  padding-top: 23px;
 }

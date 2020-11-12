@@ -17,24 +17,51 @@ label.floating-label__label {
     .customColorProperty(floating-label-color);
 
     display: block;
-    left: 0;
+    left: 16px;
     pointer-events: none;
     position: absolute;
-    transform: scale(0.75, 0.75) translate(0, -24px);
+    transform: scale(0.75, 0.75) translate(0, 2px);
     transform-origin: left;
     z-index: 1;
 }
 
+label.floating-label__label--focus {
+    .customColorProperty(floating-label-focus-color);
+}
+
+.floating-label--large label.floating-label__label {
+    transform: scale(0.75, 0.75) translate(0, 3px);
+}
+
 label.floating-label__label--inline {
-    bottom: 0.4375rem; // a11y: the position must be relative to the text size
     font-size: @floating-label-inline-font-size;
-    transform: none;
+    transform: translate(0, 12px);
+}
+
+.floating-label--large label.floating-label__label--inline {
+    transform: translate(0, 16px);
 }
 
 label.floating-label__label--animate {
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 label.floating-label__label--disabled {
     .customColorProperty(floating-label-disabled-color);
+}
+
+label.floating-label__label--invalid {
+    .customColorProperty(floating-label-invalid-color);
+}
+
+.floating-label .textbox__control {
+    // Move input near the bottom
+    padding-bottom: 2px;
+    padding-top: 18px;
+}
+
+.floating-label--large .textbox__control {
+    // Move input near the bottom
+    padding-bottom: 5px;
+    padding-top: 23px;
 }
