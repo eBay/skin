@@ -1,4 +1,4 @@
-export default { title: 'Field/Stacked' };
+export default { title: 'Field/Field/Stacked' };
 
 export const group = () => `
 <fieldset>

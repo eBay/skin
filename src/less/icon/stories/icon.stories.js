@@ -1,4 +1,4 @@
-export default { title: 'Icon' };
+export default { title: 'Icon/Icon' };
 
 export const insideHeading = () => `
 <h2>

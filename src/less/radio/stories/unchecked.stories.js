@@ -1,4 +1,4 @@
-export default { title: 'Radio/Unchecked' };
+export default { title: 'Radio/Radio/Unchecked' };
 
 export const base = () => `
 <span class="radio">

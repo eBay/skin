@@ -1,4 +1,4 @@
-export default { title: 'Menu/Single Select' };
+export default { title: 'Menu/Menu/Single Select' };
 
 export const unselected = () => `
 <span class="menu">

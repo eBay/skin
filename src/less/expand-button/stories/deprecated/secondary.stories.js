@@ -1,4 +1,4 @@
-export default { title: 'Expand Button/Deprecated/Secondary' };
+export default { title: 'Expand Button/Expand Button/Deprecated/Secondary' };
 
 export const active = () => `
 <button type="button" class="expand-btn expand-btn--secondary">

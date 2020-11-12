@@ -1,4 +1,4 @@
-export default { title: 'Listbox Button/Base' };
+export default { title: 'Listbox Button/Listbox Button/Base' };
 
 export const collapsed = () => `
 <span class="listbox-button">

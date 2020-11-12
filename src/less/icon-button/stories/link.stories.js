@@ -1,4 +1,4 @@
-export default { title: 'Icon Button/Link' };
+export default { title: 'Icon Button/Icon Button/Link' };
 
 export const menu = () => `
 <a aria-label="menu" class="icon-link" href="http://www.ebay.com">

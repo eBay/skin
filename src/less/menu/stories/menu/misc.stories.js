@@ -1,4 +1,4 @@
-export default { title: 'Menu' };
+export default { title: 'Menu/Menu' };
 
 export const stateless = () => `
 <span class="menu">

@@ -1,4 +1,4 @@
-export default { title: 'Drawer-Dialog' };
+export default { title: 'Drawer-Dialog/Drawer-Dialog' };
 
 export const empty = () => `
 <div aria-labelledby="drawer-dialog-title" aria-modal="true" class="drawer-dialog drawer-dialog--mask-fade-slow" role="dialog">

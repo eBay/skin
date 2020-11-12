@@ -1,4 +1,4 @@
-export default { title: 'Listbox Button/Secondary' };
+export default { title: 'Listbox Button/Listbox Button/Secondary' };
 
 export const base = () => `
 <span class="listbox-button">

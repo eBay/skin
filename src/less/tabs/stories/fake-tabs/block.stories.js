@@ -1,4 +1,4 @@
-export default { title: 'Tabs/Fake Tabs/Block' };
+export default { title: 'Tabs/Tabs/Fake Tabs/Block' };
 
 export const two = () => `
 <div class="fake-tabs">

@@ -1,4 +1,4 @@
-export default { title: 'Page Notice/Tests' };
+export default { title: 'Page Notice/Page Notice/Tests' };
 
 export const longText = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">

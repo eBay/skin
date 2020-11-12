@@ -1,4 +1,4 @@
-export default { title: 'Section Notice' };
+export default { title: 'Section Notice/Section Notice' };
 
 export const base = () => `
 <div class="section-notice" role="region">

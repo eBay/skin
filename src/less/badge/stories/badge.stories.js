@@ -1,4 +1,4 @@
-export default { title: 'Badge' };
+export default { title: 'Badge/Badge' };
 
 export const oneDigit = () => `
 <span class="badge">1</span>
