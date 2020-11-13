@@ -58,7 +58,7 @@ span.combobox {
   z-index: 2;
   display: none;
   position: absolute;
-  top: calc(100% - 1px);
+  top: calc(100% + 4px);
 }
 .combobox__option[role^="option"] {
   border-color: #fff;
@@ -95,6 +95,18 @@ span.combobox {
 .combobox__option[role^="option"]:active {
   font-weight: bold;
 }
+.combobox__option[role^="option"]:first-child {
+  border-top-left-radius: 0;
+  border-top-left-radius: var(--dropdown-items-border-radius, 0);
+  border-top-right-radius: 0;
+  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+}
+.combobox__option[role^="option"]:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-right-radius: 0;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+}
 .combobox__option[role^="option"]:not(:last-child) {
   margin-bottom: 1px;
 }
@@ -129,9 +141,6 @@ span.combobox {
   margin: 0;
   right: 0;
 }
-.combobox .expand-btn[aria-expanded="true"] {
-  border-bottom-color: transparent;
-}
 .combobox--expanded .combobox__listbox {
   display: block;
 }
@@ -147,8 +156,8 @@ span.combobox {
   top: calc(50% - 4px);
 }
 .combobox__control > input {
-  background-color: #fff;
-  background-color: var(--combobox-background-color, #fff);
+  background-color: #f5f5f5;
+  background-color: var(--combobox-background-color, #f5f5f5);
   border-color: #e5e5e5;
   border-color: var(--combobox-border-color, #e5e5e5);
   color: #111820;
@@ -197,10 +206,6 @@ span.combobox {
 .combobox__control > input[aria-disabled="true"] + svg {
   opacity: 0.5;
 }
-.combobox__control > input[aria-expanded="true"] {
-  border-bottom: 0;
-  padding-bottom: 1px;
-}
 .combobox__control > input[aria-invalid="true"] {
   border-color: #e62048;
 }
@@ -215,6 +220,8 @@ span.combobox {
 .combobox__control > input:focus {
   border-color: #3665f3;
   border-color: var(--combobox-focus-border-color, #3665f3);
+  background-color: #fff;
+  background-color: var(--combobox-focus-background-color, #fff);
   outline: 0;
 }
 .combobox__control--borderless > input:focus {
