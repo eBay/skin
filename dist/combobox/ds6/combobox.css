@@ -1,9 +1,19 @@
 @media (prefers-color-scheme: dark) {
   .skin-experiment-dark-mode .combobox {
-    --combobox-background-color: #171717;
+    --combobox-background-color: #393939;
     --combobox-foreground-color: #dcdcdc;
-    --combobox-disabled-background-color: #171717;
-    --combobox-disabled-foreground-color: #dcdcdc;
+    --combobox-border-color: #6a6a6a;
+    --combobox-focus-border-color: #5192ff;
+    --combobox-focus-background-color: #171717;
+    --combobox-disabled-background-color: #393939;
+    --combobox-disabled-foreground-color: #6a6a6a;
+    --combobox-disabled-border-color: #6a6a6a;
+    --combobox-disabled-placeholder-color: #6a6a6a;
+    --combobox-readonly-foreground-color: #6a6a6a;
+    --combobox-focus-placeholder-color: #ababab;
+    --combobox-invalid-foreground-color: #e75064;
+    --combobox-invalid-background-color: #2a191c;
+    --combobox-icon-color: #ababab;
     --dropdown-items-background-color: #171717;
     --dropdown-item-foreground-color: #dcdcdc;
     --dropdown-item-border-color: #171717;
@@ -196,7 +206,9 @@ span.combobox {
 .combobox__control > input[disabled],
 .combobox__control > input[aria-disabled="true"] {
   border-color: #c7c7c7;
+  border-color: var(--combobox-disabled-border-color, #c7c7c7);
   color: #c7c7c7;
+  color: var(--combobox-disabled-foreground-color, #c7c7c7);
 }
 .combobox__control > input[disabled][readonly],
 .combobox__control > input[aria-disabled="true"][readonly] {
@@ -208,6 +220,7 @@ span.combobox {
 }
 .combobox__control > input[aria-invalid="true"] {
   border-color: #e62048;
+  border-color: var(--combobox-invalid-foreground-color, #e62048);
 }
 .combobox__control > input::-ms-clear {
   display: none;
@@ -240,6 +253,7 @@ span.combobox {
 }
 .combobox__control > input[disabled] {
   background-color: #f5f5f5;
+  background-color: var(--combobox-disabled-background-color, #f5f5f5);
 }
 .combobox__option--active[role="option"] {
   color: #111820;

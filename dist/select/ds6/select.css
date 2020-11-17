@@ -1,8 +1,16 @@
 @media (prefers-color-scheme: dark) {
   .skin-experiment-dark-mode .select {
-    --select-background-color: #171717;
+    --select-background-color: #393939;
+    --select-border-color: #6a6a6a;
     --select-foreground-color: #dcdcdc;
     --select-focus-border-color: #5192ff;
+    --select-disabled-foreground-color: #6a6a6a;
+    --select-disabled-background-color: #393939;
+    --select-borderless-disabled-foreground-color: #6a6a6a;
+    --select-borderless-disabled-background-color: #393939;
+    --select-invalid-border-color: #e75064;
+    --select-invalid-background-color: #2a191c;
+    --select-invalid-foreground-color: #e75064;
   }
 }
 .skin-experiment-rounded .select select {
@@ -21,8 +29,8 @@ span.select {
   display: inline-block;
 }
 .select select {
-  background-color: #fff;
-  background-color: var(--select-background-color, #fff);
+  background-color: #f5f5f5;
+  background-color: var(--select-background-color, #f5f5f5);
   border-color: #e5e5e5;
   border-color: var(--select-border-color, #e5e5e5);
   border-radius: 0;
@@ -56,16 +64,6 @@ span.select {
 .select--fluid select {
   width: 100%;
 }
-.select--underline select {
-  border: none;
-  border-bottom: 1px solid #e5e5e5;
-  font-weight: bold;
-  height: 1.875rem;
-  padding-left: 0;
-}
-.select--underline svg.icon {
-  right: 0;
-}
 .select--borderless select {
   background-color: transparent;
   border: 0;
@@ -78,6 +76,8 @@ span.select {
 .select select:focus {
   border-color: #3665f3;
   border-color: var(--select-focus-border-color, #3665f3);
+  background-color: #fff;
+  background-color: var(--select-focus-background-color, #fff);
   outline: 0;
 }
 .select select::-ms-expand {
@@ -85,20 +85,29 @@ span.select {
 }
 .select select[disabled] {
   background-color: #f5f5f5;
-  color: #c7c7c7;
+  background-color: var(--select-disabled-background-color, #f5f5f5);
+  color: #a2a2a2;
+  color: var(--select-disabled-foregound-color, #a2a2a2);
 }
 .select--borderless select[disabled] {
-  background-color: #fff;
+  background-color: #f5f5f5;
+  background-color: var(--select-borderless-disabled-background-color, #f5f5f5);
   color: #c7c7c7;
+  color: var(--select-borderless-disabled-foregound-color, #c7c7c7);
 }
 .select select[readonly] {
   background-color: #f5f5f5;
-  border-color: #c7c7c7;
-  color: #767676;
+  background-color: var(--select-disabled-background-color, #f5f5f5);
+  color: #a2a2a2;
+  color: var(--select-disabled-foregound-color, #a2a2a2);
 }
 .select select[aria-invalid="true"] {
   border-color: #e62048;
   border-color: var(--select-invalid-border-color, #e62048);
+  background-color: #fef5f6;
+  background-color: var(--select-invalid-background-color, #fef5f6);
+  color: #e62048;
+  color: var(--select-invalid-foreground-color, #e62048);
   border-style: solid;
   border-width: 1px;
 }
@@ -115,5 +124,5 @@ span.select {
   right: auto;
 }
 .select select[disabled] + svg {
-  color: #c7c7c7;
+  color: #a2a2a2;
 }
