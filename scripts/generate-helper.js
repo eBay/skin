@@ -38,7 +38,7 @@ async function optimizeSVG(filePath) {
 async function postBuild() {
     return new Promise((resolve, reject) => {
         console.log('Running build...');
-        exec('yarn build', (err) => {
+        exec('npm run build', (err) => {
             if (err) {
                 return reject(err);
             }
