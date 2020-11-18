@@ -10,10 +10,10 @@ export const continuous = () => `
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
             <ul class="carousel__list carousel__list--default-demo">
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HxJ4seuyUbgl_6ZTuZzbywHaE8%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ryczKwfKPHOEUpqsspzn8AAAAA%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uaG09RTqJi-901pnY2SB5AHaE6%26pid%3DApi&f=1" /></li>
-                <li>Russia</li>
+                <li>Card 1</li>
+                <li>Card 2</li>
+                <li>Card 3</li>
+                <li>Card 4</li>
                 <li>Card 5</li>
                 <li>Card 6</li>
                 <li>Card 7</li>
@@ -42,7 +42,7 @@ export const imageTreatment = () => `
                 <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HxJ4seuyUbgl_6ZTuZzbywHaE8%26pid%3DApi&f=1" /></li>
                 <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ryczKwfKPHOEUpqsspzn8AAAAA%26pid%3DApi&f=1" /></li>
                 <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uaG09RTqJi-901pnY2SB5AHaE6%26pid%3DApi&f=1" /></li>
-                <li>Russia</li>
+                <li>Card 4</li>
                 <li>Card 5</li>
                 <li>Card 6</li>
                 <li>Card 7</li>
