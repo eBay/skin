@@ -53,31 +53,29 @@ textarea.textbox__control {
 
     &[disabled] {
         .customBackgroundColorProperty(textbox-disabled-background-color);
+        .customBorderColorProperty(textbox-disabled-border-color);
         .customColorProperty(textbox-disabled-foreground-color);
 
-        border-color: @textbox-disabled-border-color;
-
         &::-webkit-input-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
 
         &::-moz-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
 
         &:-ms-input-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
     }
 
     &[readonly] {
-        color: @textbox-readonly-foreground-color;
+        .customColorProperty(textbox-readonly-foreground-color);
     }
 
     &[aria-invalid="true"] {
         .customBackgroundColorProperty(textbox-invalid-background-color);
-
-        border-color: @textbox-invalid-foreground-color;
+        .customBorderColorProperty(textbox-invalid-foreground-color);
     }
 
     &:focus {
@@ -88,22 +86,26 @@ textarea.textbox__control {
     }
 
     &::-webkit-input-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &::placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 }
@@ -114,9 +116,10 @@ input.textbox__control--large {
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    color: @textbox-icon-color;
+    .customColorProperty(textbox-icon-color);
+    .customFillProperty(textbox-icon-color);
+
     display: inline-flex;
-    fill: @textbox-icon-color;
     height: 100%;
     pointer-events: none;
     position: absolute;
