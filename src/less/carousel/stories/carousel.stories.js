@@ -39,12 +39,12 @@ export const imageTreatment = () => `
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
             <ul class="carousel__list carousel__list--default-demo">
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HxJ4seuyUbgl_6ZTuZzbywHaE8%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ryczKwfKPHOEUpqsspzn8AAAAA%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.uaG09RTqJi-901pnY2SB5AHaE6%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.SN0Lv4ITuUd4rRenyzgeZgHaHa%26pid%3DApi&f=1"/></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.4IFrCamfbODucINDz8VGnQAAAA%26pid%3DApi&f=1" /></li>
-                <li><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.1R4ymUtVrFa0fESEwSBLlwHaDO%26pid%3DApi&f=1"/></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/aztec-pyramid.jpeg" /></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/falls.jpeg" /></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/mountain.jpeg" /></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/shoes.jpeg"/></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/tall-cat.jpeg" /></li>
+                <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/wide-cat.jpeg"/></li>
                 <li>Card 7</li>
                 <li>Card 8</li>
             </ul>
