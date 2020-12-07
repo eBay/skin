@@ -12,7 +12,7 @@ const getBaseStyleContent = moduleId => `// This is boilerplate generated style.
 const getReferBaseStyleContent = moduleId => `@import '../base/${moduleId}.less';\n`;
 const getModuleBrowserContent = moduleId => `{
     "dependencies": [
-        "./dist/${moduleId}/ds6/${moduleId}.css"
+        "require: ./${moduleId}"
     ]
 }
 `;
@@ -95,7 +95,7 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addPackagingIndexDependencies() {
-        this._addDependencies(`        "./${this.moduleId}"`, 'index.browser.json');
+        this._addDependencies(`        "require: ./${this.moduleId}"`, 'index.browser.json');
     }
 
     _addPackagingBrowserDependencies() {
@@ -156,17 +156,17 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addPackagingStylesDsReference(version) {
-        const filePathFromRoot = `${this.moduleId}${version === 'ds4' ? '[ds-4]' : ''}.less`;
+        const filePathFromRoot = `${this.moduleId}${version === 'ds4' ? '[ds-4]' : ''}.js`;
         if (fs.existsSync(filePathFromRoot)) {
             log.warn('[STYLES][%s] Style already exists!', filePathFromRoot);
             return;
         }
-        fs.writeFileSync(filePathFromRoot, `@import "./dist/${this.moduleId}/${version}/${this.moduleId}.css";\n`);
+        fs.writeFileSync(filePathFromRoot, `require('./dist/${this.moduleId}/${version}/${this.moduleId}.css');\n`);
     }
 
     _addPackagingStylesIndexReference() {
-        const filePathFromRoot = 'index.less';
-        const newLineContent = `@import "./${this.moduleId}";`;
+        const filePathFromRoot = 'index.js';
+        const newLineContent = `require('./${this.moduleId}');`;
         writeLine({
             filePathFromRoot,
             newLineContent,
