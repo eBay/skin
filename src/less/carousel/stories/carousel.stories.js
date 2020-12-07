@@ -31,14 +31,14 @@ export const continuous = () => `
 
 export const imageTreatment = () => `
 <div class="carousel">
-    <div class="carousel__container image-treatment">
+    <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
             <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
                 <use xlink:href="#icon-carousel-prev"></use>
             </svg>
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
-            <ul class="carousel__list carousel__list--default-demo">
+            <ul class="carousel__list carousel__list--image-treatment carousel__list--image-treatment-demo">
                 <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/aztec-pyramid.jpeg" /></li>
                 <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/falls.jpeg" /></li>
                 <li><img src="http://ir.ebaystatic.com/cr/v/c1/skin/image-treatment/mountain.jpeg" /></li>
