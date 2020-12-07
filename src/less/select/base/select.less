@@ -48,20 +48,6 @@ span.select {
     width: 100%;
 }
 
-.select--underline {
-    select {
-        border: none;
-        border-bottom: 1px solid @select-underline-border-bottom-color;
-        font-weight: bold;
-        height: 1.875rem; // a11y: has to be relative to the text size
-        padding-left: 0;
-    }
-
-    svg.icon {
-        right: 0;
-    }
-}
-
 .select--borderless select {
     background-color: transparent;
     border: 0;
@@ -75,6 +61,7 @@ span.select {
 
 .select select:focus {
     .customBorderColorProperty(select-focus-border-color);
+    .customBackgroundColorProperty(select-focus-background-color);
 
     outline: 0;
 }
@@ -85,23 +72,24 @@ span.select {
 }
 
 .select select[disabled] {
-    background-color: @select-disabled-background-color;
-    color: @select-disabled-foregound-color;
+    .customBackgroundColorProperty(select-disabled-background-color);
+    .customColorProperty(select-disabled-foregound-color);
 }
 
 .select--borderless select[disabled] {
-    background-color: @select-borderless-disabled-background-color;
-    color: @select-borderless-disabled-foregound-color;
+    .customBackgroundColorProperty(select-borderless-disabled-background-color);
+    .customColorProperty(select-borderless-disabled-foregound-color);
 }
 
 .select select[readonly] {
-    background-color: @color-grey1;
-    border-color: @color-grey3;
-    color: @color-grey5;
+    .customBackgroundColorProperty(select-disabled-background-color);
+    .customColorProperty(select-disabled-foregound-color);
 }
 
 .select select[aria-invalid="true"] {
     .customBorderColorProperty(select-invalid-border-color);
+    .customBackgroundColorProperty(select-invalid-background-color);
+    .customColorProperty(select-invalid-foreground-color);
 
     border-style: solid;
     border-width: 1px;
