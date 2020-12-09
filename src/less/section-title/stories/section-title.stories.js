@@ -17,6 +17,15 @@ export const subheading = () => `
 </div>
 `;
 
+export const RTLSubheading = () => `
+<div dir="rtl" class="section-title">
+    <div class="section-title__title-container">
+        <h2 class="section-title__title">Marketing Type Content Title</h2>
+        <span class="section-title__subtitle">Recommended for you</span>
+    </div>
+</div>
+`;
+
 export const arrowCTASeeAll = () => `
 <div class="section-title">
     <div class="section-title__title-container">

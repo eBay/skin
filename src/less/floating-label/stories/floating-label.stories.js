@@ -9,6 +9,17 @@ export const base = () => `
 </span>
 `;
 
+export const RTL = () => `
+<div dir="rtl">
+    <span class="floating-label">
+        <label class="floating-label__label" for="firstName">First Name</label>
+        <span class="textbox">
+            <input class="textbox__control" id="firstName" type="text" />
+        </span>
+    </span>
+<div>
+`;
+
 export const value = () => `
 <span class="floating-label">
     <label class="floating-label__label" for="lastName">Last Name</label>

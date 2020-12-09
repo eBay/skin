@@ -493,3 +493,56 @@ export const truncated = () => `
     </div>
 </span>
 `;
+
+export const RTL = () => `
+<div dir="rtl">
+    <span class="filter-menu-button">
+        <button type="button" class="filter-menu-button__button" aria-expanded="true">
+            <span class="filter-menu-button__button-cell">
+                <span class="filter-menu-button__button-text">Filter Menu Button</span>
+                <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
+                    <use xlink:href="#icon-dropdown"></use>
+                </svg>
+            </span>
+        </button>
+        <div class="filter-menu-button__menu">
+            <div class="filter-menu-button__items" role="menu">
+                <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                    <span class="filter-menu-button__checkbox">
+                        <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                        </svg>
+                        <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-checked"></use>
+                        </svg>
+                    </span>
+                    <span class="filter-menu-button__text">Item 1</span>
+                </div>
+                <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                    <span class="filter-menu-button__checkbox">
+                        <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                        </svg>
+                        <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-checked"></use>
+                        </svg>
+                    </span>
+                    <span class="filter-menu-button__text">Item 2</span>
+                </div>
+                <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
+                    <span class="filter-menu-button__checkbox">
+                        <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                        </svg>
+                        <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
+                            <use xlink:href="#icon-checkbox-checked"></use>
+                        </svg>
+                    </span>
+                    <span class="filter-menu-button__text">Item 3</span>
+                </div>
+            </div>
+            <button type="button" class="filter-menu__footer">Apply</button>
+        </div>
+    </span>
+<div>
+`;

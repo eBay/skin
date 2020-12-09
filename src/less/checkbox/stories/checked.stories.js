@@ -42,6 +42,22 @@ export const customColour = () => `
 </span>
 `;
 
+export const RTL = () => `
+<div dir="rtl">
+    <span class="checkbox">
+        <input aria-label="Foreground SVG checkbox example" class="checkbox__control" type="checkbox" checked />
+        <span class="checkbox__icon" hidden>
+            <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
+                <use xlink:href="#icon-checkbox-unchecked"></use>
+            </svg>
+            <svg aria-hidden="true" class="checkbox__checked" focusable="false" style="color: #5ba71b">
+                <use xlink:href="#icon-checkbox-checked"></use>
+            </svg>
+        </span>
+    </span>
+</div>
+`;
+
 export const customIcon = () => `
 <span class="checkbox">
     <input aria-label="Custom checkbox example" class="checkbox__control" type="checkbox" checked />

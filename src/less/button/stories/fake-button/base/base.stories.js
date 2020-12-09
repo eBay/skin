@@ -2,6 +2,8 @@ export default { title: 'Fake Button/Fake Button/Base' };
 
 export const textOnly = () => '<a href="http://www.ebay/com" class="fake-btn">Fake Button</a>';
 
+export const RTL = () => '<div dir="rtl"><a href="http://www.ebay/com" class="fake-btn">Fake Button</a></div>';
+
 export const iconOnly = () => `
 <a class="fake-btn" href="http://www.ebay.com">
     <span class="fake-btn__cell">

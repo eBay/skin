@@ -8,6 +8,12 @@ export const action = () => `
 <a class="action-link" href="https://www.ebay.com/?r=${Math.floor(Math.random() * Math.floor(1000))}">See all 17 Reviews</a>
 `;
 
+export const RTL = () => `
+<div dir="rtl">
+    <a class="action-link" href="https://www.ebay.com/?r=${Math.floor(Math.random() * Math.floor(1000))}">See all 17 Reviews</a>
+<div>
+`;
+
 export const fake = () => `<button class="fake-link" type="button">Button</button>`;
 
 export const fakeAction = () => `<button class="fake-link fake-link--action" type="button">Button</button>`;
