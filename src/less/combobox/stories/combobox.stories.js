@@ -131,7 +131,7 @@ export const actionable = () => `
 </span>
 `;
 
-export const rtl = () => `
+export const RTL = () => `
 <div dir="rtl">
     <span class="combobox combobox--expanded">
         <span class="combobox__control">
@@ -154,7 +154,7 @@ export const rtl = () => `
 </div>
 `;
 
-export const actionableRtl = () => `
+export const actionableRTL = () => `
 <div dir="rtl">
     <span class="combobox combobox--expanded">
         <span class="combobox__control combobox__control--actionable">

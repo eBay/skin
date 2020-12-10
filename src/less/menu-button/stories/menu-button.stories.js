@@ -325,34 +325,6 @@ export const separator = () => `
 </span>
 `;
 
-export const rtl = () => `
-<div dir="rtl">
-    <span class="menu-button">
-        <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
-            <span class="expand-btn__cell">
-                <span class="expand-btn__text">Button</span>
-                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
-                </svg>
-            </span>
-        </button>
-        <div class="menu-button__menu">
-            <div class="menu-button__items" role="menu">
-                <div class="menu-button__item" role="menuitem" tabindex="0">
-                    <span>Item 10000</span>
-                </div>
-                <div class="menu-button__item" role="menuitem">
-                    <span>Item 20000</span>
-                </div>
-                <div class="menu-button__item" role="menuitem">
-                    <span>Item 30000</span>
-                </div>
-            </div>
-        </div>
-    </span>
-</div>
-`;
-
 export const inheritColour = () => `
 <div style="color: purple">
     <span class="menu-button" style="color: purple">
