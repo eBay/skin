@@ -42,6 +42,48 @@ export const base = () => `
 </div>
 `;
 
+export const RTL = () => `
+<div class="stepper" dir="rtl">
+    <div class="stepper__items" role="list">
+        <div class="stepper__item stepper__item--confirmation" role="listitem">
+            <span class="stepper__icon">
+                <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-confirmation-filled"></use>
+                </svg>
+            </span>
+            <span class="stepper__text">Started</span>
+        </div>
+        <hr class="stepper__separator" role="presentation" />
+        <div class="stepper__item stepper__item--confirmation" role="listitem">
+            <span class="stepper__icon">
+                <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-confirmation-filled"></use>
+                </svg>
+            </span>
+            <span class="stepper__text">Shipped</span>
+        </div>
+        <hr class="stepper__separator" role="presentation" />
+        <div aria-current="step" class="stepper__item stepper__item--current" role="listitem">
+            <span class="stepper__icon">
+                <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-circle"></use>
+                </svg>
+            </span>
+            <span class="stepper__text">Transit</span>
+        </div>
+        <hr class="stepper__separator" role="presentation" />
+        <div class="stepper__item stepper__item--upcoming" role="listitem">
+            <span class="stepper__icon">
+                <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-circle"></use>
+                </svg>
+            </span>
+            <span class="stepper__text">Delivered</span>
+        </div>
+    </div>
+</div>
+`;
+
 export const vertical = () => `
 <div class="stepper stepper--vertical">
     <div class="stepper__items" role="list">

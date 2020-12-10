@@ -27,6 +27,24 @@ export const confirmation = () => `
 </div>
 `;
 
+export const RTL = () => `
+<div dir="rtl">
+    <div class="section-notice section-notice--confirmation" role="region">
+        <div class="section-notice__header" role="region" aria-roledescription="Notice">
+            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
+                <use xlink:href="#icon-confirmation-filled"></use>
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <p>Congrats  You are the highest bidder</p>
+        </div>
+        <div class="section-notice__footer">
+            <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        </div>
+    </div>
+</div>
+`;
+
 export const attention = () => `
 <div class="section-notice section-notice--attention" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">

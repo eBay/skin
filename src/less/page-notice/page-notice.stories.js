@@ -17,6 +17,25 @@ export const confirmation = () => `
 </section>
 `;
 
+export const RTL = () => `
+<div dir="rtl">
+    <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+        <div class="page-notice__header">
+            <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use xlink:href="#icon-confirmation-filled"></use>
+            </svg>
+        </div>
+        <div class="page-notice__main">
+            <h3 class="page-notice__title">:Your new listing is live</h3>
+            <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback)</p>
+        </div>
+        <div class="page-notice__footer">
+            <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        </div>
+    </section>
+<div>
+`;
+
 export const attention = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">

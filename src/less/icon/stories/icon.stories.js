@@ -9,6 +9,17 @@ export const insideHeading = () => `
 </h2>
 `;
 
+export const RTLInsideHeading = () => `
+<div dir="rtl">
+    <h2>
+        <svg class="icon icon--information">
+            <use xlink:href="#icon-information"></use>
+        </svg>
+        <span style="vertical-align: middle;">There was an error with your payment. Please try again.</span>
+    </h2>
+</div>
+`;
+
 export const insideParagraph = () => `
 <p>
     <svg class="icon icon--information">

@@ -6,6 +6,14 @@ export const menu = () => `
 </button>
 `;
 
+export const RTLMenu = () => `
+<div dir="rtl">
+    <button aria-label="menu" type="button" class="icon-btn">
+        <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
+    </button>
+</div>
+`;
+
 export const settings = () => `
 <button aria-label="menu" type="button" class="icon-btn">
     <svg class="icon icon--settings" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
