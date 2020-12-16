@@ -27,6 +27,7 @@ require('./menu');
 require('./page-notice');
 require('./pagination');
 require('./panel-dialog');
+require('./progress-bar');
 require('./radio');
 require('./section-notice');
 require('./select');
