@@ -49,7 +49,7 @@ export const RTL = () => `
         </div>
         <div class="window-notice__main">
             <h2 class="window-notice__title">Your first order has been placed</h2>
-            <p>You'll get a confirmation email soon</p><p>The rest of your items are now ready to checkout</p>
+            <p>You'll get a confirmation email soon. The rest of your items are now ready to checkout</p>
         </div>
         <div class="window-notice__footer">
             <button class="btn btn--large">Continue</button>
