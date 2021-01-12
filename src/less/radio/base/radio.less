@@ -74,14 +74,20 @@ input.radio__control[type="radio"]:checked + span.radio__icon svg.radio__uncheck
     display: none;
 }
 
-input.radio__control[type="radio"]:focus + span.radio__icon {
-    outline: 1px dotted @radio-custom-outline-color;
-}
-
 input.radio__control[type="radio"][disabled] + span.radio__icon {
     opacity: @radio-disabled-opacity;
 
     svg {
         fill: @radio-disabled-color;
     }
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+input.radio__control[type="radio"]:focus + span.radio__icon {
+    outline: @radio-custom-outline;
+    outline-offset: 2px;
+}
+
+input.radio__control[type="radio"]:focus:not(:focus-visible) + span.radio__icon {
+    outline: none;
 }

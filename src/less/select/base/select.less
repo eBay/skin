@@ -64,6 +64,7 @@ span.select {
     .customBackgroundColorProperty(select-focus-background-color);
 
     outline: 0;
+    text-decoration: underline;
 }
 
 // custom IE pseudo selector for the arrow
@@ -95,6 +96,11 @@ span.select {
     border-width: 1px;
 }
 
+.select select[disabled] + svg {
+    color: @select-disabled-foregound-color;
+}
+
+/* stylelint-disable no-descending-specificity */
 [dir="rtl"] {
     .select > select {
         padding-left: 30px;
@@ -111,7 +117,4 @@ span.select {
         right: auto;
     }
 }
-
-.select select[disabled] + svg {
-    color: @select-disabled-foregound-color;
-}
+/* stylelint-enable no-descending-specificity */
