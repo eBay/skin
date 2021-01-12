@@ -53,6 +53,11 @@ input.checkbox__control[type="checkbox"] {
     width: @checkbox-dimensions;
 }
 
+// The unchecked SVGs rely on stroke
+.checkbox svg.checkbox__unchecked {
+    stroke-width: inherit;
+}
+
 .checkbox--large svg {
     height: @checkbox-large-dimensions;
     width: @checkbox-large-dimensions;
@@ -81,7 +86,10 @@ input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
 input.checkbox__control[type="checkbox"][disabled] + span.checkbox__icon {
     opacity: @checkbox-disabled-opacity;
 
-    svg {
+    svg.checkbox__checked {
         fill: @checkbox-disabled-color;
+    }
+    svg.checkbox__unchecked {
+        stroke: @checkbox-disabled-color;
     }
 }
