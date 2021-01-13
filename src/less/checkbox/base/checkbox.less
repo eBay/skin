@@ -74,14 +74,20 @@ input.checkbox__control[type="checkbox"]:checked + span.checkbox__icon svg.check
     display: none;
 }
 
-input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
-    outline: 1px dotted @checkbox-custom-outline-color;
-}
-
 input.checkbox__control[type="checkbox"][disabled] + span.checkbox__icon {
     opacity: @checkbox-disabled-opacity;
 
     svg {
         fill: @checkbox-disabled-color;
     }
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
+    outline: @checkbox-custom-outline;
+    outline-offset: 2px;
+}
+
+input.checkbox__control[type="checkbox"]:focus:not(:focus-visible) + span.checkbox__icon {
+    outline: none;
 }

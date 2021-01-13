@@ -56,14 +56,6 @@ span.switch__control {
     z-index: 1;
 }
 
-input.switch__control {
-    opacity: 0;
-
-    &:focus + span.switch__button {
-        outline: 1px dotted @switch-custom-outline-color;
-    }
-}
-
 input.switch__control[disabled] + span.switch__button {
     .customBackgroundColorProperty(switch-disabled-background-color);
 }
@@ -76,6 +68,18 @@ span.switch__control[aria-disabled="true"] + span.switch__button {
     .customBackgroundColorProperty(switch-disabled-background-color);
 }
 
+input.switch__control {
+    opacity: 0;
+
+    &:focus + span.switch__button {
+        outline: 1px auto @switch-custom-outline-color;
+    }
+
+    &:focus:not(:focus-visible) + span.switch__button {
+        outline: none;
+    }
+}
+
 span.switch__control[aria-checked="true"] + span.switch__button::after {
     left: 19px;
 }
@@ -83,6 +87,11 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
     .customBackgroundColorProperty(switch-checked-background-color);
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+span.switch__control:focus:not(:focus-visible) {
+    outline: 0;
 }
 
 @media screen and (-ms-high-contrast: active) {

@@ -82,3 +82,11 @@ li.fake-tabs__item--current > a[aria-current="page"] {
     position: relative;
     top: -1px;
 }
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+div.tabs__item[role="tab"]:focus,
+li.fake-tabs__item a:focus {
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
