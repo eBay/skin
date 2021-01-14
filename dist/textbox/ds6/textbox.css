@@ -1,13 +1,20 @@
 @media (prefers-color-scheme: dark) {
   .skin-experiment-dark-mode .textbox {
-    --textbox-background-color: #171717;
+    --textbox-background-color: #393939;
+    --textbox-foreground-color: #dcdcdc;
+    --textbox-border-color: #6a6a6a;
     --textbox-focus-border-color: #5192ff;
-    --textbox-foreground-color: #fff;
-    --textbox-disabled-background-color: #171717;
+    --textbox-focus-background-color: #171717;
+    --textbox-disabled-background-color: #393939;
+    --textbox-disabled-foreground-color: #6a6a6a;
+    --textbox-disabled-border-color: #6a6a6a;
+    --textbox-disabled-placeholder-color: #6a6a6a;
+    --textbox-readonly-foreground-color: #6a6a6a;
+    --textbox-focus-placeholder-color: #ababab;
+    --textbox-invalid-foreground-color: #e75064;
+    --textbox-invalid-background-color: #2a191c;
+    --textbox-icon-color: #ababab;
   }
-}
-.skin-experiment-rounded .textbox {
-  --textbox-border-radius: 8px;
 }
 /* stylelint-disable no-descending-specificity */
 .textbox {
@@ -43,14 +50,14 @@ input.textbox__control {
 }
 input.textbox__control,
 textarea.textbox__control {
-  background-color: #fff;
-  background-color: var(--textbox-background-color, #fff);
-  border-color: #a2a2a2;
-  border-color: var(--textbox-border-color, #a2a2a2);
+  background-color: #f5f5f5;
+  background-color: var(--textbox-background-color, #f5f5f5);
+  border-color: #e5e5e5;
+  border-color: var(--textbox-border-color, #e5e5e5);
   color: #111820;
   color: var(--textbox-foreground-color, #111820);
-  border-radius: 0;
-  border-radius: var(--textbox-border-radius, 0);
+  border-radius: 8px;
+  border-radius: var(--textbox-border-radius, 8px);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -64,122 +71,89 @@ textarea.textbox__control {
 }
 input.textbox__control[disabled],
 textarea.textbox__control[disabled] {
-  background-color: #fff;
-  background-color: var(--textbox-disabled-background-color, #fff);
-  color: #c7c7c7;
-  color: var(--textbox-disabled-foreground-color, #c7c7c7);
-  border-color: #c7c7c7;
+  background-color: #f5f5f5;
+  background-color: var(--textbox-disabled-background-color, #f5f5f5);
+  border-color: #e5e5e5;
+  border-color: var(--textbox-disabled-border-color, #e5e5e5);
+  color: #a2a2a2;
+  color: var(--textbox-disabled-foreground-color, #a2a2a2);
 }
 input.textbox__control[disabled]::-webkit-input-placeholder,
 textarea.textbox__control[disabled]::-webkit-input-placeholder {
-  color: #e5e5e5;
+  color: #a2a2a2;
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
 }
 input.textbox__control[disabled]::-moz-placeholder,
 textarea.textbox__control[disabled]::-moz-placeholder {
-  color: #e5e5e5;
+  color: #a2a2a2;
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
 }
 input.textbox__control[disabled]:-ms-input-placeholder,
 textarea.textbox__control[disabled]:-ms-input-placeholder {
-  color: #e5e5e5;
+  color: #a2a2a2;
+  color: var(--textbox-disabled-placeholder-color, #a2a2a2);
 }
 input.textbox__control[readonly],
 textarea.textbox__control[readonly] {
-  color: #414141;
+  color: #a2a2a2;
+  color: var(--textbox-readonly-foreground-color, #a2a2a2);
 }
 input.textbox__control[aria-invalid="true"],
 textarea.textbox__control[aria-invalid="true"] {
+  background-color: #fef5f6;
+  background-color: var(--textbox-invalid-background-color, #fef5f6);
   border-color: #e62048;
+  border-color: var(--textbox-invalid-foreground-color, #e62048);
 }
 input.textbox__control:focus,
 textarea.textbox__control:focus {
   border-color: #3665f3;
   border-color: var(--textbox-focus-border-color, #3665f3);
+  background-color: #fff;
+  background-color: var(--textbox-focus-background-color, #fff);
   outline: 0;
 }
 input.textbox__control::-webkit-input-placeholder,
 textarea.textbox__control::-webkit-input-placeholder {
   color: #767676;
+  color: var(--textbox-placeholder-color, #767676);
   font-weight: 200;
 }
 input.textbox__control::-moz-placeholder,
 textarea.textbox__control::-moz-placeholder {
   color: #767676;
+  color: var(--textbox-placeholder-color, #767676);
   font-weight: 200;
 }
 input.textbox__control:-ms-input-placeholder,
 textarea.textbox__control:-ms-input-placeholder {
   color: #767676;
+  color: var(--textbox-placeholder-color, #767676);
   font-weight: 200;
 }
 input.textbox__control::-ms-input-placeholder,
 textarea.textbox__control::-ms-input-placeholder {
   color: #767676;
+  color: var(--textbox-placeholder-color, #767676);
   font-weight: 200;
 }
 input.textbox__control::placeholder,
 textarea.textbox__control::placeholder {
   color: #767676;
+  color: var(--textbox-placeholder-color, #767676);
   font-weight: 200;
 }
-input.textbox__control--underline {
-  border: none;
-  border-bottom: 1px solid #767676;
-  border-radius: 0;
-  font-weight: bold;
-  height: 1.875rem;
-  padding: 0 0 1px 0;
-}
-input.textbox__control--underline::-webkit-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline::-moz-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline:-ms-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline::-ms-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline::placeholder {
-  color: transparent;
-}
-input.textbox__control--underline[disabled]::-webkit-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline[disabled]::-moz-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline[disabled]:-ms-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline[disabled]::-ms-input-placeholder {
-  color: transparent;
-}
-input.textbox__control--underline[disabled]::placeholder {
-  color: transparent;
-}
-input.textbox__control--underline:focus::-webkit-input-placeholder {
-  color: #767676;
-}
-input.textbox__control--underline:focus::-moz-placeholder {
-  color: #767676;
-}
-input.textbox__control--underline:focus:-ms-input-placeholder {
-  color: #767676;
-}
-input.textbox__control--underline:focus::-ms-input-placeholder {
-  color: #767676;
-}
-input.textbox__control--underline:focus::placeholder {
-  color: #767676;
+input.textbox__control--large {
+  height: 48px;
 }
 .textbox > svg,
 .textbox .icon-btn > svg {
   color: #767676;
+  color: var(--textbox-icon-color, #767676);
+  fill: #767676;
+  fill: var(--textbox-icon-color, #767676);
   display: -webkit-inline-box;
   display: inline-flex;
-  fill: #767676;
   height: 100%;
   pointer-events: none;
   position: absolute;

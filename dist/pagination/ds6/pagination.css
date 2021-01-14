@@ -4,9 +4,6 @@
     --pagination-item-hover-foreground-color: #5192ff;
   }
 }
-.skin-experiment-rounded .pagination__item[aria-current="page"] {
-  --pagination-item-current-border-radius: 8px;
-}
 nav.pagination {
   -webkit-box-align: center;
           align-items: center;
@@ -94,8 +91,8 @@ button.pagination__previous {
   border-color: var(--pagination-item-current-border-color, #3665f3);
   color: #3665f3;
   color: var(--pagination-item-current-foreground-color, #3665f3);
-  border-radius: 0;
-  border-radius: var(--pagination-item-current-border-radius, 0);
+  border-radius: 8px;
+  border-radius: var(--pagination-item-current-border-radius, 8px);
   border-style: solid;
   border-width: 2px;
   font-weight: 700;
@@ -119,6 +116,10 @@ nav.pagination--fluid ol.pagination__items {
 nav.pagination--fluid ol.pagination__items li {
   -webkit-box-flex: 1;
           flex: 1 0 48px;
+}
+a.pagination__item:focus:not(:focus-visible),
+button.pagination__item:focus:not(:focus-visible) {
+  outline: none;
 }
 @media (min-width: 601px) {
   nav.pagination {

@@ -138,6 +138,15 @@ document.querySelectorAll('.floating-label').forEach(function(el) {
     pageWidgets.push(new FloatingLabel(el));
 });
 
+document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
+    pageWidgets.push(new FloatingLabel(el, {
+        labelElementInlineModifier: 'legacy-floating-label__label--inline',
+        labelElementDisabledModifier: 'legacy-floating-label__label--disabled',
+        labelElementAnimateModifier: 'legacy-floating-label__label--animate',
+        textboxElementBackgroundRGB: ['rgba(0, 0, 0, 0)']
+    }));
+});
+
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });

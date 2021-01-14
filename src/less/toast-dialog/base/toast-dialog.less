@@ -3,8 +3,7 @@
 .toast-dialog-outline() {
     .customOutlineColorProperty(toast-dialog-foreground-color);
 
-    outline-offset: -8px;
-    outline-style: dotted;
+    outline-style: auto;
     outline-width: 1px;
 }
 
@@ -84,6 +83,8 @@ button.toast-dialog__close {
 
     &:focus {
         .toast-dialog-outline();
+
+        outline-offset: -8px;
     }
 }
 
@@ -132,6 +133,8 @@ button.toast-dialog__close {
 
 @media (min-width: 601px) {
     .toast-dialog {
+        .customBorderRadiusProperty(toast-dialog-large-border-radius);
+
         bottom: 16px;
         left: 16px;
         max-width: 480px;
@@ -140,5 +143,11 @@ button.toast-dialog__close {
 
     .toast-dialog__window {
         margin: 16px 24px 24px;
+    }
+}
+
+[dir="rtl"] {
+    .toast-dialog__footer .btn--primary {
+        margin-right: 7px;
     }
 }

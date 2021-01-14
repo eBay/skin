@@ -17,8 +17,6 @@ span.listbox-button--fluid .expand-btn {
 
 div.listbox-button__listbox {
     .dropdown();
-
-    border-bottom-color: transparent;
 }
 
 button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
@@ -39,10 +37,6 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
     &:focus {
         outline: none;
         text-decoration: underline;
-    }
-
-    &[aria-expanded="true"] {
-        border-bottom-color: transparent;
     }
 
     &[aria-expanded="true"] ~ .listbox-button__listbox {
@@ -87,4 +81,9 @@ span.listbox-button__value {
     .truncate();
 
     flex: 1 0 auto;
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+.listbox-button__options:focus:not(:focus-visible) {
+    outline: none;
 }

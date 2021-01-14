@@ -33,6 +33,7 @@ span.fake-menu__items {
 .fake-menu__item > svg.icon:last-child,
 .menu__item .badge {
   margin-left: 8px;
+  margin-right: 8px;
 }
 a.fake-menu__item {
   color: #333;
@@ -85,6 +86,22 @@ a.fake-menu__item:active,
 div.menu__item[role^="menuitem"]:active {
   font-weight: normal;
 }
+button.fake-menu__item:first-child,
+a.fake-menu__item:first-child,
+div.menu__item[role^="menuitem"]:first-child {
+  border-top-left-radius: 0;
+  border-top-left-radius: var(--dropdown-items-border-radius, 0);
+  border-top-right-radius: 0;
+  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+}
+button.fake-menu__item:last-child,
+a.fake-menu__item:last-child,
+div.menu__item[role^="menuitem"]:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-right-radius: 0;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+}
 a.fake-menu__item:focus {
   text-decoration: underline;
 }
@@ -112,8 +129,8 @@ div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
 a.fake-menu__item span,
 button.fake-menu__item span,
 div.menu__item[role^="menuitem"] span {
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
   text-align: left;
   white-space: nowrap;
 }
@@ -151,4 +168,7 @@ hr.menu__separator {
   border-color: var(--dropdown-separator-color, #eee);
   border-style: solid;
   border-width: 1px;
+}
+div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+  outline: none;
 }

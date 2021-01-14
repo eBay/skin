@@ -53,124 +53,73 @@ textarea.textbox__control {
 
     &[disabled] {
         .customBackgroundColorProperty(textbox-disabled-background-color);
+        .customBorderColorProperty(textbox-disabled-border-color);
         .customColorProperty(textbox-disabled-foreground-color);
 
-        border-color: @textbox-disabled-border-color;
-
         &::-webkit-input-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
 
         &::-moz-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
 
         &:-ms-input-placeholder {
-            color: @textbox-disabled-placeholder-color;
+            .customColorProperty(textbox-disabled-placeholder-color);
         }
     }
 
     &[readonly] {
-        color: @textbox-readonly-foreground-color;
+        .customColorProperty(textbox-readonly-foreground-color);
     }
 
     &[aria-invalid="true"] {
-        border-color: @textbox-invalid-foreground-color;
+        .customBackgroundColorProperty(textbox-invalid-background-color);
+        .customBorderColorProperty(textbox-invalid-foreground-color);
     }
 
     &:focus {
         .customBorderColorProperty(textbox-focus-border-color);
+        .customBackgroundColorProperty(textbox-focus-background-color);
 
         outline: 0;
     }
 
     &::-webkit-input-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 
     &::placeholder {
-        color: @textbox-placeholder-color;
+        .customColorProperty(textbox-placeholder-color);
+
         font-weight: 200;
     }
 }
 
-input.textbox__control--underline {
-    border: none;
-    border-bottom: 1px solid @textbox-underline-color;
-    border-radius: 0;
-    font-weight: bold;
-    height: 1.875rem; // a11y: has to be relative to the text size
-    padding: 0 0 1px 0;
-
-    &::-webkit-input-placeholder {
-        color: transparent;
-    }
-
-    &::-moz-placeholder {
-        color: transparent;
-    }
-
-    &:-ms-input-placeholder {
-        color: transparent;
-    }
-
-    &::placeholder {
-        color: transparent;
-    }
-
-    &[disabled] {
-        &::-webkit-input-placeholder {
-            color: transparent;
-        }
-
-        &::-moz-placeholder {
-            color: transparent;
-        }
-
-        &:-ms-input-placeholder {
-            color: transparent;
-        }
-
-        &::placeholder {
-            color: transparent;
-        }
-    }
-
-    &:focus {
-        &::-webkit-input-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &::-moz-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &:-ms-input-placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-
-        &::placeholder {
-            color: @textbox-focus-placeholder-color;
-        }
-    }
+input.textbox__control--large {
+    height: @textbox-large-height;
 }
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    color: @textbox-icon-color;
+    .customColorProperty(textbox-icon-color);
+    .customFillProperty(textbox-icon-color);
+
     display: inline-flex;
-    fill: @textbox-icon-color;
     height: 100%;
     pointer-events: none;
     position: absolute;

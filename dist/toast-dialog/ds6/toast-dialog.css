@@ -1,13 +1,10 @@
-.skin-experiment-rounded .toast-dialog {
-  --toast-dialog-border-radius: 16px 16px 0 0;
-}
 .toast-dialog {
   background-color: #3665f3;
   background-color: var(--toast-dialog-background-color, #3665f3);
   color: #fff;
   color: var(--toast-dialog-foreground-color, #fff);
-  border-radius: 0;
-  border-radius: var(--toast-dialog-border-radius, 0);
+  border-radius: 16px 16px 0 0;
+  border-radius: var(--toast-dialog-border-radius, 16px 16px 0 0);
   bottom: 0;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
@@ -28,8 +25,7 @@
 .toast-dialog a:focus {
   outline-color: #fff;
   outline-color: var(--toast-dialog-foreground-color, #fff);
-  outline-offset: -8px;
-  outline-style: dotted;
+  outline-style: auto;
   outline-width: 1px;
 }
 .toast-dialog--transition {
@@ -80,9 +76,9 @@ button.toast-dialog__close:focus > svg {
 button.toast-dialog__close:focus {
   outline-color: #fff;
   outline-color: var(--toast-dialog-foreground-color, #fff);
-  outline-offset: -8px;
-  outline-style: dotted;
+  outline-style: auto;
   outline-width: 1px;
+  outline-offset: -8px;
 }
 .toast-dialog__footer {
   display: -webkit-box;
@@ -111,8 +107,7 @@ button.toast-dialog__close:focus {
 .toast-dialog__footer .btn--secondary:focus {
   outline-color: #fff;
   outline-color: var(--toast-dialog-foreground-color, #fff);
-  outline-offset: -8px;
-  outline-style: dotted;
+  outline-style: auto;
   outline-width: 1px;
 }
 .toast-dialog__footer .btn--primary:focus,
@@ -127,6 +122,8 @@ button.toast-dialog__close:focus {
 }
 @media (min-width: 601px) {
   .toast-dialog {
+    border-radius: 16px;
+    border-radius: var(--toast-dialog-large-border-radius, 16px);
     bottom: 16px;
     left: 16px;
     max-width: 480px;
@@ -136,8 +133,6 @@ button.toast-dialog__close:focus {
     margin: 16px 24px 24px;
   }
 }
-@media (min-width: 601px) {
-  .skin-experiment-rounded .toast-dialog {
-    --toast-dialog-border-radius: 16px;
-  }
+[dir="rtl"] .toast-dialog__footer .btn--primary {
+  margin-right: 7px;
 }

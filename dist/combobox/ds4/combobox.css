@@ -43,7 +43,7 @@ span.combobox {
   z-index: 2;
   display: none;
   position: absolute;
-  top: calc(100% - 1px);
+  top: calc(100% + 4px);
 }
 .combobox__option[role^="option"] {
   border-color: #fff;
@@ -80,6 +80,18 @@ span.combobox {
 .combobox__option[role^="option"]:active {
   font-weight: normal;
 }
+.combobox__option[role^="option"]:first-child {
+  border-top-left-radius: 0;
+  border-top-left-radius: var(--dropdown-items-border-radius, 0);
+  border-top-right-radius: 0;
+  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+}
+.combobox__option[role^="option"]:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-right-radius: 0;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+}
 .combobox__option[role^="option"]:not(:last-child) {
   margin-bottom: 1px;
 }
@@ -113,9 +125,6 @@ span.combobox {
   left: 0;
   margin: 0;
   right: 0;
-}
-.combobox .expand-btn[aria-expanded="true"] {
-  border-bottom-color: transparent;
 }
 .combobox--expanded .combobox__listbox {
   display: block;
@@ -172,7 +181,9 @@ span.combobox {
 .combobox__control > input[disabled],
 .combobox__control > input[aria-disabled="true"] {
   border-color: #ccc;
+  border-color: var(--combobox-disabled-border-color, #ccc);
   color: #ccc;
+  color: var(--combobox-disabled-foreground-color, #ccc);
 }
 .combobox__control > input[disabled][readonly],
 .combobox__control > input[aria-disabled="true"][readonly] {
@@ -182,12 +193,9 @@ span.combobox {
 .combobox__control > input[aria-disabled="true"] + svg {
   opacity: 0.5;
 }
-.combobox__control > input[aria-expanded="true"] {
-  border-bottom: 0;
-  padding-bottom: 1px;
-}
 .combobox__control > input[aria-invalid="true"] {
   border-color: #dd1e31;
+  border-color: var(--combobox-invalid-foreground-color, #dd1e31);
 }
 .combobox__control > input::-ms-clear {
   display: none;
@@ -200,6 +208,8 @@ span.combobox {
 .combobox__control > input:focus {
   border-color: #0654ba;
   border-color: var(--combobox-focus-border-color, #0654ba);
+  background-color: #fff;
+  background-color: var(--combobox-focus-background-color, #fff);
   outline: 0;
 }
 .combobox__control--borderless > input:focus {
@@ -218,6 +228,7 @@ span.combobox {
 }
 .combobox__control > input[disabled] {
   background-color: #eee;
+  background-color: var(--combobox-disabled-background-color, #eee);
 }
 .combobox__option--active[role="option"] {
   color: #333;

@@ -8,11 +8,6 @@
     --dropdown-item-hover-foreground-color: #111820;
   }
 }
-.skin-experiment-rounded .listbox-button__listbox {
-  --dropdown-items-border-radius: 8px;
-  --dropdown-items-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-  --dropdown-items-border-color: #f5f5f5;
-}
 .listbox-button {
   line-height: normal;
   position: relative;
@@ -28,14 +23,14 @@ span.listbox-button--fluid .expand-btn {
 div.listbox-button__listbox {
   background-color: #fff;
   background-color: var(--dropdown-items-background-color, #fff);
-  border-color: #c7c7c7;
-  border-color: var(--dropdown-items-border-color, #c7c7c7);
-  border-radius: 0;
-  border-radius: var(--dropdown-items-border-radius, 0);
-  -webkit-box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-          box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-  -webkit-box-shadow: var(--dropdown-items-box-shadow, 0 2px 4px 0 rgba(199, 199, 199, 0.5));
-          box-shadow: var(--dropdown-items-box-shadow, 0 2px 4px 0 rgba(199, 199, 199, 0.5));
+  border-color: #f5f5f5;
+  border-color: var(--dropdown-items-border-color, #f5f5f5);
+  border-radius: 8px;
+  border-radius: var(--dropdown-items-border-radius, 8px);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: var(--dropdown-items-box-shadow, 0 5px 15px rgba(0, 0, 0, 0.07));
+          box-shadow: var(--dropdown-items-box-shadow, 0 5px 15px rgba(0, 0, 0, 0.07));
   border-style: solid;
   border-width: 1px;
   -webkit-box-sizing: border-box;
@@ -47,8 +42,7 @@ div.listbox-button__listbox {
   z-index: 2;
   display: none;
   position: absolute;
-  top: calc(100% - 1px);
-  border-bottom-color: transparent;
+  top: calc(100% + 4px);
 }
 button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
   display: block;
@@ -66,9 +60,6 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 .listbox-button button.expand-btn--borderless:focus {
   outline: none;
   text-decoration: underline;
-}
-.listbox-button button.expand-btn--borderless[aria-expanded="true"] {
-  border-bottom-color: transparent;
 }
 .listbox-button button.expand-btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
   top: 41px;
@@ -96,8 +87,8 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
   opacity: 1;
 }
 div.listbox-button__option[role="option"]:active svg.icon {
-  color: #c7c7c7;
-  color: var(--dropdown-item-active-status-color, #c7c7c7);
+  color: #fff;
+  color: var(--dropdown-item-active-status-color, #fff);
 }
 div.listbox-button__option[role="option"] {
   border-color: #fff;
@@ -133,6 +124,18 @@ div.listbox-button__option[role="option"]:hover {
 div.listbox-button__option[role="option"]:active {
   font-weight: bold;
 }
+div.listbox-button__option[role="option"]:first-child {
+  border-top-left-radius: 8px;
+  border-top-left-radius: var(--dropdown-items-border-radius, 8px);
+  border-top-right-radius: 8px;
+  border-top-right-radius: var(--dropdown-items-border-radius, 8px);
+}
+div.listbox-button__option[role="option"]:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 8px);
+  border-bottom-right-radius: 8px;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 8px);
+}
 div.listbox-button__option--active[role="option"] {
   font-weight: bold;
 }
@@ -142,4 +145,7 @@ span.listbox-button__value {
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
+}
+.listbox-button__options:focus:not(:focus-visible) {
+  outline: none;
 }

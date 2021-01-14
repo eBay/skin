@@ -59,12 +59,6 @@ span.switch__control {
   width: 40px;
   z-index: 1;
 }
-input.switch__control {
-  opacity: 0;
-}
-input.switch__control:focus + span.switch__button {
-  outline: 1px dotted #767676;
-}
 input.switch__control[disabled] + span.switch__button {
   background-color: #c7c7c7;
   background-color: var(--switch-disabled-background-color, #c7c7c7);
@@ -76,6 +70,15 @@ span.switch__control[aria-disabled="true"] + span.switch__button {
   background-color: #c7c7c7;
   background-color: var(--switch-disabled-background-color, #c7c7c7);
 }
+input.switch__control {
+  opacity: 0;
+}
+input.switch__control:focus + span.switch__button {
+  outline: 1px auto #767676;
+}
+input.switch__control:focus:not(:focus-visible) + span.switch__button {
+  outline: none;
+}
 span.switch__control[aria-checked="true"] + span.switch__button::after {
   left: 19px;
 }
@@ -83,6 +86,9 @@ input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
   background-color: #3665f3;
   background-color: var(--switch-checked-background-color, #3665f3);
+}
+span.switch__control:focus:not(:focus-visible) {
+  outline: 0;
 }
 @media screen and (-ms-high-contrast: active) {
   input.switch__control {

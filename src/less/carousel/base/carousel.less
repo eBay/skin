@@ -68,12 +68,20 @@
     }
 }
 
+.carousel__list--image-treatment > li {
+    .imageTreatment();
+}
+
 div.carousel {
     margin: 16px 0;
 }
 
 .carousel__control {
     .carousel-paddle-mixin-base();
+}
+
+.carousel__playback:focus:not(:focus-visible) {
+    outline: none;
 }
 
 span.carousel,
@@ -83,6 +91,26 @@ span.carousel__container {
 
 .carousel__viewport--mask {
     mask-image: linear-gradient(to right, @carousel-paddle-background-color 85%, rgba(0, 0, 0, 0) 100%);
+}
+
+[dir="rtl"] {
+    .carousel__control--prev {
+        left: unset;
+        right: 0;
+    }
+
+    .carousel__control .icon--carousel-prev {
+        margin-left: 2px;
+    }
+
+    .carousel__control--next {
+        left: 0;
+        right: unset;
+    }
+
+    .carousel__control .icon--carousel-next {
+        margin-left: -2px;
+    }
 }
 
 /* autoprefixer: ignore next */

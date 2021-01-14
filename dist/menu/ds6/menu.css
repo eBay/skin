@@ -42,6 +42,7 @@ span.fake-menu__items {
 .fake-menu__item > svg.icon:last-child,
 .menu__item .badge {
   margin-left: 8px;
+  margin-right: 8px;
 }
 a.fake-menu__item {
   color: #111820;
@@ -94,13 +95,29 @@ a.fake-menu__item:active,
 div.menu__item[role^="menuitem"]:active {
   font-weight: bold;
 }
+button.fake-menu__item:first-child,
+a.fake-menu__item:first-child,
+div.menu__item[role^="menuitem"]:first-child {
+  border-top-left-radius: 8px;
+  border-top-left-radius: var(--dropdown-items-border-radius, 8px);
+  border-top-right-radius: 8px;
+  border-top-right-radius: var(--dropdown-items-border-radius, 8px);
+}
+button.fake-menu__item:last-child,
+a.fake-menu__item:last-child,
+div.menu__item[role^="menuitem"]:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 8px);
+  border-bottom-right-radius: 8px;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 8px);
+}
 a.fake-menu__item:focus {
   text-decoration: underline;
 }
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-  color: #c7c7c7;
-  color: var(--dropdown-item-active-status-color, #c7c7c7);
+  color: #fff;
+  color: var(--dropdown-item-active-status-color, #fff);
 }
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
@@ -112,8 +129,8 @@ div.menu__item[role^="menuitem"][aria-disabled="true"] {
   color: #c7c7c7;
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
-  color: #c7c7c7;
-  color: var(--dropdown-item-active-status-color, #c7c7c7);
+  color: #fff;
+  color: var(--dropdown-item-active-status-color, #fff);
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
@@ -121,8 +138,8 @@ div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
 a.fake-menu__item span,
 button.fake-menu__item span,
 div.menu__item[role^="menuitem"] span {
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
   text-align: left;
   white-space: nowrap;
 }
@@ -160,4 +177,7 @@ hr.menu__separator {
   border-color: var(--dropdown-separator-color, #e5e5e5);
   border-style: solid;
   border-width: 1px;
+}
+div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+  outline: none;
 }

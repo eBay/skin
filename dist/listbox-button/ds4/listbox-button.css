@@ -32,8 +32,7 @@ div.listbox-button__listbox {
   z-index: 2;
   display: none;
   position: absolute;
-  top: calc(100% - 1px);
-  border-bottom-color: transparent;
+  top: calc(100% + 4px);
 }
 button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
   display: block;
@@ -51,9 +50,6 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 .listbox-button button.expand-btn--borderless:focus {
   outline: none;
   text-decoration: underline;
-}
-.listbox-button button.expand-btn--borderless[aria-expanded="true"] {
-  border-bottom-color: transparent;
 }
 .listbox-button button.expand-btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
   top: 41px;
@@ -118,6 +114,18 @@ div.listbox-button__option[role="option"]:hover {
 div.listbox-button__option[role="option"]:active {
   font-weight: normal;
 }
+div.listbox-button__option[role="option"]:first-child {
+  border-top-left-radius: 0;
+  border-top-left-radius: var(--dropdown-items-border-radius, 0);
+  border-top-right-radius: 0;
+  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+}
+div.listbox-button__option[role="option"]:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-right-radius: 0;
+  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+}
 div.listbox-button__option--active[role="option"] {
   font-weight: normal;
 }
@@ -127,4 +135,7 @@ span.listbox-button__value {
   white-space: nowrap;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
+}
+.listbox-button__options:focus:not(:focus-visible) {
+  outline: none;
 }
