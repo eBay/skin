@@ -67,7 +67,6 @@ export const borderless = () => `
 </span>
 `;
 
-
 export const large = () => `
 <span class="select select--large">
     <select>

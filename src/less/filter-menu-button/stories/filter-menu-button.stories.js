@@ -153,7 +153,6 @@ export const pressed = () => `
 </span>
 `;
 
-
 export const disabled = () => `
 <span class="filter-menu-button">
     <button aria-expaned="true" type="button" class="filter-menu-button__button" disabled>
@@ -203,7 +202,6 @@ export const disabled = () => `
     </div>
 </span>
 `;
-
 
 export const overflow = () => `
 <span class="filter-menu-button">

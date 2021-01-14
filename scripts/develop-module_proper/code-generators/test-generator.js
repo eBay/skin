@@ -31,8 +31,16 @@ class TestGenerator extends BaseGenerator {
     }
 
     _addStoryBookTests() {
-        const testFilePath = path.join(__dirname, '..', '..', '..', 'src', 'less',
-            this.moduleId, `${this.moduleId}.stories.js`);
+        const testFilePath = path.join(
+            __dirname,
+            '..',
+            '..',
+            '..',
+            'src',
+            'less',
+            this.moduleId,
+            `${this.moduleId}.stories.js`
+        );
         if (fs.existsSync(testFilePath)) {
             log.warn('[TESTS][%s] Test file already exists!', testFilePath);
             return;

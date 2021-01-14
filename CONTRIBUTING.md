@@ -4,56 +4,56 @@ This page contains instructions and guidelines for anybody contributing code to 
 
 ## Table of Contents
 
-- [Contributing](#contributing)
-  - [Table of Contents](#table-of-contents)
-  - [System Requirements](#system-requirements)
-  - [Contribution Steps](#contribution-steps)
-  - [Development Modes](#development-modes)
-  - [Versioning](#versioning)
-    - [API Change](#api-change)
-    - [New Functionality](#new-functionality)
-      - [New Module](#new-module)
-    - [Bug Fix](#bug-fix)
-  - [Branching](#branching)
-  - [Pull Requests](#pull-requests)
-  - [Style Guide](#style-guide)
-  - [Variables](#variables)
-    - [Global Variables](#global-variables)
-    - [Product Variables](#product-variables)
-    - [Component Variables](#component-variables)
-  - [Storybook](#storybook)
-  - [Percy](#percy)
-  - [Website](#website)
-  - [Scripts](#scripts)
-  - [Icon Creation](#icon-creation)
-  - [Releases](#releases)
-    - [Pre-Release](#pre-release)
-    - [Final Release](#final-release)
-    - [GitHub Release](#github-release)
-    - [Hotfix Release](#hotfix-release)
+-   [Contributing](#contributing)
+    -   [Table of Contents](#table-of-contents)
+    -   [System Requirements](#system-requirements)
+    -   [Contribution Steps](#contribution-steps)
+    -   [Development Modes](#development-modes)
+    -   [Versioning](#versioning)
+        -   [API Change](#api-change)
+        -   [New Functionality](#new-functionality)
+            -   [New Module](#new-module)
+        -   [Bug Fix](#bug-fix)
+    -   [Branching](#branching)
+    -   [Pull Requests](#pull-requests)
+    -   [Style Guide](#style-guide)
+    -   [Variables](#variables)
+        -   [Global Variables](#global-variables)
+        -   [Product Variables](#product-variables)
+        -   [Component Variables](#component-variables)
+    -   [Storybook](#storybook)
+    -   [Percy](#percy)
+    -   [Website](#website)
+    -   [Scripts](#scripts)
+    -   [Icon Creation](#icon-creation)
+    -   [Releases](#releases)
+        -   [Pre-Release](#pre-release)
+        -   [Final Release](#final-release)
+        -   [GitHub Release](#github-release)
+        -   [Hotfix Release](#hotfix-release)
 
 ## System Requirements
 
-* [Node.js](https://nodejs.org/en/)
-* [Ruby](https://www.ruby-lang.org/en/)
-* [Bundler](http://bundler.io)
-* [Jekyll](https://jekyllrb.com) ([install via Bundler](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler))
+-   [Node.js](https://nodejs.org/en/)
+-   [Ruby](https://www.ruby-lang.org/en/)
+-   [Bundler](http://bundler.io)
+-   [Jekyll](https://jekyllrb.com) ([install via Bundler](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler))
 
 ## Contribution Steps
 
-Before writing any code, please submit a new issue to [GitHub](https://github.com/eBay/skin/issues). Or, if you want to work on an *existing* issue, please request to do so on the relevant ticket.
+Before writing any code, please submit a new issue to [GitHub](https://github.com/eBay/skin/issues). Or, if you want to work on an _existing_ issue, please request to do so on the relevant ticket.
 
 We **strongly** advise you to only begin working on issues that are assigned specifically to you and that are part of the upcoming milestone, otherwise your work may end up being in vain.
 
 Here is a rough overview of steps required when contributing code to skin:
 
-* GitHub team members must create a new branch in the Skin repo. Non-team members should create their own fork.
-* Please ensure you branch off from the correct milestone branch! See branching strategy section below.
-* Skin adopts the [BEM](https://css-tricks.com/bem-101/) methodology (a popular naming convention for classes in HTML and CSS). Please familiarize yourself with our style guide in the section below.
-* After making changes to `.less` files, ensure that no new CSS lint warnings or errors are introduced
-* Add or update the corresponding website documentation. More information in the [documentation](#documentation) section below.
-* Push commit(s) to the upstream branch. Ensure new dist files (i.e. the compiled CSS files) are included!
-* Send pull request. See Pull Requests section below.
+-   GitHub team members must create a new branch in the Skin repo. Non-team members should create their own fork.
+-   Please ensure you branch off from the correct milestone branch! See branching strategy section below.
+-   Skin adopts the [BEM](https://css-tricks.com/bem-101/) methodology (a popular naming convention for classes in HTML and CSS). Please familiarize yourself with our style guide in the section below.
+-   After making changes to `.less` files, ensure that no new CSS lint warnings or errors are introduced
+-   Add or update the corresponding website documentation. More information in the [documentation](#documentation) section below.
+-   Push commit(s) to the upstream branch. Ensure new dist files (i.e. the compiled CSS files) are included!
+-   Send pull request. See Pull Requests section below.
 
 ## Development Modes
 
@@ -72,7 +72,7 @@ Executing the following script will generate all files and references for a new 
 ./scripts/develop-module -m "Your Module Name"
 ```
 
-*Example*
+_Example_
 
 ```
 ./scripts/develop-module -m toast-dialog
@@ -92,14 +92,14 @@ To help guide your contribution into the right bucket, we provide more detailed 
 
 Here are some types of change that we consider as an incompatible API change:
 
-* Removal of a CSS class
-* Removal of a public variable or mixin
-* Removal of a `browser.json` file
-* Removal of a folder from `dist`
-* Removal of an SVG icon
-* Change to CDN path structure
-* Change to HTML structure or attributes of module
-* Change to CSS property that radically alters appearance and/or layout
+-   Removal of a CSS class
+-   Removal of a public variable or mixin
+-   Removal of a `browser.json` file
+-   Removal of a folder from `dist`
+-   Removal of an SVG icon
+-   Change to CDN path structure
+-   Change to HTML structure or attributes of module
+-   Change to CSS property that radically alters appearance and/or layout
 
 Typically we will try and add a deprecation note for a period of time before introducing any breaking API change. The creation of aliases can often help ease the transition from one API to another.
 
@@ -107,13 +107,13 @@ Typically we will try and add a deprecation note for a period of time before int
 
 Here are some of the changes we consider as new functionality:
 
-* Addition of a new module
-* Addition of a module subtype or variant
-* Addition of a new variable or mixin
-* Addition of an alias for a class or icon
-* Update of a module to its latest playbook version
-* Update of a colour value that remains within the same hue
-* Update of a CSS property that does not affect the modules layout in page
+-   Addition of a new module
+-   Addition of a module subtype or variant
+-   Addition of a new variable or mixin
+-   Addition of an alias for a class or icon
+-   Update of a module to its latest playbook version
+-   Update of a colour value that remains within the same hue
+-   Update of a CSS property that does not affect the modules layout in page
 
 Minor version updates are a signal that there is something new (no matter how small) that an app might be interested in using!
 
@@ -143,49 +143,49 @@ A milestone branch will be deleted after it has been merged into `master`. There
 
 Guidance for pull requests:
 
-* Always double-check which branch you are attempting to merge into. The target branch should always be a milestone branch!
-* Only Skin admins are permitted to merge into `master`
-* Non-atomic commits should be squashed (i.e. "work in progress" type commits).
-* Do not add any commit that leaves the code in a broken state.
-* Pull request for a *feature* must only contain changes related to the issue (NOTE: refactoring/cleanup type PRs are often exempt from this rule)
-* **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
-* If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
-* After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
+-   Always double-check which branch you are attempting to merge into. The target branch should always be a milestone branch!
+-   Only Skin admins are permitted to merge into `master`
+-   Non-atomic commits should be squashed (i.e. "work in progress" type commits).
+-   Do not add any commit that leaves the code in a broken state.
+-   Pull request for a _feature_ must only contain changes related to the issue (NOTE: refactoring/cleanup type PRs are often exempt from this rule)
+-   **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
+-   If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
+-   After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
 
 ## Style Guide
 
 When contributing to Skin, please bear the following guidelines in mind:
 
-* Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
-* Ensure all markup is valid HTML
-* Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwile tradeoff)
-* Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
-* Use the `<svg>` tag for icons
-* Never use the `<i>` tag for icons
-* Harness CSS margin-collapse wherever possible.
-* Most block-level modules will require margin top and bottom as a sensible default
-* Do not use presentational classnames, e.g. `.btn--green` should be `.btn--secondary` for example
-* Do not combine classes into a single classname, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
-* Do not chain BEM modifiers (e.g. `.btn--large.btn--primary`). This is a code smell.
-* Do not use ambiguous or global classnames, e.g. `.large` should be `.btn--large`
-* Do not use class `.disabled` to disable buttons or form elements, use the HTML `disabled` property instead
-* Do not wrap inputs with labels, use explicit labels instead (e.g. use the `for` and `id` attributes)
-* Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy url
-* Every `<img>` tag must have an `alt` attribute, with **no** exceptions. The value can be an empty string for presentational images.
-* Avoid naming conflicts with other grid systems (e.g. Bootstap Grids)
-* Keep LESS pre-processor usage restricted to variables, mixins and basic nesting (see below). 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
-* Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in sub-optimal compiled CSS. Try and restrict nesting to pseudo selectors only (e.g. `:focus`, `::after`).
-* Avoid over specificity (unless required for accessibility safeguarding). The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
-[https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
-* Please do not commit commented out code to production.
+-   Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
+-   Ensure all markup is valid HTML
+-   Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwile tradeoff)
+-   Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
+-   Use the `<svg>` tag for icons
+-   Never use the `<i>` tag for icons
+-   Harness CSS margin-collapse wherever possible.
+-   Most block-level modules will require margin top and bottom as a sensible default
+-   Do not use presentational classnames, e.g. `.btn--green` should be `.btn--secondary` for example
+-   Do not combine classes into a single classname, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
+-   Do not chain BEM modifiers (e.g. `.btn--large.btn--primary`). This is a code smell.
+-   Do not use ambiguous or global classnames, e.g. `.large` should be `.btn--large`
+-   Do not use class `.disabled` to disable buttons or form elements, use the HTML `disabled` property instead
+-   Do not wrap inputs with labels, use explicit labels instead (e.g. use the `for` and `id` attributes)
+-   Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy url
+-   Every `<img>` tag must have an `alt` attribute, with **no** exceptions. The value can be an empty string for presentational images.
+-   Avoid naming conflicts with other grid systems (e.g. Bootstap Grids)
+-   Keep LESS pre-processor usage restricted to variables, mixins and basic nesting (see below). 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
+-   Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in sub-optimal compiled CSS. Try and restrict nesting to pseudo selectors only (e.g. `:focus`, `::after`).
+-   Avoid over specificity (unless required for accessibility safeguarding). The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
+    [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
+-   Please do not commit commented out code to production.
 
 ## Variables
 
 Skin variables are categorised into three levels:
 
-* global
-* product
-* component
+-   global
+-   product
+-   component
 
 These three levels form the basis of our token based system.
 
@@ -193,8 +193,8 @@ These three levels form the basis of our token based system.
 
 Global variables are our primitives. They represent the colour palette and type ramp. For example:
 
-* color-b1
-* font-size-12
+-   color-b1
+-   font-size-12
 
 Naming of global variables starts with the style related property and ends with the primitive.
 
@@ -202,8 +202,8 @@ Naming of global variables starts with the style related property and ends with 
 
 Product variables are aliases of global variables. They represent an aspect of the product that is used across many pages and components. For example, confirmations and actions:
 
-* color-text-confirmation
-* color-action-primary
+-   color-text-confirmation
+-   color-action-primary
 
 Naming of product variables starts with the style related property and ends with the product aspect.
 
@@ -211,15 +211,15 @@ Naming of product variables starts with the style related property and ends with
 
 Component variables are aliases of global variables and product variables. They represent aspects of a specific component only, for example a textbox component:
 
-* textbox-background-color
-* textbox-border-color
+-   textbox-background-color
+-   textbox-border-color
 
 Naming of component variables starts with the component name and ends with the style related property.
 
 Component variables also need to take into account certain states, such as hover, focus and disabled. For example:
 
-* textbox-disabled-background-color
-* textbox-disabled-border-color
+-   textbox-disabled-background-color
+-   textbox-disabled-border-color
 
 The naming convention is: component name - state - style property.
 
@@ -227,9 +227,9 @@ The naming convention is: component name - state - style property.
 
 Every module requires a page in storybook. In addition to the main use cases, try and cover as many variants, scenarios and edge cases as possible. The following tests are required for every module:
 
-* RTL (right to left languages)
-* Font-Size increase (up to 200%)
-* Color inheritance (to a certain degree)
+-   RTL (right to left languages)
+-   Font-Size increase (up to 200%)
+-   Color inheritance (to a certain degree)
 
 Each story must be isolated to a single test. This allows us to easily run visual regression testing.
 
@@ -247,18 +247,18 @@ We use [Bundler](http://bundler.io) to install, update and run Jekyll in our dev
 
 Once Jekyll is setup successfully, running a build should create the following file structure under `./_site`:
 
-* `./_site/static/dsx/docs.min.css`
-    * this is the Lasso output of `./docs/src/less/dsx`, as generated by Lasso
-* `./_site/static/dsx/docs.min.js`
-    * this is the Lasso output of `./docs/src/js/dsx`
-* `./_site/static/dsx/skin.min.css`
-    * the full, minified skin css bundle (only used in development environment)
-* `./_site/index.html`
-    * ds6 homepage
-* `./_site/ds4/index.html`
-    * ds4 homepage
-* `./_site/archive`
-    * archive of old versions of website
+-   `./_site/static/dsx/docs.min.css`
+    -   this is the Lasso output of `./docs/src/less/dsx`, as generated by Lasso
+-   `./_site/static/dsx/docs.min.js`
+    -   this is the Lasso output of `./docs/src/js/dsx`
+-   `./_site/static/dsx/skin.min.css`
+    -   the full, minified skin css bundle (only used in development environment)
+-   `./_site/index.html`
+    -   ds6 homepage
+-   `./_site/ds4/index.html`
+    -   ds4 homepage
+-   `./_site/archive`
+    -   archive of old versions of website
 
 This is the exact same structure that will be generated by GitHub Pages.
 
@@ -270,9 +270,9 @@ In order to start developing the website simply run: `npm start` which will buil
 
 The following scripts are available via npm:
 
-* `npm start` - Runs a build and starts local BrowserSync server on port 3000
-* `npm test` - Runs a build and lints CSS and LESS files
-* `npm run build` - Runs a build only (no server)
+-   `npm start` - Runs a build and starts local BrowserSync server on port 3000
+-   `npm test` - Runs a build and lints CSS and LESS files
+-   `npm run build` - Runs a build only (no server)
 
 ## Icon Creation
 
@@ -289,10 +289,10 @@ Please ensure your NPM registry is set correctly and that you are on the package
 A pre-release is always made from a milestone branch.
 
 1. Run `npm version prepatch`, `npm version preminor`, or `npm version premajor`. If you need to increment an existing prerelease use `npm version prerelease`. This command will automatically:
-    * update the version number in css build files
-    * update the version number in `package.json`
-    * commit all changes locally
-    * create a Git tag
+    - update the version number in css build files
+    - update the version number in `package.json`
+    - commit all changes locally
+    - create a Git tag
 1. Push commit to origin.
 1. Run `npm publish --tag beta` to publish the package to NPM.
 
@@ -304,11 +304,11 @@ A final release is always made from the master branch.
 1. Merge the PR after approval (do not squash!)
 1. Switch to your local master branch and pull the changes from origin.
 1. Run `npm version patch`, `npm version minor`, or `npm version major`. This command will automatically:
-    * update the version number in css build files
-    * update the version number in `package.json`
-    * update the version number in Jekyll docs
-    * commit all changes locally
-    * create a Git tag
+    - update the version number in css build files
+    - update the version number in `package.json`
+    - update the version number in Jekyll docs
+    - commit all changes locally
+    - create a Git tag
 1. Push commit to origin.
 1. Push the git tag to origin, e.g. `git push origin v3.1.0`.
 1. Run `npm publish` to publish the package to NPM.
