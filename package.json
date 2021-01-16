@@ -30,6 +30,7 @@
         "lint:less": "stylelint docs/src/less src/less --config .stylelintrc-less",
         "lint:css": "stylelint dist --config .stylelintrc-css",
         "lint:js": "eslint docs/src/js/base > lint.log",
+        "format": "npx prettier --write .",
         "copy": "npm run copy:variablesToDist && npm run copy:mixinsToDist && npm run copy:svgToDist && npm run copy:svgToDocs",
         "copy:variablesToDist": "mkdirp dist/variables && ncp src/less/variables dist/variables",
         "copy:mixinsToDist": "mkdirp dist/mixins && ncp src/less/mixins dist/mixins",
@@ -44,6 +45,10 @@
         "storybook:start-proper": "start-storybook -s .",
         "storybook:start": "cross-env STORYBOOK_DS=6 npm-run-all -s storybook:copy-svg-icons storybook:copy-custom-styles storybook:start-proper"
     },
+    "pre-commit": [
+      "format",
+      "lint"
+    ],
     "devDependencies": {
         "@babel/cli": "^7",
         "@babel/core": "^7",
