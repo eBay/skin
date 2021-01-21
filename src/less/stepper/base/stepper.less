@@ -39,13 +39,31 @@ hr.stepper__separator {
 .stepper__icon {
     align-items: center;
     display: flex;
+    width: 80px;
 }
 
-// todo: refactor out dependency on badge module. I don't think it should be used in this context.
+.stepper__icon .step {
+    .customColorProperty(stepper-badge-upcoming-color);
+    .customBackgroundColorProperty(stepper-badge-upcoming-background-color);
+    .customBorderColorProperty(stepper-badge-upcoming-border-color);
+
+    align-items: center;
+    border-radius: @stepper-icon-size;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: @stepper-icon-size;
+    justify-content: center;
+    top: 0;
+    width: @stepper-icon-size;
+}
+
+// todo: remove in next major version
 .stepper__icon .badge {
-    .customColorProperty(stepper-text-dark-color);
-    .customBackgroundColorProperty(stepper-badge-background-color);
-    .customBorderColorProperty(stepper-text-dark-color);
+    .customColorProperty(stepper-badge-upcoming-color);
+    .customBackgroundColorProperty(stepper-badge-upcoming-background-color);
+    .customBorderColorProperty(stepper-badge-upcoming-border-color);
 
     border-style: solid;
     border-width: 1px;
@@ -54,23 +72,38 @@ hr.stepper__separator {
     width: 24px; // This width makes the badge to have 24px width for some reason!
 }
 
-.stepper__icon svg.icon {
-    margin: auto 2px;
+.stepper__icon svg.icon,
+.stepper__icon .badge,
+.stepper__icon .step {
+    margin: auto 4px;
     min-height: @stepper-icon-size;
     min-width: @stepper-icon-size;
 }
 
 .stepper__icon::before,
 .stepper__icon::after {
-    content: '';
+    content: "";
     display: block;
-    flex: 1;
+    flex: 2;
     height: 2px;
 }
 
 .stepper__item--confirmation {
-    .highlight-upcoming(@stepper-confirmation-color);
+    .highlight-upcoming(@stepper-active-color);
     .customColorProperty(stepper-text-light-color);
+
+    svg {
+        fill: @stepper-active-color;
+    }
+
+    .badge, /* TODO remove */
+    .step {
+        .customColorProperty(stepper-badge-current-color);
+        .customBackgroundColorProperty(stepper-badge-current-background-color);
+        .customBorderColorProperty(stepper-badge-current-border-color);
+
+        fill: @stepper-badge-current-color;
+    }
 }
 
 .stepper__item--upcoming {
@@ -82,6 +115,14 @@ hr.stepper__separator {
     }
 }
 
+.stepper__item--attention {
+    .customColorProperty(stepper-attention-color);
+}
+
+.stepper__item--information {
+    .customColorProperty(stepper-information-color);
+}
+
 .stepper__item--default {
     .highlight-upcoming(@stepper-text-dark-color);
     .customColorProperty(stepper-text-dark-color);
@@ -90,7 +131,14 @@ hr.stepper__separator {
 .stepper__item--current {
     .highlight-upcoming(@stepper-upcoming-color);
 
-    color: @stepper-confirmation-color;
+    color: @stepper-active-color;
+
+    .badge, /* TODO remove */
+    .step {
+        .customColorProperty(stepper-badge-current-color);
+        .customBackgroundColorProperty(stepper-badge-current-background-color);
+        .customBorderColorProperty(stepper-badge-current-border-color);
+    }
 }
 
 // Place transitions at end to take higher priority
@@ -99,7 +147,7 @@ hr.stepper__separator {
 }
 
 .stepper__item--transition-confirmation {
-    .highlight-upcoming(@stepper-confirmation-color);
+    .highlight-upcoming(@stepper-active-color);
 }
 
 .stepper__item--transition-attention {
@@ -115,17 +163,22 @@ hr.stepper__separator {
 }
 
 .stepper__text {
+    .customColorProperty(stepper-active-color);
+
     margin-top: 8px;
     text-align: center;
 }
 
-.stepper__item--current .stepper__text,
-.stepper__item--default .stepper__text {
-    .customColorProperty(stepper-text-dark-color);
+.stepper__item--attention .stepper__text {
+    .customColorProperty(stepper-attention-color);
 }
 
-.stepper__item[aria-current="step"] {
-    font-weight: bold;
+.stepper__text > * {
+    margin: 0;
+}
+
+.stepper__item--upcoming .stepper__text {
+    .customColorProperty(stepper-upcoming-text-color);
 }
 
 .stepper__item {
@@ -134,10 +187,6 @@ hr.stepper__separator {
     margin: 0 auto;
     position: relative;
     text-align: center;
-}
-
-.stepper__item:first-child {
-    margin-left: 0;
 }
 
 .stepper--vertical .stepper__icon::after,
@@ -150,14 +199,12 @@ hr.stepper__separator {
 }
 
 .stepper__item:first-child .stepper__icon::before {
+    flex: 0;
     height: 0;
 }
 
-.stepper__item:last-child {
-    margin-right: 0;
-}
-
 .stepper__item:last-child .stepper__icon::after {
+    flex: 0;
     height: 0;
 }
 
@@ -222,4 +269,51 @@ hr.stepper__separator {
 .stepper--vertical .stepper__item:last-child .stepper__icon::after,
 .stepper--vertical .stepper__item:last-child .stepper__icon::before {
     height: 0;
+}
+
+.stepper__item:first-child .stepper__text {
+    text-align: left;
+}
+
+.stepper__item:last-child .stepper__text {
+    text-align: right;
+}
+
+.stepper--vertical .stepper__icon svg.icon,
+.stepper--vertical .stepper__icon .badge,
+.stepper--vertical .stepper__icon .step {
+    margin: 2px 0 0 0;
+}
+
+.stepper--vertical .stepper__item:first-child .stepper__text,
+.stepper--vertical .stepper__item:last-child .stepper__text {
+    text-align: left;
+}
+
+.stepper__item:first-child .stepper__icon svg.icon {
+    margin-left: 0;
+}
+
+.stepper__item:last-child .stepper__icon svg.icon {
+    margin-right: 0;
+}
+
+[dir="rtl"] {
+    .stepper__item:first-child .stepper__text {
+        text-align: right;
+    }
+
+    .stepper__item:last-child .stepper__text {
+        text-align: left;
+    }
+
+    .stepper__item:first-child .stepper__icon svg.icon {
+        margin-left: 4px;
+        margin-right: 0;
+    }
+
+    .stepper__item:last-child .stepper__icon svg.icon {
+        margin-left: 0;
+        margin-right: 4px;
+    }
 }

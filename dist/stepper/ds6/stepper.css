@@ -28,31 +28,56 @@ hr.stepper__separator {
           align-items: center;
   display: -webkit-box;
   display: flex;
+  width: 80px;
+}
+.stepper__icon .step {
+  color: #767676;
+  color: var(--stepper-badge-upcoming-color, #767676);
+  background-color: #fff;
+  background-color: var(--stepper-badge-upcoming-background-color, #fff);
+  border-color: #c7c7c7;
+  border-color: var(--stepper-badge-upcoming-border-color, #c7c7c7);
+  -webkit-box-align: center;
+          align-items: center;
+  border-radius: 24px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  height: 24px;
+  -webkit-box-pack: center;
+          justify-content: center;
+  top: 0;
+  width: 24px;
 }
 .stepper__icon .badge {
-  color: #111820;
-  color: var(--stepper-text-dark-color, #111820);
+  color: #767676;
+  color: var(--stepper-badge-upcoming-color, #767676);
   background-color: #fff;
-  background-color: var(--stepper-badge-background-color, #fff);
-  border-color: #111820;
-  border-color: var(--stepper-text-dark-color, #111820);
+  background-color: var(--stepper-badge-upcoming-background-color, #fff);
+  border-color: #c7c7c7;
+  border-color: var(--stepper-badge-upcoming-border-color, #c7c7c7);
   border-style: solid;
   border-width: 1px;
   height: 24px;
   top: 0;
   width: 24px;
 }
-.stepper__icon svg.icon {
-  margin: auto 2px;
+.stepper__icon svg.icon,
+.stepper__icon .badge,
+.stepper__icon .step {
+  margin: auto 4px;
   min-height: 24px;
   min-width: 24px;
 }
 .stepper__icon::before,
 .stepper__icon::after {
-  content: '';
+  content: "";
   display: block;
-  -webkit-box-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 2;
+          flex: 2;
   height: 2px;
 }
 .stepper__item--confirmation {
@@ -60,13 +85,26 @@ hr.stepper__separator {
   color: var(--stepper-text-light-color, #767676);
 }
 .stepper__item--confirmation .stepper__icon::after {
-  background-color: #28a443;
+  background-color: #3665f3;
 }
 .stepper__item--confirmation + hr.stepper__separator {
-  background-color: #28a443;
+  background-color: #3665f3;
 }
 .stepper__item--confirmation + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #28a443;
+  background-color: #3665f3;
+}
+.stepper__item--confirmation svg {
+  fill: #3665f3;
+}
+.stepper__item--confirmation .badge,
+.stepper__item--confirmation .step {
+  color: #fff;
+  color: var(--stepper-badge-current-color, #fff);
+  background-color: #3665f3;
+  background-color: var(--stepper-badge-current-background-color, #3665f3);
+  border-color: #3665f3;
+  border-color: var(--stepper-badge-current-border-color, #3665f3);
+  fill: #fff;
 }
 .stepper__item--upcoming {
   color: #767676;
@@ -84,6 +122,14 @@ hr.stepper__separator {
 .stepper__item--upcoming svg {
   fill: #c7c7c7;
 }
+.stepper__item--attention {
+  color: #e62048;
+  color: var(--stepper-attention-color, #e62048);
+}
+.stepper__item--information {
+  color: #3665f3;
+  color: var(--stepper-information-color, #3665f3);
+}
 .stepper__item--default {
   color: #111820;
   color: var(--stepper-text-dark-color, #111820);
@@ -98,7 +144,7 @@ hr.stepper__separator {
   background-color: #111820;
 }
 .stepper__item--current {
-  color: #28a443;
+  color: #3665f3;
 }
 .stepper__item--current .stepper__icon::after {
   background-color: #c7c7c7;
@@ -108,6 +154,15 @@ hr.stepper__separator {
 }
 .stepper__item--current + hr.stepper__separator + .stepper__item .stepper__icon::before {
   background-color: #c7c7c7;
+}
+.stepper__item--current .badge,
+.stepper__item--current .step {
+  color: #fff;
+  color: var(--stepper-badge-current-color, #fff);
+  background-color: #3665f3;
+  background-color: var(--stepper-badge-current-background-color, #3665f3);
+  border-color: #3665f3;
+  border-color: var(--stepper-badge-current-border-color, #3665f3);
 }
 .stepper__item--transition-upcoming .stepper__icon::after {
   background-color: #c7c7c7;
@@ -119,13 +174,13 @@ hr.stepper__separator {
   background-color: #c7c7c7;
 }
 .stepper__item--transition-confirmation .stepper__icon::after {
-  background-color: #28a443;
+  background-color: #3665f3;
 }
 .stepper__item--transition-confirmation + hr.stepper__separator {
-  background-color: #28a443;
+  background-color: #3665f3;
 }
 .stepper__item--transition-confirmation + hr.stepper__separator + .stepper__item .stepper__icon::before {
-  background-color: #28a443;
+  background-color: #3665f3;
 }
 .stepper__item--transition-attention .stepper__icon::after {
   background-color: #e62048;
@@ -155,16 +210,21 @@ hr.stepper__separator {
   background-color: #111820;
 }
 .stepper__text {
+  color: #3665f3;
+  color: var(--stepper-active-color, #3665f3);
   margin-top: 8px;
   text-align: center;
 }
-.stepper__item--current .stepper__text,
-.stepper__item--default .stepper__text {
-  color: #111820;
-  color: var(--stepper-text-dark-color, #111820);
+.stepper__item--attention .stepper__text {
+  color: #e62048;
+  color: var(--stepper-attention-color, #e62048);
 }
-.stepper__item[aria-current="step"] {
-  font-weight: bold;
+.stepper__text > * {
+  margin: 0;
+}
+.stepper__item--upcoming .stepper__text {
+  color: #767676;
+  color: var(--stepper-upcoming-text-color, #767676);
 }
 .stepper__item {
   display: -webkit-box;
@@ -176,9 +236,6 @@ hr.stepper__separator {
   position: relative;
   text-align: center;
 }
-.stepper__item:first-child {
-  margin-left: 0;
-}
 .stepper--vertical .stepper__icon::after,
 .stepper--vertical .stepper__icon::before {
   height: calc(100% - 12px);
@@ -188,12 +245,13 @@ hr.stepper__separator {
   width: 2px;
 }
 .stepper__item:first-child .stepper__icon::before {
+  -webkit-box-flex: 0;
+          flex: 0;
   height: 0;
 }
-.stepper__item:last-child {
-  margin-right: 0;
-}
 .stepper__item:last-child .stepper__icon::after {
+  -webkit-box-flex: 0;
+          flex: 0;
   height: 0;
 }
 .stepper {
@@ -248,4 +306,39 @@ hr.stepper__separator {
 .stepper--vertical .stepper__item:last-child .stepper__icon::after,
 .stepper--vertical .stepper__item:last-child .stepper__icon::before {
   height: 0;
+}
+.stepper__item:first-child .stepper__text {
+  text-align: left;
+}
+.stepper__item:last-child .stepper__text {
+  text-align: right;
+}
+.stepper--vertical .stepper__icon svg.icon,
+.stepper--vertical .stepper__icon .badge,
+.stepper--vertical .stepper__icon .step {
+  margin: 2px 0 0 0;
+}
+.stepper--vertical .stepper__item:first-child .stepper__text,
+.stepper--vertical .stepper__item:last-child .stepper__text {
+  text-align: left;
+}
+.stepper__item:first-child .stepper__icon svg.icon {
+  margin-left: 0;
+}
+.stepper__item:last-child .stepper__icon svg.icon {
+  margin-right: 0;
+}
+[dir="rtl"] .stepper__item:first-child .stepper__text {
+  text-align: right;
+}
+[dir="rtl"] .stepper__item:last-child .stepper__text {
+  text-align: left;
+}
+[dir="rtl"] .stepper__item:first-child .stepper__icon svg.icon {
+  margin-left: 4px;
+  margin-right: 0;
+}
+[dir="rtl"] .stepper__item:last-child .stepper__icon svg.icon {
+  margin-left: 0;
+  margin-right: 4px;
 }
