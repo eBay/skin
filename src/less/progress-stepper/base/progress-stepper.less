@@ -1,80 +1,39 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// This mixin takes the upcoming color.
-// This colors the current icons :after, the hr, and the next item's :before
-// todo: refactor to work with custom properties
-.highlight-upcoming(@upcoming) {
-    .progress-stepper__icon::after {
-        background-color: @upcoming;
-    }
-
-    & + hr.progress-stepper__separator {
-        background-color: @upcoming;
-    }
-
-    & + hr.progress-stepper__separator + .progress-stepper__item .progress-stepper__icon::before {
-        background-color: @upcoming;
-    }
-}
-
 .progress-stepper__items {
     align-items: start;
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-auto-columns: 32px 1fr;
-    grid-auto-flow: column;
+    display: flex;
 }
 
 .progress-stepper__item {
     .customColorProperty(stepper-active-color);
 
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 32px;
 }
 
 hr.progress-stepper__separator {
     .customBackgroundColorProperty(stepper-active-color);
 
     border: 0 none;
+    flex: 1;
     height: 2px;
     margin: 0;
     min-width: 80px;
     position: relative;
     top: 11px;
-
-    grid-row: auto / span 2;
-    grid-column: auto / span 1;
-}
-
-.progress-stepper__item[aria-current] ~ hr.progress-stepper__separator,
-hr.progress-stepper__separator--upcoming {
-    .customBackgroundColorProperty(stepper-upcoming-color);
 }
 
 .progress-stepper__text {
-    column-width: 80px;
     justify-self: center;
     margin-top: 8px;
     text-align: center;
     width: 80px;
 }
 
-/* This is nth child because the first item in the list is the icon */
-.progress-stepper__item:first-child > .progress-stepper__text {
-    align-self: flex-start;
-    margin-left: 4px;
-    text-align: left;
-}
-
-.progress-stepper__item:last-child > .progress-stepper__text {
-    align-self: flex-end;
-    margin-right: 4px;
-    text-align: right;
-}
-
 .progress-stepper__icon {
-
     margin: auto;
 }
 
@@ -95,81 +54,12 @@ hr.progress-stepper__separator--upcoming {
     width: @stepper-icon-size;
 }
 
-
-
-.progress-stepper__item[aria-current] ~ .progress-stepper__item,
-.progress-stepper__item--upcoming {
-    .customColorProperty(stepper-text-light-color);
+hr.progress-stepper__separator--upcoming,
+.progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
+    .customBackgroundColorProperty(stepper-upcoming-color);
 }
-
-.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"],
-.progress-stepper__item--upcoming .progress-stepper__icon > [role="img"] {
-    .customColorProperty(stepper-badge-upcoming-color);
-    .customBackgroundColorProperty(stepper-badge-upcoming-background-color);
-    .customBorderColorProperty(stepper-badge-upcoming-border-color);
-}
-
-// // .progress-stepper__icon svg.icon,
-// // .progress-stepper__icon > [role="img"] {
-// //     margin: auto 4px;
-// //     min-height: @stepper-icon-size;
-// //     min-width: @stepper-icon-size;
-// // }
-
-// // .progress-stepper__item {
-// //     .highlight-upcoming(@stepper-active-color);
-// //     .customColorProperty(stepper-text-light-color);
-
-// //     display: flex;
-// //     flex-direction: column;
-// //     margin: 0 auto;
-// //     position: relative;
-// //     text-align: center;
-
-// //     svg {
-// //         fill: @stepper-active-color;
-// //     }
-
-// //     .progress-stepper__icon > [role="img"] {
-// //         .customColorProperty(stepper-badge-current-color);
-// //         .customBackgroundColorProperty(stepper-badge-current-background-color);
-// //         .customBorderColorProperty(stepper-badge-current-border-color);
-// //     }
-// // }
-
-// .progress-stepper__i--upcoming {
-//     .highlight-upcoming(@stepper-upcoming-color);
-//     .customColorProperty(stepper-text-light-color);
-
-//     svg {
-//         fill: @stepper-upcoming-color;
-//     }
-
-//     .progress-stepper__icon > [role="img"] {
-//         .customColorProperty(stepper-badge-upcoming-color);
-//         .customBackgroundColorProperty(stepper-badge-upcoming-background-color);
-//         .customBorderColorProperty(stepper-badge-upcoming-border-color);
-//     }
-// }
 
 .progress-stepper__item--attention {
-    .customColorProperty(stepper-attention-color);
-
-    svg {
-        fill: @stepper-attention-color;
-    }
-}
-
-// .progress-stepper__item--current {
-//     .highlight-upcoming(@stepper-upcoming-color);
-// }
-
-// .progress-stepper__text {
-//     // .customColorProperty(stepper-active-color);
-
-// }
-
-.progress-stepper__item--attention .progress-stepper__text {
     .customColorProperty(stepper-attention-color);
 }
 
@@ -177,17 +67,55 @@ hr.progress-stepper__separator--upcoming {
     margin: 0;
 }
 
-.progress-stepper__item--upcoming .progress-stepper__text {
-    .customColorProperty(stepper-upcoming-text-color);
-}
-
 .progress-stepper {
     margin: 16px 0;
     overflow: auto;
 }
 
-.progress-stepper--vertical {
-    display: block;
+.progress-stepper--vertical .progress-stepper__text,
+.progress-stepper--vertical .progress-stepper__text:last-child {
+    margin-left: 16px;
+    margin-top: 0;
+    text-align: left;
+    width: auto;
+}
+
+.progress-stepper__item:first-child > .progress-stepper__text {
+    align-self: flex-start;
+    margin-left: 4px;
+    text-align: left;
+}
+
+.progress-stepper__item:last-child > .progress-stepper__text {
+    align-self: flex-end;
+    margin-right: 4px;
+    text-align: right;
+}
+
+.progress-stepper--vertical .progress-stepper__item {
+    align-items: flex-start;
+    flex-direction: row;
+    height: 32px;
+    width: auto;
+}
+
+.progress-stepper--vertical .progress-stepper__icon {
+    display: inline-block;
+    height: 28px;
+    margin: inherit;
+    width: 24px;
+}
+
+.progress-stepper__item--upcoming,
+.progress-stepper__item[aria-current] ~ .progress-stepper__item {
+    .customColorProperty(stepper-text-light-color);
+}
+
+.progress-stepper__item--upcoming .progress-stepper__icon > [role="img"],
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"] {
+    .customColorProperty(stepper-badge-upcoming-color);
+    .customBackgroundColorProperty(stepper-badge-upcoming-background-color);
+    .customBorderColorProperty(stepper-badge-upcoming-border-color);
 }
 
 .progress-stepper--vertical .progress-stepper__items {
@@ -195,98 +123,32 @@ hr.progress-stepper__separator--upcoming {
 }
 
 .progress-stepper--vertical .progress-stepper__separator {
-    display: inline;
-}
-
-.progress-stepper--vertical .progress-stepper__item {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 16px;
-    margin-left: 0;
-}
-
-.progress-stepper--vertical .progress-stepper__icon {
     display: inline-block;
-    width: auto;
+    flex: inherit;
+    height: 51px;
+    margin-bottom: 12px;
+    margin-left: 11px;
+    margin-top: -15px;
+    min-width: inherit;
+    width: 2px;
 }
 
-.progress-stepper--vertical .progress-stepper__icon svg {
-    margin: 2px auto;
-}
+// [dir="rtl"] {
+//     .progress-stepper__item:first-child .progress-stepper__text {
+//         text-align: right;
+//     }
 
-.progress-stepper--vertical .progress-stepper__text {
-    align-self: center;
-    margin-left: 8px;
-    margin-top: -4px;
-    max-width: auto;
-    text-align: left;
-}
+//     .progress-stepper__item:last-child .progress-stepper__text {
+//         text-align: left;
+//     }
 
-.progress-stepper--vertical .progress-stepper__text p:first-child,
-.progress-stepper__text h3:first-child {
-    margin-top: 8px;
-}
+//     .progress-stepper__item:first-child .progress-stepper__icon svg.icon {
+//         margin-left: 4px;
+//         margin-right: 0;
+//     }
 
-.progress-stepper--vertical .progress-stepper__text p:last-child {
-    margin-bottom: 0;
-}
-
-.progress-stepper--vertical .progress-stepper__item:first-child .progress-stepper__icon::before {
-    width: 0;
-}
-
-.progress-stepper--vertical .progress-stepper__item:last-child {
-    margin-right: auto;
-}
-
-.progress-stepper--vertical .progress-stepper__item:last-child .progress-stepper__icon::after,
-.progress-stepper--vertical .progress-stepper__item:last-child .progress-stepper__icon::before {
-    height: 0;
-}
-
-.progress-stepper__item:first-child .progress-stepper__text {
-    text-align: left;
-}
-
-.progress-stepper__item:last-child .progress-stepper__text {
-    text-align: right;
-}
-
-.progress-stepper--vertical .progress-stepper__icon svg.icon,
-.progress-stepper--vertical .progress-stepper__icon .badge,
-.progress-stepper--vertical .progress-stepper__icon .step {
-    margin: 2px 0 0 0;
-}
-
-.progress-stepper--vertical .progress-stepper__item:first-child .progress-stepper__text,
-.progress-stepper--vertical .progress-stepper__item:last-child .progress-stepper__text {
-    text-align: left;
-}
-
-.progress-stepper__item:first-child .progress-stepper__icon svg.icon {
-    margin-left: 0;
-}
-
-.progress-stepper__item:last-child .progress-stepper__icon svg.icon {
-    margin-right: 0;
-}
-
-[dir="rtl"] {
-    .progress-stepper__item:first-child .progress-stepper__text {
-        text-align: right;
-    }
-
-    .progress-stepper__item:last-child .progress-stepper__text {
-        text-align: left;
-    }
-
-    .progress-stepper__item:first-child .progress-stepper__icon svg.icon {
-        margin-left: 4px;
-        margin-right: 0;
-    }
-
-    .progress-stepper__item:last-child .progress-stepper__icon svg.icon {
-        margin-left: 0;
-        margin-right: 4px;
-    }
-}
+//     .progress-stepper__item:last-child .progress-stepper__icon svg.icon {
+//         margin-left: 0;
+//         margin-right: 4px;
+//     }
+// }
