@@ -39,7 +39,7 @@ export const base = () => `
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
         <li>
-            <button class="pagination__item" aria-disabled="true">…</button>
+            <span class="pagination__item">…</span>
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=10" class="pagination__item">10</a>
@@ -92,7 +92,7 @@ export const dotsMiddle = () => `
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
         <li>
-            <button class="pagination__item" aria-disabled="true">…</button>
+            <span class="pagination__item">…</span>
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=10" class="pagination__item">10</a>
@@ -145,7 +145,7 @@ export const dotsHidden = () => `
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
         <li hidden="true">
-            <button class="pagination__item" aria-disabled="true">…</button>
+            <span class="pagination__item">…</span>
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=10" class="pagination__item">10</a>
