@@ -8,7 +8,5 @@ module.exports = winston.createLogger({
         winston.format.colorize(),
         winston.format.json()
     ),
-    transports: [
-        new winston.transports.Console({ format: winston.format.simple() })
-    ]
+    transports: [new winston.transports.Console({ format: winston.format.simple() })],
 });

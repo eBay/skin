@@ -34,5 +34,3 @@ export const offDisabled = () => `
     <span class="switch__button"></span>
 </div>
 `;
-
-

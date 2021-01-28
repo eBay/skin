@@ -1,6 +1,6 @@
 export default { title: 'Breadcrumbs/Breadcrumbs/Links/Cascade' };
 
-export const color= () => `
+export const color = () => `
 <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation" style="color: green">
     <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
     <ul>

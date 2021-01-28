@@ -17,7 +17,7 @@ function writeLine(options) {
         newLineContent,
         duplicateCheckText,
         sectionPredicate,
-        getLineMeta
+        getLineMeta,
     } = options;
 
     const filePath = path.join(__dirname, '..', '..', '..', filePathFromRoot);
@@ -36,12 +36,19 @@ function writeLine(options) {
             log.warn('[%s] File already has line appended!', filePath);
             return;
         }
-        if (!isSectionMatched && (typeof sectionPredicate !== 'function' || sectionPredicate(line))) {
+        if (
+            !isSectionMatched &&
+            (typeof sectionPredicate !== 'function' || sectionPredicate(line))
+        ) {
             isSectionMatched = true;
         } else if (isSectionMatched && !lineAppended) {
             const prevLine = i > 0 ? currentFileContents[i - 1] : null;
             const nextLine = i < currentFileContents.length ? currentFileContents[i + 1] : null;
-            const { prevLineSuffix, newLineSuffix = '', shouldAppend = false } = getLineMeta(prevLine, line, nextLine);
+            const { prevLineSuffix, newLineSuffix = '', shouldAppend = false } = getLineMeta(
+                prevLine,
+                line,
+                nextLine
+            );
             if (shouldAppend) {
                 _processUpdates(newFileContents, newLineContent, prevLineSuffix, newLineSuffix);
                 lineAppended = true;

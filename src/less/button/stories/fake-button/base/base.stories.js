@@ -2,7 +2,8 @@ export default { title: 'Fake Button/Fake Button/Base' };
 
 export const textOnly = () => '<a href="http://www.ebay/com" class="fake-btn">Fake Button</a>';
 
-export const RTL = () => '<div dir="rtl"><a href="http://www.ebay/com" class="fake-btn">Fake Button</a></div>';
+export const RTL = () =>
+    '<div dir="rtl"><a href="http://www.ebay/com" class="fake-btn">Fake Button</a></div>';
 
 export const iconOnly = () => `
 <a class="fake-btn" href="http://www.ebay.com">
@@ -30,7 +31,8 @@ export const large = () => `
 </a>
 `;
 
-export const fluid = () => '<a class="fake-btn fake-btn--fluid" href="http://www.ebay.com">Fake Button</a>';
+export const fluid = () =>
+    '<a class="fake-btn fake-btn--fluid" href="http://www.ebay.com">Fake Button</a>';
 
 export const fixedWidth = () => `
  <a class="fake-btn" href="http://www.ebay.com" style="width: 200px;">

@@ -85,7 +85,7 @@ export const celebration = () => `
         <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
     </div>
 </section>
-`
+`;
 
 export const buttonCta = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">

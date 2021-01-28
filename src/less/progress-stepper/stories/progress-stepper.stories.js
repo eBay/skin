@@ -150,7 +150,6 @@ export const noneSelected = () => `
 </div>
 `;
 
-
 export const RTL = () => `
 <div class="progress-stepper" dir="rtl">
     <div class="progress-stepper__items" role="list">
@@ -241,7 +240,6 @@ export const vertical = () => `
 </div>
 `;
 
-
 export const verticalRTL = () => `
 <div dir="rtl">
     <div class="progress-stepper progress-stepper--vertical">
@@ -282,7 +280,6 @@ export const verticalRTL = () => `
     </div>
 </div>
 `;
-
 
 export const infoState = () => `
 <div class="progress-stepper">

@@ -20,7 +20,6 @@ export const badged = () => `
 </span>
 `;
 
-
 export const separator = () => `
 <span class="menu">
     <div class="menu__items" role="menu">
