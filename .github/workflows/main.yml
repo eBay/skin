@@ -17,6 +17,9 @@ jobs:
             ruby-version: 2.6
         - name: Install dependencies
           run: bundle install
+          env:
+              # speeds up installation of html-proofer
+              NOKOGIRI_USE_SYSTEM_LIBRARIES: true
         - name: Build website
           run: JEKYLL_ENV=production bundle exec jekyll build --config docs/_config.yml
         - name: Check HTML
