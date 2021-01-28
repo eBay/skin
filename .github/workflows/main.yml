@@ -1,6 +1,8 @@
 name: CI
 
 on: [push]
+  paths:
+    - 'docs/**'
 
 jobs:
   validate-website:
@@ -18,10 +20,9 @@ jobs:
         - name: Install dependencies
           run: bundle install
           env:
-              # speeds up installation of html-proofer
-              NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+            # speeds up installation of html-proofer
+            NOKOGIRI_USE_SYSTEM_LIBRARIES: true
         - name: Build website
           run: JEKYLL_ENV=production bundle exec jekyll build --config docs/_config.yml
         - name: Check HTML
           run: bundle exec htmlproofer ./_site/index.html --disable-external --empty_alt_ignore --allow_hash_href
-      
