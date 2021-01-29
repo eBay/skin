@@ -26,16 +26,16 @@ export const base = () => `
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=5" class="pagination__item">5</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=6" class="pagination__item">6</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=7" class="pagination__item">7</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=8" class="pagination__item">8</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
         <li>
@@ -64,10 +64,10 @@ export const dotsMiddle = () => `
         </svg>
     </a>
     <ol class="pagination__items">
-        <li hidden="true">
+        <li hidden>
             <a aria-current="page" href="http://www.ebay.com/sch/i.html?_nkw=guitars" class="pagination__item">1</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2" class="pagination__item">2</a>
         </li>
         <li>
@@ -82,13 +82,13 @@ export const dotsMiddle = () => `
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=6" class="pagination__item">6</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=7" class="pagination__item">7</a>
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=8" class="pagination__item">8</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
         <li>
@@ -117,13 +117,13 @@ export const dotsHidden = () => `
         </svg>
     </a>
     <ol class="pagination__items">
-        <li hidden="true">
+        <li hidden>
             <a aria-current="page" href="http://www.ebay.com/sch/i.html?_nkw=guitars" class="pagination__item">1</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2" class="pagination__item">2</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=3" class="pagination__item">3</a>
         </li>
         <li>
@@ -144,7 +144,7 @@ export const dotsHidden = () => `
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
-        <li hidden="true">
+        <li hidden>
             <span class="pagination__item">…</span>
         </li>
         <li>
