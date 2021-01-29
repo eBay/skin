@@ -82,10 +82,10 @@ export const dotsMiddle = () => `
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=6" class="pagination__item">6</a>
         </li>
-        <li hidden>
+        <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=7" class="pagination__item">7</a>
         </li>
-        <li>
+        <li hidden>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=8" class="pagination__item">8</a>
         </li>
         <li hidden>
