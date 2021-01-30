@@ -80,22 +80,49 @@ div.carousel {
     .carousel-paddle-mixin-base();
 }
 
+.carousel__playback:focus:not(:focus-visible) {
+    outline: none;
+}
+
 span.carousel,
 span.carousel__container {
     display: inline-block;
 }
 
 .carousel__viewport--mask {
-    mask-image: linear-gradient(to right, @carousel-paddle-background-color 85%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(
+        to right,
+        @carousel-paddle-background-color 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+[dir="rtl"] {
+    .carousel__control--prev {
+        left: unset;
+        right: 0;
+    }
+
+    .carousel__control .icon--carousel-prev {
+        margin-left: 2px;
+    }
+
+    .carousel__control--next {
+        left: 0;
+        right: unset;
+    }
+
+    .carousel__control .icon--carousel-next {
+        margin-left: -2px;
+    }
 }
 
 /* autoprefixer: ignore next */
-@supports not /*!Y */(
-    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
-    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
-    /*!Y */(scroll-snap-coordinate: 0 0) or
-    /*!Y */(scroll-snap-align: start)
-) {
+@supports not /*!Y */
+    (
+        /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */ (-ms-scroll-snap-coordinate: 0 0)
+            or /*!Y */ (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
+    ) {
     // always show paddles when scroll snapping and hover is not supported.
     .carousel:not(.carousel__autoplay) .carousel__control {
         .show-control();
@@ -113,10 +140,8 @@ span.carousel__container {
 
 /* autoprefixer: ignore next */
 @supports (
-    /*!Y */(-webkit-scroll-snap-coordinate: 0 0) or
-    /*!Y */(-ms-scroll-snap-coordinate: 0 0) or
-    /*!Y */(scroll-snap-coordinate: 0 0) or
-    /*!Y */(scroll-snap-align: start)
+    /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */ (-ms-scroll-snap-coordinate: 0 0) or
+        /*!Y */ (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
 ) {
     /* autoprefixer: off */
     .carousel:not(.carousel__autoplay) {
@@ -140,7 +165,8 @@ span.carousel__container {
             scroll-snap-type: mandatory;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin; // Firefox scrollbar
-            transition: border-color 0.5s, transform @ebay-carousel-transition-time @ebay-carousel-transition-function;
+            transition: border-color 0.5s,
+                transform @ebay-carousel-transition-time @ebay-carousel-transition-function;
 
             &:hover {
                 border-color: rgba(0, 0, 0, 0.4);

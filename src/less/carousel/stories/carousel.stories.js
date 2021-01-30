@@ -131,8 +131,8 @@ export const RTL = () => `
                 <span>Top Products - Slide 1 of 4</span>
             </h4>
             <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-                <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                    <use xlink:href="#icon-carousel-next"></use>
+                <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
+                    <use xlink:href="#icon-carousel-prev"></use>
                 </svg>
             </button>
             <div class="carousel__viewport">
@@ -144,8 +144,8 @@ export const RTL = () => `
                 </ul>
             </div>
             <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-                <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false" >
-                    <use xlink:href="#icon-carousel-prev"></use>
+                <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false" >
+                    <use xlink:href="#icon-carousel-next"></use>
                 </svg>
             </button>
         </div>
@@ -155,5 +155,5 @@ export const RTL = () => `
             </svg>
         </button>
     </div>
-<div>
+</div>
 `;

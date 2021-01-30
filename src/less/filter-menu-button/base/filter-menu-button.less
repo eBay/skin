@@ -117,7 +117,9 @@ button.filter-menu-button__button[aria-expanded="true"] + .filter-menu-button__m
 
 .filter-menu-button__items {
     margin-top: 8px;
-    max-height: calc(50vh - 40px); // half of the viewport height || TODO remove max-height restriction to filter-menu styles
+    max-height: calc(
+        50vh - 40px
+    ); // half of the viewport height || TODO remove max-height restriction to filter-menu styles
     min-width: 100%;
     overflow-y: auto;
     position: relative;
@@ -261,5 +263,21 @@ button.filter-menu-button__footer {
 
     svg.icon--radio-checked {
         display: block;
+    }
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+button.filter-menu-button__button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+[dir="rtl"] {
+    .filter-menu-button__button-cell .icon--dropdown {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    .filter-menu-button__checkbox {
+        margin-left: 8px;
     }
 }

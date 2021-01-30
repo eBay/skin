@@ -28,6 +28,7 @@ require('./page-notice');
 require('./pagination');
 require('./panel-dialog');
 require('./progress-bar');
+require('./progress-stepper');
 require('./radio');
 require('./section-notice');
 require('./select');

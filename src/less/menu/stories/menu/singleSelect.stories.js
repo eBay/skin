@@ -128,8 +128,8 @@ export const inheritColour = () => `
 `;
 
 inheritColour.story = {
-    name: 'Selected, Inherit Colour, Red (broken)'
-}
+    name: 'Selected, Inherit Colour, Red (broken)',
+};
 
 export const inheritFontSize = () => `
 <span class="menu" style="font-size: 200%">
@@ -157,5 +157,5 @@ export const inheritFontSize = () => `
 `;
 
 inheritFontSize.story = {
-    name: 'Selected, Inherit Font-Size (200%) (broken, spacing should not scale)'
-}
+    name: 'Selected, Inherit Font-Size (200%) (broken, spacing should not scale)',
+};

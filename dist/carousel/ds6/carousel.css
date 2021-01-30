@@ -126,6 +126,9 @@ div.carousel {
   color: #111820;
   color: var(--carousel-paddle-foreground-color, #111820);
 }
+.carousel__control:focus:not(:focus-visible) {
+  outline: none;
+}
 @media (min-width: 601px) {
   .carousel:focus-within .carousel__control {
     opacity: 0.92;
@@ -160,6 +163,9 @@ div.carousel {
 .carousel__control:active {
   background-color: #414141;
 }
+.carousel__playback:focus:not(:focus-visible) {
+  outline: none;
+}
 span.carousel,
 span.carousel__container {
   display: inline-block;
@@ -169,6 +175,20 @@ span.carousel__container {
   -webkit-mask-image: -webkit-linear-gradient(left, #fff 85%, rgba(0, 0, 0, 0) 100%);
           mask-image: -webkit-gradient(linear, left top, right top, color-stop(85%, #fff), to(rgba(0, 0, 0, 0)));
           mask-image: linear-gradient(to right, #fff 85%, rgba(0, 0, 0, 0) 100%);
+}
+[dir="rtl"] .carousel__control--prev {
+  left: unset;
+  right: 0;
+}
+[dir="rtl"] .carousel__control .icon--carousel-prev {
+  margin-left: 2px;
+}
+[dir="rtl"] .carousel__control--next {
+  left: 0;
+  right: unset;
+}
+[dir="rtl"] .carousel__control .icon--carousel-next {
+  margin-left: -2px;
 }
 /* autoprefixer: ignore next */
 @supports not /*!Y */(
