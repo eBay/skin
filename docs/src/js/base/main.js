@@ -147,6 +147,22 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
     }));
 });
 
+window.setInterval(() => {
+    console.log('running interval for progress bar');
+    document.querySelectorAll('.progress').forEach(function(progress) {
+        console.log(progress);
+        const value = progress.value;
+        const valuePlus = value + 1;
+        let final;
+        if(valuePlus > 100) {
+            final = 0;
+        } else {
+            final = valuePlus;
+        }
+        progress.value = final;
+    })
+}, 100);
+
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
