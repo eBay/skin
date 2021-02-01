@@ -147,10 +147,13 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
     }));
 });
 
-window.setInterval(() => {
-    console.log('running interval for progress bar');
-    document.querySelectorAll('.progress').forEach(function(progress) {
-        console.log(progress);
+document.querySelectorAll('.progress').forEach(function(progress, i) {
+    console.log(progress);
+    const startButton = document.getElementsByName(`start-progress-${i}`);
+    const endButton = document.getElementsByName(`end-progress-${i}`);
+    let interval;
+    startButton.addEventListener('click', function() {
+    interval = setInterval(function() {
         const value = progress.value;
         const valuePlus = value + 1;
         let final;
@@ -160,8 +163,14 @@ window.setInterval(() => {
             final = valuePlus;
         }
         progress.value = final;
+        }, 100);
     })
-}, 100);
+    endButton.addEventListener('click', function() {
+        if(interval) {
+            clearInterval(interval);
+        }
+    });
+})
 
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
