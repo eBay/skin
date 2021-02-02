@@ -147,6 +147,7 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
     }));
 });
 
+// PROGRESS BAR  
 document.querySelectorAll('.progress').forEach(function(progress, i) {
     console.log(progress);
     const startButton = document.getElementsByName(`start-progress-${i}`)[0];
