@@ -149,8 +149,8 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
 
 document.querySelectorAll('.progress').forEach(function(progress, i) {
     console.log(progress);
-    const startButton = document.getElementsByName(`start-progress-${i}`);
-    const endButton = document.getElementsByName(`end-progress-${i}`);
+    const startButton = document.getElementsByName(`start-progress-${i}`)[0];
+    const endButton = document.getElementsByName(`end-progress-${i}`)[0];
     let interval;
     startButton.addEventListener('click', function() {
     interval = setInterval(function() {

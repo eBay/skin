@@ -1,11 +1,16 @@
 export default { title: 'Progress Bar/Progress Bar' };
 
-export const base = () =>
-    `<progress class="progress" style="margin: 25px;" value=40 min=0 max=100>0%</progress>
-    <div>
-        <button name="start-progress-0">Start Progress</button>
-        <button name="end-progress-0">End</button>
-    </div>`;
+export const empty = () =>
+    `<progress class="progress" style="margin: 25px;" value=0 min=0 max=100>0%</progress>`;
 
-// export const Basic = () => <Button />
-base.storyName = 'Base';
+empty.storyName = 'Empty';
+
+export const half = () =>
+    `<progress class="progress" style="margin: 25px;" value=50 min=0 max=100>0%</progress>`;
+
+half.storyName = 'Half';
+
+export const full = () =>
+    `<progress class="progress" style="margin: 25px;" value=100 min=0 max=100>0%</progress>`;
+
+full.storyName = 'Full';
