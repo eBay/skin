@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const helper = require('./generate-helper');
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
 const Svgo = require('svgo');
@@ -13,8 +13,8 @@ const svgo = new Svgo(svgoImportConfig);
 const { JSDOM } = jsdom;
 
 function getId(filePath, baseDir) {
-    let relativeFile = path.relative(baseDir, filePath);
-    let parts = path.parse(relativeFile);
+    const relativeFile = path.relative(baseDir, filePath);
+    const parts = path.parse(relativeFile);
     let fileName = `${parts.dir}/${parts.name}`;
     fileName = fileName
         .toLowerCase()
@@ -117,7 +117,7 @@ async function runImport(directory) {
             const data = await fs.promises.readFile(filePath, 'utf8');
             const newSvg = await svgo.optimize(data, { path: filePath });
             const domId = getId(filePath, directory);
-            let aliasID = config.aliases[domId];
+            const aliasID = config.aliases[domId];
 
             // try {
             idMap[domId] = true;
