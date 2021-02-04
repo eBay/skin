@@ -1,25 +1,31 @@
+@import "../../mixins/utility/utility-mixins.less";
+
 .progress {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+    .customColorProperty(progress-bar-color);
+
     border: none;
-    //for IE support
-    color: #3665f3;
     height: 4px;
+    margin: 8px 0;
+    @media (min-width: 601px) {
+        margin: 16px 0;
+    }
     width: 363px;
 }
 
 .progress::-webkit-progress-bar {
-    background-color: #e5e5e5;
+    .customBackgroundColor(progress-bar-background-color);
+
     border-radius: 8px;
 }
 
 .progress::-webkit-progress-value {
-    background-color: #3665f3;
+    .customBackgroundColor(progress-bar-foreground-color);
+
     border-radius: 8px;
 }
 
 .progress::-moz-progress-bar {
-    background-color: #3665f3;
+    .customBackgroundColor(progress-bar-foreground-color);
+
     border-radius: 8px;
 }

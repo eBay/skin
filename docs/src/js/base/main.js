@@ -149,26 +149,32 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
 
 // PROGRESS BAR  
 document.querySelectorAll('.progress').forEach(function(progress, i) {
-    const startButton = document.getElementsByName(`start-progress-${i}`)[0];
-    const endButton = document.getElementsByName(`end-progress-${i}`)[0];
+    const toggleButton = document.getElementsByName(`toggle-progress-${i}`)[0];
+    const resetButton = document.getElementsByName(`reset-progress-${i}`)[0];
     let interval;
-    startButton.addEventListener('click', function() {
-    interval = setInterval(function() {
-        const value = progress.value;
-        const valuePlus = value + 1;
-        let final;
-        if(valuePlus > 100) {
-            final = 0;
-        } else {
-            final = valuePlus;
-        }
-        progress.value = final;
-        }, 100);
+    toggleButton.addEventListener('click', function() {
+    if(interval) {
+        clearInterval(interval);
+    } else {
+        interval = setInterval(function() {
+            const value = progress.value;
+            const valuePlus = value + 1;
+            let final;
+            if(valuePlus > 100) {
+                final = 0;
+            } else {
+                final = valuePlus;
+            }
+            progress.value = final;
+            }, 100);
+        };
     })
-    endButton.addEventListener('click', function() {
+
+    resetButton.addEventListener('click', function() {
         if(interval) {
             clearInterval(interval);
         }
+        progress.value = 0;
     });
 })
 
