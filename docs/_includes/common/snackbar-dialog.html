@@ -1,0 +1,97 @@
+<div id="snackbar-dialog">
+    {% include common/section-header.html name="snackbar-dialog" version=page.versions.snackbar-dialog %}
+
+    <p>A snackbar is a non-modal dialog spawned by the main web page or application.</p>
+    <p>Toggling the <span class="highlight">hidden</span> attribute will hide and show the snackbar.</p>
+
+    <h2 id="snackbar-dialog-transient">Transient Snackbar</h2>
+    <p>The default snackbar displays a short message and dissapears after a minimum of 6 seconds.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary dialog-snackbar-button" data-makeup-dialog-button-for="snackbar-dialog-1">Show Default Snackbar</button>
+            <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" id="snackbar-dialog-1" role="dialog" data-makeup-snackbar-auto-dismiss="true" hidden>
+                <div class="snackbar-dialog__window">
+                    <div class="snackbar-dialog__main">
+                        <p>1 item deleted from watch list.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    {% highlight html %}
+<aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog" hidden>
+    <div class="snackbar-dialog__window">
+        <div class="snackbar-dialog__main">
+            <p>1 item deleted from watch list.</p>
+        </div>
+    </div>
+</aside>
+    {% endhighlight %}
+
+    <h2 id="snackbar-dialog-action">Action Snackbar</h2>
+    <p>A snackbar can contain a single call to action, but must remain on screen until explicitly dismissed (in order to give all users adequate time to find and reach the action).</p>
+    <p>A snackbar is non-modal and therefore should not capture or trap keyboard focus when opened. Keyboard users require a conveniant way to access the action. This is achieved via the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey">accesskey</a> attribute on each button.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary dialog-snackbar-button" data-makeup-dialog-button-for="snackbar-dialog-2">Show CTA Snackbar</button>
+            <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" id="snackbar-dialog-2" role="dialog" hidden>
+                <div class="snackbar-dialog__window">
+                    <div class="snackbar-dialog__main">
+                        <p>1 item deleted from watch list.</p>
+                    </div>
+                    <div class="snackbar-dialog__actions">
+                        <button accesskey="u" class="fake-link snackbar-dialog__cta">Undo</button> |
+                        <button accesskey="d" class="fake-link snackbar-dialog__close">Close</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    {% highlight html %}
+<aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog" hidden>
+    <div class="snackbar-dialog__window">
+        <div class="snackbar-dialog__main">
+            <p>1 item deleted from watch list.</p>
+        </div>
+        <div class="snackbar-dialog__actions">
+            <button accesskey="u" class="fake-link snackbar-dialog__cta">Undo</button> |
+            <button accesskey="d" class="fake-link snackbar-dialog__close">Close</button>
+        </div>
+    </div>
+</aside>
+    {% endhighlight %}
+
+    <p>The content and action can be stacked vertically by using the <span class="snackbar-dialog__window--column">modifier</span>.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary dialog-snackbar-button" data-makeup-dialog-button-for="snackbar-dialog-3">Show Stacked Snackbar</button>
+            <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" id="snackbar-dialog-3" role="dialog" hidden>
+                <div class="snackbar-dialog__window snackbar-dialog__window--column">
+                    <div class="snackbar-dialog__main">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="snackbar-dialog__actions">
+                        <button accesskey="u" class="fake-link snackbar-dialog__cta">Action</button> |
+                        <button accesskey="d" class="fake-link snackbar-dialog__close">Close</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    {% highlight html %}
+<aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog" hidden>
+    <div class="snackbar-dialog__window snackbar-dialog__window--column">
+        <div class="snackbar-dialog__main">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="snackbar-dialog__actions">
+            <button accesskey="u" class="fake-link snackbar-dialog__cta">Action</button> |
+            <button accesskey="d" class="fake-link snackbar-dialog__close">Close</button>
+        </div>
+    </div>
+</aside>
+    {% endhighlight %}
+</div>

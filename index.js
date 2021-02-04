@@ -32,6 +32,7 @@ require('./progress-stepper');
 require('./radio');
 require('./section-notice');
 require('./select');
+require('./snackbar-dialog');
 require('./spinner');
 require('./stepper');
 require('./switch');

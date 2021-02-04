@@ -57,6 +57,10 @@ function onRejectButtonClick() {
     this.open = false;
 }
 
+function onCtaButtonClick() {
+    this.open = false;
+}
+
 function onConfirmButtonClick() {
     this.open = false;
 }
@@ -79,9 +83,9 @@ module.exports = class {
     constructor(widgetEl, selectedOptions) {
         this._options = Object.assign({}, defaultOptions, selectedOptions);
 
-        const baseClass = this._options.dialogBaseClass;
-
         this._el = widgetEl;
+
+        const baseClass = this._options.dialogBaseClass;
 
         this._isModal = this._el.getAttribute('aria-modal') === 'true';
         this._hasTransitions = (this._el.dataset) ? this._el.dataset.makeupDialogHasTransitions === 'true' : false;
@@ -92,15 +96,18 @@ module.exports = class {
         this._doneButtonEl = this._el.querySelector(`.${baseClass}__done`);
         this._confirmButtonEl = this._el.querySelector(`.${baseClass}__confirm`);
         this._rejectButtonEl = this._el.querySelector(`.${baseClass}__reject`);
+        this._ctaButtonEl = this._el.querySelector(`.${baseClass}__cta`);
 
         this._onCloseButtonClickListener = onCloseButtonClick.bind(this);
         this._onResetButtonClickListener = onResetButtonClick.bind(this);
         this._onDoneButtonClickListener = onDoneButtonClick.bind(this);
         this._onConfirmButtonClickListener = onConfirmButtonClick.bind(this);
         this._onRejectButtonClickListener = onRejectButtonClick.bind(this);
+        this._onCtaButtonClickListener = onCtaButtonClick.bind(this);
         this._onKeyDownListener = onKeyDown.bind(this);
         this._onOpenTransitionEndListener = onOpenTransitionEnd.bind(this);
         this._onCloseTransitionEndListener = onCloseTransitionEnd.bind(this);
+        this._autoDismissTimeout = null;
 
         this._el.classList.add(`${baseClass}--js`);
 
@@ -145,6 +152,17 @@ module.exports = class {
 
                 this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
             }
+
+            // only non-modal snackbar dialogs WITHOUT any action may autodismiss
+            const autoDismiss = (this._el.dataset) ? this._el.dataset.makeupSnackbarAutoDismiss === 'true' : false;
+
+            if (autoDismiss === true) {
+                const widget = this;
+
+                this._autoDismissTimeout = setTimeout(function() {
+                    widget.open = false;
+                }, 6000);
+            }
         } else if (bool === false && this.open !== false) {
             if (this._hasTransitions) {
                 this.unobserveEvents();
@@ -163,6 +181,8 @@ module.exports = class {
                 this._el.hidden = true;
                 this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
             }
+
+            this._autoDismissTimeout = null;
         }
     }
 
@@ -170,20 +190,34 @@ module.exports = class {
         this._el.removeEventListener('click', this._onCloseButtonClickListener);
         document.removeEventListener('keydown', this._onKeyDownListener);
 
+        // lightbox-dialog, panel-dialog, fullscreen-dialog
+        if (this._closeButtonEl) {
+            this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
+        }
+
+        // panel dialog
         if (this._resetButtonEl) {
             this._resetButtonEl.removeEventListener('click', this._onResetButtonClickListener);
         }
 
+        // panel dialog
         if (this._doneButtonEl) {
             this._doneButtonEl.removeEventListener('click', this._onDoneButtonClickListener);
         }
 
+        // confirm dialog
         if (this._confirmButtonEl) {
             this._confirmButtonEl.removeEventListener('click', this._onConfirmButtonClickListener);
         }
 
+        // confirm dialog
         if (this._rejectButtonEl) {
             this._rejectButtonEl.removeEventListener('click', this._onRejectButtonClickListener);
+        }
+
+        // snackbar dialog
+        if (this._ctaButtonEl) {
+            this._ctaButtonEl.removeEventListener('click', this._onctaButtonClickListener);
         }
     }
 
@@ -191,24 +225,34 @@ module.exports = class {
         if (this._destroyed !== true) {
             document.addEventListener('keydown', this._onKeyDownListener);
 
+            // lightbox-dialog, panel-dialog, fullscreen-dialog
             if (this._closeButtonEl) {
                 this._closeButtonEl.addEventListener('click', this._onCloseButtonClickListener);
             }
 
+            // panel dialog
             if (this._resetButtonEl) {
                 this._resetButtonEl.addEventListener('click', this._onResetButtonClickListener);
             }
 
+            // panel dialog
             if (this._doneButtonEl) {
                 this._doneButtonEl.addEventListener('click', this._onDoneButtonClickListener);
             }
 
+            // confirm dialog
             if (this._confirmButtonEl) {
                 this._confirmButtonEl.addEventListener('click', this._onConfirmButtonClickListener);
             }
 
+            // confirm dialog
             if (this._rejectButtonEl) {
                 this._rejectButtonEl.addEventListener('click', this._onRejectButtonClickListener);
+            }
+
+            // snackbar dialog
+            if (this._ctaButtonEl) {
+                this._ctaButtonEl.addEventListener('click', this._onCtaButtonClickListener);
             }
         }
     }
@@ -222,8 +266,10 @@ module.exports = class {
         this._onDoneButtonClickListener = null;
         this._onConfirmButtonClickListener = null;
         this._onRejectButtonClickListener = null;
+        this._onCtaButtonClickListener = null;
         this._onKeyDownListener = null;
         this._onOpenTransitionEndListener = null;
         this._onCloseTransitionEndListener = null;
+        this._autoDismissTimeout = null;
     }
 };

@@ -322,3 +322,8 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
 });
+
+// SNACKBAR (non-modal dialog)
+document.querySelectorAll('.dialog-snackbar-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'snackbar-dialog' }));
+});
