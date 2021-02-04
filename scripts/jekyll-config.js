@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /*
  * Updates the Jekyll front matter defaults with the current skin package version from NPM.
  */

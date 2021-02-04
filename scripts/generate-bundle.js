@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 const glob = require('glob');
 const path = require('path');
 const less = require('less');
@@ -95,13 +96,12 @@ class CssProcesser {
                 return this.rewrapBody(cssContents);
             }
             return this.wrap(cssContents);
-        } else {
-            return `@import (inline) "${file}";`;
         }
+        return `@import (inline) "${file}";`;
     }
 
     processFiles(files) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const compiled = files.map((file) => this.generateRawLess(file)).join('\n');
             const processed = this.processed;
             const skipped = this.skipped;
