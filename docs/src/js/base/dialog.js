@@ -32,7 +32,7 @@ function onOpenTransitionEnd() {
         Modal.modal(this._el);
     }
 
-    this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
+    this._el.dispatchEvent(new CustomEvent(`${this._options.baseClass}-open`));
     this.observeEvents();
 }
 
@@ -40,7 +40,7 @@ function onCloseTransitionEnd() {
     Modal.unmodal();
     document.body.classList.remove('has-modal');
     this._el.hidden = true;
-    this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
+    this._el.dispatchEvent(new CustomEvent(`${this._options.baseClass}-close`));
     this._cancelTransition = undefined;
     this.observeEvents();
 }
@@ -76,7 +76,8 @@ function onKeyDown(e) {
 }
 
 const defaultOptions = {
-    dialogBaseClass: 'dialog'
+    baseClass: 'dialog',
+    autoDismiss: false
 };
 
 module.exports = class {
@@ -85,10 +86,11 @@ module.exports = class {
 
         this._el = widgetEl;
 
-        const baseClass = this._options.dialogBaseClass;
+        const baseClass = this._options.baseClass;
 
         this._isModal = this._el.getAttribute('aria-modal') === 'true';
         this._hasTransitions = (this._el.dataset) ? this._el.dataset.makeupDialogHasTransitions === 'true' : false;
+        this._autoDismiss = this._options.autoDismiss;
 
         this._windowEl = this._el.querySelector(`.${baseClass}__window`);
         this._closeButtonEl = this._el.querySelector(`.${baseClass}__close`);
@@ -139,7 +141,7 @@ module.exports = class {
 
                 this._cancelTransition = transition(
                     this._el,
-                    `${this._options.dialogBaseClass}--show`,
+                    `${this._options.baseClass}--show`,
                     this._onOpenTransitionEndListener
                 );
             } else {
@@ -150,13 +152,11 @@ module.exports = class {
                     Modal.modal(this._el);
                 }
 
-                this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-open`));
+                this._el.dispatchEvent(new CustomEvent(`${this._options.baseClass}-open`));
             }
 
-            // only non-modal snackbar dialogs WITHOUT any action may autodismiss
-            const autoDismiss = (this._el.dataset) ? this._el.dataset.makeupSnackbarAutoDismiss === 'true' : false;
-
-            if (autoDismiss === true) {
+            // TODO: check dialog does not contain hover or focus before auto dimissing
+            if (this._autoDismiss === true) {
                 const widget = this;
 
                 this._autoDismissTimeout = setTimeout(function() {
@@ -173,13 +173,13 @@ module.exports = class {
 
                 this._cancelTransition = transition(
                     this._el,
-                    `${this._options.dialogBaseClass}--hide`,
+                    `${this._options.baseClass}--hide`,
                     this._onCloseTransitionEndListener
                 );
             } else {
                 Modal.unmodal();
                 this._el.hidden = true;
-                this._el.dispatchEvent(new CustomEvent(`${this._options.dialogBaseClass}-close`));
+                this._el.dispatchEvent(new CustomEvent(`${this._options.baseClass}-close`));
             }
 
             this._autoDismissTimeout = null;

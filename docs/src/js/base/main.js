@@ -325,5 +325,5 @@ document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
 
 // SNACKBAR (non-modal dialog)
 document.querySelectorAll('.dialog-snackbar-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'snackbar-dialog' }));
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'snackbar-dialog', dialogAutoDismiss: true }));
 });
