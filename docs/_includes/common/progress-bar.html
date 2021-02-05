@@ -3,18 +3,43 @@
 
     <p>The progress bar gives an immediate, real-time visualisation of the current task completion status.</p>
 
+    <h3 id="progress-bar-initial">Initial State</h3>
+    <p>A value of 0 reflects an initial state, with zero progress.</p>
+
     <div class="demo">
         <div class="demo__inner">
             <progress class="progress-bar" value="0" min="0" max="100">0%</progress>
-            <div>
-                <button class="btn btn--secondary" id="progress-bar-toggle-0" type="button">Play/Pause</button>
-                <button class="btn btn--secondary" id="progress-bar-reset-0" type="button">Reset</button>
-            </div>
         </div>
     </div>
 
     {% highlight html %}
 <progress class="progress-bar" value="0" min="0" max="100">0%</progress>
+    {% endhighlight html %}
+
+    <h3 id="progress-bar-loading">Loading State</h3>
+    <p>Any value between 0 and 100 reflects a loading state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <progress class="progress-bar" value="50" min="0" max="100">50%</progress>
+        </div>
+    </div>
+
+    {% highlight html %}
+<progress class="progress-bar" value="50" min="0" max="100">50%</progress>
+    {% endhighlight html %}
+
+    <h3 id="progress-bar-complete">Completed State</h3>
+    <p>A value of 100 reflects a completed state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <progress class="progress-bar" value="100" min="0" max="100">100%</progress>
+        </div>
+    </div>
+
+    {% highlight html %}
+<progress class="progress-bar" value="100" min="0" max="100">100%</progress>
     {% endhighlight html %}
 
     <h3 id="progress-bar-fluid">Fluid Progress Bar</h3>
@@ -23,15 +48,24 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <progress class="progress-bar progress-bar--fluid" value="0" min="0" max="100">0%</progress>
-            <div>
-                <button class="btn btn--secondary" id="progress-bar-toggle-1" type="button">Play/Pause</button>
-                <button class="btn btn--secondary" id="progress-bar-reset-1" type="button">Reset</button>
-            </div>
+            <progress class="progress-bar progress-bar--fluid" value="50" min="0" max="100">50%</progress>
         </div>
     </div>
 
     {% highlight html %}
-<progress class="progress-bar progress-bar--fluid" value="0" min="0" max="100">0%</progress>
+<progress class="progress-bar progress-bar--fluid" value="50" min="0" max="100">50%</progress>
     {% endhighlight html %}
+
+    <h3 id="progress-bar-animated">Animated Progress Bar</h3>
+    <p>Use the buttons below to see an example of the progress bar value being animated.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <progress class="progress-bar progress-bar--fluid" value="0" min="0" max="100" id="progress-bar-dynamic">0%</progress>
+            <div>
+                <button class="btn btn--secondary progress-bar-toggle" type="button" data-progress-play-button-for="progress-bar-dynamic">Play/Pause</button>
+                <button class="btn btn--secondary progress-bar-reset" type="button" data-progress-reset-button-for="progress-bar-dynamic">Reset</button>
+            </div>
+        </div>
+    </div>
 </div>

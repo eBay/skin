@@ -19,6 +19,8 @@ const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
 const Switch = require('makeup-switch-class');
 
+let progressBarInterval;
+
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
@@ -147,38 +149,44 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
     }));
 });
 
-// PROGRESS BAR
-document.querySelectorAll('.progress-bar').forEach(function(progress, i) {
-    const toggleButton = document.getElementById(`progress-bar-toggle-${i}`);
-    const resetButton = document.getElementById(`progress-bar-reset-${i}`);
-    let interval;
-    toggleButton.addEventListener('click', function() {
-    if(interval) {
-        clearInterval(interval);
-        interval = null;
-    } else {
-        interval = setInterval(function() {
-            const value = progress.value;
-            const valuePlus = value + 1;
-            let final;
-            if(valuePlus > 100) {
-                final = 0;
-            } else {
-                final = valuePlus;
-            }
-            progress.value = final;
-            }, 100);
-        };
-    })
+// PROGRESS BAR PLAY
+document.querySelectorAll('.progress-bar-toggle').forEach(function(el) {
+    const progressId = el.dataset.progressPlayButtonFor;
+    const progress = document.getElementById(progressId);
 
-    resetButton.addEventListener('click', function() {
-        if(interval) {
-            clearInterval(interval);
-            interval = null;
+    el.addEventListener('click', function() {
+        if(progressBarInterval) {
+            clearInterval(progressBarInterval);
+            progressBarInterval = null;
+        } else {
+            progressBarInterval = setInterval(function() {
+                const value = progress.value;
+                const valuePlus = value + 1;
+                let final;
+                if(valuePlus > 100) {
+                    final = 0;
+                } else {
+                    final = valuePlus;
+                }
+                progress.value = final;
+            }, 100);
+        }
+    });
+});
+
+// PROGRESS BAR RESET
+document.querySelectorAll('.progress-bar-reset').forEach(function(el) {
+    const progressId = el.dataset.progressResetButtonFor;
+    const progress = document.getElementById(progressId);
+
+    el.addEventListener('click', function() {
+        if(progressBarInterval) {
+            clearInterval(progressBarInterval);
+            progressBarInterval = null;
         }
         progress.value = 0;
     });
-})
+});
 
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
