@@ -147,10 +147,10 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
     }));
 });
 
-// PROGRESS BAR  
-document.querySelectorAll('.progress').forEach(function(progress, i) {
-    const toggleButton = document.getElementsByName(`toggle-progress-${i}`)[0];
-    const resetButton = document.getElementsByName(`reset-progress-${i}`)[0];
+// PROGRESS BAR
+document.querySelectorAll('.progress-bar').forEach(function(progress, i) {
+    const toggleButton = document.getElementById(`progress-bar-toggle-${i}`);
+    const resetButton = document.getElementById(`progress-bar-reset-${i}`);
     let interval;
     toggleButton.addEventListener('click', function() {
     if(interval) {
