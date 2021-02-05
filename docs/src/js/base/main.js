@@ -155,6 +155,7 @@ document.querySelectorAll('.progress').forEach(function(progress, i) {
     toggleButton.addEventListener('click', function() {
     if(interval) {
         clearInterval(interval);
+        interval = null;
     } else {
         interval = setInterval(function() {
             const value = progress.value;
@@ -173,6 +174,7 @@ document.querySelectorAll('.progress').forEach(function(progress, i) {
     resetButton.addEventListener('click', function() {
         if(interval) {
             clearInterval(interval);
+            interval = null;
         }
         progress.value = 0;
     });
