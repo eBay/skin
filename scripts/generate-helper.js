@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const Svgo = require('svgo');
@@ -95,9 +96,8 @@ ${this.output.join('\n')}
         }
         if (this.dsVersion === 'ds6') {
             return lookup.ds6Color || lookup.color;
-        } else {
-            return lookup.ds4Color || lookup.color;
         }
+        return lookup.ds4Color || lookup.color;
     }
 
     generateBase64(svg, module) {

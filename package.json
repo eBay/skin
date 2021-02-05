@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "12.1.0-0",
+    "version": "12.1.0",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -18,7 +18,7 @@
         "start": "npm run build && gulp server",
         "test": "npm run build:css",
         "prebuild": "npm run clean",
-        "build": "npm run build:css && npm run lasso:docs && npm run build:site && npm run copy",
+        "build": "npm run build:css && npm run lint:js && npm run lasso:docs && npm run build:site && npm run copy",
         "build:css": "npm run lint:less && gulp && npm run lint:css",
         "build:site": "npm run jekyll:docs",
         "clean": "rimraf _cdn _site .cache .tmp .jekyll npm-debug.log.* .DS_Store",
@@ -29,7 +29,7 @@
         "lint": "npm run lint:less && npm run lint:css && npm run lint:js",
         "lint:less": "stylelint docs/src/less src/less --config .stylelintrc-less",
         "lint:css": "stylelint dist --config .stylelintrc-css",
-        "lint:js": "eslint 'docs/src/js/base/*.js' > lint.log",
+        "lint:js": "eslint 'docs/src/js/base/*.js' > lint.log && eslint 'src/less/**/stories/*.js' >> lint.log ",
         "format": "npx prettier --write .",
         "copy": "npm run copy:variablesToDist && npm run copy:mixinsToDist && npm run copy:svgToDist && npm run copy:svgToDocs",
         "copy:variablesToDist": "mkdirp dist/variables && ncp src/less/variables dist/variables",
@@ -128,7 +128,6 @@
     },
     "lint-staged": {
         "*.{js,css,md,less,json}": "prettier --write",
-        "*.js": "eslint 'docs/src/js/base/*.js' ",
         "*.css": "stylelint --config .stylelintrc-css",
         "*.less": "stylelint --config .stylelintrc-less"
     }
