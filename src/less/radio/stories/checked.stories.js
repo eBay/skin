@@ -71,3 +71,50 @@ export const customIcon = () => `
 </span>
 </span>
 `;
+
+export const multiLineLabel = () => `
+<fieldset>
+    <legend>Choose an Option</legend>
+    <div class="field" style="display: flex;">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-1" type="radio" value="1" name="radio-group" />
+            <span class="radio__icon" hidden>
+                <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-unchecked"></use>
+                </svg>
+                <svg class="radio__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-1">Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 Option 1 </label>
+    </div>
+    <div class="field" style="display: flex;">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-2" type="radio" value="2" name="radio-group" />
+            <span class="radio__icon" hidden>
+                <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-unchecked"></use>
+                </svg>
+                <svg class="radio__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-2">Option 2</label>
+    </div>
+    <div class="field" style="display: flex;">
+        <span class="field__control radio">
+            <input class="radio__control" id="group-radio-3" type="radio" value="3" name="radio-group" />
+            <span class="radio__icon" hidden>
+                <svg class="radio__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-unchecked"></use>
+                </svg>
+                <svg class="radio__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-radio-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-radio-3">Option 3</label>
+    </div>
+</fieldset>`;
