@@ -106,7 +106,6 @@ export const dotsMiddle = () => `
 </nav>
 `;
 
-
 export const dotsHidden = () => `
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">
     <span aria-live="polite" role="status">
