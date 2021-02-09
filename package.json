@@ -18,6 +18,8 @@
         "start": "npm run build && gulp server",
         "test": "npm run build:css",
         "prebuild": "npm run clean",
+        "prepublishOnly": "node scripts/generate-imports gen",
+        "postpublish": "node scripts/generate-imports clean",
         "build": "npm run build:css && npm run lint:js && npm run lasso:docs && npm run build:site && npm run copy",
         "build:css": "npm run lint:less && gulp && npm run lint:css",
         "build:site": "npm run jekyll:docs",
