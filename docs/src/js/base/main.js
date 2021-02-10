@@ -164,7 +164,7 @@ document.querySelectorAll('.progress-bar-toggle').forEach(function(el) {
                 const valuePlus = value + 1;
                 let final;
                 if(valuePlus > 100) {
-                    final = 0;
+                    final = 100;
                 } else {
                     final = valuePlus;
                 }
