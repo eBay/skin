@@ -1,6 +1,6 @@
 export default { title: 'Progress Bar/Progress Bar' };
 
-export const empty = () => `<progress class="progress" value=0 min=0 max=100>0%</progress>`;
+export const empty = () => `<progress class="progress" value=1 min=0 max=100>0%</progress>`;
 
 empty.storyName = 'Empty';
 

@@ -153,23 +153,25 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
 document.querySelectorAll('.progress-bar-toggle').forEach(function(el) {
     const progressId = el.dataset.progressPlayButtonFor;
     const progress = document.getElementById(progressId);
+    const progressRun = function () {
+        const value = progress.value;
+        const valuePlus = value + 10;
+        let final;
+        if (valuePlus > 100) {
+            final = 100;
+        } else {
+            final = valuePlus;
+        }
+        progress.value = final;
+    }
 
     el.addEventListener('click', function() {
         if(progressBarInterval) {
             clearInterval(progressBarInterval);
             progressBarInterval = null;
         } else {
-            progressBarInterval = setInterval(function() {
-                const value = progress.value;
-                const valuePlus = value + 1;
-                let final;
-                if(valuePlus > 100) {
-                    final = 0;
-                } else {
-                    final = valuePlus;
-                }
-                progress.value = final;
-            }, 100);
+            progressRun();
+            progressBarInterval = setInterval(progressRun, 1000);
         }
     });
 });
