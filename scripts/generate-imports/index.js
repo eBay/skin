@@ -20,21 +20,29 @@ function getFileName(filename, ds, ext) {
 }
 
 function getFilePath(filename, ds) {
-    const file = config.overrideFile[filename] ? config.overrideFile[filename] : `${filename}.css`;
+    const file = config.overrideFile[filename] ? config.overrideFile[filename] : `${filename}`;
     const dsPath = config.dsPathSkip.indexOf(filename) > -1 ? '' : `ds${ds}/`;
     return `dist/${filename}/${dsPath}${file}`;
 }
 
 function getBrowserRequireSyntax(filename) {
-    return `"require: ./${filename}"`;
+    return `"require: ./${filename}.js"`;
 }
 
-function getCSSRequireSyntax(filepath) {
-    return `@import "./${filepath}.css";\n`;
+function getCSSRequireSyntax(filepath, ext) {
+    let fullFilePath = `${filepath}.${ext}`;
+    if (filepath.indexOf('.css') === filepath.length - 4) {
+        fullFilePath = filepath;
+    }
+    return `@import "./${fullFilePath}";\n`;
 }
 
-function getJSRequireSyntax(filepath) {
-    return `require('./${filepath}');\n`;
+function getJSRequireSyntax(filepath, ext) {
+    let fullFilePath = `${filepath}.${ext}`;
+    if (filepath.indexOf('.css') === filepath.length - 4) {
+        fullFilePath = filepath;
+    }
+    return `require('./${fullFilePath}');\n`;
 }
 
 async function writeBrowserJSON(filename, base, additional) {
@@ -56,8 +64,8 @@ async function writeFile(filename, base, additional, getSyntax, ext) {
             return;
         }
         const file = base && getFilePath(base, ds);
-        const additioanlContent = additional.map((addFile) => getSyntax(addFile));
-        const content = additioanlContent.concat(base ? [getSyntax(file)] : []);
+        const additioanlContent = additional.map((addFile) => getSyntax(addFile, ext));
+        const content = additioanlContent.concat(base ? [getSyntax(file, 'css')] : []);
 
         await fs.promises.writeFile(getFileName(filename, ds, ext), content.join(''));
     });
@@ -110,12 +118,12 @@ async function generateTopLevelFiles() {
 
     const contentJS = indexFiles
         .map((item) => {
-            return `require('./${item.filename}');\n`;
+            return `require('./${item.filename}.js');\n`;
         })
         .join('');
     const contentBrowser = indexFiles
         .map((item) => {
-            return `"require: ./${item.filename}"`;
+            return `"require: ./${item.filename}.js"`;
         })
         .join(',');
     const contentCSS = indexFiles
