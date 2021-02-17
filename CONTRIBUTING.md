@@ -21,6 +21,8 @@ This page contains instructions and guidelines for anybody contributing code to 
         -   [Global Variables](#global-variables)
         -   [Product Variables](#product-variables)
         -   [Component Variables](#component-variables)
+    -   [Custom Properties](#custom-properties)
+    -   [Dark Mode](#dark-mode)
     -   [Storybook](#storybook)
     -   [Percy](#percy)
     -   [Website](#website)
@@ -222,6 +224,36 @@ Component variables also need to take into account certain states, such as hover
 -   textbox-disabled-border-color
 
 The naming convention is: component name - state - style property.
+
+## Custom Properties
+
+Skin currently leverages [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) for the following styles only:
+
+-   colors
+-   border radiuses
+
+In future we may add support for other styles, such as spacing and typography.
+
+**NOTE**: The intention of custom properties in Skin is NOT for apps to override the built in design system with their own look and feel. The intention is to allow easier, runtime access to themes (e.g. seasonal themes) and colour modes (e.g. dark mode) which only custom properties can support.
+
+All custom property declarations can be found under `./src/less/properties`. Custom properties are scoped to each module (i.e. not `:root`).
+
+### Custom Property Mixins
+
+A suite of mixins has been created to provide fallbacks for browsers that do not support Custom Properties. The mixins are located in `./src/less/mixins/utility`.
+
+Each mixin takes one or more LESS variables as input. For example, calling the mixin `.customColorProperty(@color-b1)` will output the following CSS:
+
+```CSS
+color: #c5e5fb;
+color: var(--combobox-foreground-color, #c5e5fb);
+```
+
+The second line will be ignored in browsers that do not support custom properties; they will instead fall back to the declaration in the first line.
+
+## Dark Mode
+
+[Dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) is currently supported behind an experimental flag for DS6 only. The flag is enabled by applying the class `.skin-experiment-dark-mode` to the HTML body tag.
 
 ## Storybook
 
