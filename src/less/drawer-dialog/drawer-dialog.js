@@ -103,7 +103,7 @@ export const bottomContainerLong = () => `
     </div>
 </div>
 
-`
+`;
 
 export const bottomContainerExpanded = () => `
 <div aria-labelledby="drawer-title-default" aria-modal="true"

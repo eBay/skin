@@ -19,6 +19,8 @@ const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
 const Switch = require('makeup-switch-class');
 
+let progressBarInterval;
+
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
@@ -145,6 +147,47 @@ document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
         labelElementAnimateModifier: 'legacy-floating-label__label--animate',
         textboxElementBackgroundRGB: ['rgba(0, 0, 0, 0)']
     }));
+});
+
+// PROGRESS BAR PLAY
+document.querySelectorAll('.progress-bar-toggle').forEach(function(el) {
+    const progressId = el.dataset.progressPlayButtonFor;
+    const progress = document.getElementById(progressId);
+    const progressRun = function () {
+        const value = progress.value;
+        const valuePlus = value + 10;
+        let final;
+        if (valuePlus > 100) {
+            final = 100;
+        } else {
+            final = valuePlus;
+        }
+        progress.value = final;
+    }
+
+    el.addEventListener('click', function() {
+        if(progressBarInterval) {
+            clearInterval(progressBarInterval);
+            progressBarInterval = null;
+        } else {
+            progressRun();
+            progressBarInterval = setInterval(progressRun, 1000);
+        }
+    });
+});
+
+// PROGRESS BAR RESET
+document.querySelectorAll('.progress-bar-reset').forEach(function(el) {
+    const progressId = el.dataset.progressResetButtonFor;
+    const progress = document.getElementById(progressId);
+
+    el.addEventListener('click', function() {
+        if(progressBarInterval) {
+            clearInterval(progressBarInterval);
+            progressBarInterval = null;
+        }
+        progress.value = 0;
+    });
 });
 
 // TABS
@@ -280,4 +323,9 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 // TOAST (non-modal dialog)
 document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
     pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
+});
+
+// SNACKBAR (non-modal dialog)
+document.querySelectorAll('.dialog-snackbar-button').forEach(function(widgetEl) {
+    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'snackbar-dialog', dialogAutoDismiss: true }));
 });

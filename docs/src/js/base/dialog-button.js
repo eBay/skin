@@ -19,7 +19,8 @@ function onClose() {
 }
 
 const defaultOptions = {
-    dialogBaseClass: 'dialog'
+    dialogBaseClass: 'dialog',
+    dialogAutoDismiss: false
 };
 
 module.exports = class {
@@ -32,7 +33,8 @@ module.exports = class {
         const dialogEl = document.getElementById(dialogId);
 
         this.dialog = new Dialog(dialogEl, {
-            dialogBaseClass: this._options.dialogBaseClass
+            baseClass: this._options.dialogBaseClass,
+            autoDismiss: this._options.dialogAutoDismiss
         });
 
         this._onClickListener = onClick.bind(this);

@@ -1,0 +1,89 @@
+.snackbar-dialog {
+  background-color: #f5f5f5;
+  background-color: var(--snackbar-dialog-background-color, #f5f5f5);
+  color: #111820;
+  color: var(--snackbar-dialog-foreground-color, #111820);
+  border-radius: 16px 16px 0 0;
+  border-radius: var(--snackbar-dialog-border-radius, 16px 16px 0 0);
+  bottom: 0;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
+  left: 0;
+  max-height: 40vh;
+  min-width: 320px;
+  position: fixed;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  width: 100vw;
+  will-change: opacity, transform;
+  z-index: 2;
+}
+.snackbar-dialog--transition {
+  -webkit-transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+  transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, -webkit-transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+.snackbar-dialog--show,
+.snackbar-dialog--hide-init {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.snackbar-dialog--show-init,
+.snackbar-dialog--hide {
+  display: block;
+  opacity: 0;
+  -webkit-transform: translateY(110%);
+          transform: translateY(110%);
+}
+.snackbar-dialog__window {
+  display: -webkit-box;
+  display: flex;
+  margin: 16px 24px;
+}
+.snackbar-dialog__window--column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+.snackbar-dialog__main {
+  margin-right: 32px;
+}
+.snackbar-dialog__main p {
+  margin: 0;
+}
+.snackbar-dialog__actions {
+  margin-left: auto;
+}
+.snackbar-dialog__window--column .snackbar-dialog__actions {
+  margin-top: 16px;
+}
+.snackbar-dialog__actions .fake-link {
+  text-decoration: none;
+}
+.snackbar-dialog__actions .fake-link::first-letter {
+  text-decoration: underline;
+}
+@media (min-width: 601px) {
+  .snackbar-dialog {
+    border-radius: 16px;
+    border-radius: var(--snackbar-dialog-large-border-radius, 16px);
+    bottom: 16px;
+    left: 16px;
+    max-width: 480px;
+    width: auto;
+  }
+}
+[dir="rtl"] .snackbar-dialog {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .snackbar-dialog__main {
+  margin-left: 32px;
+  margin-right: 0;
+}
+[dir="rtl"] .snackbar-dialog__actions {
+  margin-left: 0;
+  margin-right: auto;
+}

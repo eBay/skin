@@ -1,32 +1,32 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const Svgo = require('svgo');
-const jsdom = require("jsdom");
+const jsdom = require('jsdom');
 const config = require('./image-config.json');
 const { JSDOM } = jsdom;
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
 const { exec } = require('child_process');
-const files = [
-  path.resolve(svgDir, 'ds6', 'icons.svg'),
-  path.resolve(svgDir, 'ds4', 'icons.svg'),
-];
+const files = [path.resolve(svgDir, 'ds6', 'icons.svg'), path.resolve(svgDir, 'ds4', 'icons.svg')];
 const { base64Config, svgoConfig } = config;
 const svgo = new Svgo(svgoConfig);
 
 async function runner(executer) {
-    await Promise.all(files.map(async (filePath) => {
-        try {
-            const dsVersion = filePath.indexOf('ds6') > -1 ? 'ds6' : 'ds4';
-            await executer({
-                dsVersion,
-                filePath,
-            })
-            console.log(`Wrote all ${dsVersion} files`);
-        } catch (e) {
-            console.error('An error has occurred', e);
-        }
-    }));
+    await Promise.all(
+        files.map(async (filePath) => {
+            try {
+                const dsVersion = filePath.indexOf('ds6') > -1 ? 'ds6' : 'ds4';
+                await executer({
+                    dsVersion,
+                    filePath,
+                });
+                console.log(`Wrote all ${dsVersion} files`);
+            } catch (e) {
+                console.error('An error has occurred', e);
+            }
+        })
+    );
     await postBuild();
 }
 
@@ -50,11 +50,17 @@ async function postBuild() {
 
 async function writeSymbols(result, dsVersion) {
     const fileOutput = rawSvgToHtml(result.data);
-    await fs.promises.writeFile(`${currentDir}/docs/_includes/${dsVersion}/symbols.html`, fileOutput);
+    await fs.promises.writeFile(
+        `${currentDir}/docs/_includes/${dsVersion}/symbols.html`,
+        fileOutput
+    );
 }
 
 function rawSvgToHtml(data) {
-    return data.replace(/<svg.*>/, '<div hidden>\n<svg>').replace('</svg>', '</svg>\n</div>').replace(/<\?xml.*\?>(?:\s|\S)/, '');
+    return data
+        .replace(/<svg.*>/, '<div hidden>\n<svg>')
+        .replace('</svg>', '</svg>\n</div>')
+        .replace(/<\?xml.*\?>(?:\s|\S)/, '');
 }
 
 class SVGGenerator {
@@ -66,7 +72,7 @@ class SVGGenerator {
     }
 
     async generateAllBase64() {
-        this.dom.window.document.querySelectorAll("symbol").forEach((svg) => {
+        this.dom.window.document.querySelectorAll('symbol').forEach((svg) => {
             this.generateBase64(svg, base64Config);
             base64Config.modules.forEach((module) => {
                 if (module.list.indexOf(svg.id) > -1) {
@@ -75,7 +81,8 @@ class SVGGenerator {
             });
         });
 
-        return await fs.promises.writeFile(`${currentDir}/src/less/variables/${this.dsVersion}/base64-variables.less`,
+        return await fs.promises.writeFile(
+            `${currentDir}/src/less/variables/${this.dsVersion}/base64-variables.less`,
             `// This is a generated file. Do not edit!
 ${this.output.join('\n')}
 `
@@ -89,9 +96,8 @@ ${this.output.join('\n')}
         }
         if (this.dsVersion === 'ds6') {
             return lookup.ds6Color || lookup.color;
-        } else {
-            return lookup.ds4Color || lookup.color;
         }
+        return lookup.ds4Color || lookup.color;
     }
 
     generateBase64(svg, module) {
@@ -111,8 +117,14 @@ ${this.output.join('\n')}
                 modifiedPath = path;
                 path.setAttribute('fill', color);
             }
-        })
-        const base64 = win.btoa((new win.XMLSerializer()).serializeToString(svg).replace('<symbol', '<svg').replace('/symbol>', '/svg>').replace(/(  )+/g, ''));
+        });
+        const base64 = win.btoa(
+            new win.XMLSerializer()
+                .serializeToString(svg)
+                .replace('<symbol', '<svg')
+                .replace('/symbol>', '/svg>')
+                .replace(/(  )+/g, '')
+        );
         if (modifiedPath) {
             modifiedPath.removeAttribute('fill');
         }
@@ -126,5 +138,5 @@ module.exports = {
     postBuild,
     writeSymbols,
     runner,
-    rawSvgToHtml
+    rawSvgToHtml,
 };

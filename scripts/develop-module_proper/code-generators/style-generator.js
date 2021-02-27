@@ -4,13 +4,15 @@ const log = require('../../log');
 const BaseGenerator = require('./base-generator');
 const writeLine = require('../util/line-writer');
 
-const getBaseStyleContent = moduleId => `// This is boilerplate generated style. Please update this!
+const getBaseStyleContent = (
+    moduleId
+) => `// This is boilerplate generated style. Please update this!
 .${moduleId} {
     display: block;
 }
 `;
-const getReferBaseStyleContent = moduleId => `@import '../base/${moduleId}.less';\n`;
-const getModuleBrowserContent = moduleId => `{
+const getReferBaseStyleContent = (moduleId) => `@import '../base/${moduleId}.less';\n`;
+const getModuleBrowserContent = (moduleId) => `{
     "dependencies": [
         "require: ./${moduleId}"
     ]
@@ -80,8 +82,8 @@ class StyleGenerator extends BaseGenerator {
             filePathFromRoot,
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent
-            })
+                shouldAppend: !nextLine || currentLine > newLineContent,
+            }),
         });
     }
 
@@ -105,13 +107,13 @@ class StyleGenerator extends BaseGenerator {
         const newMappingItem = {
             from,
             to: `./dist/${this.moduleId}/ds4/${this.moduleId}.css`,
-            'if-flag': 'ds-4'
+            'if-flag': 'ds-4',
         };
         const browserJsonFile = path.join(__dirname, '..', '..', '..', 'browser.json');
         const newMappings = [];
         const browserJson = require(browserJsonFile);
         let newItemAdded = false;
-        browserJson.requireRemap.forEach(item => {
+        browserJson.requireRemap.forEach((item) => {
             if (!newItemAdded && item.from > from) {
                 newItemAdded = true;
                 newMappings.push(newMappingItem);
@@ -144,14 +146,15 @@ class StyleGenerator extends BaseGenerator {
     _addDependencies(newLineContent, filePathFromRoot) {
         writeLine({
             filePathFromRoot,
-            sectionPredicate: line => line.match(/"dependencies"\s*\t*:\s*\t*\[/),
+            sectionPredicate: (line) => line.match(/"dependencies"\s*\t*:\s*\t*\[/),
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: nextLine && nextLine.match(/]/)
-                    || (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
+                shouldAppend:
+                    (nextLine && nextLine.match(/]/)) ||
+                    (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
                 prevLineSuffix: prevLine && !prevLine.endsWith(',') ? ',' : '',
-                newLineSuffix: !nextLine || nextLine.match(/]/) ? '' : ','
-            })
+                newLineSuffix: !nextLine || nextLine.match(/]/) ? '' : ',',
+            }),
         });
     }
 
@@ -161,7 +164,10 @@ class StyleGenerator extends BaseGenerator {
             log.warn('[STYLES][%s] Style already exists!', filePathFromRoot);
             return;
         }
-        fs.writeFileSync(filePathFromRoot, `require('./dist/${this.moduleId}/${version}/${this.moduleId}.css');\n`);
+        fs.writeFileSync(
+            filePathFromRoot,
+            `require('./dist/${this.moduleId}/${version}/${this.moduleId}.css');\n`
+        );
     }
 
     _addPackagingStylesIndexReference() {
@@ -171,14 +177,17 @@ class StyleGenerator extends BaseGenerator {
             filePathFromRoot,
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine
-                    || (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent)
-            })
+                shouldAppend:
+                    !nextLine ||
+                    (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
+            }),
         });
     }
 
     static _isLegacyLine(currentLine) {
-        return currentLine.match(/global/) || currentLine.match(/utility/) || currentLine.match(/root/);
+        return (
+            currentLine.match(/global/) || currentLine.match(/utility/) || currentLine.match(/root/)
+        );
     }
 }
 

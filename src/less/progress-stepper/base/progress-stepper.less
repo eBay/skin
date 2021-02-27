@@ -21,16 +21,17 @@ hr.progress-stepper__separator {
     flex: 1;
     height: 2px;
     margin: 0;
-    min-width: 80px;
+    min-width: @progress-stepper-min-width;
     position: relative;
     top: 11px;
 }
 
 .progress-stepper__text {
+    font-size: @progress-stepper-font-size;
     justify-self: center;
     margin-top: 8px;
     text-align: center;
-    width: 80px;
+    width: @progress-stepper-min-width;
 }
 
 .progress-stepper__icon {
@@ -45,9 +46,10 @@ hr.progress-stepper__separator {
     align-items: center;
     border-radius: @progress-stepper-icon-size;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     box-sizing: border-box;
     display: inline-flex;
+    font-weight: @font-weight-bold;
     height: @progress-stepper-icon-size;
     justify-content: center;
     top: 0;
@@ -100,7 +102,10 @@ hr.progress-stepper__separator--upcoming,
 
 .progress-stepper__items--upcoming .progress-stepper__icon > [role="img"],
 .progress-stepper__item--upcoming .progress-stepper__icon > [role="img"],
-.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"] {
+.progress-stepper__item[aria-current]
+    ~ .progress-stepper__item
+    .progress-stepper__icon
+    > [role="img"] {
     .customColorProperty(progress-stepper-badge-upcoming-color);
     .customBackgroundColorProperty(progress-stepper-badge-upcoming-background-color);
     .customBorderColorProperty(progress-stepper-badge-upcoming-border-color);
@@ -158,5 +163,16 @@ hr.progress-stepper__separator--upcoming,
     .progress-stepper--vertical .progress-stepper__separator {
         margin-left: inherit;
         margin-right: 11px;
+    }
+}
+
+@media (min-width: 601px) {
+    hr.progress-stepper__separator {
+        min-width: @progress-stepper-large-min-width;
+    }
+
+    .progress-stepper__text {
+        font-size: @progress-stepper-large-font-size;
+        width: @progress-stepper-large-min-width;
     }
 }

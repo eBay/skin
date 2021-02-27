@@ -28,7 +28,7 @@ const getModuleDocContent = (moduleName, moduleId) => `<!-- Auto generated code 
 </div>
 `;
 
-const getMainContent = moduleId => `
+const getMainContent = (moduleId) => `
 {% include common/${moduleId}.html %}
 <img class="skin-graphic" src="{{ page.static_dir }}/skin-graphic.png" alt="" />
 `;
@@ -75,8 +75,8 @@ class DocumentationGenerator extends BaseGenerator {
             filePathFromRoot,
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent
-            })
+                shouldAppend: !nextLine || currentLine > newLineContent,
+            }),
         });
     }
 
@@ -88,8 +88,8 @@ class DocumentationGenerator extends BaseGenerator {
             newLineContent,
             duplicateCheckText: `common/${this.moduleId}.html`,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent
-            })
+                shouldAppend: !nextLine || currentLine > newLineContent,
+            }),
         });
     }
 
@@ -98,12 +98,12 @@ class DocumentationGenerator extends BaseGenerator {
         const newLineContent = `    ${this.moduleId}: ${DS_VERSION}`;
         writeLine({
             filePathFromRoot,
-            sectionPredicate: line => line.match(/versions\s*:/),
+            sectionPredicate: (line) => line.match(/versions\s*:/),
             newLineContent,
             duplicateCheckText: `\s*\t*${this.moduleId}:\s*\t*.+`,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent
-            })
+                shouldAppend: !nextLine || currentLine > newLineContent,
+            }),
         });
     }
 }
