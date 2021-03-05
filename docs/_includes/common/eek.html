@@ -1,0 +1,216 @@
+<div id="eek">
+    {% include common/section-header.html name="eek" version=page.versions.eek %}
+    <p>
+        EEKs have two parts, a range, and a rating.
+        The following ranges are available:
+    </p>
+    <table cellpadding="0" cellspacing="0" class="icon-table">
+        <thead>
+            <tr>
+                <th style="width:50%;">EEK RANGE NAME</th>
+                <th>ICON</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% assign icons = "appp-d, appp-e, appp-g, app-e, app-g, ap-f, ap-e, a-g" |
+            split: ", " %}
+            {% for iconName in icons %}
+
+            <tr>
+                <td>{{ iconName }}</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            {% include common/eek-icon.html name=iconName %}
+                        </span>
+                    </span>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        And for each range, making sure each rating exists within that given range, the EEK can have the following
+        ratings:
+    </p>
+    <p>Then each rating needs to have a different color. This depends on the distance it is from the upper range</p>
+
+    <table cellpadding="0" cellspacing="0" class="icon-table">
+        <thead>
+            <tr>
+                <th style="width:20%;">EEK RATING NAME</th>
+                <th>ICON</th>
+                <th>
+                    {% include common/eek-icon.html name="appp-d" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="appp-e" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="appp-g" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="app-e" %}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% assign icons = "appp, app, ap, a, b, c, d, e, f, g" |
+            split: ", " %}
+            {% for iconName in icons %}
+            <tr>
+                <td>{{ iconName }}</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            {% include common/eek-icon.html name=iconName %}
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=0 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=0 max=8 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=0 max=9 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=1 %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" class="icon-table">
+        <thead>
+            <tr>
+                <th style="width:20%;">EEK RATING NAME</th>
+                <th>ICON</th>
+                <th>
+                    {% include common/eek-icon.html name="app-g" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="ap-f" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="ap-e" %}
+                </th>
+                <th>
+                    {% include common/eek-icon.html name="a-g" %}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% assign icons = "eek-appp, eek-app, eek-ap, eek-a, eek-b, eek-c, eek-d, eek-e, eek-f, eek-g" |
+            split: ", " %}
+            {% for iconName in icons %}
+            <tr>
+                <td>{{ iconName }}</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24"
+                                width="24">
+                                {% include common/symbol.html name=iconName %}
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=1 max=9 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=2 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=2 max=9 %}
+                </td>
+                <td>
+                    {% include common/eek-rating.html idx=forloop.index offset=3 %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="demo">
+        <div class="demo__inner">
+
+            <div class="eek eek--rating-1">
+                <span class="eek__rating-range">
+                    {% include common/eek-icon.html name="appp-d" %}
+                </span>
+                <span class="eek__rating">
+                    {% include common/eek-icon.html name="appp" %}
+                </span>
+                <div class="eek__arrow"></div>
+            </div>
+            <div class="eek eek--rating-4">
+                <span class="eek__rating-range">
+                    {% include common/eek-icon.html name="app-e" %}
+                </span>
+                <span class="eek__rating">
+                    {% include common/eek-icon.html name="b" %}
+                </span>
+                <div class="eek__arrow"></div>
+            </div>
+            <div class="eek eek--rating-7">
+                <span class="eek__rating-range">
+                    {% include common/eek-icon.html name="ap-e" %}
+                </span>
+                <span class="eek__rating">
+                    {% include common/eek-icon.html name="g" %}
+                </span>
+                <div class="eek__arrow"></div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="eek eek--rating-1">
+    <span class="eek__rating-range">
+        <svg class="icon icon--eek-appp-d" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-appp-d"></use>
+        </svg>
+    </span>
+    <span class="eek__rating">
+        <svg class="icon icon--eek-appp" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-appp"></use>
+        </svg>
+    </span>
+    <div class="eek__arrow"></div>
+</div>
+<div class="eek eek--rating-4">
+    <span class="eek__rating-range">
+        <svg class="icon icon--eek-app-e" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-app-e"></use>
+        </svg>
+    </span>
+    <span class="eek__rating">
+        <svg class="icon icon--eek-b" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-b"></use>
+        </svg>
+    </span>
+    <div class="eek__arrow"></div>
+</div>
+<div class="eek eek--rating-7">
+    <span class="eek__rating-range">
+        <svg class="icon icon--eek-ap-e" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-ap-e"></use>
+        </svg>
+    </span>
+    <span class="eek__rating">
+        <svg class="icon icon--eek-g" focusable="false" aria-hidden="true">
+            <use xlink:href="#icon-eek-g"></use>
+        </svg>
+    </span>
+    <div class="eek__arrow"></div>
+</div>
+    {% endhighlight %}
+
+
+</div>
