@@ -51,6 +51,8 @@
         "@babel/cli": "^7",
         "@babel/core": "^7",
         "@babel/preset-env": "^7",
+        "@commitlint/cli": "^12",
+        "@commitlint/config-conventional": "^12",
         "@ebay/browserslist-config": "^1",
         "@percy/storybook": "^3",
         "@storybook/html": "^6",
@@ -125,8 +127,12 @@
     ],
     "husky": {
         "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
             "pre-commit": "lint-staged"
         }
+    },
+    "commitlint": {
+        "extends": "@commitlint/config-conventional"
     },
     "lint-staged": {
         "*.{js,css,md,less,json}": "prettier --write",
