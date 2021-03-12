@@ -20,8 +20,13 @@ function onMenuKeyDown(e) {
     }
 }
 
-function onMenuItemSelect() {
+function onMenuItemSelect(e) {
+    if (this._buttonPrefix && e.detail.el.dataset?.menuitemradioValue) {
+        this._buttonTextEl.innerText = this._buttonPrefix + e.detail.el.dataset?.menuitemradioValue;
+    }
+
     const widget = this;
+
     setTimeout(function() {
         widget._expander.collapse();
         widget._buttonEl.focus();
@@ -30,7 +35,8 @@ function onMenuItemSelect() {
 
 const defaultOptions = {
     expandedClass: 'menu-button--expanded',
-    menuSelector: '.menu-button__menu'
+    menuSelector: '.menu-button__menu',
+    buttonTextSelector: `.expand-btn__text`
 };
 
 module.exports = class {
@@ -39,6 +45,8 @@ module.exports = class {
         this.el = widgetEl;
         this._buttonEl = widgetEl.querySelector('button');
         this.menu = new Menu(widgetEl.querySelector(this._options.menuSelector));
+        this._buttonPrefix = this._buttonEl.dataset?.menuButtonPrefix;
+        this._buttonTextEl = this._buttonEl.querySelector(defaultOptions.buttonTextSelector);
 
         this._expander = new Expander(widgetEl, {
             alwaysDoFocusManagement: true,

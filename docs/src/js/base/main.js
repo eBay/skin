@@ -240,7 +240,8 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
 
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
-        menuSelector: '.menu-button__menu'
+        menuSelector: '.menu-button__menu',
+        buttonTextSelector: `.expand-btn__text`
     });
 
     widget.menu.el.addEventListener('menu-select', function(e) {
