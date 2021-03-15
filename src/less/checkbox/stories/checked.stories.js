@@ -2,7 +2,7 @@ export default { title: 'Checkbox/Checkbox/Checked' };
 
 export const base = () => `
 <span class="checkbox">
-    <input aria-label="Foreground SVG checkbox example" class="checkbox__control" type="checkbox" checked />
+    <input aria-label="Base checkbox" class="checkbox__control" type="checkbox" checked />
     <span class="checkbox__icon" hidden>
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
             <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -16,7 +16,7 @@ export const base = () => `
 
 export const disabled = () => `
 <span class="checkbox">
-    <input aria-label="Disabled Foreground SVG checkbox example" class="checkbox__control" disabled checked type="checkbox" />
+    <input aria-label="Disabled checkbox" class="checkbox__control" disabled checked type="checkbox" />
     <span class="checkbox__icon" hidden>
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
             <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -30,7 +30,7 @@ export const disabled = () => `
 
 export const customColour = () => `
 <span class="checkbox">
-    <input aria-label="Foreground SVG checkbox example" class="checkbox__control" type="checkbox" checked />
+    <input aria-label="Custom colour checkbox" class="checkbox__control" type="checkbox" checked />
     <span class="checkbox__icon" hidden>
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
             <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -45,7 +45,7 @@ export const customColour = () => `
 export const RTL = () => `
 <div dir="rtl">
     <span class="checkbox">
-        <input aria-label="Foreground SVG checkbox example" class="checkbox__control" type="checkbox" checked />
+        <input aria-label="RTL checkbox" class="checkbox__control" type="checkbox" checked />
         <span class="checkbox__icon" hidden>
             <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
                 <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -60,7 +60,7 @@ export const RTL = () => `
 
 export const customIcon = () => `
 <span class="checkbox">
-    <input aria-label="Custom checkbox example" class="checkbox__control" type="checkbox" checked />
+    <input aria-label="Custom icon checkbox" class="checkbox__control" type="checkbox" checked />
     <span class="checkbox__icon" hidden>
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
             <use xlink:href="#icon-attention"></use>
@@ -76,7 +76,7 @@ export const multiLineLabel = () => `
 <legend>Choose an Option</legend>
     <div style="display: flex;" class="field">
         <span class="checkbox field__control">
-            <input class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" checked />
+            <input aria-label="Multiline checkbox 1" class="checkbox__control" id="group-checkbox-1" type="checkbox" value="1" name="checkbox-group" checked />
             <span class="checkbox__icon" hidden>
                 <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
                     <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -90,7 +90,7 @@ export const multiLineLabel = () => `
     </div>
     <div style="display: flex;" class="field">
         <span class="checkbox field__control">
-            <input class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+            <input aria-label="Multiline checkbox 2" class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
             <span class="checkbox__icon" hidden>
                 <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
                     <use xlink:href="#icon-checkbox-unchecked"></use>
@@ -104,7 +104,7 @@ export const multiLineLabel = () => `
     </div>
     <div style="display: flex;" class="field">
         <span class="checkbox field__control">
-            <input class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
+            <input aria-label="Multiline checkbox 3" class="checkbox__control" id="group-checkbox-3" type="checkbox" value="3" name="checkbox-group" />
             <span class="checkbox__icon" hidden>
                 <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
                     <use xlink:href="#icon-checkbox-unchecked"></use>
