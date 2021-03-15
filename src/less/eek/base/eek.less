@@ -1,62 +1,127 @@
 .eek {
-    border: 0.5px solid #000;
+    align-items: center;
+    border: 0.5px solid @eek-color;
     border-radius: 2px;
-    display: inline-block;
+    border-right: none;
+    display: inline-flex;
+    font-family: @font-family-default;
+    font-weight: 700;
     height: 26px;
-    margin-right: 13px;
-    padding-right: 5px;
+    margin-right: 16px;
     position: relative;
+}
+
+svg.icon.icon--eek-arrow {
+    clip-path: inset(0 0 0 30%);
+    fill: currentColor;
+    height: 30px;
+    height: 26px;
+    margin: -16px;
+    stroke: @eek-color;
+    stroke-width: 0.5;
+    width: 24.5px;
 }
 
 .eek--rating-1 {
     background: @eek-rating-color-1;
 }
 
+.eek--rating-1 .icon--eek-arrow {
+    color: @eek-rating-color-1;
+}
+
 .eek--rating-2 {
     background: @eek-rating-color-2;
+}
+
+.eek--rating-2 .icon--eek-arrow {
+    color: @eek-rating-color-2;
 }
 
 .eek--rating-3 {
     background: @eek-rating-color-3;
 }
 
+.eek--rating-3 .icon--eek-arrow {
+    color: @eek-rating-color-3;
+}
+
 .eek--rating-4 {
     background: @eek-rating-color-4;
+}
+
+.eek--rating-4 .icon--eek-arrow {
+    color: @eek-rating-color-4;
 }
 
 .eek--rating-5 {
     background: @eek-rating-color-5;
 }
 
+.eek--rating-5 .icon--eek-arrow {
+    color: @eek-rating-color-5;
+}
+
 .eek--rating-6 {
     background: @eek-rating-color-6;
+}
+
+.eek--rating-6 .icon--eek-arrow {
+    color: @eek-rating-color-6;
 }
 
 .eek--rating-7 {
     background: @eek-rating-color-7;
 }
 
+.eek--rating-7 .icon--eek-arrow {
+    color: @eek-rating-color-7;
+}
+
 .eek__rating {
+    color: @eek-background-color;
     display: inline-block;
+    font-size: 18px;
+    margin-left: 8px;
+    margin-right: 15px;
+    text-shadow: -0.5px 0.5px 0 @eek-color, 0.5px 0.5px 0 @eek-color, 0.5px -0.5px 0 @eek-color,
+        -0.5px -0.5px 0 @eek-color;
 }
 
 .eek__rating-range {
-    background-color: white;
+    align-items: center;
+    background-color: @eek-background-color;
     border-radius: 1px 0 0 1px;
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    height: 24px;
     margin: 1px;
+    padding: 0 1px;
 }
 
-.eek__arrow {
-    background-color: inherit;
-    border: inherit;
-    border-radius: 2px;
-    bottom: 0;
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
-    display: block;
-    height: 19px;
-    position: absolute;
-    right: 0;
-    transform: rotate(-135deg) translate(-25%, 40%);
-    width: 19px;
+.eek__rating-range > .icon--eek-range-arrow {
+    height: 6px;
+    width: 5px;
+}
+
+.eek__rating-range > span {
+    font-size: 8px;
+}
+
+/*
+In Safari the EEK icon is not aligned properly as well as the text is broken
+Changed a bit of styles there only in order to make it work
+*/
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        .eek__rating {
+            text-shadow: none;
+            -webkit-text-stroke: 0.5px;
+            -webkit-text-stroke-color: @eek-color;
+        }
+
+        svg.icon.icon--eek-arrow {
+            clip-path: inset(0 0 0 20%);
+        }
+    }
 }
