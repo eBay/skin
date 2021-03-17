@@ -35,7 +35,13 @@ function onListboxClick() {
 function onListboxChange(e) {
     const fromValue = this._buttonEl.children[0].innerText;
     const toValue = e.detail.optionValue;
-    this._buttonLabelEl.innerText = toValue;
+
+    if (this._buttonPrefix) {
+        this._buttonLabelEl.innerText = this._buttonPrefix + toValue;
+    } else {
+        this._buttonLabelEl.innerText = toValue;
+    }
+
     this.el.dispatchEvent(new CustomEvent('listbox-button-change', {
         detail: {
             fromValue: fromValue,
@@ -56,6 +62,7 @@ module.exports = class {
         this.el = widgetEl;
         this._buttonEl = this.el.querySelector('button');
         this._buttonLabelEl = widgetEl.querySelector(this._options.labelSelector);
+        this._buttonPrefix = this._buttonEl.dataset?.listboxButtonPrefix;
 
         this.listbox = new Listbox(this.el.querySelector(this._options.listboxSelector), {
             activeDescendantClassName: 'listbox-button__option--active',

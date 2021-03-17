@@ -15,6 +15,7 @@ This page contains instructions and guidelines for anybody contributing code to 
             -   [New Module](#new-module)
         -   [Bug Fix](#bug-fix)
     -   [Branching](#branching)
+    -   [Commit Message Format](#commit-message-format)
     -   [Pull Requests](#pull-requests)
     -   [Style Guide](#style-guide)
     -   [Variables](#variables)
@@ -140,6 +141,42 @@ Every milestone branch must be created from the `master` branch. For example, wh
 When all milestone issues are complete, and merged into the milestone branch, a Skin admin will merge the milestone branch into the `master` branch in preparation for the release.
 
 A milestone branch will be deleted after it has been merged into `master`. There is no need to keep these milestone branches lying around, as we can go back to any point in time using tags. See the hotfix section below for more details.
+
+## Commit Message Format
+
+We use [commitlint conventional configuration](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional) to lint all commit messages.
+
+When determining the commitlint type, use the following guidance:
+
+build
+: package scripts or build scripts
+
+ci
+: GitHub Actions
+
+chore
+: project file/folder structure
+
+docs
+: website docs/examples
+
+feat
+: new Skin module
+
+fix
+: bug fix on a Skin module
+
+refactor
+: refactor of a Skin module
+
+revert
+: revert previous commit
+
+style
+: website or storybook styles
+
+test
+: storybook stories
 
 ## Pull Requests
 

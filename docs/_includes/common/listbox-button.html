@@ -2,7 +2,7 @@
     {% include common/section-header.html name="listbox-button" version=page.versions.listbox-button %}
 
     <p>A listbox button is intended for use as a custom implementation of the native HTML select element's <em>single</em>-select use case.</p>
-    <p>Because a button element does not store form data, it's value will not be submitted along with other form data without the assistance of JavaScript.</p>
+    <p>Because a button element does not store form data, its value will not be submitted along with other form data without the assistance of JavaScript.</p>
     <p><strong>NOTE</strong>: only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit the <a href="https://ebay.github.io/mindpatterns/input/listbox-button/index.html">eBay MIND Pattern for Listbox Button</a>.</p>
 
     <h3 id="listbox-button-default">Default</h3>
@@ -155,15 +155,21 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="listbox-button-borderless">Borderless</h3>
-    <p>Apply the <span class="highlight">expand-btn--borderless</span> modifier to create a borderless listbox.</p>
+<h3 id="listbox-button-labelling">Labelling for Listbox</h3>
+<p>A listbox button attempts to mimic the behaviour of an HTML select by displaying the currently selected value in its collapsed state. In HTML however, a <em>button</em> is labelled by its inner text, whereas a <em>select</em> is labelled by an external label tag. For any button, its label must at <strong>all times</strong> reflect its function.</p>
+<p>All of this leaves us with a conundrum, with three potential solutions outlined below.</p>
 
-    <div class="demo">
-        <div class="demo__inner">
+<h4>Additionally Labelled Listbox Button</h4>
+<p>We can use <span class="highlight">aria-labelledby</span> to stitch together an external text element with the internal value.</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <span style="display: inline-flex; align-items: center;">
+            <span id="listbox-button-external-label" style="margin-right: 8px">Sort by:</span>
             <span class="listbox-button">
-                <button class="expand-btn expand-btn--borderless" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="listbox-button-external-label listbox-button-internal-label" style="min-width: 150px">
                     <span class="expand-btn__cell">
-                        <span class="expand-btn__text">Option 1</span>
+                        <span class="expand-btn__text" id="listbox-button-internal-label">Name</span>
                         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                             {% include common/symbol.html name="dropdown" %}
                         </svg>
@@ -171,20 +177,20 @@
                 </button>
                 <div class="listbox-button__listbox">
                     <div class="listbox-button__options" role="listbox" tabindex="0">
-                        <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 1</span>
+                        <div class="listbox-button__option" role="option" aria-selected="true">
+                            <span class="listbox-button__value">Name</span>
                             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                                 {% include common/symbol.html name="tick-small" %}
                             </svg>
                         </div>
                         <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 2</span>
+                            <span class="listbox-button__value">Price</span>
                             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                                 {% include common/symbol.html name="tick-small" %}
                             </svg>
                         </div>
                         <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 3</span>
+                            <span class="listbox-button__value">Rating</span>
                             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                                 {% include common/symbol.html name="tick-small" %}
                             </svg>
@@ -192,10 +198,241 @@
                     </div>
                 </div>
             </span>
+        </span>
+    </div>
+</div>
+
+{% highlight html %}
+<span id="listbox-button-external-label">Sort by:</span>
+<span class="listbox-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="listbox-button-external-label listbox-button-internal-label">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text" id="listbox-button-internal-label">Name</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">Name</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Price</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Rating</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
         </div>
     </div>
+</span>
+{% endhighlight %}
 
-    {% highlight html %}
+<h4>Internally Labelled Listbox Button</h4>
+<p>The button's inner text can be written as a key/value pair, where key denotes purpose and value repesents the current selection.</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <span>
+            <span class="listbox-button">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" data-listbox-button-prefix="Sort by: " style="min-width: 150px">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Sort by: Name</span>
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include common/symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox" tabindex="0">
+                        <div class="listbox-button__option" role="option" aria-selected="true">
+                            <span class="listbox-button__value">Name</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Price</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Rating</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </div>
+</div>
+
+{% highlight html %}
+<span class="listbox-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Sort by: Name</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">Name</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Price</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Rating</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+{% endhighlight %}
+
+<h4>Explicitly Labelled Listbox Values</h4>
+<p>We can write our option values such that the context can be derived from the option value text alone (this isn't always easy or recommended).</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <span>
+            <span class="listbox-button">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" style="min-width: 150px">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text" id="listbox-button-internal-label">Sort by Name</span>
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include common/symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox" tabindex="0">
+                        <div class="listbox-button__option" role="option" aria-selected="true">
+                            <span class="listbox-button__value">Sort by Name</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Sort by Price</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Sort by Rating</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </span>
+    </div>
+</div>
+
+{% highlight html %}
+<span class="listbox-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Option 1</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">Sort by Name</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Sort by Price</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Sort by Rating</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+{% endhighlight %}
+
+<h3 id="listbox-button-borderless">Borderless</h3>
+<p>Apply the <span class="highlight">expand-btn--borderless</span> modifier to create a borderless listbox.</p>
+
+<div class="demo">
+    <div class="demo__inner">
+        <span class="listbox-button">
+            <button class="expand-btn expand-btn--borderless" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox">
+                <span class="expand-btn__cell">
+                    <span class="expand-btn__text">Option 1</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include common/symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+            <div class="listbox-button__listbox">
+                <div class="listbox-button__options" role="listbox" tabindex="0">
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 1</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 2</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 3</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </span>
+    </div>
+</div>
+
+{% highlight html %}
 <span class="listbox-button">
     <button class="expand-btn expand-btn--borderless" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox">
         <span class="expand-btn__cell">
@@ -228,49 +465,49 @@
         </div>
     </div>
 </span>
-    {% endhighlight %}
+{% endhighlight %}
 
-    <h3 id="listbox-button-fluid">Fluid</h3>
-    <p>Apply the <span class="highlight">listbox-button--fluid</span> modifier to create a fluid listbox.</p>
+<h3 id="listbox-button-fluid">Fluid</h3>
+<p>Apply the <span class="highlight">listbox-button--fluid</span> modifier to create a fluid listbox.</p>
 
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="listbox-button listbox-button--fluid">
-                <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
-                    <span class="expand-btn__cell">
-                        <span class="expand-btn__text">Option 1</span>
-                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include common/symbol.html name="dropdown" %}
+<div class="demo">
+    <div class="demo__inner">
+        <span class="listbox-button listbox-button--fluid">
+            <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
+                <span class="expand-btn__cell">
+                    <span class="expand-btn__text">Option 1</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include common/symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+            <div class="listbox-button__listbox">
+                <div class="listbox-button__options" role="listbox" tabindex="0">
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 1</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
                         </svg>
-                    </span>
-                </button>
-                <div class="listbox-button__listbox">
-                    <div class="listbox-button__options" role="listbox" tabindex="0">
-                        <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 1</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
-                        <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 2</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
-                        <div class="listbox-button__option" role="option">
-                            <span class="listbox-button__value">Option 3</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 2</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Option 3</span>
+                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                            {% include common/symbol.html name="tick-small" %}
+                        </svg>
                     </div>
                 </div>
-            </span>
-        </div>
+            </div>
+        </span>
     </div>
+</div>
 
-    {% highlight html %}
+{% highlight html %}
 <span class="listbox-button listbox-button--fluid">
     <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="expand-btn__cell">
@@ -303,5 +540,5 @@
         </div>
     </div>
 </span>
-    {% endhighlight %}
+{% endhighlight %}
 </div>
