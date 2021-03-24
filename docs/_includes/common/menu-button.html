@@ -164,6 +164,45 @@
 </span>
     {% endhighlight %}
 
+    <p>For any button, the label must at <strong>all times</strong> reflect its function. A common scenario for single-select menu buttons is to display the currently selected value as the button text, however this text would not meet the labelling requirement. In order to satisfy the requirement, the value must be <em>appended</em>, as in the following example.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button" data-menu-button-prefix="Sort: " style="min-width: 125px">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Sort: Price</span>
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include common/symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="true" data-menuitemradio-name="sort" data-menuitemradio-value="Price">
+                            <span>Price</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort" data-menuitemradio-value="Date">
+                            <span>Date</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-menuitemradio-name="sort" data-menuitemradio-value="Rating">
+                            <span>Rating</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
+                                {% include common/symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
     <h3 id="menu-button-checkbox">Multi-Select Menu Button</h3>
     <p>For multi-select state, use role <span class="highlight">menuitemcheckbox</span> on each menu item.</p>
 

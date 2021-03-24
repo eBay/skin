@@ -38,8 +38,41 @@
 </span>
     {% endhighlight %}
 
+    <h3 id="checkbox-mixed">Mixed Checkbox</h3>
+    <p>For a mixed checkbox, that is partially checked, or indeterminate, apply the <span class="highlight">aria-checked="mixed"</span> state and use <span class="highlight">icon-checkbox-mixed</span>.</p>
+    <p><strong>NOTE</strong>: JavaScript is required to toggle the aria-checked state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="checkbox">
+                <input aria-label="Mixed checkbox example" aria-checked="mixed" class="checkbox__control" type="checkbox" name="checkbox-default" checked />
+                <span class="checkbox__icon" hidden>
+                    <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                        {% include common/symbol.html name="checkbox-unchecked-large" %}
+                    </svg>
+                    <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                        {% include common/symbol.html name="checkbox-mixed" %}
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="checkbox">
+    <input aria-checked="mixed" class="checkbox__control" type="checkbox" checked />
+    <span class="checkbox__icon" hidden>
+        <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+            <use xlink:href="#icon-checkbox-unchecked"></use>
+        </svg>
+        <svg class="checkbox__checked" focusable="false" height="18" width="18">
+            <use xlink:href="#icon-checkbox-mixed"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
     <h3 id="checkbox-large">Large Checkbox</h3>
-    <p>For a larger checkbox, use the <span class="highlight">checkbox--large</span> modifier plus the <span class="highlight">#icon-checkbox-unchecked-large</span> and <span class="highlight">#icon-checkbox-checked-large</span> icons.</p>
+    <p>For a larger checkbox, use the <span class="highlight">checkbox--large</span> modifier plus the <span class="highlight">#icon-checkbox-unchecked-large</span>, <span class="highlight">#icon-checkbox-checked-large</span> and <span class="highlight">#icon-checkbox-partial-large</span> icons.</p>
 
     <div class="demo">
         <div class="demo__inner">

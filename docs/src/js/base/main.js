@@ -21,6 +21,15 @@ const Switch = require('makeup-switch-class');
 
 let progressBarInterval;
 
+// MIXED CHECKBOX
+document.querySelectorAll('.checkbox input[aria-checked="mixed"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+        const isChecked = (this.checked === true);
+        
+        this.setAttribute('aria-checked', isChecked ? 'mixed' : 'false');
+    });
+});
+
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
@@ -231,7 +240,8 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
 
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
-        menuSelector: '.menu-button__menu'
+        menuSelector: '.menu-button__menu',
+        buttonTextSelector: `.expand-btn__text`
     });
 
     widget.menu.el.addEventListener('menu-select', function(e) {
