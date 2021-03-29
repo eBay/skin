@@ -1,81 +1,72 @@
 .eek {
     align-items: center;
-    border: 0.5px solid @eek-color;
-    border-radius: 2px;
-    border-right: none;
     display: inline-flex;
     font-family: @font-family-default;
     font-weight: 700;
     height: 26px;
-    margin-right: 16px;
     position: relative;
 }
 
-svg.icon.icon--eek-arrow {
-    clip-path: inset(0 0 0 30%);
-    fill: currentColor;
-    height: 30px;
-    height: 26px;
-    margin: -16px;
-    stroke: @eek-color;
-    stroke-width: 0.5;
-    width: 24.5px;
+.eek__container {
+    align-items: center;
+    border: 0.5px solid @eek-color;
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+    display: inline-flex;
 }
 
-.eek--rating-1 {
+.eek__arrow {
+    height: 28px;
+    overflow: hidden;
+    width: 17px;
+}
+
+.eek__arrow::before {
+    border: 0.5px solid @eek-color;
+    border-radius: 2px;
+    content: "";
+    display: block;
+    height: 19px;
+    left: -10px;
+    position: relative;
+    top: 3.5px; // 3.5 because border is .5 width
+    transform: rotate(45deg);
+    width: 19px;
+}
+
+.eek--rating-1 .eek__container,
+.eek--rating-1 .eek__arrow::before {
     background: @eek-rating-color-1;
 }
 
-.eek--rating-1 .icon--eek-arrow {
-    color: @eek-rating-color-1;
-}
-
-.eek--rating-2 {
+.eek--rating-2 .eek__container,
+.eek--rating-2 .eek__arrow::before {
     background: @eek-rating-color-2;
 }
 
-.eek--rating-2 .icon--eek-arrow {
-    color: @eek-rating-color-2;
-}
-
-.eek--rating-3 {
+.eek--rating-3 .eek__container,
+.eek--rating-3 .eek__arrow::before {
     background: @eek-rating-color-3;
 }
 
-.eek--rating-3 .icon--eek-arrow {
-    color: @eek-rating-color-3;
-}
-
-.eek--rating-4 {
+.eek--rating-4 .eek__container,
+.eek--rating-4 .eek__arrow::before {
     background: @eek-rating-color-4;
 }
 
-.eek--rating-4 .icon--eek-arrow {
-    color: @eek-rating-color-4;
-}
-
-.eek--rating-5 {
+.eek--rating-5 .eek__container,
+.eek--rating-5 .eek__arrow::before {
     background: @eek-rating-color-5;
 }
 
-.eek--rating-5 .icon--eek-arrow {
-    color: @eek-rating-color-5;
-}
-
-.eek--rating-6 {
+.eek--rating-6 .eek__container,
+.eek--rating-6 .eek__arrow::before {
     background: @eek-rating-color-6;
 }
 
-.eek--rating-6 .icon--eek-arrow {
-    color: @eek-rating-color-6;
-}
-
-.eek--rating-7 {
+.eek--rating-7 .eek__container,
+.eek--rating-7 .eek__arrow::before {
     background: @eek-rating-color-7;
-}
-
-.eek--rating-7 .icon--eek-arrow {
-    color: @eek-rating-color-7;
 }
 
 .eek__rating {
@@ -83,7 +74,6 @@ svg.icon.icon--eek-arrow {
     display: inline-block;
     font-size: 18px;
     margin-left: 8px;
-    margin-right: 15px;
     text-shadow: -0.5px 0.5px 0 @eek-color, 0.5px 0.5px 0 @eek-color, 0.5px -0.5px 0 @eek-color,
         -0.5px -0.5px 0 @eek-color;
 }
@@ -118,10 +108,6 @@ Changed a bit of styles there only in order to make it work
             text-shadow: none;
             -webkit-text-stroke: 0.5px;
             -webkit-text-stroke-color: @eek-color;
-        }
-
-        svg.icon.icon--eek-arrow {
-            clip-path: inset(0 0 0 20%);
         }
     }
 }
