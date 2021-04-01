@@ -1,0 +1,114 @@
+@eek-arrow-size: sqrt(pow(28px, 2) / 2); // Calculate hypotenuse of a 28px square (for rotation)
+
+.eek {
+    align-items: stretch;
+    display: inline-flex;
+    font-family: @font-family-default;
+    font-weight: 700;
+    height: 26px;
+    position: relative;
+}
+
+.eek__container {
+    align-items: center;
+    border: 0.5px solid @eek-color;
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+    display: inline-flex;
+}
+
+.eek__arrow {
+    overflow: hidden;
+    width: 17px;
+}
+
+.eek__arrow::before {
+    border: 0.5px solid @eek-color;
+    border-radius: 2px;
+    content: "";
+    display: block;
+    height: @eek-arrow-size;
+    margin-top: 2.3px;
+    position: relative;
+    right: 12px;
+    transform: rotate(45deg);
+    width: @eek-arrow-size;
+}
+
+.eek--rating-1 .eek__container,
+.eek--rating-1 .eek__arrow::before {
+    background: @eek-rating-color-1;
+}
+
+.eek--rating-2 .eek__container,
+.eek--rating-2 .eek__arrow::before {
+    background: @eek-rating-color-2;
+}
+
+.eek--rating-3 .eek__container,
+.eek--rating-3 .eek__arrow::before {
+    background: @eek-rating-color-3;
+}
+
+.eek--rating-4 .eek__container,
+.eek--rating-4 .eek__arrow::before {
+    background: @eek-rating-color-4;
+}
+
+.eek--rating-5 .eek__container,
+.eek--rating-5 .eek__arrow::before {
+    background: @eek-rating-color-5;
+}
+
+.eek--rating-6 .eek__container,
+.eek--rating-6 .eek__arrow::before {
+    background: @eek-rating-color-6;
+}
+
+.eek--rating-7 .eek__container,
+.eek--rating-7 .eek__arrow::before {
+    background: @eek-rating-color-7;
+}
+
+.eek__rating {
+    color: @eek-background-color;
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 8px;
+    text-shadow: -0.5px 0.5px 0 @eek-color, 0.5px 0.5px 0 @eek-color, 0.5px -0.5px 0 @eek-color,
+        -0.5px -0.5px 0 @eek-color;
+}
+
+.eek__rating-range {
+    align-items: center;
+    background-color: @eek-background-color;
+    border-radius: 1px 0 0 1px;
+    display: inline-flex;
+    flex-direction: column;
+    height: 24px;
+    margin: 1px;
+    padding: 0 1px;
+}
+
+.eek__rating-range > .icon--eek-range-arrow {
+    height: 6px;
+    width: 5px;
+}
+
+.eek__rating-range > span {
+    font-size: 8px;
+}
+
+/*
+In Safari the EEK icon is not aligned properly as well as the text is broken
+Changed a bit of styles there only in order to make it work
+*/
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        .eek__rating {
+            text-shadow: none;
+            -webkit-text-stroke: 0.5px;
+            -webkit-text-stroke-color: @eek-color;
+        }
+    }
+}
