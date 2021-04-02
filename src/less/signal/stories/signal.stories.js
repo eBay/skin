@@ -23,27 +23,3 @@ export const neutral = () => `
     Neutral
 </span>
 `;
-
-export const trustWorthyDiv = () => `
-<div class="signal signal--trustworthy">
-    Trustworthy
-</div>
-`;
-
-export const recentDiv = () => `
-<div class="signal signal--recent">
-    Recent
-</div>
-`;
-
-export const timeSensitiveDiv = () => `
-<div class="signal signal--time-sensitive">
-    Time Sensitive
-</div>
-`;
-
-export const neutralDiv = () => `
-<div class="signal signal--neutral">
-    Neutral
-</div>
-`;
