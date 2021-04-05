@@ -1,5 +1,13 @@
 /* eslint-disable no-console */
 
+if (window.URLSearchParams !== undefined) {
+    const searchParams = new URLSearchParams(location.search);
+
+    if (searchParams.has('debug') && searchParams.get('debug') === '1') {
+        document.querySelector('.page-grid').classList.add('page-grid--debug');
+    }
+}
+
 // SVG for Everybody adds SVG External Content support to all browsers.
 // https://github.com/jonathantneal/svg4everybody
 // eslint-disable-next-line no-undef
@@ -25,7 +33,7 @@ let progressBarInterval;
 document.querySelectorAll('.checkbox input[aria-checked="mixed"]').forEach(function(el) {
     el.addEventListener('click', function() {
         const isChecked = (this.checked === true);
-        
+
         this.setAttribute('aria-checked', isChecked ? 'mixed' : 'false');
     });
 });

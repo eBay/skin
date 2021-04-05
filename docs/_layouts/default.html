@@ -12,7 +12,7 @@
         <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.css"/>
         <!-- critical styles -->
         <style>
-            @media only screen and (min-width: 601px) {
+            @media only screen and (min-width: 600px) {
                 .modules-expander {
                     display: none;
                 }
@@ -24,16 +24,6 @@
     </head>
     <body>
         <header>
-            <details class="details modules-expander">
-                <summary class="details__summary details_summary--center">
-                    <span class="details__summary-text">modules</span>
-                    <span class="details__icon"></span>
-                </summary>
-                <p class="modules-expander__tip">Use the links below &amp; the back button to navigate</p>
-                <ul class="modules-expander__list">
-                    {% include common/module-list.html %}
-                </ul>
-            </details>
             <div class="app-bar">
                 <h1 class="app-bar__title">{{ page.title }}</h1>
                 <ul class="app-bar__links">
@@ -41,38 +31,55 @@
                     <li><a href="https://github.com/eBay/skin">GitHub</a></li>
                     <li><a href="{{ site.url }}/{% if page.ds == 4 %}ds4/{% endif %}storybook">Storybook</a></li>
             </div>
-        </header>
-        <div class="page-grid">
-            <nav class="site-nav" hidden>
-                <h2>Skins</h2>
-                <ul>
-                    <li><a href="{{ site.url }}/index.html">Default</a></li>
-                    <li><a href="{{ site.url }}/ds4/index.html">Legacy</a></li>
-                </ul>
+            <details class="details modules-expander">
+                <summary class="details__summary">
+                    <span class="details__label">Menu</span>
+                    <span class="details__icon" hidden>
+                        <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
+                            {% include common/symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                    <span class="modules-expander__tip">Use the links below &amp; the back button to navigate</span>
+                </summary>
 
-                <h2>Setup</h2>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#install">Install</a></li>
-                    <li><a href="#bundling">Bundling</a></li>
-                    <li><a href="#flags">Flags</a></li>
-                    <li><a href="#cdn">CDN</a></li>
-                    <li><a href="#themes">Themes</a></li>
-                    <li><a href="#animation">Animation</a></li>
-                </ul>
-
-                <h2>Modules</h2>
-                <ul>
+                <ul class="modules-expander__list">
                     {% include common/module-list.html %}
                 </ul>
-            </nav>
-            <main>
-                {{ content }}
-            </main>
-            <footer>
-                <hr />
-                <p>Copyright &copy; 2018 eBay, Inc. All rights reserved.</p>
-            </footer>
+            </details>
+        </header>
+        <div class="page-grid-container">
+            <div class="page-grid">
+                <nav class="site-nav" hidden>
+                    <h2>Skins</h2>
+                    <ul>
+                        <li><a href="{{ site.url }}/index.html">Default</a></li>
+                        <li><a href="{{ site.url }}/ds4/index.html">Legacy</a></li>
+                    </ul>
+
+                    <h2>Setup</h2>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#install">Install</a></li>
+                        <li><a href="#bundling">Bundling</a></li>
+                        <li><a href="#flags">Flags</a></li>
+                        <li><a href="#cdn">CDN</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#animation">Animation</a></li>
+                    </ul>
+
+                    <h2>Modules</h2>
+                    <ul>
+                        {% include common/module-list.html %}
+                    </ul>
+                </nav>
+                <main>
+                    {{ content }}
+                </main>
+                <footer>
+                    <hr />
+                    <p>Copyright &copy; 2021 eBay, Inc. All rights reserved.</p>
+                </footer>
+            </div>
         </div>
     </body>
     <script src="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.js"></script>
