@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
-const Svgo = require('svgo');
+const { optimize } = require('svgo');
 const jsdom = require('jsdom');
 const config = require('./image-config.json');
 const { JSDOM } = jsdom;
@@ -10,7 +10,6 @@ const svgDir = path.resolve(currentDir, 'src', 'svg');
 const { exec } = require('child_process');
 const files = [path.resolve(svgDir, 'ds6', 'icons.svg'), path.resolve(svgDir, 'ds4', 'icons.svg')];
 const { base64Config, svgoConfig } = config;
-const svgo = new Svgo(svgoConfig);
 
 async function runner(executer) {
     await Promise.all(
@@ -32,7 +31,7 @@ async function runner(executer) {
 
 async function optimizeSVG(filePath) {
     const data = await fs.promises.readFile(filePath, 'utf8');
-    return await svgo.optimize(data, { path: filePath });
+    return await optimize(data, { path: filePath, ...svgoConfig });
 }
 
 async function postBuild() {
