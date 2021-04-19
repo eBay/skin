@@ -39,7 +39,7 @@ function getCSSRequireSyntax(filepath, ext) {
 
 function getJSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.indexOf('.css') === filepath.length - 4) {
+    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
     return `require('./${fullFilePath}');\n`;
@@ -115,7 +115,6 @@ async function generateTopLevelFiles() {
     const indexFiles = browserRemap.filter(
         (item) => config.skipIndex.indexOf(item.filename) === -1
     );
-
     const contentJS = indexFiles
         .map((item) => {
             return `require('./${item.filename}.js');\n`;
@@ -131,7 +130,6 @@ async function generateTopLevelFiles() {
             return `@import "./${item.filename}.css";\n`;
         })
         .join('');
-
     await fs.promises.writeFile(
         path.join(currentDir, 'browser.json'),
         prettier.format(JSON.stringify(browser), { parser: 'json' })
