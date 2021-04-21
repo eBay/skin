@@ -31,7 +31,7 @@ function getBrowserRequireSyntax(filename) {
 
 function getCSSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.indexOf('.css') === filepath.length - 4) {
+    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
     return `@import "./${fullFilePath}";\n`;
