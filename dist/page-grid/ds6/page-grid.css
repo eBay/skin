@@ -1,0 +1,46 @@
+.page-grid--debug {
+  --debug-grid-area-outline: 1px solid #111820;
+  --debug-grid-col-color: #ffd1dd;
+  --debug-grid-gutter-color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-dark-mode .page-grid--debug {
+    --debug-grid-area-outline: 1px solid #fff;
+    --debug-grid-col-color: #24bc6b;
+    --debug-grid-gutter-color: #111820;
+  }
+}
+.page-grid-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 0 16px;
+}
+.page-grid {
+  -webkit-column-gap: var(--page-grid-gutter-width-small);
+     -moz-column-gap: var(--page-grid-gutter-width-small);
+          column-gap: var(--page-grid-gutter-width-small);
+  display: grid;
+  grid-template-columns: repeat(8, var(--page-grid-col-width-small));
+  row-gap: 16px;
+  width: min(100%, 1280px);
+}
+/* prettier-ignore */
+.page-grid--debug {
+  background: -webkit-repeating-linear-gradient(left, var(--debug-grid-col-color) 0, var(--debug-grid-col-color) var(--page-grid-col-width-small), var(--debug-grid-gutter-color) var(--page-grid-col-width-small), var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-small) + var(--page-grid-gutter-width-small)));
+  background: repeating-linear-gradient(90deg, var(--debug-grid-col-color) 0, var(--debug-grid-col-color) var(--page-grid-col-width-small), var(--debug-grid-gutter-color) var(--page-grid-col-width-small), var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-small) + var(--page-grid-gutter-width-small)));
+}
+@media only screen and (min-width: 600px) {
+  .page-grid {
+    -webkit-column-gap: var(--page-grid-gutter-width-large);
+       -moz-column-gap: var(--page-grid-gutter-width-large);
+            column-gap: var(--page-grid-gutter-width-large);
+    grid-template-columns: repeat(16, var(--page-grid-col-width-large));
+  }
+  /* prettier-ignore */
+  .page-grid--debug {
+    background: -webkit-repeating-linear-gradient(left, var(--debug-grid-col-color) 0, var(--debug-grid-col-color) var(--page-grid-col-width-large), var(--debug-grid-gutter-color) var(--page-grid-col-width-large), var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-large) + var(--page-grid-gutter-width-large)));
+    background: repeating-linear-gradient(90deg, var(--debug-grid-col-color) 0, var(--debug-grid-col-color) var(--page-grid-col-width-large), var(--debug-grid-gutter-color) var(--page-grid-col-width-large), var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-large) + var(--page-grid-gutter-width-large)));
+  }
+}
