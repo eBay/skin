@@ -1,0 +1,42 @@
+.page-grid-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 @spacing-small;
+}
+
+.page-grid {
+    column-gap: var(--page-grid-gutter-width-small);
+    display: grid;
+    grid-template-columns: repeat(@page-grid-cols-small, var(--page-grid-col-width-small));
+    row-gap: @spacing-small;
+    width: ~"min(100%, 1280px)"; // https://stackoverflow.com/questions/17904088/disable-less-css-overwriting-calc
+}
+
+/* prettier-ignore */
+.page-grid--debug {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--debug-grid-col-color) 0,
+        var(--debug-grid-col-color) var(--page-grid-col-width-small),
+        var(--debug-grid-gutter-color) var(--page-grid-col-width-small),
+        var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-small) + var(--page-grid-gutter-width-small))
+    );
+}
+
+@media @breakpoint-3 {
+    .page-grid {
+        column-gap: var(--page-grid-gutter-width-large);
+        grid-template-columns: repeat(@page-grid-cols-large, var(--page-grid-col-width-large));
+    }
+
+    /* prettier-ignore */
+    .page-grid--debug {
+        background: repeating-linear-gradient(
+            90deg,
+            var(--debug-grid-col-color) 0,
+            var(--debug-grid-col-color) var(--page-grid-col-width-large),
+            var(--debug-grid-gutter-color) var(--page-grid-col-width-large),
+            var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-large) + var(--page-grid-gutter-width-large))
+        );
+    }
+}
