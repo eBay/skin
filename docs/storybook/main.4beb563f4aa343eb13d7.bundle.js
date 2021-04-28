@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{1270:function(module,exports,__webpack_require__){__webpack_require__(1271),__webpack_require__(1441),module.exports=__webpack_require__(2271)},1344:function(module,exports){},2271:function(module,exports,__webpack_require__){"use strict";__webpack_require__(531).addons.setConfig({refs:{}})}},[[1270,1,2]]]);

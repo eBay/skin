@@ -7,8 +7,7 @@ var pkg = require('./package.json');
 var flatten = require('gulp-flatten');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
-var LessPluginCleanCSS = require('less-plugin-clean-css');
-var cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true });
+var cleanCSS = require('gulp-clean-css');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var autoprefixPlugin = new LessPluginAutoPrefix();
 var distTarget = './dist';
@@ -56,7 +55,7 @@ function megabundle() {
             })
         )
         .pipe(less({ plugins: [autoprefixPlugin] }))
-        .pipe(less({ plugins: [cleanCSSPlugin] }))
+        .pipe(cleanCSS())
         .pipe(gulp.dest(docsStaticTarget))
         .pipe(gulp.dest(siteStaticTarget))
         .pipe(gulp.dest(cdnTarget));

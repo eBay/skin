@@ -1,0 +1,57 @@
+<div id="page-grid">
+    {% include common/section-header.html name="page-grid" version=page.versions.page-grid %}
+    <p>Setting up a page grid requires two key elements: a containing element, and the grid element itself.</p>
+    <p>The grid element sets up the columns and gutters on which its child elements can be positioned.</p>
+    <p>The container takes care of positioning the grid element in relation to the page (typically center aligned) and adds outside margins.</p>
+    <p>Any content that is <em>off-grid</em>, a full bleed banner for example, should be placed outside of these two elements.</p>
+
+    {% highlight html %}
+<div class="page-grid-container">
+    <div class="page-grid">
+        <!-- grid content goes here -->
+    </div>
+</div>
+    {% endhighlight %}
+
+    <p>Grid areas are definable with [CSS Grid syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area). The following CSS shows the grid layout of the Skin website itself.</p>
+
+    {% highlight css %}
+@media only screen and (min-width: 320px){
+    .site-nav {
+        display: none;
+    }
+
+    main {
+        grid-area: ~"1 / 1 / span 1 / span 8";
+    }
+
+    footer {
+        grid-area: ~"2 / 1 / span 1 / span 8";
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .site-nav {
+        grid-area: ~"1 / 1 / span 1 / span 3";
+    }
+
+    main {
+        grid-area: ~"1 / 4 / span 1 / span 13";
+    }
+
+    footer {
+        grid-area: ~"2 / 1 / span 1 / span 16";
+    }
+}
+
+@media only screen and (min-width: 968px) {
+    .site-nav {
+        grid-area: ~"1 / 1 / span 1 / span 2";
+    }
+
+    main {
+        grid-area: ~"1 / 3 / span 1 / span 14";
+    }
+}
+    {% endhighlight %}
+</div>
