@@ -391,20 +391,19 @@ The release notes should reference all issues inside the relevant milestone.
 
 ### Hotfix Release
 
-If the `master` branch is currently at `v7.0.x`, but we need to go back and apply a critical bug fix to `v6.3.x`, what do we do?
+If the `master` branch is currently at `v12.x`, but we need to go back and apply a critical bug fix to `v6.3.x`, what do we do?
 
-Git tags to the rescue! Git tags allow us to go back to any moment in time on our `master` branch that we have previously "tagged".
+Git tags to the rescue! Git tags allow us to go back to any moment in time that we have previously "tagged".
 
 **Do not try and push an entire feature in a hot fix!! A hotfix is allowed for small one-liner type fixes only.**
 
-1. Backup the current `master` branch on GitHub. You will need this backup if things go "pear shaped".
 1. Go to tags page: https://github.com/eBay/skin/tags
 1. Select the tag you'd like to go back in time to, e.g. https://github.com/eBay/skin/tree/v6.3.5
-1. Select the tag dropdown and create a new branch, e.g `hotfix-6.3.6`
-1. Git pull & checkout the new branch in your local machine, e.g. `git checkout hotfix-6.3.6`
-1. For your sanity, run `git log` to ensure branch only has commit history up to the selected tag
-1. Make your changes in the branch as usual then commit and push your branch
-1. Do your your NPM & CDN release from this hotfix branch
+1. Select the tag dropdown and create a new branch named accordingly, e.g `6.3.6`. This is the branch you will merge your PR to and do the release from.
+1. Create *another* branch for your local dev work, e.g. `1723-textbox-fix`.
+1. Now follow the [release steps](#final-release) mentioned above, but substituting `master` branch for your release branch (e.g. `6.3.6`) and milestone branch for your dev branch (e.g. `1723-textbox-fix`). **IMPORTANT:** No changes should be pushed to master branch!
+1. Don't forget to publish your new git tag (e.g. `v6.3.6`)
+1. Use `npm publish --tag hotfix` when publishing to NPM to tag this as a hotfix.
 
 ### Website Archive
 
