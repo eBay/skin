@@ -8,7 +8,11 @@ const { JSDOM } = jsdom;
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
 const { exec } = require('child_process');
-const files = [path.resolve(svgDir, 'ds6', 'icons.svg'), path.resolve(svgDir, 'ds4', 'icons.svg')];
+const files = [
+    path.resolve(svgDir, 'ds6', 'icons.svg'),
+    path.resolve(svgDir, 'ds6', 'program-badge.svg'),
+    path.resolve(svgDir, 'ds4', 'icons.svg'),
+];
 const { base64Config, svgoConfig } = config;
 
 async function runner(executer) {
