@@ -5,5 +5,4 @@ const helper = require('./generate-helper');
 
 helper.runner(async (data) => {
     const result = await helper.optimizeSVG(data.filePath);
-    await helper.writeSymbols(result, data.dsVersion);
 });

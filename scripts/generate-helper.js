@@ -8,7 +8,12 @@ const { JSDOM } = jsdom;
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
 const { exec } = require('child_process');
-const files = [path.resolve(svgDir, 'ds6', 'icons.svg'), path.resolve(svgDir, 'ds4', 'icons.svg')];
+const files = [
+    path.resolve(svgDir, 'ds6', 'icons.svg'),
+    path.resolve(svgDir, 'ds6', 'program-badges.svg'),
+    path.resolve(svgDir, 'ds4', 'icons.svg'),
+    path.resolve(svgDir, 'ds4', 'program-badges.svg'),
+];
 const { base64Config, svgoConfig } = config;
 
 async function runner(executer) {
@@ -45,14 +50,6 @@ async function postBuild() {
             return resolve();
         });
     });
-}
-
-async function writeSymbols(result, dsVersion) {
-    const fileOutput = rawSvgToHtml(result.data);
-    await fs.promises.writeFile(
-        `${currentDir}/docs/_includes/${dsVersion}/symbols.html`,
-        fileOutput
-    );
 }
 
 function rawSvgToHtml(data) {
@@ -135,7 +132,6 @@ module.exports = {
     SVGGenerator,
     optimizeSVG,
     postBuild,
-    writeSymbols,
     runner,
     rawSvgToHtml,
 };

@@ -1,0 +1,31 @@
+<div id="program-badge">
+    {% include common/section-header.html name="program-badge" version=page.versions.program-badge %}
+    <p>The table below displays all available program badges.</p>
+
+    <table cellpadding="0" cellspacing="0" class="icon-table">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>BADGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% assign programBadges = "authenticity-guaranteed, click-to-call, escrow, free-warranty, money-back-guarantee-chf, money-back-guarantee-eu, money-back-guarantee-uk, money-back-guarantee-us, money-back-guarantee-zl" | split: ", " %}
+            {% for programBadgeName in programBadges %}
+            <tr>
+                <td>{{ programBadgeName }}</td>
+                <td>
+                    <span class="demo">
+                        <span class="demo__inner">
+                            <svg aria-hidden="true" class="program-badge program-badge--{{ programBadgeName }}" focusable="false" height="24" width="24">
+                                {% include common/symbol.html name=programBadgeName type="badge" %}
+                            </svg>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
