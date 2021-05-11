@@ -138,7 +138,8 @@
     <h3 id="checkbox-group">Grouped Checkboxes</h3>
     <p>A group of checkboxes allows multi-select (unlike a group of radio buttons which enforces single-select).</p>
     <p>A <span class="highlight">fieldset</span> and <span class="highlight">legend</span> are <strong>required</strong> in order to create the correct grouping semantics. Note that the Skin <span class="highlight">global</span> module removes the default fieldset border and padding.</p>
-    <p><strong>TIP:</strong> To stack checkboxes vertically instead of side-by-side, simply replace the span wrapper with a div wrapper.</p>
+    <p>The following example uses the <a href="#field">field module</a> for simple layout of checkbox fields and labels.</p>
+
     <div class="demo">
         <div class="demo__inner">
             <fieldset>
@@ -234,6 +235,107 @@
         </span>
         <label class="field__label field__label--end" for="group-checkbox-3">Option 3</label>
     </span>
+</fieldset>
+    {% endhighlight %}
+
+    <p><strong>TIP</strong>: For large checkboxes, wrap each label and control inside of a <span class="highlight">field__group</span> element to maintain vertical alignment.</p>
+    <p>To stack checkboxes vertically instead of side-by-side, simply replace the span wrapper with a div wrapper.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <fieldset>
+                <legend>Choose an Option</legend>
+                <div class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-4" type="checkbox" value="1" name="checkbox-group" checked />
+                        <span class="checkbox__icon" hidden>
+                            <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-unchecked" %}
+                            </svg>
+                            <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-checked" %}
+                            </svg>
+                        </span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-4">Option 1</label>
+                </div>
+                <div class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-5" type="checkbox" value="2" name="checkbox-group" />
+                        <span class="checkbox__icon" hidden>
+                            <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-unchecked" %}
+                            </svg>
+                            <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-checked" %}
+                            </svg>
+                        </span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-5">Option 2</label>
+                </div>
+                <div class="field">
+                    <span class="checkbox field__control">
+                        <input class="checkbox__control" id="group-checkbox-6" type="checkbox" value="3" name="checkbox-group" />
+                        <span class="checkbox__icon" hidden>
+                            <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-unchecked" %}
+                            </svg>
+                            <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                                {% include common/symbol.html name="checkbox-checked" %}
+                            </svg>
+                        </span>
+                    </span>
+                    <label class="field__label field__label--end" for="group-checkbox-6">Option 3</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    {% highlight html %}
+<fieldset>
+    <legend>Choose an Option</legend>
+    <div class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-4" type="checkbox" value="1" name="checkbox-group" checked />
+            <span class="checkbox__icon" hidden>
+                <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-unchecked"></use>
+                </svg>
+                <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-4">Option 1</label>
+    </div>
+    <div class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-5" type="checkbox" value="2" name="checkbox-group" />
+            <span class="checkbox__icon" hidden>
+                <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-unchecked"></use>
+                </svg>
+                <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-5">Option 2</label>
+    </div>
+    <div class="field">
+        <span class="checkbox field__control">
+            <input class="checkbox__control" id="group-checkbox-6" type="checkbox" value="3" name="checkbox-group" />
+            <span class="checkbox__icon" hidden>
+                <svg class="checkbox__unchecked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-unchecked"></use>
+                </svg>
+                <svg class="checkbox__checked" focusable="false" height="18" width="18">
+                    <use xlink:href="#icon-checkbox-checked"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-6">Option 3</label>
+    </div>
 </fieldset>
     {% endhighlight %}
 </div>
