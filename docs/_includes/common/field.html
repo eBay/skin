@@ -1,6 +1,6 @@
 <div id="field">
     <h2><span class="secondary-text">@ebay/skin/</span>field</h2>
-    <p>The field module facilitates the layout of a form control and it's associated label, plus any other applicable text or sub-controls (e.g. error text or help button).</p>
+    <p>The field module facilitates the layout of a form control and its associated label, plus any other applicable text or sub-controls (e.g. error text or help button).</p>
 
     <h3 id="field-unstacked">Unstacked Field</h3>
     <p>The <span class="highlight">field__label</span> &amp; <span class="highlight">field__control</span> elements are inline by default, taking up only as much horizontal space as they need.</p>
@@ -70,7 +70,7 @@
 </span>
     {% endhighlight %}
 
-    <p>Replace the span tag with a div tag to layout fields in blocks, as per the following example.</p>
+    <p>Replace the span tag with a div tag to layout unstacked fields in blocks, as per the following example.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -105,6 +105,37 @@
         </div>
     </div>
 
+    {% highlight html %}
+<div class="field">
+    <label class="field__label" for="field1">Field 1</label>
+    <span class="field__control textbox">
+        <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
+    </span>
+</div>
+<div class="field">
+    <label class="field__label" for="field2">Field 2</label>
+    <span class="field__control">
+        <span class="select">
+            <select name="field2" id="field2">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </span>
+</div>
+<div class="field">
+    <label class="field__label" for="field3">Field 3</label>
+    <span class="field__control switch">
+        <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+        <span class="switch__button"></span>
+    </span>
+</div>
+    {% endhighlight %}
+
     <p>For a textarea, the label will be vertically aligned to the middle of the field by default. Apply the <span class="highlight">field--align-top</span> modifier to align it to the top.</p>
 
     <div class="demo">
@@ -112,11 +143,20 @@
             <span class="field field--align-top">
                 <label class="field__label" for="field-textarea-1">Field 1</label>
                 <span class="field__control textbox">
-                    <textarea class="textbox__control" id="field-textarea-1" type="text" placeholder="placeholder text"></textarea>
+                    <textarea class="textbox__control" id="field-textarea-1"></textarea>
                 </span>
             </span>
         </div>
     </div>
+
+{% highlight html %}
+<span class="field field--align-top">
+    <label class="field__label" for="field-textarea-1">Field 1</label>
+    <span class="field__control textbox">
+        <textarea class="textbox__control" id="field-textarea-1"></textarea>
+    </span>
+</span>
+{% endhighlight %}
 
     <h3 id="field-stacked">Stacked Field</h3>
     <p>For a label stacked above the control, use the <span class="highlight">field__label--stacked</span> element modifier.</p>
@@ -221,54 +261,18 @@
         </div>
     </div>
 
-    <h3 id="field-fontsize">Field Font-Size</h3>
-    <p>The field label will honour any font-size cascade (so be careful if this is not your intention!).</p>
-    <p>Notice that form controls do not inherit the cascade. This is default browser behaviour.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="field" style="font-size: 18px;">
-                <label class="field__label" for="field-fontsize-1">Field 1</label>
-                <span class="field__control textbox textbox--large">
-                    <input class="textbox__control" id="field-fontsize-1" type="text" placeholder="placeholder text" />
-                </span>
-            </span>
-            <span class="field" style="font-size: 18px;">
-                <label class="field__label" for="field-fontsize-2">Field 2</label>
-                <span class="field__control">
-                    <span class="select">
-                        <select name="field-fontsize-2" id="field-fontsize-2">
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include common/symbol.html name="dropdown" %}
-                        </svg>
-                    </span>
-                </span>
-            </span>
-            <span class="field" style="font-size: 18px;">
-                <label class="field__label" for="field-fontsize-3">Field 3</label>
-                <span class="field__control switch switch--form">
-                    <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-fontsize-3" />
-                    <span class="switch__button"></span>
-                </span>
-            </span>
-        </div>
-    </div>
     {% highlight html %}
-<span class="field" style="font-size: 18px;">
-    <label class="field__label" for="email">Field 1</label>
-    <span class="field__control textbox textbox--large">
+<div class="field">
+    <label class="field__label field__label--stacked" for="field1">Field 1</label>
+    <span class="textbox">
         <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
     </span>
-</span>
-<span class="field" style="font-size: 18px;">
-    <label class="field__label" for="size">Field 2</label>
+</div>
+<div class="field">
+    <label class="field__label field__label--stacked" for="field2">Field 2</label>
     <span class="field__control">
         <span class="select">
-            <select name="size" id="size">
+            <select name="field2" id="field2">
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
@@ -278,12 +282,91 @@
             </svg>
         </span>
     </span>
-</span>
-<span class="field" style="font-size: 18px;">
-    <label class="field__label" for="field3">Field 3</label>
+</div>
+<span class="field">
+    <label class="field__label field__label--stacked">Field 3</label>
     <span class="field__control switch">
         <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
         <span class="switch__button"></span>
+    </span>
+</div>
+    {% endhighlight %}
+
+    <h3 id="field-fontsize">Field Font-Size</h3>
+    <p>The field label will honour any font-size cascade. Wrap the label and control in a <span class="highlight">field__group</span> element to maintain vertical alignment.</p>
+    <p><strong>NOTE</strong>: form controls do not inherit the font-size cascade. This is default browser behaviour.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="field" style="font-size: 18px;">
+                <span class="field__group">
+                    <label class="field__label" for="field-fontsize-1">Field 1</label>
+                    <span class="field__control textbox">
+                        <input class="textbox__control" id="field-fontsize-1" type="text" placeholder="placeholder text" />
+                    </span>
+                </span>
+            </span>
+            <span class="field" style="font-size: 18px;">
+                <span class="field__group">
+                    <label class="field__label" for="field-fontsize-2">Field 2</label>
+                    <span class="field__control">
+                        <span class="select">
+                            <select name="field-fontsize-2" id="field-fontsize-2">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                                {% include common/symbol.html name="dropdown" %}
+                            </svg>
+                        </span>
+                    </span>
+                </span>
+            </span>
+            <span class="field" style="font-size: 18px;">
+                <span class="field__group">
+                    <label class="field__label" for="field-fontsize-3">Field 3</label>
+                    <span class="field__control switch switch--form">
+                        <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field-fontsize-3" />
+                        <span class="switch__button"></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="field" style="font-size: 18px;">
+    <span class="field__group">
+        <label class="field__label" for="email">Field 1</label>
+        <span class="field__control textbox">
+            <input class="textbox__control" id="field1" type="text" placeholder="placeholder text" />
+        </span>
+    </span>
+</span>
+<span class="field" style="font-size: 18px;">
+    <span class="field__group">
+        <label class="field__label" for="size">Field 2</label>
+        <span class="field__control">
+            <span class="select">
+                <select name="size" id="size">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use xlink:href="#icon-dropdown"></use>
+                </svg>
+            </span>
+        </span>
+    </span>
+</span>
+<span class="field" style="font-size: 18px;">
+    <span class="field__group">
+        <label class="field__label" for="field3">Field 3</label>
+        <span class="field__control switch">
+            <input aria-label="Switch Demo" class="switch__control" role="switch" type="checkbox" id="field3" />
+            <span class="switch__button"></span>
+        </span>
     </span>
 </span>
     {% endhighlight %}
