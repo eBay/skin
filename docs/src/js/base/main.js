@@ -26,7 +26,7 @@ const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const Combobox = require('./combobox.js');
 const DialogButton = require('./dialog-button.js');
 const Listbox = require('makeup-listbox');
-const ListboxButton = require('./listbox-button.js');
+const ListboxButton = require('makeup-listbox-button');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
 const Switch = require('makeup-switch');
@@ -241,11 +241,9 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-    pageWidgets.push(new ListboxButton(widgetEl, {
-        labelSelector: '.expand-btn__text'
-    }));
+    pageWidgets.push(new ListboxButton(widgetEl));
 
-    widgetEl.addEventListener('listbox-button-change', function(e) {
+    widgetEl.addEventListener('makeup-listbox-button-change', function(e) {
         console.log(e.type, e.detail);
     });
 });
