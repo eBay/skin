@@ -7,7 +7,7 @@
 */
 
 const Expander = require('makeup-expander');
-const Listbox = require('./listbox.js');
+const Listbox = require('makeup-listbox');
 
 function onButtonFirstClick() {
     this.listbox.el.hidden = false;
@@ -93,7 +93,7 @@ module.exports = class {
         this._buttonEl.removeEventListener('click', this._onButtonFirstClickListener);
         this.listbox.el.removeEventListener('click', this._onListboxClickListener);
         this.listbox.el.removeEventListener('keydown', this._onListboxKeyDownListener);
-        this.listbox.el.removeEventListener('listbox-change', this._onListboxChangeListener);
+        this.listbox.el.removeEventListener('makeup-listbox-change', this._onListboxChangeListener);
     }
 
     wake() {
@@ -101,7 +101,7 @@ module.exports = class {
             this._buttonEl.addEventListener('click', this._onButtonFirstClickListener, { once: true });
             this.listbox.el.addEventListener('click', this._onListboxClickListener);
             this.listbox.el.addEventListener('keydown', this._onListboxKeyDownListener);
-            this.listbox.el.addEventListener('listbox-change', this._onListboxChangeListener);
+            this.listbox.el.addEventListener('makeup-listbox-change', this._onListboxChangeListener);
         }
     }
 

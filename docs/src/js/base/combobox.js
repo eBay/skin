@@ -7,7 +7,7 @@
 */
 
 const Expander = require('makeup-expander');
-const Listbox = require('./listbox.js');
+const Listbox = require('makeup-listbox');
 const Util = require('./util.js');
 
 function onInputFocus() {

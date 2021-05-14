@@ -25,11 +25,11 @@ const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const Combobox = require('./combobox.js');
 const DialogButton = require('./dialog-button.js');
-const Listbox = require('./listbox.js');
+const Listbox = require('makeup-listbox');
 const ListboxButton = require('./listbox-button.js');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
-const Switch = require('makeup-switch-class');
+const Switch = require('makeup-switch');
 
 let progressBarInterval;
 
@@ -235,7 +235,7 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         autoSelect: widgetEl.dataset.autoSelect === 'true'
     }));
 
-    widgetEl.addEventListener('listbox-change', function(e) {
+    widgetEl.addEventListener('makeup-listbox-change', function(e) {
         console.log(e.type, e.detail);
     });
 });
