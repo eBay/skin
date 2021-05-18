@@ -59,11 +59,21 @@
 .carousel__list--image-treatment > li {
   -webkit-box-align: center;
           align-items: center;
-  background-color: rgba(0, 0, 0, 0.05);
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
+  position: relative;
+}
+.carousel__list--image-treatment > li::after {
+  background: rgba(0, 0, 0, 0.05);
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .carousel__list--image-treatment > li > img {
   display: inline-block;
@@ -251,5 +261,25 @@ span.carousel__container {
     div.carousel {
       margin: 16px 0;
     }
+  }
+}
+.carousel.carousel--hidden-scrollbar:not(.carousel__autoplay) {
+  overflow: hidden;
+}
+.carousel--hidden-scrollbar .carousel__container {
+  margin-bottom: -80px;
+}
+.carousel--hidden-scrollbar .carousel__container .carousel__control {
+  margin-top: -40px;
+}
+.carousel--hidden-scrollbar .carousel__container .carousel__list {
+  padding-bottom: 80px;
+}
+@media (prefers-color-scheme: dark) {
+  .skin-experiment-dark-mode .carousel {
+    --carousel-paddle-background-color: #171717;
+    --carousel-paddle-foreground-color: #dcdcdc;
+    --carousel-playback-background-color: #171717;
+    --carousel-playback-foreground-color: #dcdcdc;
   }
 }

@@ -23,13 +23,13 @@ const RovingTabindex = require('makeup-roving-tabindex');
 const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
-const Combobox = require('./combobox.js');
+const Combobox = require('makeup-combobox');
 const DialogButton = require('./dialog-button.js');
-const Listbox = require('./listbox.js');
-const ListboxButton = require('./listbox-button.js');
+const Listbox = require('makeup-listbox');
+const ListboxButton = require('makeup-listbox-button');
 const Menu = require('./menu.js');
 const MenuButton = require('./menu-button.js');
-const Switch = require('makeup-switch-class');
+const Switch = require('makeup-switch');
 
 let progressBarInterval;
 
@@ -71,21 +71,10 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
 });
 
 // COMBOBOX
-document.querySelectorAll('.combobox:not(.combobox--readonly)').forEach(function(widgetEl) {
-    pageWidgets.push(new Combobox(widgetEl, {
-        autoSelect: false
-    }));
-
-    widgetEl.addEventListener('combobox-change', function(e) {
-        console.log(e.type, e.detail);
-    });
-});
-
-// READONLY COMBOBOX
-document.querySelectorAll('.combobox--readonly').forEach(function(widgetEl) {
+document.querySelectorAll('.combobox').forEach(function(widgetEl) {
     pageWidgets.push(new Combobox(widgetEl));
 
-    widgetEl.addEventListener('combobox-change', function(e) {
+    widgetEl.addEventListener('makeup-combobox-change', function(e) {
         console.log(e.type, e.detail);
     });
 });
@@ -235,17 +224,15 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         autoSelect: widgetEl.dataset.autoSelect === 'true'
     }));
 
-    widgetEl.addEventListener('listbox-change', function(e) {
+    widgetEl.addEventListener('makeup-listbox-change', function(e) {
         console.log(e.type, e.detail);
     });
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-    pageWidgets.push(new ListboxButton(widgetEl, {
-        labelSelector: '.expand-btn__text'
-    }));
+    pageWidgets.push(new ListboxButton(widgetEl));
 
-    widgetEl.addEventListener('listbox-button-change', function(e) {
+    widgetEl.addEventListener('makeup-listbox-button-change', function(e) {
         console.log(e.type, e.detail);
     });
 });
