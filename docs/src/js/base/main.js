@@ -27,8 +27,8 @@ const Combobox = require('makeup-combobox');
 const DialogButton = require('./dialog-button.js');
 const Listbox = require('makeup-listbox');
 const ListboxButton = require('makeup-listbox-button');
-const Menu = require('./menu.js');
-const MenuButton = require('./menu-button.js');
+const Menu = require('makeup-menu');
+const MenuButton = require('makeup-menu-button');
 const Switch = require('makeup-switch');
 
 let progressBarInterval;
@@ -74,9 +74,7 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
 document.querySelectorAll('.combobox').forEach(function(widgetEl) {
     pageWidgets.push(new Combobox(widgetEl));
 
-    widgetEl.addEventListener('makeup-combobox-change', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('makeup-combobox-change', (e) => console.log(e.type, e.detail));
 });
 
 // CONFIRM-DIALOG
@@ -224,17 +222,13 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         autoSelect: widgetEl.dataset.autoSelect === 'true'
     }));
 
-    widgetEl.addEventListener('makeup-listbox-change', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('makeup-listbox-change', (e) => console.log(e.type, e.detail));
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
     pageWidgets.push(new ListboxButton(widgetEl));
 
-    widgetEl.addEventListener('makeup-listbox-button-change', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('makeup-listbox-button-change', (e) => console.log(e.type, e.detail));
 });
 
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
@@ -243,17 +237,8 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
         buttonTextSelector: `.expand-btn__text`
     });
 
-    widget.menu.el.addEventListener('menu-select', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widget.menu.el.addEventListener('menu-change', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widget.menu.el.addEventListener('menu-toggle', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widget.menu.el.addEventListener('makeup-menu-select', (e) => console.log(e.type, e.detail));
+    widget.menu.el.addEventListener('makeup-menu-change', (e) => console.log(e.type, e.detail));
 });
 
 document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').forEach(function(widgetEl) {
@@ -262,49 +247,23 @@ document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').
         menuSelector: '.filter-menu-button__menu'
     });
 
-    widget.menu.el.addEventListener('menu-select', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widget.menu.el.addEventListener('menu-change', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widget.menu.el.addEventListener('menu-toggle', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widget.menu.el.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
+    widget.menu.el.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
 });
 
 document.querySelectorAll('.menu').forEach(function(widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
 
-    widgetEl.addEventListener('menu-select', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widgetEl.addEventListener('menu-change', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widgetEl.addEventListener('menu-toggle', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('makeup-menu-select',  (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('makeup-menu-change',  (e) => console.log(e.type, e.detail));
 });
 
 document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
 
-    widgetEl.addEventListener('menu-select', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widgetEl.addEventListener('menu-change', function(e) {
-        console.log(e.type, e.detail);
-    });
-
-    widgetEl.addEventListener('menu-toggle', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
 });
 
 // SWITCH - CHECKBOX/FORM VERSION
@@ -324,9 +283,7 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
         }
     }));
 
-    widgetEl.addEventListener('makeup-switch-toggle', function(e) {
-        console.log(e.type, e.detail);
-    });
+    widgetEl.addEventListener('makeup-switch-toggle',  (e) => console.log(e.type, e.detail));
 });
 
 // TOAST (non-modal dialog)
