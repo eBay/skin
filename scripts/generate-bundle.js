@@ -5,8 +5,8 @@ const path = require('path');
 const less = require('less');
 const fs = require('fs');
 const pkg = require('../package.json');
-const LessPluginCleanCSS = require('./less-plugin-clean-css');
-const cleanCSSPlugin = new LessPluginCleanCSS({ advanced: true });
+const CleanCSS = require('clean-css');
+const cleanCSSInstance = new CleanCSS({ advanced: true });
 const LessPluginAutoPrefix = require('less-plugin-autoprefix');
 const autoprefixPlugin = new LessPluginAutoPrefix();
 const currentDir = path.dirname(__dirname);
@@ -39,8 +39,8 @@ class CssProcesser {
     run() {
         return this.generateLESS()
             .then((raw) => this.compileLess(raw, autoprefixPlugin))
-            .then((raw) => this.compileLess(raw, cleanCSSPlugin))
-            .then((raw) => this.writeAllFiles(raw))
+            .then((raw) => cleanCSSInstance.minify(raw))
+            .then((raw) => this.writeAllFiles(raw.styles))
             .catch((e) => console.error(e));
     }
 
@@ -129,8 +129,8 @@ class CssProcesser {
     }
 
     writeAllFiles(raw) {
-        const path = getCDNPath(this.args.name, this.dsVersion);
-        return makeDir(path).then(() => writeFile(`${path}/skin.min.css`, raw));
+        const cdnPath = getCDNPath(this.args.name, this.dsVersion);
+        return makeDir(cdnPath).then(() => writeFile(`${cdnPath}/skin.min.css`, raw));
     }
 }
 
@@ -159,9 +159,9 @@ function prebuild() {
     });
 }
 
-function makeDir(path) {
+function makeDir(dirPath) {
     return new Promise((resolve, reject) => {
-        fs.mkdir(path, { recursive: true }, (err) => {
+        fs.mkdir(dirPath, { recursive: true }, (err) => {
             if (err) {
                 return reject(err);
             }
@@ -198,7 +198,7 @@ function runCSSBuild(name, args) {
         )
         .then(() => {
             console.log(`Bundles created successfully!
-Please upload the ./_cdn/${args.name}/${pkg.version} directory to CDN
+Please upload the ./_cdn/${args.name}/v${pkg.version} directory to CDN
 `);
         })
         .catch((e) => {
