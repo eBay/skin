@@ -24,7 +24,7 @@ const Expander = require('makeup-expander');
 const FloatingLabel = require('makeup-floating-label');
 const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
 const Combobox = require('makeup-combobox');
-const DialogButton = require('./dialog-button.js');
+const DialogButton = require('makeup-dialog-button');
 const Listbox = require('makeup-listbox');
 const ListboxButton = require('makeup-listbox-button');
 const Menu = require('makeup-menu');
@@ -32,6 +32,9 @@ const MenuButton = require('makeup-menu-button');
 const Switch = require('makeup-switch');
 
 let progressBarInterval;
+
+const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no-console
+// const nodeListToArray = (nodeList) => Array.prototype.slice.call(nodeList);
 
 // MIXED CHECKBOX
 document.querySelectorAll('.checkbox input[aria-checked="mixed"]').forEach(function(el) {
@@ -74,39 +77,16 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
 document.querySelectorAll('.combobox').forEach(function(widgetEl) {
     pageWidgets.push(new Combobox(widgetEl));
 
-    widgetEl.addEventListener('makeup-combobox-change', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('makeup-combobox-change', logEvent);
 });
 
-// CONFIRM-DIALOG
-document.querySelectorAll('.dialog-confirm-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'confirm-dialog' }));
-});
-
-// LIGHTBOX-DIALOG
-document.querySelectorAll('.dialog-lightbox-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'lightbox-dialog' }));
-});
-
-// FULLSCREEN-DIALOG
-document.querySelectorAll('.dialog-fullscreen-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'fullscreen-dialog' }));
-});
-
-// PANEL-DIALOG
-document.querySelectorAll('.dialog-panel-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'panel-dialog' }));
-});
-
-// DRAWER (modal dialog)
-document.querySelectorAll('.dialog-drawer-button').forEach(function(widgetEl) {
-    const widget = new DialogButton(widgetEl, { dialogBaseClass: 'drawer-dialog' });
-
+// DIALOGS
+document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
+    const widget = new DialogButton(widgetEl);
     pageWidgets.push(widget);
 
-    // this bit is a little hacky until I create a drawer.js subclass
-    widget.dialog._el.querySelector('.drawer-dialog__handle').addEventListener('click', function() {
-        widget.dialog._el.querySelector('.drawer-dialog__window').classList.toggle('drawer-dialog__window--expanded');
-    });
+    widget.dialog._el.addEventListener('dialog-open', logEvent);
+    widget.dialog._el.addEventListener('dialog-close', logEvent);
 });
 
 // TOOLTIP
@@ -222,13 +202,13 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
         autoSelect: widgetEl.dataset.autoSelect === 'true'
     }));
 
-    widgetEl.addEventListener('makeup-listbox-change', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('makeup-listbox-change', logEvent);
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
     pageWidgets.push(new ListboxButton(widgetEl));
 
-    widgetEl.addEventListener('makeup-listbox-button-change', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('makeup-listbox-button-change', logEvent);
 });
 
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
@@ -237,8 +217,8 @@ document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
         buttonTextSelector: `.expand-btn__text`
     });
 
-    widget.menu.el.addEventListener('makeup-menu-select', (e) => console.log(e.type, e.detail));
-    widget.menu.el.addEventListener('makeup-menu-change', (e) => console.log(e.type, e.detail));
+    widget.menu.el.addEventListener('makeup-menu-select', logEvent);
+    widget.menu.el.addEventListener('makeup-menu-change', logEvent);
 });
 
 document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').forEach(function(widgetEl) {
@@ -247,23 +227,23 @@ document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').
         menuSelector: '.filter-menu-button__menu'
     });
 
-    widget.menu.el.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
-    widget.menu.el.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
+    widget.menu.el.addEventListener('menu-select', logEvent);
+    widget.menu.el.addEventListener('menu-change', logEvent);
 });
 
 document.querySelectorAll('.menu').forEach(function(widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
 
-    widgetEl.addEventListener('makeup-menu-select',  (e) => console.log(e.type, e.detail));
-    widgetEl.addEventListener('makeup-menu-change',  (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('makeup-menu-select', logEvent);
+    widgetEl.addEventListener('makeup-menu-change', logEvent);
 });
 
 document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
 
-    widgetEl.addEventListener('menu-select', (e) => console.log(e.type, e.detail));
-    widgetEl.addEventListener('menu-change', (e) => console.log(e.type, e.detail));
-    widgetEl.addEventListener('menu-toggle', (e) => console.log(e.type, e.detail));
+    widgetEl.addEventListener('menu-select', logEvent);
+    widgetEl.addEventListener('menu-change', logEvent);
+    widgetEl.addEventListener('menu-toggle', logEvent);
 });
 
 // SWITCH - CHECKBOX/FORM VERSION
@@ -283,15 +263,5 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
         }
     }));
 
-    widgetEl.addEventListener('makeup-switch-toggle',  (e) => console.log(e.type, e.detail));
-});
-
-// TOAST (non-modal dialog)
-document.querySelectorAll('.dialog-toast-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'toast-dialog' }));
-});
-
-// SNACKBAR (non-modal dialog)
-document.querySelectorAll('.dialog-snackbar-button').forEach(function(widgetEl) {
-    pageWidgets.push(new DialogButton(widgetEl, { dialogBaseClass: 'snackbar-dialog', dialogAutoDismiss: true }));
+    widgetEl.addEventListener('makeup-switch-toggle', logEvent);
 });
