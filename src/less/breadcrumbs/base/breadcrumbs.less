@@ -7,17 +7,13 @@ nav.breadcrumbs {
     height: fit-content;
     margin: 8px 0;
     min-height: 16px;
-    overflow: hidden; // causing font zoom & keyboard focus issues (#927)
-    position: relative;
-    white-space: nowrap;
 
     ul {
         display: flex;
-        list-style-type: none;
+        flex-wrap: wrap;
         margin: 0;
         min-width: 100%;
         padding: 0;
-        position: absolute;
         right: 0;
     }
 
@@ -26,6 +22,7 @@ nav.breadcrumbs {
     li {
         align-items: center;
         display: flex;
+        flex-wrap: wrap;
     }
 
     li svg {
@@ -54,7 +51,7 @@ nav.breadcrumbs {
     a,
     button {
         color: inherit;
-        outline-offset: -4px; // needed because of hidden overflow
+        outline-offset: 5px;
 
         &:focus,
         &:hover {
@@ -76,6 +73,21 @@ nav.breadcrumbs {
         &:not(:focus-visible) {
             outline: none;
         }
+    }
+}
+
+nav.breadcrumbs--scroll {
+    min-height: 32px; // to see and interact with the scroll bar easier
+    overflow: scroll;
+    position: relative;
+    white-space: nowrap;
+
+    li {
+        display: inline;
+    }
+
+    ul {
+        display: inline;
     }
 }
 
