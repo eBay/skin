@@ -5,10 +5,12 @@ const path = require('path');
 const less = require('less');
 const fs = require('fs');
 const pkg = require('../package.json');
+const rimraf = require('rimraf');
 const CleanCSS = require('clean-css');
-const cleanCSSInstance = new CleanCSS({ advanced: true });
-const LessPluginAutoPrefix = require('less-plugin-autoprefix');
-const autoprefixPlugin = new LessPluginAutoPrefix();
+const cleanCSSInstance = new CleanCSS({
+    advanced: true,
+    promise: true,
+});
 const currentDir = path.dirname(__dirname);
 const { exec } = require('child_process');
 const bodyMatch = new RegExp('body ?({(?:.|\\s|\\S)*?})', 'm');
@@ -36,10 +38,14 @@ class CssProcesser {
         this.classDef = classDef;
     }
 
+    get minify() {
+        return this.args.minify !== false;
+    }
+
     run() {
         return this.generateLESS()
-            .then((raw) => this.compileLess(raw, autoprefixPlugin))
-            .then((raw) => cleanCSSInstance.minify(raw))
+            .then((raw) => this.compileLess(raw))
+            .then((raw) => (this.minify ? cleanCSSInstance.minify(raw) : { styles: raw }))
             .then((raw) => this.writeAllFiles(raw.styles))
             .catch((e) => console.error(e));
     }
@@ -70,10 +76,8 @@ class CssProcesser {
             return `body ${this.classDef} ${body[1]}
       ${this.wrap(newContents)}
      `;
-        } else {
-            this.wrap(cssContents);
         }
-        return newCssContents;
+        return this.wrap(cssContents);
     }
 
     /**
@@ -124,13 +128,16 @@ class CssProcesser {
         return this.getDistCss(this.dsVersion).then((files) => this.processFiles(files));
     }
 
-    compileLess(raw, plugin) {
-        return less.render(raw, { plugins: [plugin] }).then((render) => render.css);
+    compileLess(raw) {
+        return less.render(raw).then((render) => render.css);
     }
 
     writeAllFiles(raw) {
         const cdnPath = getCDNPath(this.args.name, this.dsVersion);
-        return makeDir(cdnPath).then(() => writeFile(`${cdnPath}/skin.min.css`, raw));
+        rimraf.sync(cdnPath);
+        return makeDir(cdnPath).then(() =>
+            writeFile(`${cdnPath}/skin.${this.minify ? 'min.' : ''}css`, raw)
+        );
     }
 }
 
@@ -241,6 +248,11 @@ require('yargs') // eslint-disable-line
                 .option('scope-class', {
                     describe: 'Scoped class to prefix bundle with',
                     default: '',
+                })
+                .option('no-minify', {
+                    describe:
+                        'Skips minify stage. Should set this when another bundler like lasso will be used.',
+                    type: 'boolean',
                 })
                 .option('scope-specificity', {
                     describe: 'How many times to repeat scope',
