@@ -16,7 +16,7 @@ span.listbox-button--fluid .expand-btn {
 }
 
 div.listbox-button__listbox {
-    .dropdown();
+    .dropdown-base();
 }
 
 button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
@@ -27,7 +27,6 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
     .customBorderColorProperty(listbox-button-invalid-border-color);
 }
 
-// todo: refactor to use a button mixin rather than .expand-btn class
 .listbox-button button.expand-btn--borderless {
     background-color: transparent;
     border-color: transparent;
@@ -45,18 +44,14 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
-    .customBackgroundColorProperty(dropdown-item-hover-background-color);
+    .customBackgroundColorProperty(listbox-option-hover-background-color);
+    .customColorProperty(listbox-option-hover-foreground-color);
 }
 
 .listbox-button__option svg.icon {
-    .dropdown-status();
+    .listbox-option-status();
 
     margin-left: 8px;
-}
-
-[dir="rtl"] .listbox-button__option svg.icon {
-    margin-left: 0;
-    margin-right: 8px;
 }
 
 div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
@@ -64,17 +59,18 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
 }
 
 div.listbox-button__option[role="option"]:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .customColorProperty(listbox-option-active-status-color);
 }
 
 div.listbox-button__option[role="option"] {
-    .dropdown-option-base();
+    .listbox-option-base();
+    .dropdown-item-border-radius();
 
     cursor: default; // needed to override text cursor
 }
 
 div.listbox-button__option--active[role="option"] {
-    font-weight: @listbox-button-item-active-font-weight;
+    font-weight: @listbox-button-option-active-font-weight;
 }
 
 span.listbox-button__value {
@@ -88,15 +84,24 @@ span.listbox-button__value {
     outline: none;
 }
 
+// stylelint-disable no-descending-specificity
+[dir="rtl"] {
+    .listbox-button__option svg.icon {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+}
+// stylelint-enable no-descending-specificity
+
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         .listbox-button {
-            --dropdown-items-background-color: @color-black-dark-mode;
-            --dropdown-items-border-color: @color-black-dark-mode;
-            --dropdown-item-background-color: @color-black-dark-mode;
-            --dropdown-item-foreground-color: @color-text-default-dark-mode;
-            --dropdown-item-border-color: @color-black-dark-mode;
-            --dropdown-item-hover-foreground-color: @color-text-default;
+            --dropdown-background-color: @color-black-dark-mode;
+            --dropdown-border-color: @color-black-dark-mode;
+            --listbox-option-background-color: @color-black-dark-mode;
+            --listbox-option-foreground-color: @color-text-default-dark-mode;
+            --listbox-option-border-color: @color-black-dark-mode;
+            --listbox-option-hover-foreground-color: @color-text-default;
         }
     }
 }

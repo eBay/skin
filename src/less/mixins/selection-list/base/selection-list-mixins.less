@@ -1,0 +1,70 @@
+.selection-list-item-base() {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    display: inline-flex;
+    font-family: inherit;
+    justify-content: space-between;
+    padding: @selection-list-item-padding;
+    width: 100%;
+
+    &:not(:last-child) {
+        margin-bottom: 1px;
+    }
+
+    &:focus {
+        outline-offset: -4px; // offset to accomodate hidden overflow
+    }
+}
+
+.selection-list-item-status() {
+    align-self: center;
+    fill: currentColor;
+    height: 8px;
+    margin: 0 auto;
+    opacity: 0;
+    stroke: currentColor;
+    stroke-width: 0;
+    width: 8px;
+}
+
+.listbox-option-base() {
+    .selection-list-item-base();
+
+    .customBorderColorProperty(listbox-option-border-color);
+    .customColorProperty(listbox-option-foreground-color);
+
+    &:hover {
+        .customBackgroundColorProperty(listbox-option-hover-background-color);
+        .customColorProperty(listbox-option-hover-foreground-color);
+    }
+
+    &:active {
+        font-weight: @listbox-option-active-font-weight;
+    }
+}
+
+.listbox-option-status() {
+    .selection-list-item-status();
+}
+
+.menu-menuitem-base() {
+    .selection-list-item-base();
+
+    .customBorderColorProperty(menu-menuitem-border-color);
+    .customColorProperty(menu-menuitem-foreground-color);
+
+    &:hover {
+        .customBackgroundColorProperty(menu-menuitem-hover-background-color);
+        .customColorProperty(menu-menuitem-hover-foreground-color);
+    }
+
+    &:active {
+        font-weight: @menu-menuitem-active-font-weight;
+    }
+}
+
+.menu-menuitem-status() {
+    .selection-list-item-status();
+}
