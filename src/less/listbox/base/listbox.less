@@ -10,7 +10,7 @@ span.listbox {
 }
 
 div.listbox__options[role="listbox"] {
-    .customBackgroundColorProperty(dropdown-items-background-color);
+    .customBackgroundColorProperty(listbox-background-color);
 
     cursor: default; // needed to override text cursor
 }
@@ -28,7 +28,7 @@ div.listbox__options--reverse[role="listbox"] {
 }
 
 div.listbox__option[role="option"] {
-    .dropdown-option-base();
+    .listbox-option-base();
 }
 
 span.listbox__value {
@@ -38,7 +38,7 @@ span.listbox__value {
 }
 
 div.listbox__option svg.icon {
-    .dropdown-status();
+    .listbox-option-status();
 
     margin-left: 8px;
 }
@@ -49,8 +49,8 @@ div.listbox__option svg.icon {
 }
 
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
-    .customBackgroundColorProperty(dropdown-item-hover-background-color);
-    .customColorProperty(dropdown-item-hover-foreground-color);
+    .customBackgroundColorProperty(listbox-option-hover-background-color);
+    .customColorProperty(listbox-option-hover-foreground-color);
 }
 
 div.listbox__option[aria-selected="true"] svg.icon {
@@ -58,7 +58,7 @@ div.listbox__option[aria-selected="true"] svg.icon {
 }
 
 div.listbox__option[role="option"]:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .customColorProperty(listbox-option-active-status-color);
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -69,12 +69,11 @@ div.listbox__option[role="option"]:active svg.icon {
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         .listbox {
-            --dropdown-items-background-color: @color-black-dark-mode;
-            --dropdown-items-border-color: @color-black-dark-mode;
-            --dropdown-item-background-color: @color-black-dark-mode;
-            --dropdown-item-foreground-color: @color-text-default-dark-mode;
-            --dropdown-item-border-color: @color-black-dark-mode;
-            --dropdown-item-hover-foreground-color: @color-text-default;
+            --listbox-background-color: @color-black-dark-mode;
+            --listbox-option-background-color: @color-black-dark-mode;
+            --listbox-option-foreground-color: @color-text-default-dark-mode;
+            --listbox-option-border-color: @color-black-dark-mode;
+            --listbox-option-hover-foreground-color: @color-text-default;
         }
     }
 }
