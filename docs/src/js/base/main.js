@@ -45,6 +45,17 @@ document.querySelectorAll('.checkbox input[aria-checked="mixed"]').forEach(funct
     });
 });
 
+// BREADCRUMBS
+
+document.querySelectorAll('.breadcrumbs').forEach(function(el) {
+    const width = el.offsetWidth;
+    const scrollLength = el.scrollWidth;
+    const difference = scrollLength - width;
+    if (difference) {
+        el.scroll(difference, 0);
+    }
+})
+
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
 document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
