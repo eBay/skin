@@ -2,7 +2,7 @@
 
 .menu__items,
 .fake-menu__items {
-    .customBackgroundColorProperty(dropdown-items-background-color);
+    .customBackgroundColorProperty(menu-background-color);
 
     cursor: default; // override text cursor
 }
@@ -26,7 +26,7 @@ span.fake-menu__items {
 
 .menu__item > svg.icon,
 .fake-menu__item > svg.icon {
-    .dropdown-status();
+    .menu-menuitem-status();
 }
 
 .menu__item > svg.icon:last-child,
@@ -37,7 +37,7 @@ span.fake-menu__items {
 }
 
 a.fake-menu__item {
-    .customColorProperty(dropdown-fake-anchor-color);
+    .customColorProperty(menu-anchor-color);
 
     text-decoration: none;
 }
@@ -49,7 +49,7 @@ button.fake-menu__item {
 button.fake-menu__item,
 a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
-    .dropdown-option-base();
+    .menu-menuitem-base();
 }
 
 a.fake-menu__item:focus {
@@ -58,7 +58,7 @@ a.fake-menu__item:focus {
 
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .customColorProperty(menu-menuitem-active-status-color);
 }
 
 a.fake-menu__item[aria-current="page"] svg.icon,
@@ -69,11 +69,11 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 a.fake-menu__item:not([href]),
 button.fake-menu__item[disabled],
 div.menu__item[role^="menuitem"][aria-disabled="true"] {
-    color: @menu-item-disabled-foreground-color;
+    color: @menu-menuitem-disabled-foreground-color;
 }
 
 div.menu__item[role^="menuitem"]:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .customColorProperty(menu-menuitem-active-status-color);
 }
 
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
@@ -122,7 +122,7 @@ div.menu__item[role^="menuitem"] span.badge {
 }
 
 hr.menu__separator {
-    .customBorderColorProperty(dropdown-separator-color);
+    .customBorderColorProperty(menu-separator-color);
 
     border-style: solid;
     border-width: 1px;
@@ -137,10 +137,10 @@ div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
     .skin-experiment-dark-mode {
         .menu,
         .fake-menu {
-            --dropdown-items-background-color: @color-black-dark-mode;
-            --dropdown-item-border-color: @color-black-dark-mode;
-            --dropdown-item-foreground-color: @color-text-default-dark-mode;
-            --dropdown-item-hover-foreground-color: @color-text-default;
+            --menu-background-color: @color-black-dark-mode;
+            --menu-menuitem-border-color: @color-black-dark-mode;
+            --menu-menuitem-foreground-color: @color-text-default-dark-mode;
+            --menu-menuitem-hover-foreground-color: @color-text-default;
         }
     }
 }
