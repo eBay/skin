@@ -5,19 +5,26 @@
 
     border-style: solid;
     border-width: 1px;
-    flex-wrap: wrap;
+    color: white;
+    display: grid;
     font-size: @font-size-14;
+    grid-template-columns: auto, auto, auto, auto;
+    justify-content: space-between;
     margin: 8px 0;
-    padding: 16px;
+    padding: 24px 16px;
 }
 
-div[role="region"].page-notice,
-section.page-notice {
-    display: flex;
+.page-notice a {
+    color: white;
 }
 
-span[role="region"].page-notice {
-    display: inline-flex;
+.page-notice svg {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(300%);
+}
+
+.page-notice .fake-link {
+    color: white;
+    font-weight: bold;
 }
 
 .page-notice--attention {
@@ -35,6 +42,10 @@ span[role="region"].page-notice {
     .customBorderColorProperty(page-notice-information-border-color);
 }
 
+.page-notice--general {
+    .customBackgroundColorProperty(page-notice-general-background-color);
+}
+
 .page-notice--celebration {
     .customBackgroundColorProperty(page-notice-celebration-background-color);
     .customBorderColorProperty(page-notice-celebration-border-color);
@@ -47,7 +58,7 @@ span[role="region"].page-notice {
     padding-right: 16px;
 }
 
-// .page-notice__footer is deprecated
+// .page-notice__footer is no longer deprecated
 .page-notice__main,
 .page-notice__footer {
     display: flex;
@@ -55,8 +66,10 @@ span[role="region"].page-notice {
     justify-content: center;
 }
 
-.page-notice__main {
-    flex: 1;
+.page-notice__first_col {
+    display: flex;
+    grid-column-end: 2;
+    grid-column-start: 1;
 }
 
 .page-notice__title {
@@ -65,7 +78,7 @@ span[role="region"].page-notice {
 }
 
 .page-notice__footer {
-    margin-top: 8px;
+    grid-column-start: 4;
     padding-left: 0;
     width: 100%;
 }
@@ -76,10 +89,6 @@ span[role="region"].page-notice {
 
 .page-notice--celebration .page-notice__title {
     font-size: @font-size-large-1;
-}
-
-.page-notice--celebration p {
-    color: @page-notice-celebration-foreground-color;
 }
 
 /* LARGE SCREEN ADJUSTMENTS */
@@ -111,7 +120,6 @@ span[role="region"].page-notice {
 
     .page-notice__footer {
         margin-top: 0;
-        padding-left: 16px;
         width: auto;
     }
 }
