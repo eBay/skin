@@ -21,6 +21,39 @@ a.fake-btn--wide {
     padding-right: @button-wide-padding-horizontal;
 }
 
+button.btn--tertiary {
+    .customBackgroundColorProperty(button-tertiary-background-color);
+    .customColorProperty(button-tertiary-foreground-color);
+    border: none;
+}
+
+button.btn--tertiary:hover,
+button.btn--tertiary:focus,
+button.btn--tertiary:active {
+    .customBackgroundColorProperty(button-tertiary-hover-background-color);
+    .customColorProperty(button-tertiary-hover-foreground-color);
+}
+
+button.btn--tertiary[disabled],
+button.btn--tertiary[aria-disabled="true"] {
+    .customColorProperty(button-tertiary-disabled-foreground-color);
+
+    &:hover,
+    &:focus {
+        .customColorProperty(button-tertiary-disabled-foreground-color);
+        .customBackgroundColorProperty(button-tertiary-background-color);
+    }
+}
+
+button.btn--loading {
+    padding: 8px 20px;
+}
+
+button.btn--loading .progress-spinner {
+    height: 24px;
+    width: 24px;
+}
+
 button.btn[disabled],
 a.fake-btn:not([href]),
 button.btn[aria-disabled="true"],
