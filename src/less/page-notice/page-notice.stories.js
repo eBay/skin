@@ -17,6 +17,23 @@ export const confirmation = () => `
 </section>
 `;
 
+export const confirmationLink = () => `
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+    <div class="page-notice__header">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+            <use xlink:href="#icon-confirmation-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <span>You have opted into eBay Pay and </span>
+        <span>will now get paid directly.</span>
+    </div>
+    <div class="page-notice__footer">
+    <a href="https://ebay.com">Learn More</a>
+    </div>
+</section>
+`;
+
 export const RTL = () => `
 <div dir="rtl">
     <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
@@ -50,6 +67,23 @@ export const attention = () => `
     </div>
     <div class="page-notice__footer">
         <button class="fake-link fake-link--action">Learn More</button>
+    </div>
+</section>
+`;
+
+export const attentionLink = () => `
+<section class="page-notice page-notice--attention" role="region" aria-label="Attention">
+    <div class="page-notice__header">
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <p class="page-notice__title">Please check the following details:</p>
+        <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
     </div>
 </section>
 `;

@@ -28,6 +28,23 @@ export const confirmation = () => `
 </div>
 `;
 
+export const confirmationLink = () => `
+<div class="section-notice section-notice--confirmation" role="region">
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
+            <use xlink:href="#icon-confirmation-filled"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <p>Your price has been updated.</p>
+    </div>
+    <div class="section-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
+    </div>
+
+</div>
+`;
+
 export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
@@ -79,6 +96,24 @@ export const information = () => `
 
     <div class="section-notice__footer">
         <button class="fake-link fake-link--action">Send Offers</button>
+    </div>
+</div>
+`;
+
+export const informationLink = () => `
+<div class="section-notice section-notice--information" role="region">
+
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
+            <use xlink:href="#icon-information-filled"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <p>Send offers to interested buyers.</p>
+    </div>
+
+    <div class="section-notice__footer">
+        <a href="https://ebay.com">Send Offers</a>
     </div>
 </div>
 `;
