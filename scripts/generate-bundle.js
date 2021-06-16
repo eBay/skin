@@ -136,7 +136,10 @@ class CssProcesser {
         const cdnPath = getCDNPath(this.args.name, this.dsVersion);
         rimraf.sync(cdnPath);
         return makeDir(cdnPath).then(() =>
-            writeFile(`${cdnPath}/skin.${this.minify ? 'min.' : ''}css`, raw)
+            writeFile(
+                `${cdnPath}/skin.${this.minify ? 'min.' : ''}css`,
+                `/* autoprefixer: off */\n${raw}\n/* autoprefixer: on */`
+            )
         );
     }
 }
