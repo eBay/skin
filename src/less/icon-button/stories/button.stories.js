@@ -21,13 +21,25 @@ export const settings = () => `
 `;
 
 export const cart = () => `
-<button aria-label="menu" type="button" class="icon-btn">
+<button aria-label="menu" type="button" class="icon-btn icon-btn--cart">
     <svg class="icon icon--cart" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-cart"></use></svg>
 </button>
 `;
 
 export const save = () => `
-<button aria-label="menu" type="button" class="icon-btn">
+<button aria-label="menu" type="button" class="icon-btn icon-btn--save">
+    <svg class="icon icon--save" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-save"></use></svg>
+</button>
+`;
+
+export const cartMatte = () => `
+<button aria-label="menu" type="button" class="icon-btn icon-btn--matte icon-btn--cart">
+    <svg class="icon icon--cart" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-cart"></use></svg>
+</button>
+`;
+
+export const saveMatte = () => `
+<button aria-label="menu" type="button" class="icon-btn icon-btn--matte icon-btn--save">
     <svg class="icon icon--save" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-save"></use></svg>
 </button>
 `;
