@@ -1,9 +1,9 @@
 <div id="page-grid">
-    {% include common/section-header.html name="page-grid" version=page.versions.page-grid %}
-    <p>Setting up a page grid requires two key elements: a containing element, and the grid element itself.</p>
-    <p>The grid element sets up the columns and gutters on which its child elements can be positioned.</p>
-    <p>The container takes care of positioning the grid element in relation to the page (typically center aligned) and adds outside margins.</p>
-    <p>Any content that is <em>off-grid</em>, a full bleed banner for example, should be placed outside of these two elements.</p>
+    {% include common/section-header.html name="page-grid" version=page.versions.page-grid beta="true" %}
+    <p>The page grid module establishes the rows, columns and areas onto which child elements can be placed. The page grid is fully responsive.</p>
+    <p>Setting up a responsive page grid requires two key elements: a container element, and the grid element itself.</p>
+    <p>The container element takes care of positioning the grid in relation to the page (typically center-justified) and adds outer margins.</p>
+    <p>The grid element creates the actual columns (and gutters); eight columns for small viewports, sixteen for large.</p>
 
     {% highlight html %}
 <div class="page-grid-container">
@@ -13,11 +13,12 @@
 </div>
     {% endhighlight %}
 
-    <p>Grid areas are definable with [CSS Grid syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area). The following CSS shows the grid layout of the Skin website itself.</p>
+    <p>Any content that is <em>off-grid</em>, a full bleed banner for example, should be placed outside of these two elements.</p>
+    <p>Grid areas are definable with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">CSS Grid syntax</a>. The following CSS shows the grid layout of the Skin website itself.</p>
 
     {% highlight css %}
 @media only screen and (min-width: 320px){
-    .site-nav {
+    nav {
         display: none;
     }
 
@@ -31,7 +32,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .site-nav {
+    nav {
         grid-area: ~"1 / 1 / span 1 / span 3";
     }
 
@@ -45,7 +46,7 @@
 }
 
 @media only screen and (min-width: 968px) {
-    .site-nav {
+    nav {
         grid-area: ~"1 / 1 / span 1 / span 2";
     }
 
@@ -54,4 +55,35 @@
     }
 }
     {% endhighlight %}
+
+    <p>You can see that for small screens, our top-level landmark elements simply span the full width of the grid. For large screens, things are a little more interesting, and we specify exactly how many rows and columns each landmark should occupy on the grid.</p>
+
+    <p>Here is the corresponding HTML.</p>
+
+    {% highlight html %}
+<body>
+    <header>
+        <!-- header content (off-grid) -->
+    </header>
+    <div class="page-grid-container">
+        <div class="page-grid">
+            <nav>
+                <!-- nav content -->
+            </nav>
+            <main>
+                <!-- main content -->
+            </main>
+            <footer>
+                <!-- footer content -->
+            </footer>
+        </div>
+    </div>
+</body>
+    {% endhighlight %}
+
+    <p>You can see how it looks on this page by enabling our <a href="?debug=1#page-grid">debug mode</a>, which gives a quick visual indication of the grid columns.<p>
+
+    <h3 id="page-grid-nested">Nested Grids</h3>
+    <p>Obviously, this top-level page grid only gets us so far. How do we align the deeper nested elements and their content to our grid system?</p>
+    <p>Watch this space for more information on how to create nested grids (with and without <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">CSS Subgrid</a> support).</p>
 </div>

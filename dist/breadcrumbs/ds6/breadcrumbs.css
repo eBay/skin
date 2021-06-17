@@ -3,29 +3,26 @@ nav.breadcrumbs {
   color: var(--breadcrumbs-item-foreground-color, #111820);
   font-size: 0.75rem;
   height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   margin: 8px 0;
   min-height: 16px;
-  overflow: hidden;
-  position: relative;
+  overflow-x: scroll;
+  padding: 8px;
+  scrollbar-width: none;
   white-space: nowrap;
 }
 nav.breadcrumbs ul {
-  display: -webkit-box;
-  display: flex;
-  list-style-type: none;
+  display: inline;
   margin: 0;
   min-width: 100%;
   padding: 0;
-  position: absolute;
   right: 0;
 }
 nav.breadcrumbs li {
   -webkit-box-align: center;
           align-items: center;
-  display: -webkit-box;
-  display: flex;
+  display: -webkit-inline-box;
+  display: inline-flex;
 }
 nav.breadcrumbs li svg {
   margin-left: 7px;
@@ -48,7 +45,7 @@ nav.breadcrumbs a:visited {
 nav.breadcrumbs a,
 nav.breadcrumbs button {
   color: inherit;
-  outline-offset: -4px;
+  outline-offset: 5px;
 }
 nav.breadcrumbs a:focus,
 nav.breadcrumbs button:focus,
@@ -67,6 +64,9 @@ nav.breadcrumbs button[aria-current] {
 nav.breadcrumbs a:focus:not(:focus-visible),
 nav.breadcrumbs button:focus:not(:focus-visible) {
   outline: none;
+}
+nav.breadcrumbs::-webkit-scrollbar {
+  display: none;
 }
 @media (min-width: 601px) {
   nav.breadcrumbs {
