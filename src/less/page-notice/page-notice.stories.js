@@ -114,23 +114,6 @@ export const general = () => `
 </section>
 `;
 
-export const celebration = () => `
-<section class="page-notice page-notice--celebration" role="region" aria-label="Success">
-    <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Success">
-            <use xlink:href="#icon-confirmation-filled"></use>
-        </svg>
-    </div>
-    <div class="page-notice__main">
-        <p class="page-notice__title">Your order's in!</p>
-        <p>We'll email updates to jonsnow@gmail.com. You should get it by Thu, Sept 22.</p>
-    </div>
-    <div class="page-notice__footer">
-        <button class="fake-link fake-link--action">Action</button>
-    </div>
-</section>
-`;
-
 export const noFooter = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
