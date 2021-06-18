@@ -29,7 +29,7 @@ export const confirmationLink = () => `
         <span>will now get paid directly.</span>
     </div>
     <div class="page-notice__footer">
-    <a href="https://ebay.com">Learn More</a>
+        <a href="https://ebay.com">Learn More</a>
     </div>
 </section>
 `;
