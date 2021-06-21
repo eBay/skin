@@ -8,8 +8,8 @@ export const confirmation = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <span>You have opted into eBay Pay and </span>
-        <span>will now get paid directly.</span>
+        <h3>You have opted into eBay Pay and </h3>
+        <h3>will now get paid directly.</h3>
     </div>
     <div class="page-notice__footer">
         <button class="fake-link fake-link--action">Dismiss</button>
@@ -25,8 +25,8 @@ export const confirmationLink = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <span>You have opted into eBay Pay and </span>
-        <span>will now get paid directly.</span>
+        <h3>You have opted into eBay Pay and </h3>
+        <h3>will now get paid directly.</h3>
     </div>
     <div class="page-notice__footer">
         <a href="https://ebay.com">Learn More</a>
@@ -43,7 +43,7 @@ export const RTL = () => `
             </svg>
         </div>
         <div class="page-notice__main">
-            <p class="page-notice__title">:Your new listing is live</p>
+            <h3 class="page-notice__title">:Your new listing is live</h3>
             <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback)</p>
         </div>
 
@@ -62,7 +62,7 @@ export const attention = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <p class="page-notice__title">Please check the following details:</p>
+        <h3 class="page-notice__title">Please check the following details:</h3>
         <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
     </div>
     <div class="page-notice__footer">
@@ -79,7 +79,7 @@ export const attentionLink = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <p class="page-notice__title">Please check the following details:</p>
+        <h3 class="page-notice__title">Please check the following details:</h3>
         <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
     </div>
     <div class="page-notice__footer">
@@ -96,7 +96,7 @@ export const information = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <p class="page-notice__title">Free shipping on your next pair of shoes:</p>
+        <h3 class="page-notice__title">Free shipping on your next pair of shoes:</h3>
         <p><a href="#">Learn more</a>.</p>
     </div>
     <div class="page-notice__footer">
@@ -108,7 +108,7 @@ export const information = () => `
 export const general = () => `
 <section class="page-notice page-notice--general" role="region" aria-label="Information">
     <div class="page-notice__main">
-        <p class="page-notice__title">We've updated the look and feel of this page.</p>
+        <h3 class="page-notice__title">We've updated the look and feel of this page.</h3>
         <p>Customize anytime in settings.</p>
     </div>
 </section>
@@ -122,7 +122,7 @@ export const noFooter = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <p class="page-notice__title">Your new listing is live:</p>
+        <h3 class="page-notice__title">Your new listing is live:</h3>
         <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback).</p>
     </div>
 </section>
