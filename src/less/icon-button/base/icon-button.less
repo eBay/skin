@@ -24,19 +24,23 @@ a.icon-link {
     vertical-align: text-bottom;
     width: 40px;
 
-    > svg {
+    > svg,
+    & .icon-btn__svg {
         .customFillProperty(icon-button-icon-foreground-color);
 
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
     }
 
-    &:active > svg {
+    &:active > svg,
+    &.icon-btn__svg:active {
         .customFillProperty(icon-button-icon-active-foreground-color);
     }
 
     &:focus > svg,
-    &:hover > svg {
+    &:hover > svg,
+    &:focus .icon-btn__svg,
+    &:hover .icon-btn__svg {
         .customFillProperty(icon-button-icon-hover-foreground-color);
     }
 
