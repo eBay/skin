@@ -8,8 +8,8 @@ export const confirmation = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h3>You have opted into eBay Pay and </h3>
-        <h3>will now get paid directly.</h3>
+        <h3 class="page-notice__title">You have opted into eBay Pay and </h3>
+        <p>will now get paid directly.</p>
     </div>
     <div class="page-notice__footer">
         <button class="fake-link fake-link--action">Dismiss</button>
@@ -25,8 +25,8 @@ export const confirmationLink = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h3>You have opted into eBay Pay and </h3>
-        <h3>will now get paid directly.</h3>
+        <h3 class="page-notice__title">You have opted into eBay Pay and </h3>
+        <p>will now get paid directly.</p>
     </div>
     <div class="page-notice__footer">
         <a href="https://ebay.com">Learn More</a>
