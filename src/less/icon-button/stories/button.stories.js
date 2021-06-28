@@ -20,6 +20,18 @@ export const settings = () => `
 </button>
 `;
 
+export const cart = () => `
+<button aria-label="menu" type="button" class="icon-btn">
+    <svg class="icon icon--cart" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-cart"></use></svg>
+</button>
+`;
+
+export const save = () => `
+<button aria-label="menu" type="button" class="icon-btn">
+    <svg class="icon icon--save" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-save"></use></svg>
+</button>
+`;
+
 export const disabledMenu = () => `
 <button type="button" class="icon-btn" aria-label="menu" disabled>
     <svg class="icon icon--menu" aria-hidden="true" focusable="false" width="16" height="16"><use xlink:href="#icon-menu"></use></svg>
