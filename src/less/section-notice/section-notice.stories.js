@@ -19,7 +19,7 @@ export const confirmation = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Your price has been updated.</h2>
+        <h3 class="section-notice__title">Your price has been updated.</h3>
     </div>
     <div class="section-notice__footer">
         <button class="fake-link">Dismiss</button>
@@ -52,7 +52,7 @@ export const RTL = () => `
             </svg>
         </div>
         <div class="section-notice__main">
-            <h2 class="section-notice__title">Your price has been updated</h2>
+            <h3 class="section-notice__title">Your price has been updated</h3>
         </div>
         <div class="section-notice__footer">
             <button class="fake-link">Dismiss</button>
@@ -69,7 +69,7 @@ export const attention = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Add required aspects to keep item live.</h2>
+        <h3 class="section-notice__title">Add required aspects to keep item live.</h3>
     </div>
     <div class="section-notice__footer">
         <button class="fake-link">Add</button>
@@ -85,7 +85,7 @@ export const information = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Send offers to interested buyers.</h2>
+        <h3 class="section-notice__title">Send offers to interested buyers.</h3>
     </div>
     <div class="section-notice__footer">
         <button class="fake-link">Send Offers</button>
@@ -101,7 +101,7 @@ export const informationLink = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Send offers to interested buyers.</h2>
+        <h3 class="section-notice__title">Send offers to interested buyers.</h3>
     </div>
     <div class="section-notice__footer">
         <a href="https://ebay.com">Send Offers</a>
@@ -117,7 +117,7 @@ export const noFooter = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Your price has been updated.</h2>
+        <h3 class="section-notice__title">Your price has been updated.</h3>
     </div>
 </div>
 `;
@@ -130,7 +130,7 @@ export const longText = () => `
         </svg>
     </div>
     <div class="section-notice__main">
-        <h2 class="section-notice__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+        <h3 class="section-notice__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
     </div>
 </div>
 `;
@@ -144,7 +144,7 @@ export const buttonCta = () => `
         </svg>
     </div>
     <span class="section-notice__main">
-        <h2 class="section-notice__title">Congrats! You are the highest bidder!</h2>
+        <h3 class="section-notice__title">Congrats! You are the highest bidder!</h3>
         <p>Here's a second line</p>
     </span>
     <div class="section-notice__footer">
