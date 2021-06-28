@@ -1,14 +1,15 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .page-notice {
-    .customBorderRadiusProperty(page-notice-border-radius);
+    .customBackgroundColorProperty(page-notice-general-background-color);
+    .customBorderColorProperty(page-notice-general-border-color);
+    .customColorProperty(page-notice-color);
 
     border-style: solid;
     border-width: 1px;
-    flex-wrap: wrap;
     font-size: @font-size-14;
     margin: 8px 0;
-    padding: 16px;
+    padding: 24px 16px;
 }
 
 div[role="region"].page-notice,
@@ -18,6 +19,28 @@ section.page-notice {
 
 span[role="region"].page-notice {
     display: inline-flex;
+}
+
+.page-notice a {
+    .customColorProperty(page-notice-color);
+    font-weight: bold;
+}
+
+.page-notice a:hover {
+    .customColorProperty(page-notice-color);
+}
+
+.page-notice button:hover {
+    .customColorProperty(page-notice-color);
+}
+
+.page-notice svg {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
+}
+
+.page-notice .fake-link {
+    .customColorProperty(page-notice-color);
+    font-weight: bold;
 }
 
 .page-notice--attention {
@@ -35,9 +58,8 @@ span[role="region"].page-notice {
     .customBorderColorProperty(page-notice-information-border-color);
 }
 
-.page-notice--celebration {
-    .customBackgroundColorProperty(page-notice-celebration-background-color);
-    .customBorderColorProperty(page-notice-celebration-border-color);
+.page-notice--general {
+    .customBackgroundColorProperty(page-notice-general-background-color);
 }
 
 .page-notice__header {
@@ -47,16 +69,11 @@ span[role="region"].page-notice {
     padding-right: 16px;
 }
 
-// .page-notice__footer is deprecated
 .page-notice__main,
 .page-notice__footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.page-notice__main {
-    flex: 1;
 }
 
 .page-notice__title {
@@ -65,21 +82,13 @@ span[role="region"].page-notice {
 }
 
 .page-notice__footer {
-    margin-top: 8px;
+    margin-left: auto;
     padding-left: 0;
-    width: 100%;
+    width: auto;
 }
 
 .page-notice__main p {
     margin: 0;
-}
-
-.page-notice--celebration .page-notice__title {
-    font-size: @font-size-large-1;
-}
-
-.page-notice--celebration p {
-    color: @page-notice-celebration-foreground-color;
 }
 
 /* LARGE SCREEN ADJUSTMENTS */
@@ -92,27 +101,12 @@ span[role="region"].page-notice {
         margin: 16px 0;
     }
 
-    .page-notice--celebration {
-        padding: 24px;
-    }
-
     .page-notice__title {
         font-size: @font-size-16;
     }
 
-    .page-notice--celebration .page-notice__header {
-        padding-right: 24px;
-    }
-
-    .page-notice--celebration .page-notice__title {
-        font-size: @font-size-giant-1;
-        margin-bottom: 8px;
-    }
-
     .page-notice__footer {
         margin-top: 0;
-        padding-left: 16px;
-        width: auto;
     }
 }
 
@@ -121,15 +115,31 @@ span[role="region"].page-notice {
         padding-left: 16px;
         padding-right: 0;
     }
+
+    .page-notice__footer {
+        margin-left: initial;
+        margin-right: auto;
+        padding-left: initial;
+        padding-right: 0;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         .page-notice {
+            --page-notice-color: @color-text-default-dark-mode;
+            --page-notice-general-background-color: @color-grey1-dark-mode;
+            --page-notice-general-border-color: @color-grey1-dark-mode;
             --page-notice-attention-background-color: #191f1b;
+            --page-notice-attention-border-color: #191f1b;
             --page-notice-confirmation-background-color: #1b2027;
+            --page-notice-confirmation-border-color: #1b2027;
             --page-notice-information-background-color: #2a191c;
-            --page-notice-celebration-background-color: #191f1b;
+            --page-notice-information-border-color: #2a191c;
+        }
+
+        .page-notice svg {
+            filter: none;
         }
     }
 }

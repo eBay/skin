@@ -20,9 +20,6 @@ export const RTL = () => `
 
 export const fake = () => `<button class="fake-link" type="button">Button</button>`;
 
-export const fakeAction = () =>
-    `<button class="fake-link fake-link--action" type="button">Button</button>`;
-
 export const nav = () =>
     `<a class="nav-link" href="https://www.ebay.com/?r=${Math.floor(
         Math.random() * Math.floor(1000)
