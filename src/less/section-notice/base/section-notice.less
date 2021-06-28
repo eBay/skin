@@ -4,8 +4,8 @@
     .customBackgroundColorProperty(section-notice-default-background-color);
     .customBorderRadiusProperty(section-notice-border-radius);
 
-    flex-wrap: wrap;
     font-size: @font-size-14;
+    justify-content: flex-start;
     margin: 8px 0;
     padding: 16px;
 }
@@ -19,16 +19,22 @@ span[role="region"].section-notice {
     display: inline-flex;
 }
 
-.section-notice--attention {
-    .customBackgroundColorProperty(section-notice-attention-background-color);
+.section-notice .fake-link {
+    .customColorProperty(section-notice-color);
+    font-weight: bold;
 }
 
-.section-notice--confirmation {
-    .customBackgroundColorProperty(section-notice-confirmation-background-color);
+.section-notice .fake-link:hover {
+    .customColorProperty(section-notice-color);
 }
 
-.section-notice--information {
-    .customBackgroundColorProperty(section-notice-information-background-color);
+.section-notice a {
+    .customColorProperty(section-notice-color);
+    font-weight: bold;
+}
+
+.section-notice a:hover {
+    .customColorProperty(section-notice-color);
 }
 
 .section-notice__header {
@@ -45,19 +51,15 @@ span[role="region"].section-notice {
     justify-content: center;
 }
 
-.section-notice__main {
-    flex: 1;
-}
-
 .section-notice__title {
     font-size: @font-size-14;
     margin: 0 0 4px 0;
 }
 
 .section-notice__footer {
-    margin-top: 8px;
+    margin-left: auto;
     padding-left: 0;
-    width: 100%;
+    width: auto;
 }
 
 .section-notice__main p {
@@ -81,23 +83,31 @@ span[role="region"].section-notice {
     .section-notice__footer {
         margin-top: 0;
         padding-left: 16px;
-        width: auto;
     }
 }
 
 [dir="rtl"] {
-    .section-notice__header .icon--confirmation-filled {
-        margin-left: 8px;
+    .section-notice__header {
+        padding-left: 16px;
+        padding-right: 0;
+    }
+
+    .section-notice__footer {
+        margin-left: initial;
+        margin-right: auto;
+        padding-left: initial;
+        padding-right: 0;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         .section-notice {
-            --section-notice-default-background-color: @color-background-default-dark-mode;
-            --section-notice-attention-background-color: #191f1b;
-            --section-notice-confirmation-background-color: #1b2027;
-            --section-notice-information-background-color: #2a191c;
+            --section-notice-color: @color-grey7-dark-mode;
+            --section-notice-default-background-color: @color-grey1-dark-mode;
+            --section-notice-attention-background-color: @color-grey1-dark-mode;
+            --section-notice-confirmation-background-color: @color-grey1-dark-mode;
+            --section-notice-information-background-color: @color-grey1-dark-mode;
         }
     }
 }

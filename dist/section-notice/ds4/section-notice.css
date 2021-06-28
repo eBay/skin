@@ -3,8 +3,9 @@
   background-color: var(--section-notice-default-background-color, #eee);
   border-radius: 0;
   border-radius: var(--section-notice-border-radius, 0);
-  flex-wrap: wrap;
   font-size: 0.875rem;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   margin: 8px 0;
   padding: 16px;
 }
@@ -17,17 +18,23 @@ span[role="region"].section-notice {
   display: -webkit-inline-box;
   display: inline-flex;
 }
-.section-notice--attention {
-  background-color: rgba(221, 30, 49, 0.2);
-  background-color: var(--section-notice-attention-background-color, rgba(221, 30, 49, 0.2));
+.section-notice .fake-link {
+  color: #333;
+  color: var(--section-notice-color, #333);
+  font-weight: bold;
 }
-.section-notice--confirmation {
-  background-color: rgba(91, 167, 27, 0.2);
-  background-color: var(--section-notice-confirmation-background-color, rgba(91, 167, 27, 0.2));
+.section-notice .fake-link:hover {
+  color: #333;
+  color: var(--section-notice-color, #333);
 }
-.section-notice--information {
-  background-color: rgba(6, 84, 186, 0.2);
-  background-color: var(--section-notice-information-background-color, rgba(6, 84, 186, 0.2));
+.section-notice a {
+  color: #333;
+  color: var(--section-notice-color, #333);
+  font-weight: bold;
+}
+.section-notice a:hover {
+  color: #333;
+  color: var(--section-notice-color, #333);
 }
 .section-notice__header {
   -webkit-box-align: center;
@@ -48,18 +55,14 @@ span[role="region"].section-notice {
   -webkit-box-pack: center;
           justify-content: center;
 }
-.section-notice__main {
-  -webkit-box-flex: 1;
-          flex: 1;
-}
 .section-notice__title {
   font-size: 0.875rem;
   margin: 0 0 4px 0;
 }
 .section-notice__footer {
-  margin-top: 8px;
+  margin-left: auto;
   padding-left: 0;
-  width: 100%;
+  width: auto;
 }
 .section-notice__main p {
   margin: 0;
@@ -78,17 +81,24 @@ span[role="region"].section-notice {
   .section-notice__footer {
     margin-top: 0;
     padding-left: 16px;
-    width: auto;
   }
 }
-[dir="rtl"] .section-notice__header .icon--confirmation-filled {
-  margin-left: 8px;
+[dir="rtl"] .section-notice__header {
+  padding-left: 16px;
+  padding-right: 0;
+}
+[dir="rtl"] .section-notice__footer {
+  margin-left: initial;
+  margin-right: auto;
+  padding-left: initial;
+  padding-right: 0;
 }
 @media (prefers-color-scheme: dark) {
   .skin-experiment-dark-mode .section-notice {
-    --section-notice-default-background-color: #171717;
-    --section-notice-attention-background-color: #191f1b;
-    --section-notice-confirmation-background-color: #1b2027;
-    --section-notice-information-background-color: #2a191c;
+    --section-notice-color: #dcdcdc;
+    --section-notice-default-background-color: #212121;
+    --section-notice-attention-background-color: #212121;
+    --section-notice-confirmation-background-color: #212121;
+    --section-notice-information-background-color: #212121;
   }
 }
