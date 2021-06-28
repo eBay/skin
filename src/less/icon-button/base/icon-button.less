@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// icons
-//-----------------------------
-
 a.icon-link {
     align-items: center;
     display: inline-flex;
@@ -14,8 +11,10 @@ a.icon-link {
 
 button.icon-btn,
 a.icon-link {
-    background-color: transparent;
+    .customBackgroundColorProperty(icon-button-background-color);
+
     border: 2px solid transparent;
+    border-radius: 50px;
     box-sizing: border-box;
     font-family: inherit;
     height: 40px;
@@ -90,6 +89,7 @@ a.icon-link--badged {
         display: block;
         height: 24px;
         left: 16px;
+        line-height: 16px;
         min-width: 24px;
         padding-top: 2px;
         pointer-events: none;
@@ -100,32 +100,11 @@ a.icon-link--badged {
     }
 }
 
-// actionable images
-// todo: move to "button" module
-//-----------------------------
-
-button.img-btn {
-    background-color: transparent;
-    border: 1px solid transparent;
-    display: inline-flex;
-    padding: 0;
-
-    &:not([disabled]) {
-        &:hover,
-        &:focus {
-            border-color: @color-action-secondary;
-        }
-
-        &:active {
-            border-color: @color-text-secondary;
-        }
-    }
-}
-
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         a.icon-link,
         button.icon-btn {
+            --icon-button-background-color: @color-grey1-dark-mode;
             --icon-button-badge-border-color: @color-background-default-dark-mode;
             --icon-button-icon-foreground-color: @color-text-default-dark-mode;
             --icon-button-icon-active-foreground-color: @color-text-default-dark-mode;
