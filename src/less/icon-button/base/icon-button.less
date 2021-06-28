@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// icons
-//-----------------------------
-
 a.icon-link {
     align-items: center;
     display: inline-flex;
@@ -12,39 +9,12 @@ a.icon-link {
     }
 }
 
-button.icon-btn--matte span.badge {
-    line-height: 16px;
-}
-
-button.icon-btn--cart svg {
-    height: 20px;
-    width: 20px;
-}
-
-button.icon-btn--cart span.badge {
-    left: 25px;
-    top: -11px;
-}
-
-button.icon-btn--save {
-    height: 32px;
-    width: 32px;
-}
-
-button.icon-btn--save svg {
-    height: 14px;
-    width: 16px;
-}
-
-button.icon-btn--save span.badge {
-    left: 18px;
-    top: -12px;
-}
-
 button.icon-btn,
 a.icon-link {
-    background-color: transparent;
+    .customBackgroundColorProperty(icon-button-background-color);
+
     border: 2px solid transparent;
+    border-radius: 50px;
     box-sizing: border-box;
     font-family: inherit;
     height: 40px;
@@ -72,11 +42,6 @@ a.icon-link {
     &:not(:focus-visible) {
         outline: none;
     }
-}
-
-button.icon-btn--matte {
-    .customBackgroundColorProperty(icon-button-background-color);
-    border-radius: 50px;
 }
 
 // visited link state
@@ -135,32 +100,11 @@ a.icon-link--badged {
     }
 }
 
-// actionable images
-// todo: move to "button" module
-//-----------------------------
-
-button.img-btn {
-    background-color: transparent;
-    border: 1px solid transparent;
-    display: inline-flex;
-    padding: 0;
-
-    &:not([disabled]) {
-        &:hover,
-        &:focus {
-            border-color: @color-action-secondary;
-        }
-
-        &:active {
-            border-color: @color-text-secondary;
-        }
-    }
-}
-
 @media (prefers-color-scheme: dark) {
     .skin-experiment-dark-mode {
         a.icon-link,
         button.icon-btn {
+            --icon-button-background-color: @color-grey1-dark-mode;
             --icon-button-badge-border-color: @color-background-default-dark-mode;
             --icon-button-icon-foreground-color: @color-text-default-dark-mode;
             --icon-button-icon-active-foreground-color: @color-text-default-dark-mode;
