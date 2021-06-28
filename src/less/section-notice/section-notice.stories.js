@@ -6,7 +6,7 @@ export const base = () => `
         <h3 class="section-notice__title">Your price has been updated.</h3>
     </div>
     <div class="section-notice__footer">
-        <button class="fake-link fake-link--action">Dismiss</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </div>
 `;
@@ -22,7 +22,7 @@ export const confirmation = () => `
         <h2 class="section-notice__title">Your price has been updated.</h2>
     </div>
     <div class="section-notice__footer">
-        <button class="fake-link fake-link--action">Dismiss</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </div>
 `;
@@ -55,7 +55,7 @@ export const RTL = () => `
             <h2 class="section-notice__title">Your price has been updated</h2>
         </div>
         <div class="section-notice__footer">
-            <button class="fake-link fake-link--action">Dismiss</button>
+            <button class="fake-link">Dismiss</button>
         </div>
     </div>
 </div>
@@ -72,7 +72,7 @@ export const attention = () => `
         <h2 class="section-notice__title">Add required aspects to keep item live.</h2>
     </div>
     <div class="section-notice__footer">
-        <button class="fake-link fake-link--action">Add</button>
+        <button class="fake-link">Add</button>
     </div>
 </div>
 `;
@@ -88,7 +88,7 @@ export const information = () => `
         <h2 class="section-notice__title">Send offers to interested buyers.</h2>
     </div>
     <div class="section-notice__footer">
-        <button class="fake-link fake-link--action">Send Offers</button>
+        <button class="fake-link">Send Offers</button>
     </div>
 </div>
 `;
@@ -148,7 +148,7 @@ export const buttonCta = () => `
         <p>Here's a second line</p>
     </span>
     <div class="section-notice__footer">
-        <button class="fake-link fake-link--action">Dismiss</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </div>
 `;

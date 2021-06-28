@@ -12,7 +12,7 @@ export const confirmation = () => `
         <p>will now get paid directly.</p>
     </div>
     <div class="page-notice__footer">
-        <button class="fake-link fake-link--action">Dismiss</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
@@ -48,7 +48,7 @@ export const RTL = () => `
         </div>
 
         <div class="page-notice__footer">
-            <button class="fake-link fake-link--action">Dismiss</button>
+            <button class="fake-link">Dismiss</button>
         </div>
     </section>
 <div>
@@ -66,7 +66,7 @@ export const attention = () => `
         <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
     </div>
     <div class="page-notice__footer">
-        <button class="fake-link fake-link--action">Learn More</button>
+        <button class="fake-link">Learn More</button>
     </div>
 </section>
 `;
@@ -100,7 +100,7 @@ export const information = () => `
         <p><a href="#">Learn more</a>.</p>
     </div>
     <div class="page-notice__footer">
-        <button class="fake-link fake-link--action">Opt In</button>
+        <button class="fake-link">Opt In</button>
     </div>
 </section>
 `;
