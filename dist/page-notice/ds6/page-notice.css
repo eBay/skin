@@ -20,27 +20,34 @@ span[role="region"].page-notice {
   display: -webkit-inline-box;
   display: inline-flex;
 }
+.page-notice__title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin: 0;
+}
+/* legacy version with separate bold heading */
+.page-notice__title:not(:only-child) {
+  font-weight: bold;
+}
 .page-notice a {
   color: #fff;
   color: var(--page-notice-color, #fff);
+  font-size: 0.875rem;
   font-weight: bold;
 }
 .page-notice a:hover {
   color: #fff;
   color: var(--page-notice-color, #fff);
 }
-.page-notice button:hover {
+.page-notice button.fake-link {
   color: #fff;
   color: var(--page-notice-color, #fff);
-}
-.page-notice svg {
-  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
-          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
-}
-.page-notice .fake-link {
-  color: #fff;
-  color: var(--page-notice-color, #fff);
+  font-size: 0.875rem;
   font-weight: bold;
+}
+.page-notice button.fake-link:hover {
+  color: #fff;
+  color: var(--page-notice-color, #fff);
 }
 .page-notice--attention {
   background-color: #e0103a;
@@ -73,6 +80,10 @@ span[role="region"].page-notice {
           justify-content: center;
   padding-right: 16px;
 }
+.page-notice__header svg {
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
+}
 .page-notice__main,
 .page-notice__footer {
   display: -webkit-box;
@@ -83,28 +94,22 @@ span[role="region"].page-notice {
   -webkit-box-pack: center;
           justify-content: center;
 }
-.page-notice__title {
-  font-size: 0.875rem;
-  margin: 0 0 4px 0;
-}
 .page-notice__footer {
   margin-left: auto;
-  padding-left: 0;
+  padding-left: 16px;
   width: auto;
 }
+/* support legacy 6.5 notice with heading + paragaphs */
 .page-notice__main p {
-  margin: 0;
+  font-size: 0.875rem;
+  margin: 4px 0 0 0;
 }
 /* LARGE SCREEN ADJUSTMENTS */
 @media (min-width: 601px) {
   section.page-notice,
   div[role="region"].page-notice {
     flex-wrap: nowrap;
-    font-size: 1rem;
     margin: 16px 0;
-  }
-  .page-notice__title {
-    font-size: 1rem;
   }
   .page-notice__footer {
     margin-top: 0;
@@ -118,7 +123,7 @@ span[role="region"].page-notice {
   margin-left: initial;
   margin-right: auto;
   padding-left: initial;
-  padding-right: 0;
+  padding-right: 16px;
 }
 @media (prefers-color-scheme: dark) {
   .skin-experiment-dark-mode .page-notice {
