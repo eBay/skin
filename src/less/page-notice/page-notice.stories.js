@@ -125,3 +125,17 @@ export const informationWithLink = () => `
     </div>
 </section>
 `;
+
+export const formErrors = () => `
+<section class="page-notice page-notice--attention" role="region" aria-label="Attention">
+    <div class="page-notice__header">
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We found problems with your form.</h2>
+        <p><a href="#">Error 1</a>, <a href="#">Error 2</a>, <a href="#">Error 3</a>.</p>
+    </div>
+</section>
+`;
