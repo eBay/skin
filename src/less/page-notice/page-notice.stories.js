@@ -1,15 +1,17 @@
 export default { title: 'Page Notice/Page Notice' };
 
-export const confirmation = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
-    <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
-        </svg>
-    </div>
+export const general = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
     <div class="page-notice__main">
-        <h2 class="page-notice__title">You have opted into eBay Pay and </h2>
-        <p>will now get paid directly.</p>
+        <h2 class="page-notice__title">We've updated the look and feel of this page. Customize anytime in settings.</h2>
+    </div>
+</section>
+`;
+
+export const generalWithButton = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We've updated the look and feel of this page. Customize anytime in settings.</h2>
     </div>
     <div class="page-notice__footer">
         <button class="fake-link">Dismiss</button>
@@ -17,7 +19,18 @@ export const confirmation = () => `
 </section>
 `;
 
-export const confirmationLink = () => `
+export const generalWithLink = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We've updated the look and feel of this page.</h2>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
+    </div>
+</section>
+`;
+
+export const confirmationWithButton = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
         <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
@@ -25,8 +38,23 @@ export const confirmationLink = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">You have opted into eBay Pay and </h2>
-        <p>will now get paid directly.</p>
+        <h2 class="page-notice__title">You have opted into eBay Pay</h2>
+    </div>
+    <div class="page-notice__footer">
+        <button class="fake-link">Dismiss</button>
+    </div>
+</section>
+`;
+
+export const confirmationWithLink = () => `
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+    <div class="page-notice__header">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+            <use xlink:href="#icon-confirmation-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">You have opted into eBay Pay</h2>
     </div>
     <div class="page-notice__footer">
         <a href="https://ebay.com">Learn More</a>
@@ -34,27 +62,7 @@ export const confirmationLink = () => `
 </section>
 `;
 
-export const RTL = () => `
-<div dir="rtl">
-    <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
-        <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use xlink:href="#icon-confirmation-filled"></use>
-            </svg>
-        </div>
-        <div class="page-notice__main">
-            <h2 class="page-notice__title">:Your new listing is live</h2>
-            <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback)</p>
-        </div>
-
-        <div class="page-notice__footer">
-            <button class="fake-link">Dismiss</button>
-        </div>
-    </section>
-<div>
-`;
-
-export const attention = () => `
+export const attentionWithButton = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
         <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
@@ -62,16 +70,15 @@ export const attention = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Please check the following details:</h2>
-        <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+        <h2 class="page-notice__title">Your selling account has been deactivated.</h2>
     </div>
     <div class="page-notice__footer">
-        <button class="fake-link">Learn More</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
 
-export const attentionLink = () => `
+export const attentionWithLink = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
         <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
@@ -79,8 +86,7 @@ export const attentionLink = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Please check the following details:</h2>
-        <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+        <h2 class="page-notice__title">Your selling account has been deactivated.</h2>
     </div>
     <div class="page-notice__footer">
         <a href="https://ebay.com">Learn More</a>
@@ -88,7 +94,7 @@ export const attentionLink = () => `
 </section>
 `;
 
-export const information = () => `
+export const informationWithButton = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
         <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
@@ -96,34 +102,26 @@ export const information = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Free shipping on your next pair of shoes:</h2>
-        <p><a href="#">Learn more</a>.</p>
+        <h2 class="page-notice__title">Free shipping on your next pair of shoes.</h2>
     </div>
     <div class="page-notice__footer">
-        <button class="fake-link">Opt In</button>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
 
-export const general = () => `
-<section class="page-notice page-notice--general" role="region" aria-label="Information">
-    <div class="page-notice__main">
-        <h2 class="page-notice__title">We've updated the look and feel of this page.</h2>
-        <p>Customize anytime in settings.</p>
-    </div>
-</section>
-`;
-
-export const noFooter = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+export const informationWithLink = () => `
+<section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Your new listing is live:</h2>
-        <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback).</p>
+        <h2 class="page-notice__title">Free shipping on your next pair of shoes.</h2>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn more</a>
     </div>
 </section>
 `;
