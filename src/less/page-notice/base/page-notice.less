@@ -21,8 +21,21 @@ span[role="region"].page-notice {
     display: inline-flex;
 }
 
+.page-notice__title {
+    font-size: @font-size-14;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* legacy version with separate bold heading */
+.page-notice__title:not(:only-child) {
+    font-weight: bold;
+}
+
 .page-notice a {
     .customColorProperty(page-notice-color);
+
+    font-size: @font-size-14;
     font-weight: bold;
 }
 
@@ -30,17 +43,15 @@ span[role="region"].page-notice {
     .customColorProperty(page-notice-color);
 }
 
-.page-notice button:hover {
+.page-notice button.fake-link {
     .customColorProperty(page-notice-color);
-}
 
-.page-notice svg {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
-}
-
-.page-notice .fake-link {
-    .customColorProperty(page-notice-color);
+    font-size: @font-size-14;
     font-weight: bold;
+}
+
+.page-notice button.fake-link:hover {
+    .customColorProperty(page-notice-color);
 }
 
 .page-notice--attention {
@@ -69,6 +80,10 @@ span[role="region"].page-notice {
     padding-right: 16px;
 }
 
+.page-notice__header svg {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0) brightness(102%) contrast(500%);
+}
+
 .page-notice__main,
 .page-notice__footer {
     display: flex;
@@ -76,19 +91,16 @@ span[role="region"].page-notice {
     justify-content: center;
 }
 
-.page-notice__title {
-    font-size: @font-size-14;
-    margin: 0 0 4px 0;
-}
-
 .page-notice__footer {
     margin-left: auto;
-    padding-left: 0;
+    padding-left: 16px;
     width: auto;
 }
 
+/* support legacy 6.5 notice with heading + paragaphs */
 .page-notice__main p {
-    margin: 0;
+    font-size: @font-size-14;
+    margin: 4px 0 0 0;
 }
 
 /* LARGE SCREEN ADJUSTMENTS */
@@ -97,12 +109,7 @@ span[role="region"].page-notice {
     section.page-notice,
     div[role="region"].page-notice {
         flex-wrap: nowrap;
-        font-size: @font-size-16;
         margin: 16px 0;
-    }
-
-    .page-notice__title {
-        font-size: @font-size-16;
     }
 
     .page-notice__footer {
@@ -120,7 +127,7 @@ span[role="region"].page-notice {
         margin-left: initial;
         margin-right: auto;
         padding-left: initial;
-        padding-right: 0;
+        padding-right: 16px;
     }
 }
 
