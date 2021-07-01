@@ -36,3 +36,12 @@ export const partiallyDisabled = () => `
     </span>
 </button>
 `;
+
+export const deleteButton = () => `
+<button type="button" class="btn btn--delete">
+    <span class="btn__cell">
+        <svg class="icon icon--close" width="16" height="16"><use xlink:href="#icon-close"></use></svg>
+        <span>Button</span>
+    </span>
+</button>
+`;

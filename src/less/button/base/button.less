@@ -10,7 +10,7 @@ a.fake-btn {
     color: inherit;
     display: inline-block;
     font-size: @font-size-14;
-    max-width: 100%;
+    max-width: 280px;
     min-height: 40px;
     min-width: @button-min-width;
 }
@@ -19,6 +19,43 @@ button.btn--wide,
 a.fake-btn--wide {
     padding-left: @button-wide-padding-horizontal;
     padding-right: @button-wide-padding-horizontal;
+}
+
+button.btn--tertiary {
+    .customBackgroundColorProperty(button-tertiary-background-color);
+    .customColorProperty(button-tertiary-foreground-color);
+    border: none;
+}
+
+button.btn--tertiary:hover,
+button.btn--tertiary:focus,
+button.btn--tertiary:active {
+    .customBackgroundColorProperty(button-tertiary-hover-background-color);
+    .customColorProperty(button-tertiary-hover-foreground-color);
+}
+
+button.btn--tertiary[disabled],
+button.btn--tertiary[aria-disabled="true"] {
+    .customColorProperty(button-tertiary-disabled-foreground-color);
+
+    &:hover,
+    &:focus {
+        .customColorProperty(button-tertiary-disabled-foreground-color);
+        .customBackgroundColorProperty(button-tertiary-background-color);
+    }
+}
+
+button.btn--tertiary.btn--destructive {
+    .customColorProperty(button-tertiary-destructive-foreground-color);
+}
+
+button.btn--loading {
+    padding: 8px 20px;
+}
+
+button.btn--loading .progress-spinner {
+    height: 24px;
+    width: 24px;
 }
 
 button.btn[disabled],
@@ -281,6 +318,8 @@ a.fake-btn--icon-only {
             --button-primary-background-color: @color-b4-dark-mode;
             --button-primary-foreground-color: @color-black-dark-mode;
             --button-primary-hover-background-color: @color-b6-dark-mode;
+            --button-primary-border-color: @color-b4-dark-mode;
+            --button-primary-hover-border-color: @color-b6-dark-mode;
             --button-secondary-background-color: @color-black-dark-mode;
             --button-secondary-border-color: @color-b4-dark-mode;
             --button-secondary-foreground-color: @color-b4-dark-mode;
@@ -289,11 +328,17 @@ a.fake-btn--icon-only {
             --button-delete-background-color: @color-black-dark-mode;
             --button-delete-foreground-color: @color-r4-dark-mode;
             --button-primary-disabled-background-color: @color-grey3-dark-mode;
-            --button-primary-disabled-foreground-color: @color-grey5;
-            --button-primary-disabled-border-color: @color-grey5;
+            --button-primary-disabled-foreground-color: @color-black-dark-mode;
+            --button-primary-disabled-border-color: @color-grey3-dark-mode;
             --button-secondary-disabled-background-color: @color-black-dark-mode;
             --button-secondary-disabled-foreground-color: @color-grey3-dark-mode;
             --button-secondary-disabled-border-color: @color-grey3-dark-mode;
+            --button-tertiary-foreground-color: @color-b4-dark-mode;
+            --button-tertiary-background-color: @color-grey1-dark-mode;
+            --button-tertiary-hover-background-color: @color-grey2-dark-mode;
+            --button-tertiary-hover-foreground-color: @color-b6-dark-mode;
+            --button-tertiary-disabled-foreground-color: @color-grey3-dark-mode;
+            --button-tertiary-destructive-foreground-color: @color-r4-dark-mode;
         }
     }
 }
