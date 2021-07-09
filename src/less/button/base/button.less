@@ -1,5 +1,10 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+// button[aria-disabled="true"] is a partially disabled button
+// button[aria-live="polite"] is a button with a potential loading/busy state
+// button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
+// a:not([href]) is a disabled link
+
 button.btn,
 a.fake-btn {
     .btn-base();
@@ -10,7 +15,6 @@ a.fake-btn {
     color: inherit;
     display: inline-block;
     font-size: @font-size-14;
-    max-width: 100%;
     min-height: 40px;
     min-width: @button-min-width;
 }
@@ -69,22 +73,27 @@ a.fake-btn--primary {
     .customColorProperty(button-primary-foreground-color);
 
     font-weight: @button-primary-font-weight;
+}
 
+/* show hover states only for non-disabled or non-loading state button */
+button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--primary[href] {
     &:focus,
     &:hover,
     &:active {
         .customBackgroundColorProperty(button-primary-hover-background-color);
         .customBorderColorProperty(button-primary-hover-border-color);
     }
-
-    &:visited {
-        .customColorProperty(button-primary-foreground-color);
-    }
 }
 
-button.btn .spinner {
-    height: 19px;
-    width: 19px;
+a.fake-btn--primary:visited {
+    .customColorProperty(button-primary-foreground-color);
+}
+
+button.btn .progress-spinner {
+    height: 24px;
+    margin: -4px 0;
+    width: 24px;
 }
 
 button.btn--large svg.icon,
@@ -92,47 +101,14 @@ a.fake-btn--large svg.icon {
     max-height: 48px - (@button-large-padding-vertical * 2);
 }
 
-button.btn--confirmation {
-    background-color: @button-confirmation-background-color;
-    border-color: @button-confirmation-border-color;
-    color: @button-confirmation-foreground-color;
-
-    svg.icon {
-        height: 19px;
-        width: 19px;
-    }
-
-    svg.icon:first-child {
-        margin-right: 0;
-    }
-
-    svg.icon:last-child {
-        margin-left: 0;
-    }
-
-    &:focus,
-    &:hover,
-    &:active,
-    &:visited {
-        border-color: @button-confirmation-border-color;
-        color: @button-confirmation-foreground-color;
-    }
-}
-
 button.btn--primary[disabled],
-button.btn--primary[aria-disabled="true"] {
+button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
     .customBackgroundColorProperty(button-primary-disabled-background-color);
     .customBorderColorProperty(button-primary-disabled-border-color);
     .customColorProperty(button-primary-disabled-foreground-color);
 
     svg.icon {
         .customFillProperty(button-primary-disabled-foreground-color);
-    }
-
-    &:hover,
-    &:focus {
-        .customBackgroundColorProperty(button-primary-disabled-background-color);
-        .customBorderColorProperty(button-primary-disabled-border-color);
     }
 }
 
@@ -141,16 +117,6 @@ a.fake-btn--primary[aria-disabled="true"] {
     .customBackgroundColorProperty(button-primary-disabled-background-color);
     .customBorderColorProperty(button-primary-disabled-border-color);
     .customColorProperty(button-primary-disabled-foreground-color);
-
-    &:focus,
-    &:hover,
-    &:active {
-        .customBackgroundColorProperty(button-primary-disabled-background-color);
-        .customBorderColorProperty(button-primary-disabled-border-color);
-        .customColorProperty(button-primary-disabled-foreground-color);
-
-        opacity: @button-disabled-opacity;
-    }
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -163,7 +129,11 @@ a.fake-btn--secondary {
     .customBackgroundColorProperty(button-secondary-background-color);
     .customBorderColorProperty(button-secondary-border-color);
     .customColorProperty(button-secondary-foreground-color);
+}
 
+/* show hover states only for non-disabled or non-loading state button */
+button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--secondary[href] {
     &:hover,
     &:focus,
     &:active {
@@ -189,10 +159,11 @@ a.fake-btn--delete {
     }
 }
 
+/* stylelint-disable no-descending-specificity */
 button.btn--secondary[disabled],
-button.btn--secondary[aria-disabled="true"],
 button.btn--delete[disabled],
-button.btn--delete[aria-disabled="true"] {
+button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]),
+button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
     .customBackgroundColorProperty(button-secondary-disabled-background-color);
     .customBorderColorProperty(button-secondary-disabled-border-color);
     .customColorProperty(button-secondary-disabled-foreground-color);
@@ -200,14 +171,8 @@ button.btn--delete[aria-disabled="true"] {
     svg.icon {
         .customFillProperty(button-secondary-disabled-foreground-color);
     }
-
-    &:hover,
-    &:focus,
-    &:active {
-        .customBackgroundColorProperty(button-secondary-disabled-background-color);
-        .customBorderColorProperty(button-secondary-disabled-border-color);
-    }
 }
+/* stylelint-enable no-descending-specificity */
 
 a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
@@ -215,6 +180,42 @@ a.fake-btn--delete:not([href]),
 a.fake-btn--delete[aria-disabled="true"] {
     .customBorderColorProperty(button-secondary-disabled-border-color);
     .customColorProperty(button-secondary-disabled-foreground-color);
+}
+
+button.btn--tertiary,
+a.fake-btn--tertiary {
+    .customBackgroundColorProperty(button-tertiary-background-color);
+    .customBorderColorProperty(button-tertiary-border-color);
+    .customColorProperty(button-tertiary-foreground-color);
+}
+
+/* show hover states only for non-disabled or non-loading state button */
+button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--tertiary[href] {
+    &:focus,
+    &:hover,
+    &:active {
+        .customBackgroundColorProperty(button-tertiary-hover-background-color);
+        .customBorderColorProperty(button-tertiary-hover-border-color);
+    }
+}
+
+a.fake-btn--tertiary:visited {
+    .customColorProperty(button-tertiary-foreground-color);
+}
+
+button.btn--tertiary[disabled],
+button.btn--tertiary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
+    .customBackgroundColorProperty(button-tertiary-disabled-background-color);
+    .customBorderColorProperty(button-tertiary-disabled-border-color);
+    .customColorProperty(button-tertiary-disabled-foreground-color);
+}
+
+a.fake-btn--tertiary:not([href]),
+a.fake-btn--tertiary[aria-disabled="true"] {
+    .customBackgroundColorProperty(button-tertiary-disabled-background-color);
+    .customBorderColorProperty(button-tertiary-disabled-border-color);
+    .customColorProperty(button-tertiary-disabled-foreground-color);
 }
 
 button.btn--large,
@@ -281,6 +282,8 @@ a.fake-btn--icon-only {
             --button-primary-background-color: @color-b4-dark-mode;
             --button-primary-foreground-color: @color-black-dark-mode;
             --button-primary-hover-background-color: @color-b6-dark-mode;
+            --button-primary-border-color: @color-b4-dark-mode;
+            --button-primary-hover-border-color: @color-b6-dark-mode;
             --button-secondary-background-color: @color-black-dark-mode;
             --button-secondary-border-color: @color-b4-dark-mode;
             --button-secondary-foreground-color: @color-b4-dark-mode;
@@ -289,11 +292,20 @@ a.fake-btn--icon-only {
             --button-delete-background-color: @color-black-dark-mode;
             --button-delete-foreground-color: @color-r4-dark-mode;
             --button-primary-disabled-background-color: @color-grey3-dark-mode;
-            --button-primary-disabled-foreground-color: @color-grey5;
-            --button-primary-disabled-border-color: @color-grey5;
+            --button-primary-disabled-foreground-color: @color-black-dark-mode;
+            --button-primary-disabled-border-color: @color-grey3-dark-mode;
             --button-secondary-disabled-background-color: @color-black-dark-mode;
             --button-secondary-disabled-foreground-color: @color-grey3-dark-mode;
             --button-secondary-disabled-border-color: @color-grey3-dark-mode;
+            --button-tertiary-foreground-color: @color-b4-dark-mode;
+            --button-tertiary-background-color: @color-grey1-dark-mode;
+            --button-tertiary-border-color: @color-grey1-dark-mode;
+            --button-tertiary-hover-background-color: @color-grey2-dark-mode;
+            --button-tertiary-hover-border-color: @color-grey2-dark-mode;
+            --button-tertiary-hover-foreground-color: @color-b6-dark-mode;
+            --button-tertiary-disabled-background-color: @color-grey1-dark-mode;
+            --button-tertiary-disabled-border-color: @color-grey1-dark-mode;
+            --button-tertiary-disabled-foreground-color: @color-grey3-dark-mode;
         }
     }
 }

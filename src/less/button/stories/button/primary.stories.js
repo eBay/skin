@@ -36,3 +36,11 @@ export const partiallyDisabled = () => `
     </span>
 </button>
 `;
+
+export const loading = () => `
+<button class="btn btn--primary" aria-disabled="true" aria-label="Loading" aria-live="polite">
+    <span class="btn__cell">
+        <span class="progress-spinner">
+    </span>
+</button>
+`;
