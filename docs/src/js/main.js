@@ -12,11 +12,6 @@ if (window.URLSearchParams !== undefined) {
     }
 }
 
-// SVG for Everybody adds SVG External Content support to all browsers.
-// https://github.com/jonathantneal/svg4everybody
-// eslint-disable-next-line no-undef
-svg4everybody();
-
 const pageWidgets = [];
 
 const RovingTabindex = require('makeup-roving-tabindex');
@@ -34,7 +29,6 @@ const Switch = require('makeup-switch');
 let progressBarInterval;
 
 const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no-console
-// const nodeListToArray = (nodeList) => Array.prototype.slice.call(nodeList);
 
 // LOADING BUTTON
 document.getElementById('loading-button').addEventListener('click', function() {
@@ -60,7 +54,6 @@ document.querySelectorAll('.checkbox input[aria-checked="mixed"]').forEach(funct
 });
 
 // BREADCRUMBS
-
 document.querySelectorAll('.breadcrumbs').forEach(function(el) {
     const width = el.offsetWidth;
     const scrollLength = el.scrollWidth;
