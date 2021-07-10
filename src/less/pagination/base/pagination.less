@@ -1,9 +1,9 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 nav.pagination {
-    .flex-items-centered(inline-flex);
-    .customColorProperty(pagination-item-foreground-color);
+    .inline-flex-items-centered();
 
+    .color(pagination-item-foreground-color);
     font-family: inherit;
     font-size: 1rem;
     margin: 8px 0;
@@ -17,7 +17,7 @@ nav.pagination button {
 }
 
 ol.pagination__items {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
 
     box-sizing: border-box;
     flex-wrap: wrap;
@@ -36,13 +36,13 @@ a.pagination__next,
 a.pagination__previous,
 button.pagination__next,
 button.pagination__previous {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
 
     outline-offset: -4px; // match items, needed because of hidden overflow
 }
 
 .pagination__item {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
 
     box-sizing: border-box;
     font-weight: @pagination-item-font-weight;
@@ -52,24 +52,22 @@ button.pagination__previous {
     width: 48px;
 
     &:active {
-        .customColorProperty(pagination-item-active-foreground-color);
+        .color(pagination-item-active-foreground-color);
     }
 
     &:focus,
     &:hover {
-        .customColorProperty(pagination-item-hover-foreground-color);
-
+        .color(pagination-item-hover-foreground-color);
         text-decoration: underline;
     }
 
     &[aria-current="page"] {
-        .customBackgroundColorProperty(pagination-item-current-background-color);
-        .customBorderColorProperty(pagination-item-current-border-color);
-        .customColorProperty(pagination-item-current-foreground-color);
-        .customBorderRadiusProperty(pagination-item-current-border-radius);
-
+        .background-color(pagination-item-current-background-color);
+        .border-color(pagination-item-current-border-color);
+        .border-radius(pagination-item-current-border-radius);
         border-style: solid;
         border-width: 2px;
+        .color(pagination-item-current-foreground-color);
         font-weight: @pagination-item-current-font-weight;
     }
 }

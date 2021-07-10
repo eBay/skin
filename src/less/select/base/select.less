@@ -1,8 +1,7 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .select {
-    .customColorProperty(select-foreground-color);
-
+    .color(select-foreground-color);
     font-size: @select-font-size;
     position: relative;
 }
@@ -12,11 +11,10 @@ span.select {
 }
 
 .select select {
-    .customBackgroundColorProperty(select-background-color);
-    .customBorderColorProperty(select-border-color);
-    .customBorderRadiusProperty(select-border-radius);
-
     appearance: none;
+    .background-color(select-background-color);
+    .border-color(select-border-color);
+    .border-radius(select-border-radius);
     border-style: solid;
     border-width: 1px;
     color: inherit;
@@ -60,9 +58,8 @@ span.select {
 }
 
 .select select:focus {
-    .customBorderColorProperty(select-focus-border-color);
-    .customBackgroundColorProperty(select-focus-background-color);
-
+    .background-color(select-focus-background-color);
+    .border-color(select-focus-border-color);
     outline: 0;
     text-decoration: underline;
 }
@@ -73,27 +70,26 @@ span.select {
 }
 
 .select select[disabled] {
-    .customBackgroundColorProperty(select-disabled-background-color);
-    .customColorProperty(select-disabled-foregound-color);
+    .background-color(select-disabled-background-color);
+    .color(select-disabled-foregound-color);
 }
 
 .select--borderless select[disabled] {
-    .customBackgroundColorProperty(select-borderless-disabled-background-color);
-    .customColorProperty(select-borderless-disabled-foregound-color);
+    .background-color(select-borderless-disabled-background-color);
+    .color(select-borderless-disabled-foregound-color);
 }
 
 .select select[readonly] {
-    .customBackgroundColorProperty(select-disabled-background-color);
-    .customColorProperty(select-disabled-foregound-color);
+    .background-color(select-disabled-background-color);
+    .color(select-disabled-foregound-color);
 }
 
 .select select[aria-invalid="true"] {
-    .customBorderColorProperty(select-invalid-border-color);
-    .customBackgroundColorProperty(select-invalid-background-color);
-    .customColorProperty(select-invalid-foreground-color);
-
+    .background-color(select-invalid-background-color);
+    .border-color(select-invalid-border-color);
     border-style: solid;
     border-width: 1px;
+    .color(select-invalid-foreground-color);
 }
 
 .select select[disabled] + svg {

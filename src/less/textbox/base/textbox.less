@@ -3,8 +3,7 @@
 /* stylelint-disable no-descending-specificity */
 
 .textbox {
-    .customColorProperty(textbox-foreground-color);
-
+    .color(textbox-foreground-color);
     font-size: @textbox-font-size;
     position: relative;
 
@@ -40,74 +39,68 @@ input.textbox__control {
 
 input.textbox__control,
 textarea.textbox__control {
-    .customBackgroundColorProperty(textbox-background-color);
-    .customBorderColorProperty(textbox-border-color);
-    .customColorProperty(textbox-foreground-color);
-    .customBorderRadiusProperty(textbox-border-radius);
-
     appearance: none;
+    .background-color(textbox-background-color);
+    .border-color(textbox-border-color);
+    .border-radius(textbox-border-radius);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
+    .color(textbox-foreground-color);
     font-size: 1em;
     height: @textbox-height;
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .customBackgroundColorProperty(textbox-disabled-background-color);
-        .customBorderColorProperty(textbox-disabled-border-color);
-        .customColorProperty(textbox-disabled-foreground-color);
+        .background-color(textbox-disabled-background-color);
+        .border-color(textbox-disabled-border-color);
+        .color(textbox-disabled-foreground-color);
 
         &::-webkit-input-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color(textbox-disabled-placeholder-color);
         }
 
         &::-moz-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color(textbox-disabled-placeholder-color);
         }
 
         &:-ms-input-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color(textbox-disabled-placeholder-color);
         }
     }
 
     &[readonly] {
-        .customColorProperty(textbox-readonly-foreground-color);
+        .color(textbox-readonly-foreground-color);
     }
 
     &[aria-invalid="true"] {
-        .customBackgroundColorProperty(textbox-invalid-background-color);
-        .customBorderColorProperty(textbox-invalid-foreground-color);
+        .background-color(textbox-invalid-background-color);
+        .border-color(textbox-invalid-foreground-color);
     }
 
     &:focus {
-        .customBorderColorProperty(textbox-focus-border-color);
-        .customBackgroundColorProperty(textbox-focus-background-color);
-
+        .border-color(textbox-focus-border-color);
+        .background-color(textbox-focus-background-color);
         outline: 0;
     }
 
     &::-webkit-input-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color(textbox-placeholder-color);
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color(textbox-placeholder-color);
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color(textbox-placeholder-color);
         font-weight: 200;
     }
 
     &::placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color(textbox-placeholder-color);
         font-weight: 200;
     }
 }
@@ -118,10 +111,9 @@ input.textbox__control--large {
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    .customColorProperty(textbox-icon-color);
-    .customFillProperty(textbox-icon-color);
-
+    .color(textbox-icon-color);
     display: inline-flex;
+    .fill(textbox-icon-color);
     height: 100%;
     pointer-events: none;
     position: absolute;

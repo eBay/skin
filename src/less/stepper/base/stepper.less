@@ -43,12 +43,11 @@ hr.stepper__separator {
 
 // todo: refactor out dependency on badge module. I don't think it should be used in this context.
 .stepper__icon .badge {
-    .customColorProperty(stepper-text-dark-color);
-    .customBackgroundColorProperty(stepper-badge-background-color);
-    .customBorderColorProperty(stepper-text-dark-color);
-
+    .background-color(stepper-badge-background-color);
+    .border-color(stepper-text-dark-color);
     border-style: solid;
     border-width: 1px;
+    .color(stepper-text-dark-color);
     height: @stepper-icon-size;
     top: 0;
     width: 24px; // This width makes the badge to have 24px width for some reason!
@@ -70,12 +69,12 @@ hr.stepper__separator {
 
 .stepper__item--confirmation {
     .highlight-upcoming(@stepper-confirmation-color);
-    .customColorProperty(stepper-text-light-color);
+    .color(stepper-text-light-color);
 }
 
 .stepper__item--upcoming {
     .highlight-upcoming(@stepper-upcoming-color);
-    .customColorProperty(stepper-text-light-color);
+    .color(stepper-text-light-color);
 
     svg {
         fill: @stepper-upcoming-color;
@@ -84,12 +83,11 @@ hr.stepper__separator {
 
 .stepper__item--default {
     .highlight-upcoming(@stepper-text-dark-color);
-    .customColorProperty(stepper-text-dark-color);
+    .color(stepper-text-dark-color);
 }
 
 .stepper__item--current {
     .highlight-upcoming(@stepper-upcoming-color);
-
     color: @stepper-confirmation-color;
 }
 
@@ -121,7 +119,7 @@ hr.stepper__separator {
 
 .stepper__item--current .stepper__text,
 .stepper__item--default .stepper__text {
-    .customColorProperty(stepper-text-dark-color);
+    .color(stepper-text-dark-color);
 }
 
 .stepper__item[aria-current="step"] {
