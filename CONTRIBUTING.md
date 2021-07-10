@@ -290,7 +290,7 @@ The second line will be ignored in browsers that do not support custom propertie
 
 ## Dark Mode
 
-[Dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) is currently supported behind an experimental flag for DS6 only. The flag is enabled by applying the class `.skin-experiment-dark-mode` to the HTML body tag.
+Every Skin module has full support for [dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme). The styles for dark mode are included at the end of every source file, inside of a `prefers-color-scheme: dark` media query.
 
 ## Storybook
 
@@ -400,7 +400,7 @@ Git tags to the rescue! Git tags allow us to go back to any moment in time that 
 1. Go to tags page: https://github.com/eBay/skin/tags
 1. Select the tag you'd like to go back in time to, e.g. https://github.com/eBay/skin/tree/v6.3.5
 1. Select the tag dropdown and create a new branch named accordingly, e.g `6.3.6`. This is the branch you will merge your PR to and do the release from.
-1. Create *another* branch for your local dev work, e.g. `1723-textbox-fix`.
+1. Create _another_ branch for your local dev work, e.g. `1723-textbox-fix`.
 1. Now follow the [release steps](#final-release) mentioned above, but substituting `master` branch for your release branch (e.g. `6.3.6`) and milestone branch for your dev branch (e.g. `1723-textbox-fix`). **IMPORTANT:** No changes should be pushed to master branch!
 1. Don't forget to publish your new git tag (e.g. `v6.3.6`)
 1. Use `npm publish --tag hotfix` when publishing to NPM to tag this as a hotfix.
