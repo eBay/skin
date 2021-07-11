@@ -85,7 +85,7 @@ function injectSkinCSS() {
 // Re-lasso the docs CSS, copy to jekyll _site/static, inject into browsers
 function syncDocsCss() {
     return child_process
-        .spawn('npm', ['run', 'lasso:docs'], { stdio: 'inherit' })
+        .spawn('npm', ['run', 'bundle:css'], { stdio: 'inherit' })
         .on('close', function () {
             gulp.src(['./docs/static/ds4/docs.min.css'])
                 .pipe(gulp.dest(siteStaticTarget + '/ds4'))
@@ -100,11 +100,11 @@ function syncDocsCss() {
 // Re-lasso the docs JS, copy it to jekyll _site/static, then reload browsers
 function syncDocsJs() {
     return child_process
-        .spawn('npm', ['run', 'lasso:docs'], { stdio: 'inherit' })
+        .spawn('npm', ['run', 'bundle:js'], { stdio: 'inherit' })
         .on('close', function () {
-            gulp.src(['./docs/static/ds4/docs.min.js']).pipe(gulp.dest(siteStaticTarget + '/ds4'));
-
-            gulp.src(['./docs/static/ds6/docs.min.js']).pipe(gulp.dest(siteStaticTarget + '/ds6'));
+            gulp.src(['./docs/static/common/docs.min.js']).pipe(
+                gulp.dest(siteStaticTarget + '/common')
+            );
 
             browserSync.reload();
         });
