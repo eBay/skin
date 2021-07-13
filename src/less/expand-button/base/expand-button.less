@@ -1,5 +1,11 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+@expand-button-hover-foreground-color: @color-b6;
+@expand-button-padding-vertical: 11px;
+@expand-button-padding-horizontal: 16px;
+@expand-button-wide-padding-horizontal: 48px;
+@expand-button-disabled-opacity: @color-action-disabled-opacity;
+
 button.expand-btn {
     .btn-base();
 
@@ -11,7 +17,7 @@ button.expand-btn {
     display: inline-block;
     font-size: 1em;
     max-width: 100%;
-    .padding(button-padding-vertical, button-padding-horizontal);
+    .padding(expand-button-padding-vertical, expand-button-padding-horizontal);
 
     &:hover,
     &:focus {
@@ -27,8 +33,8 @@ button.expand-btn svg.icon {
 }
 
 button.expand-button--wide {
-    padding-left: @button-wide-padding-horizontal;
-    padding-right: @button-wide-padding-horizontal;
+    padding-left: @expand-button-wide-padding-horizontal;
+    padding-right: @expand-button-wide-padding-horizontal;
 }
 
 button.expand-btn--fluid {
@@ -39,21 +45,6 @@ span.expand-btn__cell {
     .btn-cell-base();
 
     justify-content: space-between;
-}
-
-/* primary variant is DEPRECATED */
-button.expand-btn--primary {
-    .background-color(button-primary-background-color);
-    .border-color(button-primary-border-color);
-    .color(button-primary-foreground-color);
-
-    &:focus,
-    &:hover,
-    &:active {
-        .background-color(button-primary-hover-background-color);
-        .border-color(button-primary-hover-foreground-color);
-        .color(button-primary-hover-foreground-color);
-    }
 }
 
 span.expand-btn__cell--fixed-height svg.icon {
@@ -76,53 +67,9 @@ span.expand-btn__cell--center svg.icon:last-child {
 
 button.expand-btn[disabled],
 button.expand-btn[aria-disabled="true"] {
-    border-color: @button-secondary-disabled-border-color;
-    color: @button-secondary-disabled-foreground-color;
-    opacity: @button-disabled-opacity;
-}
-
-/* primary variant is DEPRECATED */
-button.expand-btn--primary[disabled],
-button.expand-btn--primary[aria-disabled="true"] {
-    .background-color(button-primary-disabled-background-color);
-    .border-color(button-primary-disabled-border-color);
-    .color(button-primary-disabled-foreground-color);
-
-    &:hover,
-    &:focus {
-        .background-color(button-primary-disabled-background-color);
-        .border-color(button-primary-disabled-border-color);
-    }
-}
-
-/* secondary variant is DEPRECATED */
-button.expand-btn--secondary {
-    .background-color(button-secondary-background-color);
-    .border-color(button-secondary-border-color);
-    .color(button-secondary-foreground-color);
-
-    &:focus,
-    &:hover,
-    &:active {
-        .background-color(button-secondary-hover-background-color);
-        .border-color(button-secondary-hover-foreground-color);
-        .color(button-secondary-hover-foreground-color);
-    }
-}
-
-/* secondary variant is DEPRECATED */
-button.expand-btn--secondary[disabled],
-button.expand-btn--secondary[aria-disabled="true"] {
-    .background-color(button-secondary-disabled-background-color);
-    .border-color(button-secondary-disabled-border-color);
-    .color(button-secondary-disabled-foreground-color);
-
-    &:hover,
-    &:focus,
-    &:active {
-        .background-color(button-secondary-disabled-background-color);
-        .border-color(button-secondary-disabled-border-color);
-    }
+    border-color: @expand-button-disabled-border-color;
+    color: @expand-button-disabled-foreground-color;
+    opacity: @expand-button-disabled-opacity;
 }
 
 button.expand-btn svg.icon:only-child {
@@ -196,21 +143,5 @@ button.expand-btn--icon-only.expand-btn--large {
 @media (prefers-color-scheme: dark) {
     button.expand-btn {
         --expand-button-hover-foreground-color: @color-b6-dark-mode;
-
-        /* following properties are deprecated  */
-        --button-primary-background-color: @color-b4-dark-mode;
-        --button-primary-foreground-color: @color-black-dark-mode;
-        --button-primary-hover-background-color: @color-b6-dark-mode;
-        --button-secondary-background-color: @color-black-dark-mode;
-        --button-secondary-border-color: @color-b4-dark-mode;
-        --button-secondary-foreground-color: @color-b4-dark-mode;
-        --button-secondary-hover-background-color: @color-black-dark-mode;
-        --button-secondary-hover-foreground-color: @color-b6-dark-mode;
-        --button-primary-disabled-background-color: @color-grey3-dark-mode;
-        --button-primary-disabled-foreground-color: @color-grey5;
-        --button-primary-disabled-border-color: @color-grey5;
-        --button-secondary-disabled-background-color: @color-black-dark-mode;
-        --button-secondary-disabled-foreground-color: @color-grey3-dark-mode;
-        --button-secondary-disabled-border-color: @color-grey3-dark-mode;
     }
 }

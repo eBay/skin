@@ -2,8 +2,111 @@
 
 /* stylelint-disable no-descending-specificity, comment-empty-line-before */
 
+// START VARIABLES
+@carousel-paddle-background-color: @color-background-default;
+@carousel-paddle-border-color: @color-grey2;
+@carousel-paddle-foreground-color: @color-text-default;
+@carousel-paddle-hover-background-color: @color-grey5;
+@carousel-paddle-hover-foreground-color: @color-background-default;
+@carousel-paddle-active-background-color: @color-grey6;
+@carousel-playback-foreground-color: @color-background-default;
+@carousel-playback-background-color: rgba(0, 0, 0, 0.45);
+
 @ebay-carousel-transition-time: 0.45s;
 @ebay-carousel-transition-function: ease-in-out;
+// END VARIABLES
+
+// START MIXINS
+.show-control() {
+    opacity: 0.92;
+
+    &[aria-disabled="true"] {
+        opacity: 0.3;
+    }
+}
+
+.carousel-paddle-mixin-base() {
+    .background-color(carousel-paddle-background-color);
+
+    &--prev {
+        left: 0;
+    }
+
+    &--next {
+        right: 0;
+    }
+
+    .icon--carousel-next {
+        margin-left: 2px;
+    }
+
+    .icon--carousel-prev {
+        margin-left: -2px;
+    }
+
+    align-items: center;
+    border: 1px solid @carousel-paddle-border-color;
+    border-radius: 16px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    font-size: 18px;
+    height: 32px;
+    justify-content: center;
+    opacity: 0;
+    padding: 0; // override browser default
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity @ebay-carousel-transition-time @ebay-carousel-transition-function;
+    width: 32px;
+    z-index: 1;
+
+    svg {
+        .color(carousel-paddle-foreground-color);
+    }
+
+    // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    // progressive enhancement for browsers with support
+    // :focus-within and :hover cannot be combined as
+    // IE/Edge will discard the entire rule
+    @media (min-width: 601px) {
+        .carousel:focus-within & {
+            .show-control();
+        }
+
+        // This is needed for some touch devices like Ipad
+        // When clicking a link in the carousel it forces a focus on :hover elements
+        // This removes hover elements on Ipad
+        @media (hover: hover) {
+            .carousel:hover & {
+                .show-control();
+            }
+        }
+    }
+
+    &--show,
+    &:focus {
+        .show-control();
+    }
+
+    &:hover {
+        background-color: @carousel-paddle-hover-background-color;
+        border-color: @carousel-paddle-hover-background-color;
+
+        svg {
+            color: @carousel-paddle-hover-foreground-color;
+        }
+    }
+
+    &:active {
+        background-color: @carousel-paddle-active-background-color;
+    }
+}
+// END MIXINS
 
 .carousel {
     position: relative;
