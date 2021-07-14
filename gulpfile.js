@@ -35,10 +35,9 @@ function modules() {
             '!./src/less/bundles/**/*.less',
             '!./src/less/gh/**/*.less',
             '!./src/less/grid/**/*.less',
-            '!./src/less/less/**/*.less',
             '!./src/less/mixins/**/*.less',
-            '!./src/less/variables/**/*.less',
-            '!./src/less/properties/**/*.less',
+            '!./src/less/primitives/**/*.less',
+            '!./src/less/tokens/**/*.less',
         ])
         .pipe(less({ plugins: [autoprefixPlugin] }))
         .pipe(gulp.dest(distTarget));
