@@ -14,7 +14,89 @@
     {% endhighlight %}
     <p><strong>NOTE</strong>: This module requires the additional <a href="https://www.npmjs.com/package/lasso-less">lasso-less</a> plugin dependency in your app package.json.</p>
 
-    <h3 id="less-typography">Typography Mixins</h3>
+    <h3 id="less-primitives-light">Light Primitives</h3>
+
+    {% assign colours = "white, grey1, grey2, grey3, grey4, grey5, grey6, grey7, black, b1, b2, b3, b4, b5, b6, b7, g1, g2, g3, g4, g5, g6, g7, l1, l2, l3, l4, l5, l6, l7, m1, m2, m3, m4, m5, m6, m7, o1, o2, o3, o4, o5, o6, o7, r1, r2, r3, r4, r5, r6, r7, t1, t2, t3, t4, t5, t6, t7, y1, y2, y3, y4, y5, y6, y7" | split: ", " %}
+
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-primitive">
+                {% for colourName in colours %}
+                <li class="demo-color-{{ colourName }}">color-{{ colourName}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="less-primitives-dark">Dark Primitives</h3>
+
+    {% assign darkColours = "white, grey1, grey2, grey3, grey4, grey5, grey6, grey7, black, b4, b6, m4, r4, g4, g6" | split: ", " %}
+
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-token">
+                {% for colourName in darkColours %}
+                <li class="demo-color-{{ colourName }}-dark-mode">color-{{ colourName}}-dark-mode</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="less-tokens-light">Light Tokens</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-token">
+                <li class="demo-color-background-default">color-background-default</li>
+                <li class="demo-color-separator">color-separator</li>
+                <li class="demo-color-image-border">color-image-border</li>
+                <li class="demo-color-action-primary">color-action-primary</li>
+                <li class="demo-color-action-secondary">color-action-secondary</li>
+                <li class="demo-color-action-hover">color-action-hover</li>
+                <li class="demo-color-action-disabled">color-action-disabled</li>
+                <li class="demo-color-action-destroy">color-action-destroy</li>
+                <li class="demo-color-text-default">color-text-default</li>
+                <li class="demo-color-text-secondary">color-text-secondary</li>
+                <li class="demo-color-text-disabled">color-text-disabled</li>
+                <li class="demo-color-text-confirmation">color-text-confirmation</li>
+                <li class="demo-color-link-default">color-link-default</li>
+                <li class="demo-color-link-hover">color-link-hover</li>
+                <li class="demo-color-link-visited">color-link-visited</li>
+                <li class="demo-color-status-confirmation">color-status-confirmation</li>
+                <li class="demo-color-status-attention">color-status-attention</li>
+                <li class="demo-color-status-information">color-status-information</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="less-tokens-dark">Dark Tokens</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-token">
+                <li class="demo-color-background-default-dark-mode">color-background-default-dark-mode</li>
+                <li class="demo-color-separator-dark-mode">color-separator-dark-mode</li>
+                <li class="demo-color-image-border-dark-mode">color-image-border-dark-mode</li>
+                <li class="demo-color-action-primary-dark-mode">color-action-primary-dark-mode</li>
+                <li class="demo-color-action-secondary-dark-mode">color-action-secondary-dark-mode</li>
+                <li class="demo-color-action-hover-dark-mode">color-action-hover-dark-mode</li>
+                <li class="demo-color-action-disabled-dark-mode">color-action-disabled-dark-mode</li>
+                <li class="demo-color-action-destroy-dark-mode">color-action-destroy-dark-mode</li>
+                <li class="demo-color-text-default-dark-mode">color-text-default-dark-mode</li>
+                <li class="demo-color-text-secondary-dark-mode">color-text-secondary-dark-mode</li>
+                <li class="demo-color-text-disabled-dark-mode">color-text-disabled-dark-mode</li>
+                <li class="demo-color-text-confirmation-dark-mode">color-text-confirmation-dark-mode</li>
+                <li class="demo-color-link-default-dark-mode">color-link-default-dark-mode</li>
+                <li class="demo-color-link-hover-dark-mode">color-link-hover-dark-mode</li>
+                <li class="demo-color-link-visited-dark-mode">color-link-visited-dark-mode</li>
+                <li class="demo-color-status-confirmation-dark-mode">color-status-confirmation-dark-mode</li>
+                <li class="demo-color-status-attention-dark-mode">color-status-attention-dark-mode</li>
+                <li class="demo-color-status-information-dark-mode">color-status-information-dark-mode</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="less-mixins">Typography Mixins</h3>
+
     <div class="demo">
         <div class="demo__inner">
             <ul class="demo-typography">
@@ -33,78 +115,6 @@
                 <li class="small-text bold-text">.typography-small-bold();</li>
                 <li class="small-text">.typography-small();</li>
                 <li class="small-text secondary-text">.typography-small-secondary();</li>
-            </ul>
-        </div>
-    </div>
-
-    <h3 id="less-variables-greys">Grey Color Variables</h3>
-    <div class="demo">
-        <div class="demo__inner">
-            <ul class="demo-colors">
-                <li class="demo-color-white">@color-white</li>
-                <li class="demo-color-grey1">@color-grey1</li>
-                <li class="demo-color-grey2">@color-grey2</li>
-                <li class="demo-color-grey3">@color-grey3</li>
-                <li class="demo-color-grey4">@color-grey4</li>
-                <li class="demo-color-grey5">@color-grey5</li>
-                <li class="demo-color-grey6">@color-grey6</li>
-                <li class="demo-color-grey7">@color-grey7</li>
-                <li class="demo-color-black">@color-black</li>
-            </ul>
-        </div>
-    </div>
-
-    <h3 id="less-color-product">Product Color Variables</h3>
-    <div class="demo">
-        <div class="demo__inner">
-            <ul class="demo-colors">
-                <li class="demo-color-background-default">@color-background-default</li>
-                <li class="demo-color-text-default">@color-text-default</li>
-                <li class="demo-color-text-secondary">@color-text-secondary, @color-action-secondary</li>
-                <li class="demo-color-text-disabled">@color-text-disabled, @color-action-disabled</li>
-                <li class="demo-color-text-confirmation">@color-text-confirmation</li>
-                <li class="demo-color-separator">@color-separator, @color-image-border</li>
-                <li class="demo-color-action-primary">@color-action-primary, @color-link-default</li>
-                <li class="demo-color-action-disabled">@color-text-disabled, @color-action-disabled</li>
-                <li class="demo-color-action-hover">@color-action-hover, @color-link-hover</li>
-                <li class="demo-color-link-visited">@color-link-visited</li>
-                <li class="demo-color-status-confirmation">@color-status-confirmation</li>
-                <li class="demo-color-status-attention">@color-status-attention, @color-action-destroy</li>
-                <li class="demo-color-status-information">@color-status-information</li>
-            </ul>
-        </div>
-    </div>
-
-    <h3 id="less-color-product-dark">Product Color Variables (dark mode)</h3>
-    <div>
-        <div class="demo__inner">
-            <ul class="demo-colors">
-                <li class="demo-color-background-default-dark-mode">@color-background-default-dark-mode</li>
-                <li class="demo-color-text-default-dark-mode">@color-text-default-dark-mode</li>
-                <li class="demo-color-text-secondary-dark-mode">@color-text-secondary-dark-mode, @color-action-secondary-dark-mode</li>
-                <li class="demo-color-text-disabled-dark-mode">@color-text-disabled-dark-mode, @color-action-disabled-dark-mode</li>
-                <li class="demo-color-text-confirmation-dark-mode">@color-text-confirmation-dark-mode</li>
-                <li class="demo-color-separator-dark-mode">@color-separator-dark-mode, @color-image-border-dark-mode</li>
-                <li class="demo-color-action-primary-dark-mode">@color-action-primary-dark-mode, @color-link-default-dark-mode</li>
-                <li class="demo-color-action-disabled-dark-mode">@color-text-disabled-dark-mode, @color-action-disabled-dark-mode</li>
-                <li class="demo-color-action-hover-dark-mode">@color-action-hover-dark-mode, @color-link-hover-dark-mode</li>
-                <li class="demo-color-link-visited-dark-mode">@color-link-visited-dark-mode</li>
-                <li class="demo-color-status-confirmation-dark-mode">@color-status-confirmation-dark-mode</li>
-                <li class="demo-color-status-attention-dark-mode">@color-status-attention-dark-mode, @color-action-destroy-dark-mode</li>
-                <li class="demo-color-status-information-dark-mode">@color-status-information-dark-mode</li>
-            </ul>
-        </div>
-    </div>
-
-    {% assign colours = "b1, b2, b3, b4, b5, b6, b7, g1, g2, g3, g4, g5, g6, g7, l1, l2, l3, l4, l5, l6, l7, m1, m2, m3, m4, m5, m6, m7, o1, o2, o3, o4, o5, o6, o7, r1, r2, r3, r4, r5, r6, r7, t1, t2, t3, t4, t5, t6, t7, y1, y2, y3, y4, y5, y6, y7" | split: ", " %}
-
-    <h3 id="less-color-palette">Palette Color Variables</h3>
-    <div class="demo">
-        <div class="demo__inner">
-            <ul class="demo-colors">
-                {% for colourName in colours %}
-                <li class="demo-color-{{ colourName }}">@color-{{ colourName}}</li>
-                {% endfor %}
             </ul>
         </div>
     </div>
