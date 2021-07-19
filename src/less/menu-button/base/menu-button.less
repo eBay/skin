@@ -46,8 +46,7 @@ div.menu-button__item[role^="menuitem"] {
 }
 
 .menu-button__item svg.icon:last-child,
-.fake-menu-button__item svg.icon:last-child,
-.menu-button__item .badge {
+.fake-menu-button__item svg.icon:last-child {
     margin-left: 8px;
 }
 
@@ -125,17 +124,27 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
     }
 }
 
-a.fake-menu-button__item span,
-button.fake-menu-button__item span,
-div.menu-button__item[role^="menuitem"] span {
+a.fake-menu-button__item > span,
+button.fake-menu-button__item > span,
+div.menu-button__item[role^="menuitem"] > span {
     flex: 1 0 auto;
     white-space: nowrap;
 }
 
-a.fake-menu-button__item span.badge,
-button.fake-menu-button__item span.badge,
-div.menu-button__item[role^="menuitem"] span.badge {
-    flex: initial;
+a.fake-menu-button__item--badged,
+button.fake-menu-button__item--badged,
+div.menu-button__item--badged[role^="menuitem"] {
+    padding-right: 36px;
+    position: relative;
+}
+
+a.fake-menu-button__item--badged .badge,
+button.fake-menu-button__item--badged .badge,
+div.menu-button__item--badged[role^="menuitem"] .badge {
+    margin-left: 4px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
 
 .menu-button__menu--scroll {
