@@ -99,17 +99,25 @@ div.menu__item[role^="menuitem"]:active svg.icon {
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
 }
-a.fake-menu__item span,
-button.fake-menu__item span,
-div.menu__item[role^="menuitem"] span {
+a.fake-menu__item > span,
+button.fake-menu__item > span,
+div.menu__item[role^="menuitem"] > span {
   flex: 0 0 auto;
   text-align: left;
   white-space: nowrap;
 }
-a.fake-menu__item span.badge,
-button.fake-menu__item span.badge,
-div.menu__item[role^="menuitem"] span.badge {
-  flex: initial;
+a.fake-menu__item--badged,
+button.fake-menu__item--badged,
+div.menu__item--badged[role^="menuitem"] {
+  position: relative;
+}
+a.fake-menu__item--badged span.badge,
+button.fake-menu__item--badged span.badge,
+div.menu__item--badged[role^="menuitem"] span.badge {
+  padding: 1px 5px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 .menu__items--scroll[role="menu"] {
   overflow-y: scroll;
