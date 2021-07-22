@@ -111,6 +111,7 @@ export const dotsHidden = () => `
     <span aria-live="polite" role="status">
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
+    <a aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
         <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
             <use xlink:href="#icon-pagination-prev"></use>
         </svg>
