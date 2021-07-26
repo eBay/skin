@@ -202,6 +202,8 @@ document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     const tabItems = widgetEl.querySelectorAll('[role=tab]');
     const tabPanels = widgetEl.querySelectorAll('[role=tabpanel]');
 
+    ScrollKeyPreventer.add(widgetEl);
+
     widgetEl.addEventListener('rovingTabindexChange', function(e) {
         tabItems[e.detail.fromIndex].setAttribute('aria-selected', 'false');
         tabItems[e.detail.toIndex].setAttribute('aria-selected', 'true');

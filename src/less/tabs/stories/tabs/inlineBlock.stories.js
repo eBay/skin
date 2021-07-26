@@ -58,10 +58,10 @@ export const four = () => `
 `;
 
 export const longText = () => `
-<span class="tabs" style="max-width: 600px;">
+<span class="tabs">
     <div class="tabs__items" role="tablist">
         <div aria-controls="default-tabpanel-1" aria-selected="true" class="tabs__item" id="default-tab-1" role="tab" tabindex="0">
-            <span>Tab 1 with lots of text that could easily take up several lines</span>
+            <span>Tab 1 with lots of text that will not truncate or wrap</span>
         </div>
         <div aria-controls="default-tabpanel-2" aria-selected="false" class="tabs__item" id="default-tab-2" role="tab" tabindex="-1">
             <span>Tab 2</span>
