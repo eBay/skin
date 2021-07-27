@@ -62,24 +62,14 @@ button.pagination__previous {
     font-weight: @pagination-item-font-weight;
     height: 44px;
     width: 44px;
+}
 
-    &:active {
-        .color(pagination-item-active-foreground-color);
-    }
+a.pagination__item,
+button.pagination__item {
+    position: relative;
 
-    &:focus,
-    &:hover {
-        .color(pagination-item-hover-foreground-color);
-    }
-
-    &[aria-current="page"] {
-        .color(pagination-item-current-foreground-color);
-        font-weight: @pagination-item-current-font-weight;
-        position: relative;
-    }
-
-    &[aria-current="page"]::after {
-        background-color: currentColor;
+    &::after {
+        background-color: transparent;
         border-radius: 4px;
         bottom: 0;
         content: "";
@@ -88,11 +78,6 @@ button.pagination__previous {
         left: calc(50% - 10px);
         position: absolute;
         width: 20px;
-    }
-
-    &[aria-current="page"]:hover,
-    &[aria-current="page"]:focus {
-        color: @pagination-item-hover-foreground-color;
     }
 }
 
@@ -104,6 +89,35 @@ button.pagination__item {
 
 a.pagination__item {
     text-decoration: none;
+}
+
+a.pagination__item[aria-current="page"] {
+    .color(pagination-item-current-foreground-color);
+    font-weight: @pagination-item-current-font-weight;
+
+    &::after {
+        background-color: currentColor;
+    }
+}
+
+a.pagination__item:not([aria-current="page"]),
+button.pagination__item:not([aria-current="page"]) {
+    &:active {
+        .color(pagination-item-active-foreground-color);
+    }
+
+    &:focus,
+    &:hover {
+        .color(pagination-item-hover-foreground-color);
+
+        &::after {
+            background-color: currentColor;
+        }
+    }
+}
+
+span.pagination__item svg.icon--overflow {
+    transform: rotate(90deg);
 }
 
 nav.pagination--fluid {
@@ -120,12 +134,14 @@ nav.pagination--fluid ol.pagination__items li {
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+/* stylelint-disable no-descending-specificity */
 a.pagination__item:focus,
 button.pagination__item:focus {
     &:not(:focus-visible) {
         outline: none;
     }
 }
+/* stylelint-enable no-descending-specificity */
 
 [dir="rtl"] {
     a.pagination__next,
@@ -149,9 +165,9 @@ button.pagination__item:focus {
 
 @media (prefers-color-scheme: dark) {
     .pagination {
-        --pagination-item-foreground-color: @color-grey5-dark-mode;
+        --pagination-item-foreground-color: @color-text-secondary-dark-mode;
         --pagination-item-current-foreground-color: @color-text-default-dark-mode;
-        --pagination-item-hover-foreground-color: @color-b4-dark-mode;
+        --pagination-item-hover-foreground-color: @color-text-default-dark-mode;
         --pagination-item-active-foreground-color: @color-text-default-dark-mode;
     }
 }
