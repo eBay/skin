@@ -54,20 +54,13 @@ button.pagination__previous {
   height: 44px;
   width: 44px;
 }
-.pagination__item:active {
-  color: var(--pagination-item-active-foreground-color, #333);
-}
-.pagination__item:focus,
-.pagination__item:hover {
-  color: var(--pagination-item-hover-foreground-color, #00489f);
-}
-.pagination__item[aria-current="page"] {
-  color: var(--pagination-item-current-foreground-color, #333);
-  font-weight: 500;
+a.pagination__item,
+button.pagination__item {
   position: relative;
 }
-.pagination__item[aria-current="page"]::after {
-  background-color: currentColor;
+a.pagination__item::after,
+button.pagination__item::after {
+  background-color: transparent;
   border-radius: 4px;
   bottom: 0;
   content: "";
@@ -77,10 +70,6 @@ button.pagination__previous {
   position: absolute;
   width: 20px;
 }
-.pagination__item[aria-current="page"]:hover,
-.pagination__item[aria-current="page"]:focus {
-  color: #00489f;
-}
 button.pagination__item {
   background: none;
   border: none;
@@ -88,6 +77,32 @@ button.pagination__item {
 }
 a.pagination__item {
   text-decoration: none;
+}
+a.pagination__item[aria-current="page"] {
+  color: var(--pagination-item-current-foreground-color, #333);
+  font-weight: 500;
+}
+a.pagination__item[aria-current="page"]::after {
+  background-color: currentColor;
+}
+a.pagination__item:not([aria-current="page"]):active,
+button.pagination__item:not([aria-current="page"]):active {
+  color: var(--pagination-item-active-foreground-color, #333);
+}
+a.pagination__item:not([aria-current="page"]):focus,
+button.pagination__item:not([aria-current="page"]):focus,
+a.pagination__item:not([aria-current="page"]):hover,
+button.pagination__item:not([aria-current="page"]):hover {
+  color: var(--pagination-item-hover-foreground-color, #00489f);
+}
+a.pagination__item:not([aria-current="page"]):focus::after,
+button.pagination__item:not([aria-current="page"]):focus::after,
+a.pagination__item:not([aria-current="page"]):hover::after,
+button.pagination__item:not([aria-current="page"]):hover::after {
+  background-color: currentColor;
+}
+span.pagination__item svg.icon--overflow {
+  transform: rotate(90deg);
 }
 nav.pagination--fluid {
   width: 100%;
@@ -99,10 +114,12 @@ nav.pagination--fluid ol.pagination__items {
 nav.pagination--fluid ol.pagination__items li {
   flex: 1 0 48px;
 }
+/* stylelint-disable no-descending-specificity */
 a.pagination__item:focus:not(:focus-visible),
 button.pagination__item:focus:not(:focus-visible) {
   outline: none;
 }
+/* stylelint-enable no-descending-specificity */
 [dir="rtl"] a.pagination__next,
 [dir="rtl"] button.pagination__next {
   margin-left: 0;
@@ -122,7 +139,7 @@ button.pagination__item:focus:not(:focus-visible) {
   .pagination {
     --pagination-item-foreground-color: #9c9c9c;
     --pagination-item-current-foreground-color: #dcdcdc;
-    --pagination-item-hover-foreground-color: #5192ff;
+    --pagination-item-hover-foreground-color: #dcdcdc;
     --pagination-item-active-foreground-color: #dcdcdc;
   }
 }

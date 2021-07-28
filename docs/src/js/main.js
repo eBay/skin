@@ -87,7 +87,7 @@ document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
         collapseOnClickOut: true,
         contentSelector: '.fake-menu-button__menu',
         focusManagement: 'focusable',
-        hostSelector: '.expand-btn'
+        hostSelector: widgetEl.querySelector('.expand-btn') ? '.expand-btn' : '.icon-btn'
     }));
 });
 

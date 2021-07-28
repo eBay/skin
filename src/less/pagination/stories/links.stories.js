@@ -26,6 +26,12 @@ export const base = () => `
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=5" class="pagination__item">5</a>
         </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=6" class="pagination__item">6</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=7" class="pagination__item">7</a>
+        </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
@@ -66,12 +72,6 @@ export const fluid = () => `
         </li>
         <li>
             <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=7" class="pagination__item">7</a>
-        </li>
-        <li>
-            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=8" class="pagination__item">8</a>
-        </li>
-        <li>
-            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=9" class="pagination__item">9</a>
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
