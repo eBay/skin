@@ -247,8 +247,8 @@ document.querySelectorAll('.filter-menu-button:not(.filter-menu-button--form)').
         menuSelector: '.filter-menu-button__menu'
     });
 
-    widget.menu.el.addEventListener('menu-select', logEvent);
-    widget.menu.el.addEventListener('menu-change', logEvent);
+    widget.menu.el.addEventListener('makeup-menu-select', logEvent);
+    widget.menu.el.addEventListener('makeup-menu-change', logEvent);
 });
 
 document.querySelectorAll('.menu').forEach(function(widgetEl) {
@@ -261,9 +261,9 @@ document.querySelectorAll('.menu').forEach(function(widgetEl) {
 document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     pageWidgets.push(new Menu(widgetEl));
 
-    widgetEl.addEventListener('menu-select', logEvent);
-    widgetEl.addEventListener('menu-change', logEvent);
-    widgetEl.addEventListener('menu-toggle', logEvent);
+    widgetEl.addEventListener('makeup-menu-select', logEvent);
+    widgetEl.addEventListener('makeup-menu-change', logEvent);
+    widgetEl.addEventListener('makeup-menu-toggle', logEvent);
 });
 
 // SWITCH - CHECKBOX/FORM VERSION
