@@ -166,13 +166,13 @@ class StyleGenerator extends BaseGenerator {
         }
         fs.writeFileSync(
             filePathFromRoot,
-            `require('./dist/${this.moduleId}/${version}/${this.moduleId}.css');\n`
+            `import './dist/${this.moduleId}/${version}/${this.moduleId}.css';\n`
         );
     }
 
     _addPackagingStylesIndexReference() {
         const filePathFromRoot = 'index.js';
-        const newLineContent = `require('./${this.moduleId}');`;
+        const newLineContent = `import './${this.moduleId}';`;
         writeLine({
             filePathFromRoot,
             newLineContent,

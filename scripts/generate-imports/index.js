@@ -26,7 +26,7 @@ function getFilePath(filename, ds) {
 }
 
 function getBrowserRequireSyntax(filename) {
-    return `"require: ./${filename}.js"`;
+    return `"./${filename}.css"`;
 }
 
 function getCSSRequireSyntax(filepath, ext) {
@@ -42,7 +42,7 @@ function getJSRequireSyntax(filepath, ext) {
     if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
-    return `require('./${fullFilePath}');\n`;
+    return `import './${fullFilePath}';\n`;
 }
 
 async function writeBrowserJSON(filename, base, additional) {
@@ -117,12 +117,12 @@ async function generateTopLevelFiles() {
     );
     const contentJS = indexFiles
         .map((item) => {
-            return `require('./${item.filename}.js');\n`;
+            return `import './${item.filename}.js';\n`;
         })
         .join('');
     const contentBrowser = indexFiles
         .map((item) => {
-            return `"require: ./${item.filename}.js"`;
+            return `"./${item.filename}.css"`;
         })
         .join(',');
     const contentCSS = indexFiles
