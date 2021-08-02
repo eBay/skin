@@ -1,17 +1,19 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const path = require('path');
-const { add } = require('winston');
 const config = require('./config.json');
 const currentDir = path.dirname(path.dirname(__dirname));
 const files = fs
     .readdirSync(path.join(currentDir, 'dist'))
     .filter((filename) => config.skip.indexOf(filename) === -1);
-const configFiles = Object.keys(config.modules);
 const browserRemap = [];
 
 function getBrowserFileName(filename) {
     return path.join(currentDir, `${filename}.browser.json`);
+}
+
+function getJSFileName(filename) {
+    return path.join(currentDir, `${filename}.js`);
 }
 
 function getFileName(filename, ds, ext) {
@@ -26,7 +28,7 @@ function getFilePath(filename, ds) {
 }
 
 function getBrowserRequireSyntax(filename) {
-    return `"require: ./${filename}.js"`;
+    return `"./${filename}.css"`;
 }
 
 function getCSSRequireSyntax(filepath, ext) {
@@ -42,7 +44,7 @@ function getJSRequireSyntax(filepath, ext) {
     if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
-    return `require('./${fullFilePath}');\n`;
+    return `import './${fullFilePath}';\n`;
 }
 
 async function writeBrowserJSON(filename, base, additional) {
@@ -73,6 +75,7 @@ async function writeFile(filename, base, additional, getSyntax, ext) {
 
 async function cleanFile(file) {
     await fs.promises.unlink(getBrowserFileName(file));
+    await fs.promises.unlink(getJSFileName(file));
 
     config.dsVersions.forEach(async (ds) => {
         const dsSkip = config.dsSkip[ds] || [];
@@ -80,7 +83,6 @@ async function cleanFile(file) {
             return;
         }
 
-        await fs.promises.unlink(getFileName(file, ds, 'js'));
         await fs.promises.unlink(getFileName(file, ds, 'css'));
     });
 }
@@ -89,8 +91,14 @@ async function generateFile(filename) {
     const additional = config.addModules[filename] || [];
 
     await writeBrowserJSON(filename, filename, additional);
-    await writeFile(filename, filename, additional, getJSRequireSyntax, 'js');
     await writeFile(filename, filename, additional, getCSSRequireSyntax, 'css');
+    await fs.promises.writeFile(
+        getJSFileName(filename),
+        [filename]
+            .concat(additional)
+            .map((file) => getJSRequireSyntax(file, 'css'))
+            .join('')
+    );
 
     config.dsVersions.forEach(async (ds) => {
         const dsSkip = config.dsSkip[ds] || [];
@@ -106,8 +114,8 @@ async function generateFile(filename) {
 async function generateTopLevelFiles() {
     const browser = {
         requireRemap: browserRemap.map((items) => ({
-            from: `./${items.filename}.js`,
-            to: `./${items.filename}[ds-${items.ds}].js`,
+            from: `./${items.filename}.css`,
+            to: `./${items.filename}[ds-${items.ds}].css`,
             'if-flag': `ds-${items.ds}`,
         })),
     };
@@ -117,12 +125,12 @@ async function generateTopLevelFiles() {
     );
     const contentJS = indexFiles
         .map((item) => {
-            return `require('./${item.filename}.js');\n`;
+            return `import './${item.filename}.css';\n`;
         })
         .join('');
     const contentBrowser = indexFiles
         .map((item) => {
-            return `"require: ./${item.filename}.js"`;
+            return `"./${item.filename}.css"`;
         })
         .join(',');
     const contentCSS = indexFiles
@@ -151,8 +159,11 @@ async function cleanTopLevelFiles() {
 
 async function generateCustomModule(filename, modules) {
     await writeBrowserJSON(filename, null, modules);
-    await writeFile(filename, null, modules, getJSRequireSyntax, 'js');
     await writeFile(filename, null, modules, getCSSRequireSyntax, 'css');
+    await fs.promises.writeFile(
+        getJSFileName(filename),
+        modules.map((file) => getJSRequireSyntax(file, 'css')).join('')
+    );
 }
 
 require('yargs') // eslint-disable-line
