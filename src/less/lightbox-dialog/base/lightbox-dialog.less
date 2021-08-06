@@ -1,22 +1,11 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-.lightbox-dialog[role="dialog"],
-.lightbox-dialog[role="alertdialog"] {
-    .dialog-base();
-
-    align-items: flex-start;
-    justify-content: center;
+.lightbox-dialog[role="dialog"] {
+    .lightbox-dialog-base();
 }
 
-.lightbox-dialog__compact-window,
 .lightbox-dialog__window {
-    .dialog-window();
-    .border-radius(dialog-border-radius);
-
-    // This is needed for IE11 in order to show the right size
-    flex-basis: @dialog-max-width;
-    margin-top: 15vh;
-    max-width: calc(100% - 32px);
+    .lightbox-dialog-window();
 }
 
 .lightbox-dialog__window--mini {
@@ -27,10 +16,6 @@
     margin-top: 0;
     min-height: 72px;
     min-width: 200px;
-}
-
-.lightbox-dialog__compact-window {
-    text-align: center;
 }
 
 .lightbox-dialog__header {
@@ -49,17 +34,6 @@
 
 .lightbox-dialog__footer {
     .dialog-footer-content();
-}
-
-.lightbox-dialog__compact-window .lightbox-dialog__footer {
-    flex-direction: row;
-    padding-top: 0;
-
-    & > .btn {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 0;
-    }
 }
 
 // inherits from .icon-btn
@@ -91,7 +65,6 @@ button.lightbox-dialog__close {
         transition: background-color 0.32s ease-out;
     }
 
-    .lightbox-dialog__compact-window--fade,
     .lightbox-dialog__window--fade {
         transition: opacity 0.16s ease-out;
     }
@@ -108,7 +81,6 @@ button.lightbox-dialog__close {
         background-color: fade(@dialog-mask-background-color, 0%);
     }
 
-    .lightbox-dialog__compact-window--fade,
     .lightbox-dialog__window--fade {
         opacity: 0;
     }
@@ -125,7 +97,6 @@ button.lightbox-dialog__close {
         background-color: fade(@dialog-mask-background-color, 70%);
     }
 
-    .lightbox-dialog__compact-window--fade,
     .lightbox-dialog__window--fade {
         opacity: 1;
     }
@@ -133,16 +104,14 @@ button.lightbox-dialog__close {
 
 // In order to prevent the margins to meet the ege of the page at medium screen sizes
 @media (min-width: 601px) and (max-width: 768px) {
-    .lightbox-dialog__window,
-    .lightbox-dialog__compact-window {
+    .lightbox-dialog__window {
         max-width: calc(88% - 32px);
     }
 }
 
 @media (min-width: 769px) {
-    .lightbox-dialog__window,
-    .lightbox-dialog__compact-window {
-        max-width: @dialog-max-width;
+    .lightbox-dialog__window {
+        max-width: @lightbox-dialog-max-width;
     }
 }
 
