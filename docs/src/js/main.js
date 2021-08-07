@@ -219,14 +219,16 @@ document.querySelectorAll('.tabs').forEach(function(widgetEl) {
 
 document.querySelectorAll('.listbox').forEach(function(widgetEl) {
     pageWidgets.push(new Listbox(widgetEl, {
-        autoSelect: widgetEl.dataset.autoSelect === 'true'
+        autoSelect: widgetEl.dataset.makeupAutoSelect === 'true'
     }));
 
     widgetEl.addEventListener('makeup-listbox-change', logEvent);
 });
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
-    pageWidgets.push(new ListboxButton(widgetEl));
+    pageWidgets.push(new ListboxButton(widgetEl, {
+        autoSelect: widgetEl.dataset.makeupAutoSelect === 'true'
+    }));
 
     widgetEl.addEventListener('makeup-listbox-button-change', logEvent);
 });

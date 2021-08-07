@@ -2,15 +2,14 @@
     {% include common/section-header.html name="listbox" version=page.versions.listbox %}
 
     <p>A listbox is intended for use as a custom, non-form based implementation of the native HTML select element.</p>
-    <p><strong>NOTE</strong>: only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit our <a href="https://ebay.github.io/mindpatterns/input/listbox/index.html">listbox pattern</a>.</p>
 
-    <h3 id="listbox-default">Default</h3>
+    <h3 id="listbox-unselected">Unselected Listbox</h3>
     <p>By default, no option is selected until interacting with the widget. This matches the behaviour of a native HTML select element.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="listbox" data-auto-select="true">
-                <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
+            <div class="listbox" data-makeup-auto-select="true">
+                <div aria-label="Listbox demo 1" class="listbox__options" role="listbox" tabindex="0">
                     <div class="listbox__option" role="option" aria-selected="false">
                         <span class="listbox__value">Option 1</span>
                         <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
@@ -36,7 +35,7 @@
 
     {% highlight html %}
 <span class="listbox">
-    <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
+    <div aria-label="Listbox demo 1" class="listbox__options" role="listbox" tabindex="0">
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 1</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
@@ -59,20 +58,20 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="listbox-selected">Selected State</h3>
+    <h3 id="listbox-selected">Selected Listbox</h3>
     <p>An initial selection can be specified by applying the <span class="highlight">aria-selected</span> state to a single option.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="listbox" data-auto-select="true">
-                <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
-                    <div class="listbox__option" role="option" aria-selected="true">
+            <div class="listbox" data-makeup-auto-select="true">
+                <div aria-label="Listbox demo 2" class="listbox__options" role="listbox" tabindex="0">
+                    <div class="listbox__option" role="option" aria-selected="false">
                         <span class="listbox__value">Option 1</span>
                         <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                             {% include common/symbol.html name="tick-small" %}
                         </svg>
                     </div>
-                    <div class="listbox__option" role="option" aria-selected="false">
+                    <div class="listbox__option" role="option" aria-selected="true">
                         <span class="listbox__value">Option 2</span>
                         <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                             {% include common/symbol.html name="tick-small" %}
@@ -91,14 +90,14 @@
 
     {% highlight html %}
 <div class="listbox">
-    <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
+    <div aria-label="Listbox demo 2" class="listbox__options" role="listbox" tabindex="0">
         <div class="listbox__option" role="option" aria-selected="true">
             <span class="listbox__value">Option 1</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="#icon-tick-small"></use>
             </svg>
         </div>
-        <div class="listbox__option" role="option" aria-selected="false">
+        <div class="listbox__option" role="option" aria-selected="true">
             <span class="listbox__value">Option 2</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                 <use xlink:href="#icon-tick-small"></use>
@@ -113,57 +112,5 @@
     </div>
 </div>
     {% endhighlight %}
-    <h3 id="listbox-selected">Long Option</h3>
 
-    <div class="demo">
-        <div class="demo__inner">
-            <div class="listbox" data-auto-select="true">
-                <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
-                    <div class="listbox__option" role="option" aria-selected="true">
-                        <span class="listbox__value">Option lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</span>
-                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                            {% include common/symbol.html name="tick-small" %}
-                        </svg>
-                    </div>
-                    <div class="listbox__option" role="option" aria-selected="false">
-                        <span class="listbox__value">Option 2</span>
-                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                            {% include common/symbol.html name="tick-small" %}
-                        </svg>
-                    </div>
-                    <div class="listbox__option" role="option" aria-selected="false">
-                        <span class="listbox__value">Option 3</span>
-                        <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                            {% include common/symbol.html name="tick-small" %}
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% highlight html %}
-    <div class="listbox">
-        <div aria-label="Listbox demo" class="listbox__options" role="listbox" tabindex="0">
-            <div class="listbox__option" role="option" aria-selected="true">
-                <span class="listbox__value">Option lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-            <div class="listbox__option" role="option" aria-selected="false">
-                <span class="listbox__value">Option 2</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-            <div class="listbox__option" role="option" aria-selected="false">
-                <span class="listbox__value">Option 3</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-        </div>
-    </div>
-    {% endhighlight %}
 </div>

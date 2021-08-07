@@ -1,10 +1,10 @@
 export default { title: 'Listbox Button/Listbox Button/Base' };
 
-export const collapsed = () => `
+export const collapsedUnselected = () => `
 <span class="listbox-button">
     <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+            <span class="expand-btn__text">Color</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -12,20 +12,26 @@ export const collapsed = () => `
     </button>
     <div class="listbox-button__listbox">
         <div class="listbox-button__options" role="listbox">
-            <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100</span>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
+                <span class="listbox-button__value">Blue</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
@@ -35,11 +41,11 @@ export const collapsed = () => `
 </span>
 `;
 
-export const expanded = () => `
+export const expandedUnselected = () => `
 <span class="listbox-button">
     <button class="expand-btn" aria-expanded="true" aria-haspopup="listbox">
         <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+            <span class="expand-btn__text">Color</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -47,20 +53,108 @@ export const expanded = () => `
     </button>
     <div class="listbox-button__listbox">
         <div class="listbox-button__options" role="listbox">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Blue</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
+export const collapsedSelected = () => `
+<span class="listbox-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Color: Blue</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100</span>
+                <span class="listbox-button__value">Blue</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
+                <span class="listbox-button__value">Yellow</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
+                <span class="listbox-button__value">Green</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
+export const expandedSelected = () => `
+<span class="listbox-button">
+    <button class="expand-btn" aria-expanded="true" aria-haspopup="listbox">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Color: Blue</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">Blue</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
@@ -74,7 +168,7 @@ export const disabled = () => `
 <span class="listbox-button">
     <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" disabled>
         <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+            <span class="expand-btn__text">Color</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -82,20 +176,26 @@ export const disabled = () => `
     </button>
     <div class="listbox-button__listbox">
         <div class="listbox-button__options" role="listbox">
-            <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100</span>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
+                <span class="listbox-button__value">Blue</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
@@ -109,7 +209,7 @@ export const invalid = () => `
 <span class="listbox-button">
     <button class="expand-btn" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true">
         <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+            <span class="expand-btn__text">Color</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -117,20 +217,26 @@ export const invalid = () => `
     </button>
     <div class="listbox-button__listbox">
         <div class="listbox-button__options" role="listbox">
-            <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100</span>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
+                <span class="listbox-button__value">Blue</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
@@ -144,7 +250,7 @@ export const longOption = () => `
 <span class="listbox-button">
     <button class="expand-btn" aria-expanded="true" aria-haspopup="listbox">
         <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+            <span class="expand-btn__text">Color: Red with very very very long text</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -153,54 +259,19 @@ export const longOption = () => `
     <div class="listbox-button__listbox">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100 with very very very long text</span>
+                <span class="listbox-button__value">Red with very very very long text</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
+                <span class="listbox-button__value">Blue</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-        </div>
-    </div>
-</span>
-`;
-
-export const fluid = () => `
-<span class="listbox-button listbox-button--fluid">
-    <button class="expand-btn expand-btn--regular" aria-expanded="true" aria-haspopup="listbox">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-    <div class="listbox-button__listbox">
-        <div class="listbox-button__options" role="listbox">
-            <div class="listbox-button__option" role="option" aria-selected="true">
-                <span class="listbox-button__value">Option 100</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-            <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 200</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </div>
-            <div class="listbox-button__option" role="option">
-                <span class="listbox-button__value">Option 300</span>
+                <span class="listbox-button__value">Yellow</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
                     <use xlink:href="#icon-tick-small"></use>
                 </svg>

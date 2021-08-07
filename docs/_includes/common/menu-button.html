@@ -4,7 +4,6 @@
     <p>A menu button follows the principal of <a href="https://en.wikipedia.org/wiki/Progressive_disclosure">progressive disclosure</a>, it keeps secondary commands hidden from view until needed.</p>
     <p>A menu is <strong>not</strong> a form control. If you wish to submit form data natively, without JavaScript, please consider <a href="#checkbox">checkbox</a>, <a href="#combobox">combobox</a>, <a href="#select">select</a>, or <a href="#radio">radio</a> instead.</p>
     <p>Selecting a menu item command should update the page <strong>without</strong> a full page reload (i.e. acting similar to buttons, checkboxes or radios). If a full page load is required instead (i.e. acting like links), please refer to the <a href="#menu-button-fake">fake menu button</a>.</p>
-    <p><strong>NOTE: </strong>Only limited JavaScript behaviour has been implemented in these examples. For detailed behaviour requirements, please visit our <a href="https://ebay.github.io/mindpatterns/input/menu-button/index.html">menu-button pattern</a>.</p>
 
     <h3 id="menu-button-default">Default Menu Button</h3>
     <p>The default menu button opens a <em>stateless</em> menu. Each item has a role of <span class="highlight">menuitem</span>.</p>
@@ -164,45 +163,6 @@
 </span>
     {% endhighlight %}
 
-    <p>For any button, the label must at <strong>all times</strong> reflect its function. A common scenario for single-select menu buttons is to display the currently selected value as the button text, however this text would not meet the labelling requirement. In order to satisfy the requirement, the value must be <em>appended</em>, as in the following example.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="menu-button">
-                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button" data-menu-button-prefix="Sort: " style="min-width: 125px">
-                    <span class="expand-btn__cell">
-                        <span class="expand-btn__text">Sort: Price</span>
-                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include common/symbol.html name="dropdown" %}
-                        </svg>
-                    </span>
-                </button>
-                <div class="menu-button__menu">
-                    <div class="menu-button__items" role="menu">
-                        <div class="menu-button__item" role="menuitemradio" aria-checked="true" data-makeup-group="sort">
-                            <span>Price</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
-                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-makeup-group="sort">
-                            <span>Date</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
-                        <div class="menu-button__item" role="menuitemradio" aria-checked="false" data-makeup-group="sort">
-                            <span>Rating</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                                {% include common/symbol.html name="tick-small" %}
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </span>
-        </div>
-    </div>
-
     <h3 id="menu-button-checkbox">Multi-Select Menu Button</h3>
     <p>For multi-select state, use role <span class="highlight">menuitemcheckbox</span> on each menu item.</p>
 
@@ -277,6 +237,20 @@
     </div>
 </span>
     {% endhighlight %}
+
+    <div class="highlight">
+        <h3 id="menu-button-label">Labelling a Menu Button</h3>
+        <p>By default, the text of any button acts as its accessible label. The accessible label must at <strong>all times</strong> reflect the <em>purpose</em> of the button. If the text only conveys a <em>transient value</em>, then the criteria would not be satisfied.</p>
+
+        <h4 id="menu-button-label-fixed">Fixed Label</h4>
+        <p>The simplest scenario in which to satisfy the criteria is a fixed label, i.e. the button text never changes. For example: "Menu", "Options", "Edit".</p>
+
+        <h4 id="menu-button-label-compact">Compact Label</h4>
+        <p>If a fixed label is not possible, the button's inner text can potentially be written as a key/value pair, where key denotes purpose and value repesents the current selection. This is most typical in a <a href="#menu-button-radio">single select menu button</a>. For example: "Sort: Price", "Color: Red". This technique is identical to the method used by <a href="#listbox-button">Listbox Button</a>.</p>
+
+        <h4 id="menu-button-label-compound">Compound Label</h4>
+        <p>Finally, we can also consider using <span class="highlight">aria-labelledby</span> to stitch together an additional, external element - therefore creating a <em>compound</em> label.</p>
+    </div>
 
     <h3 id="menu-button-grouped">Grouped Menu Button</h3>
     <p>Menu button items can be separated into groups, using the <span class="highlight">hr</span> tag.</p>
