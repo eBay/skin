@@ -2,6 +2,8 @@
 @import "demo-colors.less";
 @import "page-grid.less";
 
+/* stylelint-disable no-descending-specificity */
+
 body {
     margin: 0;
 }
@@ -211,6 +213,7 @@ span.demo__inner {
     column-count: 2;
 }
 
+.demo-icon-boxes,
 .demo-color-swatches,
 .demo-color-primitive,
 .demo-color-token {
@@ -290,10 +293,7 @@ span.demo__inner {
     width: 100%;
 }
 
-.carousel__list--discrete-demo li:last-child {
-    margin-right: 0;
-}
-
+.carousel__list--discrete-demo li:last-child,
 .carousel__list--slideshow-demo li:last-child {
     margin-right: 0;
 }
@@ -336,6 +336,22 @@ a.demo-link-visited {
 
 /* ICON SECTION */
 
+.demo-icon-boxes li {
+    align-items: center;
+    border: 1px solid @color-grey3;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: @font-size-12;
+    height: 100px;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 4px 2px;
+    padding: 4px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+}
+
 span.icon {
     background-repeat: no-repeat;
     background-size: contain;
@@ -343,30 +359,34 @@ span.icon {
     vertical-align: middle;
 }
 
-.icon-table {
+/* EEK SECTION */
+
+.eek-table {
     margin: @spacing-large 0;
     width: 100%;
 }
 
-.icon-table th {
+.eek-table th {
     background-color: #eee;
     padding: @spacing-extra-small;
     text-align: left;
 }
 
-.icon-table th:first-child {
+.eek-table th:first-child {
     width: 100%;
 }
 
-.icon-table th:not(:first-child) {
+.eek-table th:not(:first-child) {
     min-width: 100px;
 }
 
-.icon-table td {
+.eek-table td {
     border-bottom: 1px solid #eee;
     padding: @spacing-extra-small;
     text-align: left;
 }
+
+/* stylelint-enable no-descending-specificity */
 
 // stylelint-disable-next-line  no-invalid-position-at-import-rule
 @import "breakpoints.less";
