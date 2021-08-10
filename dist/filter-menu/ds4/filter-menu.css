@@ -2,7 +2,6 @@
 .filter-menu-form {
   background-color: var(--filter-menu-item-background-color, #fff);
   min-width: 144px;
-  overflow: hidden;
 }
 span.filter-menu,
 span.filter-menu-form {
@@ -85,7 +84,7 @@ span.filter-menu-form__item {
   background-color: var(--filter-menu-item-background-color, #fff);
   box-sizing: border-box;
   color: var(--filter-menu-item-foreground-color, #333);
-  display: inline-flex;
+  display: flex;
   font-size: 0.875rem;
   justify-content: space-between;
   line-height: 1.4em;
@@ -93,23 +92,10 @@ span.filter-menu-form__item {
   width: 100%;
   padding: 8px 16px;
 }
-.filter-menu__item[role="menuitemcheckbox"]:focus,
-.filter-menu__item[role="menuitemradio"]:focus,
-.filter-menu-form__item:focus {
-  outline: none;
-}
-.filter-menu__item[role="menuitemcheckbox"]:focus,
-.filter-menu__item[role="menuitemradio"]:focus,
-.filter-menu-form__item:focus,
 .filter-menu__item[role="menuitemcheckbox"]:hover,
 .filter-menu__item[role="menuitemradio"]:hover,
 .filter-menu-form__item:hover {
   background-color: var(--filter-menu-item-hover-background-color, #eee);
-}
-.filter-menu__item[role="menuitemcheckbox"]:focus,
-.filter-menu__item[role="menuitemradio"]:focus,
-.filter-menu-form__item:focus {
-  outline: none;
 }
 .filter-menu__item[role="menuitemcheckbox"]:last-child,
 .filter-menu__item[role="menuitemradio"]:last-child,
@@ -121,7 +107,7 @@ button.filter-menu-form__footer[type="submit"] {
   background-color: var(--filter-menu-item-background-color, #fff);
   box-sizing: border-box;
   color: var(--filter-menu-item-foreground-color, #333);
-  display: inline-flex;
+  display: flex;
   font-size: 0.875rem;
   justify-content: space-between;
   line-height: 1.4em;
@@ -134,22 +120,10 @@ button.filter-menu-form__footer[type="submit"] {
   bottom: 0;
   padding: 16px;
 }
-button.filter-menu__footer:focus,
-button.filter-menu-form__footer[type="submit"]:focus {
-  outline: none;
-}
-button.filter-menu__footer:focus,
-button.filter-menu-form__footer[type="submit"]:focus,
 button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: var(--filter-menu-item-hover-background-color, #eee);
 }
-button.filter-menu__footer:focus,
-button.filter-menu-form__footer[type="submit"]:focus {
-  outline: none;
-}
-button.filter-menu__footer:focus,
-button.filter-menu-form__footer[type="submit"]:focus,
 button.filter-menu__footer:hover,
 button.filter-menu-form__footer[type="submit"]:hover {
   background-color: var(--filter-menu-item-hover-background-color, #eee);
@@ -166,6 +140,9 @@ button.filter-menu-form__footer[type="submit"]:hover {
 .filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked,
 .filter-menu__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-checked {
   display: block;
+}
+div.filter-menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+  outline: none;
 }
 @media (prefers-color-scheme: dark) {
   .filter-menu,

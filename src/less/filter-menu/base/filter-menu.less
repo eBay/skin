@@ -4,7 +4,6 @@
 .filter-menu-form {
     .background-color(filter-menu-item-background-color);
     min-width: 144px;
-    overflow: hidden;
 }
 
 span.filter-menu,
@@ -108,10 +107,6 @@ span.filter-menu-form__item {
 
     padding: 8px 16px;
 
-    &:focus {
-        outline: none;
-    }
-
     &:last-child {
         margin-bottom: 8px;
     }
@@ -128,11 +123,6 @@ button.filter-menu-form__footer[type="submit"] {
     bottom: 0;
     padding: 16px;
 
-    &:focus {
-        outline: none;
-    }
-
-    &:focus,
     &:hover {
         .background-color(filter-menu-item-hover-background-color);
     }
@@ -152,6 +142,11 @@ button.filter-menu-form__footer[type="submit"] {
 .filter-menu__item[role="menuitemcheckbox"][aria-checked="true"] svg.icon--checkbox-checked,
 .filter-menu__item[role="menuitemradio"][aria-checked="true"] svg.icon--radio-checked {
     display: block;
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+div.filter-menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+    outline: none;
 }
 
 @media (prefers-color-scheme: dark) {
