@@ -105,11 +105,17 @@ async function generateFile(filename) {
 
 async function generateTopLevelFiles() {
     const browser = {
-        requireRemap: browserRemap.map((items) => ({
-            from: `./${items.filename}.js`,
-            to: `./${items.filename}[ds-${items.ds}].js`,
-            'if-flag': `ds-${items.ds}`,
-        })),
+        requireRemap: browserRemap
+            .map((items) => ({
+                from: `./${items.filename}.js`,
+                to: `./${items.filename}[ds-${items.ds}].js`,
+                'if-flag': `ds-${items.ds}`,
+            }))
+            .concat({
+                from: './less.less',
+                to: './less[ds-4].less',
+                'if-flag': 'ds-4',
+            }),
     };
 
     const indexFiles = browserRemap.filter(
