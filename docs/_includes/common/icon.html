@@ -21,7 +21,7 @@
     <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events: none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and attach your events there.</p>
 
     <h3>Including an Icon</h3>
-    <p>An icon <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> declaration can be referenced from the same file or an <a href="#svg">external SVG</a> file. If in the same file, the symbol must be stamped on the page inside of a hidden SVG block.</p>
+    <p>An icon <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/ds{{ page.ds }}/icons.svg">symbol</a> declaration can be referenced from the same file or an <a href="#svg">external SVG</a> file. If in the same file, the symbol must be stamped on the page inside of an SVG block.</p>
 
     {% highlight html %}
 <div hidden>
@@ -56,85 +56,63 @@
 </svg>
     {% endhighlight %}
 
-    <h3 id="icon-icons">The Icons</h3>
-    <p>The table below displays all available icons. An empty box indicates that the icon is not available in that size.</p>
+    <h3 id="icon-icons">Default Icons</h3>
+    <p>Icons in the default set have dimensions of 24x24.</p>
 
-    <table cellpadding="0" cellspacing="0" class="icon-table">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>ICON</th>
-                <th>DEFAULT</th>
-                <th>SMALL</th>
-                <th>LARGE</th>
-                <th>FILLED</th>
-                <th>FILLED-SMALL</th>
-                <th>FILLED-LARGE</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, bag, bank, bids, calendar, camera, cart, categories, chat, close,  chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, credit-card, customize, delete, edit, deals, download, envelope, event, fast-n-free, filter-gallery, filter-list, filter-single, filter-single-selected, fingerprint, following, help, history, home, information, large-case, lightbulb, location, locked, menu, messages, mic, mobile, mobile-signal, notification, overflow, package, pause, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, photo-contrast, photo-flash, photo-flip-camera, photo-sharpen, play, print, profile, purchases, red-laser, refresh, remove, report-flag, save, save-bold, save-selected, search, search-bold, security-key, selling, send, settings, share, shoe-box, small-case, star-empty, star-full, star-half, star-undefined, store, suitcase, support, tablet-condensed-grid, tablet-relaxed-grid, tablet-vertical-split, text-messaging, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, unlocked, video-play, video-pause, watch, window" | split: ", " %}
-            {% for iconName in icons %}
-            <tr>
-                <td>{{ iconName }}</td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
-                                {% include common/symbol.html name=iconName %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-small" focusable="false" height="16" width="16">
-                                {% include common/symbol.html name=iconName postfix="-small" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-large" focusable="false" height="64" width="64">
-                                {% include common/symbol.html name=iconName postfix="-large" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled" focusable="false" height="24" width="24">
-                                {% include common/symbol.html name=iconName postfix="-filled" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled-small" focusable="false" height="16" width="16">
-                                {% include common/symbol.html name=iconName postfix="-filled-small" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}-filled-large" focusable="false" height="64" width="64">
-                                {% include common/symbol.html name=iconName postfix="-filled-large" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <ul class="demo-icon-boxes">
+    {% assign icons = "add, arrow-left, arrow-move, arrow-right, arrow-right-bold, attention, attention-filled, bag, bank, bids, calendar, camera, cart, categories, chat, close,  chevron-down, chevron-down-bold, chevron-left, chevron-right, chevron-up, chevron-up-bold, clear, clock, confirmation, confirmation-filled, credit-card, customize, delete, edit, deals, download, envelope, event, fast-n-free, filter-gallery, filter-list, filter-single, filter-single-selected, fingerprint, following, help, history, home, information, information-filled, large-case, lightbulb, location, locked, menu, messages, mic, mobile, mobile-signal, notification, overflow, package, pause, pause-filled, photo-brightness, photo-crop, photo-gallery, photo-gallery-more, photo-rotate, photo-select-all, photo-select-none, photo-contrast, photo-flash, photo-flip-camera, photo-sharpen, play, play-filled, print, profile, purchases, red-laser, refresh, remove, report-flag, save, save-bold, save-selected, search, search-bold, security-key, selling, send, settings, share, shoe-box, small-case, star-empty, star-full, star-half, star-undefined, store, suitcase, support, tablet-condensed-grid, tablet-condensed-grid-filled, tablet-relaxed-grid, tablet-relaxed-grid-filled, tablet-vertical-split, tablet-vertical-split-filled, text-messaging, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, top-seller, truck, unlocked, video-play, video-pause, watch, window" | split: ", " %}
+    {% for iconName in icons %}
+        <li>
+            <span>{{ iconName }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
+                {% include common/symbol.html name=iconName %}
+            </svg>
+        </li>
+    {% endfor %}
+
+    <h3 id="icon-small">Small Icons</h3>
+    <p>Icons in the small set have dimensions of 16x16.</p>
+
+    <ul class="demo-icon-boxes">
+    {% assign icons = "add, arrow-left, arrow-move, arrow-right, attention, attention-filled, calendar, camera, cart, close, chevron-left, chevron-right, chevron-up, clear, clock, confirmation, confirmation-filled, credit-card, delete, edit, fast-n-free, filter-gallery, filter-list, filter-single, following, information, information-filled, locked, mic, overflow, pause, play, red-laser, report-flag, save, save-selected, search, settings, share, star-empty, star-full, star-half, star-undefined, thumbs-up, thumbs-up-selected, thumbs-down, thumbs-down-selected, tick, truck, unlocked" | split: ", " %}
+    {% for iconName in icons %}
+        <li>
+            <span>{{ iconName }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconName }}-small" focusable="false" height="16" width="16">
+                {% include common/symbol.html name=iconName postfix="-small" %}
+            </svg>
+        </li>
+    {% endfor %}
+
+    <h3 id="icon-large">Large Icons</h3>
+    <p>Icons in the large set have dimensions of 64x64.</p>
+
+    <ul class="demo-icon-boxes">
+    {% assign icons = "bank, calendar, cart, chat, credit-card, event, fingerprint, location, messages, pause, pause-filled, play, play-filled, purchases, search, store, text-messaging, watch" | split: ", " %}
+    {% for iconName in icons %}
+        <li>
+            <span>{{ iconName }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconName }}-large" focusable="false" height="64" width="64">
+                {% include common/symbol.html name=iconName postfix="-large" %}
+            </svg>
+        </li>
+    {% endfor %}
+
+    <h3 id="icon-alias">Aliased Icons</h3>
+
+    <p>We also provide several aliases for core use cases.</p>
+
+    <ul class="demo-icon-boxes">
+    {% assign icons = "back, carousel-prev, carousel-next, cta, dropdown, pagination-prev, pagination-next" | split: ", " %}
+    {% for iconName in icons %}
+        <li>
+            <span>{{ iconName }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
+                {% include common/symbol.html name=iconName %}
+            </svg>
+        </li>
+    {% endfor %}
+    </ul>
 
     <h3 id="icon-disabled">Disabled Icons</h3>
     <p>Most icons can be given a disabled appearance by adding the <span class="highlight">icon--disabled</span> modifier.</p>
@@ -152,34 +130,4 @@
     <use xlink:href="#icon-chevron-right"></use>
 </svg>
     {% endhighlight %}
-
-    <h3 id="icon-alias">Aliased Icons</h3>
-
-    <p>We also provide several aliases for core use cases.</p>
-
-    <table cellpadding="0" cellspacing="0" class="icon-table">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>ICON</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% assign icons = "back, carousel-prev, carousel-next, cta, dropdown, pagination-prev, pagination-next" | split: ", " %}
-            {% for iconName in icons %}
-            <tr>
-                <td>{{ iconName }}</td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="icon icon--{{ iconName }}" focusable="false" height="24" width="24">
-                                {% include common/symbol.html name=iconName %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </div>
