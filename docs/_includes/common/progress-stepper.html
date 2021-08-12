@@ -3,7 +3,7 @@
 
     <p>Steppers portray progress through a sequence of steps.</p>
 
-    <h3 id="stepper-default">Default Stepper</h3>
+    <h3 id="progress-stepper-default">Default Progress Stepper</h3>
     <p>The default stepper has a horizontal layout. The stepper fills all available space and evenly distributes its
         steps.</p>
     <p>Use the <span class="highlight">aria-current</span> attribute to denote the current step in the list.
@@ -17,19 +17,19 @@
         <div class="demo__inner">
             <div class="progress-stepper">
                 <div class="progress-stepper__items" role="list">
-                    <div class="progress-stepper__item">
+                    <div class="progress-stepper__item" role="listitem">
                         <span class="progress-stepper__icon">
                             <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                                 {% include common/symbol.html name="stepper-confirmation" %}
                             </svg>
                         </span>
-                    <span class="progress-stepper__text">
-                        <h4>Started</h4>
-                        <p>July 3rd</p>
-                    </span>
+                        <span class="progress-stepper__text">
+                            <h4>Started</h4>
+                            <p>July 3rd</p>
+                        </span>
                     </div>
                     <hr class="progress-stepper__separator" role="presentation" />
-                    <div class="progress-stepper__item">
+                    <div class="progress-stepper__item" role="listitem">
                         <span class="progress-stepper__icon">
                             <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
                                 {% include common/symbol.html name="stepper-confirmation" %}
@@ -41,7 +41,7 @@
                         </span>
                     </div>
                     <hr class="progress-stepper__separator" role="presentation" />
-                    <div class="progress-stepper__item" aria-current="step">
+                    <div class="progress-stepper__item" aria-current="step" role="listitem">
                         <span class="progress-stepper__icon">
                             <span role="img" aria-label="3">3</span>
                         </span>
@@ -51,7 +51,7 @@
                         </span>
                     </div>
                     <hr class="progress-stepper__separator" role="presentation" />
-                    <div class="progress-stepper__item">
+                    <div class="progress-stepper__item" role="listitem">
                         <span class="progress-stepper__icon ">
                             <span role="img" aria-label="4">4</span>
                         </span>
@@ -219,7 +219,7 @@
 </div>
     {% endhighlight %}
 
-    <h3 id="progress-stepper-vertical">Vertical Stepper</h3>
+    <h3 id="progress-stepper-vertical">Vertical Progress Stepper</h3>
     <p>Use the <em>progress-stepper--vertical</em> modifier for a stepper with vertical layout.</p>
 
     <div class="demo">
@@ -264,49 +264,46 @@
     </div>
 
     {% highlight html %}
-    <div class="progress-stepper progress-stepper--vertical">
-        <div class="progress-stepper__items" role="list">
-            <div class="progress-stepper__item progress-stepper__item--confirmation" role="listitem">
-                <span class="progress-stepper__icon">
-                    <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-stepper-confirmation"></use>
-                    </svg>
-                </span>
-                <span class="progress-stepper__text">
-                    <h3>Order placed</h3>
-                    <p>New Mens Addidas Ultra Boost</p>
-                    <p>Order total $220</p>
-                </span>
-            </div>
-            <hr class="progress-stepper__separator" role="presentation" />
-            <div aria-current="step" class="progress-stepper__item progress-stepper__item--current" role="listitem">
-                <span class="progress-stepper__icon">
-                    <span role="img" aria-label="2">2</span>
-                </span>
-                <span class="progress-stepper__text">
-                    <h3>Preparing for shipment</h3>
-                    <p>We will notify you once it ships.</p>
-                </span>
-            </div>
-            <hr class="progress-stepper__separator" role="presentation" />
-            <div class="progress-stepper__item progress-stepper__item--upcoming" role="listitem">
-                <span class="progress-stepper__icon">
-                    <span role="img" aria-label="3">3</span>
-                </span>
-                <span class="progress-stepper__text">
-                    <h3>Delivered</h3>
-                    <p>Guaranteed Wednesday, October 09.</p>
-                </span>
-            </div>
+<div class="progress-stepper progress-stepper--vertical">
+    <div class="progress-stepper__items" role="list">
+        <div class="progress-stepper__item progress-stepper__item--confirmation" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use xlink:href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h3>Order placed</h3>
+                <p>New Mens Addidas Ultra Boost</p>
+                <p>Order total $220</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div aria-current="step" class="progress-stepper__item progress-stepper__item--current" role="listitem">
+            <span class="progress-stepper__icon">
+                <span role="img" aria-label="2">2</span>
+            </span>
+            <span class="progress-stepper__text">
+                <h3>Preparing for shipment</h3>
+                <p>We will notify you once it ships.</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item progress-stepper__item--upcoming" role="listitem">
+            <span class="progress-stepper__icon">
+                <span role="img" aria-label="3">3</span>
+            </span>
+            <span class="progress-stepper__text">
+                <h3>Delivered</h3>
+                <p>Guaranteed Wednesday, October 09.</p>
+            </span>
         </div>
     </div>
-
+</div>
     {% endhighlight %}
 
-    <h3 id="stepper-states">Stepper with info or error</h3>
-    <p>To use to an "information" or "attention" state, use the relevant <span
-            class="highlight">stepper__item--information</span> or <span
-            class="highlight">stepper__item--attention</span> modifier class.</p>
+    <h3 id="progress-stepper-states">Stepper with info or error</h3>
+    <p>To use to an "information" or "attention" state, use the relevant <span class="highlight">stepper__item--information</span> or <span class="highlight">stepper__item--attention</span> modifier class.</p>
 
     <div class="demo">
         <div class="demo__inner">
