@@ -81,7 +81,7 @@ function injectSkinCSS() {
     return gulp.src(['_site/**/*.css', '_site/**/*.min.css']).pipe(browserSync.stream());
 }
 
-// Re-lasso the docs CSS, copy to jekyll _site/static, inject into browsers
+// Re-bundle the docs CSS, copy to jekyll _site/static, inject into browsers
 function syncDocsCss() {
     return child_process
         .spawn('npm', ['run', 'bundle:css'], { stdio: 'inherit' })
@@ -96,7 +96,7 @@ function syncDocsCss() {
         });
 }
 
-// Re-lasso the docs JS, copy it to jekyll _site/static, then reload browsers
+// Re-bundle the docs JS, copy it to jekyll _site/static, then reload browsers
 function syncDocsJs() {
     return child_process
         .spawn('npm', ['run', 'bundle:js'], { stdio: 'inherit' })
