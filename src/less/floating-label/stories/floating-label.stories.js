@@ -55,3 +55,21 @@ export const invalidTextbox = () => `
     </span>
 </span>
 `;
+
+export const longText = () => `
+<span class="floating-label">
+    <label class="floating-label__label" for="firstName">Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch</label>
+    <span class="textbox">
+        <input class="textbox__control" id="firstName" type="text" />
+    </span>
+</span>
+`;
+
+export const longTextInline = () => `
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--inline" for="firstName">Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch</label>
+    <span class="textbox">
+        <input class="textbox__control" id="firstName" type="text" />
+    </span>
+</span>
+`;
