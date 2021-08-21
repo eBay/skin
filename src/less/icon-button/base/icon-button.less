@@ -9,6 +9,7 @@
 @icon-button-icon-hover-foreground-color: @icon-button-icon-foreground-color;
 @icon-button-background-color: @color-grey1;
 @icon-button-hover-background-color: @color-grey2;
+@icon-button-active-background-color: @color-grey3;
 
 a.icon-link {
     align-items: center;
@@ -39,16 +40,20 @@ a.icon-link {
         position: relative; // Safari centering
     }
 
-    &:active > svg {
-        .fill(icon-button-icon-active-foreground-color);
-    }
-
     &:focus,
     &:hover {
         .background-color(icon-button-hover-background-color);
 
         > svg {
             .fill(icon-button-icon-hover-foreground-color);
+        }
+    }
+
+    &:active {
+        .background-color(icon-button-active-background-color);
+
+        > svg {
+            .fill(icon-button-icon-active-foreground-color);
         }
     }
 
@@ -60,6 +65,12 @@ a.icon-link {
 button.icon-btn--transparent,
 a.icon-link--transparent {
     background-color: transparent;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: transparent;
+    }
 }
 
 // visited link state
@@ -117,6 +128,7 @@ a.icon-link--badged {
     button.icon-btn {
         --icon-button-background-color: @color-grey1-dark-mode;
         --icon-button-hover-background-color: @color-grey2-dark-mode;
+        --icon-button-active-background-color: @color-grey3-dark-mode;
         --icon-button-badge-border-color: @color-background-default-dark-mode;
         --icon-button-icon-foreground-color: @color-text-default-dark-mode;
         --icon-button-icon-active-foreground-color: @color-text-default-dark-mode;

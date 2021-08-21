@@ -6,6 +6,8 @@
 @pagination-item-active-foreground-color: @color-text-default;
 @pagination-item-current-foreground-color: @color-text-default;
 @pagination-item-current-font-weight: @font-weight-bold;
+@pagination-overflow-hover-background-color: @color-grey2;
+@pagination-overflow-active-background-color: @color-grey3;
 
 nav.pagination {
     .inline-flex-items-centered();
@@ -120,6 +122,17 @@ span.pagination__item svg.icon--overflow {
     transform: rotate(90deg);
 }
 
+span.pagination__item button.icon-btn--transparent {
+    &:focus,
+    &:hover {
+        .background-color(pagination-overflow-hover-background-color);
+    }
+
+    &:active {
+        .background-color(pagination-overflow-active-background-color);
+    }
+}
+
 nav.pagination--fluid {
     width: 100%;
 }
@@ -169,5 +182,7 @@ button.pagination__item:focus {
         --pagination-item-current-foreground-color: @color-text-default-dark-mode;
         --pagination-item-hover-foreground-color: @color-text-default-dark-mode;
         --pagination-item-active-foreground-color: @color-text-default-dark-mode;
+        --pagination-overflow-hover-background-color: @color-grey1-dark-mode;
+        --pagination-overflow-active-background-color: @color-grey2-dark-mode;
     }
 }
