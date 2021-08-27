@@ -25,6 +25,15 @@ const ListboxButton = require('makeup-listbox-button');
 const Menu = require('makeup-menu');
 const MenuButton = require('makeup-menu-button');
 const Switch = require('makeup-switch');
+const LightboxDialog = require('makeup-lightbox-dialog');
+const AlertDialog = require('makeup-alert-dialog');
+const ConfirmDialog = require('makeup-confirm-dialog');
+const DrawerDialog = require('makeup-drawer-dialog');
+const FullscreenDialog = require('makeup-fullscreen-dialog');
+const InputDialog = require('makeup-input-dialog');
+const PanelDialog = require('makeup-panel-dialog');
+const SnackbarDialog = require('makeup-snackbar-dialog');
+const ToastDialog = require('makeup-toast-dialog');
 
 let progressBarInterval;
 
@@ -99,12 +108,40 @@ document.querySelectorAll('.combobox').forEach(function(widgetEl) {
 });
 
 // DIALOGS
-document.querySelectorAll('.dialog-button').forEach(function(widgetEl) {
-    const widget = new DialogButton(widgetEl);
-    pageWidgets.push(widget);
+document.querySelectorAll('.dialog-button').forEach(function(el) {
+        const dialogId = el.dataset.makeupFor;
+        const dialogEl = document.getElementById(dialogId);
+        const dialogClassList = dialogEl.classList;
+        let dialogWidget;
 
-    widget.dialog._el.addEventListener('dialog-open', logEvent);
-    widget.dialog._el.addEventListener('dialog-close', logEvent);
+        if (dialogClassList.contains('confirm-dialog')) {
+            dialogWidget = new ConfirmDialog(dialogEl);
+        } else if (dialogClassList.contains('alert-dialog')) {
+            dialogWidget = new AlertDialog(dialogEl);
+        } else if (dialogClassList.contains('lightbox-dialog--input')) {
+            dialogWidget = new InputDialog(dialogEl);
+        } else if (dialogClassList.contains('fullscreen-dialog')) {
+            dialogWidget = new FullscreenDialog(dialogEl);
+        } else if (dialogClassList.contains('snackbar-dialog')) {
+            dialogWidget = new SnackbarDialog(dialogEl);
+        } else if (dialogClassList.contains('toast-dialog')) {
+            dialogWidget = new ToastDialog(dialogEl);
+        } else if (dialogClassList.contains('drawer-dialog')) {
+            dialogWidget = new DrawerDialog(dialogEl);
+        } else if (dialogClassList.contains('panel-dialog')) {
+            dialogWidget = new PanelDialog(dialogEl);
+        } else if (dialogClassList.contains('lightbox-dialog')) {
+            dialogWidget = new LightboxDialog(dialogEl);
+        }
+
+        pageWidgets.push(new DialogButton(el, dialogWidget));
+
+        dialogWidget._el.addEventListener('dialog-open', logEvent);
+        dialogWidget._el.addEventListener('dialog-close', logEvent);
+        dialogWidget._el.addEventListener('dialog-acknowledge', logEvent);
+        dialogWidget._el.addEventListener('dialog-confirm', logEvent);
+        dialogWidget._el.addEventListener('dialog-reject', logEvent);
+        dialogWidget._el.addEventListener('dialog-cta', logEvent);
 });
 
 // TOOLTIP
