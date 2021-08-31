@@ -12,10 +12,6 @@ function getBrowserFileName(filename) {
     return path.join(currentDir, `${filename}.browser.json`);
 }
 
-function getJSFileName(filename) {
-    return path.join(currentDir, `${filename}.js`);
-}
-
 function getMJSFileName(filename) {
     return path.join(currentDir, `${filename}.mjs`);
 }
@@ -87,7 +83,6 @@ async function writeFile(filename, base, additional, getSyntax, ext) {
 
 async function cleanFile(file) {
     await fs.promises.unlink(getBrowserFileName(file));
-    await fs.promises.unlink(getJSFileName(file));
     await fs.promises.unlink(getMJSFileName(file));
 
     config.dsVersions.forEach(async (ds) => {
@@ -96,6 +91,7 @@ async function cleanFile(file) {
             return;
         }
 
+        await fs.promises.unlink(getFileName(file, ds, 'js'));
         await fs.promises.unlink(getFileName(file, ds, 'css'));
     });
 }
@@ -104,14 +100,9 @@ async function generateFile(filename) {
     const additional = config.addModules[filename] || [];
 
     await writeBrowserJSON(filename, filename, additional);
+    await writeFile(filename, filename, additional, getJSRequireSyntax, 'js');
     await writeFile(filename, filename, additional, getCSSRequireSyntax, 'css');
-    await fs.promises.writeFile(
-        getJSFileName(filename),
-        [filename]
-            .concat(additional)
-            .map((file) => getJSRequireSyntax(file, 'css'))
-            .join('')
-    );
+
     await fs.promises.writeFile(
         getMJSFileName(filename),
         [filename]
@@ -139,11 +130,18 @@ async function generateTopLevelFiles() {
                 to: `./${items.filename}[ds-${items.ds}].js`,
                 'if-flag': `ds-${items.ds}`,
             }))
-            .concat({
-                from: './less.less',
-                to: './less[ds-4].less',
-                'if-flag': 'ds-4',
-            }),
+            .concat(
+                browserRemap.map((items) => ({
+                    from: `./${items.filename}.css`,
+                    to: `./${items.filename}[ds-${items.ds}].css`,
+                    'if-flag': `ds-${items.ds}`,
+                })),
+                {
+                    from: './less.less',
+                    to: './less[ds-4].less',
+                    'if-flag': 'ds-4',
+                }
+            ),
     };
 
     const indexFiles = browserRemap.filter(
@@ -151,7 +149,7 @@ async function generateTopLevelFiles() {
     );
     const contentJS = indexFiles
         .map((item) => {
-            return `require('./${item.filename}.css');\n`;
+            return `require('./${item.filename}.js');\n`;
         })
         .join('');
     const contentMJS = indexFiles
@@ -162,7 +160,7 @@ async function generateTopLevelFiles() {
 
     const contentBrowser = indexFiles
         .map((item) => {
-            return `"./${item.filename}.css"`;
+            return `"require: ./${item.filename}.js"`;
         })
         .join(',');
     const contentCSS = indexFiles
@@ -194,10 +192,8 @@ async function cleanTopLevelFiles() {
 async function generateCustomModule(filename, modules) {
     await writeBrowserJSON(filename, null, modules);
     await writeFile(filename, null, modules, getCSSRequireSyntax, 'css');
-    await fs.promises.writeFile(
-        getJSFileName(filename),
-        modules.map((file) => getJSRequireSyntax(file, 'css')).join('')
-    );
+    await writeFile(filename, null, modules, getJSRequireSyntax, 'js');
+
     await fs.promises.writeFile(
         getMJSFileName(filename),
         modules.map((file) => getMJSRequireSyntax(file, 'css')).join('')
