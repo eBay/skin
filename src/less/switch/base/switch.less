@@ -1,11 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@switch-checked-background-color: @color-action-primary;
-@switch-disabled-background-color: @color-disabled;
-@switch-unchecked-background-color: @color-action-secondary;
-@switch-foreground-color: @color-background-default;
-@switch-custom-outline-color: @color-action-secondary;
-
 .switch {
     box-sizing: border-box;
     height: 40px;
@@ -23,7 +17,10 @@ span.switch {
 
 span.switch__button {
     align-self: center;
-    .background-color(switch-unchecked-background-color);
+    background-color: var(
+        --switch-unchecked-background-color,
+        var(--color-text-secondary, @color-text-secondary)
+    );
     border-radius: 400px;
     color: transparent;
     display: inline-block;
@@ -34,7 +31,10 @@ span.switch__button {
     width: 40px;
 
     &::after {
-        .background-color(switch-foreground-color);
+        background-color: var(
+            --switch-foreground-color,
+            var(--color-background-default, @color-background-default)
+        );
         border-radius: 50%;
         content: "";
         display: block;
@@ -61,7 +61,10 @@ span.switch__control {
 }
 
 input.switch__control[disabled] + span.switch__button {
-    .background-color(switch-disabled-background-color);
+    background-color: var(
+        --switch-disabled-background-color,
+        var(--color-disabled, @color-disabled)
+    );
 }
 
 input.switch__control:checked + span.switch__button::after {
@@ -69,14 +72,21 @@ input.switch__control:checked + span.switch__button::after {
 }
 
 span.switch__control[aria-disabled="true"] + span.switch__button {
-    .background-color(switch-disabled-background-color);
+    background-color: var(
+        --switch-disabled-background-color,
+        var(--color-disabled, @color-disabled)
+    );
 }
 
 input.switch__control {
     opacity: 0;
 
     &:focus + span.switch__button {
-        outline: 1px auto @switch-custom-outline-color;
+        outline: 1px auto
+            var(
+                --switch-custom-outline-color,
+                var(--color-action-secondary, @color-action-secondary)
+            );
     }
 
     &:focus:not(:focus-visible) + span.switch__button {
@@ -90,7 +100,10 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
-    .background-color(switch-checked-background-color);
+    background-color: var(
+        --switch-checked-background-color,
+        var(--color-text-primary, @color-text-primary)
+    );
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -101,11 +114,5 @@ span.switch__control:focus:not(:focus-visible) {
 @media screen and (-ms-high-contrast: active) {
     input.switch__control {
         opacity: 1;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .switch {
-        --switch-checked-background-color: @color-b4-dark-mode;
     }
 }

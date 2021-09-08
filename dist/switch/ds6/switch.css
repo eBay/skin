@@ -12,7 +12,7 @@ span.switch {
 }
 span.switch__button {
   align-self: center;
-  background-color: var(--switch-unchecked-background-color, #707070);
+  background-color: var(--switch-unchecked-background-color, var(--color-text-secondary, #707070));
   border-radius: 400px;
   color: transparent;
   display: inline-block;
@@ -23,7 +23,7 @@ span.switch__button {
   width: 40px;
 }
 span.switch__button::after {
-  background-color: var(--switch-foreground-color, #fff);
+  background-color: var(--switch-foreground-color, var(--color-background-default, #fff));
   border-radius: 50%;
   content: "";
   display: block;
@@ -47,19 +47,19 @@ span.switch__control {
   z-index: 1;
 }
 input.switch__control[disabled] + span.switch__button {
-  background-color: var(--switch-disabled-background-color, #c7c7c7);
+  background-color: var(--switch-disabled-background-color, var(--color-disabled, #c7c7c7));
 }
 input.switch__control:checked + span.switch__button::after {
   left: 19px;
 }
 span.switch__control[aria-disabled="true"] + span.switch__button {
-  background-color: var(--switch-disabled-background-color, #c7c7c7);
+  background-color: var(--switch-disabled-background-color, var(--color-disabled, #c7c7c7));
 }
 input.switch__control {
   opacity: 0;
 }
 input.switch__control:focus + span.switch__button {
-  outline: 1px auto #707070;
+  outline: 1px auto var(--switch-custom-outline-color, var(--color-action-secondary, #707070));
 }
 input.switch__control:focus:not(:focus-visible) + span.switch__button {
   outline: none;
@@ -69,7 +69,7 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 }
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
-  background-color: var(--switch-checked-background-color, #3665f3);
+  background-color: var(--switch-checked-background-color, var(--color-text-primary, #111820));
 }
 span.switch__control:focus:not(:focus-visible) {
   outline: 0;
@@ -77,10 +77,5 @@ span.switch__control:focus:not(:focus-visible) {
 @media screen and (-ms-high-contrast: active) {
   input.switch__control {
     opacity: 1;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .switch {
-    --switch-checked-background-color: #5192ff;
   }
 }

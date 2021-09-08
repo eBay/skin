@@ -46,8 +46,8 @@ span.combobox {
   justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
-  border-color: var(--listbox-option-border-color, #fff);
-  color: var(--listbox-option-foreground-color, #333);
+  border-color: var(--listbox-option-border-color, var(--color-background-default, #fff));
+  color: var(--listbox-option-foreground-color, var(--color-text-default, #333));
   cursor: default;
   position: relative;
 }
@@ -61,8 +61,8 @@ span.combobox {
   display: none;
 }
 .combobox__option[role^="option"]:hover {
-  background-color: var(--listbox-option-hover-background-color, #eee);
-  color: var(--listbox-option-hover-foreground-color, #333);
+  background-color: var(--listbox-option-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
+  color: var(--listbox-option-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
 }
 .combobox__option[role^="option"]:active {
   font-weight: normal;
@@ -79,7 +79,7 @@ span.combobox {
   margin-bottom: 1px;
 }
 .combobox__option[role^="option"]:hover {
-  background-color: var(--listbox-option-hover-background-color, #eee);
+  background-color: var(--combobox-option-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
 }
 .combobox__option[role^="option"] svg.icon {
   align-self: center;
@@ -92,7 +92,7 @@ span.combobox {
   width: 8px;
 }
 .combobox__option--active[role^="option"] {
-  background-color: var(--listbox-option-hover-background-color, #eee);
+  background-color: var(--combobox-option-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
 }
 .combobox__option--active[role^="option"] svg.icon {
   opacity: 1;
@@ -196,7 +196,7 @@ span.combobox {
   background-color: var(--combobox-disabled-background-color, #eee);
 }
 .combobox__option--active[role="option"] {
-  color: var(--listbox-option-hover-foreground-color, #333);
+  color: var(--combobox-option-hover-foreground-color, var(--color-text-default, #333));
   font-weight: normal;
 }
 @media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {
@@ -240,6 +240,5 @@ span.combobox {
     --dropdown-background-color: #171717;
     --listbox-option-foreground-color: #dcdcdc;
     --listbox-option-border-color: #171717;
-    --listbox-option-hover-foreground-color: #333;
   }
 }

@@ -82,7 +82,7 @@
     {% endhighlight %}
 
     <h3 id="switch-variables">Custom Properties of Switch <sup>EXPERIMENTAL</sup></h3>
-    <p>The following custom properties (aka CSS Variables) are available for color scheme &amp; theming purposes:</p>
+    <p>The following custom properties (aka CSS Variables) are available for system color-scheme appearance (i.e. light-mode &amp; dark-mode) and other general theming purposes:</p>
 
     <ul>
         <li>--switch-unchecked-background-color</li>
@@ -92,16 +92,22 @@
     </ul>
 
     <style>
-        .switch--theme1 {
+        .switch--theme-1 {
             --switch-unchecked-background-color: orange;
             --switch-checked-background-color: green;
         }
+
+        @media (prefers-color-scheme: dark) {
+            .switch--theme-1 {
+                --switch-unchecked-background-color: blue;
+                --switch-checked-background-color: red;
+            }
+        }
     </style>
 
-    <p><strong>NOTE:</strong> The example theme below is NOT a real theme!</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="switch switch--theme1">
+            <span class="switch switch--theme-1">
                 <span aria-label="Switch Demo" class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
                 <span class="switch__button"></span>
             </span>
@@ -109,12 +115,19 @@
     </div>
     {% highlight html %}
 <style>
-    .switch--theme1 {
+    .switch--theme-1 {
         --switch-unchecked-background-color: orange;
         --switch-checked-background-color: green;
     }
+
+    @media (prefers-color-scheme: dark) {
+        .switch--theme-1 {
+            --switch-unchecked-background-color: blue;
+            --switch-checked-background-color: red;
+        }
+    }
 </style>
-<span class="switch switch--theme1">
+<span class="switch switch--theme-1">
     <span class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
     <span class="switch__button"></span>
 </span>
