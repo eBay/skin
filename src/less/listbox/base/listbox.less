@@ -10,10 +10,7 @@ span.listbox {
 }
 
 div.listbox__options[role="listbox"] {
-    background-color: var(
-        --listbox-background-color,
-        var(--color-background-default, @color-background-default)
-    );
+    .background-color-token(listbox-background-color, color-background-default);
     cursor: default; // needed to override text cursor
 }
 
@@ -51,17 +48,8 @@ div.listbox__option svg.icon {
 }
 
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
-    background-color: var(
-        --listbox-option-hover-background-color,
-        var(
-            --color-selection-list-item-hover-background,
-            @color-selection-list-item-hover-background
-        )
-    );
-    color: var(
-        --listbox-option-hover-foreground-color,
-        var(--color-text-default, @color-text-default)
-    );
+    .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
+    .color-token(listbox-option-hover-foreground-color, color-text-default);
 }
 
 div.listbox__option[aria-selected="true"] svg.icon {
