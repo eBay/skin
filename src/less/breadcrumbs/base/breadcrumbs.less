@@ -1,11 +1,7 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@breadcrumbs-item-foreground-color: @color-text-default;
-@breadcrumbs-item-current-foreground-color: @color-text-secondary;
-@breadcrumbs-item-hover-foreground-color: @color-action-primary;
-
 nav.breadcrumbs {
-    .color(breadcrumbs-item-foreground-color);
+    .color-token(breadcrumbs-item-foreground-color, color-text-default);
     font-size: @font-size-12;
     height: fit-content;
     margin: 8px 0;
@@ -60,12 +56,12 @@ nav.breadcrumbs {
 
         &:focus,
         &:hover {
-            .color(breadcrumbs-item-hover-foreground-color);
+            .color-token(breadcrumbs-item-hover-foreground-color, color-action-primary);
             text-decoration: underline;
         }
 
         &[aria-current] {
-            .color(breadcrumbs-item-current-foreground-color);
+            .color-token(breadcrumbs-item-current-foreground-color, color-text-secondary);
             text-decoration: none;
         }
     }
@@ -86,13 +82,5 @@ nav.breadcrumbs::-webkit-scrollbar {
 @media (min-width: 601px) {
     nav.breadcrumbs {
         margin: 16px 0;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .breadcrumbs {
-        --breadcrumbs-item-foreground-color: @color-text-default-dark-mode;
-        --breadcrumbs-item-current-foreground-color: @breadcrumbs-item-current-foreground-color; // dark-mode color TBD
-        --breadcrumbs-item-hover-foreground-color: @color-link-default-dark-mode;
     }
 }

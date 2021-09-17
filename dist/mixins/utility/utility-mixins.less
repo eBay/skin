@@ -104,6 +104,10 @@
     .customProperty(padding, @token1, @token2);
 }
 
+.customPropertyToken(@property, @product-token) {
+    @{property}: var(~"--@{product-token}", @@product-token);
+}
+
 .customPropertyToken(@property, @component-token, @product-token) {
     @{property}: var(~"--@{component-token}", var(~"--@{product-token}", @@product-token));
 }
@@ -120,8 +124,20 @@
     .customPropertyToken(color, @component-token, @product-token);
 }
 
+.fill-token(@component-token, @product-token) {
+    .customPropertyToken(fill, @component-token, @product-token);
+}
+
 .outline-color-token(@component-token, @product-token) {
     .customPropertyToken(outline-color, @component-token, @product-token);
+}
+
+.border-radius-token(@component-token, @product-token) {
+    .customPropertyToken(border-radius, @component-token, @product-token);
+}
+
+.box-shadow-token(@component-token, @product-token) {
+    .customPropertyToken(box-shadow, @component-token, @product-token);
 }
 
 .imageTreatment() {

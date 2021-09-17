@@ -8,13 +8,13 @@ a.fake-btn {
   text-decoration: none;
   vertical-align: bottom;
   background-color: transparent;
-  border-radius: var(--button-border-radius, 4px);
+  border-radius: var(--btn-border-radius, var(--border-radius-button, 4px));
   color: inherit;
   display: inline-block;
   font-size: 0.875rem;
   min-height: 40px;
   min-width: 128px;
-  padding: var(--button-padding-vertical, 11px) var(--button-padding-horizontal, 16px);
+  padding: 11px 16px;
 }
 button.btn--fixed-height,
 a.fake-btn--fixed-height {
@@ -105,9 +105,9 @@ a.fake-btn__cell--fixed-height svg.icon {
 }
 button.btn--primary,
 a.fake-btn--primary {
-  background-color: var(--button-primary-background-color, #0654ba);
-  border-color: var(--button-primary-border-color, #0654ba);
-  color: var(--button-primary-foreground-color, #fff);
+  background-color: var(--btn-primary-background-color, var(--color-action-primary, #0654ba));
+  border-color: var(--btn-primary-border-color, var(--color-action-primary, #0654ba));
+  color: var(--btn-primary-foreground-color, var(--color-background-default, #fff));
   font-weight: normal;
 }
 a.fake-btn--primary {
@@ -120,11 +120,11 @@ button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true
 a.fake-btn--primary[href]:hover,
 button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
 a.fake-btn--primary[href]:active {
-  background-color: var(--button-primary-hover-background-color, #00489f);
-  border-color: var(--button-primary-hover-border-color, #00489f);
+  background-color: var(--btn-primary-hover-background-color, var(--color-action-hover, #00489f));
+  border-color: var(--btn-primary-hover-border-color, var(--color-action-primary, #0654ba));
 }
 a.fake-btn--primary:visited {
-  color: var(--button-primary-foreground-color, #fff);
+  color: var(--btn-primary-foreground-color, var(--color-background-default, #fff));
 }
 button.btn .progress-spinner {
   height: 24px;
@@ -137,29 +137,29 @@ a.fake-btn--large svg.icon {
 }
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-  background-color: var(--button-primary-disabled-background-color, #0654ba);
-  border-color: var(--button-primary-disabled-border-color, #0654ba);
-  color: var(--button-primary-disabled-foreground-color, #fff);
+  background-color: var(--btn-primary-disabled-background-color, var(--color-action-primary-disabled, #0654ba));
+  border-color: var(--btn-primary-disabled-border-color, var(--color-action-primary-disabled, #0654ba));
+  color: var(--btn-primary-disabled-foreground-color, var(--color-background-default, #fff));
 }
 button.btn--primary[disabled] svg.icon,
 button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) svg.icon {
-  fill: var(--button-primary-disabled-foreground-color, #fff);
+  fill: var(--btn-primary-disabled-foreground-color, var(--color-background-default, #fff));
 }
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
-  background-color: var(--button-primary-disabled-background-color, #0654ba);
-  border-color: var(--button-primary-disabled-border-color, #0654ba);
-  color: var(--button-primary-disabled-foreground-color, #fff);
+  background-color: var(--btn-primary-disabled-background-color, var(--color-action-primary-disabled, #0654ba));
+  border-color: var(--btn-primary-disabled-border-color, var(--color-action-primary-disabled, #0654ba));
+  color: var(--btn-primary-disabled-foreground-color, var(--color-background-default, #fff));
 }
 /* stylelint-disable no-descending-specificity */
 a.fake-btn--secondary:visited {
-  color: var(--button-secondary-foreground-color, #555);
+  color: var(--btn-secondary-foreground-color, var(--color-foreground-secondary-button, #0654ba));
 }
 button.btn--secondary,
 a.fake-btn--secondary {
-  background-color: var(--button-secondary-background-color, rgba(238, 238, 238, 0.5));
-  border-color: var(--button-secondary-border-color, #999);
-  color: var(--button-secondary-foreground-color, #555);
+  background-color: var(--btn-secondary-background-color, var(--color-background-secondary-button, #fff));
+  border-color: var(--btn-secondary-border-color, var(--color-border-secondary-button, #0654ba));
+  color: var(--btn-secondary-foreground-color, var(--color-foreground-secondary-button, #0654ba));
 }
 /* show hover states only for non-disabled or non-loading state button */
 button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
@@ -168,16 +168,16 @@ button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="tr
 a.fake-btn--secondary[href]:focus,
 button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
 a.fake-btn--secondary[href]:active {
-  background-color: var(--button-secondary-hover-background-color, rgba(221, 221, 221, 0.5));
-  border-color: var(--button-secondary-hover-foreground-color, #555);
-  color: var(--button-secondary-hover-foreground-color, #555);
+  background-color: var(--btn-secondary-hover-background-color, var(--color-background-hover-secondary-button, #fff));
+  border-color: var(--button-secondary-hover-foreground-color, var(--color-foreground-hover-secondary-button, #00489f));
+  color: var(--button-secondary-hover-foreground-color, var(--color-foreground-hover-secondary-button, #00489f));
 }
 /* stylelint-enable no-descending-specificity */
 button.btn--delete,
 a.fake-btn--delete {
-  background-color: var(--button-delete-background-color, #fff);
-  border-color: var(--button-delete-foreground-color, #dd1e31);
-  color: var(--button-delete-foreground-color, #dd1e31);
+  background-color: var(--btn-delete-background-color, var(--color-background-default, #fff));
+  border-color: var(--btn-delete-foreground-color, var(--color-status-attention, #dd1e31));
+  color: var(--btn-delete-foreground-color, var(--color-status-attention, #dd1e31));
 }
 button.btn--delete:focus,
 a.fake-btn--delete:focus,
@@ -187,37 +187,37 @@ button.btn--delete:active,
 a.fake-btn--delete:active,
 button.btn--delete:visited,
 a.fake-btn--delete:visited {
-  border-color: var(--button-delete-foreground-color, #dd1e31);
-  color: var(--button-delete-foreground-color, #dd1e31);
+  border-color: var(--btn-delete-foreground-color, var(--color-status-attention, #dd1e31));
+  color: var(--btn-delete-foreground-color, var(--color-status-attention, #dd1e31));
 }
 /* stylelint-disable no-descending-specificity */
 button.btn--secondary[disabled],
 button.btn--delete[disabled],
 button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]),
 button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-  background-color: var(--button-secondary-disabled-background-color, #ccc);
-  border-color: var(--button-secondary-disabled-border-color, #999);
-  color: var(--button-secondary-disabled-foreground-color, #555);
+  background-color: var(--btn-secondary-disabled-background-color, var(--color-background-disabled-secondary-button, #fff));
+  border-color: var(--btn-secondary-disabled-border-color, var(--color-border-disabled-secondary-button, #ccc));
+  color: var(--btn-secondary-disabled-foreground-color, var(--color-foreground-disabled-secondary-button, #ccc));
 }
 button.btn--secondary[disabled] svg.icon,
 button.btn--delete[disabled] svg.icon,
 button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) svg.icon,
 button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) svg.icon {
-  fill: var(--button-secondary-disabled-foreground-color, #555);
+  fill: var(--btn-secondary-disabled-foreground-color, var(--color-foreground-disabled-secondary-button, #ccc));
 }
 /* stylelint-enable no-descending-specificity */
 a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
 a.fake-btn--delete:not([href]),
 a.fake-btn--delete[aria-disabled="true"] {
-  border-color: var(--button-secondary-disabled-border-color, #999);
-  color: var(--button-secondary-disabled-foreground-color, #555);
+  border-color: var(--btn-secondary-disabled-border-color, var(--color-border-disabled-secondary-button, #ccc));
+  color: var(--button-secondary-disabled-foreground-color, var(--color-foreground-disabled-secondary-button, #ccc));
 }
 button.btn--tertiary,
 a.fake-btn--tertiary {
-  background-color: var(--button-tertiary-background-color, #eee);
-  border-color: var(--button-tertiary-border-color, #eee);
-  color: var(--button-tertiary-foreground-color, #0654ba);
+  background-color: var(--btn-tertiary-background-color, var(--color-action-tertiary, #eee));
+  border-color: var(--btn-tertiary-border-color, var(--color-grey1, #eee));
+  color: var(--btn-tertiary-foreground-color, var(--color-b4, #0654ba));
 }
 /* show hover states only for non-disabled or non-loading state button */
 button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
@@ -226,29 +226,29 @@ button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="tru
 a.fake-btn--tertiary[href]:hover,
 button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
 a.fake-btn--tertiary[href]:active {
-  background-color: var(--button-tertiary-hover-background-color, #ddd);
-  border-color: var(--button-tertiary-hover-border-color, #ddd);
+  background-color: var(--btn-tertiary-hover-background-color, var(--color-grey2, #ddd));
+  border-color: var(--btn-tertiary-hover-border-color, var(--color-grey2, #ddd));
 }
 a.fake-btn--tertiary:visited {
-  color: var(--button-tertiary-foreground-color, #0654ba);
+  color: var(--btn-tertiary-foreground-color, var(--color-b4, #0654ba));
 }
 button.btn--tertiary[disabled],
 button.btn--tertiary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-  background-color: var(--button-tertiary-disabled-background-color, #eee);
-  border-color: var(--button-tertiary-disabled-border-color, #eee);
-  color: var(--button-tertiary-disabled-foreground-color, #ccc);
+  background-color: var(--btn-tertiary-disabled-background-color, var(--color-grey1, #eee));
+  border-color: var(--btn-tertiary-disabled-border-color, var(--color-grey1, #eee));
+  color: var(--btn-tertiary-disabled-foreground-color, var(--color-grey3, #ccc));
 }
 a.fake-btn--tertiary:not([href]),
 a.fake-btn--tertiary[aria-disabled="true"] {
-  background-color: var(--button-tertiary-disabled-background-color, #eee);
-  border-color: var(--button-tertiary-disabled-border-color, #eee);
-  color: var(--button-tertiary-disabled-foreground-color, #ccc);
+  background-color: var(--btn-tertiary-disabled-background-color, var(--color-grey1, #eee));
+  border-color: var(--btn-tertiary-disabled-border-color, var(--color-grey1, #eee));
+  color: var(--btn-tertiary-disabled-foreground-color, var(--color-grey3, #ccc));
 }
 button.btn--large,
 a.fake-btn--large {
   font-size: 1rem;
   min-height: 48px;
-  padding: var(--button-large-padding-vertical, 14px) var(--button-padding-horizontal, 16px);
+  padding: var(--padding-vertical-button-large, 14px) var(--padding-horizontal-button, 16px);
 }
 button.btn--transparent,
 a.fake-btn--transparent {
@@ -284,7 +284,7 @@ a.fake-btn--large-truncated {
   font-size: 1rem;
   height: 48px;
   min-height: 48px;
-  padding: var(--button-large-padding-vertical, 14px) var(--button-padding-horizontal, 16px);
+  padding: var(--padding-vertical-button-large, 14px) var(--padding-horizontal-button, 16px);
 }
 button.btn--large-truncated,
 a.fake-btn--large-truncated,
@@ -297,42 +297,10 @@ a.fake-btn--large-truncated span {
 }
 button.btn--icon-only,
 a.fake-btn--icon-only {
-  border-radius: var(--button-icon-only-border-radius, 4px);
+  border-radius: var(--border-radius-button-icon-only, 4px);
   min-width: auto;
   padding: 0;
 }
 a.fake-btn--icon-only {
   display: inline-flex;
-}
-@media (prefers-color-scheme: dark) {
-  button.btn,
-  a.fake-btn {
-    --button-primary-background-color: #5192ff;
-    --button-primary-foreground-color: #171717;
-    --button-primary-hover-background-color: #94bcff;
-    --button-primary-border-color: #5192ff;
-    --button-primary-hover-border-color: #94bcff;
-    --button-secondary-background-color: #171717;
-    --button-secondary-border-color: #5192ff;
-    --button-secondary-foreground-color: #5192ff;
-    --button-secondary-hover-background-color: #171717;
-    --button-secondary-hover-foreground-color: #94bcff;
-    --button-delete-background-color: #171717;
-    --button-delete-foreground-color: #e95367;
-    --button-primary-disabled-background-color: #4d4d4d;
-    --button-primary-disabled-foreground-color: #171717;
-    --button-primary-disabled-border-color: #4d4d4d;
-    --button-secondary-disabled-background-color: #171717;
-    --button-secondary-disabled-foreground-color: #4d4d4d;
-    --button-secondary-disabled-border-color: #4d4d4d;
-    --button-tertiary-foreground-color: #5192ff;
-    --button-tertiary-background-color: #212121;
-    --button-tertiary-border-color: #212121;
-    --button-tertiary-hover-background-color: #393939;
-    --button-tertiary-hover-border-color: #393939;
-    --button-tertiary-hover-foreground-color: #94bcff;
-    --button-tertiary-disabled-background-color: #212121;
-    --button-tertiary-disabled-border-color: #212121;
-    --button-tertiary-disabled-foreground-color: #4d4d4d;
-  }
 }

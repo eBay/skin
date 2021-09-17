@@ -20,12 +20,12 @@ span.combobox {
   right: 0;
 }
 .combobox__listbox {
-  background-color: var(--dropdown-background-color, #fff);
-  border-color: var(--dropdown-border-color, #ccc);
-  border-radius: var(--dropdown-border-radius, 0);
+  background-color: var(--combobox-listbox-background-color, var(--color-background-default, #fff));
+  border-color: var(--combobox-listbox-border-color, var(--color-dropdown-border, #ccc));
+  border-radius: var(--combobox-listbox-border-radius, var(--border-radius-dropdown, 0));
   border-style: solid;
   border-width: 1px;
-  box-shadow: var(--dropdown-box-shadow, 0 2px 4px 0 rgba(199, 199, 199, 0.5));
+  box-shadow: var(--combobox-listbox-box-shadow, var(--box-shadow-dropdown, 0 2px 4px 0 rgba(199, 199, 199, 0.5)));
   box-sizing: border-box;
   display: none;
   max-height: 400px;
@@ -68,12 +68,12 @@ span.combobox {
   font-weight: normal;
 }
 .combobox__option[role^="option"]:first-child {
-  border-top-left-radius: var(--dropdown-border-radius, 0);
-  border-top-right-radius: var(--dropdown-border-radius, 0);
+  border-top-left-radius: var(--border-radius-dropdown, 0);
+  border-top-right-radius: var(--border-radius-dropdown, 0);
 }
 .combobox__option[role^="option"]:last-child {
-  border-bottom-left-radius: var(--dropdown-border-radius, 0);
-  border-bottom-right-radius: var(--dropdown-border-radius, 0);
+  border-bottom-left-radius: var(--border-radius-dropdown, 0);
+  border-bottom-right-radius: var(--border-radius-dropdown, 0);
 }
 .combobox__option[role^="option"]:not(:last-child) {
   margin-bottom: 1px;
@@ -114,7 +114,7 @@ span.combobox {
   transform: rotate(180deg);
 }
 .combobox__control > svg.icon--dropdown {
-  color: var(--combobox-icon-color, #333);
+  color: var(--combobox-textbox-icon-color, var(--color-textbox-icon, #333));
   margin-left: 8px;
   pointer-events: none;
   position: absolute;
@@ -125,13 +125,13 @@ span.combobox {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: var(--combobox-background-color, #fff);
-  border-color: var(--combobox-border-color, #ccc);
-  border-radius: var(--combobox-border-radius, 4px);
+  background-color: var(--combobox-textbox-background-color, var(--color-form-control-background, #fff));
+  border-color: var(--combobox-textbox-border-color, var(--color-form-control-border, #ccc));
+  border-radius: var(--combobox-textbox-border-radius, var(--border-radius-form-control, 4px));
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  color: var(--combobox-foreground-color, #333);
+  color: var(--combobox-textbox-foreground-color, var(--color-text-default, #333));
   font-family: inherit;
   font-size: inherit;
   height: 40px;
@@ -140,19 +140,19 @@ span.combobox {
   padding: 0 32px 0 16px;
 }
 .combobox__control > input[readonly] {
-  color: var(--combobox-foreground-color, #333);
+  color: var(--combobox-textbox-foreground-color, var(--color-text-default, #333));
   cursor: default;
   text-shadow: 0 0 0 inherit;
   -webkit-user-select: none;
 }
 .combobox__control > input[readonly]::-moz-selection,
 .combobox__control > input[readonly]::selection {
-  background: #fff;
+  background-color: var(--combobox-textbox-readonly-selection-background, var(--color-background-default, #fff));
 }
 .combobox__control > input[disabled],
 .combobox__control > input[aria-disabled="true"] {
-  border-color: var(--combobox-disabled-border-color, #ccc);
-  color: var(--combobox-disabled-foreground-color, #ccc);
+  border-color: var(--combobox-disabled-border-color, var(--color-disabled, #ccc));
+  color: var(--combobox-textbox-disabled-foreground-color, var(--color-disabled, #ccc));
 }
 .combobox__control > input[disabled][readonly],
 .combobox__control > input[aria-disabled="true"][readonly] {
@@ -163,7 +163,7 @@ span.combobox {
   opacity: 0.5;
 }
 .combobox__control > input[aria-invalid="true"] {
-  border-color: var(--combobox-invalid-foreground-color, #dd1e31);
+  border-color: var(--combobox-invalid-foreground-color, var(--color-status-attention, #dd1e31));
 }
 .combobox__control > input::-ms-clear {
   display: none;
@@ -174,8 +174,8 @@ span.combobox {
   padding-left: 0;
 }
 .combobox__control > input:focus {
-  background-color: var(--combobox-focus-background-color, #fff);
-  border-color: var(--combobox-focus-border-color, #0654ba);
+  background-color: var(--combobox-textbox-focus-background-color, var(--color-background-default, #fff));
+  border-color: var(--combobox-textbox-focus-border-color, var(--color-action-primary, #0654ba));
   outline: 0;
 }
 .combobox__control--borderless > input:focus {
@@ -193,10 +193,10 @@ span.combobox {
   height: 48px;
 }
 .combobox__control > input[disabled] {
-  background-color: var(--combobox-disabled-background-color, #eee);
+  background-color: var(--combobox-textbox-disabled-background-color, var(--color-form-control-disabled-background, #eee));
 }
 .combobox__option--active[role="option"] {
-  color: var(--combobox-option-hover-foreground-color, var(--color-text-default, #333));
+  color: var(--combobox-option-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
   font-weight: normal;
 }
 @media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {
@@ -220,25 +220,4 @@ span.combobox {
 }
 [dir="rtl"] .combobox__control > button {
   left: 0;
-}
-@media (prefers-color-scheme: dark) {
-  .combobox {
-    --combobox-background-color: #393939;
-    --combobox-foreground-color: #dcdcdc;
-    --combobox-border-color: #6a6a6a;
-    --combobox-focus-border-color: #5192ff;
-    --combobox-focus-background-color: #171717;
-    --combobox-disabled-background-color: #393939;
-    --combobox-disabled-foreground-color: #6a6a6a;
-    --combobox-disabled-border-color: #6a6a6a;
-    --combobox-disabled-placeholder-color: #6a6a6a;
-    --combobox-readonly-foreground-color: #6a6a6a;
-    --combobox-focus-placeholder-color: #a8a8a8;
-    --combobox-invalid-foreground-color: #e95367;
-    --combobox-invalid-background-color: #2a191c;
-    --combobox-icon-color: #a8a8a8;
-    --dropdown-background-color: #171717;
-    --listbox-option-foreground-color: #dcdcdc;
-    --listbox-option-border-color: #171717;
-  }
 }

@@ -1,6 +1,6 @@
 .menu__items,
 .fake-menu__items {
-  background-color: var(--menu-background-color, #fff);
+  background-color: var(--menu-background-color, var(--color-selection-list-background, #fff));
   cursor: default;
 }
 span.menu,
@@ -35,7 +35,7 @@ span.fake-menu__items {
   margin-right: 8px;
 }
 a.fake-menu__item {
-  color: var(--menu-anchor-color, #333);
+  color: var(--menu-anchor-color, var(--color-selection-list-anchor, #333));
   text-decoration: none;
 }
 button.fake-menu__item {
@@ -53,8 +53,8 @@ div.menu__item[role^="menuitem"] {
   justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
-  border-color: var(--menu-menuitem-border-color, #fff);
-  color: var(--menu-menuitem-foreground-color, #333);
+  border-color: var(--menu-menuitem-border-color, var(--color-selection-list-item-border, #fff));
+  color: var(--menu-menuitem-foreground-color, var(--color-selection-list-item-foreground, #333));
 }
 button.fake-menu__item:not(:last-child),
 a.fake-menu__item:not(:last-child),
@@ -69,8 +69,8 @@ div.menu__item[role^="menuitem"]:focus {
 button.fake-menu__item:hover,
 a.fake-menu__item:hover,
 div.menu__item[role^="menuitem"]:hover {
-  background-color: var(--menu-menuitem-hover-background-color, #eee);
-  color: var(--menu-menuitem-hover-foreground-color, #333);
+  background-color: var(--menu-menuitem-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
+  color: var(--menu-menuitem-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
 }
 button.fake-menu__item:active,
 a.fake-menu__item:active,
@@ -82,7 +82,7 @@ a.fake-menu__item:focus {
 }
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-  color: var(--menu-menuitem-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
@@ -91,10 +91,10 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 a.fake-menu__item:not([href]),
 button.fake-menu__item[disabled],
 div.menu__item[role^="menuitem"][aria-disabled="true"] {
-  color: #999;
+  color: var(--menu-menuitem-disabled-foreground-color, var(--color-text-disabled, #999));
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
-  color: var(--menu-menuitem-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
@@ -143,19 +143,10 @@ div.menu__item--badged[role^="menuitem"] span.badge {
   text-decoration: underline;
 }
 hr.menu__separator {
-  border-color: var(--menu-separator-color, #eee);
+  border-color: var(--menu-separator-color, var(--color-selection-list-separator, #eee));
   border-style: solid;
   border-width: 1px;
 }
 div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .menu,
-  .fake-menu {
-    --menu-background-color: #171717;
-    --menu-menuitem-border-color: #171717;
-    --menu-menuitem-foreground-color: #dcdcdc;
-    --menu-menuitem-hover-foreground-color: #333;
-  }
 }

@@ -1,41 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@button-font-size: @font-size-regular;
-@button-large-font-size: @font-size-medium;
-@button-disabled-opacity: @color-action-disabled-opacity;
-@button-min-width: 128px;
-@button-padding-vertical: 11px;
-@button-padding-horizontal: 16px;
-@button-padding: @button-padding-vertical @button-padding-horizontal;
-@button-large-padding-vertical: 14px;
-@button-large-padding-horizontal: 16px;
-@button-large-padding: @button-large-padding-vertical @button-large-padding-horizontal;
-@button-wide-padding-horizontal: 48px;
-@button-primary-font-weight: @font-weight-action-primary;
-@button-primary-background-color: @color-action-primary;
-@button-primary-border-color: @color-action-primary;
-@button-primary-foreground-color: @color-background-default;
-@button-primary-hover-background-color: @color-action-hover;
-@button-primary-hover-foreground-color: @color-background-default;
-@button-primary-disabled-background-color: @color-action-primary-disabled;
-@button-primary-disabled-border-color: @color-action-primary-disabled;
-@button-primary-disabled-foreground-color: @color-background-default;
-@button-delete-background-color: @color-background-default;
-@button-delete-foreground-color: @color-status-attention;
-@button-confirmation-background-color: @color-g4;
-@button-confirmation-border-color: @color-g4;
-@button-confirmation-foreground-color: @color-background-default;
-@button-tertiary-background-color: @color-grey1;
-@button-tertiary-border-color: @color-grey1;
-@button-tertiary-hover-background-color: @color-grey2;
-@button-tertiary-hover-border-color: @color-grey2;
-@button-tertiary-foreground-color: @color-b4;
-@button-tertiary-hover-foreground-color: @color-b6;
-@button-tertiary-disabled-background-color: @color-grey1;
-@button-tertiary-disabled-border-color: @color-grey1;
-@button-tertiary-disabled-foreground-color: @color-grey3;
-@button-tertiary-destructive-foreground-color: @color-action-destroy;
-
 // button[aria-disabled="true"] is a partially disabled button
 // button[aria-live="polite"] is a button with a potential loading/busy state
 // button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
@@ -46,26 +10,26 @@ a.fake-btn {
     .btn-base();
 
     background-color: transparent;
-    .border-radius(button-border-radius);
+    .border-radius-token(btn-border-radius, border-radius-button);
     color: inherit;
     display: inline-block;
     font-size: @font-size-14;
     min-height: 40px;
-    min-width: @button-min-width;
-    .padding(button-padding-vertical, button-padding-horizontal);
+    min-width: @min-width-button;
+    padding: @padding-vertical-button @padding-horizontal-button;
 }
 
 button.btn--wide,
 a.fake-btn--wide {
-    padding-left: @button-wide-padding-horizontal;
-    padding-right: @button-wide-padding-horizontal;
+    padding-left: @padding-horizontal-button-wide;
+    padding-right: @padding-horizontal-button-wide;
 }
 
 button.btn[disabled],
 a.fake-btn:not([href]),
 button.btn[aria-disabled="true"],
 a.fake-btn[aria-disabled="true"] {
-    opacity: @button-disabled-opacity;
+    opacity: @opacity-action-disabled;
 }
 
 a.fake-btn:visited {
@@ -90,7 +54,7 @@ a.fake-btn svg.icon {
 
     flex-shrink: 0;
     height: 100%;
-    max-height: 40px - (@button-padding-vertical * 2);
+    max-height: 40px - (@padding-vertical-button * 2);
     width: 1em;
 }
 
@@ -104,10 +68,10 @@ a.fake-btn__cell--fixed-height svg.icon {
 
 button.btn--primary,
 a.fake-btn--primary {
-    .background-color(button-primary-background-color);
-    .border-color(button-primary-border-color);
-    .color(button-primary-foreground-color);
-    font-weight: @button-primary-font-weight;
+    .background-color-token(btn-primary-background-color, color-action-primary);
+    .border-color-token(btn-primary-border-color, color-action-primary);
+    .color-token(btn-primary-foreground-color, color-background-default);
+    font-weight: @font-weight-action-primary;
 }
 
 a.fake-btn--primary {
@@ -120,13 +84,13 @@ a.fake-btn--primary[href] {
     &:focus,
     &:hover,
     &:active {
-        .background-color(button-primary-hover-background-color);
-        .border-color(button-primary-hover-border-color);
+        .background-color-token(btn-primary-hover-background-color, color-action-hover);
+        .border-color-token(btn-primary-hover-border-color, color-action-primary);
     }
 }
 
 a.fake-btn--primary:visited {
-    .color(button-primary-foreground-color);
+    .color-token(btn-primary-foreground-color, color-background-default);
 }
 
 button.btn .progress-spinner {
@@ -137,37 +101,37 @@ button.btn .progress-spinner {
 
 button.btn--large svg.icon,
 a.fake-btn--large svg.icon {
-    max-height: 48px - (@button-large-padding-vertical * 2);
+    max-height: 48px - (@padding-vertical-button-large * 2);
 }
 
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-    .background-color(button-primary-disabled-background-color);
-    .border-color(button-primary-disabled-border-color);
-    .color(button-primary-disabled-foreground-color);
+    .background-color-token(btn-primary-disabled-background-color, color-action-primary-disabled);
+    .border-color-token(btn-primary-disabled-border-color, color-action-primary-disabled);
+    .color-token(btn-primary-disabled-foreground-color, color-background-default);
 
     svg.icon {
-        .fill(button-primary-disabled-foreground-color);
+        .fill-token(btn-primary-disabled-foreground-color, color-background-default);
     }
 }
 
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
-    .background-color(button-primary-disabled-background-color);
-    .border-color(button-primary-disabled-border-color);
-    .color(button-primary-disabled-foreground-color);
+    .background-color-token(btn-primary-disabled-background-color, color-action-primary-disabled);
+    .border-color-token(btn-primary-disabled-border-color, color-action-primary-disabled);
+    .color-token(btn-primary-disabled-foreground-color, color-background-default);
 }
 
 /* stylelint-disable no-descending-specificity */
 a.fake-btn--secondary:visited {
-    .color(button-secondary-foreground-color);
+    .color-token(btn-secondary-foreground-color, color-foreground-secondary-button);
 }
 
 button.btn--secondary,
 a.fake-btn--secondary {
-    .background-color(button-secondary-background-color);
-    .border-color(button-secondary-border-color);
-    .color(button-secondary-foreground-color);
+    .background-color-token(btn-secondary-background-color, color-background-secondary-button);
+    .border-color-token(btn-secondary-border-color, color-border-secondary-button);
+    .color-token(btn-secondary-foreground-color, color-foreground-secondary-button);
 }
 
 /* show hover states only for non-disabled or non-loading state button */
@@ -176,25 +140,25 @@ a.fake-btn--secondary[href] {
     &:hover,
     &:focus,
     &:active {
-        .background-color(button-secondary-hover-background-color);
-        .border-color(button-secondary-hover-foreground-color);
-        .color(button-secondary-hover-foreground-color);
+        .background-color-token(btn-secondary-hover-background-color, color-background-hover-secondary-button);
+        .border-color-token(button-secondary-hover-foreground-color, color-foreground-hover-secondary-button);
+        .color-token(button-secondary-hover-foreground-color, color-foreground-hover-secondary-button);
     }
 }
 /* stylelint-enable no-descending-specificity */
 
 button.btn--delete,
 a.fake-btn--delete {
-    .background-color(button-delete-background-color);
-    .border-color(button-delete-foreground-color);
-    .color(button-delete-foreground-color);
+    .background-color-token(btn-delete-background-color, color-background-default);
+    .border-color-token(btn-delete-foreground-color, color-status-attention);
+    .color-token(btn-delete-foreground-color, color-status-attention);
 
     &:focus,
     &:hover,
     &:active,
     &:visited {
-        .border-color(button-delete-foreground-color);
-        .color(button-delete-foreground-color);
+        .border-color-token(btn-delete-foreground-color, color-status-attention);
+        .color-token(btn-delete-foreground-color, color-status-attention);
     }
 }
 
@@ -203,12 +167,12 @@ button.btn--secondary[disabled],
 button.btn--delete[disabled],
 button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]),
 button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-    .background-color(button-secondary-disabled-background-color);
-    .border-color(button-secondary-disabled-border-color);
-    .color(button-secondary-disabled-foreground-color);
+    .background-color-token(btn-secondary-disabled-background-color, color-background-disabled-secondary-button);
+    .border-color-token(btn-secondary-disabled-border-color, color-border-disabled-secondary-button);
+    .color-token(btn-secondary-disabled-foreground-color, color-foreground-disabled-secondary-button);
 
     svg.icon {
-        .fill(button-secondary-disabled-foreground-color);
+        .fill-token(btn-secondary-disabled-foreground-color, color-foreground-disabled-secondary-button);
     }
 }
 /* stylelint-enable no-descending-specificity */
@@ -217,15 +181,15 @@ a.fake-btn--secondary:not([href]),
 a.fake-btn--secondary[aria-disabled="true"],
 a.fake-btn--delete:not([href]),
 a.fake-btn--delete[aria-disabled="true"] {
-    .border-color(button-secondary-disabled-border-color);
-    .color(button-secondary-disabled-foreground-color);
+    .border-color-token(btn-secondary-disabled-border-color, color-border-disabled-secondary-button);
+    .color-token(button-secondary-disabled-foreground-color, color-foreground-disabled-secondary-button);
 }
 
 button.btn--tertiary,
 a.fake-btn--tertiary {
-    .background-color(button-tertiary-background-color);
-    .border-color(button-tertiary-border-color);
-    .color(button-tertiary-foreground-color);
+    .background-color-token(btn-tertiary-background-color, color-action-tertiary);
+    .border-color-token(btn-tertiary-border-color, color-grey1);
+    .color-token(btn-tertiary-foreground-color, color-b4);
 }
 
 /* show hover states only for non-disabled or non-loading state button */
@@ -234,34 +198,34 @@ a.fake-btn--tertiary[href] {
     &:focus,
     &:hover,
     &:active {
-        .background-color(button-tertiary-hover-background-color);
-        .border-color(button-tertiary-hover-border-color);
+        .background-color-token(btn-tertiary-hover-background-color, color-grey2);
+        .border-color-token(btn-tertiary-hover-border-color, color-grey2);
     }
 }
 
 a.fake-btn--tertiary:visited {
-    .color(button-tertiary-foreground-color);
+    .color-token(btn-tertiary-foreground-color, color-b4);
 }
 
 button.btn--tertiary[disabled],
 button.btn--tertiary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-    .background-color(button-tertiary-disabled-background-color);
-    .border-color(button-tertiary-disabled-border-color);
-    .color(button-tertiary-disabled-foreground-color);
+    .background-color-token(btn-tertiary-disabled-background-color, color-grey1);
+    .border-color-token(btn-tertiary-disabled-border-color, color-grey1);
+    .color-token(btn-tertiary-disabled-foreground-color, color-grey3);
 }
 
 a.fake-btn--tertiary:not([href]),
 a.fake-btn--tertiary[aria-disabled="true"] {
-    .background-color(button-tertiary-disabled-background-color);
-    .border-color(button-tertiary-disabled-border-color);
-    .color(button-tertiary-disabled-foreground-color);
+    .background-color-token(btn-tertiary-disabled-background-color, color-grey1);
+    .border-color-token(btn-tertiary-disabled-border-color, color-grey1);
+    .color-token(btn-tertiary-disabled-foreground-color, color-grey3);
 }
 
 button.btn--large,
 a.fake-btn--large {
-    font-size: @button-large-font-size;
+    font-size: @font-size-button-large;
     min-height: 48px;
-    .padding(button-large-padding-vertical, button-padding-horizontal);
+    .padding(padding-vertical-button-large, padding-horizontal-button);
 }
 
 button.btn--transparent,
@@ -295,15 +259,15 @@ button.btn--large-truncated,
 a.fake-btn--large-truncated {
     .btn-truncate();
 
-    font-size: @button-large-font-size;
+    font-size: @font-size-button-large;
     height: 48px;
     min-height: 48px;
-    .padding(button-large-padding-vertical, button-padding-horizontal);
+    .padding(padding-vertical-button-large, padding-horizontal-button);
 }
 
 button.btn--icon-only,
 a.fake-btn--icon-only {
-    .border-radius(button-icon-only-border-radius);
+    .border-radius(border-radius-button-icon-only);
 
     min-width: auto;
     padding: 0;
@@ -311,37 +275,4 @@ a.fake-btn--icon-only {
 
 a.fake-btn--icon-only {
     display: inline-flex;
-}
-
-@media (prefers-color-scheme: dark) {
-    button.btn,
-    a.fake-btn {
-        --button-primary-background-color: @color-b4-dark-mode;
-        --button-primary-foreground-color: @color-black-dark-mode;
-        --button-primary-hover-background-color: @color-b6-dark-mode;
-        --button-primary-border-color: @color-b4-dark-mode;
-        --button-primary-hover-border-color: @color-b6-dark-mode;
-        --button-secondary-background-color: @color-black-dark-mode;
-        --button-secondary-border-color: @color-b4-dark-mode;
-        --button-secondary-foreground-color: @color-b4-dark-mode;
-        --button-secondary-hover-background-color: @color-black-dark-mode;
-        --button-secondary-hover-foreground-color: @color-b6-dark-mode;
-        --button-delete-background-color: @color-black-dark-mode;
-        --button-delete-foreground-color: @color-r4-dark-mode;
-        --button-primary-disabled-background-color: @color-grey3-dark-mode;
-        --button-primary-disabled-foreground-color: @color-black-dark-mode;
-        --button-primary-disabled-border-color: @color-grey3-dark-mode;
-        --button-secondary-disabled-background-color: @color-black-dark-mode;
-        --button-secondary-disabled-foreground-color: @color-grey3-dark-mode;
-        --button-secondary-disabled-border-color: @color-grey3-dark-mode;
-        --button-tertiary-foreground-color: @color-b4-dark-mode;
-        --button-tertiary-background-color: @color-grey1-dark-mode;
-        --button-tertiary-border-color: @color-grey1-dark-mode;
-        --button-tertiary-hover-background-color: @color-grey2-dark-mode;
-        --button-tertiary-hover-border-color: @color-grey2-dark-mode;
-        --button-tertiary-hover-foreground-color: @color-b6-dark-mode;
-        --button-tertiary-disabled-background-color: @color-grey1-dark-mode;
-        --button-tertiary-disabled-border-color: @color-grey1-dark-mode;
-        --button-tertiary-disabled-foreground-color: @color-grey3-dark-mode;
-    }
 }

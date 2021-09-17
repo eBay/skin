@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@listbox-button-invalid-border-color: @color-r4;
-@listbox-button-option-active-font-weight: @font-weight-selection-list-item-active;
-
 .listbox-button {
     line-height: normal;
     position: relative;
@@ -19,7 +16,7 @@ span.listbox-button--fluid .expand-btn {
 }
 
 div.listbox-button__listbox {
-    .dropdown-base();
+    .dropdown-base(listbox-button-listbox);
 }
 
 button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
@@ -27,7 +24,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button button[aria-invalid="true"] {
-    .border-color(listbox-button-invalid-border-color);
+    .border-color-token(listbox-button-invalid-border-color, color-status-attention);
 }
 
 .listbox-button button.expand-btn--borderless {
@@ -48,7 +45,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
     .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
-    .color-token(combobox-option-hover-foreground-color, color-text-default);
+    .color-token(combobox-option-hover-foreground-color, color-selection-list-item-hover-foreground);
 }
 
 .listbox-button__option svg.icon {
@@ -62,7 +59,7 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
 }
 
 div.listbox-button__option[role="option"]:active svg.icon {
-    .color(listbox-option-active-status-color);
+    .color-token(listbox-option-active-status-color, color-selection-list-item-active-status);
 }
 
 div.listbox-button__option[role="option"] {
@@ -73,7 +70,7 @@ div.listbox-button__option[role="option"] {
 }
 
 div.listbox-button__option--active[role="option"] {
-    font-weight: @listbox-button-option-active-font-weight;
+    font-weight: @font-weight-selection-list-item-active;
 }
 
 span.listbox-button__value {
@@ -95,13 +92,3 @@ span.listbox-button__value {
     }
 }
 // stylelint-enable no-descending-specificity
-
-@media (prefers-color-scheme: dark) {
-    .listbox-button {
-        --dropdown-background-color: @color-black-dark-mode;
-        --dropdown-border-color: @color-black-dark-mode;
-        --listbox-option-background-color: @color-black-dark-mode;
-        --listbox-option-foreground-color: @color-text-default-dark-mode;
-        --listbox-option-border-color: @color-black-dark-mode;
-    }
-}
