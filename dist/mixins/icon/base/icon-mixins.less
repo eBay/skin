@@ -1,4 +1,17 @@
-@icon-color-disabled: @color-icon-disabled;
+// base styles for BEM svg.icon block
+.foreground-icon-base-mixin() {
+    display: inline-block;
+    fill: currentColor;
+    pointer-events: none;
+    stroke: currentColor;
+    stroke-width: 0;
+    vertical-align: middle;
+}
+
+.foreground-icon-image-mixin(@name) {
+    height: ~"@{icon-@{name}-height}"; // string resolves to a LESS variable
+    width: ~"@{icon-@{name}-width}"; // string resolves to a LESS variable
+}
 
 // Icon Dimensions
 //-------------------------
@@ -431,18 +444,3 @@
 @icon-dropdown-height: 5.25px;
 @icon-back-width: @icon-chevron-left-width;
 @icon-back-height: @icon-chevron-left-height;
-
-// base styles for BEM svg.icon block
-.foreground-icon-base-mixin() {
-    display: inline-block;
-    fill: currentColor;
-    pointer-events: none;
-    stroke: currentColor;
-    stroke-width: 0;
-    vertical-align: middle;
-}
-
-.foreground-icon-image-mixin(@name) {
-    height: ~"@{icon-@{name}-height}"; // string resolves to a LESS variable
-    width: ~"@{icon-@{name}-width}"; // string resolves to a LESS variable
-}

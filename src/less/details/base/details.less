@@ -1,11 +1,9 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@details-summary-foreground-color: @color-action-primary;
-
 summary.details__summary {
     align-items: center;
     box-sizing: border-box;
-    .color(details-summary-foreground-color);
+    .color-token(details-summary-foreground-color, color-action-primary);
     display: inline-block;
     list-style-position: inside;
     list-style-type: none; /* Remove details marker for non-webkit */
@@ -58,10 +56,4 @@ details.details[open] {
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 details.details summary:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    details {
-        --details-summary-foreground-color: @color-b4-dark-mode;
-    }
 }
