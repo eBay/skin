@@ -1,10 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@tabs-item-foreground-color: @color-text-secondary;
-@tabs-item-hover-foreground-color: @color-text-secondary;
-@tabs-item-selected-foreground-color: @color-text-default;
-@tabs-item-webkit-tap-highlight-color: @color-background-highlight;
-
 .tabs,
 .fake-tabs {
     margin-top: @spacing-small;
@@ -35,7 +30,7 @@ div.tabs__item[role="tab"],
 li.fake-tabs__item {
     display: inline-block;
     position: relative;
-    -webkit-tap-highlight-color: @tabs-item-webkit-tap-highlight-color;
+    -webkit-tap-highlight-color: @color-background-highlight;
 
     &:not(:last-child) {
         margin-right: 40px;
@@ -53,7 +48,7 @@ div.tabs__item[role="tab"] > span {
 
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
-    .color(tabs-item-foreground-color);
+    .color-token(tabs-item-foreground-color, color-text-secondary);
     display: inline-block;
 
     &::after {
@@ -70,7 +65,7 @@ li.fake-tabs__item > a {
 
 div.tabs__item[role="tab"][aria-selected="true"] > span,
 li.fake-tabs__item--current > a[aria-current] {
-    .color(tabs-item-selected-foreground-color);
+    .color-token(tabs-item-selected-foreground-color, color-text-default);
 
     &::after {
         background-color: currentColor;
@@ -89,7 +84,7 @@ div.tabs__item[role="tab"]:not([aria-selected="true"]):focus > span,
 div.tabs__item[role="tab"]:not([aria-selected="true"]):hover > span,
 li.fake-tabs__item > a:not([aria-current]):focus,
 li.fake-tabs__item > a:not([aria-current]):hover {
-    .color(tabs-item-hover-foreground-color);
+    .color-token(tabs-item-hover-foreground-color, color-text-secondary);
 
     &::after {
         background-color: currentColor;
@@ -108,14 +103,5 @@ li.fake-tabs__item > a:not([aria-current]):hover {
             margin-left: 40px;
             margin-right: 0;
         }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .tabs,
-    .fake-tabs {
-        --tabs-item-foreground-color: @color-text-secondary-dark-mode;
-        --tabs-item-hover-foreground-color: @color-text-secondary-dark-mode;
-        --tabs-item-selected-foreground-color: @color-text-default-dark-mode;
     }
 }
