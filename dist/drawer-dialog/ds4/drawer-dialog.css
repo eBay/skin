@@ -1,6 +1,6 @@
 /* large screens */
 .drawer-dialog[role="dialog"] {
-  background-color: rgba(51, 51, 51, 0.7);
+  background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(51, 51, 51, 0.7)));
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
@@ -49,7 +49,7 @@
   z-index: 2;
 }
 .drawer-dialog__handle::after {
-  background-color: #999;
+  background-color: var(--dialog-handle-color, var(--color-grey4, #999));
   border-radius: 5px;
   content: "";
   display: block;
@@ -151,9 +151,4 @@ button.drawer-dialog__close {
 }
 .drawer-dialog__handle:focus:not(:focus-visible) {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .drawer-dialog {
-    --dialog-window-background-color: #212121;
-  }
 }
