@@ -1,7 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@filter-menu-button-icon-color: @color-text-default;
-
 // .filter-group also exists in filter-button
 // todo: move to utility/layout class and/or mixin
 div.filter-group {
@@ -20,17 +18,17 @@ span.filter-menu-button {
 
 button.filter-menu-button__button {
     .filter-button-base();
-    .background-color(filter-button-background-color);
+    .background-color-token(filter-button-background-color, color-grey1);
 
     &:focus,
     &:hover,
     &:active {
-        .background-color(filter-button-hover-background-color);
+        .background-color-token(filter-button-hover-background-color, color-grey2);
     }
 }
 
 button.filter-menu-button__button[aria-expanded="true"] {
-    .background-color(filter-button-hover-background-color);
+    .background-color-token(filter-button-hover-background-color, color-grey2);
 }
 
 .filter-menu-button__button-cell {
@@ -38,7 +36,7 @@ button.filter-menu-button__button[aria-expanded="true"] {
 
     svg.icon {
         align-self: center;
-        .color(filter-menu-button-icon-color);
+        .color-token(filter-menu-button-icon-color, color-text-default);
         height: 7px;
         margin-left: 8px;
         width: 12px;
@@ -58,45 +56,45 @@ button.filter-menu-button__button[aria-expanded="true"] {
 }
 
 button.filter-menu-button__button[aria-pressed="true"] {
-    .background-color(filter-button-selected-background-color);
+    .background-color-token(filter-button-selected-background-color, color-grey3);
     font-weight: bold;
 
     &:focus,
     &:hover,
     &:active {
-        .background-color(filter-button-selected-hover-background-color);
+        .background-color-token(filter-button-selected-hover-background-color, color-grey2);
     }
 }
 
 button.filter-menu-button__button[aria-expanded="true"][aria-pressed="true"] {
-    .background-color(filter-button-selected-hover-background-color);
+    .background-color-token(filter-button-selected-hover-background-color, color-grey2);
 }
 
 button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
 button.filter-menu-button__button[aria-pressed="true"][disabled],
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
-    color: @filter-button-disabled-foreground-color;
+    .color-token(filter-button-disabled-foreground-color, color-grey3);
     font-weight: normal;
 
     &:hover,
     &:focus {
-        background-color: @filter-button-background-color;
-        color: @filter-button-disabled-foreground-color;
+        .background-color-token(filter-button-background-color, color-grey1);
+        .color-token(filter-button-disabled-foreground-color, color-grey3);
     }
 
     & .filter-menu-button__button-cell > svg.icon {
-        color: @filter-button-disabled-foreground-color;
+        .color-token(filter-button-disabled-foreground-color, color-grey3);
     }
 }
 
 button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
-    .background-color(filter-button-selected-background-color);
+    .background-color-token(filter-button-selected-background-color, color-grey3);
 }
 
 .filter-menu-button__menu {
-    .background-color(filter-menu-item-background-color);
+    .background-color-token(filter-menu-item-background-color, color-background-default);
     border: none;
     border-radius: 16px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -139,14 +137,14 @@ span.filter-menu-button__radio {
 
 span.filter-menu-button__checkbox {
     svg.icon--checkbox-unchecked {
-        .color(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--checkbox-checked {
-        .color(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
         display: none;
         height: 18px;
         width: 18px;
@@ -155,14 +153,14 @@ span.filter-menu-button__checkbox {
 
 span.filter-menu-button__radio {
     svg.icon--radio-unchecked {
-        .color(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-default);
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--radio-checked {
-        .color(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
         display: none;
         height: 18px;
         width: 18px;
@@ -176,7 +174,7 @@ span.filter-menu-button__radio {
     padding: 8px 16px;
 
     &:hover {
-        .background-color(filter-menu-item-hover-background-color);
+        .background-color-token(filter-menu-item-hover-background-color, color-grey1);
     }
 
     &:last-child {
@@ -192,19 +190,19 @@ span.filter-menu-button__radio {
     }
 
     svg.checkbox__unchecked {
-        .color(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
     }
 
     svg.checkbox__checked {
-        .color(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
     }
 
     svg.radio__unchecked {
-        .color(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
     }
 
     svg.radio__checked {
-        .color(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
     }
 }
 
@@ -216,7 +214,7 @@ button.filter-menu-button__footer {
     .filter-menu-item-base();
 
     border: none;
-    .border-color(filter-menu-border-color);
+    .border-color-token(filter-menu-border-color, color-separator);
     border-top-style: solid;
     border-top-width: 1px;
     bottom: 0;
@@ -224,7 +222,7 @@ button.filter-menu-button__footer {
 
     &:focus,
     &:hover {
-        .background-color(filter-menu-item-hover-background-color);
+        .background-color-token(filter-menu-item-hover-background-color, color-grey1);
     }
 }
 
@@ -266,11 +264,5 @@ div.filter-menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
 
     .filter-menu-button__checkbox {
         margin-left: 8px;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .filter-menu-button {
-        --filter-menu-button-icon-color: @color-text-default-dark-mode;
     }
 }
