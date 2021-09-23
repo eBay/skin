@@ -1,27 +1,22 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@expand-button-hover-foreground-color: @color-b6;
-@expand-button-padding-vertical: 11px;
-@expand-button-padding-horizontal: 16px;
-@expand-button-wide-padding-horizontal: 48px;
-
 button.expand-btn {
     .btn-base();
 
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
-    .border-radius(expand-button-border-radius);
+    .border-radius-token(expand-btn-border-radius, border-radius-button);
     color: inherit;
     display: inline-block;
     font-size: 1em;
     max-width: 100%;
-    .padding(expand-button-padding-vertical, expand-button-padding-horizontal);
+    padding: 11px 16px;
 
     &:hover,
     &:focus {
-        .border-color(expand-button-hover-foreground-color);
-        .color(expand-button-hover-foreground-color);
+        .border-color-token(expand-btn-hover-foreground-color, color-b6);
+        .color-token(expand-btn-hover-foreground-color, color-b6);
     }
 }
 
@@ -31,9 +26,9 @@ button.expand-btn svg.icon {
     flex-shrink: 0;
 }
 
-button.expand-button--wide {
-    padding-left: @expand-button-wide-padding-horizontal;
-    padding-right: @expand-button-wide-padding-horizontal;
+button.expand-btn--wide {
+    padding-left: @padding-horizontal-button-wide;
+    padding-right: @padding-horizontal-button-wide;
 }
 
 button.expand-btn--fluid {
@@ -66,8 +61,8 @@ span.expand-btn__cell--center svg.icon:last-child {
 
 button.expand-btn[disabled],
 button.expand-btn[aria-disabled="true"] {
-    border-color: @expand-button-disabled-border-color;
-    color: @expand-button-disabled-foreground-color;
+    .border-color-token(expand-btn-disabled-border-color, color-disabled);
+    .color-token(expand-btn-disabled-foreground-color, color-text-disabled);
     opacity: @opacity-action-disabled;
 }
 
@@ -137,10 +132,4 @@ button.expand-btn.expand-btn--icon-only {
 button.expand-btn--no-text.expand-btn--large,
 button.expand-btn--icon-only.expand-btn--large {
     height: 48px;
-}
-
-@media (prefers-color-scheme: dark) {
-    button.expand-btn {
-        --expand-button-hover-foreground-color: @color-b6-dark-mode;
-    }
 }

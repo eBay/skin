@@ -1,52 +1,39 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@cta-button-font-size: @font-size-regular;
-@cta-button-background-color: @color-background-default;
-@cta-button-foreground-color: @color-text-default;
-@cta-button-hover-background-color: @color-text-default;
-@cta-button-hover-border-color: @color-text-default;
-@cta-button-hover-foreground-color: @color-background-default;
-@cta-button-visited-foreground-color: @color-text-default;
-@cta-button-disabled-background-color: @color-background-default;
-@cta-button-disabled-border-color: @color-action-disabled;
-@cta-button-disabled-foreground-color: @color-action-disabled;
-@cta-button-padding-vertical: 11px;
-@cta-button-wide-padding-horizontal: 48px;
-
 a.cta-btn {
     .btn-base();
 
-    .background-color(cta-button-background-color);
+    .background-color-token(cta-btn-background-color, color-background-default);
     border-color: currentColor;
-    .border-radius(cta-button-border-radius);
-    .color(cta-button-foreground-color);
+    .border-radius-token(cta-btn-border-radius, border-radius-button);
+    .color-token(cta-btn-foreground-color, color-text-default);
     display: inline-block;
-    font-size: @cta-button-font-size;
+    font-size: @font-size-regular;
     max-width: 100%;
-    .padding(cta-button-padding-vertical, cta-button-padding-horizontal);
+    padding: 11px 20px;
 }
 
 a.cta-btn:visited {
-    .color(cta-button-visited-foreground-color);
+    .color-token(cta-btn-visited-foreground-color, color-text-default);
 }
 
 a.cta-btn:focus,
 a.cta-btn:hover {
-    .background-color(cta-button-hover-background-color);
-    .border-color(cta-button-hover-border-color);
-    .color(cta-button-hover-foreground-color);
+    .background-color-token(cta-btn-hover-background-color, color-text-default);
+    .border-color-token(cta-btn-hover-border-color, color-text-default);
+    .color-token(cta-btn-hover-foreground-color, color-background-default);
 }
 
 a.cta-btn:not([href]),
 a.cta-btn[aria-disabled="true"] {
-    .background-color(cta-button-disabled-background-color);
-    .border-color(cta-button-disabled-border-color);
-    .color(cta-button-disabled-foreground-color);
+    .background-color-token(cta-btn-disabled-background-color, color-background-default);
+    .border-color-token(cta-btn-disabled-border-color, color-action-disabled);
+    .color-token(cta-btn-disabled-foreground-color, color-action-disabled);
 }
 
 a.cta-btn--wide {
-    padding-left: @cta-button-wide-padding-horizontal;
-    padding-right: @cta-button-wide-padding-horizontal;
+    padding-left: @padding-horizontal-button-wide;
+    padding-right: @padding-horizontal-button-wide;
 }
 
 a.cta-btn--fluid {
@@ -89,15 +76,4 @@ a.cta-btn--large-truncated {
 a.cta-btn--large-fixed-height {
     font-size: @font-size-16;
     height: 48px;
-}
-
-@media (prefers-color-scheme: dark) {
-    a.cta-btn {
-        --cta-button-background-color: @color-black-dark-mode;
-        --cta-button-foreground-color: @color-white-dark-mode;
-        --cta-button-visited-foreground-color: @color-white-dark-mode;
-        --cta-button-hover-background-color: @color-white-dark-mode;
-        --cta-button-hover-foreground-color: @color-black-dark-mode;
-        --cta-button-hover-border-color: @color-white-dark-mode;
-    }
 }

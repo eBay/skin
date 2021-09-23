@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 .textbox {
-  color: var(--textbox-foreground-color, #555);
+  color: var(--textbox-foreground-color, var(--color-form-control-foreground, #333));
   font-size: 0.875rem;
   position: relative;
 }
@@ -34,68 +34,68 @@ textarea.textbox__control {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: var(--textbox-background-color, #fff);
-  border-color: var(--textbox-border-color, #ccc);
-  border-radius: var(--textbox-border-radius, 4px);
+  background-color: var(--textbox-background-color, var(--color-form-control-background, #eee));
+  border-color: var(--textbox-border-color, var(--color-form-control-border, #949494));
+  border-radius: var(--textbox-border-radius, var(--border-radius-small, 8px));
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  color: var(--textbox-foreground-color, #555);
+  color: var(--textbox-foreground-color, var(--color-form-control-foreground, #333));
   font-size: 1em;
   height: 40px;
   margin: 0;
 }
 input.textbox__control[disabled],
 textarea.textbox__control[disabled] {
-  background-color: var(--textbox-disabled-background-color, #eee);
-  border-color: var(--textbox-disabled-border-color, #ccc);
-  color: var(--textbox-disabled-foreground-color, #ccc);
+  background-color: var(--textbox-disabled-background-color, var(--color-form-control-disabled-background, #eee));
+  border-color: var(--textbox-disabled-border-color, var(--color-form-control-border, #949494));
+  color: var(--textbox-disabled-foreground-color, var(--color-grey4, #999));
 }
 input.textbox__control[disabled]::-webkit-input-placeholder,
 textarea.textbox__control[disabled]::-webkit-input-placeholder {
-  color: var(--textbox-disabled-placeholder-color, #ccc);
+  color: var(--textbox-disabled-placeholder-color, var(--color-form-control-disabled-placeholder, #999));
 }
 input.textbox__control[disabled]::-moz-placeholder,
 textarea.textbox__control[disabled]::-moz-placeholder {
-  color: var(--textbox-disabled-placeholder-color, #ccc);
+  color: var(--textbox-disabled-placeholder-color, var(--color-form-control-disabled-placeholder, #999));
 }
 input.textbox__control[disabled]:-ms-input-placeholder,
 textarea.textbox__control[disabled]:-ms-input-placeholder {
-  color: var(--textbox-disabled-placeholder-color, #ccc);
+  color: var(--textbox-disabled-placeholder-color, var(--color-form-control-disabled-placeholder, #999));
 }
 input.textbox__control[readonly],
 textarea.textbox__control[readonly] {
-  color: var(--textbox-readonly-foreground-color, #333);
+  color: var(--textbox-readonly-foreground-color, var(--color-form-control-readonly-foreground, #999));
 }
 input.textbox__control[aria-invalid="true"],
 textarea.textbox__control[aria-invalid="true"] {
-  background-color: var(--textbox-invalid-background-color, #fff);
-  border-color: var(--textbox-invalid-foreground-color, #dd1e31);
+  background-color: var(--textbox-invalid-background-color, var(--color-textbox-invalid, rgba(221, 30, 49, 0.2)));
+  border-color: var(--textbox-invalid-foreground-color, var(--color-status-attention, #dd1e31));
 }
 input.textbox__control:focus,
 textarea.textbox__control:focus {
-  border-color: var(--textbox-focus-border-color, #0654ba);
-  background-color: var(--textbox-focus-background-color, #fff);
+  border-color: var(--textbox-focus-border-color, var(--color-action-primary, #0654ba));
+  background-color: var(--textbox-focus-background-color, var(--color-background-default, #fff));
   outline: 0;
 }
 input.textbox__control::-webkit-input-placeholder,
 textarea.textbox__control::-webkit-input-placeholder {
-  color: var(--textbox-placeholder-color, #707070);
+  color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
 }
 input.textbox__control:-ms-input-placeholder,
 textarea.textbox__control:-ms-input-placeholder {
-  color: var(--textbox-placeholder-color, #707070);
+  color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
 }
 input.textbox__control::-ms-input-placeholder,
 textarea.textbox__control::-ms-input-placeholder {
-  color: var(--textbox-placeholder-color, #707070);
+  color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
 }
 input.textbox__control::placeholder,
 textarea.textbox__control::placeholder {
-  color: var(--textbox-placeholder-color, #707070);
+  color: var(--textbox-placeholder-color, var(--color-grey5, #707070));
   font-weight: 200;
 }
 input.textbox__control--large {
@@ -103,9 +103,9 @@ input.textbox__control--large {
 }
 .textbox > svg,
 .textbox .icon-btn > svg {
-  color: var(--textbox-icon-color, #707070);
+  color: var(--textbox-icon-color, var(--color-grey5, #707070));
   display: inline-flex;
-  fill: var(--textbox-icon-color, #707070);
+  fill: var(--textbox-icon-color, var(--color-grey5, #707070));
   height: 100%;
   pointer-events: none;
   position: absolute;
@@ -147,22 +147,4 @@ input.textbox__control--large {
 [dir="rtl"] .textbox--icon-end > svg:last-child {
   left: 16px;
   right: auto;
-}
-@media (prefers-color-scheme: dark) {
-  .textbox {
-    --textbox-background-color: #393939;
-    --textbox-foreground-color: #dcdcdc;
-    --textbox-border-color: #6a6a6a;
-    --textbox-focus-border-color: #5192ff;
-    --textbox-focus-background-color: #171717;
-    --textbox-disabled-background-color: #393939;
-    --textbox-disabled-foreground-color: #6a6a6a;
-    --textbox-disabled-border-color: #6a6a6a;
-    --textbox-disabled-placeholder-color: #6a6a6a;
-    --textbox-readonly-foreground-color: #6a6a6a;
-    --textbox-focus-placeholder-color: #a8a8a8;
-    --textbox-invalid-foreground-color: #e95367;
-    --textbox-invalid-background-color: #2a191c;
-    --textbox-icon-color: #a8a8a8;
-  }
 }
