@@ -21,8 +21,8 @@ span.tooltip {
   border-radius: var(--bubble-border-radius, 0);
   position: relative;
   z-index: 1;
-  background-color: var(--tooltip-background-color, #0654ba);
-  color: var(--tooltip-foreground-color, #fff);
+  background-color: var(--tooltip-background-color, var(--color-action-primary, #0654ba));
+  color: var(--tooltip-foreground-color, var(--color-background-default, #fff));
 }
 span.tooltip__mask {
   display: block;
@@ -33,10 +33,10 @@ span.tooltip__mask {
   word-break: break-word;
 }
 .tooltip__cell a {
-  color: var(--tooltip-foreground-color, #fff);
+  color: var(--tooltip-foreground-color, var(--color-background-default, #fff));
 }
 .tooltip__cell a:focus {
-  outline-color: var(--tooltip-foreground-color, #fff);
+  outline-color: var(--tooltip-foreground-color, var(--color-background-default, #fff));
   outline-style: dashed;
   outline-width: 1px;
 }
@@ -69,7 +69,7 @@ button.tooltip__close {
   box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
   top: -7px;
   left: calc(50% - 8px);
-  background-color: var(--tooltip-background-color, #0654ba);
+  background-color: var(--tooltip-background-color, var(--color-action-primary, #0654ba));
 }
 .tooltip__pointer--top-left {
   box-shadow: var(--bubble-top-box-shadow, -2px -2px 2px rgba(0, 0, 0, 0.15));
@@ -147,11 +147,5 @@ button.tooltip__close {
 @media (min-width: 601px) {
   .tooltip__overlay {
     max-width: 400px;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .tooltip {
-    --tooltip-background-color: #0654ba;
-    --tooltip-foreground-color: #fff;
   }
 }
