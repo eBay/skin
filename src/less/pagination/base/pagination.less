@@ -1,18 +1,9 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@pagination-item-font-weight: @font-weight-regular;
-@pagination-item-foreground-color: @color-grey5;
-@pagination-item-hover-foreground-color: @color-b6;
-@pagination-item-active-foreground-color: @color-text-default;
-@pagination-item-current-foreground-color: @color-text-default;
-@pagination-item-current-font-weight: @font-weight-bold;
-@pagination-overflow-hover-background-color: @color-grey2;
-@pagination-overflow-active-background-color: @color-grey3;
-
 nav.pagination {
     .inline-flex-items-centered();
 
-    .color(pagination-item-foreground-color);
+    .color-token(pagination-item-foreground-color, color-text-secondary);
     font-family: inherit;
     font-size: 1rem;
     margin: 8px 0;
@@ -61,7 +52,7 @@ button.pagination__previous {
     .inline-flex-items-centered();
 
     box-sizing: border-box;
-    font-weight: @pagination-item-font-weight;
+    font-weight: @font-weight-regular;
     height: 44px;
     width: 44px;
 }
@@ -94,8 +85,8 @@ a.pagination__item {
 }
 
 a.pagination__item[aria-current="page"] {
-    .color(pagination-item-current-foreground-color);
-    font-weight: @pagination-item-current-font-weight;
+    .color-token(pagination-item-current-foreground-color, color-text-default);
+    font-weight: @font-weight-bold;
 
     &::after {
         background-color: currentColor;
@@ -105,12 +96,12 @@ a.pagination__item[aria-current="page"] {
 a.pagination__item:not([aria-current="page"]),
 button.pagination__item:not([aria-current="page"]) {
     &:active {
-        .color(pagination-item-active-foreground-color);
+        .color-token(pagination-item-active-foreground-color, color-text-default);
     }
 
     &:focus,
     &:hover {
-        .color(pagination-item-hover-foreground-color);
+        .color-token(pagination-item-hover-foreground-color, color-action-hover);
 
         &::after {
             background-color: currentColor;
@@ -125,11 +116,11 @@ span.pagination__item svg.icon--overflow {
 span.pagination__item button.icon-btn--transparent {
     &:focus,
     &:hover {
-        .background-color(pagination-overflow-hover-background-color);
+        .background-color-token(pagination-overflow-hover-background-color, color-grey2);
     }
 
     &:active {
-        .background-color(pagination-overflow-active-background-color);
+        .background-color-token(pagination-overflow-active-background-color, color-grey3);
     }
 }
 
@@ -173,16 +164,5 @@ button.pagination__item:focus {
 @media (min-width: @screen-size-3) {
     nav.pagination {
         margin: 16px 0;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .pagination {
-        --pagination-item-foreground-color: @color-text-secondary-dark-mode;
-        --pagination-item-current-foreground-color: @color-text-default-dark-mode;
-        --pagination-item-hover-foreground-color: @color-text-default-dark-mode;
-        --pagination-item-active-foreground-color: @color-text-default-dark-mode;
-        --pagination-overflow-hover-background-color: @color-grey1-dark-mode;
-        --pagination-overflow-active-background-color: @color-grey2-dark-mode;
     }
 }

@@ -1,31 +1,25 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@progress-bar-color: @color-action-primary;
-@progress-bar-foreground-color: @color-action-primary;
-@progress-bar-background-color: @color-separator;
-@progress-bar-transition-time: 0.45s;
-@progress-bar-transition-function: ease-in-out;
-
 .progress-bar {
     border: none;
-    .color(progress-bar-color);
+    .color-token(progress-bar-color, color-action-primary);
     height: 4px;
     margin: 8px 0;
 }
 
 .progress-bar::-webkit-progress-bar {
-    .background-color(progress-bar-background-color);
+    .background-color-token(progress-bar-background-color, color-separator);
     border-radius: 8px;
 }
 
 .progress-bar::-webkit-progress-value {
-    .background-color(progress-bar-foreground-color);
+    .background-color-token(progress-bar-foreground-color, color-action-primary);
     border-radius: 8px;
-    transition: width @progress-bar-transition-time @progress-bar-transition-function;
+    transition: width 0.45s ease-in-out;
 }
 
 .progress-bar::-moz-progress-bar {
-    .background-color(progress-bar-foreground-color);
+    .background-color-token(progress-bar-foreground-color, color-action-primary);
     border-radius: 8px;
 }
 
@@ -36,11 +30,5 @@
 @media (min-width: 601px) {
     .progress-bar {
         margin: 16px 0;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .progress-bar {
-        --progress-bar-color: @color-action-primary-dark-mode;
     }
 }

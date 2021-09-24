@@ -1,11 +1,8 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@progress-spinner-image-url-dark-mode: url("https://ir.ebaystatic.com/cr/v/c1/skin/svg/spinner/v2/spinner-dark-mode.svg");
-@progress-spinner-large-image-url-dark-mode: url("https://ir.ebaystatic.com/cr/v/c1/skin/svg/spinner/v2/spinner-large-dark-mode.svg");
-
 .progress-spinner {
     animation: spin 600ms linear infinite;
-    .background-image(progress-spinner-image-url);
+    .background-image-token(progress-spinner-image-url, url-image-progress-spinner);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,17 +22,7 @@
 }
 
 .progress-spinner--large {
-    .background-image(progress-spinner-large-image-url);
+    .background-image-token(progress-spinner-large-image-url, url-image-progress-spinner-large);
     height: 60px;
     width: 60px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .progress-spinner {
-        --progress-spinner-image-url: @progress-spinner-image-url-dark-mode;
-    }
-
-    .progress-spinner--large {
-        --progress-spinner-large-image-url: @progress-spinner-large-image-url-dark-mode;
-    }
 }

@@ -1,20 +1,6 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@progress-stepper-active-color: @color-status-information;
-@progress-stepper-attention-color: @color-status-attention;
-@progress-stepper-upcoming-color: @color-text-disabled;
-@progress-stepper-upcoming-text-color: @color-text-secondary;
-@progress-stepper-text-dark-color: @color-text-default;
-@progress-stepper-text-light-color: @color-text-secondary;
 @progress-stepper-icon-size: 24px;
-@progress-stepper-badge-upcoming-background-color: @color-white;
-@progress-stepper-badge-upcoming-border-color: @progress-stepper-upcoming-color;
-@progress-stepper-badge-upcoming-color: @progress-stepper-upcoming-text-color;
-@progress-stepper-badge-current-background-color: @progress-stepper-active-color;
-@progress-stepper-badge-current-border-color: @progress-stepper-active-color;
-@progress-stepper-badge-current-color: @color-white;
-@progress-stepper-font-size: @font-size-12;
-@progress-stepper-large-font-size: @font-size-14;
 @progress-stepper-min-width: 80px;
 @progress-stepper-large-min-width: 120px;
 
@@ -25,14 +11,14 @@
 
 .progress-stepper__item {
     align-items: center;
-    .color(progress-stepper-active-color);
+    .color-token(progress-stepper-active-color, color-status-information);
     display: flex;
     flex-direction: column;
     width: 32px;
 }
 
 hr.progress-stepper__separator {
-    .background-color(progress-stepper-active-color);
+    .background-color-token(progress-stepper-active-color, color-status-information);
     border: 0 none;
     flex: 1;
     height: 2px;
@@ -43,7 +29,7 @@ hr.progress-stepper__separator {
 }
 
 .progress-stepper__text {
-    font-size: @progress-stepper-font-size;
+    font-size: @font-size-12;
     justify-self: center;
     margin-top: 8px;
     text-align: center;
@@ -56,13 +42,13 @@ hr.progress-stepper__separator {
 
 .progress-stepper__icon > [role="img"] {
     align-items: center;
-    .background-color(progress-stepper-badge-current-background-color);
-    .border-color(progress-stepper-badge-current-border-color);
+    .background-color-token(progress-stepper-badge-current-background-color, color-status-information);
+    .border-color-token(progress-stepper-badge-current-border-color, color-status-information);
     border-radius: @progress-stepper-icon-size;
     border-style: solid;
     border-width: 2px;
     box-sizing: border-box;
-    .color(progress-stepper-badge-current-color);
+    .color-token(progress-stepper-badge-current-color, color-white);
     display: inline-flex;
     font-weight: @font-weight-bold;
     height: @progress-stepper-icon-size;
@@ -74,11 +60,11 @@ hr.progress-stepper__separator {
 .progress-stepper__items--upcoming hr.progress-stepper__separator,
 hr.progress-stepper__separator--upcoming,
 .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
-    .background-color(progress-stepper-upcoming-color);
+    .background-color-token(progress-stepper-upcoming-color, color-text-disabled);
 }
 
 .progress-stepper__item--attention {
-    .color(progress-stepper-attention-color);
+    .color-token(progress-stepper-attention-color, color-status-attention);
 }
 
 .progress-stepper__text > * {
@@ -112,16 +98,16 @@ hr.progress-stepper__separator--upcoming,
 .progress-stepper__items--upcoming .progress-stepper__item,
 .progress-stepper__item--upcoming,
 .progress-stepper__item[aria-current] ~ .progress-stepper__item {
-    .color(progress-stepper-text-light-color);
+    .color-token(progress-stepper-text-light-color, color-text-secondary);
 }
 
 /* prettier-ignore */
 .progress-stepper__items--upcoming .progress-stepper__icon > [role="img"],
 .progress-stepper__item--upcoming .progress-stepper__icon > [role="img"],
 .progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"] {
-    .background-color(progress-stepper-badge-upcoming-background-color);
-    .border-color(progress-stepper-badge-upcoming-border-color);
-    .color(progress-stepper-badge-upcoming-color);
+    .background-color-token(progress-stepper-badge-upcoming-background-color, color-background-default);
+    .border-color-token(progress-stepper-badge-upcoming-border-color, color-text-disabled);
+    .color-token(progress-stepper-badge-upcoming-color, color-text-secondary);
 }
 
 .progress-stepper--vertical .progress-stepper__items {
@@ -186,14 +172,7 @@ hr.progress-stepper__separator--upcoming,
     }
 
     .progress-stepper__text {
-        font-size: @progress-stepper-large-font-size;
+        font-size: @font-size-14;
         width: @progress-stepper-large-min-width;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .stepper {
-        --stepper-badge-background-color: black;
-        --stepper-text-dark-color: @color-text-default-dark-mode;
     }
 }

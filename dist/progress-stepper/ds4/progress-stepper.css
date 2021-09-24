@@ -4,13 +4,13 @@
 }
 .progress-stepper__item {
   align-items: center;
-  color: var(--progress-stepper-active-color, #0654ba);
+  color: var(--progress-stepper-active-color, var(--color-status-information, #0654ba));
   display: flex;
   flex-direction: column;
   width: 32px;
 }
 hr.progress-stepper__separator {
-  background-color: var(--progress-stepper-active-color, #0654ba);
+  background-color: var(--progress-stepper-active-color, var(--color-status-information, #0654ba));
   border: 0 none;
   flex: 1;
   height: 2px;
@@ -31,13 +31,13 @@ hr.progress-stepper__separator {
 }
 .progress-stepper__icon > [role="img"] {
   align-items: center;
-  background-color: var(--progress-stepper-badge-current-background-color, #0654ba);
-  border-color: var(--progress-stepper-badge-current-border-color, #0654ba);
+  background-color: var(--progress-stepper-badge-current-background-color, var(--color-status-information, #0654ba));
+  border-color: var(--progress-stepper-badge-current-border-color, var(--color-status-information, #0654ba));
   border-radius: 24px;
   border-style: solid;
   border-width: 2px;
   box-sizing: border-box;
-  color: var(--progress-stepper-badge-current-color, #fff);
+  color: var(--progress-stepper-badge-current-color, var(--color-white, #fff));
   display: inline-flex;
   font-weight: 500;
   height: 24px;
@@ -48,10 +48,10 @@ hr.progress-stepper__separator {
 .progress-stepper__items--upcoming hr.progress-stepper__separator,
 hr.progress-stepper__separator--upcoming,
 .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
-  background-color: var(--progress-stepper-upcoming-color, #999);
+  background-color: var(--progress-stepper-upcoming-color, var(--color-text-disabled, #999));
 }
 .progress-stepper__item--attention {
-  color: var(--progress-stepper-attention-color, #dd1e31);
+  color: var(--progress-stepper-attention-color, var(--color-status-attention, #dd1e31));
 }
 .progress-stepper__text > * {
   margin: 0;
@@ -79,15 +79,15 @@ hr.progress-stepper__separator--upcoming,
 .progress-stepper__items--upcoming .progress-stepper__item,
 .progress-stepper__item--upcoming,
 .progress-stepper__item[aria-current] ~ .progress-stepper__item {
-  color: var(--progress-stepper-text-light-color, #707070);
+  color: var(--progress-stepper-text-light-color, var(--color-text-secondary, #707070));
 }
 /* prettier-ignore */
 .progress-stepper__items--upcoming .progress-stepper__icon > [role="img"],
 .progress-stepper__item--upcoming .progress-stepper__icon > [role="img"],
 .progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"] {
-  background-color: var(--progress-stepper-badge-upcoming-background-color, #fff);
-  border-color: var(--progress-stepper-badge-upcoming-border-color, #999);
-  color: var(--progress-stepper-badge-upcoming-color, #707070);
+  background-color: var(--progress-stepper-badge-upcoming-background-color, var(--color-background-default, #fff));
+  border-color: var(--progress-stepper-badge-upcoming-border-color, var(--color-text-disabled, #999));
+  color: var(--progress-stepper-badge-upcoming-color, var(--color-text-secondary, #707070));
 }
 .progress-stepper--vertical .progress-stepper__items {
   display: block;
@@ -142,11 +142,5 @@ hr.progress-stepper__separator--upcoming,
   .progress-stepper__text {
     font-size: 0.875rem;
     width: 120px;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .stepper {
-    --stepper-badge-background-color: black;
-    --stepper-text-dark-color: #dcdcdc;
   }
 }
