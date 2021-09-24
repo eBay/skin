@@ -1,16 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@icon-button-badge-border-color: @color-background-default;
-@icon-button-badge-border-style: solid;
-@icon-button-badge-border-width: 2px;
-@icon-button-badge-font-size: @font-size-small;
-@icon-button-icon-foreground-color: @color-icon-actionable-default;
-@icon-button-icon-active-foreground-color: @color-icon-actionable-active;
-@icon-button-icon-hover-foreground-color: @icon-button-icon-foreground-color;
-@icon-button-background-color: @color-grey1;
-@icon-button-hover-background-color: @color-grey2;
-@icon-button-active-background-color: @color-grey3;
-
 a.icon-link {
     align-items: center;
     display: inline-flex;
@@ -22,7 +11,7 @@ a.icon-link {
 
 button.icon-btn,
 a.icon-link {
-    .background-color(icon-button-background-color);
+    .background-color-token(icon-button-background-color, color-grey1);
     border: 2px solid transparent;
     border-radius: 50px;
     box-sizing: border-box;
@@ -34,7 +23,7 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        .fill(icon-button-icon-foreground-color);
+        .fill-token(icon-button-icon-foreground-color, color-text-primary);
 
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
@@ -42,18 +31,18 @@ a.icon-link {
 
     &:focus,
     &:hover {
-        .background-color(icon-button-hover-background-color);
+        .background-color-token(icon-button-hover-background-color, color-grey2);
 
         > svg {
-            .fill(icon-button-icon-hover-foreground-color);
+            .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
         }
     }
 
     &:active {
-        .background-color(icon-button-active-background-color);
+        .background-color-token(icon-button-active-background-color, color-grey3);
 
         > svg {
-            .fill(icon-button-icon-active-foreground-color);
+            .fill-token(icon-button-icon-active-foreground-color, color-text-primary);
         }
     }
 
@@ -75,7 +64,7 @@ a.icon-link--transparent {
 
 // visited link state
 a.icon-link:visited > svg {
-    .fill(icon-button-icon-foreground-color);
+    .fill-token(icon-button-icon-foreground-color, color-text-primary);
 }
 
 // disabled & partially disabled states
@@ -85,12 +74,12 @@ a:not([href]).icon-link,
 a[aria-disabled="true"].icon-link {
     > svg {
         background-color: transparent;
-        fill: @color-action-disabled;
+        .fill-token(color-action-disabled);
     }
 
     &:focus > svg,
     &:hover > svg {
-        fill: @color-action-disabled;
+        .fill-token(color-action-disabled);
     }
 }
 
@@ -98,7 +87,7 @@ a[aria-disabled="true"].icon-link {
 a.icon-link:visited {
     &:hover > svg,
     &:focus > svg {
-        .fill(icon-button-icon-hover-foreground-color);
+        .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
     }
 }
 
@@ -111,7 +100,9 @@ a.icon-link--badged {
     position: relative;
 
     .badge {
-        .border(icon-button-badge-border-width, icon-button-badge-border-style, icon-button-badge-border-color);
+        .border-color-token(icon-button-badge-border-color, color-background-default);
+        border-style: solid;
+        border-width: 2px;
         left: 24px;
         line-height: 14px;
         min-width: 14px;
@@ -120,18 +111,5 @@ a.icon-link--badged {
         position: absolute;
         top: -6px;
         z-index: 1;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    a.icon-link,
-    button.icon-btn {
-        --icon-button-background-color: @color-grey1-dark-mode;
-        --icon-button-hover-background-color: @color-grey2-dark-mode;
-        --icon-button-active-background-color: @color-grey3-dark-mode;
-        --icon-button-badge-border-color: @color-background-default-dark-mode;
-        --icon-button-icon-foreground-color: @color-text-default-dark-mode;
-        --icon-button-icon-active-foreground-color: @color-text-default-dark-mode;
-        --icon-button-icon-hover-foreground-color: @color-text-default-dark-mode;
     }
 }

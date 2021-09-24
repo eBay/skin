@@ -7,7 +7,7 @@ a.icon-link > svg {
 }
 button.icon-btn,
 a.icon-link {
-  background-color: var(--icon-button-background-color, #f7f7f7);
+  background-color: var(--icon-button-background-color, var(--color-grey1, #f7f7f7));
   border: 2px solid transparent;
   border-radius: 50px;
   box-sizing: border-box;
@@ -20,7 +20,7 @@ a.icon-link {
 }
 button.icon-btn > svg,
 a.icon-link > svg {
-  fill: var(--icon-button-icon-foreground-color, #111820);
+  fill: var(--icon-button-icon-foreground-color, var(--color-text-primary, #111820));
   max-width: 100%;
   position: relative;
 }
@@ -28,21 +28,21 @@ button.icon-btn:focus,
 a.icon-link:focus,
 button.icon-btn:hover,
 a.icon-link:hover {
-  background-color: var(--icon-button-hover-background-color, #e5e5e5);
+  background-color: var(--icon-button-hover-background-color, var(--color-grey2, #e5e5e5));
 }
 button.icon-btn:focus > svg,
 a.icon-link:focus > svg,
 button.icon-btn:hover > svg,
 a.icon-link:hover > svg {
-  fill: var(--icon-button-icon-hover-foreground-color, #111820);
+  fill: var(--icon-button-icon-hover-foreground-color, var(--color-text-primary, #111820));
 }
 button.icon-btn:active,
 a.icon-link:active {
-  background-color: var(--icon-button-active-background-color, #c7c7c7);
+  background-color: var(--icon-button-active-background-color, var(--color-grey3, #c7c7c7));
 }
 button.icon-btn:active > svg,
 a.icon-link:active > svg {
-  fill: var(--icon-button-icon-active-foreground-color, #111820);
+  fill: var(--icon-button-icon-active-foreground-color, var(--color-text-primary, #111820));
 }
 button.icon-btn:not(:focus-visible),
 a.icon-link:not(:focus-visible) {
@@ -61,14 +61,14 @@ a.icon-link--transparent:hover {
   background-color: transparent;
 }
 a.icon-link:visited > svg {
-  fill: var(--icon-button-icon-foreground-color, #111820);
+  fill: var(--icon-button-icon-foreground-color, var(--color-text-primary, #111820));
 }
 button[disabled].icon-btn > svg,
 button[aria-disabled="true"].icon-btn > svg,
 a:not([href]).icon-link > svg,
 a[aria-disabled="true"].icon-link > svg {
   background-color: transparent;
-  fill: #c7c7c7;
+  fill: var(--color-action-disabled, #c7c7c7);
 }
 button[disabled].icon-btn:focus > svg,
 button[aria-disabled="true"].icon-btn:focus > svg,
@@ -78,11 +78,11 @@ button[disabled].icon-btn:hover > svg,
 button[aria-disabled="true"].icon-btn:hover > svg,
 a:not([href]).icon-link:hover > svg,
 a[aria-disabled="true"].icon-link:hover > svg {
-  fill: #c7c7c7;
+  fill: var(--color-action-disabled, #c7c7c7);
 }
 a.icon-link:visited:hover > svg,
 a.icon-link:visited:focus > svg {
-  fill: var(--icon-button-icon-hover-foreground-color, #111820);
+  fill: var(--icon-button-icon-hover-foreground-color, var(--color-text-primary, #111820));
 }
 button.icon-btn--badged,
 a.icon-link--badged {
@@ -91,7 +91,9 @@ a.icon-link--badged {
 }
 button.icon-btn--badged .badge,
 a.icon-link--badged .badge {
-  border: var(--icon-button-badge-border-width, 2px) var(--icon-button-badge-border-style, solid) var(--icon-button-badge-border-color, #fff);
+  border-color: var(--icon-button-badge-border-color, var(--color-background-default, #fff));
+  border-style: solid;
+  border-width: 2px;
   left: 24px;
   line-height: 14px;
   min-width: 14px;
@@ -100,16 +102,4 @@ a.icon-link--badged .badge {
   position: absolute;
   top: -6px;
   z-index: 1;
-}
-@media (prefers-color-scheme: dark) {
-  a.icon-link,
-  button.icon-btn {
-    --icon-button-background-color: #212121;
-    --icon-button-hover-background-color: #393939;
-    --icon-button-active-background-color: #4d4d4d;
-    --icon-button-badge-border-color: #171717;
-    --icon-button-icon-foreground-color: #dcdcdc;
-    --icon-button-icon-active-foreground-color: #dcdcdc;
-    --icon-button-icon-hover-foreground-color: #dcdcdc;
-  }
 }
