@@ -158,7 +158,8 @@ document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
 });
 
 // INFOTIP
-document.querySelectorAll('.infotip').forEach(function(widgetEl) {
+document.querySelectorAll('.infotip:not(.infotip--modal)').forEach(function(widgetEl) {
+    const infotipButton = widgetEl.querySelector('button');
     const widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
@@ -167,7 +168,8 @@ document.querySelectorAll('.infotip').forEach(function(widgetEl) {
     });
 
     widgetEl.querySelector('.infotip__close').addEventListener('click', function() {
-        widget.collapse();
+        widget.expanded = false;
+        infotipButton.focus();
     });
 });
 

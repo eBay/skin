@@ -1,5 +1,5 @@
 .select {
-  color: var(--select-foreground-color, #333);
+  color: var(--select-foreground-color, var(--color-text-default, #333));
   font-size: 0.875rem;
   position: relative;
 }
@@ -10,9 +10,9 @@ span.select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: var(--select-background-color, #fff);
-  border-color: var(--select-border-color, #949494);
-  border-radius: var(--select-border-radius, 4px);
+  background-color: var(--select-background-color, var(--color-form-control-background, #eee));
+  border-color: var(--select-border-color, var(--color-form-control-border, #949494));
+  border-radius: var(--select-border-radius, var(--border-radius-form-control, 4px));
   border-style: solid;
   border-width: 1px;
   color: inherit;
@@ -49,8 +49,8 @@ span.select {
   text-decoration: underline;
 }
 .select select:focus {
-  background-color: var(--select-focus-background-color, #fff);
-  border-color: var(--select-focus-border-color, #0654ba);
+  background-color: var(--select-focus-background-color, var(--color-background-default, #fff));
+  border-color: var(--select-focus-border-color, var(--color-action-primary, #0654ba));
   outline: 0;
   text-decoration: underline;
 }
@@ -58,26 +58,26 @@ span.select {
   display: none;
 }
 .select select[disabled] {
-  background-color: var(--select-disabled-background-color, #eee);
-  color: var(--select-disabled-foregound-color, #ccc);
+  background-color: var(--select-disabled-background-color, var(--color-form-control-disabled-background, #eee));
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #999));
 }
 .select--borderless select[disabled] {
-  background-color: var(--select-borderless-disabled-background-color, #fff);
-  color: var(--select-borderless-disabled-foregound-color, #ccc);
+  background-color: var(--select-borderless-disabled-background-color, var(--color-form-control-background, #eee));
+  color: var(--select-borderless-disabled-foregound-color, var(--color-disabled, #ccc));
 }
 .select select[readonly] {
-  background-color: var(--select-disabled-background-color, #eee);
-  color: var(--select-disabled-foregound-color, #ccc);
+  background-color: var(--select-disabled-background-color, var(--color-form-control-disabled-background, #eee));
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #999));
 }
 .select select[aria-invalid="true"] {
-  background-color: var(--select-invalid-background-color, #fff);
-  border-color: var(--select-invalid-border-color, #dd1e31);
+  background-color: var(--select-invalid-background-color, var(--color-status-invalid, rgba(221, 30, 49, 0.2)));
+  border-color: var(--select-invalid-border-color, var(--color-status-invalid, rgba(221, 30, 49, 0.2)));
   border-style: solid;
   border-width: 1px;
-  color: var(--select-invalid-foreground-color, #333);
+  color: var(--select-invalid-foreground-color, var(--color-status-attention, #dd1e31));
 }
 .select select[disabled] + svg {
-  color: #ccc;
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #999));
 }
 /* stylelint-disable no-descending-specificity */
 [dir="rtl"] .select > select {
@@ -93,19 +93,3 @@ span.select {
   right: auto;
 }
 /* stylelint-enable no-descending-specificity */
-@media (prefers-color-scheme: dark) {
-  .select {
-    --select-background-color: #393939;
-    --select-border-color: #6a6a6a;
-    --select-foreground-color: #dcdcdc;
-    --select-focus-border-color: #5192ff;
-    --select-focus-background-color: #171717;
-    --select-disabled-foreground-color: #6a6a6a;
-    --select-disabled-background-color: #393939;
-    --select-borderless-disabled-foreground-color: #6a6a6a;
-    --select-borderless-disabled-background-color: #393939;
-    --select-invalid-border-color: #e95367;
-    --select-invalid-background-color: #2a191c;
-    --select-invalid-foreground-color: #e95367;
-  }
-}
