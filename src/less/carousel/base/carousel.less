@@ -2,16 +2,6 @@
 
 /* stylelint-disable no-descending-specificity, comment-empty-line-before */
 
-// START VARIABLES
-@carousel-paddle-background-color: @color-background-default;
-@carousel-paddle-border-color: @color-grey2;
-@carousel-paddle-foreground-color: @color-text-default;
-@carousel-paddle-hover-background-color: @color-grey5;
-@carousel-paddle-hover-foreground-color: @color-background-default;
-@carousel-paddle-active-background-color: @color-grey6;
-@carousel-playback-foreground-color: @color-background-default;
-@carousel-playback-background-color: rgba(0, 0, 0, 0.45);
-
 @ebay-carousel-transition-time: 0.45s;
 @ebay-carousel-transition-function: ease-in-out;
 // END VARIABLES
@@ -26,7 +16,7 @@
 }
 
 .carousel-paddle-mixin-base() {
-    .background-color(carousel-paddle-background-color);
+    .background-color-token(carousel-paddle-background-color, color-background-paddle);
 
     &--prev {
         left: 0;
@@ -45,7 +35,8 @@
     }
 
     align-items: center;
-    border: 1px solid @carousel-paddle-border-color;
+    border: 1px solid;
+    .border-color-token(carousel-paddle-border-color, color-border-paddle);
     border-radius: 16px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     display: flex;
@@ -62,7 +53,7 @@
     z-index: 1;
 
     svg {
-        .color(carousel-paddle-foreground-color);
+        .color-token(carousel-paddle-foreground-color, color-foreground-paddle);
     }
 
     // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -94,16 +85,16 @@
     }
 
     &:hover {
-        background-color: @carousel-paddle-hover-background-color;
-        border-color: @carousel-paddle-hover-background-color;
+        .background-color-token(carousel-paddle-hover-background-color, color-background-hover-paddle);
+        .border-color-token(carousel-paddle-hover-background-color, color-background-hover-paddle);
 
         svg {
-            color: @carousel-paddle-hover-foreground-color;
+            .color-token(carousel-paddle-hover-foreground-color, color-foreground-hover-paddle);
         }
     }
 
     &:active {
-        background-color: @carousel-paddle-active-background-color;
+        .background-color-token(carousel-paddle-active-background-color, color-background-active-paddle);
     }
 }
 // END MIXINS
@@ -143,12 +134,12 @@
     }
 
     &__playback {
-        .background-color(carousel-playback-background-color);
+        .background-color-token(carousel-playback-background-color, color-background-playback);
         border: 0;
         border-radius: 50%;
         bottom: 16px; // accounts for padding.
         box-sizing: border-box;
-        .color(carousel-playback-foreground-color);
+        .color-token(carousel-playback-foreground-color, color-foreground-playback);
         height: 40px;
         margin-bottom: 19px;
         margin-right: 19px;
@@ -192,11 +183,7 @@ span.carousel__container {
 }
 
 .carousel__viewport--mask {
-    mask-image: linear-gradient(
-        to right,
-        @carousel-paddle-background-color 85%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    mask-image: linear-gradient(to right, @color-background-paddle 85%, rgba(0, 0, 0, 0) 100%);
 }
 
 [dir="rtl"] {
@@ -319,13 +306,4 @@ span.carousel__container {
 
 .carousel--hidden-scrollbar .carousel__container .carousel__list {
     padding-bottom: 80px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .carousel {
-        --carousel-paddle-background-color: @color-background-default-dark-mode;
-        --carousel-paddle-foreground-color: @color-text-default-dark-mode;
-        --carousel-playback-background-color: @color-background-default-dark-mode;
-        --carousel-playback-foreground-color: @color-text-default-dark-mode;
-    }
 }

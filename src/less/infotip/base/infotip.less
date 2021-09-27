@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@infotip-background-color: @color-background-default;
-@infotip-foreground-color: @color-text-default;
-
 .infotip {
     position: relative;
 }
@@ -13,8 +10,8 @@ span.infotip {
 
 .infotip__overlay {
     .bubble();
-    .background-color(infotip-background-color);
-    .color(infotip-foreground-color);
+    .background-color-token(infotip-background-color, color-background-default);
+    .color-token(infotip-foreground-color, color-text-default);
     display: none;
     left: 0 - 10px;
     margin-top: 16px;
@@ -23,8 +20,8 @@ span.infotip {
 
 .infotip__mask {
     .bubble-mask();
-    .background-color(infotip-background-color);
-    .color(infotip-foreground-color);
+    .background-color-token(infotip-background-color, color-background-default);
+    .color-token(infotip-foreground-color, color-text-default);
 }
 
 span.infotip__mask {
@@ -40,7 +37,7 @@ span.infotip__mask {
 }
 
 .infotip__pointer {
-    .background-color(infotip-background-color);
+    .background-color-token(infotip-background-color, color-background-default);
 
     .pointer-base();
     .pointer-top();
@@ -126,12 +123,5 @@ button.infotip__close,
 @media (min-width: 601px) {
     .infotip__overlay {
         .bubble-large-screen();
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .infotip {
-        --infotip-background-color: @color-grey1-dark-mode;
-        --infotip-foreground-color: @color-text-default-dark-mode;
     }
 }

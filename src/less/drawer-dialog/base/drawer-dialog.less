@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@dialog-window-background-color: @color-background-default;
-@dialog-handle-color: @color-grey4;
-
 .drawer-dialog[role="dialog"] {
     .dialog-base();
 
@@ -31,7 +28,7 @@
 
 // Added :after class in order to increase parent hit box
 .drawer-dialog__handle::after {
-    background-color: @dialog-handle-color;
+    .background-color-token(dialog-handle-color, color-grey4); // todo: needs product token
     border-radius: 5px;
     content: "";
     display: block;
@@ -58,7 +55,7 @@ button.drawer-dialog__close {
 .drawer-dialog__window {
     .dialog-window();
 
-    border-radius: @dialog-border-radius @dialog-border-radius 0 0;
+    border-radius: @border-radius-dialog @border-radius-dialog 0 0;
     max-height: 50%;
     max-width: 100%;
     -webkit-overflow-scrolling: touch;
@@ -105,7 +102,7 @@ button.drawer-dialog__close {
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-mask-background-color, 0%);
+        background-color: @color-mask-unfaded;
     }
 
     // code smell, chained modifier
@@ -124,7 +121,7 @@ button.drawer-dialog__close {
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-mask-background-color, 70%);
+        background-color: @color-mask-faded;
     }
 
     // Child animations.
@@ -139,10 +136,4 @@ button.drawer-dialog__close {
 
 .drawer-dialog__handle:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .drawer-dialog {
-        --dialog-window-background-color: @color-grey1-dark-mode;
-    }
 }

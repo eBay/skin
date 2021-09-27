@@ -1,11 +1,15 @@
 // this mixin is used by infotip, tooltip, infotip
-// this mixin is internal only for now
 
-@bubble-box-shadow-color: @color-flyout-box-shadow;
+@bubble-border-radius: @border-radius-extra-small;
+@bubble-base-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499972);
+@bubble-left-box-shadow: @bubble-base-box-shadow;
+@bubble-right-box-shadow: @bubble-base-box-shadow;
+@bubble-bottom-box-shadow: @bubble-base-box-shadow;
+@bubble-top-box-shadow: @bubble-base-box-shadow;
 
 .bubble() {
-    .border-radius(bubble-border-radius);
-    .box-shadow(bubble-base-box-shadow);
+    .border-radius-token(bubble-border-radius);
+    .box-shadow-token(bubble-base-box-shadow);
     font-size: 14px;
     max-width: 344px;
     width: max-content;
@@ -13,7 +17,7 @@
 }
 
 .bubble-mask() {
-    .border-radius(bubble-border-radius);
+    .border-radius-token(bubble-border-radius);
     position: relative;
     z-index: 1;
 }
@@ -64,7 +68,7 @@
 
 .pointer-bottom() {
     bottom: -7px;
-    .box-shadow(bubble-bottom-box-shadow);
+    .box-shadow-token(bubble-bottom-box-shadow);
     top: auto;
 }
 
@@ -73,7 +77,7 @@
 }
 
 .pointer-top() {
-    .box-shadow(bubble-top-box-shadow);
+    .box-shadow-token(bubble-top-box-shadow);
     top: -7px;
 }
 
@@ -124,27 +128,27 @@
 }
 
 .pointer-left-top() {
-    .box-shadow(bubble-left-box-shadow);
+    .box-shadow-token(bubble-left-box-shadow);
     left: -7px;
     top: 12px;
 }
 
 .pointer-left-bottom() {
     bottom: 12px;
-    .box-shadow(bubble-left-box-shadow);
+    .box-shadow-token(bubble-left-box-shadow);
     left: -7px;
     top: auto;
 }
 
 .pointer-right() {
     .pointer-side-middle();
-    .box-shadow(bubble-right-box-shadow);
+    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
     right: -7px;
 }
 
 .pointer-right-top() {
-    .box-shadow(bubble-right-box-shadow);
+    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
     right: -7px;
     top: 12px;
@@ -152,7 +156,7 @@
 
 .pointer-right-bottom() {
     bottom: 12px;
-    .box-shadow(bubble-right-box-shadow);
+    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
     right: -7px;
     top: auto;

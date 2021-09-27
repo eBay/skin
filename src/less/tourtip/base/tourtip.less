@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@tourtip-background-color: @color-action-primary;
-@tourtip-foreground-color: @color-background-default;
-
 .tourtip {
     position: relative;
 }
@@ -20,8 +17,8 @@ span.tourtip {
 
 .tourtip__mask {
     .bubble-mask();
-    .background-color(tourtip-background-color);
-    .color(tourtip-foreground-color);
+    .background-color-token(tourtip-background-color, color-action-primary);
+    .color-token(tourtip-foreground-color, color-background-default);
 }
 
 span.tourtip__mask {
@@ -32,10 +29,10 @@ span.tourtip__mask {
     .bubble-cell();
 
     a {
-        .color(tourtip-foreground-color);
+        .color-token(tourtip-foreground-color, color-background-default);
 
         &:focus {
-            .outline-color(tourtip-foreground-color);
+            .outline-color-token(tourtip-foreground-color, color-background-default);
             outline-style: dashed;
             outline-width: 1px;
         }
@@ -52,11 +49,11 @@ button.tourtip__close {
     > svg,
     &:focus > svg,
     &:hover > svg {
-        .fill(tourtip-foreground-color);
+        .fill-token(tourtip-foreground-color, color-background-default);
     }
 
     &:focus {
-        .outline-color(tourtip-foreground-color);
+        .outline-color-token(tourtip-foreground-color, color-background-default);
         outline-style: dashed;
         outline-width: 1px;
     }
@@ -66,7 +63,7 @@ button.tourtip__close {
     .pointer-base();
     .pointer-top();
     .pointer-center();
-    .background-color(tourtip-background-color);
+    .background-color-token(tourtip-background-color, color-action-primary);
 }
 
 .tourtip__pointer--top-left {
@@ -134,12 +131,5 @@ span.tourtip__heading {
 @media (min-width: 601px) {
     .tourtip__overlay {
         .bubble-large-screen();
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .tourtip {
-        --tourtip-background-color: @tourtip-background-color;
-        --tourtip-foreground-color: @tourtip-foreground-color;
     }
 }

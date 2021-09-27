@@ -1,9 +1,9 @@
 .page-notice {
-  background-color: var(--page-notice-general-background-color, #fff);
-  border-color: var(--page-notice-general-border-color, #333);
+  background-color: var(--page-notice-general-background-color, var(--color-status-general, #999));
+  border-color: var(--page-notice-general-border-color, var(--color-status-general, #999));
   border-style: solid;
   border-width: 1px;
-  color: var(--page-notice-color, #333);
+  color: var(--page-notice-color, var(--color-background-default, #fff));
   font-size: 0.875rem;
   margin: 8px 0;
   padding: 24px 16px;
@@ -25,44 +25,50 @@ span[role="region"].page-notice {
   font-weight: bold;
 }
 .page-notice a {
-  color: var(--page-notice-color, #333);
+  color: var(--page-notice-color, var(--color-background-default, #fff));
   font-size: 0.875rem;
   font-weight: bold;
 }
 .page-notice a:hover {
-  color: var(--page-notice-color, #333);
+  color: var(--page-notice-color, var(--color-background-default, #fff));
 }
 .page-notice button.fake-link {
-  color: var(--page-notice-color, #333);
+  color: var(--page-notice-color, var(--color-background-default, #fff));
   font-size: 0.875rem;
   font-weight: bold;
 }
 .page-notice button.fake-link:hover {
-  color: var(--page-notice-color, #333);
+  color: var(--page-notice-color, var(--color-background-default, #fff));
 }
 .page-notice--attention {
-  background-color: var(--page-notice-attention-background-color, #fff);
-  border-color: var(--page-notice-attention-border-color, #dd1e31);
+  background-color: var(--page-notice-attention-background-color, var(--color-status-attention, #dd1e31));
+  border-color: var(--page-notice-attention-border-color, var(--color-status-attention, #dd1e31));
+}
+.page-notice--attention .page-notice__header svg {
+  color: var(--page-notice-attention-icon-color, var(--color-background-default, #fff));
 }
 .page-notice--confirmation {
-  background-color: var(--page-notice-confirmation-background-color, #fff);
-  border-color: var(--page-notice-confirmation-border-color, #5ba71b);
+  background-color: var(--page-notice-confirmation-background-color, var(--color-status-confirmation, #5ba71b));
+  border-color: var(--page-notice-confirmation-border-color, var(--color-status-confirmation, #5ba71b));
+}
+.page-notice--confirmation .page-notice__header svg {
+  color: var(--page-notice-confirmation-icon-color, var(--color-background-default, #fff));
 }
 .page-notice--information {
-  background-color: var(--page-notice-information-background-color, #fff);
-  border-color: var(--page-notice-information-border-color, #0654ba);
+  background-color: var(--page-notice-information-background-color, var(--color-status-information, #0654ba));
+  border-color: var(--page-notice-information-border-color, var(--color-status-information, #0654ba));
+}
+.page-notice--information .page-notice__header svg {
+  color: var(--page-notice-information-icon-color, var(--color-background-default, #fff));
 }
 .page-notice--general {
-  background-color: var(--page-notice-general-background-color, #fff);
+  background-color: var(--page-notice-general-background-color, var(--color-status-general, #999));
 }
 .page-notice__header {
   align-items: center;
   display: flex;
   justify-content: center;
   padding-right: 16px;
-}
-.page-notice__header svg {
-  color: var(--page-notice-color, #333);
 }
 .page-notice__main,
 .page-notice__footer {
@@ -100,23 +106,4 @@ span[role="region"].page-notice {
   margin-right: auto;
   padding-left: initial;
   padding-right: 16px;
-}
-@media (prefers-color-scheme: dark) {
-  .page-notice {
-    --page-notice-color: #000;
-    --page-notice-general-background-color: #a8a8a8;
-    --page-notice-general-border-color: #a8a8a8;
-    --page-notice-attention-background-color: #e95367;
-    --page-notice-attention-border-color: #e95367;
-    --page-notice-confirmation-background-color: #30c550;
-    --page-notice-confirmation-border-color: #30c550;
-    --page-notice-information-background-color: #5192ff;
-    --page-notice-information-border-color: #5192ff;
-  }
-}
-@media (prefers-color-scheme: light) {
-  .page-notice svg {
-    -webkit-filter: none;
-            filter: none;
-  }
 }

@@ -1,33 +1,10 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@textbox-background-color: @color-form-control-background;
-@textbox-border-color: @color-form-control-border;
-@textbox-foreground-color: @color-form-control-foreground;
-@textbox-placeholder-color: @color-grey5;
-
-@textbox-focus-border-color: @color-action-primary;
-@textbox-focus-placeholder-color: @color-grey5;
-
-@textbox-font-size: @font-size-14; // to align with buttons and select, it needs same font-size
-@textbox-height: 40px;
-@textbox-large-height: 48px;
-
-@textbox-disabled-background-color: @color-form-control-disabled-background;
-@textbox-disabled-placeholder-color: @color-form-control-disabled-placeholder;
-
-@textbox-readonly-foreground-color: @color-form-control-readonly-foreground;
-@textbox-invalid-foreground-color: @color-r4;
-
-@textbox-underline-color: @color-form-control-underline;
-@textbox-icon-color: @textbox-placeholder-color;
-@textbox-icon-width: 14px;
-@textbox-large-font-size: @font-size-form-control-large;
-
 /* stylelint-disable no-descending-specificity */
 
 .textbox {
-    .color(textbox-foreground-color);
-    font-size: @textbox-font-size;
+    .color-token(textbox-foreground-color, color-form-control-foreground);
+    font-size: @font-size-14; // to align with buttons and select, it needs same font-size
     position: relative;
 
     button.icon-btn {
@@ -63,85 +40,85 @@ input.textbox__control {
 input.textbox__control,
 textarea.textbox__control {
     appearance: none;
-    .background-color(textbox-background-color);
-    .border-color(textbox-border-color);
-    .border-radius(textbox-border-radius);
+    .background-color-token(textbox-background-color, color-form-control-background);
+    .border-color-token(textbox-border-color, color-form-control-border);
+    .border-radius-token(textbox-border-radius, border-radius-small);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    .color(textbox-foreground-color);
+    .color-token(textbox-foreground-color, color-form-control-foreground);
     font-size: 1em;
-    height: @textbox-height;
+    height: 40px;
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .background-color(textbox-disabled-background-color);
-        .border-color(textbox-disabled-border-color);
-        .color(textbox-disabled-foreground-color);
+        .background-color-token(textbox-disabled-background-color, color-form-control-disabled-background);
+        .border-color-token(textbox-disabled-border-color, color-form-control-border);
+        .color-token(textbox-disabled-foreground-color, color-grey4);
 
         &::-webkit-input-placeholder {
-            .color(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
 
         &::-moz-placeholder {
-            .color(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
 
         &:-ms-input-placeholder {
-            .color(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
     }
 
     &[readonly] {
-        .color(textbox-readonly-foreground-color);
+        .color-token(textbox-readonly-foreground-color, color-form-control-readonly-foreground);
     }
 
     &[aria-invalid="true"] {
-        .background-color(textbox-invalid-background-color);
-        .border-color(textbox-invalid-foreground-color);
+        .background-color-token(textbox-invalid-background-color, color-status-invalid);
+        .border-color-token(textbox-invalid-foreground-color, color-status-attention);
     }
 
     &:focus {
-        .border-color(textbox-focus-border-color);
-        .background-color(textbox-focus-background-color);
+        .border-color-token(textbox-focus-border-color, color-action-primary);
+        .background-color-token(textbox-focus-background-color, color-background-default);
         outline: 0;
     }
 
     &::-webkit-input-placeholder {
-        .color(textbox-placeholder-color);
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        .color(textbox-placeholder-color);
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        .color(textbox-placeholder-color);
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &::placeholder {
-        .color(textbox-placeholder-color);
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 }
 
 input.textbox__control--large {
-    height: @textbox-large-height;
+    height: 48px;
 }
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    .color(textbox-icon-color);
+    .color-token(textbox-icon-color, color-grey5);
     display: inline-flex;
-    .fill(textbox-icon-color);
+    .fill-token(textbox-icon-color, color-grey5);
     height: 100%;
     pointer-events: none;
     position: absolute;
     top: 0;
-    width: @textbox-icon-width;
+    width: 14px;
 }
 
 .textbox > svg:first-child {
@@ -193,24 +170,5 @@ input.textbox__control--large {
             left: 16px;
             right: auto;
         }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .textbox {
-        --textbox-background-color: @color-grey2-dark-mode;
-        --textbox-foreground-color: @color-grey7-dark-mode;
-        --textbox-border-color: @color-grey4-dark-mode;
-        --textbox-focus-border-color: @color-b4-dark-mode;
-        --textbox-focus-background-color: @color-black-dark-mode;
-        --textbox-disabled-background-color: @color-grey2-dark-mode;
-        --textbox-disabled-foreground-color: @color-grey4-dark-mode;
-        --textbox-disabled-border-color: @color-grey4-dark-mode;
-        --textbox-disabled-placeholder-color: @color-grey4-dark-mode;
-        --textbox-readonly-foreground-color: @color-grey4-dark-mode;
-        --textbox-focus-placeholder-color: @color-grey6-dark-mode;
-        --textbox-invalid-foreground-color: @color-r4-dark-mode;
-        --textbox-invalid-background-color: @color-textbox-invalid-dark-mode;
-        --textbox-icon-color: @color-grey6-dark-mode;
     }
 }

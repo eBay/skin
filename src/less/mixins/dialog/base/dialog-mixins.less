@@ -1,13 +1,10 @@
 @import "../../utility/utility-mixins.less";
 
-@dialog-mask-background-color: @color-text-default;
-@dialog-window-background-color: @color-background-default;
-@dialog-large-gutter-size: 24px;
 @dialog-small-gutter-size: 16px;
-@lightbox-dialog-max-width: 616px;
+@dialog-large-gutter-size: 24px;
 
 .dialog-base() {
-    background-color: fade(@dialog-mask-background-color, 70%);
+    .background-color-token(dialog-mask-background-color, color-mask-faded);
     bottom: 0;
     left: 0;
     -webkit-overflow-scrolling: touch;
@@ -31,7 +28,7 @@
 }
 
 .dialog-window() {
-    .background-color(dialog-window-background-color);
+    .background-color-token(dialog-window-background-color, color-background-default);
 
     display: flex;
     flex: 1 0 auto;
@@ -42,7 +39,7 @@
 
 .lightbox-dialog-window() {
     .dialog-window();
-    .border-radius(dialog-border-radius);
+    .border-radius-token(border-radius-dialog);
 
     margin-top: 15vh;
     max-width: calc(100% - 32px);

@@ -10,7 +10,7 @@ span.listbox {
 }
 
 div.listbox__options[role="listbox"] {
-    .background-color(listbox-background-color);
+    .background-color-token(listbox-background-color, color-selection-list-background);
     cursor: default; // needed to override text cursor
 }
 
@@ -48,8 +48,8 @@ div.listbox__option svg.icon {
 }
 
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
-    .background-color(listbox-option-hover-background-color);
-    .color(listbox-option-hover-foreground-color);
+    .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
+    .color-token(listbox-option-hover-foreground-color, color-selection-list-item-hover-foreground);
 }
 
 div.listbox__option[aria-selected="true"] svg.icon {
@@ -57,20 +57,10 @@ div.listbox__option[aria-selected="true"] svg.icon {
 }
 
 div.listbox__option[role="option"]:active svg.icon {
-    .color(listbox-option-active-status-color);
+    .color-token(listbox-option-active-status-color, color-selection-list-item-active-status);
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 .listbox__options:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .listbox {
-        --listbox-background-color: @color-black-dark-mode;
-        --listbox-option-background-color: @color-black-dark-mode;
-        --listbox-option-foreground-color: @color-text-default-dark-mode;
-        --listbox-option-border-color: @color-black-dark-mode;
-        --listbox-option-hover-foreground-color: @color-text-default;
-    }
 }

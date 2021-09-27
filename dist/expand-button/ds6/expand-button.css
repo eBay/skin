@@ -8,12 +8,12 @@ button.expand-btn {
   background-color: transparent;
   border: 1px solid;
   border-color: inherit;
-  border-radius: var(--expand-button-border-radius, 8px);
+  border-radius: var(--expand-btn-border-radius, var(--border-radius-dropdown-button, 8px));
   color: inherit;
   display: inline-block;
   font-size: 1em;
   max-width: 100%;
-  padding: var(--expand-button-padding-vertical, 11px) var(--expand-button-padding-horizontal, 16px);
+  padding: 11px 16px;
 }
 button.expand-btn--fixed-height {
   height: 40px;
@@ -33,8 +33,8 @@ button.expand-btn:focus:not(:focus-visible) {
 }
 button.expand-btn:hover,
 button.expand-btn:focus {
-  border-color: var(--expand-button-hover-foreground-color, #2b0eaf);
-  color: var(--expand-button-hover-foreground-color, #2b0eaf);
+  border-color: var(--expand-btn-hover-foreground-color, var(--color-b6, #2b0eaf));
+  color: var(--expand-btn-hover-foreground-color, var(--color-b6, #2b0eaf));
 }
 button.expand-btn svg.icon {
   align-self: center;
@@ -46,7 +46,7 @@ button.expand-btn svg.icon:first-child {
 button.expand-btn svg.icon:last-child {
   margin-left: 8px;
 }
-button.expand-button--wide {
+button.expand-btn--wide {
   padding-left: 48px;
   padding-right: 48px;
 }
@@ -90,8 +90,8 @@ span.expand-btn__cell--center svg.icon:last-child {
 }
 button.expand-btn[disabled],
 button.expand-btn[aria-disabled="true"] {
-  border-color: #c7c7c7;
-  color: #c7c7c7;
+  border-color: var(--expand-btn-disabled-border-color, var(--color-disabled, #c7c7c7));
+  color: var(--expand-btn-disabled-foreground-color, var(--color-text-disabled, #c7c7c7));
   opacity: 1;
 }
 button.expand-btn svg.icon:only-child {
@@ -149,9 +149,4 @@ button.expand-btn.expand-btn--icon-only {
 button.expand-btn--no-text.expand-btn--large,
 button.expand-btn--icon-only.expand-btn--large {
   height: 48px;
-}
-@media (prefers-color-scheme: dark) {
-  button.expand-btn {
-    --expand-button-hover-foreground-color: #94bcff;
-  }
 }

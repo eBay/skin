@@ -27,12 +27,12 @@
   list-style: none;
 }
 .carousel__playback {
-  background-color: var(--carousel-playback-background-color, rgba(0, 0, 0, 0.45));
+  background-color: var(--carousel-playback-background-color, var(--color-background-playback, rgba(0, 0, 0, 0.45)));
   border: 0;
   border-radius: 50%;
   bottom: 16px;
   box-sizing: border-box;
-  color: var(--carousel-playback-foreground-color, #fff);
+  color: var(--carousel-playback-foreground-color, var(--color-foreground-playback, #fff));
   height: 40px;
   margin-bottom: 19px;
   margin-right: 19px;
@@ -75,9 +75,10 @@ div.carousel {
   margin: 16px 0;
 }
 .carousel__control {
-  background-color: var(--carousel-paddle-background-color, #fff);
+  background-color: var(--carousel-paddle-background-color, var(--color-background-paddle, #fff));
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid;
+  border-color: var(--carousel-paddle-border-color, var(--color-border-paddle, #ddd));
   border-radius: 16px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   display: flex;
@@ -106,7 +107,7 @@ div.carousel {
   margin-left: -2px;
 }
 .carousel__control svg {
-  color: var(--carousel-paddle-foreground-color, #333);
+  color: var(--carousel-paddle-foreground-color, var(--color-foreground-paddle, #333));
 }
 .carousel__control:focus:not(:focus-visible) {
   outline: none;
@@ -136,14 +137,14 @@ div.carousel {
   opacity: 0.3;
 }
 .carousel__control:hover {
-  background-color: #707070;
-  border-color: #707070;
+  background-color: var(--carousel-paddle-hover-background-color, var(--color-background-hover-paddle, #707070));
+  border-color: var(--carousel-paddle-hover-background-color, var(--color-background-hover-paddle, #707070));
 }
 .carousel__control:hover svg {
-  color: #fff;
+  color: var(--carousel-paddle-hover-foreground-color, var(--color-foreground-hover-paddle, #fff));
 }
 .carousel__control:active {
-  background-color: #333;
+  background-color: var(--carousel-paddle-active-background-color, var(--color-background-active-paddle, #333));
 }
 .carousel__playback:focus:not(:focus-visible) {
   outline: none;
@@ -256,12 +257,4 @@ span.carousel__container {
 }
 .carousel--hidden-scrollbar .carousel__container .carousel__list {
   padding-bottom: 80px;
-}
-@media (prefers-color-scheme: dark) {
-  .carousel {
-    --carousel-paddle-background-color: #171717;
-    --carousel-paddle-foreground-color: #dcdcdc;
-    --carousel-playback-background-color: #171717;
-    --carousel-playback-foreground-color: #dcdcdc;
-  }
 }

@@ -1,13 +1,10 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@badge-background-color: @color-status-attention;
-@badge-foreground-color: @color-background-default;
-
 .badge {
-    .background-color(badge-background-color);
+    .background-color-token(badge-background-color, color-status-attention);
     border-radius: 16px;
     box-sizing: border-box;
-    .color(badge-foreground-color);
+    .color-token(badge-foreground-color, color-background-default);
     display: inline-block;
     font-size: 10px;
     height: 16px;
@@ -16,11 +13,4 @@
     padding: 1px 4px 1px 5px;
     text-align: center;
     white-space: nowrap;
-}
-
-@media (prefers-color-scheme: dark) {
-    .badge {
-        --badge-background-color: @color-r4-dark-mode;
-        --badge-foreground-color: @color-background-default-dark-mode;
-    }
 }

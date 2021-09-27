@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@floating-label-inline-font-size: @font-size-regular;
-@floating-label-disabled-color: @color-form-control-label-disabled;
-
 .floating-label {
     position: relative;
 }
@@ -16,7 +13,7 @@ div.floating-label {
 }
 
 label.floating-label__label {
-    .color(floating-label-color);
+    .color-token(floating-label-color, color-label);
     display: inline-block;
     left: 16px;
     overflow: hidden;
@@ -31,7 +28,7 @@ label.floating-label__label {
 }
 
 label.floating-label__label--focus {
-    .color(floating-label-focus-color);
+    .color-token(floating-label-focus-color, color-label-focus);
 }
 
 .floating-label--large label.floating-label__label {
@@ -39,7 +36,7 @@ label.floating-label__label--focus {
 }
 
 label.floating-label__label--inline {
-    font-size: @floating-label-inline-font-size;
+    font-size: @font-size-regular;
     transform: translate(0, 12px);
 }
 
@@ -53,11 +50,11 @@ label.floating-label__label--animate {
 }
 
 label.floating-label__label--disabled {
-    .color(floating-label-disabled-color);
+    .color-token(floating-label-disabled-color, color-label-disabled);
 }
 
 label.floating-label__label--invalid {
-    .color(floating-label-invalid-color);
+    .color-token(floating-label-invalid-color, color-label-invalid);
 }
 
 .floating-label .textbox__control,
@@ -72,13 +69,4 @@ label.floating-label__label--invalid {
     // Move input near the bottom
     padding-bottom: 5px;
     padding-top: 23px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .floating-label {
-        --floating-label-color: @color-grey6-dark-mode;
-        --floating-label-disabled-color: @color-grey4-dark-mode;
-        --floating-label-focus-color: @color-b4-dark-mode;
-        --floating-label-invalid-color: @color-r4-dark-mode;
-    }
 }

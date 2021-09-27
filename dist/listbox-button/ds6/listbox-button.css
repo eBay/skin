@@ -11,12 +11,12 @@ span.listbox-button--fluid .expand-btn {
   width: 100%;
 }
 div.listbox-button__listbox {
-  background-color: var(--dropdown-background-color, #fff);
-  border-color: var(--dropdown-border-color, #f7f7f7);
-  border-radius: var(--dropdown-border-radius, 8px);
+  background-color: var(--listbox-button-listbox-background-color, var(--color-background-default, #fff));
+  border-color: var(--listbox-button-listbox-border-color, var(--color-dropdown-border, #f7f7f7));
+  border-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-dropdown, 8px));
   border-style: solid;
   border-width: 1px;
-  box-shadow: var(--dropdown-box-shadow, 0 5px 15px rgba(0, 0, 0, 0.07));
+  box-shadow: var(--listbox-button-listbox-box-shadow, var(--box-shadow-dropdown, 0 5px 15px rgba(0, 0, 0, 0.07)));
   box-sizing: border-box;
   display: none;
   max-height: 400px;
@@ -31,7 +31,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
   display: block;
 }
 .listbox-button button[aria-invalid="true"] {
-  border-color: var(--listbox-button-invalid-border-color, #e0103a);
+  border-color: var(--listbox-button-invalid-border-color, var(--color-status-attention, #e0103a));
 }
 .listbox-button button.expand-btn--borderless {
   background-color: transparent;
@@ -47,8 +47,8 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
   top: 41px;
 }
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
-  background-color: var(--listbox-option-hover-background-color, #e5e5e5);
-  color: var(--listbox-option-hover-foreground-color, #111820);
+  background-color: var(--listbox-option-hover-background-color, var(--color-selection-list-item-hover-background, #e5e5e5));
+  color: var(--combobox-option-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #111820));
 }
 .listbox-button__option svg.icon {
   align-self: center;
@@ -65,7 +65,7 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
   opacity: 1;
 }
 div.listbox-button__option[role="option"]:active svg.icon {
-  color: var(--listbox-option-active-status-color, #fff);
+  color: var(--listbox-option-active-status-color, var(--color-selection-list-item-active-status, #fff));
 }
 div.listbox-button__option[role="option"] {
   background-color: transparent;
@@ -77,8 +77,8 @@ div.listbox-button__option[role="option"] {
   justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
-  border-color: var(--listbox-option-border-color, #fff);
-  color: var(--listbox-option-foreground-color, #111820);
+  border-color: var(--listbox-option-border-color, var(--color-background-default, #fff));
+  color: var(--listbox-option-foreground-color, var(--color-text-default, #111820));
   cursor: default;
 }
 div.listbox-button__option[role="option"]:not(:last-child) {
@@ -91,19 +91,19 @@ div.listbox-button__option[role="option"][hidden] {
   display: none;
 }
 div.listbox-button__option[role="option"]:hover {
-  background-color: var(--listbox-option-hover-background-color, #e5e5e5);
-  color: var(--listbox-option-hover-foreground-color, #111820);
+  background-color: var(--listbox-option-hover-background-color, var(--color-selection-list-item-hover-background, #e5e5e5));
+  color: var(--listbox-option-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #111820));
 }
 div.listbox-button__option[role="option"]:active {
   font-weight: bold;
 }
 div.listbox-button__option[role="option"]:first-child {
-  border-top-left-radius: var(--dropdown-border-radius, 8px);
-  border-top-right-radius: var(--dropdown-border-radius, 8px);
+  border-top-left-radius: var(--border-radius-dropdown, 8px);
+  border-top-right-radius: var(--border-radius-dropdown, 8px);
 }
 div.listbox-button__option[role="option"]:last-child {
-  border-bottom-left-radius: var(--dropdown-border-radius, 8px);
-  border-bottom-right-radius: var(--dropdown-border-radius, 8px);
+  border-bottom-left-radius: var(--border-radius-dropdown, 8px);
+  border-bottom-right-radius: var(--border-radius-dropdown, 8px);
 }
 div.listbox-button__option--active[role="option"] {
   font-weight: bold;
@@ -120,14 +120,4 @@ span.listbox-button__value {
 [dir="rtl"] .listbox-button__option svg.icon {
   margin-left: 0;
   margin-right: 8px;
-}
-@media (prefers-color-scheme: dark) {
-  .listbox-button {
-    --dropdown-background-color: #171717;
-    --dropdown-border-color: #171717;
-    --listbox-option-background-color: #171717;
-    --listbox-option-foreground-color: #dcdcdc;
-    --listbox-option-border-color: #171717;
-    --listbox-option-hover-foreground-color: #111820;
-  }
 }

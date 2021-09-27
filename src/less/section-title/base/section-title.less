@@ -1,9 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@section-title-foreground-color: @color-text-default;
-@section-title-subtitle-color: @color-text-secondary;
-@section-title-separator-color: @color-separator;
-
 .section-title {
     display: flex;
     margin: 30px 0 10px 0;
@@ -21,7 +17,7 @@
 
 .section-title__subtitle {
     .typography-regular();
-    .color(section-title-subtitle-color);
+    .color-token(section-title-subtitle-color, color-text-secondary);
 }
 
 .section-title__cta {
@@ -39,16 +35,16 @@
 
 .section-title__cta > a,
 .section-title__title > a {
-    .color(section-title-foreground-color);
+    .color-token(section-title-foreground-color, color-text-default);
     text-decoration: none;
 
     &:hover {
-        .color(section-title-foreground-color);
+        .color-token(section-title-foreground-color, color-text-default);
         text-decoration: underline;
     }
 
     &:visited {
-        .color(section-title-foreground-color);
+        .color-token(section-title-foreground-color, color-text-default);
     }
 }
 
@@ -135,7 +131,7 @@
         margin: 0 16px;
 
         > a {
-            .border-color(section-title-separator-color);
+            .border-color-token(section-title-separator-color, color-separator);
             border-left-style: solid;
             border-left-width: 2px;
             line-height: 1.125rem;
@@ -206,12 +202,5 @@
         > .section-title__overflow {
             height: 24px;
         }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .section-title {
-        --section-title-foreground-color: @color-text-default-dark-mode;
-        --section-title-subtitle-color: @color-grey5-dark-mode;
     }
 }

@@ -2,7 +2,7 @@
 
 .menu__items,
 .fake-menu__items {
-    .background-color(menu-background-color);
+    .background-color-token(menu-background-color, color-selection-list-background);
     cursor: default; // override text cursor
 }
 
@@ -36,7 +36,7 @@ span.fake-menu__items {
 }
 
 a.fake-menu__item {
-    .color(menu-anchor-color);
+    .color-token(menu-anchor-color, color-selection-list-anchor);
     text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ button.fake-menu__item {
 button.fake-menu__item,
 a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
-    .menu-menuitem-base();
+    .menu-menuitem-base(menu);
 }
 
 a.fake-menu__item:focus {
@@ -56,7 +56,7 @@ a.fake-menu__item:focus {
 
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-    .color(menu-menuitem-active-status-color);
+    .color-token(menu-menuitem-active-status-color, color-selection-list-item-active-status);
 }
 
 a.fake-menu__item[aria-current="page"] svg.icon,
@@ -67,11 +67,11 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 a.fake-menu__item:not([href]),
 button.fake-menu__item[disabled],
 div.menu__item[role^="menuitem"][aria-disabled="true"] {
-    color: @menu-menuitem-disabled-foreground-color;
+    .color-token(menu-menuitem-disabled-foreground-color, color-text-disabled);
 }
 
 div.menu__item[role^="menuitem"]:active svg.icon {
-    .color(menu-menuitem-active-status-color);
+    .color-token(menu-menuitem-active-status-color, color-selection-list-item-active-status);
 }
 
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
@@ -129,7 +129,7 @@ div.menu__item--badged[role^="menuitem"] span.badge {
 }
 
 hr.menu__separator {
-    .border-color(menu-separator-color);
+    .border-color-token(menu-separator-color, color-selection-list-separator);
     border-style: solid;
     border-width: 1px;
 }
@@ -137,14 +137,4 @@ hr.menu__separator {
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .menu,
-    .fake-menu {
-        --menu-background-color: @color-black-dark-mode;
-        --menu-menuitem-border-color: @color-black-dark-mode;
-        --menu-menuitem-foreground-color: @color-text-default-dark-mode;
-        --menu-menuitem-hover-foreground-color: @color-text-default;
-    }
 }

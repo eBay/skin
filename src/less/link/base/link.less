@@ -1,20 +1,15 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-@nav-link-color: @color-text-default;
-@nav-link-hover-color: @color-link-default;
-@fake-link-color: @color-link-default;
-@fake-link-hover-color: @color-link-hover;
-
 a.nav-link {
-    .color(nav-link-color);
+    .color-token(nav-link-color, color-text-default);
     text-decoration: none;
 
     &:visited {
-        .color(nav-link-color);
+        .color-token(nav-link-color, color-text-default);
     }
 
     &:hover {
-        .color(nav-link-hover-color);
+        .color-token(nav-link-hover-color, color-text-default);
 
         text-decoration: underline;
     }
@@ -23,7 +18,7 @@ a.nav-link {
 button.fake-link {
     background-color: transparent;
     border: 0;
-    .color(fake-link-color);
+    .color-token(fake-link-color, color-link-default);
     font-family: inherit;
     font-size: inherit;
     padding: 0;
@@ -34,18 +29,6 @@ button.fake-link {
     }
 
     &:hover {
-        .color(fake-link-hover-color);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    a.nav-link {
-        --nav-link-color: @color-text-default-dark-mode;
-        --nav-link-hover-color: @color-text-default-dark-mode;
-    }
-
-    button.fake-link {
-        --fake-link-color: @color-link-default-dark-mode;
-        --fake-link-hover-color: @color-link-hover-dark-mode;
+        .color-token(fake-link-hover-color, color-link-hover);
     }
 }
