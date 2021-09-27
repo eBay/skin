@@ -5,14 +5,6 @@ export const textOnly = () => '<a href="http://www.ebay/com" class="fake-btn">Fa
 export const RTL = () =>
     '<div dir="rtl"><a href="http://www.ebay/com" class="fake-btn">Fake Button</a></div>';
 
-export const iconOnly = () => `
-<a class="fake-btn fake-btn--icon-only" href="http://www.ebay.com">
-    <span class="fake-btn__cell">
-        <svg class="icon icon--settings" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
-    </span>
-</a>
-`;
-
 export const iconAndText = () => `
 <a class="fake-btn" href="http://www.ebay.com">
     <span class="fake-btn__cell">
