@@ -1,0 +1,135 @@
+<div id="switch">
+    {% include section-header.html name="switch" version=page.versions.switch %}
+
+    <p>A switch behaves a bit like a checkbox - it can be on or off (i.e checked or unchecked). The key difference is that a switch is not a true form control. It typically executes JavaScript on the client when toggled (i.e. without a full page reload) rather than storing form data to be sent to the server.</p>
+    <p>Whereas checkboxes are often used to allow multi-selection from a group of choices, switches are more often used in isolation or as a series of unrelated options.</p>
+    <p>A switch requires the <span class="highlight">switch</span> role and <span class="highlight">aria-checked</span> attribute for assistive technology.</p>
+    <p><strong>REMEMBER:</strong> every switch requires a visible, programmatic label to indicate its purpose.</p>
+
+    <h3 id="switch-default">Default Switch</h3>
+    <p>The default version of the switch requires JavaScript to maintain the <span class="highlight">aria-checked</span> state when clicked.</p>
+    <p>The <span class="highlight">switch__control</span> child element requires a <span class="highlight">tabindex</span> value of 0 (zero) to be keyboard focusable.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="switch">
+                <span aria-label="Switch Demo" class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
+                <span class="switch__button"></span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="switch">
+    <span class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
+    <span class="switch__button"></span>
+</span>
+    {% endhighlight %}
+
+
+    <h3 id="switch-disabled">Disabled Switch</h3>
+    <p>To disable a switch, apply the <span class="highlight">aria-disabled</span> attribute.</p>
+    <p>The <span class="highlight">tabindex</span> property must be set to -1 (negative one) to prevent keyboard focus.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="switch">
+                <span aria-label="Switch Demo" class="switch__control" role="switch"  tabindex="-1" aria-checked="false" aria-disabled="true"></span>
+                <span class="switch__button"></span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="switch">
+    <span class="switch__control" role="switch"  tabindex="-1" aria-checked="false" aria-disabled="true"></span>
+    <span class="switch__button"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="switch-checkbox">Checkbox Switch</h3>
+    <p>This version of the switch uses a checkbox under the hood. It should be used if you require the switch to store data inside of a form. As mentioned above however, this is not the intended purpose of a switch. You may wish to consider using an actual checkbox instead.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="switch switch--form">
+                <input aria-label="Checkbox switch demo" class="switch__control" role="switch" type="checkbox" aria-checked="false" />
+                <span class="switch__button"></span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="switch">
+    <input class="switch__control" role="switch" type="checkbox" aria-checked="false" />
+    <span class="switch__button"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="switch-checkbox-disabled">Disabled Checkbox Switch</h3>
+    <p>To disable a checkbox switch, apply the <span class="highlight">disabled</span> attribute.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="switch switch--form">
+                <input aria-label="Checkbox switch demo" class="switch__control" role="switch" type="checkbox" aria-checked="false" disabled />
+                <span class="switch__button"></span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="switch">
+    <input class="switch__control" role="switch" type="checkbox" aria-checked="false" disabled />
+    <span class="switch__button"></span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="switch-variables">Custom Properties of Switch <sup>EXPERIMENTAL</sup></h3>
+    <p>The following custom properties (aka CSS Variables) are available for system color-scheme appearance (i.e. light-mode &amp; dark-mode) and other general theming purposes:</p>
+
+    <ul>
+        <li>--switch-unchecked-background-color</li>
+        <li>--switch-checked-background-color</li>
+        <li>--switch-disabled-background-color</li>
+        <li>--switch-foreground-color</li>
+    </ul>
+
+    <style>
+        .switch--theme-1 {
+            --switch-unchecked-background-color: orange;
+            --switch-checked-background-color: green;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .switch--theme-1 {
+                --switch-unchecked-background-color: blue;
+                --switch-checked-background-color: red;
+            }
+        }
+    </style>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="switch switch--theme-1">
+                <span aria-label="Switch Demo" class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
+                <span class="switch__button"></span>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<style>
+    .switch--theme-1 {
+        --switch-unchecked-background-color: orange;
+        --switch-checked-background-color: green;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .switch--theme-1 {
+            --switch-unchecked-background-color: blue;
+            --switch-checked-background-color: red;
+        }
+    }
+</style>
+<span class="switch switch--theme-1">
+    <span class="switch__control" role="switch" tabindex="0" aria-checked="false"></span>
+    <span class="switch__button"></span>
+</span>
+    {% endhighlight %}
+</div>
