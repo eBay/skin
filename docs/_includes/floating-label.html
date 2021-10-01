@@ -1,0 +1,330 @@
+<div id="floating-label">
+    {% include section-header.html name="floating-label" version=page.versions.floating-label %}
+
+    <p>Floating labels appear to sit <em>inside</em> the textbox when it has no value or focus, and sit <em>above</em> the textbox otherwise.</p>
+
+    <h3>Floating Label with no Value</h3>
+    <p>If the textbox has no value, the label can be positioned inside the textbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name-1">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="first-name-1" type="text" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Value</h3>
+    <p>If the textbox has a value, the label must be positioned above the textbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="last-name-1">Last Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="last-name-1" type="text" value="Smith" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="last-name">Last Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="last-name" type="text" value="Smith" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Large floating label</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label floating-label--large">
+                <label class="floating-label__label" for="dob-1">Date Of Birth</label>
+                <span class="textbox">
+                    <input class="textbox__control textbox__control--large" id="dob-1" type="text"/>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label floating-label--large">
+    <label class="floating-label__label" for="dob">Date Of Birth</label>
+    <span class="textbox">
+        <input class="textbox__control" id="dob" type="text" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Disabled Textbox</h3>
+    <p>Use the <span class="highlight">disabled</span> property &amp; <span class="highlight">floating-label__label--disabled</span> modifier on the input element and the label element respectively to disable the input.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label floating-label__label--disabled" for="first-name-2">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="first-name-2" type="text" disabled />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--disabled" for="first-name">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" disabled />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with placeholders</h3>
+    <p>The placeholder should only be shown when the textbox is focused and there is no text</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name-3">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="first-name-3" type="text" placeholder="No spaces or numbers allowed" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" placeholder="No spaces or numbers allowed"/>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with Invalid Textbox</h3>
+    <p>Set the <span class="highlight">aria-invalid</span> property to <span class="highlight">true</span> and add <span class="highlight">floating-label__label--invalid</span> to the label to semantically and visually highlight the invalid state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name-4">First Name</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="first-name-4" type="text" aria-invalid="true" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--invalid" for="first-name">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" aria-invalid="true" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="floating-label-textarea">Multi-line Textbox</h3>
+    <p>Use the textarea tag for a multi-line textbox.</p>
+    <p>A multi-line textbox allows line breaks and has a minimum height of 200px.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="first-name">Enter list of users</label>
+                <span class="textbox">
+                    <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">Enter list of users</label>
+    <span class="textbox">
+        <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="floating-label-combobox">Floating label with combobox</h3>
+    <p>Use the textarea tag for a multi-line textbox.</p>
+    <p>A multi-line textbox allows line breaks and has a minimum height of 200px.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <form action="index.html">
+                <span class="combobox floating-label">
+                    <label class="floating-label__label" for="first-name">Enter list of users</label>
+                    <span class="combobox__control">
+                        <input name="combobox-default" role="combobox" type="text" aria-haspopup="listbox"
+                            aria-label="Combobox demo" aria-owns="listbox1" />
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                    <div class="combobox__listbox">
+                        <div id="listbox1" class="combobox__options" role="listbox">
+                            <div class="combobox__option" role="option">
+                                <span>Option 1</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 2</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="combobox floating-label">
+    <label class="floating-label__label" for="first-name">Enter list of users</label>
+    <span class="combobox__control">
+        <input name="combobox-default" id="first-name" role="combobox" type="text" aria-haspopup="listbox"
+            aria-label="Combobox demo" aria-owns="listbox1" />
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            {% include symbol.html name="dropdown" %}
+        </svg>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox1" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with long text</h3>
+    <p>This example shows how the floating label will truncate with long text</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" for="stop-name-1">Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch</label>
+                <span class="textbox">
+                    <input class="textbox__control" id="stop-name-1" type="text" />
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch</label>
+    <span class="textbox">
+        <input class="textbox__control" id="first-name" type="text" />
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with select</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label">Select Option</label>
+                <span class="select">
+                    <select aria-label="Select demo" name="options">
+                        <option value="">Choose an option</option>
+                        <option value="item1">Pick Option 1 (default)</option>
+                        <option value="item2">Pick Option 2</option>
+                        <option value="item3">Pick Option 3</option>
+                    </select>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label">
+    <label class="floating-label__label">Select Option</label>
+    <span class="select">
+        <select name="options">
+            <option value="">Choose an option</option>
+            <option value="item1">Pick Option 1 (default)</option>
+            <option value="item2">Pick Option 2</option>
+            <option value="item3">Pick Option 3</option>
+        </select>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3>Floating Label with large select</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label floating-label--large">
+
+                <label class="floating-label__label floating-label__label"">Select Option</label>
+                <span class="select select--large ">
+                    <select aria-label="Select demo" name="options">
+                        <option value="">Choose an option</option>
+                        <option value="item1">Pick Option 1 (default)</option>
+                        <option value="item2">Pick Option 2</option>
+                        <option value="item3">Pick Option 3</option>
+                    </select>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="floating-label floating-label--large">
+    <label class="floating-label__label">Select Option</label>
+    <span class="select select--large">
+        <select name="options">
+            <option value="">Choose an option</option>
+            <option value="item1">Pick Option 1</option>
+            <option value="item2">Pick Option 2</option>
+            <option value="item3">Pick Option 3</option>
+        </select>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</span>
+    {% endhighlight %}
+
+    <h3 id="floating-label-transitions">Floating Label Transitions</h3>
+    <p>By default, with only the base markup shown above, the label remains in a floating state above the input. This default state ensures that the label does not obscure the textbox value while we wait for JavaScript.</p>
+    <p>When JavaScript is ready, the label can be re-positioned inside the textbox by adding the <span class="highlight">floating-label__label--inline</span> modifier class. By default, this re-positioning of label happens instantly, without a transition. Typically, we do not want to show transitions on the initial page render, as this might be too jarring and distracting for some users.</p>
+    <p>To opt into transitions after the initial render is complete, add the  <span class="highlight">floating-label__label--animate</span> modifier when the textbox receives focus.</p>
+    <p>The examples above use <a href="https://github.com/makeup-js/makeup-floating-label">makeup-floating-label</a>, a simple JavaScript module that adds the aforementioned logic. Feel free to use this module or use it as the basis to roll your own.</p>
+</div>
