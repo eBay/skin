@@ -1,7 +1,5 @@
 a.icon-link {
-  -webkit-box-align: center;
-          align-items: center;
-  display: -webkit-inline-box;
+  align-items: center;
   display: inline-flex;
 }
 a.icon-link > svg {
@@ -9,8 +7,9 @@ a.icon-link > svg {
 }
 button.icon-btn,
 a.icon-link {
-  background-color: transparent;
+  background-color: var(--icon-button-background-color, var(--color-grey1, #eee));
   border: 2px solid transparent;
+  border-radius: 50px;
   box-sizing: border-box;
   font-family: inherit;
   height: 40px;
@@ -21,37 +20,55 @@ a.icon-link {
 }
 button.icon-btn > svg,
 a.icon-link > svg {
-  fill: #555;
-  fill: var(--icon-button-icon-foreground-color, #555);
+  fill: var(--icon-button-icon-foreground-color, var(--color-text-primary, #333));
   max-width: 100%;
   position: relative;
 }
-button.icon-btn:active > svg,
-a.icon-link:active > svg {
-  fill: #555;
-  fill: var(--icon-button-icon-active-foreground-color, #555);
+button.icon-btn:focus,
+a.icon-link:focus,
+button.icon-btn:hover,
+a.icon-link:hover {
+  background-color: var(--icon-button-hover-background-color, var(--color-grey2, #ddd));
 }
 button.icon-btn:focus > svg,
 a.icon-link:focus > svg,
 button.icon-btn:hover > svg,
 a.icon-link:hover > svg {
-  fill: #333;
-  fill: var(--icon-button-icon-hover-foreground-color, #333);
+  fill: var(--icon-button-icon-hover-foreground-color, var(--color-text-primary, #333));
+}
+button.icon-btn:active,
+a.icon-link:active {
+  background-color: var(--icon-button-active-background-color, var(--color-grey3, #ccc));
+}
+button.icon-btn:active > svg,
+a.icon-link:active > svg {
+  fill: var(--icon-button-icon-active-foreground-color, var(--color-text-primary, #333));
 }
 button.icon-btn:not(:focus-visible),
 a.icon-link:not(:focus-visible) {
   outline: none;
 }
+button.icon-btn--transparent,
+a.icon-link--transparent {
+  background-color: transparent;
+}
+button.icon-btn--transparent:active,
+a.icon-link--transparent:active,
+button.icon-btn--transparent:focus,
+a.icon-link--transparent:focus,
+button.icon-btn--transparent:hover,
+a.icon-link--transparent:hover {
+  background-color: transparent;
+}
 a.icon-link:visited > svg {
-  fill: #555;
-  fill: var(--icon-button-icon-foreground-color, #555);
+  fill: var(--icon-button-icon-foreground-color, var(--color-text-primary, #333));
 }
 button[disabled].icon-btn > svg,
 button[aria-disabled="true"].icon-btn > svg,
 a:not([href]).icon-link > svg,
 a[aria-disabled="true"].icon-link > svg {
   background-color: transparent;
-  fill: #ccc;
+  fill: var(--color-action-disabled, #ccc);
 }
 button[disabled].icon-btn:focus > svg,
 button[aria-disabled="true"].icon-btn:focus > svg,
@@ -61,12 +78,11 @@ button[disabled].icon-btn:hover > svg,
 button[aria-disabled="true"].icon-btn:hover > svg,
 a:not([href]).icon-link:hover > svg,
 a[aria-disabled="true"].icon-link:hover > svg {
-  fill: #ccc;
+  fill: var(--color-action-disabled, #ccc);
 }
 a.icon-link:visited:hover > svg,
 a.icon-link:visited:focus > svg {
-  fill: #333;
-  fill: var(--icon-button-icon-hover-foreground-color, #333);
+  fill: var(--icon-button-icon-hover-foreground-color, var(--color-text-primary, #333));
 }
 button.icon-btn--badged,
 a.icon-link--badged {
@@ -75,41 +91,9 @@ a.icon-link--badged {
 }
 button.icon-btn--badged .badge,
 a.icon-link--badged .badge {
-  border-color: #fff;
-  border-color: var(--icon-button-badge-border-color, #fff);
-  border-style: solid;
-  border-width: 2px;
-  display: block;
-  height: 24px;
-  left: 16px;
-  min-width: 24px;
-  padding-top: 2px;
+  left: 24px;
   pointer-events: none;
   position: absolute;
-  text-align: center;
-  top: -2px;
+  top: -12px;
   z-index: 1;
-}
-button.img-btn {
-  background-color: transparent;
-  border: 1px solid transparent;
-  display: -webkit-inline-box;
-  display: inline-flex;
-  padding: 0;
-}
-button.img-btn:not([disabled]):hover,
-button.img-btn:not([disabled]):focus {
-  border-color: #707070;
-}
-button.img-btn:not([disabled]):active {
-  border-color: #707070;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode a.icon-link,
-  .skin-experiment-dark-mode button.icon-btn {
-    --icon-button-badge-border-color: #171717;
-    --icon-button-icon-foreground-color: #dcdcdc;
-    --icon-button-icon-active-foreground-color: #dcdcdc;
-    --icon-button-icon-hover-foreground-color: #5192ff;
-  }
 }

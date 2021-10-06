@@ -26,11 +26,12 @@ span.combobox {
 }
 
 .combobox__listbox {
-    .dropdown();
+    .dropdown-base(combobox-listbox);
 }
 
 .combobox__option[role^="option"] {
-    .dropdown-option-base();
+    .listbox-option-base();
+    .dropdown-item-border-radius();
 
     cursor: default; // needed to override text cursor
     position: relative; // needed for icon to show properly
@@ -40,23 +41,22 @@ span.combobox {
     }
 
     &:hover {
-        .customBackgroundColorProperty(dropdown-item-hover-background-color);
+        .background-color-token(combobox-option-hover-background-color, color-selection-list-item-hover-background);
     }
 
     svg.icon {
-        .dropdown-status();
+        .listbox-option-status();
     }
 }
 
 .combobox__option--active[role^="option"] {
-    .customBackgroundColorProperty(dropdown-item-hover-background-color);
+    .background-color-token(combobox-option-hover-background-color, color-selection-list-item-hover-background);
 
     svg.icon {
         opacity: 1;
     }
 }
 
-// refactor in v11 to use .combobox__control--actionable (added in 10.3.0)
 .combobox__control {
     button.icon-btn {
         padding: 0;
@@ -80,6 +80,7 @@ span.combobox {
 }
 
 .combobox__control > svg.icon--dropdown {
+    .color-token(combobox-textbox-icon-color, color-textbox-icon);
     margin-left: 8px;
     pointer-events: none;
     position: absolute;
@@ -88,25 +89,23 @@ span.combobox {
 }
 
 .combobox__control > input {
-    .customBackgroundColorProperty(combobox-background-color);
-    .customBorderColorProperty(combobox-border-color);
-    .customColorProperty(combobox-foreground-color);
-    .customBorderRadiusProperty(combobox-border-radius);
-
     appearance: none;
+    .background-color-token(combobox-textbox-background-color, color-form-control-background);
+    .border-color-token(combobox-textbox-border-color, color-form-control-border);
+    .border-radius-token(combobox-textbox-border-radius, border-radius-form-control);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
+    .color-token(combobox-textbox-foreground-color, color-text-default);
     font-family: inherit;
     font-size: inherit;
-    height: @combobox-height;
+    height: @height-textbox;
     margin-left: 0;
     margin-right: 0;
-    padding: @combobox-padding;
+    padding: 0 32px 0 16px;
 
     &[readonly] {
-        .customColorProperty(combobox-foreground-color);
-
+        .color-token(combobox-textbox-foreground-color, color-text-default);
         // fixes the cursor in firefox (1 of 2)
         cursor: default;
         // fixes the cursor in firefox (2 of 2)
@@ -115,17 +114,17 @@ span.combobox {
 
         &::-moz-selection,
         &::selection {
-            background: @combobox-readonly-selection-background;
+            .background-color-token(combobox-textbox-readonly-selection-background, color-background-default);
         }
     }
 
     &[disabled],
     &[aria-disabled="true"] {
-        .customBorderColorProperty(combobox-disabled-border-color);
-        .customColorProperty(combobox-disabled-foreground-color);
+        .border-color-token(combobox-disabled-border-color, color-disabled);
+        .color-token(combobox-textbox-disabled-foreground-color, color-disabled);
 
         &[readonly] {
-            text-shadow: 0 0 0 @combobox-disabled-foreground-color;
+            text-shadow: 0 0 0 @color-disabled;
         }
 
         & + svg {
@@ -134,7 +133,7 @@ span.combobox {
     }
 
     &[aria-invalid="true"] {
-        .customBorderColorProperty(combobox-invalid-foreground-color);
+        .border-color-token(combobox-invalid-foreground-color, color-status-attention);
     }
 
     &::-ms-clear {
@@ -149,9 +148,8 @@ span.combobox {
 }
 
 .combobox__control > input:focus {
-    .customBorderColorProperty(combobox-focus-border-color);
-    .customBackgroundColorProperty(combobox-focus-background-color);
-
+    .background-color-token(combobox-textbox-focus-background-color, color-background-default);
+    .border-color-token(combobox-textbox-focus-border-color, color-action-primary);
     outline: 0;
 }
 
@@ -169,18 +167,17 @@ span.combobox {
 }
 
 .combobox--large .combobox__control > input {
-    font-size: @combobox-large-font-size;
-    height: @combobox-height + 8px;
+    font-size: @font-size-form-control-large;
+    height: @height-textbox + 8px;
 }
 
 .combobox__control > input[disabled] {
-    .customBackgroundColorProperty(combobox-disabled-background-color);
+    .background-color-token(combobox-textbox-disabled-background-color, color-form-control-disabled-background);
 }
 
 .combobox__option--active[role="option"] {
-    .customColorProperty(dropdown-item-hover-foreground-color);
-
-    font-weight: @combobox-item-active-font-weight;
+    .color-token(combobox-option-hover-foreground-color, color-selection-list-item-hover-foreground);
+    font-weight: @font-weight-selection-list-item-active;
 }
 
 @media all and (-ms-high-contrast: active), all and (-ms-high-contrast: none) {
@@ -210,30 +207,5 @@ span.combobox {
 
     .combobox__control > button {
         left: 0;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .combobox {
-            --combobox-background-color: @color-grey2-dark-mode;
-            --combobox-foreground-color: @color-grey7-dark-mode;
-            --combobox-border-color: @color-grey4-dark-mode;
-            --combobox-focus-border-color: @color-b4-dark-mode;
-            --combobox-focus-background-color: @color-black-dark-mode;
-            --combobox-disabled-background-color: @color-grey2-dark-mode;
-            --combobox-disabled-foreground-color: @color-grey4-dark-mode;
-            --combobox-disabled-border-color: @color-grey4-dark-mode;
-            --combobox-disabled-placeholder-color: @color-grey4-dark-mode;
-            --combobox-readonly-foreground-color: @color-grey4-dark-mode;
-            --combobox-focus-placeholder-color: @color-grey6-dark-mode;
-            --combobox-invalid-foreground-color: @color-r4-dark-mode;
-            --combobox-invalid-background-color: @color-textbox-invalid-dark-mode;
-            --combobox-icon-color: @color-grey6-dark-mode;
-            --dropdown-items-background-color: @color-black-dark-mode;
-            --dropdown-item-foreground-color: @color-text-default-dark-mode;
-            --dropdown-item-border-color: @color-black-dark-mode;
-            --dropdown-item-hover-foreground-color: @color-text-default;
-        }
     }
 }

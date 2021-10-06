@@ -8,25 +8,25 @@
 }
 
 .radio__control[type="radio"] {
-    height: @radio-dimensions;
-    min-width: @radio-dimensions;
-    width: @radio-dimensions;
+    height: @dimensions-radio;
+    min-width: @dimensions-radio;
+    width: @dimensions-radio;
 }
 
 .radio--large .radio__control[type="radio"] {
-    height: @radio-large-dimensions;
-    min-width: @radio-large-dimensions;
-    width: @radio-large-dimensions;
+    height: @dimensions-radio-large;
+    min-width: @dimensions-radio-large;
+    width: @dimensions-radio-large;
 }
 
 span.radio__icon {
     display: inline-flex;
-    height: @radio-dimensions;
+    height: @dimensions-radio;
     outline-offset: 1px;
 }
 
 .radio--large span.radio__icon {
-    height: @radio-large-dimensions;
+    height: @dimensions-radio-large;
 }
 
 // progressive enhancement - override hidden SVG
@@ -35,11 +35,11 @@ span.radio__icon[hidden] {
 }
 
 svg.radio__checked {
-    .customColorProperty("radio-checked-color");
+    .color-token(radio-checked-color, color-action-primary);
 }
 
 svg.radio__unchecked {
-    .customColorProperty("radio-unchecked-color");
+    .color-token(radio-unchecked-color, color-text-default);
 }
 
 input.radio__control[type="radio"] {
@@ -54,13 +54,13 @@ input.radio__control[type="radio"] {
 .radio svg {
     .foreground-icon-base-mixin();
 
-    height: @radio-dimensions;
-    width: @radio-dimensions;
+    height: @dimensions-radio;
+    width: @dimensions-radio;
 }
 
 .radio--large svg {
-    height: @radio-large-dimensions;
-    width: @radio-large-dimensions;
+    height: @dimensions-radio-large;
+    width: @dimensions-radio-large;
 }
 
 input.radio__control[type="radio"] + span.radio__icon svg.radio__checked {
@@ -80,28 +80,20 @@ input.radio__control[type="radio"]:checked + span.radio__icon svg.radio__uncheck
 }
 
 input.radio__control[type="radio"][disabled] + span.radio__icon {
-    opacity: @radio-disabled-opacity;
+    opacity: 1;
 
     svg {
-        fill: @radio-disabled-color;
+        .fill-token(radio-disabled-color, color-disabled);
     }
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 input.radio__control[type="radio"]:focus + span.radio__icon {
-    outline: @radio-custom-outline;
+    outline: 1px auto;
+    .outline-color-token(radio-outline, color-text-secondary);
     outline-offset: 2px;
 }
 
 input.radio__control[type="radio"]:focus:not(:focus-visible) + span.radio__icon {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .radio {
-            --radio-checked-color: @color-action-primary-dark-mode;
-            --radio-unchecked-color: @color-text-default-dark-mode;
-        }
-    }
 }

@@ -1,8 +1,5 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// icons
-//-----------------------------
-
 a.icon-link {
     align-items: center;
     display: inline-flex;
@@ -14,8 +11,9 @@ a.icon-link {
 
 button.icon-btn,
 a.icon-link {
-    background-color: transparent;
+    .background-color-token(icon-button-background-color, color-grey1);
     border: 2px solid transparent;
+    border-radius: 50px;
     box-sizing: border-box;
     font-family: inherit;
     height: 40px;
@@ -25,19 +23,27 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        .customFillProperty(icon-button-icon-foreground-color);
+        .fill-token(icon-button-icon-foreground-color, color-text-primary);
 
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
     }
 
-    &:active > svg {
-        .customFillProperty(icon-button-icon-active-foreground-color);
+    &:focus,
+    &:hover {
+        .background-color-token(icon-button-hover-background-color, color-grey2);
+
+        > svg {
+            .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
+        }
     }
 
-    &:focus > svg,
-    &:hover > svg {
-        .customFillProperty(icon-button-icon-hover-foreground-color);
+    &:active {
+        .background-color-token(icon-button-active-background-color, color-grey3);
+
+        > svg {
+            .fill-token(icon-button-icon-active-foreground-color, color-text-primary);
+        }
     }
 
     &:not(:focus-visible) {
@@ -45,9 +51,20 @@ a.icon-link {
     }
 }
 
+button.icon-btn--transparent,
+a.icon-link--transparent {
+    background-color: transparent;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: transparent;
+    }
+}
+
 // visited link state
 a.icon-link:visited > svg {
-    .customFillProperty(icon-button-icon-foreground-color);
+    .fill-token(icon-button-icon-foreground-color, color-text-primary);
 }
 
 // disabled & partially disabled states
@@ -57,12 +74,12 @@ a:not([href]).icon-link,
 a[aria-disabled="true"].icon-link {
     > svg {
         background-color: transparent;
-        fill: @color-action-disabled;
+        .fill-token(color-action-disabled);
     }
 
     &:focus > svg,
     &:hover > svg {
-        fill: @color-action-disabled;
+        .fill-token(color-action-disabled);
     }
 }
 
@@ -70,7 +87,7 @@ a[aria-disabled="true"].icon-link {
 a.icon-link:visited {
     &:hover > svg,
     &:focus > svg {
-        .customFillProperty(icon-button-icon-hover-foreground-color);
+        .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
     }
 }
 
@@ -83,53 +100,10 @@ a.icon-link--badged {
     position: relative;
 
     .badge {
-        .customBorderColorProperty(icon-button-badge-border-color);
-
-        border-style: solid;
-        border-width: 2px;
-        display: block;
-        height: 24px;
-        left: 16px;
-        min-width: 24px;
-        padding-top: 2px;
+        left: 24px;
         pointer-events: none;
         position: absolute;
-        text-align: center;
-        top: -2px;
+        top: -12px;
         z-index: 1;
-    }
-}
-
-// actionable images
-// todo: move to "button" module
-//-----------------------------
-
-button.img-btn {
-    background-color: transparent;
-    border: 1px solid transparent;
-    display: inline-flex;
-    padding: 0;
-
-    &:not([disabled]) {
-        &:hover,
-        &:focus {
-            border-color: @color-action-secondary;
-        }
-
-        &:active {
-            border-color: @color-text-secondary;
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        a.icon-link,
-        button.icon-btn {
-            --icon-button-badge-border-color: @color-background-default-dark-mode;
-            --icon-button-icon-foreground-color: @color-text-default-dark-mode;
-            --icon-button-icon-active-foreground-color: @color-text-default-dark-mode;
-            --icon-button-icon-hover-foreground-color: @color-b4-dark-mode;
-        }
     }
 }

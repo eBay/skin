@@ -1,9 +1,8 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .select {
-    .customColorProperty(select-foreground-color);
-
-    font-size: @select-font-size;
+    .color-token(select-foreground-color, color-text-default);
+    font-size: @font-size-regular;
     position: relative;
 }
 
@@ -12,18 +11,17 @@ span.select {
 }
 
 .select select {
-    .customBackgroundColorProperty(select-background-color);
-    .customBorderColorProperty(select-border-color);
-    .customBorderRadiusProperty(select-border-radius);
-
     appearance: none;
+    .background-color-token(select-background-color, color-form-control-background);
+    .border-color-token(select-border-color, color-form-control-border);
+    .border-radius-token(select-border-radius, border-radius-form-control);
     border-style: solid;
     border-width: 1px;
     color: inherit;
     font-family: inherit;
     font-size: 1em;
     height: 40px;
-    padding: @select-padding;
+    padding: 0 32px 0 16px;
     vertical-align: middle;
 }
 
@@ -36,7 +34,7 @@ span.select {
 }
 
 .select--large select {
-    font-size: @select-large-font-size;
+    font-size: @font-size-form-control-large;
     height: 48px;
 }
 
@@ -60,9 +58,8 @@ span.select {
 }
 
 .select select:focus {
-    .customBorderColorProperty(select-focus-border-color);
-    .customBackgroundColorProperty(select-focus-background-color);
-
+    .background-color-token(select-focus-background-color, color-background-default);
+    .border-color-token(select-focus-border-color, color-action-primary);
     outline: 0;
     text-decoration: underline;
 }
@@ -73,31 +70,30 @@ span.select {
 }
 
 .select select[disabled] {
-    .customBackgroundColorProperty(select-disabled-background-color);
-    .customColorProperty(select-disabled-foregound-color);
+    .background-color-token(select-disabled-background-color, color-form-control-disabled-background);
+    .color-token(select-disabled-foregound-color, color-form-control-disabled-foregound);
 }
 
 .select--borderless select[disabled] {
-    .customBackgroundColorProperty(select-borderless-disabled-background-color);
-    .customColorProperty(select-borderless-disabled-foregound-color);
+    .background-color-token(select-borderless-disabled-background-color, color-form-control-background);
+    .color-token(select-borderless-disabled-foregound-color, color-disabled);
 }
 
 .select select[readonly] {
-    .customBackgroundColorProperty(select-disabled-background-color);
-    .customColorProperty(select-disabled-foregound-color);
+    .background-color-token(select-disabled-background-color, color-form-control-disabled-background);
+    .color-token(select-disabled-foregound-color, color-form-control-disabled-foregound);
 }
 
 .select select[aria-invalid="true"] {
-    .customBorderColorProperty(select-invalid-border-color);
-    .customBackgroundColorProperty(select-invalid-background-color);
-    .customColorProperty(select-invalid-foreground-color);
-
+    .background-color-token(select-invalid-background-color, color-status-invalid);
+    .border-color-token(select-invalid-border-color, color-status-invalid);
     border-style: solid;
     border-width: 1px;
+    .color-token(select-invalid-foreground-color, color-status-attention);
 }
 
 .select select[disabled] + svg {
-    color: @select-disabled-foregound-color;
+    .color-token(select-disabled-foregound-color, color-form-control-disabled-foregound);
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -118,22 +114,3 @@ span.select {
     }
 }
 /* stylelint-enable no-descending-specificity */
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .select {
-            --select-background-color: @color-grey2-dark-mode;
-            --select-border-color: @color-grey4-dark-mode;
-            --select-foreground-color: @color-grey7-dark-mode;
-            --select-focus-border-color: @color-b4-dark-mode;
-            --select-focus-background-color: @color-black-dark-mode;
-            --select-disabled-foreground-color: @color-grey4-dark-mode;
-            --select-disabled-background-color: @color-grey2-dark-mode;
-            --select-borderless-disabled-foreground-color: @color-grey4-dark-mode;
-            --select-borderless-disabled-background-color: @color-grey2-dark-mode;
-            --select-invalid-border-color: @color-r4-dark-mode;
-            --select-invalid-background-color: @color-textbox-invalid-dark-mode;
-            --select-invalid-foreground-color: @color-r4-dark-mode;
-        }
-    }
-}

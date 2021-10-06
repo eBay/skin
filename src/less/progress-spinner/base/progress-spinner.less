@@ -1,11 +1,8 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// todo: .spinner class is deprecated. remove in v13
-.progress-spinner,
-.spinner {
-    .customBackgroundImageProperty(progress-spinner-image-url);
-
+.progress-spinner {
     animation: spin 600ms linear infinite;
+    .background-image-token(progress-spinner-image-url, url-image-progress-spinner);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,23 +21,8 @@
     }
 }
 
-// todo: .spinner class is deprecated. remove in v13
-.progress-spinner--large,
-.spinner--large {
-    .customBackgroundImageProperty(progress-spinner-large-image-url);
-
+.progress-spinner--large {
+    .background-image-token(progress-spinner-large-image-url, url-image-progress-spinner-large);
     height: 60px;
     width: 60px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .progress-spinner {
-            --progress-spinner-image-url: @progress-spinner-image-url-dark-mode;
-        }
-
-        .progress-spinner--large {
-            --progress-spinner-large-image-url: @progress-spinner-large-image-url-dark-mode;
-        }
-    }
 }

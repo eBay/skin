@@ -1,7 +1,10 @@
 @import "../../utility/utility-mixins.less";
 
+@dialog-small-gutter-size: 16px;
+@dialog-large-gutter-size: 24px;
+
 .dialog-base() {
-    background-color: fade(@dialog-mask-background-color, 70%);
+    .background-color-token(dialog-mask-background-color, color-mask-faded);
     bottom: 0;
     left: 0;
     -webkit-overflow-scrolling: touch;
@@ -17,14 +20,29 @@
     }
 }
 
+.lightbox-dialog-base() {
+    .dialog-base();
+
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .dialog-window() {
-    .customBackgroundColorProperty(dialog-window-background-color);
+    .background-color-token(dialog-window-background-color, color-background-default);
 
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
     min-height: 55px;
     will-change: opacity, transform;
+}
+
+.lightbox-dialog-window() {
+    .dialog-window();
+    .border-radius-token(border-radius-dialog);
+
+    margin-top: 15vh;
+    max-width: calc(100% - 32px);
 }
 
 .dialog-header-content() {

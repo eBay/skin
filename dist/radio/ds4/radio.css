@@ -1,5 +1,4 @@
 .radio {
-  display: -webkit-inline-box;
   display: inline-flex;
   position: relative;
   vertical-align: text-bottom;
@@ -15,7 +14,6 @@
   width: 24px;
 }
 span.radio__icon {
-  display: -webkit-inline-box;
   display: inline-flex;
   height: 18px;
   outline-offset: 1px;
@@ -24,16 +22,13 @@ span.radio__icon {
   height: 24px;
 }
 span.radio__icon[hidden] {
-  display: -webkit-inline-box;
   display: inline-flex;
 }
 svg.radio__checked {
-  color: #0654ba;
-  color: var(--radio-checked-color, #0654ba);
+  color: var(--radio-checked-color, var(--color-action-primary, #0654ba));
 }
 svg.radio__unchecked {
-  color: #333;
-  color: var(--radio-unchecked-color, #333);
+  color: var(--radio-unchecked-color, var(--color-text-default, #333));
 }
 input.radio__control[type="radio"] {
   font-size: 100%;
@@ -73,18 +68,13 @@ input.radio__control[type="radio"][disabled] + span.radio__icon {
   opacity: 1;
 }
 input.radio__control[type="radio"][disabled] + span.radio__icon svg {
-  fill: #ccc;
+  fill: var(--radio-disabled-color, var(--color-disabled, #ccc));
 }
 input.radio__control[type="radio"]:focus + span.radio__icon {
-  outline: 1px auto #707070;
+  outline: 1px auto;
+  outline-color: var(--radio-outline, var(--color-text-secondary, #707070));
   outline-offset: 2px;
 }
 input.radio__control[type="radio"]:focus:not(:focus-visible) + span.radio__icon {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .radio {
-    --radio-checked-color: #5192ff;
-    --radio-unchecked-color: #dcdcdc;
-  }
 }

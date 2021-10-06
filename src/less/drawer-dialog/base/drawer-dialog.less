@@ -28,7 +28,7 @@
 
 // Added :after class in order to increase parent hit box
 .drawer-dialog__handle::after {
-    background-color: @dialog-handle-color;
+    .background-color-token(dialog-handle-color, color-grey4); // todo: needs product token
     border-radius: 5px;
     content: "";
     display: block;
@@ -41,10 +41,6 @@
 
     min-height: auto;
     overflow: auto;
-}
-
-.drawer-dialog__footer {
-    .dialog-footer-content();
 }
 
 // inherits from .icon-btn
@@ -106,7 +102,7 @@ button.drawer-dialog__close {
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-mask-background-color, 0%);
+        background-color: @color-mask-unfaded;
     }
 
     // code smell, chained modifier
@@ -125,7 +121,7 @@ button.drawer-dialog__close {
     // Root animations.
     &.drawer-dialog--mask-fade,
     &.drawer-dialog--mask-fade-slow {
-        background-color: fade(@dialog-mask-background-color, 70%);
+        background-color: @color-mask-faded;
     }
 
     // Child animations.
@@ -140,12 +136,4 @@ button.drawer-dialog__close {
 
 .drawer-dialog__handle:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .drawer-dialog {
-            --dialog-window-background-color: @color-grey1-dark-mode;
-        }
-    }
 }

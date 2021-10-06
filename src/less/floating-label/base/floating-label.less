@@ -13,8 +13,7 @@ div.floating-label {
 }
 
 label.floating-label__label {
-    .customColorProperty(floating-label-color);
-
+    .color-token(floating-label-color, color-label);
     display: inline-block;
     left: 16px;
     overflow: hidden;
@@ -29,7 +28,7 @@ label.floating-label__label {
 }
 
 label.floating-label__label--focus {
-    .customColorProperty(floating-label-focus-color);
+    .color-token(floating-label-focus-color, color-label-focus);
 }
 
 .floating-label--large label.floating-label__label {
@@ -37,7 +36,7 @@ label.floating-label__label--focus {
 }
 
 label.floating-label__label--inline {
-    font-size: @floating-label-inline-font-size;
+    font-size: @font-size-regular;
     transform: translate(0, 12px);
 }
 
@@ -51,11 +50,11 @@ label.floating-label__label--animate {
 }
 
 label.floating-label__label--disabled {
-    .customColorProperty(floating-label-disabled-color);
+    .color-token(floating-label-disabled-color, color-label-disabled);
 }
 
 label.floating-label__label--invalid {
-    .customColorProperty(floating-label-invalid-color);
+    .color-token(floating-label-invalid-color, color-label-invalid);
 }
 
 .floating-label .textbox__control,
@@ -72,13 +71,11 @@ label.floating-label__label--invalid {
     padding-top: 23px;
 }
 
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .floating-label {
-            --floating-label-color: @color-grey6-dark-mode;
-            --floating-label-disabled-color: @color-grey4-dark-mode;
-            --floating-label-focus-color: @color-b4-dark-mode;
-            --floating-label-invalid-color: @color-r4-dark-mode;
-        }
-    }
+// For select floating label
+.floating-label .select select {
+    line-height: 52px;
+}
+
+.floating-label .select--large select {
+    line-height: 60px;
 }

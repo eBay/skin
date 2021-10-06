@@ -1,7 +1,6 @@
 .menu__items,
 .fake-menu__items {
-  background-color: #fff;
-  background-color: var(--dropdown-items-background-color, #fff);
+  background-color: var(--menu-background-color, var(--color-selection-list-background, #fff));
   cursor: default;
 }
 span.menu,
@@ -22,12 +21,12 @@ span.fake-menu__items {
 .fake-menu__item > svg.icon {
   align-self: center;
   fill: currentColor;
-  height: 8px;
+  height: 10px;
   margin: 0 auto;
   opacity: 0;
   stroke: currentColor;
   stroke-width: 0;
-  width: 8px;
+  width: 14px;
 }
 .menu__item > svg.icon:last-child,
 .fake-menu__item > svg.icon:last-child,
@@ -36,8 +35,7 @@ span.fake-menu__items {
   margin-right: 8px;
 }
 a.fake-menu__item {
-  color: #333;
-  color: var(--dropdown-fake-anchor-color, #333);
+  color: var(--menu-anchor-color, var(--color-selection-list-anchor, #333));
   text-decoration: none;
 }
 button.fake-menu__item {
@@ -46,21 +44,17 @@ button.fake-menu__item {
 button.fake-menu__item,
 a.fake-menu__item,
 div.menu__item[role^="menuitem"] {
-  border-color: #fff;
-  border-color: var(--dropdown-item-border-color, #fff);
-  color: #333;
-  color: var(--dropdown-item-foreground-color, #333);
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  display: -webkit-inline-box;
   display: inline-flex;
   font-family: inherit;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
+  border-color: var(--menu-menuitem-border-color, var(--color-selection-list-item-border, #fff));
+  color: var(--menu-menuitem-foreground-color, var(--color-selection-list-item-foreground, #333));
 }
 button.fake-menu__item:not(:last-child),
 a.fake-menu__item:not(:last-child),
@@ -75,39 +69,20 @@ div.menu__item[role^="menuitem"]:focus {
 button.fake-menu__item:hover,
 a.fake-menu__item:hover,
 div.menu__item[role^="menuitem"]:hover {
-  background-color: #eee;
-  background-color: var(--dropdown-item-hover-background-color, #eee);
-  color: #333;
-  color: var(--dropdown-item-hover-foreground-color, #333);
+  background-color: var(--menu-menuitem-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
+  color: var(--menu-menuitem-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
 }
 button.fake-menu__item:active,
 a.fake-menu__item:active,
 div.menu__item[role^="menuitem"]:active {
   font-weight: normal;
 }
-button.fake-menu__item:first-child,
-a.fake-menu__item:first-child,
-div.menu__item[role^="menuitem"]:first-child {
-  border-top-left-radius: 0;
-  border-top-left-radius: var(--dropdown-items-border-radius, 0);
-  border-top-right-radius: 0;
-  border-top-right-radius: var(--dropdown-items-border-radius, 0);
-}
-button.fake-menu__item:last-child,
-a.fake-menu__item:last-child,
-div.menu__item[role^="menuitem"]:last-child {
-  border-bottom-left-radius: 0;
-  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
-  border-bottom-right-radius: 0;
-  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
-}
 a.fake-menu__item:focus {
   text-decoration: underline;
 }
 button.fake-menu__item:active svg.icon,
 a.fake-menu__item:active svg.icon {
-  color: #ccc;
-  color: var(--dropdown-item-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 a.fake-menu__item[aria-current="page"] svg.icon,
 button.fake-menu__item[aria-current="page"] svg.icon {
@@ -116,28 +91,33 @@ button.fake-menu__item[aria-current="page"] svg.icon {
 a.fake-menu__item:not([href]),
 button.fake-menu__item[disabled],
 div.menu__item[role^="menuitem"][aria-disabled="true"] {
-  color: #999;
+  color: var(--menu-menuitem-disabled-foreground-color, var(--color-text-disabled, #999));
 }
 div.menu__item[role^="menuitem"]:active svg.icon {
-  color: #ccc;
-  color: var(--dropdown-item-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 div.menu__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
 }
-a.fake-menu__item span,
-button.fake-menu__item span,
-div.menu__item[role^="menuitem"] span {
-  -webkit-box-flex: 0;
-          flex: 0 0 auto;
+a.fake-menu__item > span,
+button.fake-menu__item > span,
+div.menu__item[role^="menuitem"] > span {
+  flex: 0 0 auto;
   text-align: left;
   white-space: nowrap;
 }
-a.fake-menu__item span.badge,
-button.fake-menu__item span.badge,
-div.menu__item[role^="menuitem"] span.badge {
-  -webkit-box-flex: initial;
-          flex: initial;
+a.fake-menu__item--badged,
+button.fake-menu__item--badged,
+div.menu__item--badged[role^="menuitem"] {
+  position: relative;
+}
+a.fake-menu__item--badged span.badge,
+button.fake-menu__item--badged span.badge,
+div.menu__item--badged[role^="menuitem"] span.badge {
+  padding: 1px 5px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 .menu__items--scroll[role="menu"] {
   overflow-y: scroll;
@@ -163,20 +143,10 @@ div.menu__item[role^="menuitem"] span.badge {
   text-decoration: underline;
 }
 hr.menu__separator {
-  border-color: #eee;
-  border-color: var(--dropdown-separator-color, #eee);
+  border-color: var(--menu-separator-color, var(--color-selection-list-separator, #eee));
   border-style: solid;
   border-width: 1px;
 }
 div.menu__item[role^="menuitem"]:focus:not(:focus-visible) {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .menu,
-  .skin-experiment-dark-mode .fake-menu {
-    --dropdown-items-background-color: #171717;
-    --dropdown-item-border-color: #171717;
-    --dropdown-item-foreground-color: #dcdcdc;
-    --dropdown-item-hover-foreground-color: #333;
-  }
 }

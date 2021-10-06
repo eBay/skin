@@ -2,10 +2,8 @@
 
 .filter-menu,
 .filter-menu-form {
-    .customBackgroundColorProperty(filter-menu-item-background-color);
-
+    .background-color-token(filter-menu-item-background-color, color-background-default);
     min-width: 144px;
-    overflow: hidden;
 }
 
 span.filter-menu,
@@ -36,16 +34,14 @@ span.filter-menu__radio {
 
 span.filter-menu__checkbox {
     svg.icon--checkbox-unchecked {
-        .customColorProperty(filter-menu-item-unchecked-color);
-
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--checkbox-checked {
-        .customColorProperty(filter-menu-item-checked-color);
-
+        .color-token(filter-menu-item-checked-color, color-text-default);
         display: none;
         height: 18px;
         width: 18px;
@@ -54,16 +50,14 @@ span.filter-menu__checkbox {
 
 span.filter-menu__radio {
     svg.icon--radio-unchecked {
-        .customColorProperty(filter-menu-item-unchecked-color);
-
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
         display: block;
         height: 18px;
         width: 18px;
     }
 
     svg.icon--radio-checked {
-        .customColorProperty(filter-menu-item-checked-color);
-
+        .color-token(filter-menu-item-checked-color, color-text-default);
         display: none;
         height: 18px;
         width: 18px;
@@ -77,11 +71,11 @@ span.filter-menu__radio {
     justify-content: center;
 
     svg.checkbox__unchecked {
-        .customColorProperty(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
     }
 
     svg.checkbox__checked {
-        .customColorProperty(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
     }
 }
 
@@ -92,11 +86,11 @@ span.filter-menu__radio {
     justify-content: center;
 
     svg.radio__unchecked {
-        .customColorProperty(filter-menu-item-unchecked-color);
+        .color-token(filter-menu-item-unchecked-color, color-text-secondary);
     }
 
     svg.radio__checked {
-        .customColorProperty(filter-menu-item-checked-color);
+        .color-token(filter-menu-item-checked-color, color-text-default);
     }
 }
 
@@ -113,10 +107,6 @@ span.filter-menu-form__item {
 
     padding: 8px 16px;
 
-    &:focus {
-        outline: none;
-    }
-
     &:last-child {
         margin-bottom: 8px;
     }
@@ -124,22 +114,17 @@ span.filter-menu-form__item {
 
 button.filter-menu__footer,
 button.filter-menu-form__footer[type="submit"] {
-    border: none;
     .filter-menu-item-base();
-    .customBorderTopColorProperty(filter-menu-border-color);
 
+    border: none;
+    .border-color-token(filter-menu-border-color, color-separator);
     border-top-style: solid;
     border-top-width: 1px;
     bottom: 0;
     padding: 16px;
 
-    &:focus {
-        outline: none;
-    }
-
-    &:focus,
     &:hover {
-        .customBackgroundColorProperty(filter-menu-item-hover-background-color);
+        .background-color-token(filter-menu-item-hover-background-color, color-grey1);
     }
 }
 
@@ -159,17 +144,7 @@ button.filter-menu-form__footer[type="submit"] {
     display: block;
 }
 
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .filter-menu,
-        .filter-menu-form,
-        .filter-menu-button {
-            --filter-menu-border-color: @filter-menu-border-color;
-            --filter-menu-item-unchecked-color: @color-text-default-dark-mode;
-            --filter-menu-item-checked-color: @color-action-primary-dark-mode;
-            --filter-menu-item-background-color: @color-black-dark-mode;
-            --filter-menu-item-foreground-color: @color-text-default-dark-mode;
-            --filter-menu-item-hover-background-color: @color-background-highlight-dark-mode;
-        }
-    }
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+div.filter-menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+    outline: none;
 }

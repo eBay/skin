@@ -1,12 +1,11 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .window-notice {
-    .customBackgroundColorProperty(window-notice-background-color);
-
+    .background-color-token(window-notice-background-color, color-background-default);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin: 16px 0;
+    margin: @spacing-small 0;
     text-align: center;
     width: 100%;
 }
@@ -19,14 +18,12 @@
 }
 
 .window-notice__main {
-    .customColorProperty(window-notice-foreground-color);
-
+    .color-token(window-notice-foreground-color, color-text-confirmation);
     margin: 20px 0;
 }
 
 .window-notice__title {
-    .customColorProperty(window-notice-title-foreground-color);
-
+    .color-token(window-notice-title-foreground-color, color-text-default);
     display: inline-block;
     font-size: @font-size-30;
     font-weight: bold;
@@ -47,15 +44,5 @@
         left: 0;
         position: absolute;
         width: 100%;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .window-notice {
-            --window-notice-background-color: @color-grey1-dark-mode;
-            --window-notice-foreground-color: @color-g6-dark-mode;
-            --window-notice-title-foreground-color: @color-text-default-dark-mode;
-        }
     }
 }

@@ -1,6 +1,5 @@
 .select {
-  color: #111820;
-  color: var(--select-foreground-color, #111820);
+  color: var(--select-foreground-color, var(--color-text-default, #111820));
   font-size: 0.875rem;
   position: relative;
 }
@@ -8,15 +7,12 @@ span.select {
   display: inline-block;
 }
 .select select {
-  background-color: #f7f7f7;
-  background-color: var(--select-background-color, #f7f7f7);
-  border-color: #949494;
-  border-color: var(--select-border-color, #949494);
-  border-radius: 8px;
-  border-radius: var(--select-border-radius, 8px);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  background-color: var(--select-background-color, var(--color-form-control-background, #f7f7f7));
+  border-color: var(--select-border-color, var(--color-form-control-border, #949494));
+  border-radius: var(--select-border-radius, var(--border-radius-form-control, 8px));
   border-style: solid;
   border-width: 1px;
   color: inherit;
@@ -53,10 +49,8 @@ span.select {
   text-decoration: underline;
 }
 .select select:focus {
-  border-color: #3665f3;
-  border-color: var(--select-focus-border-color, #3665f3);
-  background-color: #fff;
-  background-color: var(--select-focus-background-color, #fff);
+  background-color: var(--select-focus-background-color, var(--color-background-default, #fff));
+  border-color: var(--select-focus-border-color, var(--color-action-primary, #3665f3));
   outline: 0;
   text-decoration: underline;
 }
@@ -64,35 +58,26 @@ span.select {
   display: none;
 }
 .select select[disabled] {
-  background-color: #f7f7f7;
-  background-color: var(--select-disabled-background-color, #f7f7f7);
-  color: #a2a2a2;
-  color: var(--select-disabled-foregound-color, #a2a2a2);
+  background-color: var(--select-disabled-background-color, var(--color-form-control-disabled-background, #f7f7f7));
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #a2a2a2));
 }
 .select--borderless select[disabled] {
-  background-color: #f7f7f7;
-  background-color: var(--select-borderless-disabled-background-color, #f7f7f7);
-  color: #c7c7c7;
-  color: var(--select-borderless-disabled-foregound-color, #c7c7c7);
+  background-color: var(--select-borderless-disabled-background-color, var(--color-form-control-background, #f7f7f7));
+  color: var(--select-borderless-disabled-foregound-color, var(--color-disabled, #c7c7c7));
 }
 .select select[readonly] {
-  background-color: #f7f7f7;
-  background-color: var(--select-disabled-background-color, #f7f7f7);
-  color: #a2a2a2;
-  color: var(--select-disabled-foregound-color, #a2a2a2);
+  background-color: var(--select-disabled-background-color, var(--color-form-control-disabled-background, #f7f7f7));
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #a2a2a2));
 }
 .select select[aria-invalid="true"] {
-  border-color: #e0103a;
-  border-color: var(--select-invalid-border-color, #e0103a);
-  background-color: #fef5f6;
-  background-color: var(--select-invalid-background-color, #fef5f6);
-  color: #e0103a;
-  color: var(--select-invalid-foreground-color, #e0103a);
+  background-color: var(--select-invalid-background-color, var(--color-status-invalid, #fef5f6));
+  border-color: var(--select-invalid-border-color, var(--color-status-invalid, #fef5f6));
   border-style: solid;
   border-width: 1px;
+  color: var(--select-invalid-foreground-color, var(--color-status-attention, #e0103a));
 }
 .select select[disabled] + svg {
-  color: #a2a2a2;
+  color: var(--select-disabled-foregound-color, var(--color-form-control-disabled-foregound, #a2a2a2));
 }
 /* stylelint-disable no-descending-specificity */
 [dir="rtl"] .select > select {
@@ -108,19 +93,3 @@ span.select {
   right: auto;
 }
 /* stylelint-enable no-descending-specificity */
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .select {
-    --select-background-color: #393939;
-    --select-border-color: #6a6a6a;
-    --select-foreground-color: #dcdcdc;
-    --select-focus-border-color: #5192ff;
-    --select-focus-background-color: #171717;
-    --select-disabled-foreground-color: #6a6a6a;
-    --select-disabled-background-color: #393939;
-    --select-borderless-disabled-foreground-color: #6a6a6a;
-    --select-borderless-disabled-background-color: #393939;
-    --select-invalid-border-color: #e95367;
-    --select-invalid-background-color: #2a191c;
-    --select-invalid-foreground-color: #e95367;
-  }
-}

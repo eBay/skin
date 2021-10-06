@@ -3,9 +3,8 @@
 /* stylelint-disable no-descending-specificity */
 
 .textbox {
-    .customColorProperty(textbox-foreground-color);
-
-    font-size: @textbox-font-size;
+    .color-token(textbox-foreground-color, color-form-control-foreground);
+    font-size: @font-size-14; // to align with buttons and select, it needs same font-size
     position: relative;
 
     button.icon-btn {
@@ -40,93 +39,86 @@ input.textbox__control {
 
 input.textbox__control,
 textarea.textbox__control {
-    .customBackgroundColorProperty(textbox-background-color);
-    .customBorderColorProperty(textbox-border-color);
-    .customColorProperty(textbox-foreground-color);
-    .customBorderRadiusProperty(textbox-border-radius);
-
     appearance: none;
+    .background-color-token(textbox-background-color, color-form-control-background);
+    .border-color-token(textbox-border-color, color-form-control-border);
+    .border-radius-token(textbox-border-radius, border-radius-small);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
+    .color-token(textbox-foreground-color, color-form-control-foreground);
     font-size: 1em;
-    height: @textbox-height;
+    height: 40px;
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .customBackgroundColorProperty(textbox-disabled-background-color);
-        .customBorderColorProperty(textbox-disabled-border-color);
-        .customColorProperty(textbox-disabled-foreground-color);
+        .background-color-token(textbox-disabled-background-color, color-form-control-disabled-background);
+        .border-color-token(textbox-disabled-border-color, color-form-control-border);
+        .color-token(textbox-disabled-foreground-color, color-grey4);
 
         &::-webkit-input-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
 
         &::-moz-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
 
         &:-ms-input-placeholder {
-            .customColorProperty(textbox-disabled-placeholder-color);
+            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
         }
     }
 
     &[readonly] {
-        .customColorProperty(textbox-readonly-foreground-color);
+        .color-token(textbox-readonly-foreground-color, color-form-control-readonly-foreground);
     }
 
     &[aria-invalid="true"] {
-        .customBackgroundColorProperty(textbox-invalid-background-color);
-        .customBorderColorProperty(textbox-invalid-foreground-color);
+        .background-color-token(textbox-invalid-background-color, color-status-invalid);
+        .border-color-token(textbox-invalid-foreground-color, color-status-attention);
     }
 
     &:focus {
-        .customBorderColorProperty(textbox-focus-border-color);
-        .customBackgroundColorProperty(textbox-focus-background-color);
-
+        .border-color-token(textbox-focus-border-color, color-action-primary);
+        .background-color-token(textbox-focus-background-color, color-background-default);
         outline: 0;
     }
 
     &::-webkit-input-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 
     &::placeholder {
-        .customColorProperty(textbox-placeholder-color);
-
+        .color-token(textbox-placeholder-color, color-grey5);
         font-weight: 200;
     }
 }
 
 input.textbox__control--large {
-    height: @textbox-large-height;
+    height: 48px;
 }
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    .customColorProperty(textbox-icon-color);
-    .customFillProperty(textbox-icon-color);
-
+    .color-token(textbox-icon-color, color-grey5);
     display: inline-flex;
+    .fill-token(textbox-icon-color, color-grey5);
     height: 100%;
     pointer-events: none;
     position: absolute;
     top: 0;
-    width: @textbox-icon-width;
+    width: 14px;
 }
 
 .textbox > svg:first-child {
@@ -146,15 +138,6 @@ input.textbox__control--large {
 
     > svg:last-child {
         right: 16px;
-    }
-}
-
-// deprecated: remove in v13.0.0
-.textbox--large {
-    input.textbox__control,
-    textarea.textbox__control {
-        font-size: @textbox-large-font-size; // for Market Sans to align with buttons and select, it needs same font-size
-        height: 48px;
     }
 }
 
@@ -186,27 +169,6 @@ input.textbox__control--large {
         > svg:last-child {
             left: 16px;
             right: auto;
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .textbox {
-            --textbox-background-color: @color-grey2-dark-mode;
-            --textbox-foreground-color: @color-grey7-dark-mode;
-            --textbox-border-color: @color-grey4-dark-mode;
-            --textbox-focus-border-color: @color-b4-dark-mode;
-            --textbox-focus-background-color: @color-black-dark-mode;
-            --textbox-disabled-background-color: @color-grey2-dark-mode;
-            --textbox-disabled-foreground-color: @color-grey4-dark-mode;
-            --textbox-disabled-border-color: @color-grey4-dark-mode;
-            --textbox-disabled-placeholder-color: @color-grey4-dark-mode;
-            --textbox-readonly-foreground-color: @color-grey4-dark-mode;
-            --textbox-focus-placeholder-color: @color-grey6-dark-mode;
-            --textbox-invalid-foreground-color: @color-r4-dark-mode;
-            --textbox-invalid-background-color: @color-textbox-invalid-dark-mode;
-            --textbox-icon-color: @color-grey6-dark-mode;
         }
     }
 }

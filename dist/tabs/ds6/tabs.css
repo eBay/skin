@@ -1,97 +1,87 @@
+.tabs,
+.fake-tabs {
+  margin-top: 16px;
+}
 span.tabs,
 span.fake-tabs {
-  border-bottom: 1px solid transparent;
   display: inline-block;
 }
 div.tabs__items[role="tablist"],
 ul.fake-tabs__items {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  font-size: 14px;
+  font-size: 0.875rem;
+}
+ul.fake-tabs__items {
+  display: block;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
-  z-index: 1;
-}
-div.tabs__items--large[role="tablist"],
-ul.fake-tabs__items--large {
-  font-size: 16px;
 }
 div.tabs__item[role="tab"] {
   cursor: default;
 }
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
-  -webkit-box-align: center;
-          align-items: center;
-  border-bottom: 3px solid transparent;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-flex: 1;
-          flex: 1;
-  min-height: 40px;
+  display: inline-block;
+  position: relative;
   -webkit-tap-highlight-color: #f7f7f7;
 }
-div.tabs__item[role="tab"]:hover,
-li.fake-tabs__item:hover {
-  border-bottom-color: #3665f3;
-  border-bottom-color: var(--tabs-item-hover-border-bottom-color, #3665f3);
+div.tabs__item[role="tab"]:not(:last-child),
+li.fake-tabs__item:not(:last-child) {
+  margin-right: 36px;
+}
+li.fake-tabs__item > a {
+  padding: 1px 0;
+  text-decoration: none;
+}
+div.tabs__item[role="tab"] > span {
+  padding: 2px 0;
 }
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
-  color: #111820;
-  color: var(--tabs-item-foreground-color, #111820);
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-flex: 1;
-          flex: 1;
-  -webkit-box-pack: center;
-          justify-content: center;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
+  color: var(--tabs-item-foreground-color, var(--color-text-secondary, #707070));
+  display: inline-block;
 }
-div.tabs__item[role="tab"]:hover > span,
-li.fake-tabs__item:hover > a {
-  color: #3665f3;
-  color: var(--tabs-item-hover-foreground-color, #3665f3);
-}
-div.tabs__item[role="tab"][aria-selected="true"],
-li.fake-tabs__item--current {
-  border-bottom-color: #3665f3;
-  border-bottom-color: var(--tabs-item-selected-foreground-color, #3665f3);
+div.tabs__item[role="tab"] > span::after,
+li.fake-tabs__item > a::after {
+  background-color: transparent;
+  border-radius: 6px;
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 4px;
+  position: absolute;
+  width: 100%;
 }
 div.tabs__item[role="tab"][aria-selected="true"] > span,
-li.fake-tabs__item--current > a[aria-current="page"] {
-  color: #3665f3;
-  color: var(--tabs-item-selected-foreground-color, #3665f3);
-  font-weight: bold;
+li.fake-tabs__item--current > a[aria-current] {
+  color: var(--tabs-item-selected-foreground-color, var(--color-text-default, #111820));
 }
-.tabs__cell,
-.fake-tabs__cell {
-  margin: 16px;
-}
-.tabs__content,
-.fake-tabs__content {
-  border-top: 1px solid #c7c7c7;
-  position: relative;
-  top: -1px;
+div.tabs__item[role="tab"][aria-selected="true"] > span::after,
+li.fake-tabs__item--current > a[aria-current]::after {
+  background-color: currentColor;
 }
 div.tabs__item[role="tab"]:focus:not(:focus-visible),
 li.fake-tabs__item a:focus:not(:focus-visible) {
   outline: none;
 }
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .tabs,
-  .skin-experiment-dark-mode .fake-tabs {
-    --tabs-item-foreground-color: #dcdcdc;
-    --tabs-item-hover-foreground-color: #5192ff;
-    --tabs-item-hover-border-bottom-color: #5192ff;
-    --tabs-item-selected-foreground-color: #5192ff;
-  }
+div.tabs__item[role="tab"]:not([aria-selected="true"]):focus > span,
+div.tabs__item[role="tab"]:not([aria-selected="true"]):hover > span,
+li.fake-tabs__item > a:not([aria-current]):focus,
+li.fake-tabs__item > a:not([aria-current]):hover {
+  color: var(--tabs-item-hover-foreground-color, var(--color-text-secondary, #707070));
+}
+div.tabs__item[role="tab"]:not([aria-selected="true"]):focus > span::after,
+div.tabs__item[role="tab"]:not([aria-selected="true"]):hover > span::after,
+li.fake-tabs__item > a:not([aria-current]):focus::after,
+li.fake-tabs__item > a:not([aria-current]):hover::after {
+  background-color: currentColor;
+}
+.tabs__cell,
+.fake-tabs__cell {
+  margin: 16px 0;
+}
+[dir="rtl"] .tabs div.tabs__item[role="tab"]:not(:last-child),
+[dir="rtl"] .tabs li.fake-tabs__item:not(:last-child) {
+  margin-left: 40px;
+  margin-right: 0;
 }

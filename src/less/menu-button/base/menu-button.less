@@ -8,8 +8,7 @@
 
 .menu-button__menu,
 .fake-menu-button__menu {
-    .dropdown();
-    .dropdown-overlay-constraints();
+    .dropdown-base(menu-button-menu);
 
     // In ebayui there is a bug where if tabindex=-1 outside the menu button
     // Any clicks inside will trigger on the outher tabindex=-1. In order to fix it
@@ -33,26 +32,25 @@ span.fake-menu-button__button {
 }
 
 div.menu-button__item[role^="menuitem"] {
-    .dropdown-option-base();
+    .menu-menuitem-base(menu-button);
+    .dropdown-item-border-radius();
 
     cursor: default; // needed to override text cursor
 }
 
 .menu-button__item svg.icon,
 .fake-menu-button__item svg.icon {
-    .dropdown-status();
+    .menu-menuitem-status();
 }
 
 .menu-button__item svg.icon:last-child,
-.fake-menu-button__item svg.icon:last-child,
-.menu-button__item .badge {
+.fake-menu-button__item svg.icon:last-child {
     margin-left: 8px;
 }
 
 // anchor tag specific
 a.fake-menu-button__item {
-    .customColorProperty(dropdown-fake-anchor-color);
-
+    .color-token(menu-button-anchor-color, color-selection-list-anchor);
     text-decoration: none;
 
     &:focus {
@@ -61,15 +59,14 @@ a.fake-menu-button__item {
 
     &:hover,
     &:visited {
-        .customColorProperty(dropdown-fake-anchor-color);
+        .color-token(menu-button-anchor-color, color-selection-list-background);
     }
 }
 
 // button tag specific
 button.fake-menu-button__item {
-    .customBackgroundColorProperty(dropdown-fake-button-background-color);
-    .customColorProperty(dropdown-fake-button-color);
-
+    .background-color-token(menu-button-background-color, color-selection-list-button-background);
+    .color-token(menu-button-foreground-color, color-selection-list-button-foreground);
     font-family: inherit;
     font-size: 1em;
     text-align: left;
@@ -77,13 +74,13 @@ button.fake-menu-button__item {
 
 button.fake-menu-button__item:active svg.icon,
 a.fake-menu-button__item:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .color-token(menu-menuitem-active-status-color, color-selection-list-item-active-status);
 }
 
 a.fake-menu-button__item:not([href]),
 button.fake-menu-button__item[disabled],
 div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
-    color: @menu-button-item-disabled-foreground-color;
+    .color-token(menu-button-menuitem-disabled-foreground-color, color-text-disabled);
 }
 
 a.fake-menu-button__item[aria-current="page"] svg.icon,
@@ -92,7 +89,7 @@ button.fake-menu-button__item[aria-current="page"] svg.icon {
 }
 
 div.menu-button__item[role^="menuitem"]:active svg.icon {
-    .customColorProperty(dropdown-item-active-status-color);
+    .color-token(menu-menuitem-active-status-color, color-selection-list-item-active-status);
 }
 
 div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
@@ -101,17 +98,17 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
 
 .fake-menu-button__menu a.fake-menu-button__item,
 .fake-menu-button__menu button.fake-menu-button__item {
-    .dropdown-option-color();
+    .menu-menuitem-base(menu-button);
 }
 
 .fake-menu-button__menu > li:first-child a.fake-menu-button__item {
-    .customBorderTopLeftRadiusProperty(dropdown-items-border-radius);
-    .customBorderTopRightRadiusProperty(dropdown-items-border-radius);
+    .border-top-left-radius-token(border-radius-dropdown);
+    .border-top-right-radius-token(border-radius-dropdown);
 }
 
 .fake-menu-button__menu > li:last-child a.fake-menu-button__item {
-    .customBorderBottomLeftRadiusProperty(dropdown-items-border-radius);
-    .customBorderBottomRightRadiusProperty(dropdown-items-border-radius);
+    .border-bottom-left-radius-token(border-radius-dropdown);
+    .border-bottom-right-radius-token(border-radius-dropdown);
 }
 
 .menu-button__menu--fix-width,
@@ -125,17 +122,27 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
     }
 }
 
-a.fake-menu-button__item span,
-button.fake-menu-button__item span,
-div.menu-button__item[role^="menuitem"] span {
+a.fake-menu-button__item > span,
+button.fake-menu-button__item > span,
+div.menu-button__item[role^="menuitem"] > span {
     flex: 1 0 auto;
     white-space: nowrap;
 }
 
-a.fake-menu-button__item span.badge,
-button.fake-menu-button__item span.badge,
-div.menu-button__item[role^="menuitem"] span.badge {
-    flex: initial;
+a.fake-menu-button__item--badged,
+button.fake-menu-button__item--badged,
+div.menu-button__item--badged[role^="menuitem"] {
+    padding-right: 36px;
+    position: relative;
+}
+
+a.fake-menu-button__item--badged .badge,
+button.fake-menu-button__item--badged .badge,
+div.menu-button__item--badged[role^="menuitem"] .badge {
+    margin-left: 4px;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
 }
 
 .menu-button__menu--scroll {
@@ -160,7 +167,6 @@ div.menu-button__item[role^="menuitem"] span.badge {
     }
 }
 
-// TODO: Remove below .expand-btn selectors and instead only rely on .menu-button__button.
 .menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu-button__button[aria-expanded="true"] ~ .fake-menu-button__menu,
 .menu-button .expand-btn[aria-expanded="true"] ~ .menu-button__menu,
@@ -168,7 +174,6 @@ div.menu-button__item[role^="menuitem"] span.badge {
     display: block;
 }
 
-// TODO: Remove below .expand-btn selectors and instead only rely on .menu-button__button.
 .menu-button__button ~ .menu-button__menu--static,
 .fake-menu-button__button ~ .fake-menu-button__menu--static,
 .expand-btn ~ .menu-button__menu--static,
@@ -182,12 +187,11 @@ div.menu-button__item[role^="menuitem"] span.badge {
 }
 
 div.menu-button__option--active[role="option"] {
-    font-weight: @menu-button-item-active-font-weight;
+    font-weight: @font-weight-selection-list-item-active;
 }
 
 hr.menu-button__separator {
-    .customBorderColorProperty(dropdown-separator-color);
-
+    .border-color-token(menu-button-separator-color, color-selection-list-separator);
     border-style: solid;
     border-width: 1px;
     margin: 0;
@@ -196,16 +200,4 @@ hr.menu-button__separator {
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 div.menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .menu-button,
-        .fake-menu-button {
-            --dropdown-items-background-color: @color-black-dark-mode;
-            --dropdown-item-border-color: @color-black-dark-mode;
-            --dropdown-item-foreground-color: @color-text-default-dark-mode;
-            --dropdown-item-hover-foreground-color: @color-text-default;
-        }
-    }
 }

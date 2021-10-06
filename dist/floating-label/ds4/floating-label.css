@@ -8,52 +8,40 @@ div.floating-label {
   display: block;
 }
 label.floating-label__label {
-  color: #707070;
-  color: var(--floating-label-color, #707070);
+  color: var(--floating-label-color, var(--color-label, #707070));
   display: inline-block;
   left: 16px;
   overflow: hidden;
   pointer-events: none;
   position: absolute;
   text-overflow: ellipsis;
-  -webkit-transform: scale(0.75, 0.75) translate(0, 2px);
-          transform: scale(0.75, 0.75) translate(0, 2px);
-  -webkit-transform-origin: left;
-          transform-origin: left;
+  transform: scale(0.75, 0.75) translate(0, 2px);
+  transform-origin: left;
   white-space: nowrap;
   width: calc(100% - 24px);
   z-index: 1;
 }
 label.floating-label__label--focus {
-  color: #707070;
-  color: var(--floating-label-focus-color, #707070);
+  color: var(--floating-label-focus-color, var(--color-label-focus, #707070));
 }
 .floating-label--large label.floating-label__label {
-  -webkit-transform: scale(0.75, 0.75) translate(0, 3px);
-          transform: scale(0.75, 0.75) translate(0, 3px);
+  transform: scale(0.75, 0.75) translate(0, 3px);
 }
 label.floating-label__label--inline {
   font-size: 0.875rem;
-  -webkit-transform: translate(0, 12px);
-          transform: translate(0, 12px);
+  transform: translate(0, 12px);
 }
 .floating-label--large label.floating-label__label--inline {
-  -webkit-transform: translate(0, 16px);
-          transform: translate(0, 16px);
+  transform: translate(0, 16px);
 }
 label.floating-label__label--animate {
-  -webkit-transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), -webkit-transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 label.floating-label__label--disabled {
-  color: #555;
-  color: var(--floating-label-disabled-color, #555);
+  color: var(--floating-label-disabled-color, var(--color-label-disabled, #555));
 }
 label.floating-label__label--invalid {
-  color: #707070;
-  color: var(--floating-label-invalid-color, #707070);
+  color: var(--floating-label-invalid-color, var(--color-label-invalid, #707070));
 }
 .floating-label .textbox__control,
 .floating-label .combobox__control > input {
@@ -65,11 +53,9 @@ label.floating-label__label--invalid {
   padding-bottom: 5px;
   padding-top: 23px;
 }
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .floating-label {
-    --floating-label-color: #ababab;
-    --floating-label-disabled-color: #6a6a6a;
-    --floating-label-focus-color: #5192ff;
-    --floating-label-invalid-color: #e75064;
-  }
+.floating-label .select select {
+  line-height: 52px;
+}
+.floating-label .select--large select {
+  line-height: 60px;
 }

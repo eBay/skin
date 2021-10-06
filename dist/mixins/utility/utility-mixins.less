@@ -23,76 +23,6 @@
     white-space: nowrap;
 }
 
-.customProperty(@property, @token) {
-    @{property}: @@token;
-    @{property}: var(~"--@{token}", @@token);
-}
-
-.customProperty(@property, @token1, @token2) {
-    @{property}: @@token1 @@token2;
-    @{property}: var(~"--@{token1}", @@token1) var(~"--@{token2}", @@token2);
-}
-
-.customColorProperty(@token) {
-    .customProperty(color, @token);
-}
-
-.customBackgroundColorProperty(@token) {
-    .customProperty(background-color, @token);
-}
-
-.customBackgroundImageProperty(@token) {
-    .customProperty(background-image, @token);
-}
-
-.customBorderColorProperty(@token) {
-    .customProperty(border-color, @token);
-}
-
-.customBorderBottomColorProperty(@token) {
-    .customProperty(border-bottom-color, @token);
-}
-
-.customBorderTopColorProperty(@token) {
-    .customProperty(border-top-color, @token);
-}
-
-.customBorderRadiusProperty(@token) {
-    .customProperty(border-radius, @token);
-}
-
-.customBorderTopLeftRadiusProperty(@token) {
-    .customProperty(border-top-left-radius, @token);
-}
-
-.customBorderTopRightRadiusProperty(@token) {
-    .customProperty(border-top-right-radius, @token);
-}
-
-.customBorderBottomLeftRadiusProperty(@token) {
-    .customProperty(border-bottom-left-radius, @token);
-}
-
-.customBorderBottomRightRadiusProperty(@token) {
-    .customProperty(border-bottom-right-radius, @token);
-}
-
-.customBoxShadowProperty(@token) {
-    .customProperty(box-shadow, @token);
-}
-
-.customFillProperty(@token) {
-    .customProperty(fill, @token);
-}
-
-.customOutlineColorProperty(@token) {
-    .customProperty(outline-color, @token);
-}
-
-.customPaddingProperty(@token1, @token2) {
-    .customProperty(padding, @token1, @token2);
-}
-
 .imageTreatment() {
     align-items: center;
     display: flex;
@@ -116,4 +46,96 @@
         max-width: 100%;
         object-fit: contain;
     }
+}
+
+.flex-items-centered(@display: flex) {
+    align-items: center;
+    display: @display;
+    justify-content: center;
+}
+
+.inline-flex-items-centered() {
+    .flex-items-centered(inline-flex);
+}
+
+// token system
+
+.customPropertyToken(@property, @token) {
+    @{property}: var(~"--@{token}", @@token);
+}
+
+.customPropertyToken(@property, @component-token, @product-token) {
+    @{property}: var(~"--@{component-token}", var(~"--@{product-token}", @@product-token));
+}
+
+.background-color-token(@token) {
+    .customPropertyToken(background-color, @token);
+}
+
+.background-color-token(@component-token, @product-token) {
+    .customPropertyToken(background-color, @component-token, @product-token);
+}
+
+.background-image-token(@token) {
+    .customPropertyToken(background-image, @token);
+}
+
+.background-image-token(@component-token, @product-token) {
+    .customPropertyToken(background-image, @component-token, @product-token);
+}
+
+.border-bottom-left-radius-token(@token) {
+    .customPropertyToken(border-bottom-left-radius, @token);
+}
+
+.border-bottom-right-radius-token(@token) {
+    .customPropertyToken(border-bottom-right-radius, @token);
+}
+
+.border-top-left-radius-token(@token) {
+    .customPropertyToken(border-top-left-radius, @token);
+}
+
+.border-top-right-radius-token(@token) {
+    .customPropertyToken(border-top-right-radius, @token);
+}
+
+.border-radius-token(@token) {
+    .customPropertyToken(border-radius, @token);
+}
+
+.border-radius-token(@component-token, @product-token) {
+    .customPropertyToken(border-radius, @component-token, @product-token);
+}
+
+.box-shadow-token(@component-token, @product-token) {
+    .customPropertyToken(box-shadow, @component-token, @product-token);
+}
+
+.border-color-token(@component-token, @product-token) {
+    .customPropertyToken(border-color, @component-token, @product-token);
+}
+
+.box-shadow-token(@token) {
+    .customPropertyToken(box-shadow, @token);
+}
+
+.color-token(@token) {
+    .customPropertyToken(color, @token);
+}
+
+.color-token(@component-token, @product-token) {
+    .customPropertyToken(color, @component-token, @product-token);
+}
+
+.fill-token(@token) {
+    .customPropertyToken(fill, @token);
+}
+
+.fill-token(@component-token, @product-token) {
+    .customPropertyToken(fill, @component-token, @product-token);
+}
+
+.outline-color-token(@component-token, @product-token) {
+    .customPropertyToken(outline-color, @component-token, @product-token);
 }

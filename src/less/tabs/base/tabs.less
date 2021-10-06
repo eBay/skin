@@ -1,86 +1,75 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+.tabs,
+.fake-tabs {
+    margin-top: @spacing-small;
+}
+
 span.tabs,
 span.fake-tabs {
-    border-bottom: 1px solid transparent; // prevent margin-collapse on next element
     display: inline-block;
 }
 
 div.tabs__items[role="tablist"],
 ul.fake-tabs__items {
-    display: flex;
-    flex-direction: row;
-    font-size: 14px;
+    font-size: @font-size-14;
+}
+
+ul.fake-tabs__items {
+    display: block;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: relative;
-    z-index: 1; // put the tab onto a layer on top of the thin content area bar
-}
-
-div.tabs__items--large[role="tablist"],
-ul.fake-tabs__items--large {
-    font-size: 16px;
 }
 
 div.tabs__item[role="tab"] {
-    cursor: default; // needed to override text cursor
+    cursor: default;
 }
 
 div.tabs__item[role="tab"],
 li.fake-tabs__item {
-    align-items: center;
-    border-bottom: @tabs-item-border-bottom-width solid transparent;
-    box-sizing: border-box;
-    display: flex;
-    flex: 1;
-    min-height: 40px;
-    -webkit-tap-highlight-color: @tabs-item-webkit-tap-highlight-color;
+    display: inline-block;
+    position: relative;
+    -webkit-tap-highlight-color: @color-background-highlight;
 
-    &:hover {
-        .customBorderBottomColorProperty(tabs-item-hover-border-bottom-color);
+    &:not(:last-child) {
+        margin-right: 36px;
     }
+}
+
+li.fake-tabs__item > a {
+    padding: 1px 0;
+    text-decoration: none;
+}
+
+div.tabs__item[role="tab"] > span {
+    padding: 2px 0;
 }
 
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
-    .customColorProperty(tabs-item-foreground-color);
+    .color-token(tabs-item-foreground-color, color-text-secondary);
+    display: inline-block;
 
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-}
-
-div.tabs__item[role="tab"]:hover > span,
-li.fake-tabs__item:hover > a {
-    .customColorProperty(tabs-item-hover-foreground-color);
-}
-
-div.tabs__item[role="tab"][aria-selected="true"],
-li.fake-tabs__item--current {
-    .customBorderBottomColorProperty(tabs-item-selected-foreground-color);
+    &::after {
+        background-color: transparent;
+        border-radius: 6px;
+        content: "";
+        display: block;
+        height: 2px;
+        margin-top: 4px;
+        position: absolute; // required to avoid focus outline issues
+        width: 100%;
+    }
 }
 
 div.tabs__item[role="tab"][aria-selected="true"] > span,
-li.fake-tabs__item--current > a[aria-current="page"] {
-    .customColorProperty(tabs-item-selected-foreground-color);
+li.fake-tabs__item--current > a[aria-current] {
+    .color-token(tabs-item-selected-foreground-color, color-text-default);
 
-    font-weight: @tabs-item-selected-font-weight;
-}
-
-.tabs__cell,
-.fake-tabs__cell {
-    margin: 16px;
-}
-
-.tabs__content,
-.fake-tabs__content {
-    border-top: @tabs-content-border-top-width solid @tabs-content-border-top-color;
-    position: relative;
-    top: -1px;
+    &::after {
+        background-color: currentColor;
+    }
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -91,14 +80,28 @@ li.fake-tabs__item a:focus {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .tabs,
-        .fake-tabs {
-            --tabs-item-foreground-color: @color-text-default-dark-mode;
-            --tabs-item-hover-foreground-color: @color-b4-dark-mode;
-            --tabs-item-hover-border-bottom-color: @color-b4-dark-mode;
-            --tabs-item-selected-foreground-color: @color-b4-dark-mode;
+div.tabs__item[role="tab"]:not([aria-selected="true"]):focus > span,
+div.tabs__item[role="tab"]:not([aria-selected="true"]):hover > span,
+li.fake-tabs__item > a:not([aria-current]):focus,
+li.fake-tabs__item > a:not([aria-current]):hover {
+    .color-token(tabs-item-hover-foreground-color, color-text-secondary);
+
+    &::after {
+        background-color: currentColor;
+    }
+}
+
+.tabs__cell,
+.fake-tabs__cell {
+    margin: @spacing-small 0;
+}
+
+[dir="rtl"] .tabs {
+    div.tabs__item[role="tab"],
+    li.fake-tabs__item {
+        &:not(:last-child) {
+            margin-left: 40px;
+            margin-right: 0;
         }
     }
 }

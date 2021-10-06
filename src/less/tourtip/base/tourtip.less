@@ -17,8 +17,8 @@ span.tourtip {
 
 .tourtip__mask {
     .bubble-mask();
-    .customBackgroundColorProperty(tourtip-background-color);
-    .customColorProperty(tourtip-foreground-color);
+    .background-color-token(tourtip-background-color, color-action-primary);
+    .color-token(tourtip-foreground-color, color-background-default);
 }
 
 span.tourtip__mask {
@@ -29,11 +29,10 @@ span.tourtip__mask {
     .bubble-cell();
 
     a {
-        .customColorProperty(tourtip-foreground-color);
+        .color-token(tourtip-foreground-color, color-background-default);
 
         &:focus {
-            .customOutlineColorProperty(tourtip-foreground-color);
-
+            .outline-color-token(tourtip-foreground-color, color-background-default);
             outline-style: dashed;
             outline-width: 1px;
         }
@@ -50,12 +49,11 @@ button.tourtip__close {
     > svg,
     &:focus > svg,
     &:hover > svg {
-        .customFillProperty(tourtip-foreground-color);
+        .fill-token(tourtip-foreground-color, color-background-default);
     }
 
     &:focus {
-        .customOutlineColorProperty(tourtip-foreground-color);
-
+        .outline-color-token(tourtip-foreground-color, color-background-default);
         outline-style: dashed;
         outline-width: 1px;
     }
@@ -65,7 +63,7 @@ button.tourtip__close {
     .pointer-base();
     .pointer-top();
     .pointer-center();
-    .customBackgroundColorProperty(tourtip-background-color);
+    .background-color-token(tourtip-background-color, color-action-primary);
 }
 
 .tourtip__pointer--top-left {
@@ -133,12 +131,5 @@ span.tourtip__heading {
 @media (min-width: 601px) {
     .tourtip__overlay {
         .bubble-large-screen();
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode .tourtip {
-        --tourtip-background-color: @tourtip-background-color;
-        --tourtip-foreground-color: @tourtip-foreground-color;
     }
 }

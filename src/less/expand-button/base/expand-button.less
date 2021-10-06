@@ -2,21 +2,21 @@
 
 button.expand-btn {
     .btn-base();
-    .customBorderRadiusProperty(expand-button-border-radius);
-    .customPaddingProperty(button-padding-vertical, button-padding-horizontal);
 
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
+    .border-radius-token(expand-btn-border-radius, border-radius-dropdown-button);
     color: inherit;
     display: inline-block;
     font-size: 1em;
     max-width: 100%;
+    padding: @padding-vertical-button 16px;
 
     &:hover,
     &:focus {
-        .customBorderColorProperty(expand-button-hover-foreground-color);
-        .customColorProperty(expand-button-hover-foreground-color);
+        .border-color-token(expand-btn-hover-foreground-color, color-b6);
+        .color-token(expand-btn-hover-foreground-color, color-b6);
     }
 }
 
@@ -26,9 +26,9 @@ button.expand-btn svg.icon {
     flex-shrink: 0;
 }
 
-button.expand-button--wide {
-    padding-left: @button-wide-padding-horizontal;
-    padding-right: @button-wide-padding-horizontal;
+button.expand-btn--wide {
+    padding-left: @padding-horizontal-button-wide;
+    padding-right: @padding-horizontal-button-wide;
 }
 
 button.expand-btn--fluid {
@@ -39,21 +39,6 @@ span.expand-btn__cell {
     .btn-cell-base();
 
     justify-content: space-between;
-}
-
-/* primary variant is DEPRECATED */
-button.expand-btn--primary {
-    .customBackgroundColorProperty(button-primary-background-color);
-    .customBorderColorProperty(button-primary-border-color);
-    .customColorProperty(button-primary-foreground-color);
-
-    &:focus,
-    &:hover,
-    &:active {
-        .customBackgroundColorProperty(button-primary-hover-background-color);
-        .customBorderColorProperty(button-primary-hover-foreground-color);
-        .customColorProperty(button-primary-hover-foreground-color);
-    }
 }
 
 span.expand-btn__cell--fixed-height svg.icon {
@@ -76,53 +61,9 @@ span.expand-btn__cell--center svg.icon:last-child {
 
 button.expand-btn[disabled],
 button.expand-btn[aria-disabled="true"] {
-    border-color: @button-secondary-disabled-border-color;
-    color: @button-secondary-disabled-foreground-color;
-    opacity: @button-disabled-opacity;
-}
-
-/* primary variant is DEPRECATED */
-button.expand-btn--primary[disabled],
-button.expand-btn--primary[aria-disabled="true"] {
-    .customBackgroundColorProperty(button-primary-disabled-background-color);
-    .customBorderColorProperty(button-primary-disabled-border-color);
-    .customColorProperty(button-primary-disabled-foreground-color);
-
-    &:hover,
-    &:focus {
-        .customBackgroundColorProperty(button-primary-disabled-background-color);
-        .customBorderColorProperty(button-primary-disabled-border-color);
-    }
-}
-
-/* secondary variant is DEPRECATED */
-button.expand-btn--secondary {
-    .customBackgroundColorProperty(button-secondary-background-color);
-    .customBorderColorProperty(button-secondary-border-color);
-    .customColorProperty(button-secondary-foreground-color);
-
-    &:focus,
-    &:hover,
-    &:active {
-        .customBackgroundColorProperty(button-secondary-hover-background-color);
-        .customBorderColorProperty(button-secondary-hover-foreground-color);
-        .customColorProperty(button-secondary-hover-foreground-color);
-    }
-}
-
-/* secondary variant is DEPRECATED */
-button.expand-btn--secondary[disabled],
-button.expand-btn--secondary[aria-disabled="true"] {
-    .customBackgroundColorProperty(button-secondary-disabled-background-color);
-    .customBorderColorProperty(button-secondary-disabled-border-color);
-    .customColorProperty(button-secondary-disabled-foreground-color);
-
-    &:hover,
-    &:focus,
-    &:active {
-        .customBackgroundColorProperty(button-secondary-disabled-background-color);
-        .customBorderColorProperty(button-secondary-disabled-border-color);
-    }
+    .border-color-token(expand-btn-disabled-border-color, color-disabled);
+    .color-token(expand-btn-disabled-foreground-color, color-text-disabled);
+    opacity: @opacity-action-disabled;
 }
 
 button.expand-btn svg.icon:only-child {
@@ -161,22 +102,22 @@ button.expand-btn[aria-expanded="true"] svg.icon--dropdown {
 
 button.expand-btn--large {
     min-height: 48px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+    padding-bottom: @padding-vertical-button-large;
+    padding-top: @padding-vertical-button-large;
 }
 
 button.expand-btn--large-fixed-height {
     height: 48px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+    padding-bottom: @padding-vertical-button-large;
+    padding-top: @padding-vertical-button-large;
 }
 
 button.expand-btn--large-truncated {
     .btn-truncate();
 
     height: 48px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+    padding-bottom: @padding-vertical-button-large;
+    padding-top: @padding-vertical-button-large;
 }
 
 // code smell (chained modifier)
@@ -191,28 +132,4 @@ button.expand-btn.expand-btn--icon-only {
 button.expand-btn--no-text.expand-btn--large,
 button.expand-btn--icon-only.expand-btn--large {
     height: 48px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        button.expand-btn {
-            --expand-button-hover-foreground-color: @color-b6-dark-mode;
-
-            /* following properties are deprecated  */
-            --button-primary-background-color: @color-b4-dark-mode;
-            --button-primary-foreground-color: @color-black-dark-mode;
-            --button-primary-hover-background-color: @color-b6-dark-mode;
-            --button-secondary-background-color: @color-black-dark-mode;
-            --button-secondary-border-color: @color-b4-dark-mode;
-            --button-secondary-foreground-color: @color-b4-dark-mode;
-            --button-secondary-hover-background-color: @color-black-dark-mode;
-            --button-secondary-hover-foreground-color: @color-b6-dark-mode;
-            --button-primary-disabled-background-color: @color-grey3-dark-mode;
-            --button-primary-disabled-foreground-color: @color-grey5;
-            --button-primary-disabled-border-color: @color-grey5;
-            --button-secondary-disabled-background-color: @color-black-dark-mode;
-            --button-secondary-disabled-foreground-color: @color-grey3-dark-mode;
-            --button-secondary-disabled-border-color: @color-grey3-dark-mode;
-        }
-    }
 }

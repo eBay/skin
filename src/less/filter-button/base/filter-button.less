@@ -1,7 +1,7 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 // .filter-group also exists in filter-menu-button
-// todo: move to utility/layout class
+// todo: move to utility/layout class and/or mixin
 div.filter-group {
     display: flex;
     flex-wrap: wrap;
@@ -10,12 +10,13 @@ div.filter-group {
 button.filter-button,
 a.filter-link {
     .filter-button-base();
-    .customBackgroundColorProperty(filter-button-background-color);
+
+    .background-color-token(filter-button-background-color, color-grey1);
 
     &:focus,
     &:hover,
     &:active {
-        .customBackgroundColorProperty(filter-button-hover-background-color);
+        .background-color-token(filter-button-hover-background-color, color-grey2);
     }
 }
 
@@ -30,19 +31,18 @@ a.filter-link .filter-link__cell {
 }
 
 a.filter-link:visited {
-    .customColorProperty(filter-button-foreground-color);
+    .color-token(filter-button-foreground-color, color-text-default);
 }
 
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-    .customBackgroundColorProperty(filter-button-selected-background-color);
-
+    .background-color-token(filter-button-selected-background-color, color-grey3);
     font-weight: bold;
 
     &:focus,
     &:hover,
     &:active {
-        .customBackgroundColorProperty(filter-button-selected-hover-background-color);
+        .background-color-token(filter-button-selected-hover-background-color, color-grey2);
     }
 }
 
@@ -54,14 +54,13 @@ a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
-    color: @filter-button-disabled-foreground-color;
+    .color-token(filter-button-disabled-foreground-color, color-grey3);
     font-weight: normal;
 
     &:hover,
     &:focus {
-        .customBackgroundColorProperty(filter-button-background-color);
-
-        color: @filter-button-disabled-foreground-color;
+        .background-color-token(filter-button-background-color, color-grey1);
+        .color-token(filter-button-disabled-foreground-color, color-grey3);
     }
 }
 
@@ -69,7 +68,7 @@ button.filter-button[aria-pressed="true"][disabled]:hover,
 button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
 a.filter-link--selected[aria-disabled="true"]:hover {
-    background-color: @filter-button-selected-background-color;
+    .background-color-token(filter-button-selected-background-color, color-grey3);
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -83,17 +82,3 @@ a.filter-link:focus {
 }
 
 /* stylelint-enable no-descending-specificity */
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        button.filter-button,
-        a.filter-link,
-        button.filter-menu-button__button {
-            --filter-button-background-color: @color-grey1-dark-mode;
-            --filter-button-foreground-color: @color-text-default-dark-mode;
-            --filter-button-hover-background-color: @color-grey2-dark-mode;
-            --filter-button-selected-background-color: #5c6a95;
-            --filter-button-selected-hover-background-color: #5873c2;
-        }
-    }
-}

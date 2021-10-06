@@ -1,7 +1,6 @@
 /* large screens */
-.lightbox-dialog[role="dialog"],
-.lightbox-dialog[role="alertdialog"] {
-  background-color: rgba(51, 51, 51, 0.7);
+.lightbox-dialog[role="dialog"] {
+  background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(51, 51, 51, 0.7)));
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
@@ -11,52 +10,33 @@
   top: 0;
   will-change: background-color;
   z-index: 100000;
-  -webkit-box-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: center;
-          justify-content: center;
+  align-items: flex-start;
+  justify-content: center;
 }
-.lightbox-dialog[role="dialog"]:not([hidden]),
-.lightbox-dialog[role="alertdialog"]:not([hidden]) {
-  display: -webkit-box;
+.lightbox-dialog[role="dialog"]:not([hidden]) {
   display: flex;
 }
-.lightbox-dialog__compact-window,
 .lightbox-dialog__window {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  display: -webkit-box;
+  background-color: var(--dialog-window-background-color, var(--color-background-default, #fff));
   display: flex;
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex: 1 0 auto;
+  flex-direction: column;
   min-height: 55px;
   will-change: opacity, transform;
-  border-radius: 0;
-  border-radius: var(--dialog-border-radius, 0);
-  flex-basis: 616px;
+  border-radius: var(--border-radius-dialog, 0);
   margin-top: 15vh;
   max-width: calc(100% - 32px);
 }
 .lightbox-dialog__window--mini {
-  -webkit-box-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
   align-self: center;
   border-radius: 7px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-          flex-direction: row-reverse;
+  flex-direction: row-reverse;
   margin-top: 0;
   min-height: 72px;
   min-width: 200px;
 }
-.lightbox-dialog__compact-window {
-  text-align: center;
-}
 .lightbox-dialog__header {
-  display: -webkit-box;
   display: flex;
   flex-shrink: 0;
   margin: 16px 8px 0;
@@ -69,8 +49,7 @@
 .lightbox-dialog__header h5,
 .lightbox-dialog__header h6 {
   align-self: center;
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 0 8px;
 }
 .lightbox-dialog__header > :last-child:not(:only-child) {
@@ -81,8 +60,7 @@
 }
 .lightbox-dialog__main {
   box-sizing: border-box;
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 16px;
   position: relative;
   min-height: 18px;
@@ -94,29 +72,14 @@
   margin-bottom: 0;
 }
 .lightbox-dialog__footer {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 16px;
   position: relative;
 }
 .lightbox-dialog__footer > :not(:first-child) {
   margin-top: 16px;
-}
-.lightbox-dialog__compact-window .lightbox-dialog__footer {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  padding-top: 0;
-}
-.lightbox-dialog__compact-window .lightbox-dialog__footer > .btn {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 0;
 }
 button.lightbox-dialog__close {
   align-self: center;
@@ -133,26 +96,20 @@ button.lightbox-dialog__close {
 }
 .lightbox-dialog--show.lightbox-dialog--mask-fade,
 .lightbox-dialog--hide.lightbox-dialog--mask-fade {
-  -webkit-transition: background-color 0.16s ease-out;
   transition: background-color 0.16s ease-out;
 }
 .lightbox-dialog--show.lightbox-dialog--mask-fade-slow,
 .lightbox-dialog--hide.lightbox-dialog--mask-fade-slow {
-  -webkit-transition: background-color 0.32s ease-out;
   transition: background-color 0.32s ease-out;
 }
-.lightbox-dialog--show .lightbox-dialog__compact-window--fade,
-.lightbox-dialog--hide .lightbox-dialog__compact-window--fade,
 .lightbox-dialog--show .lightbox-dialog__window--fade,
 .lightbox-dialog--hide .lightbox-dialog__window--fade {
-  -webkit-transition: opacity 0.16s ease-out;
   transition: opacity 0.16s ease-out;
 }
 .lightbox-dialog--hide.lightbox-dialog--hide,
 .lightbox-dialog--hide.lightbox-dialog--show-init,
 .lightbox-dialog--show-init.lightbox-dialog--hide,
 .lightbox-dialog--show-init.lightbox-dialog--show-init {
-  display: -webkit-box;
   display: flex;
 }
 .lightbox-dialog--hide.lightbox-dialog--mask-fade,
@@ -161,8 +118,6 @@ button.lightbox-dialog__close {
 .lightbox-dialog--show-init.lightbox-dialog--mask-fade-slow {
   background-color: rgba(51, 51, 51, 0);
 }
-.lightbox-dialog--hide .lightbox-dialog__compact-window--fade,
-.lightbox-dialog--show-init .lightbox-dialog__compact-window--fade,
 .lightbox-dialog--hide .lightbox-dialog__window--fade,
 .lightbox-dialog--show-init .lightbox-dialog__window--fade {
   opacity: 0;
@@ -171,7 +126,6 @@ button.lightbox-dialog__close {
 .lightbox-dialog--show.lightbox-dialog--hide-init,
 .lightbox-dialog--hide-init.lightbox-dialog--show,
 .lightbox-dialog--hide-init.lightbox-dialog--hide-init {
-  display: -webkit-box;
   display: flex;
 }
 .lightbox-dialog--show.lightbox-dialog--mask-fade,
@@ -180,21 +134,17 @@ button.lightbox-dialog__close {
 .lightbox-dialog--hide-init.lightbox-dialog--mask-fade-slow {
   background-color: rgba(51, 51, 51, 0.7);
 }
-.lightbox-dialog--show .lightbox-dialog__compact-window--fade,
-.lightbox-dialog--hide-init .lightbox-dialog__compact-window--fade,
 .lightbox-dialog--show .lightbox-dialog__window--fade,
 .lightbox-dialog--hide-init .lightbox-dialog__window--fade {
   opacity: 1;
 }
 @media (min-width: 601px) and (max-width: 768px) {
-  .lightbox-dialog__window,
-  .lightbox-dialog__compact-window {
+  .lightbox-dialog__window {
     max-width: calc(88% - 32px);
   }
 }
 @media (min-width: 769px) {
-  .lightbox-dialog__window,
-  .lightbox-dialog__compact-window {
+  .lightbox-dialog__window {
     max-width: 616px;
   }
 }
@@ -206,20 +156,12 @@ button.lightbox-dialog__close {
     margin: 16px 24px 24px;
   }
   .lightbox-dialog__window .lightbox-dialog__footer {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-direction: row;
-    -webkit-box-pack: end;
-            justify-content: flex-end;
+    flex-direction: row;
+    justify-content: flex-end;
     padding: 24px;
   }
   .lightbox-dialog__window .lightbox-dialog__footer > :not(:first-child) {
     margin-left: 24px;
     margin-top: initial;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .lightbox-dialog {
-    --dialog-window-background-color: #212121;
   }
 }

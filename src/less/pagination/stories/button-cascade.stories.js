@@ -26,6 +26,12 @@ export const fontSize = () => `
         <li>
             <button class="pagination__item">5</button>
         </li>
+        <li>
+            <button class="pagination__item">6</button>
+        </li>
+        <li>
+            <button class="pagination__item">7</button>
+        </li>
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
@@ -60,6 +66,12 @@ export const color = () => `
         </li>
         <li>
             <button class="pagination__item">5</button>
+        </li>
+        <li>
+            <button class="pagination__item">6</button>
+        </li>
+        <li>
+            <button class="pagination__item">7</button>
         </li>
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
@@ -96,6 +108,12 @@ export const RTL = () => `
             </li>
             <li>
                 <button class="pagination__item">5</button>
+            </li>
+            <li>
+                <button class="pagination__item">6</button>
+            </li>
+            <li>
+                <button class="pagination__item">7</button>
             </li>
         </ol>
         <button aria-label="Next Page" class="icon-btn pagination__next">

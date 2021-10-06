@@ -2,52 +2,30 @@
 
 .signal {
     border: 1.5px solid;
-    border-radius: @signal-border-radius;
+    border-radius: @border-radius-medium;
     box-sizing: border-box;
     display: inline-block;
-    font-family: @font-family-market-sans;
     font-size: @font-size-small;
     font-weight: bold;
     letter-spacing: 0.5px;
-    margin: 8px 0;
+    margin: @spacing-extra-small 0;
     padding: 2px 12px 1px;
-
     text-align: center;
     text-transform: uppercase;
 }
 
 .signal--trustworthy {
-    .customColorProperty(signal-trustworthy-color);
+    .color-token(signal-trustworthy-color, color-action-primary);
 }
 
 .signal--recent {
-    .customColorProperty(signal-recent-color);
+    .color-token(signal-recent-color, color-text-confirmation);
 }
 
 .signal--time-sensitive {
-    .customColorProperty(signal-time-sensitive-color);
+    .color-token(signal-time-sensitive-color, color-status-attention);
 }
 
 .signal--neutral {
-    .customColorProperty(signal-neutral-color);
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .signal--trustworthy {
-            --signal-trustworthy-color: @color-b4-dark-mode;
-        }
-
-        .signal--neutral {
-            --signal-neutral-color: @color-grey5-dark-mode;
-        }
-
-        .signal--time-sensitive {
-            --signal-time-sensitive-color: @color-g6-dark-mode;
-        }
-
-        .signal--recent {
-            --signal-recent-color: @color-r4-dark-mode;
-        }
-    }
+    .color-token(signal-neutral-color, color-text-secondary);
 }

@@ -5,24 +5,20 @@
 }
 .menu-button__menu,
 .fake-menu-button__menu {
-  background-color: #fff;
-  background-color: var(--dropdown-items-background-color, #fff);
-  border-color: #ccc;
-  border-color: var(--dropdown-items-border-color, #ccc);
-  border-radius: 0;
-  border-radius: var(--dropdown-items-border-radius, 0);
-  box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
-  box-shadow: var(--dropdown-items-box-shadow, 0 2px 4px 0 rgba(199, 199, 199, 0.5));
+  background-color: var(--menu-button-menu-background-color, var(--color-background-default, #fff));
+  border-color: var(--menu-button-menu-border-color, var(--color-dropdown-border, #ccc));
+  border-radius: var(--menu-button-menu-border-radius, var(--border-radius-dropdown, 0));
   border-style: solid;
   border-width: 1px;
+  box-shadow: var(--menu-button-menu-box-shadow, var(--box-shadow-dropdown, 0 2px 4px 0 rgba(199, 199, 199, 0.5)));
   box-sizing: border-box;
-  min-width: 100%;
-  width: auto;
   display: none;
+  max-height: 400px;
+  min-width: 100%;
+  overflow-y: auto;
   position: absolute;
   top: calc(100% + 4px);
-  max-height: 400px;
-  overflow-y: auto;
+  width: auto;
   z-index: 2;
   outline: 0;
 }
@@ -39,21 +35,17 @@ span.fake-menu-button__button {
   padding: 0;
 }
 div.menu-button__item[role^="menuitem"] {
-  border-color: #fff;
-  border-color: var(--dropdown-item-border-color, #fff);
-  color: #333;
-  color: var(--dropdown-item-foreground-color, #333);
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  display: -webkit-inline-box;
   display: inline-flex;
   font-family: inherit;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
+  border-color: var(--menu-button-menuitem-border-color, var(--color-selection-list-item-border, #fff));
+  color: var(--menu-button-menuitem-foreground-color, var(--color-selection-list-item-foreground, #333));
   cursor: default;
 }
 div.menu-button__item[role^="menuitem"]:not(:last-child) {
@@ -63,45 +55,37 @@ div.menu-button__item[role^="menuitem"]:focus {
   outline-offset: -4px;
 }
 div.menu-button__item[role^="menuitem"]:hover {
-  background-color: #eee;
-  background-color: var(--dropdown-item-hover-background-color, #eee);
-  color: #333;
-  color: var(--dropdown-item-hover-foreground-color, #333);
+  background-color: var(--menu-button-menuitem-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
+  color: var(--menu-button-menuitem-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
 }
 div.menu-button__item[role^="menuitem"]:active {
   font-weight: normal;
 }
 div.menu-button__item[role^="menuitem"]:first-child {
-  border-top-left-radius: 0;
-  border-top-left-radius: var(--dropdown-items-border-radius, 0);
-  border-top-right-radius: 0;
-  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+  border-top-left-radius: var(--border-radius-dropdown, 0);
+  border-top-right-radius: var(--border-radius-dropdown, 0);
 }
 div.menu-button__item[role^="menuitem"]:last-child {
-  border-bottom-left-radius: 0;
-  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
-  border-bottom-right-radius: 0;
-  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-left-radius: var(--border-radius-dropdown, 0);
+  border-bottom-right-radius: var(--border-radius-dropdown, 0);
 }
 .menu-button__item svg.icon,
 .fake-menu-button__item svg.icon {
   align-self: center;
   fill: currentColor;
-  height: 8px;
+  height: 10px;
   margin: 0 auto;
   opacity: 0;
   stroke: currentColor;
   stroke-width: 0;
-  width: 8px;
+  width: 14px;
 }
 .menu-button__item svg.icon:last-child,
-.fake-menu-button__item svg.icon:last-child,
-.menu-button__item .badge {
+.fake-menu-button__item svg.icon:last-child {
   margin-left: 8px;
 }
 a.fake-menu-button__item {
-  color: #333;
-  color: var(--dropdown-fake-anchor-color, #333);
+  color: var(--menu-button-anchor-color, var(--color-selection-list-anchor, #333));
   text-decoration: none;
 }
 a.fake-menu-button__item:focus {
@@ -109,56 +93,47 @@ a.fake-menu-button__item:focus {
 }
 a.fake-menu-button__item:hover,
 a.fake-menu-button__item:visited {
-  color: #333;
-  color: var(--dropdown-fake-anchor-color, #333);
+  color: var(--menu-button-anchor-color, var(--color-selection-list-background, #fff));
 }
 button.fake-menu-button__item {
-  background-color: #fff;
-  background-color: var(--dropdown-fake-button-background-color, #fff);
-  color: #333;
-  color: var(--dropdown-fake-button-color, #333);
+  background-color: var(--menu-button-background-color, var(--color-selection-list-button-background, #fff));
+  color: var(--menu-button-foreground-color, var(--color-selection-list-button-foreground, #333));
   font-family: inherit;
   font-size: 1em;
   text-align: left;
 }
 button.fake-menu-button__item:active svg.icon,
 a.fake-menu-button__item:active svg.icon {
-  color: #ccc;
-  color: var(--dropdown-item-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 a.fake-menu-button__item:not([href]),
 button.fake-menu-button__item[disabled],
 div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
-  color: #999;
+  color: var(--menu-button-menuitem-disabled-foreground-color, var(--color-text-disabled, #999));
 }
 a.fake-menu-button__item[aria-current="page"] svg.icon,
 button.fake-menu-button__item[aria-current="page"] svg.icon {
   opacity: 1;
 }
 div.menu-button__item[role^="menuitem"]:active svg.icon {
-  color: #ccc;
-  color: var(--dropdown-item-active-status-color, #ccc);
+  color: var(--menu-menuitem-active-status-color, var(--color-selection-list-item-active-status, #ccc));
 }
 div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
   opacity: 1;
 }
 .fake-menu-button__menu a.fake-menu-button__item,
 .fake-menu-button__menu button.fake-menu-button__item {
-  border-color: #fff;
-  border-color: var(--dropdown-item-border-color, #fff);
-  color: #333;
-  color: var(--dropdown-item-foreground-color, #333);
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  display: -webkit-inline-box;
   display: inline-flex;
   font-family: inherit;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
+  border-color: var(--menu-button-menuitem-border-color, var(--color-selection-list-item-border, #fff));
+  color: var(--menu-button-menuitem-foreground-color, var(--color-selection-list-item-foreground, #333));
 }
 .fake-menu-button__menu a.fake-menu-button__item:not(:last-child),
 .fake-menu-button__menu button.fake-menu-button__item:not(:last-child) {
@@ -170,26 +145,20 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
 }
 .fake-menu-button__menu a.fake-menu-button__item:hover,
 .fake-menu-button__menu button.fake-menu-button__item:hover {
-  background-color: #eee;
-  background-color: var(--dropdown-item-hover-background-color, #eee);
-  color: #333;
-  color: var(--dropdown-item-hover-foreground-color, #333);
+  background-color: var(--menu-button-menuitem-hover-background-color, var(--color-selection-list-item-hover-background, #eee));
+  color: var(--menu-button-menuitem-hover-foreground-color, var(--color-selection-list-item-hover-foreground, #333));
 }
 .fake-menu-button__menu a.fake-menu-button__item:active,
 .fake-menu-button__menu button.fake-menu-button__item:active {
   font-weight: normal;
 }
 .fake-menu-button__menu > li:first-child a.fake-menu-button__item {
-  border-top-left-radius: 0;
-  border-top-left-radius: var(--dropdown-items-border-radius, 0);
-  border-top-right-radius: 0;
-  border-top-right-radius: var(--dropdown-items-border-radius, 0);
+  border-top-left-radius: var(--border-radius-dropdown, 0);
+  border-top-right-radius: var(--border-radius-dropdown, 0);
 }
 .fake-menu-button__menu > li:last-child a.fake-menu-button__item {
-  border-bottom-left-radius: 0;
-  border-bottom-left-radius: var(--dropdown-items-border-radius, 0);
-  border-bottom-right-radius: 0;
-  border-bottom-right-radius: var(--dropdown-items-border-radius, 0);
+  border-bottom-left-radius: var(--border-radius-dropdown, 0);
+  border-bottom-right-radius: var(--border-radius-dropdown, 0);
 }
 .menu-button__menu--fix-width,
 .fake-menu-button__menu--fix-width {
@@ -202,18 +171,25 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon {
   white-space: nowrap;
   width: 100%;
 }
-a.fake-menu-button__item span,
-button.fake-menu-button__item span,
-div.menu-button__item[role^="menuitem"] span {
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+a.fake-menu-button__item > span,
+button.fake-menu-button__item > span,
+div.menu-button__item[role^="menuitem"] > span {
+  flex: 1 0 auto;
   white-space: nowrap;
 }
-a.fake-menu-button__item span.badge,
-button.fake-menu-button__item span.badge,
-div.menu-button__item[role^="menuitem"] span.badge {
-  -webkit-box-flex: initial;
-          flex: initial;
+a.fake-menu-button__item--badged,
+button.fake-menu-button__item--badged,
+div.menu-button__item--badged[role^="menuitem"] {
+  padding-right: 36px;
+  position: relative;
+}
+a.fake-menu-button__item--badged .badge,
+button.fake-menu-button__item--badged .badge,
+div.menu-button__item--badged[role^="menuitem"] .badge {
+  margin-left: 4px;
+  position: absolute;
+  top: 6px;
+  z-index: 1;
 }
 .menu-button__menu--scroll {
   overflow-y: scroll;
@@ -254,21 +230,11 @@ div.menu-button__option--active[role="option"] {
   font-weight: normal;
 }
 hr.menu-button__separator {
-  border-color: #eee;
-  border-color: var(--dropdown-separator-color, #eee);
+  border-color: var(--menu-button-separator-color, var(--color-selection-list-separator, #eee));
   border-style: solid;
   border-width: 1px;
   margin: 0;
 }
 div.menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .menu-button,
-  .skin-experiment-dark-mode .fake-menu-button {
-    --dropdown-items-background-color: #171717;
-    --dropdown-item-border-color: #171717;
-    --dropdown-item-foreground-color: #dcdcdc;
-    --dropdown-item-hover-foreground-color: #333;
-  }
 }

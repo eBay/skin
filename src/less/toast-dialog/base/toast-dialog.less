@@ -1,19 +1,20 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-.toast-dialog-outline() {
-    .customOutlineColorProperty(toast-dialog-foreground-color);
+@toast-dialog-border-radius: @border-radius-dialog @border-radius-dialog 0 0;
+@toast-dialog-large-border-radius: @border-radius-dialog;
 
+.toast-dialog-outline() {
+    .outline-color-token(toast-dialog-foreground-color, color-background-default);
     outline-style: auto;
     outline-width: 1px;
 }
 
 .toast-dialog {
-    .customBackgroundColorProperty(toast-dialog-background-color);
-    .customColorProperty(toast-dialog-foreground-color);
-    .customBorderRadiusProperty(toast-dialog-border-radius);
-
+    .background-color-token(toast-dialog-background-color, color-action-primary);
+    .border-radius-token(toast-dialog-border-radius);
     bottom: 0;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
+    .color-token(toast-dialog-foreground-color, color-background-default);
     left: 0;
     max-height: 40vh;
     min-width: 320px;
@@ -26,7 +27,7 @@
 }
 
 .toast-dialog a {
-    .customColorProperty(toast-dialog-foreground-color);
+    .color-token(toast-dialog-foreground-color, color-background-default);
 }
 
 .toast-dialog a:focus {
@@ -77,7 +78,7 @@ button.toast-dialog__close {
     > svg,
     &:hover > svg,
     &:focus > svg {
-        .customFillProperty(toast-dialog-foreground-color);
+        .fill-token(toast-dialog-foreground-color, color-background-default);
     }
 
     &:focus {
@@ -97,17 +98,19 @@ button.toast-dialog__close {
 
     .btn--primary,
     .btn--secondary {
-        border: 1px solid @toast-dialog-foreground-color;
+        .border-color-token(toast-dialog-foreground-color, color-background-default);
+        border-style: solid;
+        border-width: 1px;
     }
 
     .btn--primary {
-        background-color: @toast-dialog-foreground-color;
-        color: @toast-dialog-background-color;
+        .background-color-token(toast-dialog-foreground-color, color-background-default);
+        .color-token(toast-dialog-background-color, color-action-primary);
     }
 
     .btn--secondary {
         background-color: transparent;
-        color: @toast-dialog-foreground-color;
+        .color-token(toast-dialog-foreground-color, color-background-default);
         font-weight: 700;
         margin-right: 8px;
     }
@@ -119,22 +122,25 @@ button.toast-dialog__close {
 
     .btn--primary:focus,
     .btn--primary:hover {
-        background-color: @toast-dialog-foreground-color;
-        border: 1px solid @toast-dialog-foreground-color;
+        .background-color-token(toast-dialog-foreground-color, color-background-default);
+        .border-color-token(toast-dialog-foreground-color, color-background-default);
+        border-style: solid;
+        border-width: 1px;
     }
 
     .btn--secondary:focus,
     .btn--secondary:hover {
-        background-color: @toast-dialog-background-color;
-        border: 1px solid @toast-dialog-foreground-color;
-        color: @toast-dialog-foreground-color;
+        .background-color-token(toast-dialog-background-color, color-action-primary);
+        .border-color-token(toast-dialog-foreground-color, color-background-default);
+        border-style: solid;
+        border-width: 1px;
+        .color-token(toast-dialog-foreground-color, color-background-default);
     }
 }
 
 @media (min-width: 601px) {
     .toast-dialog {
-        .customBorderRadiusProperty(toast-dialog-large-border-radius);
-
+        .border-radius-token(toast-dialog-large-border-radius);
         bottom: 16px;
         left: 16px;
         max-width: 480px;
@@ -149,12 +155,5 @@ button.toast-dialog__close {
 [dir="rtl"] {
     .toast-dialog__footer .btn--primary {
         margin-right: 7px;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode .toast-dialog {
-        --toast-dialog-background-color: @toast-dialog-background-color;
-        --toast-dialog-foreground-color: @toast-dialog-foreground-color;
     }
 }

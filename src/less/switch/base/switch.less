@@ -16,9 +16,8 @@ span.switch {
 }
 
 span.switch__button {
-    .customBackgroundColorProperty(switch-unchecked-background-color);
-
     align-self: center;
+    .background-color-token(switch-unchecked-background-color, color-text-secondary);
     border-radius: 400px;
     color: transparent;
     display: inline-block;
@@ -29,8 +28,7 @@ span.switch__button {
     width: 40px;
 
     &::after {
-        .customBackgroundColorProperty(switch-foreground-color);
-
+        .background-color-token(switch-foreground-color, color-background-default);
         border-radius: 50%;
         content: "";
         display: block;
@@ -57,7 +55,7 @@ span.switch__control {
 }
 
 input.switch__control[disabled] + span.switch__button {
-    .customBackgroundColorProperty(switch-disabled-background-color);
+    .background-color-token(switch-disabled-background-color, color-disabled);
 }
 
 input.switch__control:checked + span.switch__button::after {
@@ -65,14 +63,16 @@ input.switch__control:checked + span.switch__button::after {
 }
 
 span.switch__control[aria-disabled="true"] + span.switch__button {
-    .customBackgroundColorProperty(switch-disabled-background-color);
+    .background-color-token(switch-disabled-background-color, color-disabled);
 }
 
 input.switch__control {
     opacity: 0;
 
     &:focus + span.switch__button {
-        outline: 1px auto @switch-custom-outline-color;
+        .outline-color-token(switch-custom-outline-color, color-outline);
+        outline-style: auto;
+        outline-width: 1px;
     }
 
     &:focus:not(:focus-visible) + span.switch__button {
@@ -86,7 +86,7 @@ span.switch__control[aria-checked="true"] + span.switch__button::after {
 
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
-    .customBackgroundColorProperty(switch-checked-background-color);
+    .background-color-token(switch-checked-background-color, color-text-primary);
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -97,13 +97,5 @@ span.switch__control:focus:not(:focus-visible) {
 @media screen and (-ms-high-contrast: active) {
     input.switch__control {
         opacity: 1;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .switch {
-            --switch-checked-background-color: @color-b4-dark-mode;
-        }
     }
 }

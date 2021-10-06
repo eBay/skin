@@ -1,30 +1,20 @@
 div.filter-group {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
 button.filter-button,
 a.filter-link {
-  color: #333;
-  color: var(--filter-button-foreground-color, #333);
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   border: none;
   border-radius: 16px;
   box-sizing: border-box;
-  display: -webkit-inline-box;
+  color: var(--filter-button-foreground-color, var(--color-text-default, #333));
   display: inline-flex;
-  -webkit-box-flex: 0;
-          flex: 0 1 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  font-family: inherit;
-  font-size: 14px;
+  flex: 0 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
   height: 32px;
-  -webkit-box-pack: center;
-          justify-content: center;
-  line-height: 1.2em;
+  justify-content: center;
   margin: 0;
   max-width: 280px;
   min-width: 56px;
@@ -32,8 +22,7 @@ a.filter-link {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
-  background-color: #eee;
-  background-color: var(--filter-button-background-color, #eee);
+  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
 }
 button.filter-button + button.filter-button,
 button.filter-button + a.filter-link,
@@ -47,8 +36,7 @@ button.filter-button:hover,
 a.filter-link:hover,
 button.filter-button:active,
 a.filter-link:active {
-  background-color: #ddd;
-  background-color: var(--filter-button-hover-background-color, #ddd);
+  background-color: var(--filter-button-hover-background-color, var(--color-grey2, #ddd));
 }
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
@@ -60,13 +48,11 @@ a.filter-link .filter-link__cell {
   white-space: nowrap;
 }
 a.filter-link:visited {
-  color: #333;
-  color: var(--filter-button-foreground-color, #333);
+  color: var(--filter-button-foreground-color, var(--color-text-default, #333));
 }
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-  background-color: #dbeafe;
-  background-color: var(--filter-button-selected-background-color, #dbeafe);
+  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
   font-weight: bold;
 }
 button.filter-button[aria-pressed="true"]:focus,
@@ -75,8 +61,7 @@ button.filter-button[aria-pressed="true"]:hover,
 a.filter-link--selected:hover,
 button.filter-button[aria-pressed="true"]:active,
 a.filter-link--selected:active {
-  background-color: #a9cdfc;
-  background-color: var(--filter-button-selected-hover-background-color, #a9cdfc);
+  background-color: var(--filter-button-selected-hover-background-color, var(--color-grey2, #ddd));
 }
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],
@@ -86,7 +71,7 @@ a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
-  color: #ccc;
+  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
   font-weight: normal;
 }
 button.filter-button[disabled]:hover,
@@ -105,15 +90,14 @@ a.filter-link:not([href]):focus,
 a.filter-link[aria-disabled="true"]:focus,
 a.filter-link--selected:not([href]):focus,
 a.filter-link--selected[aria-disabled="true"]:focus {
-  background-color: #eee;
-  background-color: var(--filter-button-background-color, #eee);
-  color: #ccc;
+  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
+  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
 }
 button.filter-button[aria-pressed="true"][disabled]:hover,
 button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
 a.filter-link--selected[aria-disabled="true"]:hover {
-  background-color: #dbeafe;
+  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
 }
 /* stylelint-disable no-descending-specificity */
 button.filter-button:focus:not(:focus-visible),
@@ -121,14 +105,3 @@ a.filter-link:focus:not(:focus-visible) {
   outline: none;
 }
 /* stylelint-enable no-descending-specificity */
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode button.filter-button,
-  .skin-experiment-dark-mode a.filter-link,
-  .skin-experiment-dark-mode button.filter-menu-button__button {
-    --filter-button-background-color: #212121;
-    --filter-button-foreground-color: #dcdcdc;
-    --filter-button-hover-background-color: #393939;
-    --filter-button-selected-background-color: #5c6a95;
-    --filter-button-selected-hover-background-color: #5873c2;
-  }
-}

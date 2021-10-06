@@ -1,9 +1,7 @@
 summary.details__summary {
-  color: #0654ba;
-  color: var(--details-summary-foreground-color, #0654ba);
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   box-sizing: border-box;
+  color: var(--details-summary-foreground-color, var(--color-action-primary, #0654ba));
   display: inline-block;
   list-style-position: inside;
   list-style-type: none;
@@ -36,17 +34,11 @@ span.details__icon[hidden] {
   margin-right: 8px;
 }
 details.details[open] span.details__icon {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 details.details[open] summary.details__summary::before {
   content: none;
 }
 details.details summary:focus:not(:focus-visible) {
   outline: none;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode details {
-    --details-summary-foreground-color: #5192ff;
-  }
 }

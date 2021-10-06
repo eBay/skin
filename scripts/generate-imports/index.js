@@ -1,17 +1,19 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const path = require('path');
-const { add } = require('winston');
 const config = require('./config.json');
 const currentDir = path.dirname(path.dirname(__dirname));
 const files = fs
     .readdirSync(path.join(currentDir, 'dist'))
     .filter((filename) => config.skip.indexOf(filename) === -1);
-const configFiles = Object.keys(config.modules);
 const browserRemap = [];
 
 function getBrowserFileName(filename) {
     return path.join(currentDir, `${filename}.browser.json`);
+}
+
+function getMJSFileName(filename) {
+    return path.join(currentDir, `${filename}.mjs`);
 }
 
 function getFileName(filename, ds, ext) {
@@ -26,7 +28,7 @@ function getFilePath(filename, ds) {
 }
 
 function getBrowserRequireSyntax(filename) {
-    return `"require: ./${filename}.js"`;
+    return `"./${filename}.css"`;
 }
 
 function getCSSRequireSyntax(filepath, ext) {
@@ -43,6 +45,14 @@ function getJSRequireSyntax(filepath, ext) {
         fullFilePath = filepath;
     }
     return `require('./${fullFilePath}');\n`;
+}
+
+function getMJSRequireSyntax(filepath, ext) {
+    let fullFilePath = `${filepath}.${ext}`;
+    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
+        fullFilePath = filepath;
+    }
+    return `import './${fullFilePath}';\n`;
 }
 
 async function writeBrowserJSON(filename, base, additional) {
@@ -73,6 +83,7 @@ async function writeFile(filename, base, additional, getSyntax, ext) {
 
 async function cleanFile(file) {
     await fs.promises.unlink(getBrowserFileName(file));
+    await fs.promises.unlink(getMJSFileName(file));
 
     config.dsVersions.forEach(async (ds) => {
         const dsSkip = config.dsSkip[ds] || [];
@@ -91,6 +102,14 @@ async function generateFile(filename) {
     await writeBrowserJSON(filename, filename, additional);
     await writeFile(filename, filename, additional, getJSRequireSyntax, 'js');
     await writeFile(filename, filename, additional, getCSSRequireSyntax, 'css');
+
+    await fs.promises.writeFile(
+        getMJSFileName(filename),
+        [filename]
+            .concat(additional)
+            .map((file) => getMJSRequireSyntax(file, 'css'))
+            .join('')
+    );
 
     config.dsVersions.forEach(async (ds) => {
         const dsSkip = config.dsSkip[ds] || [];
@@ -111,11 +130,18 @@ async function generateTopLevelFiles() {
                 to: `./${items.filename}[ds-${items.ds}].js`,
                 'if-flag': `ds-${items.ds}`,
             }))
-            .concat({
-                from: './less.less',
-                to: './less[ds-4].less',
-                'if-flag': 'ds-4',
-            }),
+            .concat(
+                browserRemap.map((items) => ({
+                    from: `./${items.filename}.css`,
+                    to: `./${items.filename}[ds-${items.ds}].css`,
+                    'if-flag': `ds-${items.ds}`,
+                })),
+                {
+                    from: './less.less',
+                    to: './less[ds-4].less',
+                    'if-flag': 'ds-4',
+                }
+            ),
     };
 
     const indexFiles = browserRemap.filter(
@@ -126,6 +152,12 @@ async function generateTopLevelFiles() {
             return `require('./${item.filename}.js');\n`;
         })
         .join('');
+    const contentMJS = indexFiles
+        .map((item) => {
+            return `import './${item.filename}.css';\n`;
+        })
+        .join('');
+
     const contentBrowser = indexFiles
         .map((item) => {
             return `"require: ./${item.filename}.js"`;
@@ -141,6 +173,7 @@ async function generateTopLevelFiles() {
         prettier.format(JSON.stringify(browser), { parser: 'json' })
     );
     await fs.promises.writeFile(path.join(currentDir, 'index.js'), contentJS);
+    await fs.promises.writeFile(path.join(currentDir, 'index.mjs'), contentMJS);
     await fs.promises.writeFile(path.join(currentDir, 'index.css'), contentCSS);
     await fs.promises.writeFile(
         path.join(currentDir, 'index.browser.json'),
@@ -151,14 +184,20 @@ async function generateTopLevelFiles() {
 async function cleanTopLevelFiles() {
     await fs.promises.unlink(path.join(currentDir, 'browser.json'));
     await fs.promises.unlink(path.join(currentDir, 'index.js'));
+    await fs.promises.unlink(path.join(currentDir, 'index.mjs'));
     await fs.promises.unlink(path.join(currentDir, 'index.css'));
     await fs.promises.unlink(path.join(currentDir, 'index.browser.json'));
 }
 
 async function generateCustomModule(filename, modules) {
     await writeBrowserJSON(filename, null, modules);
-    await writeFile(filename, null, modules, getJSRequireSyntax, 'js');
     await writeFile(filename, null, modules, getCSSRequireSyntax, 'css');
+    await writeFile(filename, null, modules, getJSRequireSyntax, 'js');
+
+    await fs.promises.writeFile(
+        getMJSFileName(filename),
+        modules.map((file) => getMJSRequireSyntax(file, 'css')).join('')
+    );
 }
 
 require('yargs') // eslint-disable-line
@@ -187,13 +226,31 @@ require('yargs') // eslint-disable-line
         'Cleans all imports',
         () => {},
         async () => {
-            files.forEach(async (file) => {
-                return await cleanFile(file);
-            });
-            Object.keys(config.modules).forEach(async (moduleName) => {
-                return await cleanFile(moduleName);
-            });
-            await cleanTopLevelFiles();
+            await Promise.all(
+                files.map(async (file) => {
+                    try {
+                        return await cleanFile(file);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                })
+            );
+
+            await Promise.all(
+                Object.keys(config.modules).map(async (moduleName) => {
+                    try {
+                        return await cleanFile(moduleName);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                })
+            );
+
+            try {
+                await cleanTopLevelFiles();
+            } catch (e) {
+                console.error(e);
+            }
         }
     )
     .option('verbose', {

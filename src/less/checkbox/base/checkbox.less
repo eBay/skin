@@ -8,25 +8,25 @@
 }
 
 .checkbox__control[type="checkbox"] {
-    height: @checkbox-dimensions;
-    min-width: @checkbox-dimensions;
-    width: @checkbox-dimensions;
+    height: @dimensions-checkbox;
+    min-width: @dimensions-checkbox;
+    width: @dimensions-checkbox;
 }
 
 .checkbox--large .checkbox__control[type="checkbox"] {
-    height: @checkbox-large-dimensions;
-    min-width: @checkbox-large-dimensions;
-    width: @checkbox-large-dimensions;
+    height: @dimensions-checkbox-large;
+    min-width: @dimensions-checkbox-large;
+    width: @dimensions-checkbox-large;
 }
 
 span.checkbox__icon {
     display: inline-flex;
-    height: @checkbox-dimensions;
+    height: @dimensions-checkbox;
     outline-offset: 1px;
 }
 
 .checkbox--large span.checkbox__icon {
-    height: @checkbox-large-dimensions;
+    height: @dimensions-checkbox-large;
 }
 
 // progressive enhancement - override hidden SVG
@@ -35,11 +35,11 @@ span.checkbox__icon[hidden] {
 }
 
 svg.checkbox__checked {
-    .customColorProperty(checkbox-checked-color);
+    .color-token(checkbox-checked-color, color-action-primary);
 }
 
 svg.checkbox__unchecked {
-    .customColorProperty(checkbox-unchecked-color);
+    .color-token(checkbox-unchecked-color, color-text-default);
 }
 
 input.checkbox__control[type="checkbox"] {
@@ -54,13 +54,13 @@ input.checkbox__control[type="checkbox"] {
 .checkbox svg {
     .foreground-icon-base-mixin();
 
-    height: @checkbox-dimensions;
-    width: @checkbox-dimensions;
+    height: @dimensions-checkbox;
+    width: @dimensions-checkbox;
 }
 
 .checkbox--large svg {
-    height: @checkbox-large-dimensions;
-    width: @checkbox-large-dimensions;
+    height: @dimensions-checkbox-large;
+    width: @dimensions-checkbox-large;
 }
 
 input.checkbox__control[type="checkbox"] + span.checkbox__icon svg.checkbox__checked {
@@ -80,28 +80,20 @@ input.checkbox__control[type="checkbox"]:checked + span.checkbox__icon svg.check
 }
 
 input.checkbox__control[type="checkbox"][disabled] + span.checkbox__icon {
-    opacity: @checkbox-disabled-opacity;
+    opacity: 1;
 
     svg {
-        fill: @checkbox-disabled-color;
+        .fill-token(checkbox-disabled-color, color-action-disabled);
     }
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
-    outline: @checkbox-custom-outline;
+    outline: 1px auto;
+    .outline-color-token(checkbox-outline, color-text-secondary);
     outline-offset: 2px;
 }
 
 input.checkbox__control[type="checkbox"]:focus:not(:focus-visible) + span.checkbox__icon {
     outline: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .checkbox {
-            --checkbox-checked-color: @color-action-primary-dark-mode;
-            --checkbox-unchecked-color: @color-text-default-dark-mode;
-        }
-    }
 }

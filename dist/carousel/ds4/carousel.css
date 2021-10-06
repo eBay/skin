@@ -12,17 +12,12 @@
   display: none;
 }
 .carousel__list {
-  display: -webkit-box;
   display: flex;
   margin: 0;
   padding: 0;
   position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.45s ease-in-out;
-  transition: -webkit-transform 0.45s ease-in-out;
+  transform: translate3d(0, 0, 0);
   transition: transform 0.45s ease-in-out;
-  transition: transform 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   width: 100%;
   will-change: transform;
 }
@@ -32,14 +27,12 @@
   list-style: none;
 }
 .carousel__playback {
-  background-color: rgba(0, 0, 0, 0.45);
-  background-color: var(--carousel-playback-background-color, rgba(0, 0, 0, 0.45));
-  color: #fff;
-  color: var(--carousel-playback-foreground-color, #fff);
+  background-color: var(--carousel-playback-background-color, var(--color-background-playback, rgba(0, 0, 0, 0.45)));
   border: 0;
   border-radius: 50%;
   bottom: 16px;
   box-sizing: border-box;
+  color: var(--carousel-playback-foreground-color, var(--color-foreground-playback, #fff));
   height: 40px;
   margin-bottom: 19px;
   margin-right: 19px;
@@ -57,12 +50,9 @@
   padding-left: 1px;
 }
 .carousel__list--image-treatment > li {
-  -webkit-box-align: center;
-          align-items: center;
-  display: -webkit-box;
+  align-items: center;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   position: relative;
 }
 .carousel__list--image-treatment > li::after {
@@ -85,26 +75,21 @@ div.carousel {
   margin: 16px 0;
 }
 .carousel__control {
-  background-color: #fff;
-  background-color: var(--carousel-paddle-background-color, #fff);
-  -webkit-box-align: center;
-          align-items: center;
-  border: 1px solid #ddd;
+  background-color: var(--carousel-paddle-background-color, var(--color-background-paddle, #fff));
+  align-items: center;
+  border: 1px solid;
+  border-color: var(--carousel-paddle-border-color, var(--color-border-paddle, #ddd));
   border-radius: 16px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-  display: -webkit-box;
   display: flex;
   font-size: 18px;
   height: 32px;
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   opacity: 0;
   padding: 0;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transition: opacity 0.45s ease-in-out;
+  transform: translateY(-50%);
   transition: opacity 0.45s ease-in-out;
   width: 32px;
   z-index: 1;
@@ -122,8 +107,7 @@ div.carousel {
   margin-left: -2px;
 }
 .carousel__control svg {
-  color: #333;
-  color: var(--carousel-paddle-foreground-color, #333);
+  color: var(--carousel-paddle-foreground-color, var(--color-foreground-paddle, #333));
 }
 .carousel__control:focus:not(:focus-visible) {
   outline: none;
@@ -153,14 +137,14 @@ div.carousel {
   opacity: 0.3;
 }
 .carousel__control:hover {
-  background-color: #707070;
-  border-color: #707070;
+  background-color: var(--carousel-paddle-hover-background-color, var(--color-background-hover-paddle, #707070));
+  border-color: var(--carousel-paddle-hover-background-color, var(--color-background-hover-paddle, #707070));
 }
 .carousel__control:hover svg {
-  color: #fff;
+  color: var(--carousel-paddle-hover-foreground-color, var(--color-foreground-hover-paddle, #fff));
 }
 .carousel__control:active {
-  background-color: #333;
+  background-color: var(--carousel-paddle-active-background-color, var(--color-background-active-paddle, #333));
 }
 .carousel__playback:focus:not(:focus-visible) {
   outline: none;
@@ -170,7 +154,7 @@ span.carousel__container {
   display: inline-block;
 }
 .carousel__viewport--mask {
-  -webkit-mask-image: -webkit-linear-gradient(left, #fff 85%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, #fff 85%, rgba(0, 0, 0, 0) 100%);
           mask-image: linear-gradient(to right, #fff 85%, rgba(0, 0, 0, 0) 100%);
 }
 [dir="rtl"] .carousel__control--prev {
@@ -234,10 +218,7 @@ span.carousel__container {
     scroll-snap-type: x mandatory;
     scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     scrollbar-width: thin;
-    -webkit-transition: border-color 0.5s, scrollbar-color 0.5s, -webkit-transform 0.45s ease-in-out;
-    transition: border-color 0.5s, scrollbar-color 0.5s, -webkit-transform 0.45s ease-in-out;
     transition: border-color 0.5s, scrollbar-color 0.5s, transform 0.45s ease-in-out;
-    transition: border-color 0.5s, scrollbar-color 0.5s, transform 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   }
   .carousel:not(.carousel__autoplay) .carousel__list:hover {
     border-color: rgba(0, 0, 0, 0.4);
@@ -276,12 +257,4 @@ span.carousel__container {
 }
 .carousel--hidden-scrollbar .carousel__container .carousel__list {
   padding-bottom: 80px;
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .carousel {
-    --carousel-paddle-background-color: #171717;
-    --carousel-paddle-foreground-color: #dcdcdc;
-    --carousel-playback-background-color: #171717;
-    --carousel-playback-foreground-color: #dcdcdc;
-  }
 }

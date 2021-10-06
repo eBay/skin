@@ -1,29 +1,15 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .badge {
-    .customBackgroundColorProperty(badge-background-color);
-    .customColorProperty(badge-foreground-color);
-
     align-items: center;
-    border-radius: 20px;
-    box-sizing: border-box;
+    .background-color-token(badge-background-color, color-status-attention);
+    border-radius: 16px;
+    .color-token(badge-foreground-color, color-background-default);
     display: inline-flex;
-    font-size: @font-size-12;
-    font-weight: @font-weight-bold;
-    height: 20px;
+    font-size: 10px;
+    height: 16px;
     justify-content: center;
-    min-width: 20px;
-    padding: 1px 7px 0;
-    position: relative;
-    top: calc(50% - 18px);
+    min-width: 8px;
+    padding: 2px 6px;
     white-space: nowrap;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .badge {
-            --badge-background-color: @color-r4-dark-mode;
-            --badge-foreground-color: @color-background-default-dark-mode;
-        }
-    }
 }

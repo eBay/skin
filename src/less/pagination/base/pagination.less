@@ -1,9 +1,9 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 nav.pagination {
-    .flex-items-centered(inline-flex);
-    .customColorProperty(pagination-item-foreground-color);
+    .inline-flex-items-centered();
 
+    .color-token(pagination-item-foreground-color, color-text-secondary);
     font-family: inherit;
     font-size: 1rem;
     margin: 8px 0;
@@ -17,14 +17,13 @@ nav.pagination button {
 }
 
 ol.pagination__items {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
 
     box-sizing: border-box;
-    flex-wrap: wrap;
-    height: 48px;
+    height: 44px;
     list-style-type: none;
     margin: 0;
-    overflow: hidden; // causes keyboard focus outline to be obscured (#927)
+    overflow: hidden;
     padding: 0;
 
     li:not([hidden]) {
@@ -36,41 +35,42 @@ a.pagination__next,
 a.pagination__previous,
 button.pagination__next,
 button.pagination__previous {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
+}
 
-    outline-offset: -4px; // match items, needed because of hidden overflow
+a.pagination__next,
+button.pagination__next {
+    margin-left: 8px;
+}
+
+a.pagination__previous,
+button.pagination__previous {
+    margin-right: 8px;
 }
 
 .pagination__item {
-    .flex-items-centered(inline-flex);
+    .inline-flex-items-centered();
 
     box-sizing: border-box;
-    font-weight: @pagination-item-font-weight;
-    height: 48px;
-    margin: 0 4px;
-    outline-offset: -4px; // needed because of hidden overflow
-    width: 48px;
+    font-weight: @font-weight-regular;
+    height: 44px;
+    width: 44px;
+}
 
-    &:active {
-        .customColorProperty(pagination-item-active-foreground-color);
-    }
+a.pagination__item,
+button.pagination__item {
+    position: relative;
 
-    &:focus,
-    &:hover {
-        .customColorProperty(pagination-item-hover-foreground-color);
-
-        text-decoration: underline;
-    }
-
-    &[aria-current="page"] {
-        .customBackgroundColorProperty(pagination-item-current-background-color);
-        .customBorderColorProperty(pagination-item-current-border-color);
-        .customColorProperty(pagination-item-current-foreground-color);
-        .customBorderRadiusProperty(pagination-item-current-border-radius);
-
-        border-style: solid;
-        border-width: 2px;
-        font-weight: @pagination-item-current-font-weight;
+    &::after {
+        background-color: transparent;
+        border-radius: 4px;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: calc(50% - 10px);
+        position: absolute;
+        width: 20px;
     }
 }
 
@@ -82,6 +82,46 @@ button.pagination__item {
 
 a.pagination__item {
     text-decoration: none;
+}
+
+a.pagination__item[aria-current="page"] {
+    .color-token(pagination-item-current-foreground-color, color-text-default);
+    font-weight: @font-weight-bold;
+
+    &::after {
+        background-color: currentColor;
+    }
+}
+
+a.pagination__item:not([aria-current="page"]),
+button.pagination__item:not([aria-current="page"]) {
+    &:active {
+        .color-token(pagination-item-active-foreground-color, color-text-default);
+    }
+
+    &:focus,
+    &:hover {
+        .color-token(pagination-item-hover-foreground-color, color-action-hover);
+
+        &::after {
+            background-color: currentColor;
+        }
+    }
+}
+
+span.pagination__item svg.icon--overflow {
+    transform: rotate(90deg);
+}
+
+span.pagination__item button.icon-btn--transparent {
+    &:focus,
+    &:hover {
+        .background-color-token(pagination-overflow-hover-background-color, color-grey2);
+    }
+
+    &:active {
+        .background-color-token(pagination-overflow-active-background-color, color-grey3);
+    }
 }
 
 nav.pagination--fluid {
@@ -98,24 +138,31 @@ nav.pagination--fluid ol.pagination__items li {
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+/* stylelint-disable no-descending-specificity */
 a.pagination__item:focus,
 button.pagination__item:focus {
     &:not(:focus-visible) {
         outline: none;
     }
 }
+/* stylelint-enable no-descending-specificity */
 
-@media (min-width: 601px) {
-    nav.pagination {
-        margin: 16px 0;
+[dir="rtl"] {
+    a.pagination__next,
+    button.pagination__next {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    a.pagination__previous,
+    button.pagination__previous {
+        margin-left: 8px;
+        margin-right: 0;
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .pagination {
-            --pagination-item-foreground-color: @color-text-default-dark-mode;
-            --pagination-item-hover-foreground-color: @color-b4-dark-mode;
-        }
+@media (min-width: @screen-size-3) {
+    nav.pagination {
+        margin: 16px 0;
     }
 }

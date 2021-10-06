@@ -1,12 +1,11 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 .snackbar-dialog {
-    .customBackgroundColorProperty(snackbar-dialog-background-color);
-    .customColorProperty(snackbar-dialog-foreground-color);
-    .customBorderRadiusProperty(snackbar-dialog-border-radius);
-
+    .background-color-token(snackbar-dialog-background-color, color-action-tertiary);
+    .border-radius-token(snackbar-dialog-border-radius, border-radius-dialog);
     bottom: 0;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
+    .color-token(snackbar-dialog-foreground-color, color-text-default);
     left: 0;
     max-height: 40vh;
     min-width: 320px;
@@ -72,8 +71,7 @@
 
 @media (min-width: 601px) {
     .snackbar-dialog {
-        .customBorderRadiusProperty(snackbar-dialog-large-border-radius);
-
+        .border-radius-token(snackbar-dialog-large-border-radius, border-radius-dialog);
         bottom: 16px;
         left: 16px;
         max-width: 480px;
@@ -95,12 +93,5 @@
     .snackbar-dialog__actions {
         margin-left: 0;
         margin-right: auto;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode .snackbar-dialog {
-        --snackbar-dialog-background-color: @snackbar-dialog-background-color;
-        --snackbar-dialog-foreground-color: @snackbar-dialog-foreground-color;
     }
 }

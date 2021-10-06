@@ -1,6 +1,36 @@
 export default { title: 'Page Notice/Page Notice' };
 
-export const confirmation = () => `
+export const general = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We've updated the look and feel of this page. Customize anytime in settings.</h2>
+    </div>
+</section>
+`;
+
+export const generalWithButton = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We've updated the look and feel of this page. Customize anytime in settings.</h2>
+    </div>
+    <div class="page-notice__footer">
+        <button class="fake-link">Dismiss</button>
+    </div>
+</section>
+`;
+
+export const generalWithLink = () => `
+<section class="page-notice page-notice--general" role="region" aria-label="Information">
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">We've updated the look and feel of this page.</h2>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
+    </div>
+</section>
+`;
+
+export const confirmationWithButton = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
         <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
@@ -8,35 +38,31 @@ export const confirmation = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h3 class="page-notice__title">Your new listing is live:</h3>
-        <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback).</p>
+        <h2 class="page-notice__title">You have opted into eBay Pay</h2>
     </div>
     <div class="page-notice__footer">
-        <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
 
-export const RTL = () => `
-<div dir="rtl">
-    <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
-        <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use xlink:href="#icon-confirmation-filled"></use>
-            </svg>
-        </div>
-        <div class="page-notice__main">
-            <h3 class="page-notice__title">:Your new listing is live</h3>
-            <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback)</p>
-        </div>
-        <div class="page-notice__footer">
-            <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
-        </div>
-    </section>
-<div>
+export const confirmationWithLink = () => `
+<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+    <div class="page-notice__header">
+        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+            <use xlink:href="#icon-confirmation-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">You have opted into eBay Pay</h2>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
+    </div>
+</section>
 `;
 
-export const attention = () => `
+export const attentionWithButton = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
         <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
@@ -44,16 +70,31 @@ export const attention = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h3 class="page-notice__title">Please check the following details:</h3>
-        <p><a href="#">Card number</a>, <a href="#">Expiration date</a> &amp; <a href="#">Security code</a>.</p>
+        <h2 class="page-notice__title">Your selling account has been deactivated.</h2>
     </div>
     <div class="page-notice__footer">
-        <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
 
-export const information = () => `
+export const attentionWithLink = () => `
+<section class="page-notice page-notice--attention" role="region" aria-label="Attention">
+    <div class="page-notice__header">
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h2 class="page-notice__title">Your selling account has been deactivated.</h2>
+    </div>
+    <div class="page-notice__footer">
+        <a href="https://ebay.com">Learn More</a>
+    </div>
+</section>
+`;
+
+export const informationWithButton = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
         <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
@@ -61,59 +102,40 @@ export const information = () => `
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Free shipping on your next pair of shoes:</h2>
-        <p><a href="#">Learn more</a>.</p>
+        <h2 class="page-notice__title">Free shipping on your next pair of shoes.</h2>
     </div>
     <div class="page-notice__footer">
-        <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        <button class="fake-link">Dismiss</button>
     </div>
 </section>
 `;
 
-export const celebration = () => `
-<section class="page-notice page-notice--celebration" role="region" aria-label="Success">
+export const informationWithLink = () => `
+<section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Success">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
-        <h2 class="page-notice__title">Your order's in!</h2>
-        <p>We'll email updates to jonsnow@gmail.com. You should get it by Thu, Sept 22.</p>
+        <h2 class="page-notice__title">Free shipping on your next pair of shoes.</h2>
     </div>
     <div class="page-notice__footer">
-        <a href="https://www.ebay.com" class="fake-btn fake-btn--secondary fake-btn--transparent">Action</a>
+        <a href="https://ebay.com">Learn more</a>
     </div>
 </section>
 `;
 
-export const buttonCta = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
+export const formErrors = () => `
+<section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled"></use>
         </svg>
     </div>
     <div class="page-notice__main">
-        <h3 class="page-notice__title">Your new listing is live:</h3>
-        <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback).</p>
-    </div>
-    <div class="page-notice__footer">
-        <button class="btn btn--secondary btn--transparent">Action</button>
-    </div>
-</section>
-`;
-
-export const noFooter = () => `
-<section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
-    <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
-        </svg>
-    </div>
-    <div class="page-notice__main">
-        <h3 class="page-notice__title">Your new listing is live:</h3>
-        <p><a href="#">Spam and Eggs From the Cow's Perspective</a> (paperback).</p>
+        <h2 class="page-notice__title">We found problems with your form.</h2>
+        <p><a href="#">Error 1</a>, <a href="#">Error 2</a>, <a href="#">Error 3</a>.</p>
     </div>
 </section>
 `;

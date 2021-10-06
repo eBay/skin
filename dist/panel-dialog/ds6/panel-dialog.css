@@ -1,6 +1,6 @@
 /* large screens */
 .panel-dialog[role="dialog"] {
-  background-color: rgba(17, 24, 32, 0.7);
+  background-color: var(--dialog-mask-background-color, var(--color-mask-faded, rgba(17, 24, 32, 0.7)));
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
@@ -10,24 +10,16 @@
   top: 0;
   will-change: background-color;
   z-index: 100000;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
 }
 .panel-dialog[role="dialog"]:not([hidden]) {
-  display: -webkit-box;
   display: flex;
 }
 .panel-dialog__window {
-  background-color: #fff;
-  background-color: var(--dialog-window-background-color, #fff);
-  display: -webkit-box;
+  background-color: var(--dialog-window-background-color, var(--color-background-default, #fff));
   display: flex;
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex: 1 0 auto;
+  flex-direction: column;
   min-height: 55px;
   will-change: opacity, transform;
   border-right: 1px solid rgba(153, 153, 153, 0.18);
@@ -40,7 +32,6 @@
   border-left: 1px solid rgba(153, 153, 153, 0.18);
 }
 .panel-dialog__header {
-  display: -webkit-box;
   display: flex;
   flex-shrink: 0;
   margin: 16px 8px 0;
@@ -53,8 +44,7 @@
 .panel-dialog__header h5,
 .panel-dialog__header h6 {
   align-self: center;
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 0 8px;
 }
 .panel-dialog__header > :last-child:not(:only-child) {
@@ -66,8 +56,7 @@
 }
 .panel-dialog__main {
   box-sizing: border-box;
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   margin: 16px;
   position: relative;
 }
@@ -76,20 +65,6 @@
 }
 .panel-dialog__main > :last-child {
   margin-bottom: 0;
-}
-.panel-dialog__footer {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
-  padding: 16px;
-  position: relative;
-}
-.panel-dialog__footer > :not(:first-child) {
-  margin-top: 16px;
 }
 button.panel-dialog__close {
   align-self: center;
@@ -107,26 +82,20 @@ button.panel-dialog__close {
 }
 .panel-dialog--show.panel-dialog--mask-fade,
 .panel-dialog--hide.panel-dialog--mask-fade {
-  -webkit-transition: background-color 0.16s ease-out;
   transition: background-color 0.16s ease-out;
 }
 .panel-dialog--show.panel-dialog--mask-fade-slow,
 .panel-dialog--hide.panel-dialog--mask-fade-slow {
-  -webkit-transition: background-color 0.32s ease-out;
   transition: background-color 0.32s ease-out;
 }
 .panel-dialog--show .panel-dialog__window--slide,
 .panel-dialog--hide .panel-dialog__window--slide {
-  -webkit-transition: -webkit-transform 0.32s ease-out;
-  transition: -webkit-transform 0.32s ease-out;
   transition: transform 0.32s ease-out;
-  transition: transform 0.32s ease-out, -webkit-transform 0.32s ease-out;
 }
 .panel-dialog--hide.panel-dialog--hide,
 .panel-dialog--hide.panel-dialog--show-init,
 .panel-dialog--show-init.panel-dialog--hide,
 .panel-dialog--show-init.panel-dialog--show-init {
-  display: -webkit-box;
   display: flex;
 }
 .panel-dialog--hide.panel-dialog--mask-fade,
@@ -137,29 +106,24 @@ button.panel-dialog__close {
 }
 .panel-dialog--hide .panel-dialog__window--slide-left,
 .panel-dialog--show-init .panel-dialog__window--slide-left {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 .panel-dialog--hide .panel-dialog__window--slide-right,
 .panel-dialog--show-init .panel-dialog__window--slide-right {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
 }
 .panel-dialog--hide .panel-dialog__window--slide,
 .panel-dialog--show-init .panel-dialog__window--slide {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 .panel-dialog--hide .panel-dialog__window--end.panel-dialog__window--slide,
 .panel-dialog--show-init .panel-dialog__window--end.panel-dialog__window--slide {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
 }
 .panel-dialog--show.panel-dialog--show,
 .panel-dialog--show.panel-dialog--hide-init,
 .panel-dialog--hide-init.panel-dialog--show,
 .panel-dialog--hide-init.panel-dialog--hide-init {
-  display: -webkit-box;
   display: flex;
 }
 .panel-dialog--show.panel-dialog--mask-fade,
@@ -170,8 +134,7 @@ button.panel-dialog__close {
 }
 .panel-dialog--show .panel-dialog__window--slide,
 .panel-dialog--hide-init .panel-dialog__window--slide {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 @media (min-width: 601px) {
   .panel-dialog__window {
@@ -182,22 +145,5 @@ button.panel-dialog__close {
   }
   .panel-dialog__main {
     margin: 16px 24px 24px;
-  }
-  .panel-dialog__footer {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-direction: row;
-    -webkit-box-pack: end;
-            justify-content: flex-end;
-    padding: 24px;
-  }
-  .panel-dialog__footer > :not(:first-child) {
-    margin-left: 24px;
-    margin-top: initial;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .skin-experiment-dark-mode .panel-dialog {
-    --dialog-window-background-color: #212121;
   }
 }

@@ -1,0 +1,254 @@
+<div id="combobox">
+    {% include section-header.html name="combobox" version=page.versions.combobox %}
+
+    <p>A combobox is a combination of textbox and listbox. The textbox value can be constructed via manual text entry as normal, <em>or</em> via selection from the listbox options, <em>or</em> a combination of both.</p>
+    <p><strong>TIP</strong>: A combobox can be further enhanced with <a href="https://ebay.github.io/mindpatterns/input/combobox/index.html">autocomplete behaviour</a>.</p>
+
+    <h3>Default Combobox</h3>
+    <p>Selecting an option should simply fill the textbox with that value. Options may not have state or any other kind of secondary behaviour.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <form action="index.html">
+                <span class="combobox">
+                    <span class="combobox__control">
+                        <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-label="Combobox demo" aria-owns="listbox-1" />
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                    <div class="combobox__listbox">
+                        <div id="listbox-1" class="combobox__options" role="listbox">
+                            <div class="combobox__option" role="option">
+                                <span>Option 1</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 2</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="combobox">
+    <span class="combobox__control">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox-1" />
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox-1" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="combobox-disabled">Disabled Combobox</h3>
+    <p>Apply the <span class="highlight">disabled</span> property to disable the combobox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <form action="index.html">
+                <span class="combobox">
+                    <span class="combobox__control">
+                        <input name="combobox-disabled" placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-label="Combobox demo" aria-owns="listbox-2" disabled />
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                    <div class="combobox__listbox">
+                        <div id="listbox-2" class="combobox__options" role="listbox">
+                            <div class="combobox__option" role="option">
+                                <span>Option 1</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 2</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="combobox">
+    <span class="combobox__control">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox-2" disabled />
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox-2" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <!--
+    <h3 id="combobox-readonly">Readonly Combobox</h3>
+    <p>A readonly combobox is intended for use as a custom implementation of the native HTML select element. Unlike the default combobox, its options <em>do</em> have state. Notice that an additional span element is required within each option to host the status icon.</p>
+    <p>Unfortunately, a readonly combobox exhibits some UX issues on iOS, which is why for now we recommend using the <a href="#listbox">listbox</a> instead.</p>
+    <p>Apply the <span class="highlight">combobox--readonly</span> modifier and <span class="highlight">readonly</span> input property to create a readonly combobox.</p>
+    <p>By default, the textbox value should match the first option if the user does not specify a selection. This matches the behaviour of a native HTML select element.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <form action="index.html">
+                <span class="combobox combobox--readonly">
+                    <span class="combobox__control">
+                        <input name="combobox-readonly" role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-label="Combobox demo" aria-owns="listbox4" readonly />
+                        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                    <div class="combobox__listbox">
+                        <div id="listbox4" class="combobox__options" role="listbox">
+                            <div class="combobox__option" role="option">
+                                <span class="combobox__value">Option 1</span>
+                                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                    {% include symbol.html name="tick-small" %}
+                                </svg>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span class="combobox__value">Option 2</span>
+                                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                    {% include symbol.html name="tick-small" %}
+                                </svg>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span class="combobox__value">Option 3</span>
+                                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                                    {% include symbol.html name="tick-small" %}
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="combobox combobox--readonly">
+    <span class="combobox__control">
+        <input role="combobox" type="text" value="Option 1" aria-haspopup="listbox" aria-owns="listbox4" readonly />
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox4" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span class="combobox__value">Option 1</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="combobox__option" role="option">
+                <span class="combobox__value">Option 2</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="combobox__option" role="option">
+                <span class="combobox__value">Option 3</span>
+                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
+                    <use xlink:href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="combobox-button">Icon Button Combobox</h3>
+    <p>In some cases, the suggestion overlay might be controlled by an <a href="#icon-button">icon button</a>. Use an <span class="highlight">icon-btn</span> and the <span class="highlight">combobox__control--actionable</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <form action="index.html">
+                <span class="combobox">
+                    <span class="combobox__control combobox__control--actionable">
+                        <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-label="Combobox demo" aria-owns="listbox5" />
+                        <button class="icon-btn" type="button" aria-label="Expand Suggestions">
+                            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                                {% include symbol.html name="dropdown" %}
+                            </svg>
+                        </button>
+                    </span>
+                    <div class="combobox__listbox">
+                        <div id="listbox5" class="combobox__options" role="listbox">
+                            <div class="combobox__option" role="option">
+                                <span>Option 1</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 2</span>
+                            </div>
+                            <div class="combobox__option" role="option">
+                                <span>Option 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </form>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="combobox">
+    <span class="combobox__control combobox__control--actionable">
+        <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox5" />
+        <button class="icon-btn" type="button" aria-label="Expand Suggestions">
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </button>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox5" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    -->
+</div>

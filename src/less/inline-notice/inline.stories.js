@@ -1,6 +1,6 @@
 export default { title: 'Inline Notice/Inline Notice' };
 
-export const confirmatiion = () => `
+export const confirmation = () => `
 <div class="inline-notice inline-notice--confirmation">
     <span class="inline-notice__header">
         <svg focusable="false" class="icon icon--confirmation-filled" role="img">
@@ -50,6 +50,14 @@ export const information = () => `
     </span>
     <span class="inline-notice__main">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </span>
+</div>
+`;
+
+export const general = () => `
+<div class="inline-notice">
+    <span class="inline-notice__main">
+        <p>Your price has been updated. <a href="http://www.ebay.com">Dismiss</a></p>
     </span>
 </div>
 `;

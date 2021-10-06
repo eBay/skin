@@ -2,38 +2,38 @@
 
 a.cta-btn {
     .btn-base();
-    .customBackgroundColorProperty(cta-button-background-color);
-    .customBorderRadiusProperty(button-border-radius);
-    .customColorProperty(cta-button-foreground-color);
-    .customPaddingProperty(button-padding-vertical, cta-button-padding-horizontal);
 
+    .background-color-token(cta-btn-background-color, color-background-default);
     border-color: currentColor;
+    .border-radius-token(cta-btn-border-radius, border-radius-button);
+    .color-token(cta-btn-foreground-color, color-text-default);
     display: inline-block;
-    font-size: @button-font-size;
+    font-size: @font-size-regular;
     max-width: 100%;
+    padding: @padding-vertical-button 20px;
 }
 
 a.cta-btn:visited {
-    .customColorProperty(cta-button-visited-foreground-color);
+    .color-token(cta-btn-visited-foreground-color, color-text-default);
 }
 
 a.cta-btn:focus,
 a.cta-btn:hover {
-    .customBackgroundColorProperty(cta-button-hover-background-color);
-    .customBorderColorProperty(cta-button-hover-border-color);
-    .customColorProperty(cta-button-hover-foreground-color);
+    .background-color-token(cta-btn-hover-background-color, color-text-default);
+    .border-color-token(cta-btn-hover-border-color, color-text-default);
+    .color-token(cta-btn-hover-foreground-color, color-background-default);
 }
 
 a.cta-btn:not([href]),
 a.cta-btn[aria-disabled="true"] {
-    .customBackgroundColorProperty(cta-button-disabled-background-color);
-    .customBorderColorProperty(cta-button-disabled-border-color);
-    .customColorProperty(cta-button-disabled-foreground-color);
+    .background-color-token(cta-btn-disabled-background-color, color-background-default);
+    .border-color-token(cta-btn-disabled-border-color, color-action-disabled);
+    .color-token(cta-btn-disabled-foreground-color, color-action-disabled);
 }
 
 a.cta-btn--wide {
-    padding-left: @button-wide-padding-horizontal;
-    padding-right: @button-wide-padding-horizontal;
+    padding-left: @padding-horizontal-button-wide;
+    padding-right: @padding-horizontal-button-wide;
 }
 
 a.cta-btn--fluid {
@@ -76,17 +76,4 @@ a.cta-btn--large-truncated {
 a.cta-btn--large-fixed-height {
     font-size: @font-size-16;
     height: 48px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        a.cta-btn {
-            --cta-button-background-color: @color-black-dark-mode;
-            --cta-button-foreground-color: @color-white-dark-mode;
-            --cta-button-visited-foreground-color: @color-white-dark-mode;
-            --cta-button-hover-background-color: @color-white-dark-mode;
-            --cta-button-hover-foreground-color: @color-black-dark-mode;
-            --cta-button-hover-border-color: @color-white-dark-mode;
-        }
-    }
 }

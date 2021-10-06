@@ -1,3 +1,14 @@
+:root {
+    --page-grid-gutter-width-small: @page-grid-gutter-width-small;
+    --page-grid-gutter-width-large: @page-grid-gutter-width-large;
+    --page-grid-col-width-small: calc(
+        (100% / @page-grid-cols-small) - var(--page-grid-gutter-width-small) + 1px
+    );
+    --page-grid-col-width-large: calc(
+        (100% / @page-grid-cols-large) - var(--page-grid-gutter-width-large) + 1px
+    );
+}
+
 .page-grid-container {
     display: flex;
     justify-content: center;
@@ -47,11 +58,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .skin-experiment-dark-mode {
-        .page-grid--debug {
-            --debug-grid-area-outline: 1px solid @color-white;
-            --debug-grid-col-color: @color-text-confirmation-dark-mode;
-            --debug-grid-gutter-color: @color-black;
-        }
+    .page-grid--debug {
+        --debug-grid-area-outline: 1px solid @color-white;
+        --debug-grid-col-color: @color-text-confirmation-dark-mode;
+        --debug-grid-gutter-color: @color-black;
     }
 }
