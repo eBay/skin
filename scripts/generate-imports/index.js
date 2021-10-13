@@ -28,7 +28,7 @@ function getFilePath(filename, ds) {
 }
 
 function getBrowserRequireSyntax(filename) {
-    return `"./${filename}.css"`;
+    return `"./${filename}.js"`;
 }
 
 function getCSSRequireSyntax(filepath, ext) {
