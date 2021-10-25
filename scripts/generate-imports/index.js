@@ -33,7 +33,7 @@ function getBrowserRequireSyntax(filename) {
 
 function getCSSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
+    if (filepath.endsWith('.css') || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
     return `@import "./${fullFilePath}";\n`;
@@ -41,7 +41,7 @@ function getCSSRequireSyntax(filepath, ext) {
 
 function getJSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
+    if (filepath.endsWith('.css') || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
     return `require('./${fullFilePath}');\n`;
@@ -49,7 +49,7 @@ function getJSRequireSyntax(filepath, ext) {
 
 function getMJSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.indexOf('.css') === filepath.length - 4 || filepath.includes('svg')) {
+    if (filepath.endsWith('.css') || filepath.includes('svg')) {
         fullFilePath = filepath;
     }
     return `import './${fullFilePath}';\n`;
