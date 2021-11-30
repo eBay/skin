@@ -2,10 +2,9 @@
     {% include section-header.html name="section-title" version=page.versions.section-title %}
 
     <p>Section titles function as identifiers for groups of elements.</p>
-    <p>Section titles are rendered in our <a href="#marketsans">Market Sans</a> font-face, with a bold weight.</p>
 
-    <h3 id="section-title-basic">Basic Section Title</h3>
-    <p>The standard section title is designed to support a single line on desktop and wrap only when displayed on narrow screens such as mWeb or native.</p>
+    <h3 id="section-title-static">Static Section Title</h3>
+    <p>The standard, static section title is designed to support a single line on desktop and wrap only when displayed on narrow screens such as mWeb or native.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -21,43 +20,11 @@
     <div class="section-title__title-container">
         <h2 class="section-title__title">Today’s Deals – All With Free Shipping</h2>
     </div>
-</div>
-    {% endhighlight %}
-
-    <h3 id="section-title-arrow-right">Section Title with CTA Right </h3>
-    <p>This is the new DS Evo style of Section Title. </p>
-
-
-    <div class="demo">
-        <div class="demo__inner">
-            <div class="section-title">
-                <div class="section-title__title-container">
-                    <h2 class="section-title__title">Today’s Deals – All With Free Shipping</h2>
-                </div>
-                <button class="icon-btn arrow-icon-btn" type="button" aria-label="go to deals">
-                    <svg class="icon icon--arrow-right-extra-small" focusable="false" width="10" height="10">
-                        {% include symbol.html name="arrow-right-extra-small" %}
-                    </svg>
-                </button>
-            </div>
-            
-        </div>
-    </div>
-    {% highlight html %}
-<div class="section-title">
-    <div class="section-title__title-container">
-        <h2 class="section-title__title">Today’s Deals – All With Free Shipping</h2>
-    </div>
-    <button class="icon-btn" type="button" aria-label="go to deals">
-        <svg class="icon icon--arrow-right-extra-small" focusable="false" width="10" height="10">
-            <use xlink:href="icons.svg#icon-arrow-right-extra-small"></use>
-        </svg>
-    </button>
 </div>
     {% endhighlight %}
 
     <h3 id="section-title-subtitled">Subtitled Section Title</h3>
-    <p>The subtitle is designed to support any additional information. For example: when the item is based on personal shopping habits. This text should be concise and fit onto a single line.</p>
+    <p>The subtitle is designed to support any additional information. This text should be concise and fit onto a single line.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -78,8 +45,8 @@
 </div>
     {% endhighlight %}
 
-    <h3 id="section-title-cta">CTA Section Title</h3>
-    <p>The arrow icon is designed to act as a link to the primary group page.</p>
+    <h3 id="section-title-link">Linked Section Title</h3>
+    <p>An arrow icon gives visual affordance that the title is a link. A linked section title can also have a subtitle.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -87,17 +54,13 @@
                 <div class="section-title__title-container">
                     <h2 class="section-title__title">
                         <a href="https://www.ebay.com">Today’s Deals – All With Free Shipping</a>
+                        <svg class="icon icon--arrow-right-extra-small" focusable="false" height="10" width="10" aria-hidden="true">
+                            {% include symbol.html name="arrow-right-extra-small" %}
+                        </svg>
                     </h2>
                 </div>
-                <div class="section-title__cta">
-                    <a href="https://www.ebay.com" tabindex="-1" aria-hidden="true">
-                        <span class="section-title__cta-text">See All</span>
-                        <svg class="icon icon--cta" focusable="false" height="24" width="24" aria-hidden="true">
-                            {% include symbol.html name="arrow-right-bold" %}
-                        </svg>
-                    </a>
-                </div>
             </div>
+
         </div>
     </div>
     {% highlight html %}
@@ -105,15 +68,10 @@
     <div class="section-title__title-container">
         <h2 class="section-title__title">
             <a href="https://www.ebay.com">Today’s Deals – All With Free Shipping</a>
-        </h2>
-    </div>
-    <div class="section-title__cta">
-        <a href="https://www.ebay.com" tabindex="-1" aria-hidden="true">
-            <span class="section-title__cta-text">See All</span>
-            <svg class="section-title__cta-icon" focusable="false" height="24" width="24" aria-hidden="true">
-                <use xlink:href="#icon-arrow-right-bold"></use>
+            <svg class="icon icon--arrow-right-extra-small" focusable="false" height="10" width="10" aria-hidden="true">
+                <use xlink:href="icons.svg#icon-arrow-right-extra-small"></use>
             </svg>
-        </a>
+        </h2>
     </div>
 </div>
     {% endhighlight %}
@@ -129,7 +87,7 @@
                 </div>
                 <div class="section-title__info">
                     <span class="infotip">
-                        <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+                        <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
                             <svg class="icon icon--information" focusable="false" width="24" height="24" aria-hidden="true">
                                 {% include symbol.html name="information" %}
                             </svg>
@@ -142,7 +100,7 @@
                                         <h3 class="infotip__heading">Infotip</h3>
                                         <p>Here's a tip to help you be successful at your task.</p>
                                     </span>
-                                    <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                                    <button class="icon-btn icon-btn--transparent infotip__close" type="button" aria-label="Dismiss infotip">
                                         <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
                                             {% include symbol.html name="close" %}
                                         </svg>
@@ -162,7 +120,7 @@
     </div>
     <div class="section-title__info">
         <span class="infotip">
-            <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+            <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
                 <svg aria-hidden="true" class="icon icon--information" focusable="false" width="24" height="24">
                     <use xlink:href="#icon-information"></use>
                 </svg>
@@ -175,7 +133,7 @@
                             <h3 class="infotip__heading">Infotip</h3>
                             <p>Here's a tip to help you be successful at your task.</p>
                         </span>
-                        <button class="infotip__close" type="button" aria-label="Dismiss infotip">
+                        <button class="icon-btn icon-btn--transparent infotip__close" type="button" aria-label="Dismiss infotip">
                             <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
                                 <use xlink:href="#icon-close"></use>
                             </svg>
