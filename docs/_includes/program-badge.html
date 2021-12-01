@@ -1,31 +1,26 @@
 <div id="program-badge">
     {% include section-header.html name="program-badge" version=page.versions.program-badge %}
-    <p>The table below displays all available program badges.</p>
 
-    <table cellpadding="0" cellspacing="0" class="icon-table">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>BADGE</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% assign programBadges = "authenticity-guaranteed, click-to-call, escrow, free-warranty, money-back-guarantee-chf, money-back-guarantee-eu, money-back-guarantee-uk, money-back-guarantee-us, money-back-guarantee-zl, top-rated-seller, ebay-plus" | split: ", " %}
-            {% for programBadgeName in programBadges %}
-            <tr>
-                <td>{{ programBadgeName }}</td>
-                <td>
-                    <span class="demo">
-                        <span class="demo__inner">
-                            <svg aria-hidden="true" class="program-badge program-badge--{{ programBadgeName }}" focusable="false" height="24" width="24">
-                                {% include symbol.html name=programBadgeName type="badge" %}
-                            </svg>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <p>Each program badge is available as an SVG symbol.</p>
+
+    <ul class="demo-icon-boxes">
+        {% assign programBadges = "authenticity-guaranteed, click-to-call, escrow, free-warranty, money-back-guarantee-chf, money-back-guarantee-eu, money-back-guarantee-uk, money-back-guarantee-us, money-back-guarantee-zl, top-rated-seller, ebay-plus" | split: ", " %}
+        {% for programBadgeName in programBadges %}
+        <li>
+            <span>{{ programBadgeName }}</span>
+            <svg aria-hidden="true" class="program-badge program-badge--{{ programBadgeName }}" focusable="false" height="24" width="24">
+                {% include symbol.html name=programBadgeName type="program-badge" %}
+            </svg>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <p>Below is the code example for how to use the "program-badge-authenticity-guaranteed" symbol. Please refer to the <a href="#icon">icon section</a> for full guidance on how to include and use SVG symbols.
+
+    {% highlight html %}
+<svg role="img" aria-label="Authenticity Guaranteed Program" class="program-badge program-badge--authenticity-guaranteed" focusable="false" height="24" width="24">
+    <use xlink:href="#program-badge-authenticity-guaranteed"></use>
+</svg>
+    {% endhighlight %}
 
 </div>
