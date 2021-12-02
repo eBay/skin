@@ -4,7 +4,6 @@
 }
 .progress-stepper__item {
   align-items: center;
-  color: var(--progress-stepper-active-color, var(--color-status-information, #3665f3));
   display: flex;
   flex-direction: column;
   width: 32px;
@@ -26,12 +25,20 @@ hr.progress-stepper__separator {
   text-align: center;
   width: 80px;
 }
+.progress-stepper__text h2,
+.progress-stepper__text h3,
+.progress-stepper__text h4 {
+  color: var(--progress-stepper-text-color, var(--color-text-primary, #111820));
+}
+.progress-stepper__text p {
+  color: var(--progress-stepper-text-light-color, var(--color-text-secondary, #707070));
+}
 .progress-stepper__icon {
+  color: var(--progress-stepper-active-color, var(--color-status-information, #3665f3));
   margin: auto;
 }
 .progress-stepper__icon > [role="img"] {
   align-items: center;
-  background-color: var(--progress-stepper-badge-current-background-color, var(--color-status-information, #3665f3));
   border-color: var(--progress-stepper-badge-current-border-color, var(--color-status-information, #3665f3));
   border-radius: 24px;
   border-style: solid;
@@ -49,9 +56,6 @@ hr.progress-stepper__separator {
 hr.progress-stepper__separator--upcoming,
 .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
   background-color: var(--progress-stepper-upcoming-color, var(--color-text-disabled, #c7c7c7));
-}
-.progress-stepper__item--attention {
-  color: var(--progress-stepper-attention-color, var(--color-status-attention, #e0103a));
 }
 .progress-stepper__text > * {
   margin: 0;
@@ -88,6 +92,9 @@ hr.progress-stepper__separator--upcoming,
   background-color: var(--progress-stepper-badge-upcoming-background-color, var(--color-background-default, #fff));
   border-color: var(--progress-stepper-badge-upcoming-border-color, var(--color-text-disabled, #c7c7c7));
   color: var(--progress-stepper-badge-upcoming-color, var(--color-text-secondary, #707070));
+}
+.progress-stepper__item--attention .progress-stepper__icon {
+  color: var(--progress-stepper-attention-color, var(--color-status-attention, #e0103a));
 }
 .progress-stepper--vertical .progress-stepper__items {
   display: block;
