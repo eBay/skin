@@ -70,10 +70,12 @@ function server() {
     gulp.watch('docs/src/less/**/*.less', syncDocsCss);
     // Watch js files under docs. Resync JS on change.
     gulp.watch('docs/src/js/**/*.js', syncDocsJs);
+    // Watch svg files under src. Copy to docs on change.
+    gulp.watch('src/svg/*.svg', syncDocsSvg);
     // Watch html files under docs. Regenerate _site on change.
-    gulp.watch('docs/**/*.html', syncDocsHtml);
-    // Watch html files under _site. Resync browser on change.
-    gulp.watch('_site/**/*.html').on('change', browserSync.reload);
+    gulp.watch(['docs/**/*.html', 'docs/**/*.svg'], syncDocsHtml);
+    // Watch html & svg files under _site. Resync browser on change.
+    gulp.watch(['_site/**/*.html', '_site/**/*.svg']).on('change', browserSync.reload);
 }
 
 // Inject Skin CSS into browsers
@@ -107,6 +109,11 @@ function syncDocsJs() {
 
             browserSync.reload();
         });
+}
+
+// Re-bundle the docs SVG, copy it to /docs
+function syncDocsSvg() {
+    return child_process.spawn('npm', ['run', 'copy:svgToDocs'], { stdio: 'inherit' });
 }
 
 // Run Jekyll build

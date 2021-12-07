@@ -17,44 +17,29 @@ export const subheading = () => `
 </div>
 `;
 
-export const RTLSubheading = () => `
-<div dir="rtl" class="section-title">
-    <div class="section-title__title-container">
-        <h2 class="section-title__title">Marketing Type Content Title</h2>
-        <span class="section-title__subtitle">Recommended for you</span>
-    </div>
-</div>
-`;
-
-export const arrowCTASeeAll = () => `
+export const linked = () => `
 <div class="section-title">
     <div class="section-title__title-container">
         <h2 class="section-title__title">
-            <a href="https://www.ebay.com">Marketing Type Content Title</a>
-        </h2>
-    </div>
-    <div class="section-title__cta">
-        <a href="https://www.ebay.com" tabindex="-1" aria-hidden="true">
-            <span class="section-title__cta-text">See All</span>
-            <svg class="icon icon--cta" focusable="false" aria-hidden="true">
-                <use xlink:href="#icon-cta"></use>
+            <a href="https://www.ebay.com">Today’s Deals – All With Free Shipping</a>
+            <svg class="icon icon--arrow-right-extra-small" focusable="false" height="10" width="10" aria-hidden="true">
+                <use xlink:href="#icon-arrow-right-extra-small"></use>
             </svg>
-        </a>
+        </h2>
     </div>
 </div>
 `;
 
-export const arrowCTANoText = () => `
+export const linkedWithSubheading = () => `
 <div class="section-title">
     <div class="section-title__title-container">
-        <h2 class="section-title__title"><a href="https://www.ebay.com">Marketing Type Content Title</a></h2>
-    </div>
-    <div class="section-title__cta section-title__cta--no-text">
-        <a href="https://www.ebay.com" tabindex="-1" aria-hidden="true">
-            <svg aria-hidden="true" class="icon icon--cta" focusable="false">
-                <use xlink:href="#icon-cta"></use>
+        <h2 class="section-title__title">
+            <a href="https://www.ebay.com">Today’s Deals – All With Free Shipping</a>
+            <svg class="icon icon--arrow-right-extra-small" focusable="false" height="10" width="10" aria-hidden="true">
+                <use xlink:href="#icon-arrow-right-extra-small"></use>
             </svg>
-        </a>
+        </h2>
+        <span class="section-title__subtitle">Recommended for you</span>
     </div>
 </div>
 `;
@@ -232,7 +217,7 @@ export const large = () => `
 </div>
 `;
 
-export const mediumDefault = () => `
+export const medium = () => `
 <div class="section-title section-title--medium">
     <div class="section-title__title-container">
         <h2 class="section-title__title"><a href="https://www.ebay.com">Marketing Type Content Title</a></h2>

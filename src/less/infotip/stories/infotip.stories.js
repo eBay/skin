@@ -2,7 +2,7 @@ export default { title: 'Infotip/Infotip' };
 
 export const collapsed = () => `
 <span class="infotip">
-    <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+    <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
         <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
             <use xlink:href="#icon-information-small"></use>
         </svg>
@@ -27,7 +27,7 @@ export const collapsed = () => `
 
 export const expanded = () => `
 <span class="infotip">
-    <button class="icon-btn infotip__host" type="button" aria-expanded="true" aria-label="Help">
+    <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
         <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
             <use xlink:href="#icon-information-small"></use>
         </svg>
@@ -54,7 +54,7 @@ export const paragraphCollapsed = () => `
 <p>
     Inside paragraph
     <span class="infotip">
-        <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+        <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
             <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
                 <use xlink:href="#icon-information-small"></use>
             </svg>
@@ -82,7 +82,7 @@ export const paragraphExpanded = () => `
 <p>
     Inside paragraph
     <span class="infotip">
-        <button class="icon-btn infotip__host" type="button" aria-expanded="true" aria-label="Help">
+        <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
             <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
                 <use xlink:href="#icon-information-small"></use>
             </svg>

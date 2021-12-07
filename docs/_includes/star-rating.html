@@ -1,0 +1,26 @@
+<div id="star-rating">
+    {% include section-header.html name="star-rating" version=page.versions.star-rating %}
+
+    <p>Each non-interactive star-rating is available as an SVG symbol.</p>
+
+    <ul class="demo-icon-boxes">
+        {% assign ratings = "0, 0-5, 1, 1-5, 2, 2-5, 3, 3-5, 4, 4-5, 5" | split: ", " %}
+        {% for rating in ratings %}
+        <li>
+            <span>{{ rating }}</span>
+            <svg aria-hidden="true" class="star-rating" focusable="false" height="12">
+                {% include symbol.html name=rating type="star-rating" %}
+            </svg>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <p>Below is the code example for how to use the "star-rating-2-5" symbol. Please refer to the <a href="#icon">icon section</a> for full guidance on how to include and use SVG symbols.
+
+    {% highlight html %}
+<svg role="img" aria-label="Rating: 2.5/5" class="star-rating" focusable="false" height="12">
+    <use xlink:href="#star-rating-2-5"></use>
+</svg>
+    {% endhighlight %}
+
+</div>
