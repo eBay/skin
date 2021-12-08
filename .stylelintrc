@@ -1,0 +1,61 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-prettier/recommended"
+  ],
+  "ignoreFiles": [
+    "dist/mixins/**/*",
+    "dist/variables/**/*",
+    "**/*.min.css",
+    "**/*.js",
+    "**/*.svg"
+  ],
+  "rules": {
+    "at-rule-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "indentation": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "declaration-block-no-duplicate-properties": null,
+    "rule-empty-line-before": null,
+    "color-function-notation": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "number-max-precision": null,
+    "shorthand-property-no-redundant-values": null,
+    "property-no-vendor-prefix": null,
+    "selector-no-vendor-prefix": null,
+    "selector-class-pattern": null,
+    "alpha-value-notation": null,
+    "value-no-vendor-prefix": null
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.less"
+      ],
+      "customSyntax": "postcss-less",
+      "plugins": [
+        "stylelint-order",
+        "stylelint-no-unsupported-browser-features"
+      ],
+      "rules": {
+        "at-rule-no-unknown": [
+          true,
+          {
+            "ignoreAtRules": [
+              "icon-mixin"
+            ]
+          }
+        ],
+        "declaration-empty-line-before": null,
+        "order/properties-alphabetical-order": true,
+        "plugin/no-unsupported-browser-features": [
+          null,
+          {
+            "severity": "warning"
+          }
+        ]
+      }
+    }
+  ]
+}
