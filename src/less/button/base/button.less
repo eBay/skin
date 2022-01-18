@@ -99,6 +99,17 @@ button.btn .progress-spinner {
     width: 24px;
 }
 
+button.btn svg.icon--dropdown,
+a.fake-btn svg.icon--dropdown {
+    height: 5.25px;
+    width: 9px;
+}
+
+button.btn[aria-expanded="true"] svg.icon--dropdown,
+a.fake-btn[aria-expanded="true"] svg.icon--dropdown {
+    transform: rotate(180deg);
+}
+
 button.btn--large svg.icon,
 a.fake-btn--large svg.icon {
     max-height: 48px - (@padding-vertical-button-large * 2);
@@ -263,4 +274,17 @@ a.fake-btn--large-truncated {
     height: 48px;
     min-height: 48px;
     padding: @padding-vertical-button-large @padding-horizontal-button;
+}
+
+[dir="rtl"] button.btn svg.icon--dropdown,
+[dir="rtl"] a.fake-btn svg.icon--dropdown {
+    &:first-child {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+
+    &:last-child {
+        margin-left: 0;
+        margin-right: 8px;
+    }
 }

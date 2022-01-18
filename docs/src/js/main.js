@@ -90,13 +90,20 @@ document.querySelectorAll('.filter-menu-button--form button').forEach(function(e
 
 // FAKE MENU BUTTON
 document.querySelectorAll('.fake-menu-button').forEach(function(widgetEl) {
+    let hostSelector = '.icon-btn';
+    if (widgetEl.querySelector('.expand-btn')) {
+        hostSelector = '.expand-btn';
+    } else if (widgetEl.querySelector('.btn')) {
+        hostSelector = '.btn';
+    }
+
     pageWidgets.push(new Expander(widgetEl, {
         expandOnClick: true,
         collapseOnFocusOut: true,
         collapseOnClickOut: true,
         contentSelector: '.fake-menu-button__menu',
         focusManagement: 'focusable',
-        hostSelector: widgetEl.querySelector('.expand-btn') ? '.expand-btn' : '.icon-btn'
+        hostSelector
     }));
 });
 
@@ -275,7 +282,7 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
         menuSelector: '.menu-button__menu',
-        buttonTextSelector: `.expand-btn__text`
+        buttonTextSelector: `.expand-btn__text,.btn__text`
     });
 
     widget.menu.el.addEventListener('makeup-menu-select', logEvent);
