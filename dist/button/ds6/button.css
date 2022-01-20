@@ -120,8 +120,13 @@ button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true
 a.fake-btn--primary[href]:hover,
 button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
 a.fake-btn--primary[href]:active {
-  background-color: var(--btn-primary-hover-background-color, var(--color-action-hover, #2b0eaf));
-  border-color: var(--btn-primary-hover-border-color, var(--color-action-primary, #3665f3));
+  background-color: var(--btn-primary-hover-background-color, var(--color-action-hover, #382aef));
+  border-color: var(--btn-primary-hover-border-color, var(--color-action-hover, #382aef));
+}
+button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
+a.fake-btn--primary[href]:active {
+  background-color: var(--btn-primary-active-background-color, var(--color-action-active, #2b0eaf));
+  border-color: var(--btn-primary-active-border-color, var(--color-action-active, #2b0eaf));
 }
 a.fake-btn--primary:visited {
   color: var(--btn-primary-foreground-color, var(--color-background-default, #fff));
@@ -136,8 +141,8 @@ a.fake-btn svg.icon--dropdown {
   height: 5.25px;
   width: 9px;
 }
-button.btn[aria-expanded=true] svg.icon--dropdown,
-a.fake-btn[aria-expanded=true] svg.icon--dropdown {
+button.btn[aria-expanded="true"] svg.icon--dropdown,
+a.fake-btn[aria-expanded="true"] svg.icon--dropdown {
   transform: rotate(180deg);
 }
 button.btn--large svg.icon,
@@ -174,12 +179,16 @@ a.fake-btn--secondary {
 button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
 a.fake-btn--secondary[href]:hover,
 button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
-a.fake-btn--secondary[href]:focus,
+a.fake-btn--secondary[href]:focus {
+  background-color: var(--btn-secondary-hover-background-color, var(--color-white, #fff));
+  border-color: var(--btn-secondary-hover-foreground-color, var(--color-b5, #382aef));
+  color: var(--btn-secondary-hover-foreground-color, var(--color-b5, #382aef));
+}
 button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
 a.fake-btn--secondary[href]:active {
-  background-color: var(--btn-secondary-hover-background-color, var(--color-white, #fff));
-  border-color: var(--btn-secondary-hover-foreground-color, var(--color-b6, #2b0eaf));
-  color: var(--btn-secondary-hover-foreground-color, var(--color-b6, #2b0eaf));
+  background-color: var(--btn-secondary-active-background-color, var(--color-white, #fff));
+  border-color: var(--btn-secondary-active-foreground-color, var(--color-b6, #2b0eaf));
+  color: var(--btn-secondary-active-foreground-color, var(--color-b6, #2b0eaf));
 }
 /* stylelint-enable no-descending-specificity */
 button.btn--delete,
@@ -232,11 +241,16 @@ a.fake-btn--tertiary {
 button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):focus,
 a.fake-btn--tertiary[href]:focus,
 button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):hover,
-a.fake-btn--tertiary[href]:hover,
-button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
-a.fake-btn--tertiary[href]:active {
+a.fake-btn--tertiary[href]:hover {
   background-color: var(--btn-tertiary-hover-background-color, var(--color-grey2, #e5e5e5));
   border-color: var(--btn-tertiary-hover-border-color, var(--color-grey2, #e5e5e5));
+  color: var(--btn-tertiary-hover-color, var(--color-b5, #382aef));
+}
+button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):active,
+a.fake-btn--tertiary[href]:active {
+  background-color: var(--btn-tertiary-active-background-color, var(--color-grey3, #c7c7c7));
+  border-color: var(--btn-tertiary-active-border-color, var(--color-grey3, #c7c7c7));
+  color: var(--btn-tertiary-hover-color, var(--color-b6, #2b0eaf));
 }
 a.fake-btn--tertiary:visited {
   color: var(--btn-tertiary-foreground-color, var(--color-b4, #3665f3));
@@ -303,4 +317,14 @@ a.fake-btn--large-truncated span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+[dir="rtl"] button.btn svg.icon--dropdown:first-child,
+[dir="rtl"] a.fake-btn svg.icon--dropdown:first-child {
+  margin-left: 8px;
+  margin-right: 0;
+}
+[dir="rtl"] button.btn svg.icon--dropdown:last-child,
+[dir="rtl"] a.fake-btn svg.icon--dropdown:last-child {
+  margin-left: 0;
+  margin-right: 8px;
 }
