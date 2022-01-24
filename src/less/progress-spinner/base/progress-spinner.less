@@ -1,9 +1,19 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+:root {
+    /* There is an issue with CSS variables here.
+        There's a bug where we cannot use a CDN url and we have to hardcode the image SVG.
+        By using the token mixin it inlines the SVG which renders incorrectly.
+        However, we need to use CSS variables because it breaks dark mode
+        So the solution is to use different CSS variables for dark mode and for normal mode and only use
+        dark mode variables when it's set, and fallback to the light mode version. */
+    --image-progress-spinner: @image-progress-spinner;
+    --image-progress-spinner-large: @image-progress-spinner-large;
+}
+
 .progress-spinner {
     animation: spin 600ms linear infinite;
-    /* We should use a token here, but because of issues processing the url, need to revert to just use backgorund-image */
-    background-image: @url-image-progress-spinner;
+    background-image: var(--image-progress-spinner-dark-mode, var(--image-progress-spinner));
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,7 +33,10 @@
 }
 
 .progress-spinner--large {
-    background-image: @url-image-progress-spinner-large;
+    background-image: var(
+        --image-progress-spinner-large-dark-mode,
+        var(--image-progress-spinner-large)
+    );
     height: 60px;
     width: 60px;
 }
