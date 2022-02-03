@@ -14,26 +14,26 @@ if (window.URLSearchParams !== undefined) {
 
 const pageWidgets = [];
 
-const RovingTabindex = require('makeup-roving-tabindex');
-const Expander = require('makeup-expander');
-const FloatingLabel = require('makeup-floating-label');
-const ScrollKeyPreventer = require('makeup-prevent-scroll-keys');
-const Combobox = require('makeup-combobox');
-const DialogButton = require('makeup-dialog-button');
-const Listbox = require('makeup-listbox');
-const ListboxButton = require('makeup-listbox-button');
-const Menu = require('makeup-menu');
-const MenuButton = require('makeup-menu-button');
-const Switch = require('makeup-switch');
-const LightboxDialog = require('makeup-lightbox-dialog');
-const AlertDialog = require('makeup-alert-dialog');
-const ConfirmDialog = require('makeup-confirm-dialog');
-const DrawerDialog = require('makeup-drawer-dialog');
-const FullscreenDialog = require('makeup-fullscreen-dialog');
-const InputDialog = require('makeup-input-dialog');
-const PanelDialog = require('makeup-panel-dialog');
-const SnackbarDialog = require('makeup-snackbar-dialog');
-const ToastDialog = require('makeup-toast-dialog');
+import * as RovingTabindex from 'makeup-roving-tabindex';
+import Expander from 'makeup-expander';
+import FloatingLabel from 'makeup-floating-label';
+import * as ScrollKeyPreventer from 'makeup-prevent-scroll-keys';
+import Combobox from 'makeup-combobox';
+import DialogButton from 'makeup-dialog-button';
+import Listbox from 'makeup-listbox';
+import ListboxButton from 'makeup-listbox-button';
+import Menu from 'makeup-menu';
+import MenuButton from 'makeup-menu-button';
+import Switch from 'makeup-switch';
+import LightboxDialog from 'makeup-lightbox-dialog';
+import AlertDialog from 'makeup-alert-dialog';
+import ConfirmDialog from 'makeup-confirm-dialog';
+import DrawerDialog from 'makeup-drawer-dialog';
+import FullscreenDialog from 'makeup-fullscreen-dialog';
+import InputDialog from 'makeup-input-dialog';
+import PanelDialog from 'makeup-panel-dialog';
+import SnackbarDialog from 'makeup-snackbar-dialog';
+import ToastDialog from 'makeup-toast-dialog';
 
 let progressBarInterval;
 
