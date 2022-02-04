@@ -2,6 +2,58 @@ export default { title: 'Menu Button/Menu Button' };
 
 export const collapsed = () => `
 <span class="menu-button">
+    <button class="btn btn--secondary" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 10000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 20000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 30000</span>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
+export const expanded = () => `
+<span class="menu-button">
+    <button class="btn btn--secondary" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem" tabindex="0">
+                <span>Item 10000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 20000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 30000</span>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
+export const collapsedForm = () => `
+<span class="menu-button">
     <button class="expand-btn" aria-haspopup="true" type="button">
         <span class="expand-btn__cell">
             <span class="expand-btn__text">Button</span>
@@ -26,7 +78,7 @@ export const collapsed = () => `
 </span>
 `;
 
-export const expanded = () => `
+export const expandedForm = () => `
 <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="expand-btn__cell">
@@ -79,6 +131,34 @@ export const badged = () => `
 `;
 
 export const RTL = () => `
+<div dir="rtl">
+    <span class="menu-button">
+    <button class="btn btn--secondary" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem" tabindex="0">
+                <span>Item 10000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 20000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 30000</span>
+            </div>
+        </div>
+    </div>
+    </span>
+</div>
+`;
+
+export const RTLForm = () => `
 <div dir="rtl">
     <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">

@@ -2,11 +2,6 @@
 
 .progress-spinner {
     animation: spin 600ms linear infinite;
-    /* We should use a token here, but because of issues processing the url, need to revert to just use backgorund-image */
-    background-image: @url-image-progress-spinner;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: inline-block;
     height: 30px;
     width: 30px;
@@ -23,7 +18,19 @@
 }
 
 .progress-spinner--large {
-    background-image: @url-image-progress-spinner-large;
     height: 60px;
     width: 60px;
+}
+
+/* This needs to be removed on next major version.
+    this makes it backwards compatible with empty span */
+.progress-spinner:empty {
+    .background-image-token(progress-spinner-image-url, url-image-progress-spinner);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.progress-spinner--large:empty {
+    .background-image-token(progress-spinner-large-image-url, url-image-progress-spinner-large);
 }

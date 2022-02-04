@@ -79,13 +79,20 @@ a.fake-btn--primary {
 }
 
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--primary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--primary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--primary[href] {
     &:focus,
-    &:hover,
-    &:active {
+    &:hover {
         .background-color-token(btn-primary-hover-background-color, color-action-hover);
-        .border-color-token(btn-primary-hover-border-color, color-action-primary);
+        .border-color-token(btn-primary-hover-border-color, color-action-hover);
+    }
+}
+
+button.btn--primary:not([disabled]):not([aria-disabled="true"]),
+a.fake-btn--primary[href] {
+    &:active {
+        .background-color-token(btn-primary-active-background-color, color-action-active);
+        .border-color-token(btn-primary-active-border-color, color-action-active);
     }
 }
 
@@ -97,6 +104,17 @@ button.btn .progress-spinner {
     height: 24px;
     margin: -4px 0;
     width: 24px;
+}
+
+button.btn svg.icon--dropdown,
+a.fake-btn svg.icon--dropdown {
+    height: 5.25px;
+    width: 9px;
+}
+
+button.btn[aria-expanded="true"] svg.icon--dropdown,
+a.fake-btn[aria-expanded="true"] svg.icon--dropdown {
+    transform: rotate(180deg);
 }
 
 button.btn--large svg.icon,
@@ -135,14 +153,22 @@ a.fake-btn--secondary {
 }
 
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--secondary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
         .background-color-token(btn-secondary-hover-background-color, color-white);
-        .border-color-token(btn-secondary-hover-foreground-color, color-b6);
-        .color-token(btn-secondary-hover-foreground-color, color-b6);
+        .border-color-token(btn-secondary-hover-foreground-color, color-b5);
+        .color-token(btn-secondary-hover-foreground-color, color-b5);
+    }
+}
+
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
+a.fake-btn--secondary[href] {
+    &:active {
+        .background-color-token(btn-secondary-active-background-color, color-white);
+        .border-color-token(btn-secondary-active-foreground-color, color-b6);
+        .color-token(btn-secondary-active-foreground-color, color-b6);
     }
 }
 /* stylelint-enable no-descending-specificity */
@@ -193,13 +219,22 @@ a.fake-btn--tertiary {
 }
 
 /* show hover states only for non-disabled or non-loading state button */
-button.btn--tertiary:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--tertiary[href] {
     &:focus,
-    &:hover,
-    &:active {
+    &:hover {
         .background-color-token(btn-tertiary-hover-background-color, color-grey2);
         .border-color-token(btn-tertiary-hover-border-color, color-grey2);
+        .color-token(btn-tertiary-hover-color, color-b5);
+    }
+}
+
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
+a.fake-btn--tertiary[href] {
+    &:active {
+        .background-color-token(btn-tertiary-active-background-color, color-grey3);
+        .border-color-token(btn-tertiary-active-border-color, color-grey3);
+        .color-token(btn-tertiary-hover-color, color-b6);
     }
 }
 
@@ -263,4 +298,17 @@ a.fake-btn--large-truncated {
     height: 48px;
     min-height: 48px;
     padding: @padding-vertical-button-large @padding-horizontal-button;
+}
+
+[dir="rtl"] button.btn svg.icon--dropdown,
+[dir="rtl"] a.fake-btn svg.icon--dropdown {
+    &:first-child {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+
+    &:last-child {
+        margin-left: 0;
+        margin-right: 8px;
+    }
 }
