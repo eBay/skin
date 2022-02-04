@@ -38,9 +38,11 @@ This page contains instructions and guidelines for anybody contributing code to 
 ## System Requirements
 
 -   [Node.js](https://nodejs.org/en/)
--   [Ruby](https://www.ruby-lang.org/en/)
+-   [Ruby](https://www.ruby-lang.org/en/)<sup>\*</sup>
 -   [Bundler](http://bundler.io)
 -   [Jekyll](https://jekyllrb.com) ([install via Bundler](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler))
+
+<sup>\*</sup> macOS users may encounter issues with their pre-installed system version of Ruby; in which case we recommend [rbenv](https://github.com/rbenv/rbenv) as a way to manage your Ruby environment.
 
 ## Contribution Steps
 
