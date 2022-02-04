@@ -369,63 +369,6 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="menu-button-form">Menu Button in Forms</h3>
-    <p>In form elements, should use <span class="highlight">.expand-btn</span> in order for menu-button to be styled similar to form items</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="menu-button">
-                <button class="expand-btn" aria-haspopup="true" type="button">
-                    <span class="expand-btn__cell">
-                        <span class="expand-btn__text">Button</span>
-                        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                            {% include symbol.html name="dropdown" %}
-                        </svg>
-                    </span>
-                </button>
-                <div class="menu-button__menu">
-                    <div class="menu-button__items" role="menu">
-                        <div class="menu-button__item" role="menuitem">
-                            <span>Menu Item 1</span>
-                        </div>
-                        <div class="menu-button__item" role="menuitem">
-                            <span>Menu Item 2</span>
-                        </div>
-                        <div class="menu-button__item" role="menuitem">
-                            <span>Menu Item 3</span>
-                        </div>
-                    </div>
-                </div>
-            </span>
-        </div>
-    </div>
-
-    {% highlight html %}
-<span class="menu-button">
-    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-    <div class="menu-button__menu">
-        <div class="menu-button__items" role="menu">
-            <div class="menu-button__item" role="menuitem">
-                <span>Menu Item 1</span>
-            </div>
-            <div class="menu-button__item" role="menuitem">
-                <span>Menu Item 2</span>
-            </div>
-            <div class="menu-button__item" role="menuitem">
-                <span>Menu Item 3</span>
-            </div>
-        </div>
-    </div>
-</span>
-    {% endhighlight %}
-
     <h3 id="menu-button-fake">Fake Menu Button</h3>
     <p>At first glance, a fake menu button <em>appears</em> to be a normal menu button component, but it contains a list of hyperlinks and thus behaves more like a navigational component.</p>
     <p>Use the <span class="highlight">aria-current</span> attribute to denote the link that matches the current page URL (if applicable).</p>
@@ -509,89 +452,7 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="menu-button-fake">Fake Menu Button in forms</h3>
-
-    <p>Same as the fake-menu-button, but use expand-btn in place of btn</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="fake-menu-button">
-                <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
-                    <span class="expand-btn__cell">
-                        <span class="expand-btn__text">Button</span>
-                        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                            {% include symbol.html name="dropdown" %}
-                        </svg>
-                    </span>
-                </button>
-                <ul class="fake-menu-button__menu">
-                    <li>
-                        <a class="fake-menu-button__item" href="http://www.ebay.com" aria-current="page">
-                            <span>Link 1</span>
-                            <svg class="icon icon--tick-small" focusable="false" height="10" width="14" aria-hidden="true">
-                                {% include symbol.html name="tick-small" %}
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.ebay.com" class="fake-menu-button__item">
-                            <span>Link 2<span>
-                        </a>
-                    </li>
-                    <li>
-                        <button class="fake-menu-button__item" type="button">
-                            <span>Button 3<span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="fake-menu-button__item" type="button">
-                            <span>Button 4<span>
-                        </button>
-                    </li>
-                </ul>
-            </span>
-        </div>
-    </div>
-
-    {% highlight html %}
-<span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
-            </svg>
-        </span>
-    </button>
-    <ul class="fake-menu-button__menu">
-        <li>
-            <a class="fake-menu-button__item" href="http://www.ebay.com" aria-current="page">
-                <span>Link 1</span>
-                <svg class="icon icon--tick-small" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-tick-small"></use>
-                </svg>
-            </a>
-        </li>
-        <li>
-            <a href="http://www.ebay.com" class="fake-menu-button__item">
-                <span>Link 2<span>
-            </a>
-        </li>
-        <li>
-            <button class="fake-menu-button__item" type="button">
-                <span>Button 3<span>
-            </button>
-        </li>
-        <li>
-            <button class="fake-menu-button__item" type="button">
-                <span>Button 4<span>
-            </button>
-        </li>
-    </ul>
-</span>
-    {% endhighlight %}
-
-    <h3 id="menu-button-growth">Fixed Width Menu Button</h3>
+    <h3 id="menu-button-fixed-width">Fixed Width Menu Button</h3>
     <p>Use the <span class="highlight">menu-button__menu--fix-width</span> or <span class="highlight">fake-menu-button__menu--fix-width</span> element modifier to fix the width of any menu items to the button width. This is useful in cases where the menu overlay needs to be constrained to the button width, usually to accomodate spacing and layout.</p>
     <p><strong>NOTE: </strong> Fixed width is currently only available on menu buttons that use a <span class="highlight">span</span> root tag.</p>
 
@@ -637,6 +498,64 @@
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <span>Menu Item 1 with a long string</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Menu Item 2</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Menu Item 3</span>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <h3 id="menu-button-form">Form-Themed Menu Button</h3>
+    <p>If placing a menu-button alongside a form control (e.g. textbox), you may wish to swap out the nested <a href="#button">button</a> with an <a href="#expand-button">expand-button</a>, which better matches the look-and-feel of forms.</p>
+    <p><strong>NOTE</strong>: a menu-button is a good candidate for a dropdown of actions that make <em>changes</em> to a form, but it should <strong>not</strong> be used as a dropdown for selecting and storing form <em>data</em>. Please use <a href="#button">select</a> or <a href="#button">listbox-button</a> for that purpose instead.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="menu-button">
+                <button class="expand-btn" aria-haspopup="true" type="button">
+                    <span class="expand-btn__cell">
+                        <span class="expand-btn__text">Button</span>
+                        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                </button>
+                <div class="menu-button__menu">
+                    <div class="menu-button__items" role="menu">
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Menu Item 1</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Menu Item 2</span>
+                        </div>
+                        <div class="menu-button__item" role="menuitem">
+                            <span>Menu Item 3</span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="menu-button">
+    <button class="expand-btn" aria-expanded="false" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <span>Menu Item 1</span>
             </div>
             <div class="menu-button__item" role="menuitem">
                 <span>Menu Item 2</span>
