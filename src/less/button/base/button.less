@@ -100,6 +100,39 @@ a.fake-btn--primary:visited {
     .color-token(btn-primary-foreground-color, color-background-default);
 }
 
+button.btn--primary.btn--destructive,
+a.fake-btn--primary.fake-btn--destructive {
+    .background-color-token(btn-primary-destructive-background-color, color-destructive);
+    .border-color-token(btn-primary-destructive-border-color, color-destructive);
+    .color-token(btn-primary-destructive-foreground-color, color-destructive-primary-text);
+    font-weight: @font-weight-action-primary;
+}
+
+button.btn--primary.btn--destructive[disabled],
+button.btn--primary.btn--destructive[aria-disabled="true"]:not([aria-live="polite"]) {
+    .background-color-token(btn-primary-destructive-disabled-background, color-destructive-primary-disabled-background);
+    .border-color-token(btn-primary-destructive-disabled-border, color-destructive-primary-disabled-background);
+}
+
+button.btn--primary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--primary.fake-btn--destructive[href] {
+    &:focus,
+    &:hover {
+        .background-color-token(btn-primary-destructive-hover-background-color, color-destructive-hover);
+        .border-color-token(btn-primary-destructive-hover-border-color, color-destructive-hover);
+    }
+
+    &:active {
+        .background-color-token(btn-primary-destructive-active-background-color, color-destructive-active);
+        .border-color-token(btn-primary-destructive-hover-border-color, color-destructive-active);
+    }
+}
+
+button.btn--primary.btn--destructive .progress-spinner {
+    --color-spinner-icon-background: @color-destructive-primary-spinner-background;
+    --color-spinner-icon-foreground: @color-destructive-primary-spinner-foreground;
+}
+
 button.btn .progress-spinner {
     height: 24px;
     margin: -4px 0;
@@ -170,6 +203,38 @@ a.fake-btn--secondary[href] {
         .border-color-token(btn-secondary-active-foreground-color, color-b6);
         .color-token(btn-secondary-active-foreground-color, color-b6);
     }
+}
+
+button.btn--secondary.btn--destructive,
+a.fake-btn--secondary.fake-btn--destructive {
+    .background-color-token(btn-secondary-destructive-background-color, color-background-default);
+    .border-color-token(btn-secondary-destructive-border-color, color-destructive);
+    .color-token(btn-secondary-destructive-foreground-color, color-destructive);
+}
+
+button.btn--secondary.btn--destructive[disabled] svg.icon {
+    fill: currentColor;
+}
+
+button.btn--secondary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--secondary.fake-btn--destructive[href] {
+    &:hover,
+    &:focus {
+        .background-color-token(btn-secondary-destructive-hover-background-color, color-background-default);
+        .border-color-token(btn-secondary-destructive-hover-foreground-color, color-destructive-secondary-hover-text);
+        .color-token(btn-secondary-destructive-hover-foreground-color, color-destructive-secondary-hover-text);
+    }
+
+    &:active {
+        .background-color-token(btn-secondary-destructive-active-background-color, color-background-default);
+        .border-color-token(btn-secondary-destructive-active-foreground-color, color-destructive-secondary-active-text);
+        .color-token(btn-secondary-destructive-active-foreground-color, color-destructive-secondary-active-text);
+    }
+}
+
+button.btn--secondary.btn--destructive .progress-spinner {
+    --color-spinner-icon-background: @color-destructive-secondary-spinner-background;
+    --color-spinner-icon-foreground: @color-destructive-secondary-spinner-foreground;
 }
 /* stylelint-enable no-descending-specificity */
 
@@ -254,6 +319,37 @@ a.fake-btn--tertiary[aria-disabled="true"] {
     .background-color-token(btn-tertiary-disabled-background-color, color-grey1);
     .border-color-token(btn-tertiary-disabled-border-color, color-grey1);
     .color-token(btn-tertiary-disabled-foreground-color, color-grey3);
+}
+
+button.btn--tertiary.btn--destructive,
+a.fake-btn--tertiary.fake-btn--destructive {
+    .color-token(btn-tertiary-destructive-foreground-color, color-destructive);
+}
+
+/* show hover states only for non-disabled or non-loading state button */
+button.btn--tertiary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+a.fake-btn--tertiary.fake-btn--destructive[href] {
+    &:focus,
+    &:hover {
+        .color-token(btn-tertiary-destructive-foreground-color, color-destructive-hover);
+    }
+
+    &:active {
+        .background-color-token(btn-tertiary-destructive-hover-background-color, color-grey3);
+        .color-token(btn-tertiary-destructive-foreground-color, color-destructive-active);
+    }
+}
+
+button.btn--tertiary.btn--destructive[disabled],
+button.btn--tertiary.btn--destructive[aria-disabled="true"]:not([aria-live="polite"]) {
+    background-color: transparent;
+    border: none;
+    .color-token(btn-tertiary-destructive-disabled-color, color-destructive-primary-disabled-background);
+}
+
+button.btn--tertiary.btn--destructive .progress-spinner {
+    --color-spinner-icon-background: @color-destructive-tertiary-spinner-background;
+    --color-spinner-icon-foreground: @color-destructive-tertiary-spinner-foreground;
 }
 
 button.btn--large,
