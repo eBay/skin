@@ -22,7 +22,7 @@ Fixes #
 - [ ] I verify all changes are within scope of the linked issue
 
 <!-- For CSS changes -->
-- [ ] I tested the local build is working and all CSS files under dist folder were re-generated
+- [ ] I regenerated all CSS files under dist folder
 - [ ] I tested the UI in all supported browsers
 - [ ] I tested the UI in dark mode and RTL mode
 - [ ] I added/updated/removed Storybook coverage as appropriate
