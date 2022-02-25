@@ -1,13 +1,28 @@
-<!--  Delete any sections below that are not relevant to this PR -->
+<!-- Insert GitHub issue number below -->
+Fixes #
+
+<!-- Select which type of PR this is -->
+- [ ] This PR contains CSS changes
+- [ ] This PR does not contain CSS changes
 
 ## Description
-<!--- What are the changes? -->
+<!-- Briefly describe the proposed changes -->
 
-## Context
-<!--- Why did you make these changes, and why in this particular way? -->
-
-## References
-<!-- Include links to JIRA, Github, etc. if appropriate -->
+## Notes
+<!-- Be sure to mention anything unusual, out-of-scope or new technical debt, etc -->
 
 ## Screenshots
-<!-- Upload screenshots if appropriate-->
+<!-- Upload screenshots of UI before & after these changes -->
+
+## Checklist
+<!-- Acknowledge completion of steps in checklists below. Delete lists that are not applicable -->
+
+<!-- For all PR types -->
+- [ ] I verify the build is in a non-broken state
+- [ ] I verify all changes are within scope of the linked issue
+
+<!-- For CSS changes -->
+- [ ] I regenerated all CSS files under dist folder
+- [ ] I tested the UI in all supported browsers
+- [ ] I tested the UI in dark mode and RTL mode
+- [ ] I added/updated/removed Storybook coverage as appropriate
