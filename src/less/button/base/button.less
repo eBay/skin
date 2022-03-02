@@ -397,7 +397,6 @@ button.btn--split-start {
 }
 
 button.btn--split-end {
-    border-left-color: currentColor;
     border-radius: 0 24px 24px 0;
     margin-left: -5px;
     min-width: 40px;
@@ -405,8 +404,12 @@ button.btn--split-end {
     padding-right: 8px;
 }
 
+button.btn--primary.btn--split-end {
+    .border-left-color-token(primary-border-split-color, color-white);
+}
+
 button.btn--tertiary.btn--split-end {
-    .border-left-color-token(tertiary-border-left-color, color-separator);
+    .border-left-color-token(tertiary-border-split-color, color-separator);
 }
 
 [dir="rtl"] button.btn svg.icon--dropdown,
@@ -420,4 +423,28 @@ button.btn--tertiary.btn--split-end {
         margin-left: 0;
         margin-right: 8px;
     }
+
+    &:only-child {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+[dir="rtl"] button.btn--split-start {
+    border-radius: 0 24px 24px 0;
+}
+
+[dir="rtl"] button.btn--split-end {
+    border-radius: 24px 0 0 24px;
+    margin-right: -5px;
+}
+
+[dir="rtl"] button.btn--primary.btn--split-end {
+    .border-left-color-token(btn-primary-border-color, color-action-primary);
+    .border-right-color-token(primary-border-split-color, color-separator);
+}
+
+[dir="rtl"] button.btn--tertiary.btn--split-end {
+    .border-left-color-token(btn-tertiary-border-color, color-grey1);
+    .border-right-color-token(tertiary-border-split-color, color-separator);
 }
