@@ -39,8 +39,10 @@ export const partiallyDisabled = () => `
 
 export const loading = () => `
 <button class="btn btn--primary" aria-disabled="true" aria-label="Loading" aria-live="polite">
-    <span class="btn__cell">
-        <span class="progress-spinner">
+    <span class="progress-spinner" aria-label="Busy" role="img">
+        <svg aria-hidden="true" class="icon icon--spinner" focusable="false">
+            <use xlink:href="#icon-spinner"></use>
+        </svg>
     </span>
 </button>
 `;

@@ -1,0 +1,21 @@
+name: storybook-percy
+
+on:
+  push:
+    paths:
+      - 'docs/storybook/**'
+      - '.github/workflows/storybook-percy.yml'
+  pull_request:
+    paths:
+      - 'docs/storybook/**'
+      - '.github/workflows/storybook-percy.yml'
+
+jobs:
+  storybook-percy:
+    runs-on: ubuntu-latest
+
+    steps:
+        - uses: actions/checkout@v2
+        - run: npm install
+        - run: npm run build:storybook
+        - run: PERCY_TOKEN=${{ secrets.PERCY_TOKEN }} npm run snapshot
