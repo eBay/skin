@@ -8,3 +8,68 @@ svg.star-rating {
   vertical-align: middle;
   width: 64px;
 }
+div.star-rating svg.star_rating_icon {
+  fill: none;
+  height: 12px;
+  width: 12px;
+}
+/* each star starts unfilled */
+div.star-rating svg.star_rating_icon use.star_rating_icon_symbol {
+  fill: #b8b8b8;
+}
+/* full stars */
+div.star-rating[data-stars^="1"] svg:nth-child(-n + 1) use.star_rating_icon_symbol,
+div.star-rating[data-stars^="2"] svg:nth-child(-n + 2) use.star_rating_icon_symbol,
+div.star-rating[data-stars^="3"] svg:nth-child(-n + 3) use.star_rating_icon_symbol,
+div.star-rating[data-stars^="4"] svg:nth-child(-n + 4) use.star_rating_icon_symbol,
+div.star-rating[data-stars^="5"] svg:nth-child(-n + 5) use.star_rating_icon_symbol {
+  fill: #000;
+}
+/* half stars */
+div.star-rating[data-stars="0-5"] svg:nth-child(1) use.star_rating_icon_star_half,
+div.star-rating[data-stars="1-5"] svg:nth-child(2) use.star_rating_icon_star_half,
+div.star-rating[data-stars="2-5"] svg:nth-child(3) use.star_rating_icon_star_half,
+div.star-rating[data-stars="3-5"] svg:nth-child(4) use.star_rating_icon_star_half,
+div.star-rating[data-stars="4-5"] svg:nth-child(5) use.star_rating_icon_star_half {
+  -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+          clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  fill: #000;
+}
+/* animate */
+div.star-rating.star-rating-animate .star_rating_icon {
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-name: starpop;
+}
+div.star-rating.star-rating-animate .star_rating_icon:nth-child(1) {
+  animation-delay: 0ms;
+}
+div.star-rating.star-rating-animate .star_rating_icon:nth-child(2) {
+  animation-delay: 100ms;
+}
+div.star-rating.star-rating-animate .star_rating_icon:nth-child(3) {
+  animation-delay: 200ms;
+}
+div.star-rating.star-rating-animate .star_rating_icon:nth-child(4) {
+  animation-delay: 300ms;
+}
+div.star-rating.star-rating-animate .star_rating_icon:nth-child(5) {
+  animation-delay: 400ms;
+}
+@keyframes starpop {
+  from {
+    transform: scale(1, 1);
+  }
+  75% {
+    transform: scale(1.175, 1.175);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+/* Turn off animations to avoid vestibular motion triggers for users who've set the a11y preference in their OS. */
+@media (prefers-reduced-motion: reduce) {
+  .star-rating.star-rating-animate .star_rating_icon {
+    animation: none;
+  }
+}
