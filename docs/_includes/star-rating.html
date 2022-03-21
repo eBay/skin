@@ -1,7 +1,31 @@
 <div id="star-rating">
     {% include section-header.html name="star-rating" version=page.versions.star-rating %}
 
-    <h3>Method 1: Independent Stars</h3>
+    <h3>Method 1: Combined Stars</h3>
+    <p>This is the simplest method for displaying star rating. To have more flexibility over individual stars, consider using Method 2 - Independent Stars.</p>
+    <p>Each non-interactive star-rating is available as an SVG symbol.</p>
+
+    <ul class="demo-icon-boxes">
+        {% assign ratings = "0, 0-5, 1, 1-5, 2, 2-5, 3, 3-5, 4, 4-5, 5" | split: ", " %}
+        {% for rating in ratings %}
+        <li>
+            <span>{{ rating }}</span>
+            <svg aria-hidden="true" class="star-rating" focusable="false" height="12">
+                {% include symbol.html name=rating type="star-rating" %}
+            </svg>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <p>Below is the code example for how to use the "star-rating-2-5" symbol. Please refer to the <a href="#icon">icon section</a> for full guidance on how to include and use SVG symbols.</p>
+
+    {% highlight html %}
+<svg role="img" aria-label="Rating: 2.5/5" class="star-rating" focusable="false" height="12">
+    <use xlink:href="#star-rating-2-5"></use>
+</svg>
+    {% endhighlight %}
+
+    <h3>Method 2: Independent Stars</h3>
     <p>This is built using fine-grained pieces (individual stars) for optimal flexibility and for allowing potential independant star treatments (i.e. animations).</p>
     <p>
         <ul class="demo-icon-boxes">
@@ -9,7 +33,7 @@
             {% for rating in ratings %}
             <li>
                 <span>{{ rating }}</span>
-                <div role="img" aria-label="Rating: 2.5/5" class="star-rating star-rating-animate" data-stars="{{ rating }}" focusable="false">
+                <div role="img" aria-label="Rating: 2.5/5" class="star-rating" data-stars="{{ rating }}" focusable="false">
                     <svg class="star_rating_icon" aria-hidden="true">
                         <use class="star_rating_icon_symbol" xlink:href="{{ page.static_dir }}/common/icons.svg#icon-star-full"></use>
                         <use class="star_rating_icon_star_half" xlink:href="{{ page.static_dir }}/common/icons.svg#icon-star-full"></use>
@@ -67,30 +91,6 @@
         <use class="star_rating_icon_star_half" xlink:href="#icon-star-full"></use>
     </svg>
 </div>
-    {% endhighlight %}
-
-    <h3>Method 2: Combined Stars</h3>
-    <p><em>This method of displaying star rating is simpler but lacks the flexibility of the independent stars method.</em></p>
-    <p>Each non-interactive star-rating is available as an SVG symbol.</p>
-
-    <ul class="demo-icon-boxes">
-        {% assign ratings = "0, 0-5, 1, 1-5, 2, 2-5, 3, 3-5, 4, 4-5, 5" | split: ", " %}
-        {% for rating in ratings %}
-        <li>
-            <span>{{ rating }}</span>
-            <svg aria-hidden="true" class="star-rating" focusable="false" height="12">
-                {% include symbol.html name=rating type="star-rating" %}
-            </svg>
-        </li>
-    {% endfor %}
-    </ul>
-
-    <p>Below is the code example for how to use the "star-rating-2-5" symbol. Please refer to the <a href="#icon">icon section</a> for full guidance on how to include and use SVG symbols.</p>
-
-    {% highlight html %}
-<svg role="img" aria-label="Rating: 2.5/5" class="star-rating" focusable="false" height="12">
-    <use xlink:href="#star-rating-2-5"></use>
-</svg>
     {% endhighlight %}
 
 </div>
