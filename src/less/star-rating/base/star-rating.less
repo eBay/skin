@@ -16,32 +16,33 @@ svg.star-rating {
     width: 64px;
 }
 
-div.star-rating svg.star_rating_icon {
+div.star-rating svg.star-rating-icon {
     fill: none;
     height: 12px;
     width: 12px;
 }
 
 /* each star starts unfilled */
-div.star-rating svg.star_rating_icon use.star_rating_icon_symbol {
+div.star-rating svg.star-rating-icon use.star-rating-icon__star-full {
     fill: @star-unfilled;
 }
 
 /* full stars */
-div.star-rating[data-stars^="1"] svg:nth-child(-n + 1) use.star_rating_icon_symbol,
-div.star-rating[data-stars^="2"] svg:nth-child(-n + 2) use.star_rating_icon_symbol,
-div.star-rating[data-stars^="3"] svg:nth-child(-n + 3) use.star_rating_icon_symbol,
-div.star-rating[data-stars^="4"] svg:nth-child(-n + 4) use.star_rating_icon_symbol,
-div.star-rating[data-stars^="5"] svg:nth-child(-n + 5) use.star_rating_icon_symbol {
+div.star-rating[data-stars^="1"] svg:nth-child(-n + 1) use.star-rating-icon__star-full,
+div.star-rating[data-stars^="2"] svg:nth-child(-n + 2) use.star-rating-icon__star-full,
+div.star-rating[data-stars^="3"] svg:nth-child(-n + 3) use.star-rating-icon__star-full,
+div.star-rating[data-stars^="4"] svg:nth-child(-n + 4) use.star-rating-icon__star-full,
+div.star-rating[data-stars^="5"] svg:nth-child(-n + 5) use.star-rating-icon__star-full {
     fill: @star-filled;
 }
 
 /* half stars */
-div.star-rating[data-stars="0-5"] svg:nth-child(1) use.star_rating_icon_star_half,
-div.star-rating[data-stars="1-5"] svg:nth-child(2) use.star_rating_icon_star_half,
-div.star-rating[data-stars="2-5"] svg:nth-child(3) use.star_rating_icon_star_half,
-div.star-rating[data-stars="3-5"] svg:nth-child(4) use.star_rating_icon_star_half,
-div.star-rating[data-stars="4-5"] svg:nth-child(5) use.star_rating_icon_star_half {
-    .svgHalfXClip();
+div.star-rating[data-stars="0-5"] svg:nth-child(1) use.star-rating-icon__star-half,
+div.star-rating[data-stars="1-5"] svg:nth-child(2) use.star-rating-icon__star-half,
+div.star-rating[data-stars="2-5"] svg:nth-child(3) use.star-rating-icon__star-half,
+div.star-rating[data-stars="3-5"] svg:nth-child(4) use.star-rating-icon__star-half,
+div.star-rating[data-stars="4-5"] svg:nth-child(5) use.star-rating-icon__star-half {
+    // horizontal clip of an svg into half
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
     fill: @star-filled;
 }
