@@ -14,7 +14,7 @@ export const primaryCollapsed = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -46,7 +46,7 @@ export const primaryExpanded = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -78,7 +78,7 @@ export const secondaryCollapsed = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -110,7 +110,7 @@ export const secondaryExpanded = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -142,7 +142,7 @@ export const tertiaryCollapsed = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -174,7 +174,7 @@ export const tertiaryExpanded = () => `
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu">
+            <div class="menu-button__menu menu-button__menu--reverse">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
