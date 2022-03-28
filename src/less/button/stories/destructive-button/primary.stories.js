@@ -33,9 +33,9 @@ export const disabledWithIcon = () => `
 </button>
 `;
 
-export const loading = () => `
-<button class="btn btn--primary btn--destructive" aria-disabled="true" aria-label="Loading" aria-live="polite">
-    <span class="progress-spinner" aria-label="Busy" role="img">
+export const busy = () => `
+<button class="btn btn--primary btn--destructive" aria-label="Busy">
+    <span class="progress-spinner">
         <svg aria-hidden="true" class="icon icon--spinner" focusable="false">
             <use xlink:href="#icon-spinner"></use>
         </svg>

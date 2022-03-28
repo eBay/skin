@@ -1,8 +1,8 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 // button[aria-disabled="true"] is a partially disabled button
-// button[aria-live="polite"] is a button with a potential loading/busy state
-// button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
+// (deprecated, remove selectors in v14) button[aria-live="polite"] is a button with a potential loading/busy state
+// (deprecated, remove selectors in v14) button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
 // a:not([href]) is a disabled link
 
 button.btn,
@@ -78,8 +78,8 @@ a.fake-btn--primary {
     outline-color: @color-text-primary; // fixes invisible focus outline in Firefox
 }
 
-/* show hover states only for non-disabled or non-loading state button */
-button.btn--primary:not([disabled]):not([aria-disabled="true"]),
+/* show hover states only for non-disabled or non-busy state button */
+button.btn--primary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--primary[href] {
     &:focus,
     &:hover {
@@ -88,7 +88,7 @@ a.fake-btn--primary[href] {
     }
 }
 
-button.btn--primary:not([disabled]):not([aria-disabled="true"]),
+button.btn--primary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--primary[href] {
     &:active {
         .background-color-token(btn-primary-active-background-color, color-action-active);
@@ -114,7 +114,7 @@ button.btn--primary.btn--destructive[aria-disabled="true"]:not([aria-live="polit
     .border-color-token(btn-primary-destructive-disabled-border, color-destructive-primary-disabled-background);
 }
 
-button.btn--primary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--primary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--primary.fake-btn--destructive[href] {
     &:focus,
     &:hover {
@@ -156,7 +156,7 @@ a.fake-btn--large svg.icon {
 }
 
 button.btn--primary[disabled],
-button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
+button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy) {
     .background-color-token(btn-primary-disabled-background-color, color-action-primary-disabled);
     .border-color-token(btn-primary-disabled-border-color, color-action-primary-disabled);
     .color-token(btn-primary-disabled-foreground-color, color-background-default);
@@ -185,8 +185,8 @@ a.fake-btn--secondary {
     .color-token(btn-secondary-foreground-color, color-b4);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
-button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
+/* show hover states only for non-disabled or non-busy state button */
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--secondary[href] {
     &:hover,
     &:focus {
@@ -196,7 +196,7 @@ a.fake-btn--secondary[href] {
     }
 }
 
-button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
+button.btn--secondary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--secondary[href] {
     &:active {
         .background-color-token(btn-secondary-active-background-color, color-action-secondary-background);
@@ -212,7 +212,7 @@ a.fake-btn--secondary.fake-btn--destructive {
     .color-token(btn-secondary-destructive-foreground-color, color-destructive);
 }
 
-button.btn--secondary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--secondary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--secondary.fake-btn--destructive[href] {
     &:hover,
     &:focus {
@@ -252,8 +252,8 @@ a.fake-btn--delete {
 /* stylelint-disable no-descending-specificity */
 button.btn--secondary[disabled],
 button.btn--delete[disabled],
-button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]),
-button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
+button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy),
+button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy) {
     .background-color-token(btn-secondary-disabled-background-color, color-background-default);
     .border-color-token(btn-secondary-disabled-border-color, color-grey3);
     .color-token(btn-secondary-disabled-foreground-color, color-grey3);
@@ -279,8 +279,8 @@ a.fake-btn--tertiary {
     .color-token(btn-tertiary-foreground-color, color-b4);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
-button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
+/* show hover states only for non-disabled or non-busy state button */
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--tertiary[href] {
     &:focus,
     &:hover {
@@ -290,7 +290,7 @@ a.fake-btn--tertiary[href] {
     }
 }
 
-button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
+button.btn--tertiary:not([disabled]):not([aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--tertiary[href] {
     &:active {
         .background-color-token(btn-tertiary-active-background-color, color-grey3);
@@ -304,7 +304,7 @@ a.fake-btn--tertiary:visited {
 }
 
 button.btn--tertiary[disabled],
-button.btn--tertiary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
+button.btn--tertiary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy) {
     .background-color-token(btn-tertiary-disabled-background-color, color-grey1);
     .border-color-token(btn-tertiary-disabled-border-color, color-grey1);
     .color-token(btn-tertiary-disabled-foreground-color, color-grey3);
@@ -322,8 +322,8 @@ a.fake-btn--tertiary.fake-btn--destructive {
     .color-token(btn-tertiary-destructive-foreground-color, color-destructive);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
-button.btn--tertiary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+/* show hover states only for non-disabled or non-busy state button */
+button.btn--tertiary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]):not(.btn--busy),
 a.fake-btn--tertiary.fake-btn--destructive[href] {
     &:focus,
     &:hover {

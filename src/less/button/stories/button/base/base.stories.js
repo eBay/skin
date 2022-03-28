@@ -20,18 +20,26 @@ export const large = () => `
 </button>
 `;
 
-export const loading = () => `
-<button class="btn" aria-disabled="true" aria-label="Loading" aria-live="polite">
+export const busy = () => `
+<button class="btn btn--busy" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
+            <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon-spinner"></use>
+            </svg>
+        </span>
     </span>
 </button>
 `;
 
-export const loadingLarge = () => `
-<button class="btn btn--large" aria-disabled="true" aria-label="Loading" aria-live="polite">
+export const busyLarge = () => `
+<button class="btn btn--large btn--busy" aria-label="Busy">
     <span class="btn__cell">
-        <span class="progress-spinner">
+        <span class="progress-spinner progress-spinner--large">
+            <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon-spinner"></use>
+            </svg>
+        </span>
     </span>
 </button>
 `;

@@ -37,12 +37,26 @@ export const partiallyDisabled = () => `
 </button>
 `;
 
-export const loading = () => `
+export const loadingDeprecated = () => `
 <button class="btn btn--primary" aria-disabled="true" aria-label="Loading" aria-live="polite">
-    <span class="progress-spinner" aria-label="Busy" role="img">
-        <svg aria-hidden="true" class="icon icon--spinner" focusable="false">
-            <use xlink:href="#icon-spinner"></use>
-        </svg>
+    <span class="btn__cell">
+        <span class="progress-spinner">
+            <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon-spinner"></use>
+            </svg>
+        </span>
+    </span>
+</button>
+`;
+
+export const busy = () => `
+<button class="btn btn--primary btn--busy" aria-label="Busy">
+    <span class="btn__cell">
+        <span class="progress-spinner">
+            <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon-spinner"></use>
+            </svg>
+        </span>
     </span>
 </button>
 `;

@@ -39,17 +39,17 @@ let progressBarInterval;
 
 const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no-console
 
-// LOADING BUTTON
-document.getElementById('loading-button').addEventListener('click', function() {
+// BUSY BUTTON
+document.getElementById('busy-button').addEventListener('click', function() {
     const button = this;
-    button.setAttribute('aria-label', 'Loading...');
-    button.setAttribute('aria-disabled', 'true');
+    button.setAttribute('aria-label', 'Busy...');
+    button.classList.add('btn--busy');
     button.innerHTML = `<span class="btn__cell"><span class="progress-spinner"></span></span>`;
 
     window.setTimeout(function() {
-        button.setAttribute('aria-disabled', 'false');
+        button.classList.remove('btn--busy');
         button.removeAttribute('aria-label');
-        button.innerHTML = `Done`;
+        button.innerHTML = `Activate Spinner`;
     }, 2000);
 });
 
