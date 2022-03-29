@@ -50,7 +50,7 @@ export const loadingDeprecated = () => `
 `;
 
 export const busy = () => `
-<button class="btn btn--primary btn--busy" aria-label="Busy">
+<button class="btn btn--primary" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg class="icon icon--spinner" focusable="false" aria-hidden="true">

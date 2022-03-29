@@ -43,11 +43,17 @@ const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no
 document.getElementById('busy-button').addEventListener('click', function() {
     const button = this;
     button.setAttribute('aria-label', 'Busy...');
-    button.classList.add('btn--busy');
-    button.innerHTML = `<span class="btn__cell"><span class="progress-spinner"></span></span>`;
+    button.innerHTML = `
+        <span class="btn__cell">
+            <span class="progress-spinner" role="img" aria-label="Busy">
+                <svg class="icon icon--spinner" focusable="false" height="24" width="24" aria-hidden="true" >
+                    <use xlink:href="static/common/icons.svg#icon-spinner"></use>
+                </svg>
+            </span>
+        </span>
+    `;
 
     window.setTimeout(function() {
-        button.classList.remove('btn--busy');
         button.removeAttribute('aria-label');
         button.innerHTML = `Activate Spinner`;
     }, 2000);

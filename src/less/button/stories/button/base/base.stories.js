@@ -21,7 +21,7 @@ export const large = () => `
 `;
 
 export const busy = () => `
-<button class="btn btn--busy" aria-label="Busy">
+<button class="btn" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
@@ -33,7 +33,7 @@ export const busy = () => `
 `;
 
 export const busyLarge = () => `
-<button class="btn btn--large btn--busy" aria-label="Busy">
+<button class="btn btn--large" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner progress-spinner--large">
             <svg class="icon icon--spinner" focusable="false" aria-hidden="true">

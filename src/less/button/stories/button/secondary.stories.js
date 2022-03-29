@@ -38,7 +38,7 @@ export const partiallyDisabled = () => `
 `;
 
 export const busy = () => `
-<button class="btn btn--secondary btn--busy" aria-label="Busy">
+<button class="btn btn--secondary" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg class="icon icon--spinner" focusable="false" aria-hidden="true">

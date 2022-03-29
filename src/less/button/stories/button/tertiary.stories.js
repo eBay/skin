@@ -9,7 +9,7 @@ export const disabled = () => `
 `;
 
 export const busy = () => `
-<button class="btn btn--tertiary btn--busy" aria-label="Busy">
+<button class="btn btn--tertiary" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
