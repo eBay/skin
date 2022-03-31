@@ -3,5 +3,9 @@
 {% elsif include.type == "star-rating" %}
 <use xlink:href="{{ page.static_dir }}/common/star-rating.svg#star-rating-{{ include.name }}"></use>
 {% else %}
+    {% if include.classNames and include.classNames != "" %}
+ <use class="{{ include.classNames }}" xlink:href="{{ page.static_dir }}/common/icons.svg#icon-{{ include.name }}{{ include.postfix }}"></use>
+    {% else %}
 <use xlink:href="{{ page.static_dir }}/common/icons.svg#icon-{{ include.name }}{{ include.postfix }}"></use>
+    {% endif %}
 {% endif %}
