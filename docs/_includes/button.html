@@ -218,30 +218,12 @@
 </button>
     {% endhighlight %}
 
-    <h3 id="button-loading">Loading State for Button</h3>
-        <p>Replace the button contents with a <a href="#progress-spinner">progress spinner</a> to create a loading button state.</p>
-        <p>The button must be marked as a labelled live-region for assistive technology and becomes <a href="#button-partially-disabled">partially disabled</a> for the duration of the loading state.</p>
+    <h3 id="button-busy">Busy State for Button</h3>
+        <p>Replace the button contents with a <a href="#progress-spinner">progress spinner</a> to represent a busy state. Note also, that the button will need an aria-label to programmatically convey the busy state to assistive technology.</p>
+
         <div class="demo">
             <div class="demo__inner">
-                <button class="btn btn--primary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
-                    <span class="btn__cell">
-                        <span class="progress-spinner">
-                            <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
-                                {% include symbol.html name="spinner" %}
-                            </svg>
-                        </span>
-                    </span>
-                </button>
-                <button class="btn btn--secondary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
-                    <span class="btn__cell">
-                        <span class="progress-spinner">
-                            <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
-                                {% include symbol.html name="spinner" %}
-                            </svg>
-                        </span>
-                    </span>
-                </button>
-                <button class="btn btn--tertiary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
+                <button class="btn" aria-label="Busy...">
                     <span class="btn__cell">
                         <span class="progress-spinner">
                             <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
@@ -254,25 +236,7 @@
         </div>
 
         {% highlight html %}
-<button class="btn btn--primary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
-    <span class="btn__cell">
-        <span class="progress-spinner">
-            <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-spinner"></use>
-            </svg>
-        </span>
-    </span>
-</button>
-<button class="btn btn--secondary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
-    <span class="btn__cell">
-        <span class="progress-spinner">
-            <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
-                <use xlink:href="#icon-spinner"></use>
-            </svg>
-        </span>
-    </span>
-</button>
-<button class="btn btn--tertiary" aria-label="Loading..." aria-disabled="true" aria-live="polite">
+<button class="btn" aria-label="Busy...">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
@@ -284,37 +248,14 @@
         {% endhighlight %}
 
     <p>Click the button below for an interactive example.</p>
+
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn" id="loading-button" aria-live="polite">Load</button>
+            <button class="btn" id="busy-button" style="min-width: 150px">Activate Spinner</button>
         </div>
     </div>
 
-    <!--
-        <h3 id="button-confirmation">Confirmation Button <sup>EXPERIMENTAL</sup></h3>
-        <p>Use the <span class="highlight">confirmation</span> block modifier to create a confirmation button style.</p>
-        <div class="demo">
-            <div class="demo__inner">
-                <button aria-label="Success" class="btn btn--confirmation">
-                    <span class="btn__cell">
-                        <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="16" width="16">
-                            {% include symbol.html name="tick" %}
-                        </svg>
-                    </span>
-                </button>
-            </div>
-        </div>
-
-        {% highlight html %}
-<button aria-label="Success" class="btn btn--confirmation">
-    <span class="btn__cell">
-        <svg aria-hidden="true" class="icon icon--tick" focusable="false" height="16" width="16">
-            <use xlink:href="#icon-tick-unfilled"></use>
-        </svg>
-    </span>
-</button>
-        {% endhighlight %}
-    -->
+    <p>NOTE: it is recommended to use a <a href="#snackbar-dialog">snackbar dialog</a> or <a href="#inline-notice">inline-notice</a> in order to convey any status of success or failure.</p>
 
     <h3 id="button-layout">Flexible Button</h3>
 
