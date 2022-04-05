@@ -15,6 +15,7 @@ This page contains instructions and guidelines for anybody contributing code to 
             -   [New Module](#new-module)
         -   [Bug Fix](#bug-fix)
     -   [Branching](#branching)
+    -   [Package Dependencies](#package-dependencies)
     -   [Commit Message Format](#commit-message-format)
     -   [Pull Requests](#pull-requests)
     -   [Style Guide](#style-guide)
@@ -143,6 +144,18 @@ Every milestone branch must be created from the `master` branch. For example, wh
 When all milestone issues are complete, and merged into the milestone branch, a Skin admin will merge the milestone branch into the `master` branch in preparation for the release.
 
 A milestone branch will be deleted after it has been merged into `master`. There is no need to keep these milestone branches lying around, as we can go back to any point in time using tags. See the hotfix section below for more details.
+
+## Package Dependencies
+
+Every time we cut a new milestone branch, the package dependencies require updating.
+
+1. Ensure you are on the milestone branch and that the branch is up to date with latest from `master`
+1. Run `npm install` to ensure your local node_modules are in sync with your `package-lock.json`
+1. Run `npm outdated`
+1. Go into `package.json` and update version numbers to the latest based on outdated. Pay attention to any major version updates as they may contain breaking changes!
+1. Run `npm install` again. This will update `package-lock.json`.
+1. Run `npm run build`, `npm start` and `npm run storybook` and make sure those commands execute correctly
+1. Check in `package.json` and `package-lock.json` as `chore: updated dev deps`.
 
 ## Commit Message Format
 
