@@ -1,8 +1,8 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 // button[aria-disabled="true"] is a partially disabled button
-// button[aria-live="polite"] is a button with a potential loading/busy state
-// button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
+// (deprecated, remove selectors in v14) button[aria-live="polite"] is a button with a potential loading/busy state
+// (deprecated, remove selectors in v14) button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
 // a:not([href]) is a disabled link
 
 button.btn,
@@ -78,7 +78,7 @@ a.fake-btn--primary {
     outline-color: @color-text-primary; // fixes invisible focus outline in Firefox
 }
 
-/* show hover states only for non-disabled or non-loading state button */
+/* show hover states only for non-disabled state */
 button.btn--primary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--primary[href] {
     &:focus,
@@ -185,7 +185,7 @@ a.fake-btn--secondary {
     .color-token(btn-secondary-foreground-color, color-b4);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
+/* show hover states only for non-disabled state button */
 button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
     &:hover,
@@ -279,7 +279,7 @@ a.fake-btn--tertiary {
     .color-token(btn-tertiary-foreground-color, color-b4);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
+/* show hover states only for non-disabled state button */
 button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--tertiary[href] {
     &:focus,
@@ -322,7 +322,7 @@ a.fake-btn--tertiary.fake-btn--destructive {
     .color-token(btn-tertiary-destructive-foreground-color, color-destructive);
 }
 
-/* show hover states only for non-disabled or non-loading state button */
+/* show hover states only for non-disabled state button */
 button.btn--tertiary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
 a.fake-btn--tertiary.fake-btn--destructive[href] {
     &:focus,
@@ -392,23 +392,31 @@ a.fake-btn--large-truncated {
     padding: @padding-vertical-button-large @padding-horizontal-button;
 }
 
-button.btn--split-start {
+button.btn--split-start,
+a.fake-btn--split-start {
     border-radius: 24px 0 0 24px;
 }
 
-button.btn--split-end {
+button.btn--split-end,
+a.fake-btn--split-end {
     border-radius: 0 24px 24px 0;
-    margin-left: -5px;
+    margin-left: -1px;
     min-width: 40px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
-button.btn--primary.btn--split-end {
+button.btn.btn--primary.btn--split-end,
+a.fake-btn.fake-btn--primary.fake-btn--split-end {
     .border-left-color-token(primary-border-split-color, color-white);
+    &:hover,
+    &:focus {
+        .border-left-color-token(primary-border-split-color, color-white);
+    }
 }
 
-button.btn--tertiary.btn--split-end {
+button.btn--tertiary.btn--split-end,
+a.fake-btn--tertiary.fake-btn--split-end {
     .border-left-color-token(tertiary-border-split-color, color-separator);
 }
 
@@ -430,21 +438,32 @@ button.btn--tertiary.btn--split-end {
     }
 }
 
-[dir="rtl"] button.btn--split-start {
+[dir="rtl"] button.btn--split-start,
+[dir="rtl"] a.fake-btn--split-start {
     border-radius: 0 24px 24px 0;
 }
 
-[dir="rtl"] button.btn--split-end {
+[dir="rtl"] button.btn--split-end,
+[dir="rtl"] a.fake-btn--split-end {
     border-radius: 24px 0 0 24px;
-    margin-right: -5px;
+    margin-left: inherit;
+    margin-right: -1px;
 }
 
-[dir="rtl"] button.btn--primary.btn--split-end {
+[dir="rtl"] button.btn.btn--primary.btn--split-end,
+[dir="rtl"] a.fake-btn.fake-btn--primary.fake-btn--split-end {
     .border-left-color-token(btn-primary-border-color, color-action-primary);
     .border-right-color-token(primary-border-split-color, color-separator);
+
+    &:hover,
+    &:focus {
+        .border-left-color-token(btn-primary-border-color, color-action-primary);
+        .border-right-color-token(primary-border-split-color, color-separator);
+    }
 }
 
-[dir="rtl"] button.btn--tertiary.btn--split-end {
+[dir="rtl"] button.btn--tertiary.btn--split-end,
+[dir="rtl"] a.fake-btn--tertiary.fake-btn--split-end {
     .border-left-color-token(btn-tertiary-border-color, color-grey1);
     .border-right-color-token(tertiary-border-split-color, color-separator);
 }
