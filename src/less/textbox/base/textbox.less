@@ -3,7 +3,7 @@
 /* stylelint-disable no-descending-specificity */
 
 .textbox {
-    .color-token(textbox-foreground-color, color-form-control-foreground);
+    .color-token(textbox-foreground-color, color-background-secondary);
     font-size: @font-size-14; // to align with buttons and select, it needs same font-size
     position: relative;
 
@@ -40,13 +40,13 @@ input.textbox__control {
 input.textbox__control,
 textarea.textbox__control {
     appearance: none;
-    .background-color-token(textbox-background-color, color-form-control-background);
-    .border-color-token(textbox-border-color, color-form-control-border);
+    .background-color-token(textbox-background-color, color-background-secondary);
+    .border-color-token(textbox-border-color, color-stroke-primary);
     .border-radius-token(textbox-border-radius, border-radius-small);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    .color-token(textbox-foreground-color, color-form-control-foreground);
+    .color-token(textbox-foreground-color, color-foreground-on-secondary);
     font-size: 1em;
     height: 40px;
     margin: 0; // Remove the margin in Firefox and Safari.
@@ -54,7 +54,7 @@ textarea.textbox__control {
     &[disabled] {
         .background-color-token(textbox-disabled-background-color, color-form-control-disabled-background);
         .border-color-token(textbox-disabled-border-color, color-form-control-border);
-        .color-token(textbox-disabled-foreground-color, color-grey4);
+        .color-token(textbox-disabled-foreground-color, color-neutral-4);
 
         &::-webkit-input-placeholder {
             .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
@@ -74,33 +74,34 @@ textarea.textbox__control {
     }
 
     &[aria-invalid="true"] {
-        .background-color-token(textbox-invalid-background-color, color-status-invalid);
-        .border-color-token(textbox-invalid-foreground-color, color-status-attention);
+        .background-color-token(textbox-invalid-background-color, color-background-invalid);
+        .border-color-token(textbox-invalid-foreground-color, color-stroke-attention);
     }
 
     &:focus {
-        .border-color-token(textbox-focus-border-color, color-form-control-focus-border);
-        .background-color-token(textbox-focus-background-color, color-background-default);
+        .border-color-token(textbox-focus-border-color, color-stroke-primary);
+        .background-color-token(textbox-focus-background-color, color-background-primary);
+        .color-token(textbox-focus-foreground-color, color-foreground-on-secondary);
         outline: 0;
     }
 
     &::-webkit-input-placeholder {
-        .color-token(textbox-placeholder-color, color-grey5);
+        .color-token(textbox-placeholder-color, color-foreground-secondary);
         font-weight: 200;
     }
 
     &::-moz-placeholder {
-        .color-token(textbox-placeholder-color, color-grey5);
+        .color-token(textbox-placeholder-color, color-foreground-secondary);
         font-weight: 200;
     }
 
     &:-ms-input-placeholder {
-        .color-token(textbox-placeholder-color, color-grey5);
+        .color-token(textbox-placeholder-color, color-foreground-secondary);
         font-weight: 200;
     }
 
     &::placeholder {
-        .color-token(textbox-placeholder-color, color-grey5);
+        .color-token(textbox-placeholder-color, color-foreground-secondary);
         font-weight: 200;
         opacity: 1;
     }
