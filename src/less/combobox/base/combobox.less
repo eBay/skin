@@ -80,7 +80,7 @@ span.combobox {
 }
 
 .combobox__control > svg.icon--dropdown {
-    .color-token(combobox-textbox-icon-color, color-textbox-icon);
+    .color-token(combobox-textbox-icon-color, color-foreground-primary);
     margin-left: 8px;
     pointer-events: none;
     position: absolute;
@@ -90,13 +90,13 @@ span.combobox {
 
 .combobox__control > input {
     appearance: none;
-    .background-color-token(combobox-textbox-background-color, color-form-control-background);
-    .border-color-token(combobox-textbox-border-color, color-form-control-border);
+    .background-color-token(combobox-textbox-background-color, color-background-secondary);
+    .border-color-token(combobox-textbox-border-color, color-stroke-primary);
     .border-radius-token(combobox-textbox-border-radius, border-radius-form-control);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    .color-token(combobox-textbox-foreground-color, color-text-default);
+    .color-token(combobox-textbox-foreground-color, color-foreground-on-secondary);
     font-family: inherit;
     font-size: inherit;
     height: @height-textbox;
@@ -105,7 +105,7 @@ span.combobox {
     padding: 0 32px 0 16px;
 
     &[readonly] {
-        .color-token(combobox-textbox-foreground-color, color-text-default);
+        .color-token(combobox-textbox-foreground-color, color-foreground-primary);
         // fixes the cursor in firefox (1 of 2)
         cursor: default;
         // fixes the cursor in firefox (2 of 2)
@@ -114,14 +114,14 @@ span.combobox {
 
         &::-moz-selection,
         &::selection {
-            .background-color-token(combobox-textbox-readonly-selection-background, color-background-default);
+            .background-color-token(combobox-textbox-readonly-selection-background, color-background-primary);
         }
     }
 
     &[disabled],
     &[aria-disabled="true"] {
-        .border-color-token(combobox-disabled-border-color, color-disabled);
-        .color-token(combobox-textbox-disabled-foreground-color, color-disabled);
+        .border-color-token(combobox-disabled-border-color, color-stroke-disabled);
+        .color-token(combobox-textbox-disabled-foreground-color, color-foreground-disabled);
 
         &[readonly] {
             text-shadow: 0 0 0 @color-disabled;
@@ -133,7 +133,7 @@ span.combobox {
     }
 
     &[aria-invalid="true"] {
-        .border-color-token(combobox-invalid-foreground-color, color-status-attention);
+        .border-color-token(combobox-invalid-foreground-color, color-background-invalid);
     }
 
     &::-ms-clear {
@@ -149,7 +149,7 @@ span.combobox {
 
 .combobox__control > input:focus {
     .background-color-token(combobox-textbox-focus-background-color, color-background-default);
-    .border-color-token(combobox-focus-border-color, color-form-control-focus-border);
+    .border-color-token(combobox-focus-border-color, color-foreground-primary);
     outline: 0;
 }
 
