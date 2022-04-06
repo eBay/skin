@@ -1,5 +1,7 @@
 @import "../../mixins/utility/utility-mixins.less";
 
+@height-textbox: 40px;
+
 .combobox {
     box-sizing: border-box;
     line-height: normal;
@@ -91,7 +93,7 @@ span.combobox {
 .combobox__control > input {
     appearance: none;
     .background-color-token(combobox-textbox-background-color, color-background-secondary);
-    .border-color-token(combobox-textbox-border-color, color-stroke-primary);
+    .border-color-token(combobox-textbox-border-color, color-stroke-default);
     .border-radius-token(combobox-textbox-border-radius, border-radius-form-control);
     border-style: solid;
     border-width: 1px;
@@ -120,7 +122,7 @@ span.combobox {
 
     &[disabled],
     &[aria-disabled="true"] {
-        .border-color-token(combobox-disabled-border-color, color-stroke-disabled);
+        .border-color-token(combobox-disabled-border-color, color-background-disabled);
         .color-token(combobox-textbox-disabled-foreground-color, color-foreground-disabled);
 
         &[readonly] {
@@ -133,7 +135,7 @@ span.combobox {
     }
 
     &[aria-invalid="true"] {
-        .border-color-token(combobox-invalid-foreground-color, color-background-invalid);
+        .border-color-token(combobox-invalid-foreground-color, color-stroke-attention);
     }
 
     &::-ms-clear {
@@ -148,7 +150,7 @@ span.combobox {
 }
 
 .combobox__control > input:focus {
-    .background-color-token(combobox-textbox-focus-background-color, color-background-default);
+    .background-color-token(combobox-textbox-focus-background-color, color-background-primary);
     .border-color-token(combobox-focus-border-color, color-foreground-primary);
     outline: 0;
 }
@@ -172,7 +174,7 @@ span.combobox {
 }
 
 .combobox__control > input[disabled] {
-    .background-color-token(combobox-textbox-disabled-background-color, color-form-control-disabled-background);
+    .background-color-token(combobox-textbox-disabled-background-color, color-background-secondary);
 }
 
 .combobox__option--active[role="option"] {

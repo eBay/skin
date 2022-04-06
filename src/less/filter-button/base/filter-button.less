@@ -11,12 +11,12 @@ button.filter-button,
 a.filter-link {
     .filter-button-base();
 
-    .background-color-token(filter-button-background-color, color-grey1);
+    .background-color-token(filter-button-background-color, color-background-secondary);
 
     &:focus,
     &:hover,
     &:active {
-        .background-color-token(filter-button-hover-background-color, color-grey2);
+        .background-color-token(filter-button-hover-background-color, color-neutral-2);
     }
 }
 
@@ -31,19 +31,24 @@ a.filter-link .filter-link__cell {
 }
 
 a.filter-link:visited {
-    .color-token(filter-button-foreground-color, color-text-default);
+    .color-token(filter-button-foreground-color, color-foreground-primary);
 }
 
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-    .background-color-token(filter-button-selected-background-color, color-grey3);
+    .background-color-token(filter-button-selected-background-color, color-background-inverse);
+    .color-token(filter-button-selected-foreground-color, color-foreground-on-inverse);
     font-weight: bold;
 
     &:focus,
     &:hover,
     &:active {
-        .background-color-token(filter-button-selected-hover-background-color, color-grey2);
+        .background-color-token(filter-button-selected-hover-background-color, color-neutral-2);
     }
+}
+
+a.filter-link--selected:visited {
+    .color-token(filter-button-selected-foreground-color, color-foreground-on-inverse);
 }
 
 button.filter-button[disabled],
@@ -54,13 +59,13 @@ a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
-    .color-token(filter-button-disabled-foreground-color, color-grey3);
+    .color-token(filter-button-disabled-foreground-color, color-foreground-disabled);
     font-weight: normal;
 
     &:hover,
     &:focus {
-        .background-color-token(filter-button-background-color, color-grey1);
-        .color-token(filter-button-disabled-foreground-color, color-grey3);
+        .background-color-token(filter-button-background-color, color-background-secondary);
+        .color-token(filter-button-disabled-foreground-color, color-neutral-3);
     }
 }
 
@@ -68,7 +73,7 @@ button.filter-button[aria-pressed="true"][disabled]:hover,
 button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
 a.filter-link--selected[aria-disabled="true"]:hover {
-    .background-color-token(filter-button-selected-background-color, color-grey3);
+    .background-color-token(filter-button-selected-background-color, color-background-disabled);
 }
 
 /* stylelint-disable no-descending-specificity */

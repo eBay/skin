@@ -41,7 +41,7 @@ input.textbox__control,
 textarea.textbox__control {
     appearance: none;
     .background-color-token(textbox-background-color, color-background-secondary);
-    .border-color-token(textbox-border-color, color-stroke-primary);
+    .border-color-token(textbox-border-color, color-stroke-default);
     .border-radius-token(textbox-border-radius, border-radius-small);
     border-style: solid;
     border-width: 1px;
@@ -52,36 +52,36 @@ textarea.textbox__control {
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .background-color-token(textbox-disabled-background-color, color-form-control-disabled-background);
-        .border-color-token(textbox-disabled-border-color, color-form-control-border);
-        .color-token(textbox-disabled-foreground-color, color-neutral-4);
+        .background-color-token(textbox-disabled-background-color, color-background-secondary);
+        .border-color-token(textbox-disabled-border-color, color-background-disabled);
+        .color-token(textbox-disabled-foreground-color, color-foreground-disabled);
 
         &::-webkit-input-placeholder {
-            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
+            .color-token(textbox-disabled-placeholder-color, color-foreground-ghost);
         }
 
         &::-moz-placeholder {
-            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
+            .color-token(textbox-disabled-placeholder-color, color-foreground-ghost);
         }
 
         &:-ms-input-placeholder {
-            .color-token(textbox-disabled-placeholder-color, color-form-control-disabled-placeholder);
+            .color-token(textbox-disabled-placeholder-color, color-foreground-ghost);
         }
     }
 
     &[readonly] {
-        .color-token(textbox-readonly-foreground-color, color-form-control-readonly-foreground);
+        .color-token(textbox-readonly-color, color-foreground-ghost);
     }
 
     &[aria-invalid="true"] {
-        .background-color-token(textbox-invalid-background-color, color-background-invalid);
+        background-color: @color-r1;
         .border-color-token(textbox-invalid-foreground-color, color-stroke-attention);
     }
 
     &:focus {
-        .border-color-token(textbox-focus-border-color, color-stroke-primary);
+        .border-color-token(textbox-focus-border-color, color-stroke-default);
         .background-color-token(textbox-focus-background-color, color-background-primary);
-        .color-token(textbox-focus-foreground-color, color-foreground-on-secondary);
+        .color-token(textbox-focus-foreground-color, color-foreground-secondary);
         outline: 0;
     }
 
