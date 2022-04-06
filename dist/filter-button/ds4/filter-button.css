@@ -8,7 +8,7 @@ a.filter-link {
   border: none;
   border-radius: 16px;
   box-sizing: border-box;
-  color: var(--filter-button-foreground-color, var(--color-text-default, #333));
+  color: var(--filter-button-foreground-color, var(--color-foreground-primary, #333));
   display: inline-flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -22,7 +22,7 @@ a.filter-link {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
-  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
+  background-color: var(--filter-button-background-color, var(--color-background-secondary, #eee));
 }
 button.filter-button + button.filter-button,
 button.filter-button + a.filter-link,
@@ -36,7 +36,7 @@ button.filter-button:hover,
 a.filter-link:hover,
 button.filter-button:active,
 a.filter-link:active {
-  background-color: var(--filter-button-hover-background-color, var(--color-grey2, #ddd));
+  background-color: var(--filter-button-hover-background-color, var(--color-neutral-2, #ddd));
 }
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
@@ -48,11 +48,12 @@ a.filter-link .filter-link__cell {
   white-space: nowrap;
 }
 a.filter-link:visited {
-  color: var(--filter-button-foreground-color, var(--color-text-default, #333));
+  color: var(--filter-button-foreground-color, var(--color-foreground-primary, #333));
 }
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-selected-background-color, var(--color-background-inverse, #333));
+  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse, #fff));
   font-weight: bold;
 }
 button.filter-button[aria-pressed="true"]:focus,
@@ -61,7 +62,10 @@ button.filter-button[aria-pressed="true"]:hover,
 a.filter-link--selected:hover,
 button.filter-button[aria-pressed="true"]:active,
 a.filter-link--selected:active {
-  background-color: var(--filter-button-selected-hover-background-color, var(--color-grey2, #ddd));
+  background-color: var(--filter-button-selected-hover-background-color, var(--color-neutral-2, #ddd));
+}
+a.filter-link--selected:visited {
+  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse, #fff));
 }
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],
@@ -71,7 +75,7 @@ a.filter-link:not([href]),
 a.filter-link[aria-disabled="true"],
 a.filter-link--selected:not([href]),
 a.filter-link--selected[aria-disabled="true"] {
-  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
+  color: var(--filter-button-disabled-foreground-color, var(--color-foreground-disabled, #ccc));
   font-weight: normal;
 }
 button.filter-button[disabled]:hover,
@@ -90,14 +94,14 @@ a.filter-link:not([href]):focus,
 a.filter-link[aria-disabled="true"]:focus,
 a.filter-link--selected:not([href]):focus,
 a.filter-link--selected[aria-disabled="true"]:focus {
-  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
-  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-background-color, var(--color-background-secondary, #eee));
+  color: var(--filter-button-disabled-foreground-color, var(--color-neutral-3, #ccc));
 }
 button.filter-button[aria-pressed="true"][disabled]:hover,
 button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
 a.filter-link--selected[aria-disabled="true"]:hover {
-  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-selected-background-color, var(--color-background-disabled, #ccc));
 }
 /* stylelint-disable no-descending-specificity */
 button.filter-button:focus:not(:focus-visible),
