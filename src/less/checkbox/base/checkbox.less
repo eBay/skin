@@ -1,6 +1,9 @@
 @import "../../mixins/icon/base/icon-mixins.less";
 @import "../../mixins/utility/utility-mixins.less";
 
+@dimensions-checkbox: 18px;
+@dimensions-checkbox-large: 24px;
+
 .checkbox {
     display: inline-flex;
     position: relative;
@@ -35,11 +38,11 @@ span.checkbox__icon[hidden] {
 }
 
 svg.checkbox__checked {
-    .color-token(checkbox-checked-color, color-action-primary);
+    .color-token(checkbox-checked-color, color-foreground-accent);
 }
 
 svg.checkbox__unchecked {
-    .color-token(checkbox-unchecked-color, color-text-default);
+    .color-token(checkbox-unchecked-color, color-foreground-primary);
 }
 
 input.checkbox__control[type="checkbox"] {
@@ -83,14 +86,14 @@ input.checkbox__control[type="checkbox"][disabled] + span.checkbox__icon {
     opacity: 1;
 
     svg {
-        .fill-token(checkbox-disabled-color, color-action-disabled);
+        .fill-token(checkbox-disabled-color, color-foreground-disabled);
     }
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
 input.checkbox__control[type="checkbox"]:focus + span.checkbox__icon {
     outline: 1px auto;
-    .outline-color-token(checkbox-outline, color-text-secondary);
+    .outline-color-token(checkbox-outline, color-foreground-secondary);
     outline-offset: 2px;
 }
 
