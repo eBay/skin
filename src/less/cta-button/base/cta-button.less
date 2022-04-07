@@ -5,12 +5,12 @@ a.cta-btn {
 
     .background-color-token(cta-btn-background-color, color-background-primary);
     border-color: currentColor;
-    .border-radius-token(cta-btn-border-radius, border-radius-button);
+    border-radius: calc(@button-height-small / 2);
     .color-token(cta-btn-foreground-color, color-foreground-primary);
     display: inline-block;
     font-size: @font-size-regular;
     max-width: 100%;
-    padding: @padding-vertical-button 20px;
+    padding: @button-padding-vertical 20px;
 }
 
 a.cta-btn:visited {
@@ -31,9 +31,10 @@ a.cta-btn[aria-disabled="true"] {
     .color-token(cta-btn-disabled-foreground-color, color-foreground-disabled);
 }
 
+// deprecated, remove in v14
 a.cta-btn--wide {
-    padding-left: @padding-horizontal-button-wide;
-    padding-right: @padding-horizontal-button-wide;
+    padding-left: @button-padding-horizontal-wide;
+    padding-right: @button-padding-horizontal-wide;
 }
 
 a.cta-btn--fluid {
@@ -62,18 +63,19 @@ span.cta-btn__cell--fixed-height svg.icon {
 }
 
 a.cta-btn--large {
+    border-radius: calc(@button-height-large / 2);
     font-size: @font-size-16;
-    min-height: 48px;
+    min-height: @button-height-large;
 }
 
 a.cta-btn--large-truncated {
     .btn-truncate();
 
     font-size: @font-size-16;
-    height: 48px;
+    height: @button-height-large;
 }
 
 a.cta-btn--large-fixed-height {
     font-size: @font-size-16;
-    height: 48px;
+    height: @button-height-large;
 }
