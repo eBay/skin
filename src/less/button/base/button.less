@@ -1,35 +1,24 @@
 @import "../../mixins/utility/utility-mixins.less";
 
-// button[aria-disabled="true"] is a partially disabled button
-// (deprecated, remove selectors in v14) button[aria-live="polite"] is a button with a potential loading/busy state
-// (deprecated, remove selectors in v14) button[aria-live="polite"][aria-disabled="true"] is a button in a loading/busy state
-// a:not([href]) is a disabled link
-
 button.btn,
 a.fake-btn {
     .btn-base();
 
     background-color: transparent;
-    .border-radius-token(btn-border-radius, border-radius-button);
+    border-radius: calc(@button-height-small / 2);
     color: inherit;
     display: inline-block;
-    font-size: @font-size-14;
-    min-height: 40px;
-    min-width: @min-width-button;
-    padding: @padding-vertical-button @padding-horizontal-button;
+    font-size: @font-size-regular;
+    min-height: @button-height-small;
+    min-width: 88px;
+    padding: @button-padding-vertical @button-padding-horizontal;
 }
 
+// deprecated, remove in v14
 button.btn--wide,
 a.fake-btn--wide {
-    padding-left: @padding-horizontal-button-wide;
-    padding-right: @padding-horizontal-button-wide;
-}
-
-button.btn[disabled],
-a.fake-btn:not([href]),
-button.btn[aria-disabled="true"],
-a.fake-btn[aria-disabled="true"] {
-    opacity: @opacity-action-disabled;
+    padding-left: @button-padding-horizontal-wide;
+    padding-right: @button-padding-horizontal-wide;
 }
 
 a.fake-btn:visited {
@@ -54,7 +43,7 @@ a.fake-btn svg.icon {
 
     flex-shrink: 0;
     height: 100%;
-    max-height: 40px - (@padding-vertical-button * 2);
+    max-height: @button-height-small - (@button-padding-vertical * 2);
     width: 1em;
 }
 
@@ -78,53 +67,49 @@ a.fake-btn--primary {
     outline-color: @color-foreground-primary; // fixes invisible focus outline in Firefox
 }
 
-/* show hover states only for non-disabled state */
-button.btn--primary:not([disabled]):not([aria-disabled="true"]),
-a.fake-btn--primary[href] {
-    &:focus,
-    &:hover {
-        .background-color-token(btn-primary-hover-background-color, color-action-hover);
-        .border-color-token(btn-primary-hover-border-color, color-action-hover);
-    }
-}
-
-button.btn--primary:not([disabled]):not([aria-disabled="true"]),
-a.fake-btn--primary[href] {
-    &:active {
-        .background-color-token(btn-primary-active-background-color, color-action-active);
-        .border-color-token(btn-primary-active-border-color, color-action-active);
-    }
-}
-
 a.fake-btn--primary:visited {
     .color-token(btn-primary-foreground-color, color-foreground-on-accent);
 }
 
+button.btn--primary:not([disabled]):not([aria-disabled="true"]),
+a.fake-btn--primary[href] {
+    &:focus,
+    &:hover {
+        background-color: var(--color-state-accent-hover, @color-state-accent-hover);
+        border-color: var(--color-state-accent-hover, @color-state-accent-hover);
+    }
+
+    &:active {
+        background-color: var(--color-state-accent-active, @color-state-accent-active);
+        border-color: var(--color-state-accent-active, @color-state-accent-active);
+    }
+}
+
 button.btn--primary.btn--destructive,
 a.fake-btn--primary.fake-btn--destructive {
-    .background-color-token(btn-primary-destructive-background-color, color-foreground-attention);
+    .background-color-token(btn-primary-destructive-background-color, color-background-attention);
     .border-color-token(btn-primary-destructive-border-color, color-stroke-attention);
     .color-token(btn-primary-destructive-foreground-color, color-foreground-on-attention);
     font-weight: @font-weight-action-primary;
 }
 
 button.btn--primary.btn--destructive[disabled],
-button.btn--primary.btn--destructive[aria-disabled="true"]:not([aria-live="polite"]) {
+button.btn--primary.btn--destructive[aria-disabled="true"] {
     .background-color-token(btn-primary-destructive-disabled-background, color-background-disabled);
     .border-color-token(btn-primary-destructive-disabled-border, color-stroke-disabled);
 }
 
-button.btn--primary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--primary.btn--destructive:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--primary.fake-btn--destructive[href] {
     &:focus,
     &:hover {
-        .background-color-token(btn-primary-destructive-hover-background-color, color-destructive-hover);
-        .border-color-token(btn-primary-destructive-hover-border-color, color-destructive-hover);
+        background-color: var(--color-state-attention-hover, @color-state-attention-hover);
+        border-color: var(--color-state-attention-hover, @color-state-attention-hover);
     }
 
     &:active {
-        .background-color-token(btn-primary-destructive-active-background-color, color-destructive-active);
-        .border-color-token(btn-primary-destructive-hover-border-color, color-destructive-active);
+        background-color: var(--color-state-attention-active, @color-state-attention-active);
+        border-color: var(--color-state-attention-active, @color-state-attention-active);
     }
 }
 
@@ -152,14 +137,13 @@ a.fake-btn[aria-expanded="true"] svg.icon--dropdown {
 
 button.btn--large svg.icon,
 a.fake-btn--large svg.icon {
-    max-height: 48px - (@padding-vertical-button-large * 2);
+    max-height: @button-height-large - (@button-padding-vertical-large * 2);
 }
 
 button.btn--primary[disabled],
-button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
-    .background-color-token(btn-primary-disabled-background-color, color-action-primary-disabled);
-    .border-color-token(btn-primary-disabled-border-color, color-action-primary-disabled);
-    .color-token(btn-primary-disabled-foreground-color, color-background-primary);
+button.btn--primary[aria-disabled="true"] {
+    .background-color-token(btn-primary-disabled-background-color, color-foreground-disabled);
+    .border-color-token(btn-primary-disabled-border-color, color-foreground-disabled);
 
     svg.icon {
         .fill-token(btn-primary-disabled-foreground-color, color-background-primary);
@@ -168,63 +152,52 @@ button.btn--primary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled
 
 a.fake-btn--primary:not([href]),
 a.fake-btn--primary[aria-disabled="true"] {
-    .background-color-token(btn-primary-disabled-background-color, color-action-primary-disabled);
-    .border-color-token(btn-primary-disabled-border-color, color-action-primary-disabled);
-    .color-token(btn-primary-disabled-foreground-color, color-background-primary);
-}
-
-/* stylelint-disable no-descending-specificity */
-a.fake-btn--secondary:visited {
-    .color-token(btn-secondary-foreground-color, color-b4);
+    .background-color-token(btn-primary-disabled-background-color, color-foreground-disabled);
+    .border-color-token(btn-primary-disabled-border-color, color-foreground-disabled);
 }
 
 button.btn--secondary,
 a.fake-btn--secondary {
-    .background-color-token(btn-secondary-background-color, color-action-secondary-background);
+    background-color: var(--btn-secondary-background-color, transparent);
     .border-color-token(btn-secondary-border-color, color-stroke-accent);
     .color-token(btn-secondary-foreground-color, color-foreground-accent);
 }
 
-/* show hover states only for non-disabled state button */
+a.fake-btn--secondary:visited {
+    .color-token(btn-secondary-foreground-color, color-b4);
+}
+
 button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
     &:hover,
     &:focus {
-        .background-color-token(btn-secondary-hover-background-color, color-action-secondary-background);
-        .border-color-token(btn-secondary-hover-foreground-color, color-b5);
-        .color-token(btn-secondary-hover-foreground-color, color-b5);
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
     }
 }
 
 button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
     &:active {
-        .background-color-token(btn-secondary-active-background-color, color-action-secondary-background);
-        .border-color-token(btn-secondary-active-foreground-color, color-b6);
-        .color-token(btn-secondary-active-foreground-color, color-b6);
+        background-color: var(--color-state-primary-active, @color-state-primary-active);
     }
 }
 
 button.btn--secondary.btn--destructive,
 a.fake-btn--secondary.fake-btn--destructive {
-    .background-color-token(btn-secondary-destructive-background-color, color-action-secondary-background);
+    background-color: var(--btn-secondary-destructive-background-color, transparent);
     .border-color-token(btn-secondary-destructive-border-color, color-stroke-attention);
     .color-token(btn-secondary-destructive-foreground-color, color-foreground-attention);
 }
 
-button.btn--secondary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--secondary.btn--destructive:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary.fake-btn--destructive[href] {
     &:hover,
     &:focus {
-        .background-color-token(btn-secondary-destructive-hover-background-color, color-action-secondary-background);
-        .border-color-token(btn-secondary-destructive-hover-foreground-color, color-destructive-secondary-hover-text);
-        .color-token(btn-secondary-destructive-hover-foreground-color, color-destructive-secondary-hover-text);
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
     }
 
     &:active {
-        .background-color-token(btn-secondary-destructive-active-background-color, color-action-secondary-background);
-        .border-color-token(btn-secondary-destructive-active-foreground-color, color-destructive-secondary-active-text);
-        .color-token(btn-secondary-destructive-active-foreground-color, color-destructive-secondary-active-text);
+        background-color: var(--color-state-primary-active, @color-state-primary-active);
     }
 }
 
@@ -232,29 +205,9 @@ button.btn--secondary.btn--destructive .progress-spinner {
     --color-spinner-icon-background: #f39fb0;
     --color-spinner-icon-foreground: #e0103a;
 }
-/* stylelint-enable no-descending-specificity */
 
-// deprecated modifier (superseded by destructive buttons), remove in v14
-button.btn--delete,
-a.fake-btn--delete {
-    .background-color-token(btn-delete-background-color, color-background-primary);
-    .border-color-token(btn-delete-foreground-color, color-stroke-attention);
-    .color-token(btn-delete-foreground-color, color-foreground-attention);
-
-    &:focus,
-    &:hover,
-    &:active,
-    &:visited {
-        .border-color-token(btn-delete-foreground-color, color-stroke-attention);
-        .color-token(btn-delete-foreground-color, color-foreground-attention);
-    }
-}
-
-/* stylelint-disable no-descending-specificity */
 button.btn--secondary[disabled],
-button.btn--delete[disabled], /* deprecated modifier, remove in v14 */
-button.btn--secondary[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]),
-button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled="true"]) {
+button.btn--secondary[aria-disabled="true"] {
     .background-color-token(btn-secondary-disabled-background-color, color-background-primary);
     .border-color-token(btn-secondary-disabled-border-color, color-stroke-disabled);
     .color-token(btn-secondary-disabled-foreground-color, color-background-disabled);
@@ -263,12 +216,9 @@ button.btn--delete[aria-disabled="true"]:not([aria-live="polite"][aria-disabled=
         .fill-token(btn-secondary-disabled-foreground-color, color-foreground-disabled);
     }
 }
-/* stylelint-enable no-descending-specificity */
 
 a.fake-btn--secondary:not([href]),
-a.fake-btn--secondary[aria-disabled="true"],
-a.fake-btn--delete:not([href]), /* deprecated modifier, remove in v14 */
-a.fake-btn--delete[aria-disabled="true"] {
+a.fake-btn--secondary[aria-disabled="true"] {
     .border-color-token(btn-secondary-disabled-border-color, color-background-disabled);
     .color-token(btn-secondary-disabled-foreground-color, color-background-disabled);
 }
@@ -280,28 +230,22 @@ a.fake-btn--tertiary {
     .color-token(btn-tertiary-foreground-color, color-foreground-accent);
 }
 
-/* show hover states only for non-disabled state button */
+a.fake-btn--tertiary:visited {
+    .color-token(btn-tertiary-foreground-color, color-foreground-accent);
+}
+
 button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--tertiary[href] {
     &:focus,
     &:hover {
-        .background-color-token(btn-tertiary-hover-background-color, color-neutral-2);
-        .border-color-token(btn-tertiary-hover-border-color, color-neutral-2);
-        .color-token(btn-tertiary-hover-color, color-b5);
+        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
+        border-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
     }
-}
 
-button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
-a.fake-btn--tertiary[href] {
     &:active {
-        .background-color-token(btn-tertiary-active-background-color, color-background-disabled);
-        .border-color-token(btn-tertiary-active-border-color, color-background-disabled);
-        .color-token(btn-tertiary-hover-color, color-b6);
+        background-color: var(--color-state-secondary-active, @color-state-secondary-active);
+        border-color: var(--color-state-secondary-active, @color-state-secondary-active);
     }
-}
-
-a.fake-btn--tertiary:visited {
-    .color-token(btn-tertiary-foreground-color, color-b4);
 }
 
 button.btn--tertiary[disabled],
@@ -323,25 +267,23 @@ a.fake-btn--tertiary.fake-btn--destructive {
     .color-token(btn-tertiary-destructive-foreground-color, color-foreground-attention);
 }
 
-/* show hover states only for non-disabled state button */
-button.btn--tertiary.btn--destructive:not([disabled]):not([aria-live="polite"][aria-disabled="true"]),
+button.btn--tertiary.btn--destructive:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--tertiary.fake-btn--destructive[href] {
     &:focus,
     &:hover {
-        .color-token(btn-tertiary-destructive-foreground-color, color-destructive-hover);
+        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
     }
 
     &:active {
-        .background-color-token(btn-tertiary-destructive-hover-background-color, color-grey3);
-        .color-token(btn-tertiary-destructive-foreground-color, color-destructive-active);
+        background-color: var(--color-state-secondary-active, @color-state-secondary-active);
     }
 }
 
 button.btn--tertiary.btn--destructive[disabled],
-button.btn--tertiary.btn--destructive[aria-disabled="true"]:not([aria-live="polite"]) {
+button.btn--tertiary.btn--destructive[aria-disabled="true"] {
     background-color: transparent;
     border: none;
-    .color-token(btn-tertiary-destructive-disabled-foreground-color, color-neutral-3);
+    .color-token(btn-tertiary-destructive-disabled-foreground-color, color-foreground-disabled);
 }
 
 button.btn--tertiary.btn--destructive .progress-spinner {
@@ -351,9 +293,10 @@ button.btn--tertiary.btn--destructive .progress-spinner {
 
 button.btn--large,
 a.fake-btn--large {
-    font-size: @font-size-button-large;
-    min-height: 48px;
-    padding: @padding-vertical-button-large @padding-horizontal-button;
+    border-radius: calc(@button-height-large / 2);
+    font-size: @font-size-medium;
+    min-height: @button-height-large;
+    padding: @button-padding-vertical-large @button-padding-horizontal;
 }
 
 button.btn--transparent,
@@ -373,8 +316,8 @@ a.fake-btn--fixed-height {
 
 button.btn--large-fixed-height,
 a.fake-btn--large-fixed-height {
-    height: 48px;
-    min-height: 48px;
+    height: @button-height-large;
+    min-height: @button-height-large;
     padding-top: calc(27px - 0.75em);
 }
 
@@ -387,10 +330,10 @@ button.btn--large-truncated,
 a.fake-btn--large-truncated {
     .btn-truncate();
 
-    font-size: @font-size-button-large;
-    height: 48px;
-    min-height: 48px;
-    padding: @padding-vertical-button-large @padding-horizontal-button;
+    font-size: @font-size-medium;
+    height: @button-height-large;
+    min-height: @button-height-large;
+    padding: @button-padding-vertical-large @button-padding-horizontal;
 }
 
 button.btn--split-start,
@@ -409,16 +352,16 @@ a.fake-btn--split-end {
 
 button.btn.btn--primary.btn--split-end,
 a.fake-btn.fake-btn--primary.fake-btn--split-end {
-    .border-left-color-token(primary-border-split-color, color-white);
+    .border-left-color-token(btn-primary-border-split-color, color-background-primary);
     &:hover,
     &:focus {
-        .border-left-color-token(primary-border-split-color, color-white);
+        .border-left-color-token(btn-primary-border-split-color, color-background-primary);
     }
 }
 
 button.btn--tertiary.btn--split-end,
 a.fake-btn--tertiary.fake-btn--split-end {
-    .border-left-color-token(tertiary-border-split-color, color-stroke-subtle);
+    .border-left-color-token(btn-tertiary-border-split-color, color-stroke-subtle);
 }
 
 [dir="rtl"] button.btn svg.icon--dropdown,
@@ -439,32 +382,34 @@ a.fake-btn--tertiary.fake-btn--split-end {
     }
 }
 
-[dir="rtl"] button.btn--split-start,
-[dir="rtl"] a.fake-btn--split-start {
-    border-radius: 0 24px 24px 0;
-}
+[dir="rtl"] {
+    button.btn--split-start,
+    a.fake-btn--split-start {
+        border-radius: 0 24px 24px 0;
+    }
 
-[dir="rtl"] button.btn--split-end,
-[dir="rtl"] a.fake-btn--split-end {
-    border-radius: 24px 0 0 24px;
-    margin-left: inherit;
-    margin-right: -1px;
-}
+    button.btn--split-end,
+    a.fake-btn--split-end {
+        border-radius: 24px 0 0 24px;
+        margin-left: inherit;
+        margin-right: -1px;
+    }
 
-[dir="rtl"] button.btn.btn--primary.btn--split-end,
-[dir="rtl"] a.fake-btn.fake-btn--primary.fake-btn--split-end {
-    .border-left-color-token(btn-primary-border-color, color-action-primary);
-    .border-right-color-token(primary-border-split-color, color-stroke-subtle);
-
-    &:hover,
-    &:focus {
+    button.btn.btn--primary.btn--split-end,
+    a.fake-btn.fake-btn--primary.fake-btn--split-end {
         .border-left-color-token(btn-primary-border-color, color-action-primary);
         .border-right-color-token(primary-border-split-color, color-stroke-subtle);
-    }
-}
 
-[dir="rtl"] button.btn--tertiary.btn--split-end,
-[dir="rtl"] a.fake-btn--tertiary.fake-btn--split-end {
-    .border-left-color-token(btn-tertiary-border-color, color-grey1);
-    .border-right-color-token(tertiary-border-split-color, color-stroke-subtle);
+        &:hover,
+        &:focus {
+            .border-left-color-token(btn-primary-border-color, color-action-primary);
+            .border-right-color-token(primary-border-split-color, color-stroke-subtle);
+        }
+    }
+
+    button.btn--tertiary.btn--split-end,
+    a.fake-btn--tertiary.fake-btn--split-end {
+        .border-left-color-token(btn-tertiary-border-color, color-background-secondary);
+        .border-right-color-token(tertiary-border-split-color, color-stroke-subtle);
+    }
 }

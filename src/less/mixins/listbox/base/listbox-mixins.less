@@ -1,19 +1,19 @@
 .listbox-option-base() {
     .selection-list-item-base();
-    .border-color-token(listbox-option-border-color, color-background-default);
-    .color-token(listbox-option-foreground-color, color-text-default);
+    .border-color-token(listbox-option-border-color, color-background-primary);
+    .color-token(listbox-option-foreground-color, color-foreground-primary);
 
     &[hidden] {
         display: none; // https://css-tricks.com/the-hidden-attribute-is-visibly-weak/
     }
 
     &:hover {
-        .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
-        .color-token(listbox-option-hover-foreground-color, color-selection-list-item-hover-foreground);
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        .color-token(listbox-option-hover-foreground-color, color-foreground-primary);
     }
 
     &:active {
-        font-weight: @font-weight-selection-list-item-active;
+        font-weight: @selection-list-item-active-font-weight;
     }
 }
 

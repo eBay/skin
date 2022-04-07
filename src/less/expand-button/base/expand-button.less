@@ -6,12 +6,12 @@ button.expand-btn {
     background-color: transparent;
     border: 1px solid;
     border-color: inherit;
-    .border-radius-token(expand-btn-border-radius, border-radius-dropdown-button);
+    .border-radius-token(expand-btn-border-radius, expand-button-border-radius);
     color: inherit;
     display: inline-block;
     font-size: 1em;
     max-width: 100%;
-    padding: @padding-vertical-button 16px;
+    padding: @button-padding-vertical 16px;
 
     &:hover,
     &:focus {
@@ -26,9 +26,10 @@ button.expand-btn svg.icon {
     flex-shrink: 0;
 }
 
+// deprecated, remove in v14
 button.expand-btn--wide {
-    padding-left: @padding-horizontal-button-wide;
-    padding-right: @padding-horizontal-button-wide;
+    padding-left: @button-padding-horizontal-wide;
+    padding-right: @button-padding-horizontal-wide;
 }
 
 button.expand-btn--fluid {
@@ -63,7 +64,6 @@ button.expand-btn[disabled],
 button.expand-btn[aria-disabled="true"] {
     .border-color-token(expand-btn-disabled-border-color, color-stroke-disabled);
     .color-token(expand-btn-disabled-foreground-color, color-foreground-disabled);
-    opacity: @opacity-action-disabled;
 }
 
 button.expand-btn svg.icon:only-child {
@@ -101,29 +101,29 @@ button.expand-btn[aria-expanded="true"] svg.icon--dropdown {
 }
 
 button.expand-btn--large {
-    min-height: 48px;
-    padding-bottom: @padding-vertical-button-large;
-    padding-top: @padding-vertical-button-large;
+    min-height: @button-height-large;
+    padding-bottom: @button-padding-vertical-large;
+    padding-top: @button-padding-vertical-large;
 }
 
 button.expand-btn--large-fixed-height {
-    height: 48px;
-    padding-bottom: @padding-vertical-button-large;
-    padding-top: @padding-vertical-button-large;
+    height: @button-height-large;
+    padding-bottom: @button-padding-vertical-large;
+    padding-top: @button-padding-vertical-large;
 }
 
 button.expand-btn--large-truncated {
     .btn-truncate();
 
-    height: 48px;
-    padding-bottom: @padding-vertical-button-large;
-    padding-top: @padding-vertical-button-large;
+    height: @button-height-large;
+    padding-bottom: @button-padding-vertical-large;
+    padding-top: @button-padding-vertical-large;
 }
 
 // code smell (chained modifier)
 button.expand-btn.expand-btn--no-text,
 button.expand-btn.expand-btn--icon-only {
-    height: 40px;
+    height: @button-height-small;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -131,7 +131,7 @@ button.expand-btn.expand-btn--icon-only {
 // code smell (chained modifier)
 button.expand-btn--no-text.expand-btn--large,
 button.expand-btn--icon-only.expand-btn--large {
-    height: 48px;
+    height: @button-height-large;
 }
 
 button.expand-btn--floating-label {
