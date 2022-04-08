@@ -28,7 +28,7 @@ button.filter-menu-button__button {
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
-  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
+  background-color: var(--filter-button-background-color, var(--color-background-secondary, #eee));
 }
 button.filter-menu-button__button + button.filter-menu-button__button {
   margin-left: 8px;
@@ -36,17 +36,14 @@ button.filter-menu-button__button + button.filter-menu-button__button {
 button.filter-menu-button__button:focus,
 button.filter-menu-button__button:hover,
 button.filter-menu-button__button:active {
-  background-color: var(--filter-button-hover-background-color, var(--color-grey2, #ddd));
-}
-button.filter-menu-button__button[aria-expanded="true"] {
-  background-color: var(--filter-button-hover-background-color, var(--color-grey2, #ddd));
+  background-color: var(--color-state-secondary-hover, #e4e4e4);
 }
 .filter-menu-button__button-cell {
   display: flex;
 }
 .filter-menu-button__button-cell svg.icon {
   align-self: center;
-  color: var(--filter-menu-button-icon-color, var(--color-text-default, #333));
+  color: var(--filter-menu-button-icon-color, var(--color-foreground-primary, #333));
   height: 7px;
   margin-left: 8px;
   width: 12px;
@@ -62,22 +59,23 @@ button.filter-menu-button__button[aria-expanded="true"] {
   transform: rotate(180deg);
 }
 button.filter-menu-button__button[aria-pressed="true"] {
-  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-selected-background-color, var(--color-background-inverse, #333));
+  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse, #fff));
   font-weight: bold;
+}
+button.filter-menu-button__button[aria-pressed="true"] svg.icon {
+  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse, #fff));
 }
 button.filter-menu-button__button[aria-pressed="true"]:focus,
 button.filter-menu-button__button[aria-pressed="true"]:hover,
 button.filter-menu-button__button[aria-pressed="true"]:active {
-  background-color: var(--filter-button-selected-hover-background-color, var(--color-grey2, #ddd));
-}
-button.filter-menu-button__button[aria-expanded="true"][aria-pressed="true"] {
-  background-color: var(--filter-button-selected-hover-background-color, var(--color-grey2, #ddd));
+  background-color: var(--color-state-inverse-hover, #3b3b3b);
 }
 button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
 button.filter-menu-button__button[aria-pressed="true"][disabled],
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
-  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
+  color: var(--filter-button-disabled-foreground-color, var(--color-background-disabled, #ccc));
   font-weight: normal;
 }
 button.filter-menu-button__button[disabled]:hover,
@@ -88,21 +86,21 @@ button.filter-menu-button__button[disabled]:focus,
 button.filter-menu-button__button[aria-disabled="true"]:focus,
 button.filter-menu-button__button[aria-pressed="true"][disabled]:focus,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:focus {
-  background-color: var(--filter-button-background-color, var(--color-grey1, #eee));
-  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-background-color, var(--color-background-secondary, #eee));
+  color: var(--filter-button-disabled-foreground-color, var(--color-foreground-disabled, #ccc));
 }
 button.filter-menu-button__button[disabled] .filter-menu-button__button-cell > svg.icon,
 button.filter-menu-button__button[aria-disabled="true"] .filter-menu-button__button-cell > svg.icon,
 button.filter-menu-button__button[aria-pressed="true"][disabled] .filter-menu-button__button-cell > svg.icon,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] .filter-menu-button__button-cell > svg.icon {
-  color: var(--filter-button-disabled-foreground-color, var(--color-grey3, #ccc));
+  color: var(--filter-button-disabled-foreground-color, var(--color-foreground-disabled, #ccc));
 }
 button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
-  background-color: var(--filter-button-selected-background-color, var(--color-grey3, #ccc));
+  background-color: var(--filter-button-selected-background-color, var(--color-foreground-disabled, #ccc));
 }
 .filter-menu-button__menu {
-  background-color: var(--filter-menu-item-background-color, var(--color-background-default, #fff));
+  background-color: var(--filter-menu-item-background-color, var(--color-background-primary, #fff));
   border: none;
   border-radius: 16px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -138,25 +136,25 @@ span.filter-menu-button__radio {
   width: 18px;
 }
 span.filter-menu-button__checkbox svg.icon--checkbox-unchecked {
-  color: var(--filter-menu-item-unchecked-color, var(--color-text-secondary, #707070));
+  color: var(--filter-menu-item-unchecked-color, var(--color-foreground-secondary, #707070));
   display: block;
   height: 18px;
   width: 18px;
 }
 span.filter-menu-button__checkbox svg.icon--checkbox-checked {
-  color: var(--filter-menu-item-checked-color, var(--color-text-default, #333));
+  color: var(--filter-menu-item-checked-color, var(--color-foreground-primary, #333));
   display: none;
   height: 18px;
   width: 18px;
 }
 span.filter-menu-button__radio svg.icon--radio-unchecked {
-  color: var(--filter-menu-item-unchecked-color, var(--color-text-default, #333));
+  color: var(--filter-menu-item-unchecked-color, var(--color-foreground-primary, #333));
   display: block;
   height: 18px;
   width: 18px;
 }
 span.filter-menu-button__radio svg.icon--radio-checked {
-  color: var(--filter-menu-item-checked-color, var(--color-text-default, #333));
+  color: var(--filter-menu-item-checked-color, var(--color-foreground-primary, #333));
   display: none;
   height: 18px;
   width: 18px;
@@ -178,7 +176,7 @@ span.filter-menu-button__radio svg.icon--radio-checked {
   background-color: var(--filter-menu-item-hover-background-color, var(--color-grey1, #eee));
 }
 .filter-menu-button__item:hover {
-  background-color: var(--filter-menu-item-hover-background-color, var(--color-grey1, #eee));
+  background-color: var(--color-state-primary-hover, #f5f5f5);
 }
 .filter-menu-button__item:last-child {
   margin-bottom: 8px;
@@ -191,16 +189,16 @@ span.filter-menu-button__radio svg.icon--radio-checked {
   justify-content: center;
 }
 .filter-menu-button__item svg.checkbox__unchecked {
-  color: var(--filter-menu-item-unchecked-color, var(--color-text-secondary, #707070));
+  color: var(--filter-menu-item-unchecked-color, var(--color-foreground-secondary, #707070));
 }
 .filter-menu-button__item svg.checkbox__checked {
-  color: var(--filter-menu-item-checked-color, var(--color-text-default, #333));
+  color: var(--filter-menu-item-checked-color, var(--color-foreground-primary, #333));
 }
 .filter-menu-button__item svg.radio__unchecked {
-  color: var(--filter-menu-item-unchecked-color, var(--color-text-secondary, #707070));
+  color: var(--filter-menu-item-unchecked-color, var(--color-foreground-secondary, #707070));
 }
 .filter-menu-button__item svg.radio__checked {
-  color: var(--filter-menu-item-checked-color, var(--color-text-default, #333));
+  color: var(--filter-menu-item-checked-color, var(--color-foreground-primary, #333));
 }
 span.filter-menu-button__item {
   display: block;
@@ -227,7 +225,7 @@ button.filter-menu-button__footer:hover {
 }
 button.filter-menu-button__footer:focus,
 button.filter-menu-button__footer:hover {
-  background-color: var(--filter-menu-item-hover-background-color, var(--color-grey1, #eee));
+  background-color: var(--color-state-primary-hover, #f5f5f5);
 }
 .filter-menu-button__text {
   flex-grow: 1;

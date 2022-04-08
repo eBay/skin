@@ -24,7 +24,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button button[aria-invalid="true"] {
-    .border-color-token(listbox-button-invalid-border-color, color-status-attention);
+    .border-color-token(listbox-button-invalid-border-color, color-stroke-attention);
 }
 
 .listbox-button button.expand-btn--borderless {
@@ -44,14 +44,13 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
 }
 
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
-    .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
-    .color-token(listbox-option-hover-foreground-color, color-foreground-primary);
+    background-color: var(--color-state-primary-hover, @color-state-primary-hover);
 }
 
 .listbox-button__option svg.icon {
     .listbox-option-status();
 
-    margin-left: 8px;
+    margin-left: @spacing-100;
 }
 
 div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
@@ -66,7 +65,7 @@ div.listbox-button__option[role="option"] {
 }
 
 div.listbox-button__option--active[role="option"] {
-    font-weight: @selection-list-item-active-font-weight;
+    font-weight: bold;
 }
 
 span.listbox-button__value {
@@ -84,7 +83,7 @@ span.listbox-button__value {
 [dir="rtl"] {
     .listbox-button__option svg.icon {
         margin-left: 0;
-        margin-right: 8px;
+        margin-right: @spacing-100;
     }
 }
 // stylelint-enable no-descending-specificity

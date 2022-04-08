@@ -4,7 +4,7 @@
 
 .textbox {
     .color-token(textbox-foreground-color, color-background-secondary);
-    font-size: @font-size-14; // to align with buttons and select, it needs same font-size
+    font-size: @font-size-regular; // to align with buttons and select, it needs same font-size
     position: relative;
 
     button.icon-btn {
@@ -26,14 +26,14 @@ textarea.textbox__control {
     font-family: inherit;
     min-height: 200px;
     overflow: auto;
-    padding: 16px;
+    padding: @spacing-200;
     resize: vertical;
     vertical-align: middle;
 }
 
 input.textbox__control {
     font-family: inherit;
-    padding: 0 16px;
+    padding: 0 @spacing-200;
     vertical-align: middle;
 }
 
@@ -113,9 +113,9 @@ input.textbox__control--large {
 
 .textbox > svg,
 .textbox .icon-btn > svg {
-    .color-token(textbox-icon-color, color-grey5);
+    .color-token(textbox-icon-color, color-foreground-secondary);
     display: inline-flex;
-    .fill-token(textbox-icon-color, color-grey5);
+    .fill-token(textbox-icon-color, color-foreground-secondary);
     height: 100%;
     pointer-events: none;
     position: absolute;
@@ -124,7 +124,7 @@ input.textbox__control--large {
 }
 
 .textbox > svg:first-child {
-    left: 16px;
+    left: @spacing-200;
 
     + input.textbox__control,
     + textarea.textbox__control {
@@ -139,7 +139,7 @@ input.textbox__control--large {
     }
 
     > svg:last-child {
-        right: 16px;
+        right: @spacing-200;
     }
 }
 
@@ -149,7 +149,7 @@ input.textbox__control--large {
 
 [dir="rtl"] {
     .textbox > svg:first-child {
-        right: 16px;
+        right: @spacing-200;
 
         & + input.textbox__control,
         & + textarea.textbox__control {
@@ -169,7 +169,7 @@ input.textbox__control--large {
         }
 
         > svg:last-child {
-            left: 16px;
+            left: @spacing-200;
             right: auto;
         }
     }

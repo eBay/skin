@@ -12,7 +12,7 @@ span.fake-tabs {
 
 div.tabs__items[role="tablist"],
 ul.fake-tabs__items {
-    font-size: @font-size-14;
+    font-size: @font-size-regular;
 }
 
 ul.fake-tabs__items {
@@ -48,7 +48,7 @@ div.tabs__item[role="tab"] > span {
 
 div.tabs__item[role="tab"] > span,
 li.fake-tabs__item > a {
-    .color-token(tabs-item-foreground-color, color-text-secondary);
+    .color-token(tabs-item-foreground-color, color-foreground-secondary);
     display: inline-block;
 
     &::after {
@@ -57,7 +57,7 @@ li.fake-tabs__item > a {
         content: "";
         display: block;
         height: 2px;
-        margin-top: 4px;
+        margin-top: @spacing-50;
         position: absolute; // required to avoid focus outline issues
         width: 100%;
     }
@@ -65,7 +65,7 @@ li.fake-tabs__item > a {
 
 div.tabs__item[role="tab"][aria-selected="true"] > span,
 li.fake-tabs__item > a[aria-current] {
-    .color-token(tabs-item-selected-foreground-color, color-text-default);
+    .color-token(tabs-item-selected-foreground-color, color-foreground-primary);
 
     &::after {
         background-color: currentColor;
@@ -84,7 +84,7 @@ div.tabs__item[role="tab"]:not([aria-selected="true"]):focus > span,
 div.tabs__item[role="tab"]:not([aria-selected="true"]):hover > span,
 li.fake-tabs__item > a:not([aria-current]):focus,
 li.fake-tabs__item > a:not([aria-current]):hover {
-    .color-token(tabs-item-hover-foreground-color, color-text-secondary);
+    .color-token(tabs-item-hover-foreground-color, color-foreground-secondary);
 
     &::after {
         background-color: currentColor;

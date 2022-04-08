@@ -16,7 +16,7 @@ a.filter-link {
     &:focus,
     &:hover,
     &:active {
-        .background-color-token(filter-button-hover-background-color, color-neutral-2);
+        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
     }
 }
 
@@ -43,7 +43,7 @@ a.filter-link--selected {
     &:focus,
     &:hover,
     &:active {
-        .background-color-token(filter-button-selected-hover-background-color, color-neutral-2);
+        background-color: var(--color-state-inverse-hover, @color-state-inverse-hover);
     }
 }
 
@@ -62,10 +62,11 @@ a.filter-link--selected[aria-disabled="true"] {
     .color-token(filter-button-disabled-foreground-color, color-foreground-disabled);
     font-weight: normal;
 
+    // todo: we can elimate the need for these overrides by using :not([disabled]) in place where defining hover states
     &:hover,
     &:focus {
         .background-color-token(filter-button-background-color, color-background-secondary);
-        .color-token(filter-button-disabled-foreground-color, color-neutral-3);
+        .color-token(filter-button-disabled-foreground-color, color-background-disabled);
     }
 }
 
