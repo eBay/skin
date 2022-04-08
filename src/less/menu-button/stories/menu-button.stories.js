@@ -404,6 +404,47 @@ export const menuFixWidth = () => `
 </span>
 `;
 
+export const menuIcons = () => `
+<span class="menu-button">
+    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
+        <span class="expand-btn__cell">
+            <span class="expand-btn__text">Button</span>
+            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem">
+                <svg class="icon icon--settings" focusable="false" aria-label="Settings" role="icon">
+                    <use xlink:href="#icon-settings"></use>
+                </svg>
+                <span style="margin: auto 5px;">
+                    Profile
+                </span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <svg class="icon icon--calendar" focusable="false" aria-label="Calendar" role="icon">
+                    <use xlink:href="#icon-calendar"></use>
+                </svg>
+                <span style="margin: auto 5px;">
+                    Calendar
+                </span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <svg class="icon icon--profile" focusable="false" aria-label="Profile" role="icon">
+                    <use xlink:href="#icon-profile"></use>
+                </svg>
+                <span style="margin: auto 5px;">
+                    Profile
+                </span>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
 export const separator = () => `
 <span class="menu-button">
     <button class="expand-btn" type="button" aria-expanded="true" aria-haspopup="true">
