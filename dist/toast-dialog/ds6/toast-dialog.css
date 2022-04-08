@@ -1,9 +1,9 @@
 .toast-dialog {
-  background-color: var(--toast-dialog-background-color, var(--color-action-primary, #3665f3));
+  background-color: var(--toast-dialog-background-color, var(--color-background-information, #3665f3));
   border-radius: var(--toast-dialog-border-radius, 16px 16px 0 0);
   bottom: 0;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
-  color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
+  color: var(--toast-dialog-foreground-color, var(--color-foreground-on-information, #fff));
   left: 0;
   max-height: 40vh;
   min-width: 320px;
@@ -14,12 +14,10 @@
   z-index: 2;
 }
 .toast-dialog a {
-  color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
+  color: var(--toast-dialog-foreground-color, var(--color-foreground-on-information, #fff));
 }
 .toast-dialog a:focus {
-  outline-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  outline-style: auto;
-  outline-width: 1px;
+  outline: 1px auto currentColor;
 }
 .toast-dialog--transition {
   transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s, transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
@@ -50,19 +48,20 @@
 button.toast-dialog__close {
   align-self: center;
   border: 0;
+  color: var(--toast-dialog-foreground-color, var(--color-foreground-on-information, #fff));
   margin: 0 0 0 auto;
+  outline-offset: -8px;
   padding: 0;
 }
-button.toast-dialog__close > svg,
-button.toast-dialog__close:hover > svg,
-button.toast-dialog__close:focus > svg {
-  fill: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-}
 button.toast-dialog__close:focus {
-  outline-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  outline-style: auto;
-  outline-width: 1px;
-  outline-offset: -8px;
+  outline: 1px dashed white;
+}
+button.toast-dialog__close:hover,
+button.toast-dialog__close:focus {
+  color: var(--color-state-primary-hover, #f5f5f5);
+}
+button.toast-dialog__close > svg {
+  fill: currentColor;
 }
 .toast-dialog__footer {
   display: flex;
@@ -71,42 +70,43 @@ button.toast-dialog__close:focus {
 .toast-dialog__footer button::first-letter {
   text-decoration: underline;
 }
-.toast-dialog__footer .btn--primary,
-.toast-dialog__footer .btn--secondary {
-  border-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
+.toast-dialog__footer button.btn--primary,
+.toast-dialog__footer button.btn--secondary {
+  border-color: var(--toast-dialog-foreground-color, var(--color-foreground-on-accent, #fff));
   border-style: solid;
   border-width: 1px;
+  outline-offset: 2px;
 }
-.toast-dialog__footer .btn--primary {
-  background-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  color: var(--toast-dialog-background-color, var(--color-action-primary, #3665f3));
+.toast-dialog__footer button.btn--primary {
+  background-color: var(--toast-dialog-foreground-color, var(--color-background-primary, #fff));
+  color: var(--toast-dialog-background-color, var(--color-foreground-accent, #3665f3));
 }
-.toast-dialog__footer .btn--secondary {
+.toast-dialog__footer button.btn--secondary {
   background-color: transparent;
   color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
   font-weight: 700;
   margin-right: 8px;
 }
-.toast-dialog__footer .btn--primary:focus,
-.toast-dialog__footer .btn--secondary:focus {
-  outline-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  outline-style: auto;
-  outline-width: 1px;
+.toast-dialog__footer button.btn--primary:focus,
+.toast-dialog__footer button.btn--secondary:focus {
+  outline: 1px dashed var(--color-foreground-on-information, #fff);
 }
-.toast-dialog__footer .btn--primary:focus,
-.toast-dialog__footer .btn--primary:hover {
-  background-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  border-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  border-style: solid;
-  border-width: 1px;
+.toast-dialog__footer button.btn--primary:not([disabled]):focus,
+.toast-dialog__footer button.btn--primary:not([disabled]):hover {
+  background-color: var(--color-state-primary-hover, #f5f5f5);
 }
-.toast-dialog__footer .btn--secondary:focus,
-.toast-dialog__footer .btn--secondary:hover {
-  background-color: var(--toast-dialog-background-color, var(--color-action-primary, #3665f3));
-  border-color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
-  border-style: solid;
-  border-width: 1px;
-  color: var(--toast-dialog-foreground-color, var(--color-background-default, #fff));
+.toast-dialog__footer button.btn--primary:not([disabled]):active {
+  background-color: var(--color-state-primary-active, #ebebeb);
+}
+.toast-dialog__footer button.btn--secondary:not([disabled]) {
+  /* prettier-ignore */
+}
+.toast-dialog__footer button.btn--secondary:not([disabled]):focus,
+.toast-dialog__footer button.btn--secondary:not([disabled]):hover {
+  background-color: var(--color-state-information-hover, #3461e9);
+}
+.toast-dialog__footer button.btn--secondary:not([disabled]):active {
+  background-color: var(--color-state-information-active, #325de0);
 }
 @media (min-width: 601px) {
   .toast-dialog {

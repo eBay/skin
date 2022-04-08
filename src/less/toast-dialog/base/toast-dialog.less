@@ -3,18 +3,12 @@
 @toast-dialog-border-radius: @border-radius-dialog @border-radius-dialog 0 0;
 @toast-dialog-large-border-radius: @border-radius-dialog;
 
-.toast-dialog-outline() {
-    .outline-color-token(toast-dialog-foreground-color, color-background-default);
-    outline-style: auto;
-    outline-width: 1px;
-}
-
 .toast-dialog {
-    .background-color-token(toast-dialog-background-color, color-action-primary);
+    .background-color-token(toast-dialog-background-color, color-background-information);
     .border-radius-token(toast-dialog-border-radius);
     bottom: 0;
     box-shadow: 0 0 3px rgba(0, 0, 0, 28%);
-    .color-token(toast-dialog-foreground-color, color-background-default);
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
     left: 0;
     max-height: 40vh;
     min-width: 320px;
@@ -27,11 +21,11 @@
 }
 
 .toast-dialog a {
-    .color-token(toast-dialog-foreground-color, color-background-default);
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
 }
 
 .toast-dialog a:focus {
-    .toast-dialog-outline();
+    outline: 1px auto currentColor;
 }
 
 .toast-dialog--transition {
@@ -54,7 +48,7 @@
 }
 
 .toast-dialog__window {
-    margin: 8px 16px 16px;
+    margin: @spacing-100 @spacing-200 @spacing-200;
 }
 
 .toast-dialog__header {
@@ -62,7 +56,7 @@
     display: flex;
 }
 
-// Can remove h2 selector after API change in ebayui
+// todo: can remove h2 selector after API change in ebayui
 .toast-dialog__header h2,
 .toast-dialog__title {
     margin: 0;
@@ -72,20 +66,23 @@
 button.toast-dialog__close {
     align-self: center;
     border: 0;
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
     margin: 0 0 0 auto;
+    outline-offset: -@spacing-100;
     padding: 0;
 
-    > svg,
-    &:hover > svg,
-    &:focus > svg {
-        .fill-token(toast-dialog-foreground-color, color-background-default);
-    }
-
     &:focus {
-        .toast-dialog-outline();
-
-        outline-offset: -8px;
+        outline: 1px dashed white;
     }
+
+    &:hover,
+    &:focus {
+        color: var(--color-state-primary-hover, @color-state-primary-hover);
+    }
+}
+
+button.toast-dialog__close > svg {
+    fill: currentColor;
 }
 
 .toast-dialog__footer {
@@ -96,59 +93,66 @@ button.toast-dialog__close {
         text-decoration: underline;
     }
 
-    .btn--primary,
-    .btn--secondary {
-        .border-color-token(toast-dialog-foreground-color, color-background-default);
+    button.btn--primary,
+    button.btn--secondary {
+        .border-color-token(toast-dialog-foreground-color, color-foreground-on-accent);
         border-style: solid;
         border-width: 1px;
+        outline-offset: 2px;
     }
 
-    .btn--primary {
-        .background-color-token(toast-dialog-foreground-color, color-background-default);
-        .color-token(toast-dialog-background-color, color-action-primary);
+    button.btn--primary {
+        .background-color-token(toast-dialog-foreground-color, color-background-primary);
+        .color-token(toast-dialog-background-color, color-foreground-accent);
     }
 
-    .btn--secondary {
+    button.btn--secondary {
         background-color: transparent;
         .color-token(toast-dialog-foreground-color, color-background-default);
         font-weight: 700;
-        margin-right: 8px;
+        margin-right: @spacing-100;
     }
 
-    .btn--primary:focus,
-    .btn--secondary:focus {
-        .toast-dialog-outline();
+    button.btn--primary:focus,
+    button.btn--secondary:focus {
+        outline: 1px dashed var(--color-foreground-on-information, @color-foreground-on-information);
     }
 
-    .btn--primary:focus,
-    .btn--primary:hover {
-        .background-color-token(toast-dialog-foreground-color, color-background-default);
-        .border-color-token(toast-dialog-foreground-color, color-background-default);
-        border-style: solid;
-        border-width: 1px;
+    button.btn--primary:not([disabled]) {
+        &:focus,
+        &:hover {
+            background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        }
+
+        &:active {
+            background-color: var(--color-state-primary-active, @color-state-primary-active);
+        }
     }
 
-    .btn--secondary:focus,
-    .btn--secondary:hover {
-        .background-color-token(toast-dialog-background-color, color-action-primary);
-        .border-color-token(toast-dialog-foreground-color, color-background-default);
-        border-style: solid;
-        border-width: 1px;
-        .color-token(toast-dialog-foreground-color, color-background-default);
+    button.btn--secondary:not([disabled]) {
+        &:focus,
+        &:hover {
+            background-color: var(--color-state-information-hover, @color-state-information-hover);
+        }
+
+        /* prettier-ignore */
+        &:active {
+            background-color: var(--color-state-information-active, @color-state-information-active);
+        }
     }
 }
 
 @media (min-width: 601px) {
     .toast-dialog {
         .border-radius-token(toast-dialog-large-border-radius);
-        bottom: 16px;
-        left: 16px;
+        bottom: @spacing-200;
+        left: @spacing-200;
         max-width: 480px;
         width: auto;
     }
 
     .toast-dialog__window {
-        margin: 16px 24px 24px;
+        margin: @spacing-200 @spacing-300 @spacing-300;
     }
 }
 

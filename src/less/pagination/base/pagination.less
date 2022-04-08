@@ -3,10 +3,10 @@
 nav.pagination {
     .inline-flex-items-centered();
 
-    .color-token(pagination-item-foreground-color, color-text-secondary);
+    .color-token(pagination-item-foreground-color, color-foreground-secondary);
     font-family: inherit;
     font-size: 1rem;
-    margin: 8px 0;
+    margin: @spacing-100 0;
     max-width: 100%;
 }
 
@@ -40,12 +40,12 @@ button.pagination__previous {
 
 a.pagination__next,
 button.pagination__next {
-    margin-left: 8px;
+    margin-left: @spacing-100;
 }
 
 a.pagination__previous,
 button.pagination__previous {
-    margin-right: 8px;
+    margin-right: @spacing-100;
 }
 
 .pagination__item {
@@ -86,7 +86,7 @@ a.pagination__item {
 
 a.pagination__item[aria-current="page"],
 button.pagination__item[aria-current="page"] {
-    .color-token(pagination-item-current-foreground-color, color-text-default);
+    .color-token(pagination-item-current-foreground-color, color-foreground-primary);
     font-weight: @font-weight-bold;
 
     &::after {
@@ -97,12 +97,12 @@ button.pagination__item[aria-current="page"] {
 a.pagination__item:not([aria-current="page"]),
 button.pagination__item:not([aria-current="page"]) {
     &:active {
-        .color-token(pagination-item-active-foreground-color, color-text-default);
+        .color-token(pagination-item-active-foreground-color, color-foreground-primary);
     }
 
     &:focus,
     &:hover {
-        .color-token(pagination-item-hover-foreground-color, color-action-hover);
+        .color-token(pagination-item-hover-foreground-color, color-foreground-accent);
 
         &::after {
             background-color: currentColor;
@@ -117,11 +117,11 @@ span.pagination__item svg.icon--overflow {
 span.pagination__item button.icon-btn--transparent {
     &:focus,
     &:hover {
-        .background-color-token(pagination-overflow-hover-background-color, color-grey2);
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
     }
 
     &:active {
-        .background-color-token(pagination-overflow-active-background-color, color-grey3);
+        background-color: var(--color-state-primary-active, @color-state-primary-active);
     }
 }
 
@@ -135,7 +135,7 @@ nav.pagination--fluid ol.pagination__items {
 }
 
 nav.pagination--fluid ol.pagination__items li {
-    flex: 1 0 48px;
+    flex: 1 0 @spacing-600;
 }
 
 // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
@@ -152,18 +152,18 @@ button.pagination__item:focus {
     a.pagination__next,
     button.pagination__next {
         margin-left: 0;
-        margin-right: 8px;
+        margin-right: @spacing-100;
     }
 
     a.pagination__previous,
     button.pagination__previous {
-        margin-left: 8px;
+        margin-left: @spacing-100;
         margin-right: 0;
     }
 }
 
 @media (min-width: @screen-size-3) {
     nav.pagination {
-        margin: 16px 0;
+        margin: @spacing-200 0;
     }
 }

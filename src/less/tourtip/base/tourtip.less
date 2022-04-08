@@ -17,8 +17,8 @@ span.tourtip {
 
 .tourtip__mask {
     .bubble-mask();
-    .background-color-token(tourtip-background-color, color-action-primary);
-    .color-token(tourtip-foreground-color, color-background-default);
+    .background-color-token(tourtip-background-color, color-background-information);
+    .color-token(tourtip-foreground-color, color-foreground-on-information);
 }
 
 span.tourtip__mask {
@@ -29,12 +29,10 @@ span.tourtip__mask {
     .bubble-cell();
 
     a {
-        .color-token(tourtip-foreground-color, color-background-default);
+        .color-token(tourtip-foreground-color, color-foreground-on-information);
 
         &:focus {
-            .outline-color-token(tourtip-foreground-color, color-background-default);
-            outline-style: dashed;
-            outline-width: 1px;
+            outline: 1px dashed currentColor;
         }
     }
 }
@@ -45,25 +43,29 @@ span.tourtip__mask {
 
 button.tourtip__close {
     .bubble-close();
+    .color-token(tourtip-foreground-color, color-foreground-on-information);
 
-    > svg,
-    &:focus > svg,
-    &:hover > svg {
-        .fill-token(tourtip-foreground-color, color-background-default);
+    &:focus,
+    &:hover {
+        color: var(--color-state-primary-hover, @color-state-primary-hover);
     }
 
     &:focus {
-        .outline-color-token(tourtip-foreground-color, color-background-default);
-        outline-style: dashed;
-        outline-width: 1px;
+        outline: 1px dashed currentColor;
     }
+}
+
+button.tourtip__close > svg {
+    fill: currentColor;
+    height: 14px;
+    width: 14px;
 }
 
 .tourtip__pointer {
     .pointer-base();
     .pointer-top();
     .pointer-center();
-    .background-color-token(tourtip-background-color, color-action-primary);
+    .background-color-token(tourtip-background-color, color-background-information);
 }
 
 .tourtip__pointer--top-left {
@@ -117,7 +119,7 @@ button.tourtip__close {
 .tourtip__heading {
     font-size: 1em;
     font-weight: bold;
-    margin: 0 0 4px;
+    margin: 0 0 @spacing-50;
 }
 
 span.tourtip__heading {
