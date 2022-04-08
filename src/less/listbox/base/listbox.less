@@ -1,7 +1,7 @@
 @import "../../mixins/utility/utility-mixins.less";
 
 div.listbox {
-    margin: 16px 0; // margin collapse sensible default
+    margin: @spacing-200 0; // margin collapse sensible default
 }
 
 span.listbox {
@@ -39,17 +39,16 @@ span.listbox__value {
 div.listbox__option svg.icon {
     .listbox-option-status();
 
-    margin-left: 8px;
+    margin-left: @spacing-100;
 }
 
 [dir="rtl"] div.listbox__option svg.icon {
     margin-left: 0;
-    margin-right: 8px;
+    margin-right: @spacing-100;
 }
 
 div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
-    .background-color-token(listbox-option-hover-background-color, color-selection-list-item-hover-background);
-    .color-token(listbox-option-hover-foreground-color, color-foreground-primary);
+    background-color: var(--color-state-primary-hover, @color-state-primary-hover);
 }
 
 div.listbox__option[aria-selected="true"] svg.icon {

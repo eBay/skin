@@ -19,8 +19,8 @@ span.tourtip {
   border-radius: var(--bubble-border-radius, 4px);
   position: relative;
   z-index: 1;
-  background-color: var(--tourtip-background-color, var(--color-action-primary, #3665f3));
-  color: var(--tourtip-foreground-color, var(--color-background-default, #fff));
+  background-color: var(--tourtip-background-color, var(--color-background-information, #3665f3));
+  color: var(--tourtip-foreground-color, var(--color-foreground-on-information, #fff));
 }
 span.tourtip__mask {
   display: block;
@@ -31,12 +31,10 @@ span.tourtip__mask {
   word-break: break-word;
 }
 .tourtip__cell a {
-  color: var(--tourtip-foreground-color, var(--color-background-default, #fff));
+  color: var(--tourtip-foreground-color, var(--color-foreground-on-information, #fff));
 }
 .tourtip__cell a:focus {
-  outline-color: var(--tourtip-foreground-color, var(--color-background-default, #fff));
-  outline-style: dashed;
-  outline-width: 1px;
+  outline: 1px dashed currentColor;
 }
 .tourtip__content {
   flex-grow: 1;
@@ -57,16 +55,19 @@ button.tourtip__close {
   padding: 0;
   white-space: nowrap;
   width: 32px;
+  color: var(--tourtip-foreground-color, var(--color-foreground-on-information, #fff));
 }
-button.tourtip__close > svg,
-button.tourtip__close:focus > svg,
-button.tourtip__close:hover > svg {
-  fill: var(--tourtip-foreground-color, var(--color-background-default, #fff));
+button.tourtip__close:focus,
+button.tourtip__close:hover {
+  color: var(--color-state-primary-hover, #f5f5f5);
 }
 button.tourtip__close:focus {
-  outline-color: var(--tourtip-foreground-color, var(--color-background-default, #fff));
-  outline-style: dashed;
-  outline-width: 1px;
+  outline: 1px dashed currentColor;
+}
+button.tourtip__close > svg {
+  fill: currentColor;
+  height: 14px;
+  width: 14px;
 }
 .tourtip__pointer {
   height: 16px;
@@ -77,7 +78,7 @@ button.tourtip__close:focus {
   box-shadow: var(--bubble-top-box-shadow, 0 0 3px rgba(17, 24, 32, 0.499));
   top: -7px;
   left: calc(50% - 8px);
-  background-color: var(--tourtip-background-color, var(--color-action-primary, #3665f3));
+  background-color: var(--tourtip-background-color, var(--color-background-information, #3665f3));
 }
 .tourtip__pointer--top-left {
   box-shadow: var(--bubble-top-box-shadow, 0 0 3px rgba(17, 24, 32, 0.499));

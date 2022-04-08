@@ -11,7 +11,7 @@ a.icon-link {
 
 button.icon-btn,
 a.icon-link {
-    .background-color-token(icon-button-background-color, color-grey1);
+    .background-color-token(icon-button-background-color, color-background-secondary);
     border: 2px solid transparent;
     border-radius: 50px;
     box-sizing: border-box;
@@ -24,7 +24,7 @@ a.icon-link {
     width: 40px;
 
     > svg {
-        .fill-token(icon-button-icon-foreground-color, color-text-primary);
+        .fill-token(icon-button-icon-foreground-color, color-foreground-primary);
 
         max-width: 100%; // helps when width & height HTML attrs not set
         position: relative; // Safari centering
@@ -32,19 +32,11 @@ a.icon-link {
 
     &:focus,
     &:hover {
-        .background-color-token(icon-button-hover-background-color, color-grey2);
-
-        > svg {
-            .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
-        }
+        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
     }
 
     &:active {
-        .background-color-token(icon-button-active-background-color, color-grey3);
-
-        > svg {
-            .fill-token(icon-button-icon-active-foreground-color, color-text-primary);
-        }
+        background-color: var(--color-state-secondary-active, @color-state-secondary-active);
     }
 
     &:not(:focus-visible) {
@@ -64,12 +56,10 @@ a.icon-link--transparent {
     }
 }
 
-// visited link state
 a.icon-link:visited > svg {
-    .fill-token(icon-button-icon-foreground-color, color-text-primary);
+    .fill-token(icon-button-icon-foreground-color, color-foreground-primary);
 }
 
-// disabled & partially disabled states
 button[disabled].icon-btn,
 button[aria-disabled="true"].icon-btn,
 a:not([href]).icon-link,
@@ -85,16 +75,12 @@ a[aria-disabled="true"].icon-link {
     }
 }
 
-// visited link hover/focus states
 a.icon-link:visited {
     &:hover > svg,
     &:focus > svg {
-        .fill-token(icon-button-icon-hover-foreground-color, color-text-primary);
+        .fill-token(icon-button-icon-hover-foreground-color, color-foreground-primary);
     }
 }
-
-// badged icons
-//-----------------------------
 
 button.icon-btn--badged,
 a.icon-link--badged {
@@ -115,9 +101,9 @@ button.icon-btn > svg.icon--confirmation-filled,
 button.icon-btn > svg.icon--confirmation-filled-small,
 a.icon-link > svg.icon--confirmation-filled,
 a.icon-link > svg.icon--confirmation-filled-small {
-    .fill-token(color-status-confirmation);
+    .fill-token(color-foreground-confirmation);
     &:hover {
-        .fill-token(color-status-confirmation);
+        .fill-token(color-foreground-confirmation);
     }
 }
 
@@ -125,9 +111,9 @@ button.icon-btn > svg.icon--attention-filled,
 button.icon-btn > svg.icon--attention-filled-small,
 a.icon-link > svg.icon--attention-filled,
 a.icon-link > svg.icon--attention-filled-small {
-    .fill-token(color-status-attention);
+    .fill-token(color-foreground-attention);
     &:hover {
-        .fill-token(color-status-attention);
+        .fill-token(color-foreground-attention);
     }
 }
 
@@ -135,8 +121,8 @@ button.icon-btn > svg.icon--information-filled,
 button.icon-btn > svg.icon--information-filled-small,
 a.icon-link > svg.icon--information-filled,
 a.icon-link > svg.icon--information-filled-small {
-    .fill-token(color-status-information);
+    .fill-token(color-foreground-information);
     &:hover {
-        .fill-token(color-status-information);
+        .fill-token(color-foreground-information);
     }
 }

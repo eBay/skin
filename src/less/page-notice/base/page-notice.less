@@ -5,10 +5,10 @@
     .border-color-token(page-notice-general-border-color, color-background-inverse);
     border-style: solid;
     border-width: 1px;
-    .color-token(page-notice-color, color-background-default);
-    font-size: @font-size-14;
-    margin: 8px 0;
-    padding: 24px 16px;
+    .color-token(page-notice-color, color-foreground-on-inverse);
+    font-size: @font-size-regular;
+    margin: @spacing-100 0;
+    padding: @spacing-300 @spacing-200;
 }
 
 div[role="region"].page-notice,
@@ -21,7 +21,7 @@ span[role="region"].page-notice {
 }
 
 .page-notice__title {
-    font-size: @font-size-14;
+    font-size: @font-size-regular;
     font-weight: normal;
     margin: 0;
 }
@@ -32,31 +32,31 @@ span[role="region"].page-notice {
 }
 
 .page-notice a {
-    .color-token(page-notice-color, color-background-default);
+    .color-token(page-notice-color, color-foreground-on-inverse);
     font-size: @font-size-14;
     font-weight: bold;
 }
 
 .page-notice a:hover {
-    .color-token(page-notice-color, color-background-default);
+    .color-token(page-notice-color, color-foreground-on-inverse);
 }
 
 .page-notice button.fake-link {
-    .color-token(page-notice-color, color-background-default);
+    .color-token(page-notice-color, color-foreground-on-inverse);
     font-size: @font-size-14;
     font-weight: bold;
 }
 
 .page-notice button.fake-link:hover {
-    .color-token(page-notice-color, color-background-default);
+    .color-token(page-notice-color, color-foreground-on-inverse);
 }
 
 .page-notice--attention {
-    .background-color-token(page-notice-attention-background-color, color-status-attention);
-    .border-color-token(page-notice-attention-border-color, color-status-attention);
+    .background-color-token(page-notice-attention-background-color, color-background-attention);
+    .border-color-token(page-notice-attention-border-color, color-stroke-attention);
 
     .page-notice__header svg {
-        .color-token(page-notice-attention-icon-color, color-background-primary);
+        .color-token(page-notice-attention-icon-color, color-foreground-on-attention);
     }
 }
 
@@ -65,7 +65,7 @@ span[role="region"].page-notice {
     .border-color-token(page-notice-confirmation-border-color, color-stroke-confirmation);
 
     .page-notice__header svg {
-        .color-token(page-notice-confirmation-icon-color, color-background-primary);
+        .color-token(page-notice-confirmation-icon-color, color-foreground-on-confirmation);
     }
 }
 
@@ -74,7 +74,7 @@ span[role="region"].page-notice {
     .border-color-token(page-notice-information-border-color, color-stroke-information);
 
     .page-notice__header svg {
-        .color-token(page-notice-information-icon-color, color-background-primary);
+        .color-token(page-notice-information-icon-color, color-foreground-on-information);
     }
 }
 
@@ -86,7 +86,7 @@ span[role="region"].page-notice {
     align-items: center;
     display: flex;
     justify-content: center;
-    padding-right: 16px;
+    padding-right: @spacing-200;
 }
 
 .page-notice__main,
@@ -99,23 +99,21 @@ span[role="region"].page-notice {
 .page-notice__footer {
     flex-shrink: 0;
     margin-left: auto;
-    padding-left: 16px;
+    padding-left: @spacing-200;
     width: auto;
 }
 
 /* support legacy 6.5 notice with heading + paragaphs */
 .page-notice__main p {
-    font-size: @font-size-14;
-    margin: 4px 0 0;
+    font-size: @font-size-regular;
+    margin: @spacing-50 0 0;
 }
-
-/* LARGE SCREEN ADJUSTMENTS */
 
 @media (min-width: 601px) {
     section.page-notice,
     div[role="region"].page-notice {
         flex-wrap: nowrap;
-        margin: 16px 0;
+        margin: @spacing-200 0;
     }
 
     .page-notice__footer {

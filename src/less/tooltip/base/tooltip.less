@@ -13,14 +13,14 @@ span.tooltip {
 
     display: none;
     left: 0 - 10px;
-    margin-top: 16px;
+    margin-top: @spacing-200;
     position: absolute;
 }
 
 .tooltip__mask {
     .bubble-mask();
-    .background-color-token(tooltip-background-color, color-action-primary);
-    .color-token(tooltip-foreground-color, color-background-default);
+    .background-color-token(tooltip-background-color, color-background-information);
+    .color-token(tooltip-foreground-color, color-foreground-on-information);
 }
 
 span.tooltip__mask {
@@ -31,12 +31,10 @@ span.tooltip__mask {
     .bubble-cell();
 
     a {
-        .color-token(tooltip-foreground-color, color-background-default);
+        .color-token(tooltip-foreground-color, color-foreground-on-information);
 
         &:focus {
-            .outline-color-token(tooltip-foreground-color, color-background-default);
-            outline-style: dashed;
-            outline-width: 1px;
+            outline: 1px dashed currentColor;
         }
     }
 }
@@ -53,7 +51,7 @@ button.tooltip__close {
     .pointer-base();
     .pointer-top();
     .pointer-center();
-    .background-color-token(tooltip-background-color, color-action-primary);
+    .background-color-token(tooltip-background-color, color-background-information);
 }
 
 .tooltip__pointer--top-left {
