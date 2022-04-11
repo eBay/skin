@@ -1,6 +1,5 @@
-// this mixin is used by infotip, tooltip, infotip
+// this mixin is used by infotip, tooltip, tourtip
 
-@bubble-border-radius: @border-radius-extra-small;
 @bubble-base-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499);
 @bubble-left-box-shadow: @bubble-base-box-shadow;
 @bubble-right-box-shadow: @bubble-base-box-shadow;
@@ -8,8 +7,8 @@
 @bubble-top-box-shadow: @bubble-base-box-shadow;
 
 .bubble() {
-    .border-radius-token(bubble-border-radius);
-    .box-shadow-token(bubble-base-box-shadow);
+    .border-radius-token(bubble-border-radius, border-radius-50);
+    box-shadow: var(--bubble-base-box-shadow, @bubble-base-box-shadow);
     font-size: 14px;
     max-width: 344px;
     width: max-content;
@@ -17,7 +16,7 @@
 }
 
 .bubble-mask() {
-    .border-radius-token(bubble-border-radius);
+    .border-radius-token(bubble-border-radius, border-radius-50);
     position: relative;
     z-index: 1;
 }
@@ -29,7 +28,7 @@
 // creates basic layout
 .bubble-cell() {
     display: flex;
-    padding: 16px;
+    padding: @spacing-200;
     word-break: break-word;
 }
 
@@ -41,7 +40,7 @@
     }
 
     p:not(:first-of-type) {
-        margin-top: 4px;
+        margin-top: @spacing-50;
     }
 }
 
@@ -50,8 +49,8 @@
     background: none;
     border: 0;
     flex-shrink: 0;
-    height: 32px;
-    margin: -8px -8px 0 8px;
+    height: @spacing-400;
+    margin: -@spacing-100 -@spacing-100 0 @spacing-100;
     padding: 0;
     white-space: nowrap;
     width: 32px;

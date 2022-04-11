@@ -33,7 +33,7 @@ span.combobox {
 
 .combobox__option[role^="option"] {
     .listbox-option-base();
-    .dropdown-item-border-radius();
+    .dropdown-item-border-radius(combobox-listbox);
 
     cursor: default; // needed to override text cursor
     position: relative; // needed for icon to show properly
@@ -94,7 +94,7 @@ span.combobox {
     appearance: none;
     .background-color-token(combobox-textbox-background-color, color-background-secondary);
     .border-color-token(combobox-textbox-border-color, color-stroke-default);
-    .border-radius-token(combobox-textbox-border-radius, border-radius-form-control);
+    border-radius: var(--combobox-textbox-border-radius, @border-radius-50);
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
@@ -122,7 +122,7 @@ span.combobox {
 
     &[disabled],
     &[aria-disabled="true"] {
-        .border-color-token(combobox-disabled-border-color, color-background-disabled);
+        .border-color-token(combobox-textbox-disabled-border-color, color-background-disabled);
         .color-token(combobox-textbox-disabled-foreground-color, color-foreground-disabled);
 
         &[readonly] {
@@ -135,7 +135,7 @@ span.combobox {
     }
 
     &[aria-invalid="true"] {
-        .border-color-token(combobox-invalid-foreground-color, color-stroke-attention);
+        .border-color-token(combobox-textbox-invalid-foreground-color, color-stroke-attention);
     }
 
     &::-ms-clear {
@@ -151,7 +151,7 @@ span.combobox {
 
 .combobox__control > input:focus {
     .background-color-token(combobox-textbox-focus-background-color, color-background-primary);
-    .border-color-token(combobox-focus-border-color, color-foreground-primary);
+    .border-color-token(combobox-textbox-focus-border-color, color-foreground-primary);
     outline: 0;
 }
 
@@ -169,7 +169,7 @@ span.combobox {
 }
 
 .combobox--large .combobox__control > input {
-    font-size: @font-size-form-control-large;
+    font-size: @font-size-18;
     height: @height-textbox + 8px;
 }
 
@@ -178,7 +178,7 @@ span.combobox {
 }
 
 .combobox__option--active[role="option"] {
-    .color-token(combobox-option-hover-foreground-color, color-foreground-primary);
+    .color-token(combobox-listbox-option-hover-foreground-color, color-foreground-primary);
     font-weight: bold;
 }
 
