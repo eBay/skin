@@ -1,10 +1,12 @@
+@dropdown-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+
 .dropdown-base(@component) {
     .background-color-token(~"@{component}-background-color", color-background-primary);
-    .border-color-token(~"@{component}-border-color", color-dropdown-border);
-    .border-radius-token(~"@{component}-border-radius", border-radius-dropdown);
+    .border-color-token(~"@{component}-border-color", color-stroke-default);
+    .border-radius-token(~"@{component}-border-radius", border-radius-50);
     border-style: solid;
     border-width: 1px;
-    .box-shadow-token(~"@{component}-box-shadow", box-shadow-dropdown);
+    .box-shadow-token(~"@{component}-box-shadow", dropdown-box-shadow);
     box-sizing: border-box;
     display: none;
     max-height: 400px;
@@ -16,14 +18,14 @@
     z-index: 2;
 }
 
-.dropdown-item-border-radius() {
+.dropdown-item-border-radius(@component) {
     &:first-child {
-        .border-top-left-radius-token(border-radius-dropdown);
-        .border-top-right-radius-token(border-radius-dropdown);
+        .border-top-left-radius-token(~"@{component}-border-radius", border-radius-50);
+        .border-top-right-radius-token(~"@{component}-border-radius", border-radius-50);
     }
 
     &:last-child {
-        .border-bottom-left-radius-token(border-radius-dropdown);
-        .border-bottom-right-radius-token(border-radius-dropdown);
+        .border-bottom-left-radius-token(~"@{component}-border-radius", border-radius-50);
+        .border-bottom-right-radius-token(~"@{component}-border-radius", border-radius-50);
     }
 }

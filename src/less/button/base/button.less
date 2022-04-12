@@ -5,7 +5,7 @@ a.fake-btn {
     .btn-base();
 
     background-color: transparent;
-    border-radius: calc(@button-height-small / 2);
+    border-radius: var(--btn-border-radius, calc(@button-height-small / 2));
     color: inherit;
     display: inline-block;
     font-size: @font-size-regular;
@@ -60,7 +60,7 @@ a.fake-btn--primary {
     .background-color-token(btn-primary-background-color, color-background-accent);
     .border-color-token(btn-primary-border-color, color-stroke-accent);
     .color-token(btn-primary-foreground-color, color-foreground-on-accent);
-    font-weight: @font-weight-action-primary;
+    font-weight: bold;
 }
 
 a.fake-btn--primary {
@@ -88,7 +88,7 @@ a.fake-btn--primary.fake-btn--destructive {
     .background-color-token(btn-primary-destructive-background-color, color-background-attention);
     .border-color-token(btn-primary-destructive-border-color, color-stroke-attention);
     .color-token(btn-primary-destructive-foreground-color, color-foreground-on-attention);
-    font-weight: @font-weight-action-primary;
+    font-weight: bold;
 }
 
 button.btn--primary.btn--destructive[disabled],
@@ -287,7 +287,7 @@ button.btn--tertiary.btn--destructive .progress-spinner {
 
 button.btn--large,
 a.fake-btn--large {
-    border-radius: calc(@button-height-large / 2);
+    border-radius: var(--btn-border-radius, calc(@button-height-large / 2));
     font-size: @font-size-medium;
     min-height: @button-height-large;
     padding: @button-padding-vertical-large @button-padding-horizontal;

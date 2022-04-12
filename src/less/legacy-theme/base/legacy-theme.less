@@ -1,3 +1,10 @@
+@box-shadow: rgba(0, 0, 0, 0.15);
+
+:root {
+    --color-foreground-primary: @color-neutral-6;
+    --color-foreground-disabled: @color-neutral-3;
+}
+
 button.btn,
 a.fake-btn {
     --btn-primary-disabled-background-color: fade(@color-background-accent, 50%);
@@ -33,6 +40,8 @@ button.expand-btn {
     --combobox-textbox-disabled-placeholder-color: @color-background-disabled;
     --combobox-textbox-invalid-background-color: @color-background-secondary;
     --combobox-textbox-border-radius: 4px;
+    --combobox-listbox-border-radius: 0;
+    --combobox-listbox-box-shadow: 0 2px 4px 0 rgba(199, 199, 199, 0.5);
 }
 
 button.icon-btn,
@@ -48,13 +57,18 @@ a.icon-link {
 .tourtip,
 .infotip {
     --bubble-border-radius: 0;
-    --bubble-base-box-shadow: 0 -2px 2px @color-flyout-box-shadow,
-        2px 0 2px @color-flyout-box-shadow, 0 2px 2px @color-flyout-box-shadow,
-        -2px 0 2px @color-flyout-box-shadow;
-    --bubble-left-box-shadow: -2px 2px 2px @color-flyout-box-shadow;
-    --bubble-right-box-shadow: 2px -2px 2px @color-flyout-box-shadow;
-    --bubble-bottom-box-shadow: 2px 2px 2px @color-flyout-box-shadow;
-    --bubble-top-box-shadow: -2px -2px 2px @color-flyout-box-shadow;
+    --bubble-base-box-shadow: 0 -2px 2px @box-shadow, 2px 0 2px @box-shadow, 0 2px 2px @box-shadow,
+        -2px 0 2px @box-shadow;
+    --bubble-left-box-shadow: -2px 2px 2px @box-shadow;
+    --bubble-right-box-shadow: 2px -2px 2px @box-shadow;
+    --bubble-bottom-box-shadow: 2px 2px 2px @box-shadow;
+    --bubble-top-box-shadow: -2px -2px 2px @box-shadow;
+}
+
+.alert-dialog,
+.confirm-dialog,
+.lightbox-dialog {
+    --lightbox-border-radius: 0;
 }
 
 .page-notice {
@@ -98,4 +112,12 @@ a.icon-link {
     --textbox-disabled-placeholder-color: @color-background-disabled;
     --textbox-invalid-background-color: @color-background-secondary;
     --textbox-border-radius: 4px;
+}
+
+.listbox-button {
+    --listbox-button-listbox-border-radius: 0;
+}
+
+.menu-button {
+    --menu-button-menu-border-radius: 0;
 }
