@@ -1,0 +1,51 @@
+@import "../../mixins/icon/base/icon-mixins.less";
+@import "../../mixins/utility/utility-mixins.less";
+
+div.star-rating-select {
+    cursor: pointer; // this ensures text selection cursor is not used between stars
+    display: inline-block;
+}
+
+div.star-rating-select .radio {
+    vertical-align: text-top;
+}
+
+div.star-rating-select span.radio__icon {
+    height: 14px;
+}
+
+svg.star-rating-select__icon {
+    height: 12px;
+    width: 12px;
+}
+
+div.star-rating-select .radio__control[type="radio"] {
+    height: 12px;
+    min-width: 12px;
+    width: 12px;
+}
+
+div.star-rating-select svg.star-rating-select__icon {
+    --color-star-rating-full: var(
+        --color-star-rating-unfilled,
+        @color-star-rating-icon-unfilled-foreground
+    );
+}
+
+div.star-rating-select input[type="radio"]:checked + span.radio__icon svg.star-rating-select__icon {
+    --color-star-rating-full: var(
+        --color-star-rating-filled,
+        @color-star-rating-icon-filled-foreground
+    );
+}
+
+// trailing visual star selection star fills
+div.star-rating-select
+    input.star-rating-select_filled
+    + span.radio__icon
+    svg.star-rating-select__icon {
+    --color-star-rating-full: var(
+        --color-star-rating-filled,
+        @color-star-rating-icon-filled-foreground
+    );
+}

@@ -248,6 +248,27 @@ document.querySelectorAll('.progress-bar-reset').forEach(function(el) {
     });
 });
 
+// STAR RATING SELECT
+const starRadios =  document.querySelectorAll('.star-rating-select input[name="radio-star-rating-select"]');
+
+starRadios.forEach((radio, index) => {
+    radio.addEventListener('change', function () {
+        const starSelectedClass = 'star-rating-select_filled';
+
+        // clear visual filled marks from all stars previously set
+        starRadios.forEach((radio, index) => {
+            starRadios[index].classList.remove(starSelectedClass);
+        });
+
+        let i = 0;
+
+        // set visual filled marks for all stars before selected one
+        for (; i < index; i += 1) {
+            starRadios[i].classList.add('star-rating-select_filled');
+        }
+    });
+});
+
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
