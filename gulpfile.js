@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
+var fs = require('fs');
 var child_process = require('child_process');
 var banner = require('gulp-banner');
 var pkg = require('./package.json');
@@ -15,6 +16,7 @@ var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v' + pkg.version;
+var yargs = require('yargs');
 
 var comment = [
     '/*!',
@@ -25,39 +27,53 @@ var comment = [
     '*/\n',
 ].join('\n');
 
-// Compile all modules to /dist
-function modules() {
-    return gulp
-        .src([
-            './src/less/**/*.less',
-            '!./src/**/base/*.less',
-            '!./src/less/**/*-static.less',
-            '!./src/less/bundles/**/*.less',
-            '!./src/less/gh/**/*.less',
-            '!./src/less/grid/**/*.less',
-            '!./src/less/mixins/**/*.less',
-            '!./src/less/primitives/**/*.less',
-            '!./src/less/tokens/**/*.less',
-        ])
-        .pipe(less({ plugins: [autoprefixPlugin] }))
-        .pipe(gulp.dest(distTarget));
+const excludedFolders = ['bundles', 'gh', 'primitives', 'tokens', 'mixins'];
+
+// use for debug purposes only
+const includedFolders = ['badge', 'switch', 'tabs'];
+
+// filter for removing files and folders under src/less that should not be compiled by lessc
+const filterSrc = (dirent) => dirent.isDirectory() && !excludedFolders.includes(dirent.name);
+
+async function compileModule(moduleName, moduleDs) {
+    const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
+    const ds = yargs.argv.ds === undefined ? moduleDs : yargs.argv.ds;
+
+    gulp.src([`./src/less/${name}/base/${name}.less`])
+        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
+        .pipe(gulp.dest(`${distTarget}/${name}/${ds}`));
 }
 
-// Compile and minify the full skin bundle to docs/static, _site/static and cdn
-function megabundle() {
-    return gulp
-        .src(['./src/less/bundles/skin/**/*.less'])
+async function compileModules() {
+    return fs.readdir(
+        path.join(__dirname, 'src/less'),
+        { withFileTypes: true },
+        function (err, files) {
+            const filteredFiles = files.filter(filterSrc);
+
+            filteredFiles.forEach((dirent) => compileModule(dirent.name, 'ds4'));
+            filteredFiles.forEach((dirent) => compileModule(dirent.name, 'ds6'));
+        }
+    );
+}
+
+// Compile and minify a full skin bundle to docs/static, _site/static and cdn
+async function compileBundle(bundleDs) {
+    const ds = yargs.argv.ds === undefined ? bundleDs : yargs.argv.ds;
+
+    gulp.src(['./src/less/bundles/skin/*.less'])
         .pipe(banner(comment, { pkg: pkg }))
-        .pipe(
-            rename(function (path) {
-                path.extname = minifiedFileExtensionName;
-            })
-        )
-        .pipe(less({ plugins: [autoprefixPlugin] }))
+        .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
+        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds } }))
         .pipe(cleanCSS())
-        .pipe(gulp.dest(docsStaticTarget))
-        .pipe(gulp.dest(siteStaticTarget))
-        .pipe(gulp.dest(cdnTarget));
+        .pipe(gulp.dest(`${docsStaticTarget}/${ds}`))
+        .pipe(gulp.dest(`${siteStaticTarget}/${ds}`))
+        .pipe(gulp.dest(`${cdnTarget}/${ds}`));
+}
+
+async function compileBundles() {
+    compileBundle('ds4');
+    compileBundle('ds6');
 }
 
 // Static Server + watching src & docs files
@@ -65,6 +81,7 @@ function server() {
     // Start the server.
     browserSync.init({ server: '_site' });
     // Watch less files under src/less. Resync CSS on change.
+    // TODO: only re-compile modules that changed
     gulp.watch('src/less/**/*.less', gulp.series('default', injectSkinCSS));
     // Watch less files under docs. Resync CSS on change.
     gulp.watch('docs/src/less/**/*.less', syncDocsCss);
@@ -127,7 +144,10 @@ function syncDocsHtml(cb) {
         .on('close', cb);
 }
 
-// public tasks listed below
-
+// public tasks
+exports.compileModule = compileModule;
+exports.compileModules = compileModules;
+exports.compileBundle = compileBundle;
+exports.compileBundles = compileBundles;
 exports.server = server;
-exports.default = gulp.series(gulp.parallel(modules, megabundle));
+exports.default = gulp.series(gulp.parallel(compileModules, compileBundles));
