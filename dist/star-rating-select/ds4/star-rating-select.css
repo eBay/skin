@@ -2,27 +2,54 @@ div.star-rating-select {
   cursor: pointer;
   display: inline-block;
 }
-div.star-rating-select .radio {
+span.star-rating-select__radio {
+  display: inline-flex;
+  position: relative;
   vertical-align: text-top;
 }
-div.star-rating-select span.radio__icon {
+span.span.star-rating-select__radio svg {
+  display: inline-block;
+  fill: currentColor;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-width: 0;
+  vertical-align: middle;
+}
+span.star-rating-select__radio_icon {
+  display: inline-flex;
   height: 14px;
+  outline-offset: 1px;
 }
 svg.star-rating-select__icon {
   height: 12px;
   width: 12px;
 }
-div.star-rating-select .radio__control[type="radio"] {
+input.star-rating-select__radio_control[type="radio"] {
+  cursor: pointer;
+  font-size: 100%;
   height: 12px;
+  margin: 0;
   min-width: 12px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
   width: 12px;
+  z-index: 1;
+}
+input.star-rating-select__radio_control[type="radio"]:focus + span.star-rating-select__radio_icon {
+  outline: 1px auto;
+  outline-color: var(--radio-outline, var(--color-text-secondary, #707070));
+  outline-offset: 2px;
+}
+input.star-rating-select__radio_control[type="radio"]:focus:not(:focus-visible) + span.star-rating-select__radio_icon {
+  outline: none;
 }
 div.star-rating-select svg.star-rating-select__icon {
   --color-star-rating-full: var(--color-star-rating-unfilled, #ccc);
 }
-div.star-rating-select input[type="radio"]:checked + span.radio__icon svg.star-rating-select__icon {
+div.star-rating-select input[type="radio"]:checked + span.star-rating-select__radio_icon svg.star-rating-select__icon {
   --color-star-rating-full: var(--color-star-rating-filled, #000);
 }
-div.star-rating-select input.star-rating-select_filled + span.radio__icon svg.star-rating-select__icon {
+div.star-rating-select input.star-rating-select_filled + span.star-rating-select__radio_icon svg.star-rating-select__icon {
   --color-star-rating-full: var(--color-star-rating-filled, #000);
 }
