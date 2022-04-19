@@ -255,17 +255,10 @@ starRadios.forEach((radio, index) => {
     radio.addEventListener('change', function () {
         const starSelectedClass = 'star-rating-select_filled';
 
-        // clear visual filled marks from all stars previously set
-        starRadios.forEach((_radio, _index) => {
-            starRadios[_index].classList.remove(starSelectedClass);
+        // toggle filled marks from current star set
+        starRadios.forEach((current, i) => {
+            current.classList.toggle(starSelectedClass, i < index);
         });
-
-        let i = 0;
-
-        // set visual filled marks for all stars before selected one
-        for (; i < index; i += 1) {
-            starRadios[i].classList.add(starSelectedClass);
-        }
     });
 });
 
