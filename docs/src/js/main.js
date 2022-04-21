@@ -253,7 +253,7 @@ const starRadios =  document.querySelectorAll('.star-rating-select input[name="r
 
 starRadios.forEach((radio, index) => {
     radio.addEventListener('change', function () {
-        const starSelectedClass = 'star-rating-select_filled';
+        const starSelectedClass = 'star-rating-select__control--filled';
 
         // toggle filled marks from current star set
         starRadios.forEach((current, i) => {

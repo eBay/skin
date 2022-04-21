@@ -16,18 +16,18 @@ span.star-rating-select__radio svg {
     .icon-base-mixin();
 }
 
-span.star-rating-select__icon {
+span.star-rating-select__radio-icon {
     display: inline-flex;
     height: 14px;
     outline-offset: 1px;
 }
 
-span.star-rating-select__icon svg {
+span.star-rating-select__radio-icon svg {
     height: 12px;
     width: 12px;
 }
 
-span.star-rating-select__radio input[type="radio"] {
+span.star-rating-select__radio input.star-rating-select__control[type="radio"] {
     cursor: pointer;
     font-size: 100%;
     height: 12px;
@@ -40,27 +40,35 @@ span.star-rating-select__radio input[type="radio"] {
     z-index: 1;
 }
 
-span.star-rating-select__radio input[type="radio"]:focus + span.star-rating-select__icon {
+span.star-rating-select__radio
+    input.star-rating-select__control[type="radio"]:focus
+    + span.star-rating-select__radio-icon {
     outline: 1px auto;
     .outline-color-token(radio-outline, color-text-secondary);
     outline-offset: 2px;
 }
 
 span.star-rating-select__radio
-    input[type="radio"]:focus:not(:focus-visible)
-    + span.star-rating-select__icon {
+    input.star-rating-select__control[type="radio"]:focus:not(:focus-visible)
+    + span.star-rating-select__radio-icon {
     outline: none;
 }
 
-div.star-rating-select span.star-rating-select__icon svg {
+div.star-rating-select span.star-rating-select__radio-icon svg {
     --color-star-rating-full: var(
         --color-star-rating-unfilled,
         @color-star-rating-icon-unfilled-foreground
     );
 }
 
-div.star-rating-select input[type="radio"]:checked + span.star-rating-select__icon svg,
-div.star-rating-select input.star-rating-select--filled + span.star-rating-select__icon svg {
+div.star-rating-select
+    input.star-rating-select__control[type="radio"]:checked
+    + span.star-rating-select__radio-icon
+    svg,
+div.star-rating-select
+    input.star-rating-select__control--filled
+    + span.star-rating-select__radio-icon
+    svg {
     --color-star-rating-full: var(
         --color-star-rating-filled,
         @color-star-rating-icon-filled-foreground
