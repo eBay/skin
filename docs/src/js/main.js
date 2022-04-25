@@ -248,6 +248,20 @@ document.querySelectorAll('.progress-bar-reset').forEach(function(el) {
     });
 });
 
+// STAR RATING SELECT
+const starRadios =  document.querySelectorAll('.star-rating-select input[name="radio-star-rating-select"]');
+
+starRadios.forEach((radio, index) => {
+    radio.addEventListener('change', function () {
+        const starSelectedClass = 'star-rating-select__control--filled';
+
+        // toggle filled marks from current star set
+        starRadios.forEach((current, i) => {
+            current.classList.toggle(starSelectedClass, i < index);
+        });
+    });
+});
+
 // TABS
 document.querySelectorAll('.tabs').forEach(function(widgetEl) {
     RovingTabindex.createLinear(widgetEl, '[role=tab]', { wrap: true });
