@@ -5,7 +5,6 @@ var fs = require('fs');
 var child_process = require('child_process');
 var banner = require('gulp-banner');
 var pkg = require('./package.json');
-var flatten = require('gulp-flatten');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 var cleanCSS = require('gulp-clean-css');
@@ -39,41 +38,52 @@ async function compileModule(moduleName, moduleDs) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
     const ds = yargs.argv.ds === undefined ? moduleDs : yargs.argv.ds;
 
+    console.log(`COMPILING MODULE: ${name} ${ds}`);
+
     gulp.src([`./src/less/${name}/base/${name}.less`])
         .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
         .pipe(gulp.dest(`${distTarget}/${name}/${ds}`));
+
+    await Promise.resolve();
 }
 
-async function compileAllModules() {
-    return fs.readdir(
-        path.join(__dirname, 'src/less'),
-        { withFileTypes: true },
-        function (err, files) {
-            const filteredFiles = files.filter(filterSrc);
+async function compileAllModules(done) {
+    fs.readdir(path.join(__dirname, 'src/less'), { withFileTypes: true }, (err, files) => {
+        files.filter(filterSrc).forEach((dirent) => {
+            compileModule(dirent.name, 'ds4');
+            compileModule(dirent.name, 'ds6');
+        });
+    });
 
-            filteredFiles.forEach((dirent) => compileModule(dirent.name, 'ds4'));
-            filteredFiles.forEach((dirent) => compileModule(dirent.name, 'ds6'));
-        }
-    );
+    await Promise.resolve();
 }
 
-// Compile and minify a full skin bundle to docs/static, _site/static and cdn
-async function compileBundle(bundleDs) {
+// Compile and minify a bundle to docs/static, _site/static and cdn
+async function compileBundle(bundleName, bundleDs) {
+    const name = yargs.argv.name === undefined ? bundleName : yargs.argv.name;
     const ds = yargs.argv.ds === undefined ? bundleDs : yargs.argv.ds;
 
-    gulp.src(['./src/less/bundles/skin/*.less'])
+    console.log(`COMPILING BUNDLE: ${name} ${ds}`);
+
+    gulp.src([`./src/less/bundles/${name}.less`])
         .pipe(banner(comment, { pkg: pkg }))
         .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
-        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds } }))
+        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
         .pipe(cleanCSS())
         .pipe(gulp.dest(`${docsStaticTarget}/${ds}`))
         .pipe(gulp.dest(`${siteStaticTarget}/${ds}`))
         .pipe(gulp.dest(`${cdnTarget}/${ds}`));
+
+    await Promise.resolve();
 }
 
 async function compileAllBundles() {
-    compileBundle('ds4');
-    compileBundle('ds6');
+    compileBundle('dark-mode', 'ds4');
+    compileBundle('dark-mode', 'ds6');
+    compileBundle('skin', 'ds4');
+    compileBundle('skin', 'ds6');
+
+    await Promise.resolve();
 }
 
 // Static Server + watching src & docs files
