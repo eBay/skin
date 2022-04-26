@@ -1,0 +1,133 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/dialog-mixins.less";
+@import "../mixins/utility-mixins.less";
+
+.lightbox-dialog[role="dialog"] {
+    .lightbox-dialog-base();
+}
+
+.lightbox-dialog__window {
+    .lightbox-dialog-window();
+}
+
+.lightbox-dialog__window--mini {
+    align-items: flex-start;
+    align-self: center;
+    border-radius: 7px;
+    flex-direction: row-reverse;
+    margin-top: 0;
+    min-height: 72px;
+    min-width: 200px;
+}
+
+.lightbox-dialog__header {
+    .dialog-header-content();
+}
+
+.lightbox-dialog__window--mini .lightbox-dialog__header {
+    margin-top: @spacing-100;
+}
+
+.lightbox-dialog__main {
+    .dialog-body-content();
+
+    min-height: 18px;
+}
+
+.lightbox-dialog__footer {
+    .dialog-footer-content();
+}
+
+// inherits from .icon-btn
+button.lightbox-dialog__close {
+    align-self: center;
+    border: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.lightbox-dialog__title {
+    &:not(:first-child) {
+        margin-left: @spacing-200;
+    }
+}
+
+.lightbox-dialog__title--center {
+    text-align: center;
+}
+
+.lightbox-dialog--show,
+.lightbox-dialog--hide {
+    &.lightbox-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.lightbox-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    .lightbox-dialog__window--fade {
+        transition: opacity 0.16s ease-out;
+    }
+}
+
+.lightbox-dialog--hide,
+.lightbox-dialog--show-init {
+    && {
+        display: flex;
+    }
+
+    &.lightbox-dialog--mask-fade,
+    &.lightbox-dialog--mask-fade-slow {
+        background-color: @dialog-scrim-color-hide;
+    }
+
+    .lightbox-dialog__window--fade {
+        opacity: 0;
+    }
+}
+
+.lightbox-dialog--show,
+.lightbox-dialog--hide-init {
+    && {
+        display: flex;
+    }
+
+    &.lightbox-dialog--mask-fade,
+    &.lightbox-dialog--mask-fade-slow {
+        background-color: @dialog-scrim-color-show;
+    }
+
+    .lightbox-dialog__window--fade {
+        opacity: 1;
+    }
+}
+
+// In order to prevent the margins to meet the ege of the page at medium screen sizes
+@media (min-width: 601px) and (max-width: 768px) {
+    .lightbox-dialog__window {
+        max-width: calc(88% - @spacing-400);
+    }
+}
+
+@media (min-width: 769px) {
+    .lightbox-dialog__window {
+        max-width: @dialog-lightbox-max-width;
+    }
+}
+
+@media (min-width: 601px) {
+    .lightbox-dialog__window {
+        .lightbox-dialog__header {
+            .dialog-header-content-large();
+        }
+
+        .lightbox-dialog__main {
+            .dialog-body-content-large();
+        }
+
+        .lightbox-dialog__footer {
+            .dialog-footer-content-large();
+        }
+    }
+}

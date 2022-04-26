@@ -1,0 +1,163 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/dialog-mixins.less";
+@import "../mixins/utility-mixins.less";
+
+.toast-dialog {
+    .background-color-token(toast-dialog-background-color, color-background-information);
+    .border-top-left-radius-token(toast-dialog-border-radius, border-radius-100);
+    .border-top-right-radius-token(toast-dialog-border-radius, border-radius-100);
+    bottom: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 28%);
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
+    left: 0;
+    max-height: 40vh;
+    min-width: 320px;
+    position: fixed;
+    // Setting translateY to 0 to fix a bug in safari which does a double transform
+    transform: translateY(0);
+    width: 100vw;
+    will-change: opacity, transform;
+    z-index: 2;
+}
+
+.toast-dialog a {
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
+}
+
+.toast-dialog a:focus {
+    outline: 1px auto currentColor;
+}
+
+.toast-dialog--transition {
+    transition: opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
+.toast-dialog--show,
+.toast-dialog--hide-init {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-dialog--show-init,
+.toast-dialog--hide {
+    display: block;
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.toast-dialog__window {
+    margin: @spacing-100 @spacing-200 @spacing-200;
+}
+
+.toast-dialog__header {
+    align-items: center;
+    display: flex;
+}
+
+// todo: can remove h2 selector after API change in ebayui
+.toast-dialog__header h2,
+.toast-dialog__title {
+    margin: 0;
+}
+
+// inherits from .icon-btn
+button.toast-dialog__close {
+    align-self: center;
+    border: 0;
+    .color-token(toast-dialog-foreground-color, color-foreground-on-information);
+    margin: 0 0 0 auto;
+    outline-offset: -@spacing-100;
+    padding: 0;
+
+    &:focus {
+        outline: 1px dashed white;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--color-state-primary-hover, @color-state-primary-hover);
+    }
+}
+
+button.toast-dialog__close > svg {
+    fill: currentColor;
+}
+
+.toast-dialog__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button::first-letter {
+        text-decoration: underline;
+    }
+
+    button.btn--primary,
+    button.btn--secondary {
+        .border-color-token(toast-dialog-foreground-color, color-foreground-on-accent);
+        border-style: solid;
+        border-width: 1px;
+        outline-offset: 2px;
+    }
+
+    button.btn--primary {
+        .background-color-token(toast-dialog-foreground-color, color-background-primary);
+        .color-token(toast-dialog-background-color, color-foreground-accent);
+    }
+
+    button.btn--secondary {
+        background-color: transparent;
+        .color-token(toast-dialog-foreground-color, color-background-primary);
+        font-weight: 700;
+        margin-right: @spacing-100;
+    }
+
+    button.btn--primary:focus,
+    button.btn--secondary:focus {
+        outline: 1px dashed var(--color-foreground-on-information, @color-foreground-on-information);
+    }
+
+    button.btn--primary:not([disabled]) {
+        &:focus,
+        &:hover {
+            background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        }
+
+        &:active {
+            background-color: var(--color-state-primary-active, @color-state-primary-active);
+        }
+    }
+
+    button.btn--secondary:not([disabled]) {
+        &:focus,
+        &:hover {
+            background-color: var(--color-state-information-hover, @color-state-information-hover);
+        }
+
+        /* prettier-ignore */
+        &:active {
+            background-color: var(--color-state-information-active, @color-state-information-active);
+        }
+    }
+}
+
+@media (min-width: 601px) {
+    .toast-dialog {
+        .border-radius-token(toast-dialog-border-radius, border-radius-100);
+        bottom: @spacing-200;
+        left: @spacing-200;
+        max-width: 480px;
+        width: auto;
+    }
+
+    .toast-dialog__window {
+        margin: @spacing-200 @spacing-300 @spacing-300;
+    }
+}
+
+[dir="rtl"] {
+    .toast-dialog__footer .btn--primary {
+        margin-right: 7px;
+    }
+}

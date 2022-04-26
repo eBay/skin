@@ -1,0 +1,21 @@
+@import "./selection-list-mixins.less";
+
+.menu-menuitem-base(@component) {
+    .selection-list-item-base();
+
+    .border-color-token(~"@{component}-menuitem-border-color", color-background-primary);
+    .color-token(~"@{component}-menuitem-foreground-color", color-foreground-primary);
+
+    &:hover {
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        .color-token(~"@{component}-menuitem-hover-foreground-color", color-foreground-primary);
+    }
+
+    &:active {
+        font-weight: bold;
+    }
+}
+
+.menu-menuitem-status() {
+    .selection-list-item-status();
+}

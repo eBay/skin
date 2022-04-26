@@ -1,0 +1,271 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/dropdown-mixins.less";
+@import "../mixins/filter-button-mixins.less";
+@import "../mixins/filter-menu-mixins.less";
+@import "../mixins/utility-mixins.less";
+
+// .filter-group also exists in filter-button
+// todo: move to utility/layout class and/or mixin
+div.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+span.filter-menu-button {
+    display: inline-block;
+    position: relative;
+
+    & + & {
+        margin-left: 8px;
+    }
+}
+
+button.filter-menu-button__button {
+    .filter-button-base();
+    .background-color-token(filter-button-background-color, color-background-secondary);
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
+    }
+}
+
+.filter-menu-button__button-cell {
+    display: flex;
+
+    svg.icon {
+        align-self: center;
+        .color-token(filter-menu-button-icon-color, color-foreground-primary);
+        height: 7px;
+        margin-left: 8px;
+        width: 12px;
+    }
+}
+
+.filter-menu-button__button-text {
+    display: inline-block;
+    max-width: 238px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filter-menu-button__button[aria-expanded="true"] svg.icon {
+    transform: rotate(180deg);
+}
+
+button.filter-menu-button__button[aria-pressed="true"] {
+    .background-color-token(filter-button-selected-background-color, color-background-inverse);
+    .color-token(filter-button-selected-foreground-color, color-foreground-on-inverse);
+    font-weight: bold;
+
+    svg.icon {
+        .color-token(filter-button-selected-foreground-color, color-foreground-on-inverse);
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: var(--color-state-inverse-hover, @color-state-inverse-hover);
+    }
+}
+
+button.filter-menu-button__button[disabled],
+button.filter-menu-button__button[aria-disabled="true"],
+button.filter-menu-button__button[aria-pressed="true"][disabled],
+button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] {
+    .color-token(filter-button-disabled-foreground-color, color-background-disabled);
+    font-weight: normal;
+
+    // todo: we can elimate the need for these overrides by using :not([disabled]) in place where defining hover states
+    &:hover,
+    &:focus {
+        .background-color-token(filter-button-background-color, color-background-secondary);
+        .color-token(filter-button-disabled-foreground-color, color-foreground-disabled);
+    }
+
+    & .filter-menu-button__button-cell > svg.icon {
+        .color-token(filter-button-disabled-foreground-color, color-foreground-disabled);
+    }
+}
+
+// todo: we can elimate the need for these overrides by using :not([disabled]) in place where defining hover states
+button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
+button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
+    .background-color-token(filter-button-selected-background-color, color-foreground-disabled);
+}
+
+.filter-menu-button__menu {
+    .background-color-token(filter-menu-item-background-color, color-background-primary);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    display: none;
+    max-width: 288px; // TODO remove max-width restriction to filter-menu styles
+    min-width: 144px;
+    overflow: hidden;
+    position: absolute;
+    top: calc(100% + 8px);
+    width: max-content;
+    z-index: 1;
+}
+
+button.filter-menu-button__button[aria-expanded="true"] + .filter-menu-button__menu {
+    display: block;
+}
+
+.filter-menu-button__items {
+    margin-top: 8px;
+    max-height: calc(
+        50vh - 40px
+    ); // half of the viewport height || TODO remove max-height restriction to filter-menu styles
+    min-width: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+span.filter-menu-button__items {
+    display: inline-block;
+}
+
+span.filter-menu-button__checkbox,
+span.filter-menu-button__radio {
+    display: block;
+    flex-shrink: 1;
+    height: 18px;
+    min-width: 18px;
+    width: 18px;
+}
+
+span.filter-menu-button__checkbox {
+    svg.icon--checkbox-unchecked {
+        .color-token(filter-menu-item-unchecked-color, color-foreground-secondary);
+        display: block;
+        height: 18px;
+        width: 18px;
+    }
+
+    svg.icon--checkbox-checked {
+        .color-token(filter-menu-item-checked-color, color-foreground-primary);
+        display: none;
+        height: 18px;
+        width: 18px;
+    }
+}
+
+span.filter-menu-button__radio {
+    svg.icon--radio-unchecked {
+        .color-token(filter-menu-item-unchecked-color, color-foreground-primary);
+        display: block;
+        height: 18px;
+        width: 18px;
+    }
+
+    svg.icon--radio-checked {
+        .color-token(filter-menu-item-checked-color, color-foreground-primary);
+        display: none;
+        height: 18px;
+        width: 18px;
+    }
+}
+
+.filter-menu-button__item {
+    .filter-menu-item-base();
+
+    outline-offset: -4px;
+    padding: 8px 16px;
+
+    &:hover {
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+    }
+
+    &:last-child {
+        margin-bottom: 8px;
+    }
+
+    span.checkbox,
+    span.radio {
+        align-items: flex-start;
+        display: flex;
+        flex-shrink: 1;
+        justify-content: center;
+    }
+
+    svg.checkbox__unchecked {
+        .color-token(filter-menu-item-unchecked-color, color-foreground-secondary);
+    }
+
+    svg.checkbox__checked {
+        .color-token(filter-menu-item-checked-color, color-foreground-primary);
+    }
+
+    svg.radio__unchecked {
+        .color-token(filter-menu-item-unchecked-color, color-foreground-secondary);
+    }
+
+    svg.radio__checked {
+        .color-token(filter-menu-item-checked-color, color-foreground-primary);
+    }
+}
+
+span.filter-menu-button__item {
+    display: block;
+}
+
+button.filter-menu-button__footer {
+    .filter-menu-item-base();
+
+    border: none;
+    .border-color-token(filter-menu-border-color, color-stroke-subtle);
+    border-top-style: solid;
+    border-top-width: 1px;
+    bottom: 0;
+    padding: 16px;
+
+    &:focus,
+    &:hover {
+        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+    }
+}
+
+.filter-menu-button__text {
+    flex-grow: 1;
+    margin-left: 8px;
+}
+
+.filter-menu-button__item[role="menuitemcheckbox"][aria-checked="true"] {
+    svg.icon--checkbox-unchecked {
+        display: none;
+    }
+
+    svg.icon--checkbox-checked {
+        display: block;
+    }
+}
+
+.filter-menu-button__item[role="menuitemradio"][aria-checked="true"] {
+    svg.icon--radio-unchecked {
+        display: none;
+    }
+
+    svg.icon--radio-checked {
+        display: block;
+    }
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+div.filter-menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+[dir="rtl"] {
+    .filter-menu-button__button-cell .icon--dropdown {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    .filter-menu-button__checkbox {
+        margin-left: 8px;
+    }
+}
