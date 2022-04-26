@@ -29,13 +29,15 @@ module.exports = {
 					}
 				},
 				{
-	            loader: "less-loader",
-		            options: {
-	              		lessOptions: {
-		                	globalVars: { ds: `ds${process.env.STORYBOOK_DS}` },
+					loader: "less-loader",
+					options: {
+						lessOptions: {
+							globalVars: {
+								ds: `ds${process.env.STORYBOOK_DS}`
+							},
 						}
-	              	},
-	            },
+					},
+				},
 			]
 		});
 
