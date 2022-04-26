@@ -1,1 +1,1 @@
-import '../../src/less/bundles/skin/ds4/skin.less';
+import '../../src/less/bundles/skin.less';

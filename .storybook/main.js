@@ -28,7 +28,16 @@ module.exports = {
 					  },
 					}
 				},
-				'less-loader'
+				{
+					loader: "less-loader",
+					options: {
+						lessOptions: {
+							globalVars: {
+								ds: `ds${process.env.STORYBOOK_DS}`
+							},
+						}
+					},
+				},
 			]
 		});
 

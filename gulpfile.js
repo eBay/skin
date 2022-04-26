@@ -40,7 +40,7 @@ async function compileModule(moduleName, moduleDs) {
 
     console.log(`COMPILING MODULE: ${name} ${ds}`);
 
-    gulp.src([`./src/less/${name}/base/${name}.less`])
+    gulp.src([`./src/less/${name}/${name}.less`])
         .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
         .pipe(gulp.dest(`${distTarget}/${name}/${ds}`));
 

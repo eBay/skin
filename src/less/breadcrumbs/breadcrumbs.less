@@ -1,0 +1,87 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/utility-mixins.less";
+
+nav.breadcrumbs {
+    .color-token(breadcrumbs-item-foreground-color, color-foreground-primary);
+    font-size: @font-size-12;
+    height: fit-content;
+    margin: 8px 0;
+    min-height: 16px;
+    overflow-x: scroll;
+    padding: 8px;
+    scrollbar-width: none;
+    white-space: nowrap;
+
+    ul {
+        display: inline;
+        margin: 0;
+        min-width: 100%;
+        padding: 0;
+        right: 0;
+    }
+
+    // On certain pages spacing in each container can vary in size even if content is the same.
+    // Force content to flex makes it all have the same size
+    li {
+        align-items: center;
+        display: inline-flex;
+    }
+
+    li svg {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+
+    // stylelint-disable no-descending-specificity
+    a:visited {
+        color: inherit;
+    }
+
+    a,
+    button {
+        color: inherit;
+        outline-offset: 5px;
+
+        &:focus,
+        &:hover {
+            .color-token(breadcrumbs-item-hover-foreground-color, color-foreground-accent);
+            text-decoration: underline;
+        }
+
+        &[aria-current] {
+            .color-token(breadcrumbs-item-current-foreground-color, color-foreground-secondary);
+            text-decoration: none;
+        }
+    }
+    // stylelint-enable no-descending-specificity
+
+    a:focus,
+    button:focus {
+        &:not(:focus-visible) {
+            outline: none;
+        }
+    }
+}
+
+nav.breadcrumbs::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 601px) {
+    nav.breadcrumbs {
+        margin: 16px 0;
+    }
+}

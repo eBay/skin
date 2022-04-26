@@ -1,2 +1,2 @@
-import '../../src/less/bundles/skin/ds6/skin.less';
-import '../../src/less/bundles/skin/ds6/dark-mode.less';
+import '../../src/less/bundles/skin.less';
+import '../../src/less/bundles/dark-mode.less';

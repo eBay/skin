@@ -1,0 +1,46 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/utility-mixins.less";
+
+.progress-spinner {
+    animation: spin 600ms linear infinite;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+// fixes wobble
+.progress-spinner > svg.icon.icon--spinner {
+    height: inherit;
+    margin: 0;
+    max-height: inherit;
+    max-width: inherit;
+    width: inherit;
+}
+
+.progress-spinner--large {
+    height: 60px;
+    width: 60px;
+}
+
+/* This needs to be removed on next major version.
+    this makes it backwards compatible with empty span */
+.progress-spinner:empty {
+    .background-image-token(progress-spinner-image-url, url-image-progress-spinner);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.progress-spinner--large:empty {
+    .background-image-token(progress-spinner-large-image-url, url-image-progress-spinner-large);
+}

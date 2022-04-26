@@ -1,0 +1,144 @@
+@import "../tokens/@{ds}/tokens.less";
+@import "../mixins/dialog-mixins.less";
+@import "../mixins/utility-mixins.less";
+
+.panel-dialog[role="dialog"] {
+    .dialog-base();
+
+    flex-direction: column;
+}
+
+.panel-dialog__window {
+    .dialog-window();
+
+    border-right: 1px solid rgba(153, 153, 153, 0.18);
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    width: calc(100% - @spacing-400);
+}
+
+.panel-dialog__window--end {
+    align-self: flex-end;
+    border-left: 1px solid rgba(153, 153, 153, 0.18);
+}
+
+.panel-dialog__header {
+    .dialog-header-content();
+}
+
+.panel-dialog__header .fake-link {
+    outline-offset: 4px;
+    text-decoration: none;
+}
+
+.panel-dialog__main {
+    .dialog-body-content();
+}
+
+// deprecated & undocumented, but still used by teams
+.panel-dialog__footer {
+    .dialog-footer-content();
+}
+
+// inherits from .icon-btn
+button.panel-dialog__close {
+    align-self: center;
+    border: 0;
+    outline-offset: -@spacing-100;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.panel-dialog__title {
+    &:not(:first-child) {
+        margin-left: @spacing-200;
+    }
+}
+
+.panel-dialog__title--center {
+    text-align: center;
+}
+
+.panel-dialog--show,
+.panel-dialog--hide {
+    &.panel-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.panel-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    .panel-dialog__window--slide {
+        transition: transform 0.32s ease-out;
+    }
+}
+
+.panel-dialog--hide,
+.panel-dialog--show-init {
+    && {
+        display: flex;
+    }
+
+    &.panel-dialog--mask-fade,
+    &.panel-dialog--mask-fade-slow {
+        background-color: @dialog-scrim-color-hide;
+    }
+
+    .panel-dialog__window--slide-left {
+        transform: translateX(-100%);
+    }
+
+    .panel-dialog__window--slide-right {
+        transform: translateX(100%);
+    }
+}
+
+.panel-dialog--hide .panel-dialog__window--slide,
+.panel-dialog--show-init .panel-dialog__window--slide {
+    transform: translateX(-100%);
+}
+
+.panel-dialog--hide .panel-dialog__window--end.panel-dialog__window--slide,
+.panel-dialog--show-init .panel-dialog__window--end.panel-dialog__window--slide {
+    transform: translateX(100%);
+}
+
+.panel-dialog--show,
+.panel-dialog--hide-init {
+    && {
+        display: flex;
+    }
+
+    &.panel-dialog--mask-fade,
+    &.panel-dialog--mask-fade-slow {
+        background-color: @dialog-scrim-color-show;
+    }
+
+    .panel-dialog__window--slide {
+        transform: translateX(0);
+    }
+}
+
+// MEDIA QUERIES
+//-----------------------------
+
+@media (min-width: 601px) {
+    .panel-dialog__window {
+        width: calc(88% - @spacing-400);
+    }
+
+    .panel-dialog__header {
+        .dialog-header-content-large();
+    }
+
+    .panel-dialog__main {
+        .dialog-body-content-large();
+    }
+
+    // deprecated & undocumented, but still used by teams
+    .panel-dialog__footer {
+        .dialog-footer-content-large();
+    }
+}
