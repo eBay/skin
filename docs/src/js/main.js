@@ -249,15 +249,11 @@ document.querySelectorAll('.progress-bar-reset').forEach(function(el) {
 });
 
 // STAR RATING SELECT
-const starRadios =  document.querySelectorAll('.star-rating-select input[name="radio-star-rating-select"]');
-
-starRadios.forEach((radio, index) => {
-    radio.addEventListener('change', function () {
-        const starSelectedClass = 'star-rating-select__control--filled';
-
-        // toggle filled marks from current star set
-        starRadios.forEach((current, i) => {
-            current.classList.toggle(starSelectedClass, i < index);
+document.querySelectorAll('.star-rating-select').forEach(function(widgetEl) {
+    widgetEl.addEventListener('change', function(e) {
+        const selectedIndex = (e.target.value - 1);
+        widgetEl.querySelectorAll('input').forEach(function(inputEl, index) {
+            inputEl.classList.toggle('star-rating-select__control--filled', index < selectedIndex);
         });
     });
 });
