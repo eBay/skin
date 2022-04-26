@@ -26,7 +26,7 @@ var comment = [
     '*/\n',
 ].join('\n');
 
-const excludedFolders = ['bundles', 'gh', 'primitives', 'tokens', 'mixins'];
+const excludedFolders = ['bundles', 'gh', 'tokens', 'mixins'];
 
 // use for debug purposes only
 const includedFolders = ['badge', 'switch', 'tabs'];
@@ -38,7 +38,7 @@ async function compileModule(moduleName, moduleDs) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
     const ds = yargs.argv.ds === undefined ? moduleDs : yargs.argv.ds;
 
-    console.log(`COMPILING MODULE: ${name} ${ds}`);
+    // console.log(`COMPILING MODULE: ${name} ${ds}`);
 
     gulp.src([`./src/less/${name}/${name}.less`])
         .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
@@ -63,7 +63,7 @@ async function compileBundle(bundleName, bundleDs) {
     const name = yargs.argv.name === undefined ? bundleName : yargs.argv.name;
     const ds = yargs.argv.ds === undefined ? bundleDs : yargs.argv.ds;
 
-    console.log(`COMPILING BUNDLE: ${name} ${ds}`);
+    // console.log(`COMPILING BUNDLE: ${name} ${ds}`);
 
     gulp.src([`./src/less/bundles/${name}.less`])
         .pipe(banner(comment, { pkg: pkg }))
