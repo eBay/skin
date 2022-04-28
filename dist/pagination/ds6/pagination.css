@@ -54,6 +54,14 @@ button.pagination__previous {
   height: 44px;
   width: 44px;
 }
+button.pagination__item {
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+a.pagination__item {
+  text-decoration: none;
+}
 a.pagination__item,
 button.pagination__item {
   position: relative;
@@ -69,14 +77,6 @@ button.pagination__item::after {
   left: calc(50% - 10px);
   position: absolute;
   width: 20px;
-}
-button.pagination__item {
-  background: none;
-  border: none;
-  font-family: inherit;
-}
-a.pagination__item {
-  text-decoration: none;
 }
 a.pagination__item[aria-current="page"],
 button.pagination__item[aria-current="page"] {
@@ -103,6 +103,10 @@ a.pagination__item:not([aria-current="page"]):hover::after,
 button.pagination__item:not([aria-current="page"]):hover::after {
   background-color: currentColor;
 }
+a.pagination__item:focus:not(:focus-visible),
+button.pagination__item:focus:not(:focus-visible) {
+  outline: none;
+}
 span.pagination__item svg.icon--overflow {
   transform: rotate(90deg);
 }
@@ -123,12 +127,6 @@ nav.pagination--fluid ol.pagination__items {
 nav.pagination--fluid ol.pagination__items li {
   flex: 1 0 48px;
 }
-/* stylelint-disable no-descending-specificity */
-a.pagination__item:focus:not(:focus-visible),
-button.pagination__item:focus:not(:focus-visible) {
-  outline: none;
-}
-/* stylelint-enable no-descending-specificity */
 [dir="rtl"] a.pagination__next,
 [dir="rtl"] button.pagination__next {
   margin-left: 0;

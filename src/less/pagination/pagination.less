@@ -58,6 +58,16 @@ button.pagination__previous {
     width: 44px;
 }
 
+button.pagination__item {
+    background: none;
+    border: none;
+    font-family: inherit;
+}
+
+a.pagination__item {
+    text-decoration: none;
+}
+
 a.pagination__item,
 button.pagination__item {
     position: relative;
@@ -73,41 +83,34 @@ button.pagination__item {
         position: absolute;
         width: 20px;
     }
-}
 
-button.pagination__item {
-    background: none;
-    border: none;
-    font-family: inherit;
-}
-
-a.pagination__item {
-    text-decoration: none;
-}
-
-a.pagination__item[aria-current="page"],
-button.pagination__item[aria-current="page"] {
-    .color-token(pagination-item-current-foreground-color, color-foreground-primary);
-    font-weight: @font-weight-bold;
-
-    &::after {
-        background-color: currentColor;
-    }
-}
-
-a.pagination__item:not([aria-current="page"]),
-button.pagination__item:not([aria-current="page"]) {
-    &:active {
-        .color-token(pagination-item-active-foreground-color, color-foreground-primary);
-    }
-
-    &:focus,
-    &:hover {
-        .color-token(pagination-item-hover-foreground-color, color-foreground-accent);
+    &[aria-current="page"] {
+        .color-token(pagination-item-current-foreground-color, color-foreground-primary);
+        font-weight: @font-weight-bold;
 
         &::after {
             background-color: currentColor;
         }
+    }
+
+    &:not([aria-current="page"]) {
+        &:active {
+            .color-token(pagination-item-active-foreground-color, color-foreground-primary);
+        }
+
+        &:focus,
+        &:hover {
+            .color-token(pagination-item-hover-foreground-color, color-foreground-accent);
+
+            &::after {
+                background-color: currentColor;
+            }
+        }
+    }
+
+    // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+    &:focus:not(:focus-visible) {
+        outline: none;
     }
 }
 
@@ -138,16 +141,6 @@ nav.pagination--fluid ol.pagination__items {
 nav.pagination--fluid ol.pagination__items li {
     flex: 1 0 @spacing-600;
 }
-
-// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
-/* stylelint-disable no-descending-specificity */
-a.pagination__item:focus,
-button.pagination__item:focus {
-    &:not(:focus-visible) {
-        outline: none;
-    }
-}
-/* stylelint-enable no-descending-specificity */
 
 [dir="rtl"] {
     a.pagination__next,

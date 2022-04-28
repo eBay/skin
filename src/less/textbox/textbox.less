@@ -1,8 +1,6 @@
 @import "../tokens/tokens.less";
 @import "../mixins/utility-mixins.less";
 
-/* stylelint-disable no-descending-specificity */
-
 .textbox {
     .color-token(textbox-foreground-color, color-background-secondary);
     font-size: @font-size-regular; // to align with buttons and select, it needs same font-size
@@ -124,15 +122,6 @@ input.textbox__control--large {
     width: 14px;
 }
 
-.textbox > svg:first-child {
-    left: @spacing-200;
-
-    + input.textbox__control,
-    + textarea.textbox__control {
-        padding-left: 40px;
-    }
-}
-
 .textbox--icon-end {
     input.textbox__control,
     textarea.textbox__control {
@@ -144,10 +133,20 @@ input.textbox__control--large {
     }
 }
 
+.textbox > svg:first-child {
+    left: @spacing-200;
+
+    + input.textbox__control,
+    + textarea.textbox__control {
+        padding-left: 40px;
+    }
+}
+
 .textbox__control--fluid {
     width: 100%;
 }
 
+// stylelint-disable no-descending-specificity
 [dir="rtl"] {
     .textbox > svg:first-child {
         right: @spacing-200;
@@ -175,3 +174,4 @@ input.textbox__control--large {
         }
     }
 }
+// stylelint-enable no-descending-specificity
