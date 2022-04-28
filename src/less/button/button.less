@@ -111,15 +111,15 @@ a.fake-btn--primary.fake-btn--destructive[href] {
     }
 }
 
-button.btn--primary.btn--destructive .progress-spinner {
-    --color-spinner-icon-background: #ec7089;
-    --color-spinner-icon-foreground: @color-foreground-on-accent;
-}
-
 button.btn .progress-spinner {
     height: 24px;
     margin: -4px 0;
     width: 24px;
+}
+
+button.btn--primary.btn--destructive .progress-spinner {
+    --color-spinner-icon-background: #ec7089;
+    --color-spinner-icon-foreground: @color-foreground-on-accent;
 }
 
 button.btn svg.icon--dropdown,
@@ -167,16 +167,13 @@ a.fake-btn--secondary:visited {
 
 button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
+    &:active {
+        background-color: var(--color-state-primary-active, @color-state-primary-active);
+    }
+
     &:hover,
     &:focus {
         background-color: var(--color-state-primary-hover, @color-state-primary-hover);
-    }
-}
-
-button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
-a.fake-btn--secondary[href] {
-    &:active {
-        background-color: var(--color-state-primary-active, @color-state-primary-active);
     }
 }
 

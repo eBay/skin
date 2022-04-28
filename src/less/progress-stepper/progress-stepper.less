@@ -108,16 +108,13 @@ hr.progress-stepper__separator--upcoming,
     width: auto;
 }
 
-.progress-stepper__items--upcoming .progress-stepper__item > [role="img"],
 .progress-stepper__item--upcoming,
-.progress-stepper__item[aria-current] ~ .progress-stepper__item > [role="img"] {
+.progress-stepper__items--upcoming .progress-stepper__item > [role="img"] {
     .color-token(progress-stepper-text-light-color, color-foreground-secondary);
 }
 
-/* prettier-ignore */
 .progress-stepper__items--upcoming .progress-stepper__icon > [role="img"],
-.progress-stepper__item--upcoming .progress-stepper__icon > [role="img"],
-.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__icon > [role="img"] {
+.progress-stepper__item--upcoming .progress-stepper__icon > [role="img"] {
     .background-color-token(progress-stepper-badge-upcoming-background-color, color-background-primary);
     .border-color-token(progress-stepper-badge-upcoming-border-color, color-foreground-disabled);
     .color-token(progress-stepper-badge-upcoming-color, color-foreground-secondary);
@@ -125,6 +122,20 @@ hr.progress-stepper__separator--upcoming,
 
 .progress-stepper__item--attention .progress-stepper__icon > [role="img"] {
     .color-token(progress-stepper-attention-color, color-foreground-attention);
+}
+
+.progress-stepper__item[aria-current] {
+    ~ .progress-stepper__item {
+        > [role="img"] {
+            .color-token(progress-stepper-text-light-color, color-foreground-secondary);
+        }
+
+        .progress-stepper__icon > [role="img"] {
+            .background-color-token(progress-stepper-badge-upcoming-background-color, color-background-primary);
+            .border-color-token(progress-stepper-badge-upcoming-border-color, color-foreground-disabled);
+            .color-token(progress-stepper-badge-upcoming-color, color-foreground-secondary);
+        }
+    }
 }
 
 .progress-stepper--vertical .progress-stepper__items {
