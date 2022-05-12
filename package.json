@@ -7,7 +7,7 @@
     "maintainers": [
         "Ian McBurnie <ianmcburnie@hotmail.com>",
         "Andrew Gliga <agliga4@gmail.com>",
-        "Austin P Gardner <gardneraustin@protonmail.com>"
+        "Arthur Khachatryan <arthurk55@gmail.com>"
     ],
     "homepage": "https://ebay.github.io/skin/",
     "repository": {
@@ -46,7 +46,10 @@
         "copy:svgToDocs": "ncp src/svg docs/static/common",
         "version": "node scripts/jekyll-config && npm run build:storybook && npm run build && git add -A dist docs",
         "transpile": "babel docs/src/js --out-dir docs/_babel",
-        "snapshot": "percy storybook ./docs/storybook",
+        "snapshot": "percy storybook ./docs/storybook --include",
+        "snapshot:dry": "percy storybook --dry-run --verbose ./docs/storybook --include",
+        "snapshot:all": "percy storybook ./docs/storybook --include '.*'",
+        "snapshot:all:dry": "percy storybook --dry-run --verbose ./docs/storybook --include '.*'",
         "storybook": "cross-env STORYBOOK_DS=6 start-storybook -s ."
     },
     "devDependencies": {
@@ -56,7 +59,7 @@
         "@commitlint/cli": "^16.2.3",
         "@commitlint/config-conventional": "^16.0.0",
         "@ebay/browserslist-config": "^2.0.2",
-        "@percy/cli": "^1.0.5",
+        "@percy/cli": "^1.1.0",
         "@percy/storybook": "^4.2.0",
         "@storybook/builder-webpack5": "^6.4.2",
         "@storybook/html": "^6.4.20",

@@ -1,6 +1,6 @@
 export default { title: 'Button/Button/Tertiary' };
 
-export const tertiary = () => `
+export const textOnly = () => `
 <button class="btn btn--tertiary">Tertiary</button
 `;
 
