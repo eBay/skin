@@ -1,4 +1,4 @@
-@import "../tokens/tokens.less";
+@import "../variables/variables.less";
 @import "../mixins/utility-mixins.less";
 
 @ebay-carousel-transition-time: 0.45s;
@@ -82,8 +82,8 @@
     }
 
     &:hover {
-        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
-        border-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        background-color: var(--color-state-primary-hover);
+        border-color: var(--color-state-primary-hover);
 
         svg {
             .color-token(carousel-paddle-hover-foreground-color, color-foreground-primary);
@@ -91,7 +91,7 @@
     }
 
     &:active {
-        background-color: var(--color-state-primary-active, @color-state-primary-active);
+        background-color: var(--color-state-primary-active);
     }
 }
 
@@ -183,7 +183,11 @@ span.carousel__container {
 }
 
 .carousel__viewport--mask {
-    mask-image: linear-gradient(to right, @color-background-primary 85%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(
+        to right,
+        var(--color-background-primary) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
 }
 
 [dir="rtl"] {

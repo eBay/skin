@@ -1,0 +1,100 @@
+.select {
+  color: var(--select-foreground-color, var(--color-foreground-primary));
+  font-size: 0.875rem;
+  position: relative;
+}
+span.select {
+  display: inline-block;
+}
+.select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--select-background-color, var(--color-background-secondary));
+  border-color: var(--select-border-color, var(--color-foreground-secondary));
+  border-radius: var(--select-border-radius, 8px);
+  border-style: solid;
+  border-width: 1px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  height: 40px;
+  padding: 0 32px 0 16px;
+  vertical-align: middle;
+}
+.select svg.icon--dropdown {
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+.select--large select {
+  font-size: 1.125rem;
+  height: 48px;
+}
+.select--fluid {
+  width: 100%;
+}
+.select--fluid select {
+  width: 100%;
+}
+.select--borderless select {
+  background-color: transparent;
+  border: 0;
+  padding-left: 0;
+  width: auto;
+}
+.select--borderless select:focus {
+  text-decoration: underline;
+}
+.select select:focus {
+  background-color: var(--select-focus-background-color, var(--color-background-primary));
+  border-color: var(--select-focus-border-color, var(--color-foreground-primary));
+  outline: 0;
+  text-decoration: underline;
+}
+.select select::-ms-expand {
+  display: none;
+}
+.select select[disabled] {
+  background-color: var(--select-disabled-background-color, var(--color-background-secondary));
+  color: var(--select-disabled-foregound-color, var(--color-foreground-ghost));
+}
+.select--borderless select[disabled] {
+  background-color: var(--select-borderless-disabled-background-color, var(--color-background-secondary));
+  color: var(--select-borderless-disabled-foregound-color, var(--color-foreground-disabled));
+}
+.select select[readonly] {
+  background-color: var(--select-disabled-background-color, var(--color-background-secondary));
+  color: var(--select-readonly-foregound-color, var(--color-foreground-ghost));
+}
+.select select[aria-invalid="true"] {
+  background-color: var(--select-invalid-background-color, var(--color-red-1));
+  border-color: var(--select-invalid-border-color, var(--color-stroke-attention));
+  border-style: solid;
+  border-width: 1px;
+  color: var(--select-invalid-foreground-color, var(--color-foreground-primary));
+}
+.select select[aria-invalid="true"]:focus {
+  background-color: var(--select-focus-background-color, var(--color-background-primary));
+  border-color: var(--select-focus-border-color, var(--color-stroke-default));
+}
+.select select[aria-invalid="true"] + svg {
+  color: var(--select-invalid-foreground-color, var(--color-foreground-primary));
+}
+.select select[disabled] + svg {
+  color: var(--select-disabled-foregound-color, var(--color-foreground-ghost));
+}
+[dir="rtl"] .select > select {
+  padding-left: 30px;
+  padding-right: 16px;
+}
+[dir="rtl"] .select svg {
+  left: 16px;
+  right: auto;
+}
+[dir="rtl"] .select--underline svg.icon {
+  left: 0;
+  right: auto;
+}

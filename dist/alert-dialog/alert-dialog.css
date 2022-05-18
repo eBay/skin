@@ -1,0 +1,102 @@
+.alert-dialog[role="alertdialog"] {
+  background-color: opacity(var(--color-foreground-primary), 70%);
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  will-change: background-color;
+  z-index: 100000;
+  align-items: flex-start;
+  justify-content: center;
+}
+.alert-dialog[role="alertdialog"]:not([hidden]) {
+  display: flex;
+}
+.alert-dialog__window {
+  background-color: var(--dialog-window-background-color, var(--color-background-primary));
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  min-height: 55px;
+  will-change: opacity, transform;
+  border-radius: var(--lightbox-border-radius, var(--border-radius-100));
+  margin-top: 15vh;
+  max-width: calc(100% - 32px);
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
+  text-align: center;
+}
+.alert-dialog__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+.alert-dialog__main {
+  margin: 16px 0;
+  min-height: 16px;
+}
+.alert-dialog__main > :first-child {
+  margin-top: 0;
+}
+.alert-dialog__main > :last-child {
+  margin-bottom: 0;
+}
+.alert-dialog--show.alert-dialog--mask-fade,
+.alert-dialog--hide.alert-dialog--mask-fade {
+  transition: background-color 0.16s ease-out;
+}
+.alert-dialog--show.alert-dialog--mask-fade-slow,
+.alert-dialog--hide.alert-dialog--mask-fade-slow {
+  transition: background-color 0.32s ease-out;
+}
+.alert-dialog--show .alert-dialog__window--fade,
+.alert-dialog--hide .alert-dialog__window--fade {
+  transition: opacity 0.16s ease-out;
+}
+.alert-dialog--hide.alert-dialog--hide,
+.alert-dialog--hide.alert-dialog--show-init,
+.alert-dialog--show-init.alert-dialog--hide,
+.alert-dialog--show-init.alert-dialog--show-init {
+  display: flex;
+}
+.alert-dialog--hide.alert-dialog--mask-fade,
+.alert-dialog--show-init.alert-dialog--mask-fade,
+.alert-dialog--hide.alert-dialog--mask-fade-slow,
+.alert-dialog--show-init.alert-dialog--mask-fade-slow {
+  background-color: opacity(var(--color-foreground-primary), 0%);
+}
+.alert-dialog--hide .alert-dialog__window--fade,
+.alert-dialog--show-init .alert-dialog__window--fade {
+  opacity: 0;
+}
+.alert-dialog--show.alert-dialog--show,
+.alert-dialog--show.alert-dialog--hide-init,
+.alert-dialog--hide-init.alert-dialog--show,
+.alert-dialog--hide-init.alert-dialog--hide-init {
+  display: flex;
+}
+.alert-dialog--show.alert-dialog--mask-fade,
+.alert-dialog--hide-init.alert-dialog--mask-fade,
+.alert-dialog--show.alert-dialog--mask-fade-slow,
+.alert-dialog--hide-init.alert-dialog--mask-fade-slow {
+  background-color: opacity(var(--color-foreground-primary), 70%);
+}
+.alert-dialog--show .alert-dialog__window--fade,
+.alert-dialog--hide-init .alert-dialog__window--fade {
+  opacity: 1;
+}
+@media (min-width: calc(600px + 1px)) and (max-width: 768px) {
+  .alert-dialog__window {
+    max-width: calc(88% - 32px);
+  }
+}
+@media (min-width: calc(768px + 1px)) {
+  .alert-dialog__window {
+    max-width: 616px;
+  }
+}
