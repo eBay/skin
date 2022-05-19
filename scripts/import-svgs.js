@@ -35,7 +35,6 @@ async function runImport(svg, name, file, argv) {
         .replace('</svg', '</symbol');
 
     const svgFragment = JSDOM.fragment(newSVGFile);
-
     svgFragment.firstChild.setAttribute('id', name);
 
     const existing = oldSymbols.window.document.querySelector(`#${name}`);
