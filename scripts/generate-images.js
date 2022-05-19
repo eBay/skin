@@ -6,7 +6,9 @@ const svgDir = path.resolve(currentDir, 'src', 'svg');
 const jsdom = require('jsdom');
 const prettier = require('prettier');
 const { JSDOM } = jsdom;
-const config = require('./image-config.json');
+const file = fs.readFileSync(path.resolve(currentDir, 'docs', '_data', 'icons.yaml'), 'utf8');
+const YAML = require('yaml');
+const config = YAML.parse(file);
 
 async function getFiles(dir) {
     const dirents = await fs.promises.readdir(dir, { withFileTypes: true });
@@ -20,17 +22,25 @@ async function getFiles(dir) {
 }
 
 function stripName(name, mappedName) {
-    const index = name.indexOf(mappedName);
-    return index === 0 ? `${mappedName}-${name.slice(mappedName.length)}` : name;
+    let index = name.indexOf(mappedName);
+    if (index === 0) {
+        return `${mappedName}-${name.slice(mappedName.length)}`;
+    }
+    const iconPrefix = 'icon-';
+    index = name.indexOf(iconPrefix);
+    if (index === 0) {
+        return `icon--${name.slice(iconPrefix.length)}`;
+    }
+    return name;
 }
 
 async function runImport() {
     const files = await getFiles(svgDir);
-    const svgs = files.filter((file) => file.endsWith('.svg'));
+    const svgs = files.filter((f) => f.endsWith('.svg'));
     await Promise.all(
         svgs.map(async (filePath) => {
-            const filename = path.basename(filePath);
-            const mappedName = config.aliases[filename];
+            const filename = path.parse(filePath).name;
+            const mappedName = config[filename];
             if (!mappedName) {
                 return;
             }
@@ -46,13 +56,13 @@ async function runImport() {
                 lessFile.push(
                     `svg.${stripName(
                         symbol.id,
-                        mappedName
+                        mappedName.prefix
                     )} { height: ${height}px; width: ${width}px; }`
                 );
             });
 
             await fs.promises.writeFile(
-                `src/less/${mappedName}/generated-icons.less`,
+                `src/less/${mappedName.output || mappedName.prefix}/generated-icons.less`,
                 prettier.format(lessFile.join('\n'), { parser: 'less', tabWidth: 4 })
             );
         })

@@ -1,0 +1,10 @@
+<ul class="demo-icon-boxes">
+    {% for iconName in include.icon.list %}
+        <li>
+            <span>{{ iconName }}</span>
+            <svg aria-hidden="true" class="{{ include.icon.prefix }} {{ include.icon.prefix }}--{{ iconName }}{{ include.icon.postfix }}" focusable="false" height="{{ include.icon.size | 24 }}" width="{{ include.icon.size | 24 }}"">
+                {% include symbol.html name=iconName file=include.icon.file prefix=include.icon.prefix postfix=include.icon.postfix %}
+            </svg>
+        </li>
+    {% endfor %}
+</ul>

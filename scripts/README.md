@@ -30,9 +30,13 @@ Generates less files with width/height styles for all icons located in `src/svg`
 
 ### Configuration
 
-Configuration for this script is located at `scripts/image-config.json`
+Configuration for this script is located at `docs/_data/icons.yaml`
+This contains a list of icon modules to generate. Each key will look up an icon file, if that exists then it will generate css for those.
 
-| Config    | Description                                                                                                                             |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `aliases` | The module name for each icon folder. This will generate icons under that module name and also remap the icon prefix for the less file. |
-| `skip`    | List of icons to skip and not generate a less file for                                                                                  |
+| Global Config | Description |
+| `skip` | The id of icons to not generate config for |
+
+| Icon specific config | Description                                                                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prefix`             | The prefixed name, this will be used as the beginning part of the icon name as well as the default output directory if `output` is not defined |
+| `output`             | The file directory to output the generated css file to                                                                                         |
