@@ -34,7 +34,7 @@ function stripName(name, mappedName) {
     return name;
 }
 
-async function runImport() {
+async function runGenerate() {
     const files = await getFiles(svgDir);
     const svgs = files.filter((f) => f.endsWith('.svg'));
     await Promise.all(
@@ -69,23 +69,4 @@ async function runImport() {
     );
 }
 
-require('yargs') // eslint-disable-line
-    .usage('Usage: $0 <command> [options]')
-    .command(
-        'gen',
-        'generates less files with styles from svg icons',
-        () => {},
-        () => {
-            try {
-                runImport();
-            } catch (e) {
-                console.log(e);
-            }
-        }
-    )
-    .option('verbose', {
-        alias: 'v',
-        type: 'boolean',
-    })
-    .demandCommand(1)
-    .help().argv;
+module.exports = { runGenerate };

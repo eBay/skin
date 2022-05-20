@@ -52,40 +52,4 @@ async function runImport(svg, name, file, argv) {
     await fs.promises.writeFile(path.resolve(svgDir, `${file}.svg`), newFileData);
 }
 
-require('yargs') // eslint-disable-line
-    .usage('Usage: $0 <command> [options]')
-    .command(
-        'import <svg> <name> <file>',
-        'imports given svg into an icon pack or updates if it exists',
-        (yargs) => {
-            yargs.positional('svg', {
-                describe: 'SVG file',
-                demand: true,
-                default: '',
-            });
-            yargs.positional('name', {
-                describe: 'The ID of the SVG',
-                demand: true,
-                default: '',
-            });
-            yargs.positional('file', {
-                describe: 'The file in skin to append the SVG to',
-                demand: true,
-                default: '',
-            });
-        },
-        async (argv) => {
-            try {
-                await runImport(argv.svg, argv.name, argv.file, argv);
-            } catch (e) {
-                console.log(e);
-            }
-        }
-    )
-
-    .option('verbose', {
-        alias: 'v',
-        type: 'boolean',
-    })
-    .demandCommand(1)
-    .help().argv;
+module.exports = { runImport };

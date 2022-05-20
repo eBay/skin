@@ -200,62 +200,50 @@ async function generateCustomModule(filename, modules) {
     );
 }
 
-require('yargs') // eslint-disable-line
-    .usage('Usage: $0 <command> [options]')
-    .command(
-        'gen',
-        'Generates all imports',
-        () => {},
-        async () => {
-            await Promise.all(
-                files.map(async (file) => {
-                    return await generateFile(file);
-                })
-            );
-            await Promise.all(
-                Object.keys(config.modules).map(async (moduleName) => {
-                    return await generateCustomModule(moduleName, config.modules[moduleName]);
-                })
-            );
+async function generateTopLevel() {
+    await Promise.all(
+        files.map(async (file) => {
+            return await generateFile(file);
+        })
+    );
+    await Promise.all(
+        Object.keys(config.modules).map(async (moduleName) => {
+            return await generateCustomModule(moduleName, config.modules[moduleName]);
+        })
+    );
 
-            await generateTopLevelFiles();
-        }
-    )
-    .command(
-        'clean',
-        'Cleans all imports',
-        () => {},
-        async () => {
-            await Promise.all(
-                files.map(async (file) => {
-                    try {
-                        return await cleanFile(file);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                })
-            );
+    await generateTopLevelFiles();
+}
 
-            await Promise.all(
-                Object.keys(config.modules).map(async (moduleName) => {
-                    try {
-                        return await cleanFile(moduleName);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                })
-            );
-
+async function cleanTopLevel() {
+    await Promise.all(
+        files.map(async (file) => {
             try {
-                await cleanTopLevelFiles();
+                return await cleanFile(file);
             } catch (e) {
                 console.error(e);
             }
-        }
-    )
-    .option('verbose', {
-        alias: 'v',
-        type: 'boolean',
-    })
-    .demandCommand(1)
-    .help().argv;
+        })
+    );
+
+    await Promise.all(
+        Object.keys(config.modules).map(async (moduleName) => {
+            try {
+                return await cleanFile(moduleName);
+            } catch (e) {
+                console.error(e);
+            }
+        })
+    );
+
+    try {
+        await cleanTopLevelFiles();
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+module.exports = {
+    cleanTopLevel,
+    generateTopLevel,
+};
