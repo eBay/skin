@@ -154,10 +154,44 @@ function syncDocsHtml(cb) {
         .on('close', cb);
 }
 
+async function runSnapshots(storiesList, isDryRun) {
+    const stories = yargs.argv.stories === undefined ? storiesList : yargs.argv.stories;
+    const aStories = stories.split(',');
+    const storiesReg = aStories.join('/|') + '/';
+    const storiesRX = `\b(?:${storiesReg})\b`;
+    const storiesRXString = '\\b(?:' + storiesReg + ')\\b';
+    const dryRun = yargs.argv.dry === undefined ? isDryRun : yargs.argv.dry;
+    const percyArgs = ['run', 'snapshots:execute'];
+
+    if (dryRun) {
+        console.log('DRY RUN');
+        percyArgs.push('--dry-run');
+    }
+
+    percyArgs.push(storiesRX);
+
+    console.log(`
+************************************************************
+Running Percy Snapshot(s)...
+Snapshot(s):         ${stories}
+Percy Stories Regex: ${storiesRXString}
+Running Snapshot(s)...
+************************************************************
+	`);
+
+    console.log('dryRun: ' + dryRun);
+    console.log('percyArgs: ' + percyArgs);
+
+    return child_process.spawn('npm', percyArgs, { stdio: 'inherit' }).on('close', function () {
+        console.log('\nCompleted\n\n');
+    });
+}
+
 // public tasks
 exports.compileModule = compileModule;
 exports.compileAllModules = compileAllModules;
 exports.compileBundle = compileBundle;
 exports.compileAllBundles = compileAllBundles;
 exports.server = server;
+exports.runSnapshots = runSnapshots;
 exports.default = gulp.series(gulp.parallel(compileAllModules, compileAllBundles));
