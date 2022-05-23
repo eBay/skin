@@ -161,30 +161,23 @@ async function runSnapshots(storiesList, isDryRun) {
     const storiesRX = `\b(?:${storiesReg})\b`;
     const storiesRXString = '\\b(?:' + storiesReg + ')\\b';
     const dryRun = yargs.argv.dry === undefined ? isDryRun : yargs.argv.dry;
-    const percyArgs = ['run', 'snapshots:execute'];
-
-    if (dryRun) {
-        console.log('DRY RUN');
-        percyArgs.push('--dry-run');
-    }
-
-    percyArgs.push(storiesRX);
+    const percyExecutable = dryRun ? 'snapshots:execute:dry' : 'snapshots:execute';
 
     console.log(`
 ************************************************************
 Running Percy Snapshot(s)...
 Snapshot(s):         ${stories}
 Percy Stories Regex: ${storiesRXString}
+Percy Dry Run:       ${dryRun}
 Running Snapshot(s)...
 ************************************************************
 	`);
 
-    console.log('dryRun: ' + dryRun);
-    console.log('percyArgs: ' + percyArgs);
-
-    return child_process.spawn('npm', percyArgs, { stdio: 'inherit' }).on('close', function () {
-        console.log('\nCompleted\n\n');
-    });
+    return child_process
+        .spawn('npm', ['run', percyExecutable, storiesRX], { stdio: 'inherit' })
+        .on('close', function () {
+            console.log('\nCompleted\n\n');
+        });
 }
 
 // public tasks
