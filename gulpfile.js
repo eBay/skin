@@ -26,13 +26,24 @@ var comment = [
     '*/\n',
 ].join('\n');
 
-const excludedFolders = ['bundles', 'gh', 'mixins', 'skins', 'variables'];
+const excludedFolders = ['bundles', 'gh', 'mixins', 'skins', 'variables', 'icon'];
 
 // use for debug purposes only
 const includedFolders = ['badge', 'switch', 'tabs'];
 
 // filter for removing files and folders under src/less that should not be compiled by lessc
 const filterSrc = (dirent) => dirent.isDirectory() && !excludedFolders.includes(dirent.name);
+
+async function compileNestedModule(moduleName) {
+    const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
+
+    gulp.src([`./src/less/${name}/*.less`])
+        .pipe(less({ plugins: [autoprefixPlugin] }))
+        .on('error', console.log)
+        .pipe(gulp.dest(`${distTarget}/${name}`));
+
+    await Promise.resolve();
+}
 
 async function compileModule(moduleName) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
@@ -51,6 +62,8 @@ async function compileAllModules() {
             compileModule(dirent.name);
         });
     });
+    // Treat icons differently since it is a nested module
+    compileNestedModule('icon');
 
     await Promise.resolve();
 }
