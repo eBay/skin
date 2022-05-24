@@ -2,7 +2,7 @@
 
 ## Commands
 
-`scripts/generate-imports` has two commands, `gen` which generates all files for prepublish, and `clean` which cleans post publish
+`scripts` has two commands, `gen` which generates all files for prepublish, and `clean` which cleans post publish
 
 ## Top level index files
 
