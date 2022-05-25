@@ -1,4 +1,4 @@
-@import "../tokens/tokens.less";
+@import "../variables/variables.less";
 @import "../mixins/button-mixins.less";
 @import "../mixins/utility-mixins.less";
 
@@ -66,7 +66,7 @@ a.fake-btn--primary {
 }
 
 a.fake-btn--primary {
-    outline-color: @color-foreground-primary; // fixes invisible focus outline in Firefox
+    outline-color: var(--color-foreground-primary); // fixes invisible focus outline in Firefox
 }
 
 a.fake-btn--primary:visited {
@@ -77,11 +77,12 @@ button.btn--primary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--primary[href] {
     &:focus,
     &:hover {
-        background-color: var(--color-state-accent-hover, @color-state-accent-hover);
+        background-blend-mode: multiply;
+        filter: brightness(96%);
     }
 
     &:active {
-        background-color: var(--color-state-accent-active, @color-state-accent-active);
+        filter: brightness(92%);
     }
 }
 
@@ -103,11 +104,11 @@ button.btn--primary.btn--destructive:not([disabled]):not([aria-disabled="true"])
 a.fake-btn--primary.fake-btn--destructive[href] {
     &:focus,
     &:hover {
-        background-color: var(--color-state-attention-hover, @color-state-attention-hover);
+        background-color: var(--color-state-attention-hover);
     }
 
     &:active {
-        background-color: var(--color-state-attention-active, @color-state-attention-active);
+        background-color: var(--color-state-attention-active);
     }
 }
 
@@ -119,7 +120,7 @@ button.btn .progress-spinner {
 
 button.btn--primary.btn--destructive .progress-spinner {
     --color-spinner-icon-background: #ec7089;
-    --color-spinner-icon-foreground: @color-foreground-on-accent;
+    --color-spinner-icon-foreground: var(--color-foreground-on-accent);
 }
 
 button.btn svg.icon--dropdown,
@@ -168,12 +169,12 @@ a.fake-btn--secondary:visited {
 button.btn--secondary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--secondary[href] {
     &:active {
-        background-color: var(--color-state-primary-active, @color-state-primary-active);
+        background-color: var(--color-state-primary-active);
     }
 
     &:hover,
     &:focus {
-        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        background-color: var(--color-state-primary-hover);
     }
 }
 
@@ -188,11 +189,11 @@ button.btn--secondary.btn--destructive:not([disabled]):not([aria-disabled="true"
 a.fake-btn--secondary.fake-btn--destructive[href] {
     &:hover,
     &:focus {
-        background-color: var(--color-state-primary-hover, @color-state-primary-hover);
+        background-color: var(--color-state-primary-hover);
     }
 
     &:active {
-        background-color: var(--color-state-primary-active, @color-state-primary-active);
+        background-color: var(--color-state-primary-active);
     }
 }
 
@@ -233,11 +234,11 @@ button.btn--tertiary:not([disabled]):not([aria-disabled="true"]),
 a.fake-btn--tertiary[href] {
     &:focus,
     &:hover {
-        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
+        background-color: var(--color-state-secondary-hover);
     }
 
     &:active {
-        background-color: var(--color-state-secondary-active, @color-state-secondary-active);
+        background-color: var(--color-state-secondary-active);
     }
 }
 
@@ -264,11 +265,11 @@ button.btn--tertiary.btn--destructive:not([disabled]):not([aria-disabled="true"]
 a.fake-btn--tertiary.fake-btn--destructive[href] {
     &:focus,
     &:hover {
-        background-color: var(--color-state-secondary-hover, @color-state-secondary-hover);
+        background-color: var(--color-state-secondary-hover);
     }
 
     &:active {
-        background-color: var(--color-state-secondary-active, @color-state-secondary-active);
+        background-color: var(--color-state-secondary-active);
     }
 }
 

@@ -5,18 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         {% if jekyll.environment == "development" %}
-        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/skin.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/evo-core.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/evo-light.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/skin.min.css"/>
         {% if page.ds != 4 %}
-        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/dark-mode.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/evo-dark.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds4-core.css"/>
         {% endif %}
         {% else %}
-        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/ds{{page.ds}}/skin.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/evo-core.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/evo-light.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/skin.min.css"/>
         {% if page.ds != 4 %}
-        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/ds{{page.ds}}/dark-mode.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/evo-dark.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/ds4-core.css"/>
         {% endif %}
         {% endif %}
 
-       <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/ds{{ page.ds }}/docs.min.css"/>
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/docs.min.css"/>
         <!-- critical styles -->
         <style>
             @media only screen and (min-width: 600px) {
@@ -58,18 +66,13 @@
         <div class="page-grid-container">
             <div class="page-grid">
                 <nav class="site-nav" hidden>
-                    <h2>Skins</h2>
-                    <ul>
-                        <li><a href="{{ site.url }}/index.html">Default</a></li>
-                        <li><a href="{{ site.url }}/ds4/index.html">Legacy</a></li>
-                    </ul>
 
                     <h2>Setup</h2>
                     <ul>
                         <li><a href="#about">About</a></li>
                         <li><a href="#install">Install</a></li>
                         <li><a href="#bundling">Bundling</a></li>
-                        <li><a href="#flags">Flags</a></li>
+                        <li><a href="#tokens">Tokens</a></li>
                         <li><a href="#cdn">CDN</a></li>
                         <li><a href="#themes">Themes</a></li>
                         <li><a href="#animation">Animation</a></li>
@@ -85,10 +88,10 @@
                 </main>
                 <footer>
                     <hr />
-                    <p>Copyright &copy; 2021 eBay, Inc. All rights reserved.</p>
+                    <p>Copyright &copy; 2022 eBay, Inc. All rights reserved.</p>
                 </footer>
             </div>
         </div>
     </body>
-    <script src="{{ page.static_dir }}/common/docs.min.js"></script>
+    <script src="{{ page.static_dir }}/docs.min.js"></script>
 </html>

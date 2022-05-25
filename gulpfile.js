@@ -26,7 +26,7 @@ var comment = [
     '*/\n',
 ].join('\n');
 
-const excludedFolders = ['bundles', 'gh', 'tokens', 'mixins'];
+const excludedFolders = ['bundles', 'gh', 'mixins', 'skins', 'variables'];
 
 // use for debug purposes only
 const includedFolders = ['badge', 'switch', 'tabs'];
@@ -34,54 +34,38 @@ const includedFolders = ['badge', 'switch', 'tabs'];
 // filter for removing files and folders under src/less that should not be compiled by lessc
 const filterSrc = (dirent) => dirent.isDirectory() && !excludedFolders.includes(dirent.name);
 
-async function compileModule(moduleName, moduleDs) {
+async function compileModule(moduleName) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
-    const ds = yargs.argv.ds === undefined ? moduleDs : yargs.argv.ds;
-
-    // console.log(`COMPILING MODULE: ${name} ${ds}`);
 
     gulp.src([`./src/less/${name}/${name}.less`])
-        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
-        .pipe(gulp.dest(`${distTarget}/${name}/${ds}`));
+        .pipe(less({ plugins: [autoprefixPlugin] }))
+        .on('error', console.log)
+        .pipe(gulp.dest(`${distTarget}/${name}`));
 
     await Promise.resolve();
 }
 
-async function compileAllModules(done) {
+async function compileAllModules() {
     fs.readdir(path.join(__dirname, 'src/less'), { withFileTypes: true }, (err, files) => {
         files.filter(filterSrc).forEach((dirent) => {
-            compileModule(dirent.name, 'ds4');
-            compileModule(dirent.name, 'ds6');
+            compileModule(dirent.name);
         });
     });
 
     await Promise.resolve();
 }
 
-// Compile and minify a bundle to docs/static, _site/static and cdn
-async function compileBundle(bundleName, bundleDs) {
-    const name = yargs.argv.name === undefined ? bundleName : yargs.argv.name;
-    const ds = yargs.argv.ds === undefined ? bundleDs : yargs.argv.ds;
-
-    // console.log(`COMPILING BUNDLE: ${name} ${ds}`);
-
-    gulp.src([`./src/less/bundles/${name}.less`])
+// Compile and minify main bundle to docs/static, _site/static and cdn
+async function compileHeadlessBundle() {
+    gulp.src([`./src/less/bundles/skin.less`])
         .pipe(banner(comment, { pkg: pkg }))
         .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
-        .pipe(less({ plugins: [autoprefixPlugin], globalVars: { ds: ds } }))
+        .pipe(less({ plugins: [autoprefixPlugin] }))
+        .on('error', console.log)
         .pipe(cleanCSS())
-        .pipe(gulp.dest(`${docsStaticTarget}/${ds}`))
-        .pipe(gulp.dest(`${siteStaticTarget}/${ds}`))
-        .pipe(gulp.dest(`${cdnTarget}/${ds}`));
-
-    await Promise.resolve();
-}
-
-async function compileAllBundles() {
-    compileBundle('dark-mode', 'ds4');
-    compileBundle('dark-mode', 'ds6');
-    compileBundle('skin', 'ds4');
-    compileBundle('skin', 'ds6');
+        .pipe(gulp.dest(`${docsStaticTarget}`))
+        .pipe(gulp.dest(`${siteStaticTarget}`))
+        .pipe(gulp.dest(`${cdnTarget}`));
 
     await Promise.resolve();
 }
@@ -93,6 +77,8 @@ function server() {
     // Watch less files under src/less. Resync CSS on change.
     // TODO: only re-compile modules that changed
     gulp.watch('src/less/**/*.less', gulp.series('default', injectSkinCSS));
+    // Watch css files under src/tokens. Resync CSS on change.
+    gulp.watch('src/tokens/*.css', syncTokensCss);
     // Watch less files under docs. Resync CSS on change.
     gulp.watch('docs/src/less/**/*.less', syncDocsCss);
     // Watch js files under docs. Resync JS on change.
@@ -115,12 +101,19 @@ function syncDocsCss() {
     return child_process
         .spawn('npm', ['run', 'bundle:css'], { stdio: 'inherit' })
         .on('close', function () {
-            gulp.src(['./docs/static/ds4/docs.min.css'])
-                .pipe(gulp.dest(siteStaticTarget + '/ds4'))
+            gulp.src(['./docs/static/docs.min.css'])
+                .pipe(gulp.dest(siteStaticTarget))
                 .pipe(browserSync.stream());
+        });
+}
 
-            gulp.src(['./docs/static/ds6/docs.min.css'])
-                .pipe(gulp.dest(siteStaticTarget + '/ds6'))
+// Re-bundle the docs CSS, copy to jekyll _site/static, inject into browsers
+function syncTokensCss() {
+    return child_process
+        .spawn('npm', ['run', 'copy:tokensToDocs'], { stdio: 'inherit' })
+        .on('close', function () {
+            gulp.src(['./docs/static/evo-core.css', './docs/static/evo-light.css'])
+                .pipe(gulp.dest(siteStaticTarget))
                 .pipe(browserSync.stream());
         });
 }
@@ -130,9 +123,7 @@ function syncDocsJs() {
     return child_process
         .spawn('npm', ['run', 'bundle:js'], { stdio: 'inherit' })
         .on('close', function () {
-            gulp.src(['./docs/static/common/docs.min.js']).pipe(
-                gulp.dest(siteStaticTarget + '/common')
-            );
+            gulp.src(['./docs/static/docs.min.js']).pipe(gulp.dest(siteStaticTarget));
 
             browserSync.reload();
         });
@@ -183,8 +174,7 @@ Running Snapshot(s)...
 // public tasks
 exports.compileModule = compileModule;
 exports.compileAllModules = compileAllModules;
-exports.compileBundle = compileBundle;
-exports.compileAllBundles = compileAllBundles;
+exports.compileHeadlessBundle = compileHeadlessBundle;
 exports.server = server;
 exports.runSnapshots = runSnapshots;
-exports.default = gulp.series(gulp.parallel(compileAllModules, compileAllBundles));
+exports.default = gulp.series(gulp.parallel(compileAllModules, compileHeadlessBundle));
