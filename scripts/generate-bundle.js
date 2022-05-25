@@ -216,66 +216,22 @@ Please upload the ./_cdn/${args.name}/v${pkg.version} directory to CDN
         });
 }
 
-require('yargs') // eslint-disable-line
-    .usage('Usage: $0 <command> [options]')
-    .command(
-        'list',
-        'List all available modules',
-        (yargs) => {},
-        (argv) => {
-            prebuild().then(() => {
-                dsList.forEach((dsVersion) => {
-                    const cssProcesser = new CssProcesser(dsVersion, argv);
-                    cssProcesser.getDistCss().then((files) => {
-                        console.log(`======================`);
-                        console.log(`${dsVersion} - modules avaiable`);
-                        console.log(`======================`);
-                        files.forEach((file) => {
-                            console.log(path.basename(file, '.css'));
-                        });
-                    });
-                });
+async function listBundles(argv) {
+    await prebuild();
+    dsList.forEach((dsVersion) => {
+        const cssProcesser = new CssProcesser(dsVersion, argv);
+        cssProcesser.getDistCss().then((files) => {
+            console.log(`======================`);
+            console.log(`${dsVersion} - modules avaiable`);
+            console.log(`======================`);
+            files.forEach((file) => {
+                console.log(path.basename(file, '.css'));
             });
-        }
-    )
-    .command(
-        'bundle <name>',
-        'generates a CDN bundle with the given name',
-        (yargs) => {
-            yargs
-                .positional('name', {
-                    describe: 'name to generate bundle',
-                    demand: true,
-                    default: 'skin',
-                })
-                .option('scope-class', {
-                    describe: 'Scoped class to prefix bundle with',
-                    default: '',
-                })
-                .option('no-minify', {
-                    describe:
-                        'Skips minify stage. Should set this when another bundler like lasso will be used.',
-                    type: 'boolean',
-                })
-                .option('scope-specificity', {
-                    describe: 'How many times to repeat scope',
-                    default: '1',
-                })
-                .option('modules', {
-                    alias: 'm',
-                    type: 'array',
-                    describe:
-                        'Space separated list of modules to include. If empty, will include all',
-                    default: [],
-                });
-        },
-        (argv) => {
-            runCSSBuild(argv.name, argv);
-        }
-    )
-    .option('verbose', {
-        alias: 'v',
-        type: 'boolean',
-    })
-    .demandCommand(1)
-    .help().argv;
+        });
+    });
+}
+
+module.exports = {
+    runCSSBuild,
+    listBundles,
+};

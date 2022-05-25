@@ -1,0 +1,68 @@
+.floating-label {
+  position: relative;
+}
+span.floating-label {
+  display: inline-block;
+}
+div.floating-label {
+  display: block;
+}
+label.floating-label__label {
+  color: var(--floating-label-color, var(--color-foreground-primary));
+  display: inline-block;
+  left: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  transform: scale(0.75, 0.75) translate(0, 2px);
+  transform-origin: left;
+  white-space: nowrap;
+  width: calc(100% - 24px);
+  z-index: 1;
+}
+label.floating-label__label--focus {
+  color: var(--color-background-inverse);
+}
+.floating-label--large label.floating-label__label {
+  transform: scale(0.75, 0.75) translate(0, 3px);
+}
+label.floating-label__label--inline {
+  font-size: 0.875rem;
+  transform: translate(0, 12px);
+}
+.floating-label--large label.floating-label__label--inline {
+  transform: translate(0, 16px);
+}
+label.floating-label__label--animate {
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+label.floating-label__label--disabled {
+  color: var(--floating-label-disabled-color, var(--color-foreground-disabled));
+}
+label.floating-label__label--invalid {
+  color: var(--floating-label-invalid-color, var(--color-foreground-attention));
+}
+.floating-label .textbox__control,
+.floating-label .combobox__control > input {
+  padding-bottom: 2px;
+  padding-top: 18px;
+}
+.floating-label--large .textbox__control,
+.floating-label--large .combobox__control > input {
+  padding-bottom: 5px;
+  padding-top: 23px;
+}
+.floating-label .select {
+  margin-right: -24px;
+}
+.floating-label .select select {
+  line-height: 52px;
+}
+.floating-label .select--large select {
+  line-height: 60px;
+}
+[dir="rtl"] .floating-label .select {
+  margin-left: -24px;
+  margin-right: 0;
+}

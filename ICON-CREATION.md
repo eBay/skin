@@ -57,46 +57,13 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 
 > ![symbol definition file](https://user-images.githubusercontent.com/105656/39767933-214833a4-52a5-11e8-97e2-8e5742f7de99.png)
 
-## Step 4: Create the SVG in Base64
+## Step 4: Run the generate images script
 
-NOTE: This step is no longer required. Support for background SVG, using base64, was dropped in Skin v10.0.0.
+Run `node scripts/generate-images.js gen` to generate the CSS definition for the icon. This will take the width/height from the `viewBox` and create a CSS selector for the given icon.
+If the width/height is incorrect from the SVG `viewBox`, you need to manually add the width/height using the icon mixin (See the `Adding CSS manually` section)
 
--   Use the following template to add your path definition:
+## Step 5: Update documentation
 
-```xml
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="21.54" height="19.39" viewBox="1.5 2.3 21.54 19.39"><path d="[ ... icon path info ...]"/></svg>
-```
-
--   Ensure you have the `viewBox`, `width`, and `height` on the `<svg>` tag
-    -   > _Note:_ Use width and height values **rounded to the hundredth place**
--   Navigate to the [encoder site](https://www.base64encode.org/) and paste in the SVG code
-    -   Remove all new lines and extra white space
--   Click `> ENCODE <`
--   Copy the encoded string
-
-## Step 5: Create the SVG in CSS
-
--   Create two new variables in `/src/less/less/ds6/variables.less` for the width and height of your icon
-    -   Use the width and height values from the SVG width and height, **rounded to the nearest tens decimal place**
-
-```less
-@ds6-icon-following-width: 21.5px;
-@ds6-icon-following-height: 19.4px;
-```
-
--   Add a mixin for your icon in `/src/less/less/ds6/mixins.less`
--   Add the CSS class and reference the new mixin in `/src/less/icon/ds6/icon.less`
-
-```less
-.icon--following {
-    .icon-mixin("icon-following", { .icon-following() });
-}
-```
-
-## Step 6: Update documentation
-
--   Update `/docs/ds6/index.html` using the same symbol defintion as in `/src/svg/ds6/icons.svg`
 -   Add an example of the icon in the appropriate place in `/docs/_includes/ds6/icon.html`
 
 ## Appendix
@@ -147,3 +114,25 @@ NOTE: This step is no longer required. Support for background SVG, using base64,
 | Prefer viewBox to width/height | on                         |
 | Remove style elements          | on                         |
 | Remove script elements         | on                         |
+
+## Adding CSS manually
+
+This step is only needed when the CSS generated from the `generate-images` does not align up correctly.
+
+-   Add the icon `id` into the `skip` array in `scripts/image-config.json`
+-   Create two new variables in `/src/less/less/ds6/variables.less` for the width and height of your icon
+-   Use the width and height values from the SVG width and height, **rounded to the nearest tens decimal place**
+
+```less
+@ds6-icon-following-width: 21.5px;
+@ds6-icon-following-height: 19.4px;
+```
+
+-   Add a mixin for your icon in `/src/less/less/ds6/mixins.less`
+-   Add the CSS class and reference the new mixin in `/src/less/icon/ds6/icon.less`
+
+```less
+.icon--following {
+    .icon-mixin("icon-following", { .icon-following() });
+}
+```
