@@ -14,106 +14,23 @@ First you should use a graphics editor, like Illustrator or Sketch, to export th
 -   Reset the icon (X,Y) to (0,0)
     > ![reset coordinates](https://user-images.githubusercontent.com/105656/39767589-5b3ad2ac-52a4-11e8-8bd7-39560f653af4.png)
 
-## Step 2: Process the SVG source code
+## Step 2: Import the SVG
 
--   Right click the icon's symbol layer and `Detach from symbol`
-
-> ![detach from symbol](https://user-images.githubusercontent.com/105656/39767616-68c9b820-52a4-11e8-98d5-95239b9f78f7.png)
-
--   Open the icon folder and `Copy SVG code` from the icon layer (**DO NOT** copy the SVG from the folder)
-
-> ![copy svg code](https://user-images.githubusercontent.com/105656/39767789-cea1f25c-52a4-11e8-87ce-287c8d78e749.png) >![copy svg code](https://user-images.githubusercontent.com/105656/39767854-f372b08a-52a4-11e8-93d5-698c242bc2ef.png)
-
--   Go to [SVGOMG](https://jakearchibald.github.io/svgomg/) and paste the SVG into the tool to clean up the SVG code.
-    -   From the left menu click `Paste markup`
-    -   Right click and `Paste` or use [Command ⌘] + [v] (on a Mac)
-
-> **Note:** _Ensure the settings are set correctly ([SVG OMG settings table below](#svg-omg-settings))_
-
-> ![paste SVG code into SVGOMG](https://user-images.githubusercontent.com/105656/39767876-fec509ce-52a4-11e8-928e-2d74528b648b.png)
-
-## Step 3: Create the symbol in the SVG definition
-
--   Copy the `<path>` from SVGOMG (see examples below)
-
-![svgomg ouput](https://user-images.githubusercontent.com/105656/39767912-10d1a442-52a5-11e8-9735-8f095773f3c0.png)
-
-```xml
-<path id="a" d="M3.253 21.504a1.73 1.73 0 0 1-.23.103c-.296.107-.586.129-.901-.06-.35-.211-.454-.495-.491-.853a2.105 2.105 0 0 1-.006-.34c.002-.03.005-1.085.01-3.162l1.657.005-.01 2.46 17.19-7.66L3.293 4.28l-.008 4.892h3.563c.349.02.814.126 1.293.396.834.471 1.354 1.293 1.354 2.432 0 1.14-.52 1.96-1.354 2.432-.479.27-.944.376-1.34.397H2.457V13.17l4.296.002c.118-.007.352-.06.572-.185.332-.187.511-.47.511-.988 0-.517-.179-.801-.51-.988a1.547 1.547 0 0 0-.526-.183H1.625l.003-2.316c.005-3.784.005-3.784.01-4.976a1.45 1.45 0 0 1 .03-.423c.052-.222.156-.426.358-.59a.995.995 0 0 1 .595-.223 1.187 1.187 0 0 1 .553.11l19.204 8.626a1.2 1.2 0 0 1 .272.17c.228.186.391.44.391.793a.99.99 0 0 1-.386.79c-.098.08-.19.134-.276.173l-18.984 8.46a2.21 2.21 0 0 1-.142.082zM3.291 3.43zm-.836 11.42c-.528 0-.955-.38-.955-.85s.427-.85.955-.85v1.7zm.82 2.35H1.653c0-.497.363-.9.811-.9.448 0 .811.403.811.9z"/>
-```
-
--   Open `/src/svg/ds6/icons.svg` and add the generated SVG code from SVGOMG
+-   Run the command `node/scripts importSVG path/to/icon.svg name-of-svg iconfile`.
+-   For example: `node/scripts importSVG ~/Downloads/new-icon.svg icon-photo photo` will import the new-icon svg into the `photo.svg` file with an `id="icon-photo"`
     -   Ensure the `fill` is set to the correct color (this is set to black as an example, but could be different based on design)
     -   If there is a `<use>` tag, move necessary attributes to the `<path>` and remove this tag
         -   Specific attributes to look for: `fill` (if it needs to be different), `fill-rule`, etc.
     -   In all cases, remove the `id` from the `<path>`, as it is unnecessary
--   Add the `viewbox` to the `<symbol>` using the information provided in Sketch (top right corner of the window)
 
-```xml
-<symbol id="icon-send" viewBox="1.5 2.3 21.54 19.39">
-    <path d="M3.253 21.504a1.73 1.73 0 0 1-.23.103c-.296.107-.586.129-.901-.06-.35-.211-.454-.495-.491-.853a2.105 2.105 0 0 1-.006-.34c.002-.03.005-1.085.01-3.162l1.657.005-.01 2.46 17.19-7.66L3.293 4.28l-.008 4.892h3.563c.349.02.814.126 1.293.396.834.471 1.354 1.293 1.354 2.432 0 1.14-.52 1.96-1.354 2.432-.479.27-.944.376-1.34.397H2.457V13.17l4.296.002c.118-.007.352-.06.572-.185.332-.187.511-.47.511-.988 0-.517-.179-.801-.51-.988a1.547 1.547 0 0 0-.526-.183H1.625l.003-2.316c.005-3.784.005-3.784.01-4.976a1.45 1.45 0 0 1 .03-.423c.052-.222.156-.426.358-.59a.995.995 0 0 1 .595-.223 1.187 1.187 0 0 1 .553.11l19.204 8.626a1.2 1.2 0 0 1 .272.17c.228.186.391.44.391.793a.99.99 0 0 1-.386.79c-.098.08-.19.134-.276.173l-18.984 8.46a2.21 2.21 0 0 1-.142.082zM3.291 3.43zm-.836 11.42c-.528 0-.955-.38-.955-.85s.427-.85.955-.85v1.7zm.82 2.35H1.653c0-.497.363-.9.811-.9.448 0 .811.403.811.9z"/>
-</symbol>
-```
-
-> ![symbol definition file](https://user-images.githubusercontent.com/105656/39767933-214833a4-52a5-11e8-97e2-8e5742f7de99.png)
-
-## Step 4: Run the generate images script
+## Step 3: Run the generate images script
 
 Run `node scripts/generate-images.js gen` to generate the CSS definition for the icon. This will take the width/height from the `viewBox` and create a CSS selector for the given icon.
 If the width/height is incorrect from the SVG `viewBox`, you need to manually add the width/height using the icon mixin (See the `Adding CSS manually` section)
 
-## Step 5: Update documentation
-
--   Add an example of the icon in the appropriate place in `/docs/_includes/ds6/icon.html`
+-   The documentation will be updated automatically.
 
 ## Appendix
-
-### SVG OMG Settings
-
-| Setting name                   | toggle on / off [OR] value |
-| ------------------------------ | -------------------------- |
-| Show original                  | off                        |
-| Compare gzipped                | on                         |
-| Prettify code                  | off                        |
-| Multipass                      | on                         |
-| Precision                      | 3                          |
-| Remove doctype                 | on                         |
-| Remove XML instrutions         | on                         |
-| Remove `<metadata>`            | on                         |
-| Remove xmlns                   | off                        |
-| Remove editor data             | on                         |
-| Cleanup attribute whitespace   | on                         |
-| Inline styles                  | on                         |
-| Minify styles                  | on                         |
-| Style to attributes            | on                         |
-| Clean IDs                      | on                         |
-| Remove raster images           | on                         |
-| Remove unused defs             | on                         |
-| Round/rewrite numbers          | on                         |
-| Round/rewrite number lists     | on                         |
-| Minify colours                 | on                         |
-| Remove uknowns & defaults      | on                         |
-| Remove unneeded group attrs    | on                         |
-| Remove useless stroke & fill   | on                         |
-| Remove viewBox                 | off                        |
-| Remove/tidy enable-background  | on                         |
-| Remove hidden elements         | on                         |
-| Remove empty text              | on                         |
-| Shapes to (smaller) paths      | on                         |
-| Move attrs to parent group     | on                         |
-| Collapse useless groups        | on                         |
-| Round/rewrite paths            | on                         |
-| Round/rewrite transforms       | on                         |
-| Remove empty attrs             | on                         |
-| Remove empty containers        | on                         |
-| Merge paths                    | on                         |
-| Remove unused namepsaces       | on                         |
-| Sort attrs                     | on                         |
-| Remove `<title>`               | on                         |
-| Remove `<desc>`                | on                         |
-| Prefer viewBox to width/height | on                         |
-| Remove style elements          | on                         |
-| Remove script elements         | on                         |
 
 ## Adding CSS manually
 
@@ -136,3 +53,12 @@ This step is only needed when the CSS generated from the `generate-images` does 
     .icon-mixin("icon-following", { .icon-following() });
 }
 ```
+
+## Adding a new icon file pack
+
+-   Add a new `.svg` file in `src/svg`. Add the `<?xml>` and `<svg>` tag as in other files in that directory.
+-   Add a new section in `docs/_data/icons.yaml`. See `scripts/README.md` for more info on the keys. No need to add list and smallList as those keys are autogenerated.
+-   Add a new `.less` file into `src/less/icon`. This should follow the same syntax as the other files in that directory. (importing base icon and the generated icon).
+-   Add the icons in the new svg file using `scripts importSVG` command
+-   Run `node scripts genSVG`
+-   Run `npm run build`
