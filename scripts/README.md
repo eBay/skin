@@ -56,7 +56,10 @@ This contains a list of icon modules to generate. Each key will look up an icon 
 | Icon specific config | Description                                                                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `prefix`             | The prefixed name, this will be used as the beginning part of the icon name as well as the default output directory if `output` is not defined |
-| `output`             | The file directory to output the generated css file to                                                                                         |
+| `size`               | Default size for these icons. Defaults to 24px for regular sizes, and 16px for small.                                                          |
+| `postfix`            | The postfix name, this will be used as the end part of the icon name                                                                           |
+| `file`               | The `src/svg` filename to pull icons from                                                                                                      |
+| `output`             | The file directory to output the generated css file to. Defaults to the `src/less/icon` directory.                                             |
 
 ## importSVG
 
