@@ -333,7 +333,7 @@ Internal contributors will need to set up to run Percy snapshots by adding the P
 
 This will allow internal contributors to run Percy snapshot tests.
 
-Snapshots will likely be ran by developers locally before pushing up changes. Once they are ran, Percy dashboard should be checked to ensure no unintended style changes have taken place. If there are intended style changes that have occurred, those should be reverted/fixed. Once the set of new local changes is final and in scope with the changes related to the issue, the snapshot run will need to be marked as the canonical version against which future updates are compared.
+Snapshots will likely be ran by developers locally before pushing up changes. Once they are ran, Percy dashboard should be checked to ensure no unintended style changes have taken place. If there are unintended style changes that have occurred, those should be reverted/fixed. Once the set of new local changes is final and in scope with the changes related to the issue, the snapshot run will need to be marked as the canonical version against which future updates are compared.
 
 #### Build Modes
 
