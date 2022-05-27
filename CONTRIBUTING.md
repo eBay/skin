@@ -317,9 +317,57 @@ Every module requires a page in storybook. In addition to the main use cases, tr
 
 Each story must be isolated to a single test. This allows us to easily run visual regression testing.
 
-## Percy
+## Visual Regression Testing
 
-Percy visual regression testing coming soon.
+We use Percy to do visual regression and compare visual changes in feature branches with the UIs in production. As such, changes to any specific module will need to verified against unintended consequences of those changes. This is usually to be done by internal contributors.
+
+### External Contributors
+
+External contributors cannot run Percy visual regression tests. However, they should mark the modules that were changed in pull requests to allow the internal team to run visual regression tests.
+
+### Internal Contributors
+
+Internal contributors will need to set up to run Percy snapshots by adding the Percy token to their operating system's environment variables. On a Mac, it would be like so:
+
+`export PERCY_TOKEN=[TOKEN_GOES_HERE]`
+
+This will allow internal contributors to run Percy snapshot tests.
+
+Snapshots will likely be ran by developers locally before pushing up changes. Once they are ran, Percy dashboard should be checked to ensure no unintended style changes have taken place. If there are unintended style changes that have occurred, those should be reverted/fixed. Once the set of new local changes is final and in scope with the changes related to the issue, the snapshot run will need to be marked as the canonical version against which future updates are compared.
+
+#### Build Modes
+
+Running snapshots has two modes for all variations - build mode and dry mode.
+
+Build mode creates snapshots for stories, uploads the snapshots to Percy and created a new Percy build for the purposes of making comparisons to previous visual builds.
+
+Dry mode runs through snapshots (mainly for the purpose of verifying which stories will be captured) but does not upload the snapshots and does not create a Percy build.
+
+#### Run All Snapshots
+
+To run all storybook snapshots in build mode:
+`npm run snapshots:all`
+
+To run all storybook snapshots in dry mode:
+`npm run snapshots:all:dry`
+
+#### Run Specific Snapshot(s)
+
+To run single specific storybook snapshot in build mode for single module:
+`npm run snapshots 'Button'`
+
+To run multiple specific storybook snapshots in build mode for single module:
+`npm run snapshots 'Button,Icon'`
+
+To run single storybook snapshots in build mode for single module:
+`npm run snapshots:dry 'Button'`
+
+To run multiple storybook snapshots in dry mode for single module:
+`npm run snapshots:dry 'Button,Icon'`
+
+#### Technical Notes
+
+As internal contributors may see in `package.json`, there are two other scripts, `snapshots:execute`, `snapshots:execute:dry`. These are scripts that should not be run directly. They are fired from `gulpfils.js` after the Percy storybook regexes have been formatted.
 
 ## Website
 
