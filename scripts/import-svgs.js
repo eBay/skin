@@ -9,20 +9,7 @@ const { optimize } = require('svgo');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const svgConfig = require('./svgo.config');
-const { parse } = require('parse5');
-const { serializeToString } = require('xmlserializer');
-
-/**
- * Convert a standard HTML5 string to XHTML-compliant string
- *
- * @param {string} htmlString : html string to convert to xhtml
- */
-function html2xhtml(html) {
-    const bodyHtml = html.window.document.querySelector('body').innerHTML;
-    const dom = parse(bodyHtml);
-    const xmlHeader = `<?xml version="1.0" encoding="utf-8"?>\n`;
-    return `${xmlHeader}${serializeToString(dom.childNodes[0].childNodes[1].childNodes[0])}\n`;
-}
+const { html2xhtml } = require('./util');
 
 async function runImport(svg, name, file, argv) {
     const skinFile = await fs.promises.readFile(path.resolve(svgDir, `${file}.svg`), 'utf8');
