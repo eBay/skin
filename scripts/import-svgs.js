@@ -24,6 +24,12 @@ async function runImport(svg, name, file, argv) {
     const svgJsDom = new JSDOM(newSVGFile, { contentType: 'text/xml' });
     const svgFragment = svgJsDom.window.document.querySelector('symbol');
     svgFragment.setAttribute('id', name);
+    if (argv.keepFill === 'false') {
+        svgFragment.removeAttribute('fill');
+        svgFragment.querySelectorAll('[fill]').forEach((node) => {
+            node.removeAttribute('fill');
+        });
+    }
 
     const existing = oldSymbols.window.document.querySelector(`#${name}`);
     if (existing) {
