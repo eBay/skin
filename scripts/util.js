@@ -8,7 +8,7 @@ const prettier = require('prettier');
  * @param {string} htmlString : html string to convert to xhtml
  */
 function html2xhtml(html) {
-    const bodyHtml = html.window.document.querySelector('body').innerHTML;
+    const bodyHtml = html.window.document.documentElement.outerHTML;
     const dom = parse(bodyHtml);
     const xmlHeader = `<?xml version="1.0" encoding="utf-8"?>\n`;
     const parsedString = `${xmlHeader}${serializeToString(

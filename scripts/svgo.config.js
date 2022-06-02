@@ -1,7 +1,4 @@
 module.exports = {
-    fingerprint:
-        '1,1,|1|,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1',
-    floatPrecision: '1',
     gzip: true,
     multipass: true,
     original: false,
