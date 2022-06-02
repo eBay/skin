@@ -36,6 +36,11 @@ require('yargs') // eslint-disable-line
                 demand: true,
                 default: '',
             });
+            yargs.option('keep-fill', {
+                describe: 'If true, will keep fill property on svg',
+                type: 'boolean',
+                default: 'false',
+            });
         },
         async (argv) => {
             try {

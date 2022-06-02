@@ -15,14 +15,21 @@ async function runImport(svg, name, file, argv) {
     const skinFile = await fs.promises.readFile(path.resolve(svgDir, `${file}.svg`), 'utf8');
     const svgFile = await fs.promises.readFile(svg, 'utf8');
 
-    const oldSymbols = new JSDOM(skinFile);
+    const oldSymbols = new JSDOM(skinFile, { contentType: 'text/html' });
 
     const newSVGFile = optimize(svgFile, svgConfig)
         .data.replace('<svg', '<symbol')
         .replace('</svg', '</symbol');
 
-    const svgFragment = JSDOM.fragment(newSVGFile);
-    svgFragment.firstChild.setAttribute('id', name);
+    const svgJsDom = new JSDOM(newSVGFile, { contentType: 'text/xml' });
+    const svgFragment = svgJsDom.window.document.querySelector('symbol');
+    svgFragment.setAttribute('id', name);
+    if (argv.keepFill === 'false') {
+        svgFragment.removeAttribute('fill');
+        svgFragment.querySelectorAll('[fill]').forEach((node) => {
+            node.removeAttribute('fill');
+        });
+    }
 
     const existing = oldSymbols.window.document.querySelector(`#${name}`);
     if (existing) {
