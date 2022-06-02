@@ -1,7 +1,7 @@
 {% assign prefix = include.prefix | default: include.type %}
 
 {% if include.classNames and include.classNames != "" %}
-    <use class="{{ include.classNames }}" xlink:href="{{ page.static_dir }}/{{ include.type | default: "icons" }}.svg#{{ prefix | default: "icon"}}-{{ include.name }}{{ include.postfix }}"></use>
+    <use class="{{ include.classNames }}" href="{{ page.static_dir }}/{{ include.file | default: "icons" }}.svg#{{ prefix | default: "icon"}}-{{ include.name }}{{ include.postfix }}"></use>
 {% else %}
-    <use xlink:href="{{ page.static_dir }}/{{ include.file | default: "icons" }}.svg#{{ prefix | default: "icon"}}-{{ include.name }}{{ include.postfix }}"></use>
+    <use href="{{ page.static_dir }}/{{ include.file | default: "icons" }}.svg#{{ prefix | default: "icon"}}-{{ include.name }}{{ include.postfix }}"></use>
 {% endif %}
