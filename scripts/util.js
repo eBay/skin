@@ -17,6 +17,14 @@ function html2xhtml(html) {
     return prettier.format(parsedString, { parser: 'html' });
 }
 
+function rawSvgToHtml(data) {
+    return data
+        .replace(/<svg.*>/, '<div hidden>\n<svg>')
+        .replace('</svg>', '</svg>\n</div>')
+        .replace(/<\?xml.*\?>(?:\s|\S)/, '');
+}
+
 module.exports = {
     html2xhtml,
+    rawSvgToHtml,
 };

@@ -71,6 +71,7 @@ class ModuleBuilder {
             file = this.config.overrideFile[filename];
         } else if (this.options.isNested) {
             filePath = filename === this.moduleName ? 'index' : this.moduleName;
+            file = file === this.moduleName ? 'index' : this.moduleName;
             prefixPath = '../';
         }
         return `${prefixPath}dist/${filePath}/${file}`;

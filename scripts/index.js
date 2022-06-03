@@ -2,6 +2,7 @@ const { listBundles, runCSSBuild } = require('./generate-bundle');
 const { runGenerate } = require('./generate-images');
 const { runImport } = require('./import-svgs');
 const { generateTopLevel, cleanTopLevel } = require('./generate-imports');
+const { copySVGIcons, copyCustomStyles } = require('./storybook/copy');
 
 require('yargs') // eslint-disable-line
     .usage('Usage: $0 <command> [options]')
@@ -91,6 +92,30 @@ require('yargs') // eslint-disable-line
         },
         (argv) => {
             runCSSBuild(argv.name, argv);
+        }
+    )
+    .command(
+        'storybook-copy',
+        'Copies files to storybook',
+        (yargs) => {
+            yargs.option('no-svg', {
+                describe: 'Skips copying svgs. Default is false',
+                type: 'boolean',
+                default: true,
+            });
+            yargs.option('no-styles', {
+                describe: 'Skips copying styles. Default is false',
+                type: 'boolean',
+                default: true,
+            });
+        },
+        (yargs) => {
+            if (yargs.noSvg) {
+                copySVGIcons();
+            }
+            if (yargs.noStyles) {
+                copyCustomStyles();
+            }
         }
     )
     .command(
