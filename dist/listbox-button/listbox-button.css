@@ -7,7 +7,8 @@ span.listbox-button {
   display: inline-block;
 }
 span.listbox-button--fluid,
-span.listbox-button--fluid .expand-btn {
+span.listbox-button--fluid .expand-btn,
+span.listbox-button--fluid .btn {
   width: 100%;
 }
 div.listbox-button__listbox {
@@ -27,23 +28,27 @@ div.listbox-button__listbox {
   width: auto;
   z-index: 2;
 }
-button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox {
+button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
+.listbox-button button.btn[aria-expanded="true"] ~ div.listbox-button__listbox {
   display: block;
 }
 .listbox-button button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
-.listbox-button button.expand-btn--borderless {
+.listbox-button button.expand-btn--borderless,
+.listbox-button button.btn--borderless {
   background-color: transparent;
   border-color: transparent;
   padding-left: 0;
   vertical-align: initial;
 }
-.listbox-button button.expand-btn--borderless:focus {
+.listbox-button button.expand-btn--borderless:focus,
+.listbox-button button.btn--borderless:focus {
   outline: none;
   text-decoration: underline;
 }
-.listbox-button button.expand-btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
+.listbox-button button.expand-btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox,
+.listbox-button button.btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
   top: 41px;
 }
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {

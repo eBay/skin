@@ -76,20 +76,6 @@
 <a class="fake-btn fake-btn--tertiary" href="http://www.ebay.com">Link</a>
     {% endhighlight %}
 
-    <h3 id="button-delete">Delete Button</h3>
-    <p>Use the <span class="highlight">delete</span> modifier to create a delete button style.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--delete">Button</button>
-            <a class="fake-btn fake-btn--delete" href="http://www.ebay.com">Link</a>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button class="btn btn--delete">Button</button>
-<a class="fake-btn fake-btn--delete" href="http://www.ebay.com">Link</a>
-    {% endhighlight %}
-
     <h3 id="button-disabled">Disabled Button</h3>
     <p>The <span class="highlight">disabled</span> attribute is <strong>required</strong> to fully disable a button tag.</p>
     <div class="demo">
@@ -314,7 +300,7 @@
 </button>
     {% endhighlight %}
 
-    <h3 id="button-constrained-width">Constrained Width Button</h3>
+    <h3 id="button-fixed-width">Fixed Width Button</h3>
 
     <p>Buttons naturally grow wider with their text. The text will wrap naturally once the button width grows to exceed its constrained width.</p>
 
@@ -387,5 +373,159 @@
     {% endhighlight %}
 
     {% endif %}
+
+    <h3 id="button-expandable">Expandable Buttons</h3>
+    <p>Use the "dropdown" icon to create an expandable button style. Use <span class="highlight">aria-expanded</span> to convey state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn" aria-expanded="false" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn" aria-expanded="false" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>Use the <span class="highlight">borderless</span> modifier to remove the border from the expandable button. Remember, that without a border, the button always requires an alternative means of "click" affordance (such as an icon here).</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--borderless" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--borderless" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>Use the <span class="highlight">form</span> modifier to create an expandable button style that matches the look of form controls (e.g. textbox, select).</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form" aria-expanded="false" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form" aria-expanded="false" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>Use the <span class="highlight">btn--slim</span> modifier for a slimmer expand button when displaying an icon only.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--slim expand-btn-example" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                    {% include symbol.html name="dropdown" %}
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--slim" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+        <use xlink:href="#icon-dropdown"></use>
+    </svg>
+</button>
+    {% endhighlight %}
+
+    <p>For a floated "label", which will appear above the value, use the <span class="highlight">btn--floating-label</span> and <span class="highlight">btn__floating-label</span> classes.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+                <span class="btn__cell">
+                    <span class="btn__floating-label">Color</span>
+                    <span class="btn__text">Blue</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+    <span class="btn__cell">
+        <span class="btn__floating-label">Color</span>
+        <span class="btn__text">Blue</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>In a resting state, with no value, the <span class="highlight">btn__floating-label--inline</span> modifier is required. This should be added with JavaScript</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+                <span class="btn__cell">
+                    <span class="btn__floating-label btn__floating-label--inline">Color</span>
+                    <span class="btn__text"></span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+    <span class="btn__cell">
+        <span class="btn__floating-label btn__floating-label--inline">Color</span>
+        <span class="btn__text"></span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
 
 </div>
