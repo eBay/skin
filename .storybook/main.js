@@ -6,7 +6,7 @@ module.exports = {
 	core: {
 		builder: "webpack5",
 	},
-	stories: [`../src/less/index.stories.ds${process.env.STORYBOOK_DS}.js`, '../src/less/**/*.stories.js', '../src/less/**/stories/**/*.stories.js'],
+	stories: [`../src/less/index.stories.js`, '../src/less/**/*.stories.js', '../src/less/**/stories/**/*.stories.js'],
 	webpackFinal: async (config, { configType }) => {
 		config.module.rules.push({
 			test: /\.less/,
