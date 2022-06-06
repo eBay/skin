@@ -1,10 +1,10 @@
-export default { title: 'Menu Button/Menu Button/Fake Menu Button' };
+export default { title: 'Menu Button/Fake Menu Button' };
 
 export const links = () => `
 <span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
+    <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -32,9 +32,9 @@ export const links = () => `
 
 export const linksSelected = () => `
 <span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
+    <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -65,9 +65,9 @@ export const linksSelected = () => `
 
 export const linksDisabled = () => `
 <span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
+    <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -98,9 +98,9 @@ export const linksDisabled = () => `
 
 export const linksFixedWidth = () => `
 <span class="fake-menu-button">
-    <button class="expand-btn" aria-expanded="true" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Button</span>
+    <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
