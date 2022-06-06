@@ -28,22 +28,14 @@ async function getFiles(dir) {
 class GenerateImages {
     constructor(files, masterIconFile) {
         this.imageList = {};
-        this.smallImageList = {};
         this.svgs = files.filter((f) => f.endsWith('.svg') && f !== 'icons.svg');
         this.masterIconSymbols = new JSDOM(masterIconFile);
         this.masterDocument = this.masterIconSymbols.window.document;
+        this.masterList = [];
     }
 
     appendImages(filename, nameObj) {
-        if (nameObj.postfix === '-small') {
-            this.smallImageList[filename].push(nameObj.name);
-        } else {
-            this.imageList[filename].push(nameObj.name);
-        }
-    }
-
-    insertIntoMasterFile(symbol) {
-        this.masterDocument.querySelector('svg').appendChild(symbol);
+        this.imageList[filename].push(nameObj.fullName);
     }
 
     async processSvg(filePath, mappedName, filename) {
@@ -55,7 +47,7 @@ class GenerateImages {
             const nameObj = stripName(symbol.id, mappedName.prefix, mappedName.postfix);
             this.appendImages(filename, nameObj);
 
-            this.insertIntoMasterFile(symbol);
+            this.masterList.push(symbol);
 
             if (config.skip.indexOf(symbol.id) > -1) {
                 return;
@@ -79,30 +71,49 @@ class GenerateImages {
 
         await Promise.all(
             this.svgs.map(async (filePath) => {
-                const filename = path.parse(filePath).name;
-                const mappedName = config[filename];
+                let filename = path.parse(filePath).name;
+                const writeFilename = filename;
+                if (filename === 'icons') {
+                    return;
+                }
+                let mappedName = config[filename];
+                if (config.icons.file.indexOf(filename) > -1) {
+                    mappedName = config.icons;
+                    filename = 'icons';
+                }
                 if (!mappedName) {
                     return;
                 }
 
                 this.imageList[filename] = this.imageList[filename] || [];
-                this.smallImageList[filename] = this.smallImageList[filename] || [];
 
                 const lessFile = await this.processSvg(filePath, mappedName, filename);
 
-                this.imageList[filename].sort();
-                this.smallImageList[filename].sort();
+                // this.imageList[filename].sort();
                 await fs.promises.writeFile(
-                    `src/less/icon/generated/${filename}.less`,
+                    `src/less/icon/generated/${writeFilename}.less`,
                     prettier.format(lessFile.join('\n'), { parser: 'less', tabWidth: 4 })
                 );
             })
         );
         Object.keys(config).forEach((key) => {
+            (this.imageList[key] || []).sort();
             config[key].list = this.imageList[key] || [];
-            config[key].smallList = this.smallImageList[key] || [];
         });
         await fs.promises.writeFile(configFilePath, YAML.stringify(config));
+
+        this.masterList.sort((a, b) => {
+            if (a.id < b.id) {
+                return -1;
+            }
+            if (a.id > b.id) {
+                return 1;
+            }
+            return 0;
+        });
+        this.masterList.forEach((symbol) => {
+            this.masterDocument.querySelector('svg').appendChild(symbol);
+        });
 
         await fs.promises.writeFile(masterIconPath, html2xhtml(this.masterIconSymbols));
     }
@@ -119,6 +130,7 @@ function stripName(name, mappedPrefix, mappedPostfix) {
             prefix,
             name: newName,
             postfix,
+            fullName: `${newName}${postfix}`,
         };
     }
     return {
@@ -130,7 +142,8 @@ async function runGenerate() {
     const files = await getFiles(svgDir);
     const masterIconFile = await fs.promises.readFile(masterIconPath);
 
-    await new GenerateImages(files, masterIconFile).run();
+    const gen = new GenerateImages(files, masterIconFile);
+    await gen.run();
 }
 
 module.exports = { runGenerate };

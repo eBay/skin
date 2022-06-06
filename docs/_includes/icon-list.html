@@ -1,33 +1,10 @@
-
-{% unless include.skipName %}
-    {% capture name %}icon/{{include.icon.file}}{% endcapture %}
-    {% include section-header.html name=name header="h3" %}
-{% endunless %}
-
-{% if include.icon.smallList.size > 0 %}
-<h4 class="demo-icon-header">Regular Icons</h4>
-{% endif %}
 <ul class="demo-icon-boxes">
     {% for iconName in include.icon.list %}
         <li>
             <span>{{ iconName }}</span>
             <svg aria-hidden="true" class="{{ include.icon.prefix }} {{ include.icon.prefix }}--{{ iconName }}{{ include.icon.postfix }}" focusable="false" height="{{ include.icon.size | 24 }}" width="{{ include.icon.size | 24 }}"">
-                {% include symbol.html name=iconName file=include.icon.file prefix=include.icon.prefix postfix=include.icon.postfix %}
+                {% include symbol.html name=iconName file="icons" prefix=include.icon.prefix postfix=include.icon.postfix %}
             </svg>
         </li>
     {% endfor %}
 </ul>
-
-{% if include.icon.smallList.size > 0 %}
-    <h4 class="demo-icon-header">Small Icons</h4>
-    <ul class="demo-icon-boxes">
-        {% for iconName in include.icon.smallList %}
-            <li>
-                <span>{{ iconName }}</span>
-                <svg aria-hidden="true" class="{{ include.icon.prefix }} {{ include.icon.prefix }}--{{ iconName }}-small" focusable="false" height="{{ 16 }}" width="{{ 16 }}"">
-                    {% include symbol.html name=iconName file=include.icon.file prefix=include.icon.prefix postfix="-small" %}
-                </svg>
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
