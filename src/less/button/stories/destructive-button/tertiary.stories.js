@@ -1,15 +1,7 @@
-export default { title: 'Button/Button/Destructive Button/Tertiary' };
+export default { title: 'Button/Destructive/Tertiary' };
 
 export const textOnly = () =>
     '<button class="btn btn--tertiary btn--destructive">Destructive Button</button>';
-
-export const iconOnly = () => `
-<button type="button" class="btn btn--tertiary btn--destructive btn--icon-only">
-    <span class="btn__cell">
-        <svg class="icon icon--close" width="16" height="16"><use xlink:href="#icon-close"></use></svg>
-    </span>
-</button>
-`;
 
 export const iconAndText = () => `
 <button type="button" class="btn btn--tertiary btn--destructive">

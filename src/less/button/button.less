@@ -16,6 +16,50 @@ a.fake-btn {
     padding: @button-padding-vertical @button-padding-horizontal;
 }
 
+button.btn--form,
+a.fake-btn--form {
+    border-color: inherit;
+    .border-radius-token(expand-btn-border-radius, border-radius-50);
+    max-width: 100%;
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-state-primary-hover);
+    }
+
+    &:active {
+        background-color: var(--color-state-primary-active);
+    }
+}
+
+button.btn[disabled],
+button.btn[aria-disabled="true"] {
+    .border-color-token(expand-btn-disabled-border-color, color-stroke-disabled);
+    .color-token(expand-btn-disabled-foreground-color, color-foreground-disabled);
+}
+
+button.btn--borderless,
+a.fake-btn--borderless {
+    border-color: transparent;
+    padding-left: 0;
+    vertical-align: initial;
+
+    &:focus,
+    &:hover {
+        background-color: transparent;
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+button.btn--slim,
+a.fake-btn--slim {
+    height: @button-height-small;
+    min-width: auto;
+    padding-left: @spacing-100;
+    padding-right: @spacing-100;
+}
+
 // deprecated
 button.btn--wide,
 a.fake-btn--wide {
@@ -37,6 +81,13 @@ a.fake-btn--fluid {
     .btn-cell-base();
 
     justify-content: center;
+}
+
+button.btn--form .btn__cell,
+a.fake-btn--form .fake-btn__cell,
+button.btn--borderless .btn__cell,
+a.fake-btn--borderless .fake-btn__cell {
+    justify-content: space-between;
 }
 
 button.btn svg.icon,
@@ -143,6 +194,7 @@ button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
     .background-color-token(btn-primary-disabled-background-color, color-foreground-disabled);
     .border-color-token(btn-primary-disabled-border-color, color-foreground-disabled);
+    .color-token(btn-primary-foreground-color, color-foreground-on-accent);
 
     svg.icon {
         .fill-token(btn-primary-disabled-foreground-color, color-background-primary);
@@ -356,6 +408,45 @@ a.fake-btn.fake-btn--primary.fake-btn--split-end {
 button.btn--tertiary.btn--split-end,
 a.fake-btn--tertiary.fake-btn--split-end {
     .border-left-color-token(btn-tertiary-border-split-color, color-stroke-subtle);
+}
+
+button.btn--floating-label {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+button.btn--floating-label .btn__text {
+    min-height: 19px;
+    padding-bottom: 2px;
+    padding-top: 17px;
+}
+
+button.btn--floating-label .btn__floating-label {
+    align-self: flex-start;
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 2px;
+    padding-top: 17px;
+    pointer-events: none;
+    position: absolute;
+    text-align: left;
+    text-overflow: ellipsis;
+    transform: scale(0.75, 0.75) translate(0, -18px);
+    transform-origin: left;
+    white-space: nowrap;
+    width: calc(100% - 24px);
+    z-index: 1;
+}
+
+button.btn--floating-label .btn__floating-label--animate {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+        bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+button.btn--floating-label .btn__floating-label--inline {
+    font-size: 0.875rem;
+    position: unset;
+    transform: translate(0, -6px);
 }
 
 [dir="rtl"] button.btn svg.icon--dropdown,

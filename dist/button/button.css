@@ -37,6 +37,48 @@ button.btn:focus:not(:focus-visible),
 a.fake-btn:focus:not(:focus-visible) {
   outline: none;
 }
+button.btn--form,
+a.fake-btn--form {
+  border-color: inherit;
+  border-radius: var(--expand-btn-border-radius, var(--border-radius-50));
+  max-width: 100%;
+}
+button.btn--form:hover,
+a.fake-btn--form:hover,
+button.btn--form:focus,
+a.fake-btn--form:focus {
+  background-color: var(--color-state-primary-hover);
+}
+button.btn--form:active,
+a.fake-btn--form:active {
+  background-color: var(--color-state-primary-active);
+}
+button.btn[disabled],
+button.btn[aria-disabled="true"] {
+  border-color: var(--expand-btn-disabled-border-color, var(--color-stroke-disabled));
+  color: var(--expand-btn-disabled-foreground-color, var(--color-foreground-disabled));
+}
+button.btn--borderless,
+a.fake-btn--borderless {
+  border-color: transparent;
+  padding-left: 0;
+  vertical-align: initial;
+}
+button.btn--borderless:focus,
+a.fake-btn--borderless:focus,
+button.btn--borderless:hover,
+a.fake-btn--borderless:hover {
+  background-color: transparent;
+  outline: none;
+  text-decoration: underline;
+}
+button.btn--slim,
+a.fake-btn--slim {
+  height: 40px;
+  min-width: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+}
 button.btn--wide,
 a.fake-btn--wide {
   padding-left: 48px;
@@ -73,6 +115,12 @@ a.fake-btn--fluid {
 .fake-btn__cell--truncated > svg {
   align-self: baseline;
   max-width: calc(100% - 32px);
+}
+button.btn--form .btn__cell,
+a.fake-btn--form .fake-btn__cell,
+button.btn--borderless .btn__cell,
+a.fake-btn--borderless .fake-btn__cell {
+  justify-content: space-between;
 }
 button.btn svg.icon,
 a.fake-btn svg.icon {
@@ -175,6 +223,7 @@ button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
   background-color: var(--btn-primary-disabled-background-color, var(--color-foreground-disabled));
   border-color: var(--btn-primary-disabled-border-color, var(--color-foreground-disabled));
+  color: var(--btn-primary-foreground-color, var(--color-foreground-on-accent));
 }
 button.btn--primary[disabled] svg.icon,
 button.btn--primary[aria-disabled="true"] svg.icon {
@@ -371,6 +420,39 @@ a.fake-btn.fake-btn--primary.fake-btn--split-end:focus {
 button.btn--tertiary.btn--split-end,
 a.fake-btn--tertiary.fake-btn--split-end {
   border-left-color: var(--btn-tertiary-border-split-color, var(--color-stroke-subtle));
+}
+button.btn--floating-label {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+button.btn--floating-label .btn__text {
+  min-height: 19px;
+  padding-bottom: 2px;
+  padding-top: 17px;
+}
+button.btn--floating-label .btn__floating-label {
+  align-self: flex-start;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 2px;
+  padding-top: 17px;
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  text-overflow: ellipsis;
+  transform: scale(0.75, 0.75) translate(0, -18px);
+  transform-origin: left;
+  white-space: nowrap;
+  width: calc(100% - 24px);
+  z-index: 1;
+}
+button.btn--floating-label .btn__floating-label--animate {
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+button.btn--floating-label .btn__floating-label--inline {
+  font-size: 0.875rem;
+  position: unset;
+  transform: translate(0, -6px);
 }
 [dir="rtl"] button.btn svg.icon--dropdown:first-child,
 [dir="rtl"] a.fake-btn svg.icon--dropdown:first-child {

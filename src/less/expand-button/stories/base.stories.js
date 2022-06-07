@@ -1,4 +1,4 @@
-export default { title: 'Expand Button/Expand Button' };
+export default { title: 'Expand Button/Base' };
 
 export const collapsed = () => `
 <button type="button" class="expand-btn" aria-expanded="false">
@@ -53,26 +53,4 @@ export const longText = () => `
         </svg>
     </span>
 </button>
-`;
-
-export const fixedWidth = () => `
-<button style="width: 200px;" type="button" class="expand-btn">
-    <span class="expand-btn__cell">
-        <span>Button with a lot of text that should just get taller and taller and taller</span>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
-        </svg>
-    </span>
-</button>
-`;
-
-export const wide = () => `
-<button type="button" class="expand-btn expand-btn--wide" aria-expanded="false">
-     <span class="expand-btn__cell">
-         <span>Button</span>
-         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-             <use xlink:href="#icon-dropdown"></use>
-         </svg>
-     </span>
- </button>
 `;
