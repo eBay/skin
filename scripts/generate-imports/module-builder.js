@@ -58,6 +58,7 @@ class ModuleBuilder {
                 hasBaseModule: true,
                 isNested: false,
                 distDir: '',
+                addIndexModules: [],
             },
             options
         );
@@ -71,7 +72,7 @@ class ModuleBuilder {
             file = this.config.overrideFile[filename];
         } else if (this.options.isNested) {
             filePath = filename === this.moduleName ? 'index' : this.moduleName;
-            file = file === this.moduleName ? 'index' : this.moduleName;
+            file = file === this.moduleName ? 'index' : filename;
             prefixPath = '../';
         }
         return `${prefixPath}dist/${filePath}/${file}`;
@@ -89,6 +90,20 @@ class ModuleBuilder {
         }
     }
 
+    // Overrides options and additional Modules.
+    // Passes a callback functon to restore overriden data
+    async overrideData(options, additionalModules, callback) {
+        const prevOption = Object.assign({}, this.options);
+        const prevAdditionalModules = this.additionalModules;
+
+        this.additionalModules = additionalModules;
+        this.options = Object.assign({}, this.options, options);
+
+        await callback();
+        this.options = prevOption;
+        this.additionalModules = prevAdditionalModules;
+    }
+
     async run() {
         if (this.options.isNested) {
             // create directory
@@ -97,6 +112,17 @@ class ModuleBuilder {
             const moduleList = await fs.promises.readdir(
                 path.join(this.options.distDir, this.moduleName)
             );
+
+            if (this.options.addIndexModules.length > 0) {
+                await this.overrideData(
+                    { hasBaseModule: false },
+                    this.options.addIndexModules,
+                    async () => {
+                        await this.writeBrowserJSON('index');
+                        await this.writeModuleFiles('index');
+                    }
+                );
+            }
 
             await Promise.all(
                 moduleList.map(async (file) => {
