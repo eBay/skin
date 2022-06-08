@@ -58,7 +58,7 @@ class ModuleBuilder {
                 hasBaseModule: true,
                 isNested: false,
                 distDir: '',
-                addIndexModules: [],
+                addIndexModules: null,
             },
             options
         );
@@ -113,28 +113,28 @@ class ModuleBuilder {
                 path.join(this.options.distDir, this.moduleName)
             );
 
-            if (this.options.addIndexModules.length > 0) {
-                await this.overrideData(
-                    { hasBaseModule: false },
-                    this.options.addIndexModules,
-                    async () => {
-                        await this.writeBrowserJSON('index');
-                        await this.writeModuleFiles('index');
-                    }
-                );
+            if (this.options.addIndexModules) {
+                for (const file of Object.keys(this.options.addIndexModules)) {
+                    await this.overrideData(
+                        { hasBaseModule: false },
+                        this.options.addIndexModules[file],
+                        async () => {
+                            await this.writeBrowserJSON(file);
+                            await this.writeModuleFiles(file);
+                        }
+                    );
+                }
             }
 
-            await Promise.all(
-                moduleList.map(async (file) => {
-                    let modName = path.parse(file).name;
+            for (const file of moduleList) {
+                let modName = path.parse(file).name;
 
-                    if (modName === this.moduleName) {
-                        modName = 'index';
-                    }
-                    await this.writeBrowserJSON(modName);
-                    await this.writeModuleFiles(modName);
-                })
-            );
+                if (modName === this.moduleName) {
+                    modName = 'index';
+                }
+                await this.writeBrowserJSON(modName);
+                await this.writeModuleFiles(modName);
+            }
         } else {
             await this.writeBrowserJSON();
             await this.writeModuleFiles();
