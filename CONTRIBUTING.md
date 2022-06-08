@@ -10,20 +10,13 @@ This page contains instructions and guidelines for anybody contributing code to 
     -   [Contribution Steps](#contribution-steps)
     -   [Development Modes](#development-modes)
     -   [Versioning](#versioning)
-        -   [API Change](#api-change)
-        -   [New Functionality](#new-functionality)
-            -   [New Module](#new-module)
-        -   [Bug Fix](#bug-fix)
     -   [Branching](#branching)
     -   [Package Dependencies](#package-dependencies)
     -   [Commit Message Format](#commit-message-format)
     -   [Pull Requests](#pull-requests)
     -   [Style Guide](#style-guide)
-    -   [Variables](#variables)
-        -   [Global Variables](#global-variables)
-        -   [Product Variables](#product-variables)
-        -   [Component Variables](#component-variables)
-    -   [Custom Properties](#custom-properties)
+    -   [LESS API (deprecated)](#less-api)
+    -   [Custom Property API](#custom-property-api)
     -   [Dark Mode](#dark-mode)
     -   [Storybook](#storybook)
     -   [Percy](#percy)
@@ -31,10 +24,6 @@ This page contains instructions and guidelines for anybody contributing code to 
     -   [Scripts](#scripts)
     -   [Icon Creation](#icon-creation)
     -   [Releases](#releases)
-        -   [Pre-Release](#pre-release)
-        -   [Final Release](#final-release)
-        -   [GitHub Release](#github-release)
-        -   [Hotfix Release](#hotfix-release)
 
 ## System Requirements
 
@@ -66,7 +55,7 @@ Here is a rough overview of steps required when contributing code to skin:
 Skin can usually considered to be in one of two modes of development:
 
 1. Feature development mode (default)
-1. Refactoring/cleanup mode
+1. Refactoring/cleanup/breaking-changes mode
 
 The vast majority of this guide is relevant to both modes.
 
@@ -125,7 +114,7 @@ Minor version updates are a signal that there is something new (no matter how sm
 
 ### Bug Fix
 
-Rather than creating a list, bug fixes can perhaps best be summed up as: "fixing something that does not work as expected or documented".
+Bug fixes can perhaps best be summed up as: "fixing something that does not work as expected or documented".
 
 **NOTE:** Updating a module to its latest visual specification is NOT a candidate for a bug fix. No matter how small or trivial the visual update may be, we always consider it as new functionality.
 
@@ -233,79 +222,56 @@ When contributing to Skin, please bear the following guidelines in mind:
     [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
 -   Please do not commit commented out code to production.
 
-## Variables
+## LESS API (deprecated)
 
-Skin variables are categorised into three levels:
+In comparison to past versions, Skin now offers a very minimal public LESS API (i.e. variables and mixins). Over time this may be reduced to zero. This is mainly due to the introduction of CSS Custom Properties (see next section below).
 
--   global
--   product
+## Custom Property API
+
+Skin has a token based system that leverages CSS Custom Properties. The tokens are categorised into three levels:
+
+-   core
+-   semantic
 -   component
 
-These three levels form the basis of our token based system.
+Skin provides a set of core and semantic defaults but, in order for modules to render correctly, they **must be explicitly included** by the end user.
 
-### Global Variables
+### Core Tokens
 
-Global variables are our primitives. They represent the colour palette and type ramp. For example:
+Core tokens are our primitives. They currently represent colour and border radius, but in time will go on to include spacing, type ramp, breakpoints and more. For example:
 
--   color-b1
--   font-size-12
+-   color-neutral-1
+-   color-blue-4
+-   border-radius-100
+-   spacing-100 (not yet available)
 
-Naming of global variables starts with the style related property and ends with the primitive.
+### Semantic Tokens
 
-### Product Variables
+Semantic tokens are aliases of core tokens. They represent an aspect of the interface that is common across the site. For example:
 
-Product variables are aliases of global variables. They represent an aspect of the product that is used across many pages and components. For example, confirmations and actions:
+-   color-background-primary
+-   color-background-confirmation
+-   color-foreground-on-confirmation
 
--   color-text-confirmation
--   color-action-primary
+**NOTE**: semantic token values may change dynamically at runtime depending on the "prefers-color-scheme" media query (i.e. [Dark Mode](#dark-mode)).
 
-Naming of product variables starts with the style related property and ends with the product aspect.
+### Component Tokens
 
-### Component Variables
+Component tokens are not used by Skin itself, but we expose them as a "brute-force" means for a page to override the system described above for one specific aspect of a component. For example:
 
-Component variables are aliases of global variables and product variables. They represent aspects of a specific component only, for example a textbox component:
+-   badge-background-color
+-   switch-checked-background-color
+-   textbox-placeholder-color
 
--   textbox-background-color
--   textbox-border-color
-
-Naming of component variables starts with the component name and ends with the style related property.
-
-Component variables also need to take into account certain states, such as hover, focus and disabled. For example:
-
--   textbox-disabled-background-color
--   textbox-disabled-border-color
-
-The naming convention is: component name - state - style property.
-
-## Custom Properties
-
-Skin currently leverages [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) for the following styles only:
-
--   colors
--   border radiuses
-
-In future we may add support for other styles, such as spacing and typography.
-
-**NOTE**: The intention of custom properties in Skin is NOT for apps to override the built in design system with their own look and feel. The intention is to allow easier, runtime access to themes (e.g. seasonal themes) and colour modes (e.g. dark mode) which only custom properties can support.
-
-All custom property declarations can be found under `./src/less/properties`. Custom properties are scoped to each module (i.e. not `:root`).
-
-### Custom Property Mixins
-
-A suite of mixins has been created to provide fallbacks for browsers that do not support Custom Properties. The mixins are located in `./src/less/mixins/utility`.
-
-Each mixin takes one or more LESS variables as input. For example, calling the mixin `.customColorProperty(@color-b1)` will output the following CSS:
-
-```CSS
-color: #c5e5fb;
-color: var(--combobox-foreground-color, #c5e5fb);
-```
-
-The second line will be ignored in browsers that do not support custom properties; they will instead fall back to the declaration in the first line.
+Obviously with great power, comes great responsibility.
 
 ## Dark Mode
 
-Every Skin module has full support for [dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme). The styles for dark mode are included at the end of every source file, inside of a `prefers-color-scheme: dark` media query.
+Every Skin module has full support for [dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+
+Dark mode is powered by the [Custom Property API](#custom-property-api). When the "prefers-color-scheme" media query is satisfied, all semantic token values will be replaced, dynamically at runtime, with the values from the relevant tokens module (e.g. `evo-semantic-dark` or `evo-semantic-light`).
+
+**NOTE:** the semantic dark mode tokens are **not** included by default. They must be explicitly bundled by the end user. This allows end users to opt-in to dark mode only when their base page is ready for it.
 
 ## Storybook
 
