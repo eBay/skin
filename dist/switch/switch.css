@@ -69,6 +69,10 @@ input.switch__control[disabled] + span.switch__button::after,
 span.switch__control[aria-disabled="true"] + span.switch__button::after {
   border-color: var(--switch-border-color, var(--color-background-disabled));
 }
+input.switch__control:not([disabled]):hover + span.switch__button,
+span.switch__control:not([aria-disabled="true"]):hover + span.switch__button {
+  background-color: var(--switch-unchecked-hover-background-color, var(--color-state-secondary-hover));
+}
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
   background-color: var(--switch-checked-background-color, var(--color-background-accent));
@@ -77,6 +81,10 @@ input.switch__control[disabled]:checked + span.switch__button,
 span.switch__control[aria-disabled="true"][aria-checked="true"] + span.switch__button {
   background-color: var(--switch-disabled-background-color, var(--color-background-disabled));
   border-color: var(--switch-border-color, var(--color-background-disabled));
+}
+input.switch__control:not([disabled]):checked:hover + span.switch__button,
+span.switch__control:not([aria-disabled="true"])[aria-checked="true"]:hover + span.switch__button {
+  background-color: var(--switch-checked-hover-background-color, var(--color-state-accent-hover));
 }
 input.switch__control:checked + span.switch__button::after,
 span.switch__control[aria-checked="true"] + span.switch__button::after {

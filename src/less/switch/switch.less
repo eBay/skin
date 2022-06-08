@@ -85,6 +85,11 @@ span.switch__control[aria-disabled="true"] + span.switch__button::after {
     .border-color-token(switch-border-color, color-background-disabled);
 }
 
+input.switch__control:not([disabled]):hover + span.switch__button,
+span.switch__control:not([aria-disabled="true"]):hover + span.switch__button {
+    .background-color-token(switch-unchecked-hover-background-color, color-state-secondary-hover);
+}
+
 // ON > Track
 input.switch__control:not([disabled]):checked + span.switch__button,
 span.switch__control:not([aria-disabled="true"])[aria-checked="true"] + span.switch__button {
@@ -96,6 +101,11 @@ input.switch__control[disabled]:checked + span.switch__button,
 span.switch__control[aria-disabled="true"][aria-checked="true"] + span.switch__button {
     .background-color-token(switch-disabled-background-color, color-background-disabled);
     .border-color-token(switch-border-color, color-background-disabled);
+}
+
+input.switch__control:not([disabled]):checked:hover + span.switch__button,
+span.switch__control:not([aria-disabled="true"])[aria-checked="true"]:hover + span.switch__button {
+    .background-color-token(switch-checked-hover-background-color, color-state-accent-hover);
 }
 
 // ON > Knob
