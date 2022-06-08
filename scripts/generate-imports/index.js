@@ -6,9 +6,7 @@ const currentDir = path.dirname(path.dirname(__dirname));
 const distDir = path.join(currentDir, 'dist');
 const files = fs
     .readdirSync(distDir)
-    .filter(
-        (filename) => config.skip.indexOf(filename) === -1 && config.nested.indexOf(filename) === -1
-    );
+    .filter((filename) => config.skip.indexOf(filename) === -1 && !config.nested[filename]);
 const browserRemap = [];
 const { ModuleBuilder } = require('./module-builder');
 
@@ -82,11 +80,12 @@ const moduleData = [].concat(
                 distDir,
             })
     ),
-    config.nested.map(
+    Object.keys(config.nested).map(
         (moduleName) =>
             new ModuleBuilder(moduleName, config, {
                 isNested: true,
                 distDir,
+                addIndexModules: config.nested[moduleName],
             })
     )
 );
