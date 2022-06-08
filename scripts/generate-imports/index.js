@@ -52,13 +52,11 @@ async function generateTopLevelFiles() {
     );
 
     // Generate SVGs
-    const svgDir = path.join(currentDir, 'svg');
-    await fs.promises.mkdir(svgDir, { recursive: true });
     const svgDistDir = path.join(distDir, 'svg');
-    const svgList = await fs.promises.readdir(svgDistDir);
-    for (const svg of svgList) {
-        await fs.promises.copyFile(path.join(svgDistDir, svg), path.join(svgDir, svg));
-    }
+    await fs.promises.copyFile(
+        path.join(svgDistDir, 'icons.svg'),
+        path.join(currentDir, 'svg.svg')
+    );
 }
 
 async function cleanTopLevelFiles() {
@@ -67,7 +65,7 @@ async function cleanTopLevelFiles() {
     await fs.promises.unlink(path.join(currentDir, 'index.mjs'));
     await fs.promises.unlink(path.join(currentDir, 'index.css'));
     await fs.promises.unlink(path.join(currentDir, 'index.browser.json'));
-    await fs.promises.rm(path.join(currentDir, 'svg'), { recursive: true });
+    await fs.promises.unlink(path.join(currentDir, 'svg.svg'));
 }
 
 const moduleData = [].concat(
