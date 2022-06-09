@@ -46,6 +46,7 @@ span.switch__control {
   height: 24px;
   left: 0;
   margin: 0;
+  outline: 0;
   padding: 0;
   position: absolute;
   top: 8px;
@@ -70,7 +71,9 @@ span.switch__control[aria-disabled="true"] + span.switch__button::after {
   border-color: var(--switch-border-color, var(--color-background-disabled));
 }
 input.switch__control:not([disabled]):hover + span.switch__button,
-span.switch__control:not([aria-disabled="true"]):hover + span.switch__button {
+span.switch__control:not([aria-disabled="true"]):hover + span.switch__button,
+input.switch__control:not([disabled]):focus + span.switch__button,
+span.switch__control:not([aria-disabled="true"]):focus + span.switch__button {
   background-color: var(--switch-unchecked-hover-background-color, var(--color-state-secondary-hover));
 }
 input.switch__control:not([disabled]):checked + span.switch__button,
@@ -82,8 +85,14 @@ span.switch__control[aria-disabled="true"][aria-checked="true"] + span.switch__b
   background-color: var(--switch-disabled-background-color, var(--color-background-disabled));
   border-color: var(--switch-border-color, var(--color-background-disabled));
 }
+span.switch__control:not([aria-disabled="true"]):focus-visible + span.switch__button,
+input.switch__control:not([disabled]):focus-visible + span.switch__button {
+  box-shadow: 0 0 0 2px var(--color-background-primary), 0 0 0 4px var(--color-state-accent-hover);
+}
 input.switch__control:not([disabled]):checked:hover + span.switch__button,
-span.switch__control:not([aria-disabled="true"])[aria-checked="true"]:hover + span.switch__button {
+span.switch__control:not([aria-disabled="true"])[aria-checked="true"]:hover + span.switch__button,
+input.switch__control:not([disabled]):checked:focus + span.switch__button,
+span.switch__control:not([aria-disabled="true"])[aria-checked="true"]:focus + span.switch__button {
   background-color: var(--switch-checked-hover-background-color, var(--color-state-accent-hover));
 }
 input.switch__control:checked + span.switch__button::after,
