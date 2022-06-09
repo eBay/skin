@@ -2,6 +2,7 @@ const fs = require('fs');
 const prettier = require('prettier');
 const path = require('path');
 const config = require('./config.json');
+const { removeFile } = require('../util');
 const currentDir = path.dirname(path.dirname(__dirname));
 const distDir = path.join(currentDir, 'dist');
 const files = fs
@@ -58,12 +59,12 @@ async function generateTopLevelFiles() {
 }
 
 async function cleanTopLevelFiles() {
-    await fs.promises.unlink(path.join(currentDir, 'browser.json'));
-    await fs.promises.unlink(path.join(currentDir, 'index.js'));
-    await fs.promises.unlink(path.join(currentDir, 'index.mjs'));
-    await fs.promises.unlink(path.join(currentDir, 'index.css'));
-    await fs.promises.unlink(path.join(currentDir, 'index.browser.json'));
-    await fs.promises.unlink(path.join(currentDir, 'svg.svg'));
+    await removeFile(path.join(currentDir, 'browser.json'));
+    await removeFile(path.join(currentDir, 'index.js'));
+    await removeFile(path.join(currentDir, 'index.mjs'));
+    await removeFile(path.join(currentDir, 'index.css'));
+    await removeFile(path.join(currentDir, 'index.browser.json'));
+    await removeFile(path.join(currentDir, 'svg.svg'));
 }
 
 const moduleData = [].concat(
