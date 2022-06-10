@@ -1,6 +1,7 @@
 const { listBundles, runCSSBuild } = require('./generate-bundle');
 const { runGenerate } = require('./generate-images');
 const { runImport } = require('./import-svgs');
+const { verifyBuild } = require('./verify-build');
 const { generateTopLevel, cleanTopLevel } = require('./generate-imports');
 const { copySVGIcons, copyCustomStyles } = require('./storybook/copy');
 
@@ -134,7 +135,14 @@ require('yargs') // eslint-disable-line
             await cleanTopLevel();
         }
     )
-
+    .command(
+        'verify',
+        'Verifies that build is not broken and there are no unchecked files',
+        () => {},
+        async () => {
+            await verifyBuild();
+        }
+    )
     .option('verbose', {
         alias: 'v',
         type: 'boolean',

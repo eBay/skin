@@ -1,6 +1,7 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const path = require('path');
+const { removeFile } = require('../util');
 const currentDir = path.dirname(path.dirname(__dirname));
 
 function getBrowserFileName(filename, basePath) {
@@ -77,16 +78,19 @@ class ModuleBuilder {
         }
         return `${prefixPath}dist/${filePath}/${file}`;
     }
-
     async clean() {
         if (this.options.isNested) {
-            await fs.promises.rm(this.moduleName, { recursive: true });
+            try {
+                await fs.promises.rm(this.moduleName, { recursive: true });
+            } catch (e) {
+                return;
+            }
         } else {
-            await fs.promises.unlink(getBrowserFileName(this.moduleName));
-            await fs.promises.unlink(getMJSFileName(this.moduleName));
+            await removeFile(getBrowserFileName(this.moduleName));
+            await removeFile(getMJSFileName(this.moduleName));
 
-            await fs.promises.unlink(getFileName(this.moduleName, 'js'));
-            await fs.promises.unlink(getFileName(this.moduleName, 'css'));
+            await removeFile(getFileName(this.moduleName, 'js'));
+            await removeFile(getFileName(this.moduleName, 'css'));
         }
     }
 

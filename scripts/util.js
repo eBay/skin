@@ -24,7 +24,16 @@ function rawSvgToHtml(data) {
         .replace(/<\?xml.*\?>(?:\s|\S)/, '');
 }
 
+async function removeFile(file) {
+    try {
+        await fs.promises.unlink(file);
+    } catch (e) {
+        return;
+    }
+}
+
 module.exports = {
     html2xhtml,
     rawSvgToHtml,
+    removeFile,
 };
