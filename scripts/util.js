@@ -1,6 +1,7 @@
 const { parse } = require('parse5');
 const { serializeToString } = require('xmlserializer');
 const prettier = require('prettier');
+const fs = require('fs');
 
 /**
  * Convert a standard HTML5 string to XHTML-compliant string
