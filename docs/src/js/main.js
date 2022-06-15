@@ -47,7 +47,7 @@ document.getElementById('busy-button').addEventListener('click', function() {
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
                 <svg class="icon icon--spinner" focusable="false" height="24" width="24" aria-hidden="true" >
-                    <use xlink:href="static/common/icons.svg#icon-spinner"></use>
+                    <use href="static/icons.svg#icon-spinner"></use>
                 </svg>
             </span>
         </span>
