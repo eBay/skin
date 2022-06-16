@@ -68,9 +68,9 @@ async function compileAllModules() {
     await Promise.resolve();
 }
 
-// Compile and minify main bundle to docs/static, _site/static and cdn
-async function compileHeadlessBundle() {
-    gulp.src([`./src/less/bundles/skin.less`])
+// Compile and minify given bundle to docs/static, _site/static and cdn
+async function compileBundle(filename) {
+    gulp.src(`./src/less/bundles/${filename}`)
         .pipe(banner(comment, { pkg: pkg }))
         .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
         .pipe(less({ plugins: [autoprefixPlugin] }))
@@ -83,6 +83,14 @@ async function compileHeadlessBundle() {
     await Promise.resolve();
 }
 
+async function compileAllBundles() {
+    fs.readdir(path.join(__dirname, 'src/less/bundles'), (err, files) => {
+        files.forEach((dirent) => compileBundle(dirent));
+    });
+
+    await Promise.resolve();
+}
+
 // Static Server + watching src & docs files
 function server() {
     // Start the server.
@@ -91,7 +99,7 @@ function server() {
     // TODO: only re-compile modules that changed
     gulp.watch('src/less/**/*.less', gulp.series('default', injectSkinCSS));
     // Watch css files under src/tokens. Resync CSS on change.
-    gulp.watch('src/tokens/*.css', syncTokensCss);
+    // gulp.watch('src/tokens/*.css', syncTokensCss);
     // Watch less files under docs. Resync CSS on change.
     gulp.watch('docs/src/less/**/*.less', syncDocsCss);
     // Watch js files under docs. Resync JS on change.
@@ -121,6 +129,7 @@ function syncDocsCss() {
 }
 
 // Re-bundle the docs CSS, copy to jekyll _site/static, inject into browsers
+/*
 function syncTokensCss() {
     return child_process
         .spawn('npm', ['run', 'copy:tokensToDocs'], { stdio: 'inherit' })
@@ -130,6 +139,7 @@ function syncTokensCss() {
                 .pipe(browserSync.stream());
         });
 }
+*/
 
 // Re-bundle the docs JS, copy it to jekyll _site/static, then reload browsers
 function syncDocsJs() {
@@ -187,7 +197,7 @@ Running Snapshot(s)...
 // public tasks
 exports.compileModule = compileModule;
 exports.compileAllModules = compileAllModules;
-exports.compileHeadlessBundle = compileHeadlessBundle;
+exports.compileAllBundles = compileAllBundles;
 exports.server = server;
 exports.runSnapshots = runSnapshots;
-exports.default = gulp.series(gulp.parallel(compileAllModules, compileHeadlessBundle));
+exports.default = gulp.series(gulp.parallel(compileAllModules, compileAllBundles));
