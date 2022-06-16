@@ -5,6 +5,9 @@ const { removeFile } = require('../util');
 const currentDir = path.dirname(path.dirname(__dirname));
 
 function getBrowserFileName(filename, basePath) {
+    if (filename === 'index') {
+        return path.join(currentDir, basePath || '', `browser.json`);
+    }
     return path.join(currentDir, basePath || '', `${filename}.browser.json`);
 }
 
