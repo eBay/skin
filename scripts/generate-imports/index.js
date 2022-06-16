@@ -8,34 +8,37 @@ const distDir = path.join(currentDir, 'dist');
 const files = fs
     .readdirSync(distDir)
     .filter((filename) => config.skip.indexOf(filename) === -1 && !config.nested[filename]);
-const browserRemap = [];
+const indexFiles = fs
+    .readdirSync(distDir)
+    .filter(
+        (filename) =>
+            config.skip.indexOf(filename) === -1 && config.skipIndex.indexOf(filename) === -1
+    );
+
 const { ModuleBuilder } = require('./module-builder');
 
 async function generateTopLevelFiles() {
     const browser = {};
 
-    const indexFiles = browserRemap.filter(
-        (item) => config.skipIndex.indexOf(item.filename) === -1
-    );
     const contentJS = indexFiles
         .map((item) => {
-            return `require('./${item.filename}.js');\n`;
+            return `require('./${item}.js');\n`;
         })
         .join('');
     const contentMJS = indexFiles
         .map((item) => {
-            return `import './${item.filename}.css';\n`;
+            return `import './${item}.css';\n`;
         })
         .join('');
 
     const contentBrowser = indexFiles
         .map((item) => {
-            return `"require: ./${item.filename}.js"`;
+            return `"require: ./${item}.js"`;
         })
         .join(',');
     const contentCSS = indexFiles
         .map((item) => {
-            return `@import "./${item.filename}.css";\n`;
+            return `@import "./${item}.css";\n`;
         })
         .join('');
     await fs.promises.writeFile(
