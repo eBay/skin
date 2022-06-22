@@ -47,7 +47,7 @@ document.getElementById('busy-button').addEventListener('click', function() {
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
                 <svg class="icon icon--spinner" focusable="false" height="24" width="24" aria-hidden="true" >
-                    <use xlink:href="static/common/icons.svg#icon-spinner"></use>
+                    <use href="static/icons.svg#icon-spinner"></use>
                 </svg>
             </span>
         </span>
@@ -80,7 +80,7 @@ document.querySelectorAll('.breadcrumbs').forEach(function(el) {
 
 // EXPAND BUTTON
 // Potential candidate for makeup-expander, but expander currently requires a wrapper around the "host"
-document.querySelectorAll('.expand-btn:not([aria-haspopup])').forEach(function(el) {
+document.querySelectorAll('.expand-btn').forEach(function(el) {
     el.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
@@ -289,7 +289,11 @@ document.querySelectorAll('.listbox').forEach(function(widgetEl) {
 
 document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
     pageWidgets.push(new ListboxButton(widgetEl, {
-        autoSelect: widgetEl.dataset.makeupAutoSelect === 'true'
+        autoSelect: widgetEl.dataset.makeupAutoSelect === 'true',
+        buttonLabelSelector: '.btn__text',
+        floatingLabelSelector: '.btn__floating-label',
+        floatingLabelInline: 'btn__floating-label--inline',
+        floatingLabelAnimate: 'btn__floating-label--animate'
     }));
 
     widgetEl.addEventListener('makeup-listbox-button-change', logEvent);
@@ -298,7 +302,7 @@ document.querySelectorAll('.listbox-button').forEach(function(widgetEl) {
 document.querySelectorAll('.menu-button').forEach(function(widgetEl) {
     const widget = new MenuButton(widgetEl, {
         menuSelector: '.menu-button__menu',
-        buttonTextSelector: `.expand-btn__text,.btn__text`
+        buttonTextSelector: `.btn__text`
     });
 
     widget.menu.el.addEventListener('makeup-menu-select', logEvent);

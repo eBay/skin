@@ -1,0 +1,124 @@
+.listbox-button {
+  line-height: normal;
+  position: relative;
+  vertical-align: bottom;
+}
+span.listbox-button {
+  display: inline-block;
+}
+span.listbox-button--fluid,
+span.listbox-button--fluid .expand-btn,
+span.listbox-button--fluid .btn {
+  width: 100%;
+}
+div.listbox-button__listbox {
+  background-color: var(--listbox-button-listbox-background-color, var(--color-background-primary));
+  border-color: var(--listbox-button-listbox-border-color, var(--color-stroke-default));
+  border-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: var(--listbox-button-listbox-box-shadow, var(--dropdown-box-shadow));
+  box-sizing: border-box;
+  display: none;
+  max-height: 400px;
+  min-width: 100%;
+  overflow-y: auto;
+  position: absolute;
+  top: calc(100% + 4px);
+  width: auto;
+  z-index: 2;
+}
+button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
+.listbox-button button.btn[aria-expanded="true"] ~ div.listbox-button__listbox {
+  display: block;
+}
+.listbox-button button[aria-invalid="true"] {
+  border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
+}
+.listbox-button button.expand-btn--borderless,
+.listbox-button button.btn--borderless {
+  background-color: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  vertical-align: initial;
+}
+.listbox-button button.expand-btn--borderless:focus,
+.listbox-button button.btn--borderless:focus {
+  outline: none;
+  text-decoration: underline;
+}
+.listbox-button button.expand-btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox,
+.listbox-button button.btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
+  top: 41px;
+}
+.listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
+  background-color: var(--color-state-primary-hover);
+}
+.listbox-button__option svg.icon {
+  align-self: center;
+  fill: currentColor;
+  height: 10px;
+  margin: 0 auto;
+  opacity: 0;
+  stroke: currentColor;
+  stroke-width: 0;
+  width: 14px;
+  margin-left: 8px;
+}
+div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
+  opacity: 1;
+}
+div.listbox-button__option[role="option"] {
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: inherit;
+  justify-content: space-between;
+  padding: 8px 15px;
+  width: 100%;
+  border-color: var(--listbox-option-border-color, var(--color-background-primary));
+  color: var(--listbox-option-foreground-color, var(--color-foreground-primary));
+  cursor: default;
+}
+div.listbox-button__option[role="option"]:not(:last-child) {
+  margin-bottom: 1px;
+}
+div.listbox-button__option[role="option"]:focus {
+  outline-offset: -4px;
+}
+div.listbox-button__option[role="option"][hidden] {
+  display: none;
+}
+div.listbox-button__option[role="option"]:hover {
+  background-color: var(--color-state-primary-hover);
+  color: var(--listbox-option-hover-foreground-color, var(--color-foreground-primary));
+}
+div.listbox-button__option[role="option"]:active {
+  font-weight: bold;
+}
+div.listbox-button__option[role="option"]:first-child {
+  border-top-left-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+  border-top-right-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+}
+div.listbox-button__option[role="option"]:last-child {
+  border-bottom-left-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+  border-bottom-right-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+}
+div.listbox-button__option--active[role="option"] {
+  font-weight: bold;
+}
+span.listbox-button__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 0 auto;
+}
+.listbox-button__options:focus:not(:focus-visible) {
+  outline: none;
+}
+[dir="rtl"] .listbox-button__option svg.icon {
+  margin-left: 0;
+  margin-right: 8px;
+}

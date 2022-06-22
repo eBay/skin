@@ -1,0 +1,35 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+
+a.nav-link {
+    .color-token(nav-link-foreground-color, color-foreground-primary);
+    text-decoration: none;
+
+    &:visited {
+        .color-token(nav-link-foreground-color, color-foreground-primary);
+    }
+
+    &:hover {
+        .color-token(nav-link-foreground-color-hover, color-foreground-primary);
+
+        text-decoration: underline;
+    }
+}
+
+button.fake-link {
+    background-color: transparent;
+    border: 0;
+    .color-token(fake-link-foreground-color, color-foreground-accent);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: underline;
+
+    &[disabled] {
+        .color-token(fake-link-foreground-disabled-color, color-foreground-disabled);
+    }
+
+    &:hover {
+        color: var(--color-state-accent-hover);
+    }
+}

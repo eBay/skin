@@ -8,7 +8,7 @@ const DS_VERSION = 'DS6.5.v1.01';
 
 const getModuleDocContent = (moduleName, moduleId) => `<!-- Auto generated code -->
 <div id="${moduleId}">
-    {% include common/section-header.html name="${moduleId}" version=page.versions.${moduleId} %}
+    {% include section-header.html name="${moduleId}" version=page.versions.${moduleId} %}
 
     <p>This is generated documentation for ${moduleName}. Update it!</p>
 
@@ -29,7 +29,7 @@ const getModuleDocContent = (moduleName, moduleId) => `<!-- Auto generated code 
 `;
 
 const getMainContent = (moduleId) => `
-{% include common/${moduleId}.html %}
+{% include ${moduleId}.html %}
 <img class="skin-graphic" src="{{ page.static_dir }}/skin-graphic.png" alt="" />
 `;
 
@@ -45,7 +45,7 @@ class DocumentationGenerator extends BaseGenerator {
     constructor(moduleName, moduleId) {
         super(moduleName, moduleId);
         this.docsFolder = path.join(__dirname, '..', '..', '..', 'docs');
-        this.docsCommonFolder = path.join(this.docsFolder, '_includes', 'common');
+        this.docsCommonFolder = path.join(this.docsFolder, '_includes');
     }
 
     generate() {
@@ -69,7 +69,7 @@ class DocumentationGenerator extends BaseGenerator {
     }
 
     _addDocsModuleList() {
-        const filePathFromRoot = path.join('docs', '_includes', 'common', 'module-list.html');
+        const filePathFromRoot = path.join('docs', '_includes', 'module-list.html');
         const newLineContent = `<li><a href="#${this.moduleId}">${this.moduleName}</a></li>`;
         writeLine({
             filePathFromRoot,
@@ -81,12 +81,12 @@ class DocumentationGenerator extends BaseGenerator {
     }
 
     _addDocsMain() {
-        const filePathFromRoot = path.join('docs', '_includes', 'common', 'main.html');
+        const filePathFromRoot = path.join('docs', '_includes', 'main.html');
         const newLineContent = getMainContent(this.moduleId).trim();
         writeLine({
             filePathFromRoot,
             newLineContent,
-            duplicateCheckText: `common/${this.moduleId}.html`,
+            duplicateCheckText: `${this.moduleId}.html`,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
                 shouldAppend: !nextLine || currentLine > newLineContent,
             }),

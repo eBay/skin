@@ -1,0 +1,210 @@
+@import "../variables/variables.less";
+@import "../mixins/private/dropdown-mixins.less";
+@import "../mixins/private/menu-mixins.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/public/utility-mixins.less";
+
+.menu-button,
+.fake-menu-button {
+    line-height: normal;
+    position: relative;
+}
+
+.menu-button__menu,
+.fake-menu-button__menu {
+    .dropdown-base(menu-button-menu);
+
+    // In ebayui there is a bug where if tabindex=-1 outside the menu button
+    // Any clicks inside will trigger on the outher tabindex=-1. In order to fix it
+    // We added a tabindex=-1 on the popup menu root (on root so you can scroll)
+    // This forces a focus ring, so this focus ring is removed from the root.
+    outline: 0;
+}
+
+span.menu-button__button,
+span.fake-menu-button__button {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.fake-menu-button__menu {
+    list-style-type: none;
+    margin: 0;
+    max-height: calc(50vh - 40px);
+    overflow-y: auto;
+    padding: 0;
+}
+
+div.menu-button__item[role^="menuitem"] {
+    .menu-menuitem-base(menu-button);
+    .dropdown-item-border-radius(menu-button-menu);
+
+    cursor: default; // needed to override text cursor
+}
+
+.menu-button__item svg.icon--tick-small,
+.fake-menu-button__item svg.icon--tick-small {
+    .menu-menuitem-status();
+}
+
+.menu-button__item svg.icon--tick-small:last-child,
+.fake-menu-button__item svg.icon--tick-small:last-child {
+    margin-left: @spacing-100;
+}
+
+// anchor tag specific
+a.fake-menu-button__item {
+    .color-token(menu-button-anchor-color, color-foreground-primary);
+    text-decoration: none;
+
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &:hover,
+    &:visited {
+        .color-token(menu-button-anchor-color, color-background-primary);
+    }
+}
+
+// button tag specific
+button.fake-menu-button__item {
+    .background-color-token(menu-button-background-color, color-background-primary);
+    .color-token(menu-button-foreground-color, color-foreground-primary);
+    font-family: inherit;
+    font-size: 1em;
+    text-align: left;
+}
+
+a.fake-menu-button__item:not([href]),
+button.fake-menu-button__item[disabled],
+div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
+    .color-token(menu-button-menuitem-disabled-foreground-color, color-foreground-disabled);
+}
+
+a.fake-menu-button__item[aria-current="page"] svg.icon--tick-small,
+button.fake-menu-button__item[aria-current="page"] svg.icon--tick-small {
+    opacity: 1;
+}
+
+div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon--tick-small {
+    opacity: 1;
+}
+
+.fake-menu-button__menu a.fake-menu-button__item,
+.fake-menu-button__menu button.fake-menu-button__item {
+    .menu-menuitem-base(menu-button);
+}
+
+.fake-menu-button__menu > li:first-child a.fake-menu-button__item {
+    .border-top-left-radius-token(menu-button-menu-border-radius, border-radius-50);
+    .border-top-right-radius-token(menu-button-menu-border-radius, border-radius-50);
+}
+
+.fake-menu-button__menu > li:last-child a.fake-menu-button__item {
+    .border-bottom-left-radius-token(menu-button-menu-border-radius, border-radius-50);
+    .border-bottom-right-radius-token(menu-button-menu-border-radius, border-radius-50);
+}
+
+.menu-button__menu--fix-width,
+.fake-menu-button__menu--fix-width {
+    width: 100%;
+
+    span {
+        .truncate();
+
+        width: 100%;
+    }
+}
+
+a.fake-menu-button__item > span,
+button.fake-menu-button__item > span,
+div.menu-button__item[role^="menuitem"] > span {
+    flex: 1 0 auto;
+    white-space: nowrap;
+}
+
+a.fake-menu-button__item--badged,
+button.fake-menu-button__item--badged,
+div.menu-button__item--badged[role^="menuitem"] {
+    padding-right: 36px;
+    position: relative;
+}
+
+a.fake-menu-button__item--badged .badge,
+button.fake-menu-button__item--badged .badge,
+div.menu-button__item--badged[role^="menuitem"] .badge {
+    margin-left: @spacing-50;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+}
+
+.menu-button__menu--scroll {
+    overflow-y: scroll;
+}
+
+.menu-button__menu--reverse,
+.fake-menu-button__menu--reverse {
+    right: 0;
+}
+
+[dir="rtl"] .menu-button__menu--reverse,
+[dir="rtl"] .fake-menu-button__menu--reverse {
+    left: 0;
+    right: inherit;
+}
+
+// DEPRECATED. Remove in v15
+.menu-button button.expand-btn--borderless,
+.fake-menu-button button.expand-btn--borderless {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+    vertical-align: initial;
+
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+.menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu-button__button[aria-expanded="true"] ~ .fake-menu-button__menu,
+.menu-button .expand-btn[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu-button .expand-btn[aria-expanded="true"] ~ .fake-menu-button__menu,
+.menu-button .btn[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu-button .btn[aria-expanded="true"] ~ .fake-menu-button__menu {
+    display: block;
+}
+
+.menu-button__button ~ .menu-button__menu--static,
+.fake-menu-button__button ~ .fake-menu-button__menu--static,
+.expand-btn ~ .menu-button__menu--static,
+.expand_btn ~ .fake-menu-button__menu--static,
+.btn ~ .menu-button__menu--static,
+.btn ~ .fake-menu-button__menu--static {
+    position: static;
+}
+
+// DEPRECATED. Remove in v15
+.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
+.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
+    top: 41px; // button height plus one px, to meet design guidelines
+}
+
+div.menu-button__option--active[role="option"] {
+    font-weight: bold;
+}
+
+hr.menu-button__separator {
+    .border-color-token(menu-button-separator-color, color-stroke-subtle);
+    border-style: solid;
+    border-width: 1px;
+    margin: 0;
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+div.menu-button__item[role^="menuitem"]:focus:not(:focus-visible) {
+    outline: none;
+}

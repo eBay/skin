@@ -19,8 +19,7 @@
 <a class="fake-btn" href="http://www.ebay.com">Link</a>
     {% endhighlight %}
 
-    <h3 id="button-large">Large Button</h3>
-    <p>Use the <span class="highlight">large</span> modifier to create a large button style.</p>
+    <p>Use the <span class="highlight">large</span> modifier to increase the size of the button.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -76,20 +75,6 @@
 <a class="fake-btn fake-btn--tertiary" href="http://www.ebay.com">Link</a>
     {% endhighlight %}
 
-    <h3 id="button-delete">Delete Button</h3>
-    <p>Use the <span class="highlight">delete</span> modifier to create a delete button style.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--delete">Button</button>
-            <a class="fake-btn fake-btn--delete" href="http://www.ebay.com">Link</a>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button class="btn btn--delete">Button</button>
-<a class="fake-btn fake-btn--delete" href="http://www.ebay.com">Link</a>
-    {% endhighlight %}
-
     <h3 id="button-disabled">Disabled Button</h3>
     <p>The <span class="highlight">disabled</span> attribute is <strong>required</strong> to fully disable a button tag.</p>
     <div class="demo">
@@ -121,7 +106,8 @@
     {% endhighlight %}
 
     <h3 id="button-partially-disabled">Partially Disabled Button</h3>
-    <p>Partially disabled buttons are programmatically disabled, but remain keyboard focusable. They help in situations where a button may frequently toggle back and forth between enabled and disabled states which can result in the button losing focus.</p>
+    <p>Partially disabled buttons are programmatically disabled but retain keyboard focus when disabled. This helps prevent keyboard focus being moved back to the start of the page when focus is lost.</p>
+
     <div class="demo">
         <div class="demo__inner">
             <button aria-disabled="true" class="btn btn--primary" type="button">Prev</button>
@@ -223,7 +209,7 @@
 
         <div class="demo">
             <div class="demo__inner">
-                <button class="btn" aria-label="Busy...">
+                <button class="btn btn--primary" aria-label="Busy...">
                     <span class="btn__cell">
                         <span class="progress-spinner">
                             <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
@@ -236,7 +222,7 @@
         </div>
 
         {% highlight html %}
-<button class="btn" aria-label="Busy...">
+<button class="btn btn--primary" aria-label="Busy...">
     <span class="btn__cell">
         <span class="progress-spinner">
             <svg aria-hidden="true" class="icon icon--spinner" focusable="false" height="24" width="24">
@@ -251,7 +237,7 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn" id="busy-button" style="min-width: 150px">Activate Spinner</button>
+            <button class="btn btn--primary" id="busy-button" style="min-width: 150px">Activate Spinner</button>
         </div>
     </div>
 
@@ -313,24 +299,20 @@
 </button>
     {% endhighlight %}
 
-    <h3 id="button-constrained-width">Constrained Width Button</h3>
+    <h3 id="button-fixed-width">Fixed Width Button</h3>
 
     <p>Buttons naturally grow wider with their text. The text will wrap naturally once the button width grows to exceed its constrained width.</p>
 
     <div class="demo">
-        <div class="demo__inner" style="max-width: 200px; word-break: normal;">
-            <button type="button" class="btn">
-                Button with a lot of text that will wrap
-            </button>
-        </div>
+        <button class="btn btn--primary" style="width: 200px;">
+            Button with a lot of text that will wrap
+        </button>
     </div>
 
     {% highlight html %}
-<div style="max-width: 200px;">
-    <button class="btn">
-        Button with a lot of text that will wrap
-    </button>
-</div>
+<button class="btn btn--primary" style="width: 200px;">
+    Button with a lot of text that will wrap
+</button>
     {% endhighlight %}
 
     <h3 id="button-fixed-width-and-height">Fixed Width and Height Button</h3>
@@ -338,53 +320,181 @@
     <p>Of course, with a constrained width <em>and</em> a fixed height, the text will begin to overflow.</p>
 
     <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
-            <button class="btn btn--fixed-height">Button with a lot of text that will wrap</button>
-        </div>
+        <button class="btn btn--primary btn--fixed-height" style="width: 200px;">Button with a lot of text that will wrap</button>
     </div>
 
     {% highlight html %}
-<div style="max-width: 200px;">
-    <button class="btn btn--fixed-height">
-        Button with a lot of text that will wrap
-    </button>
-</div>
+<button class="btn btn--primary btn--fixed-height" style="width: 200px;">
+    Button with a lot of text that will wrap
+</button>
     {% endhighlight %}
 
     <p>The solution is to apply truncation, via the <span class="highlight">btn--truncated</span> or <span class="highlight">btn--large-truncated</span> modifiers.</p>
 
     <div class="demo">
-        <div class="demo__inner" style="max-width: 200px;">
-            <button class="btn btn--fixed-height btn--truncated">
-                Button with a lot of text that will wrap
+        <button class="btn btn--primary btn--fixed-height btn--truncated" style="width: 200px;">
+            Button with a lot of text that will wrap
+        </button>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--primary btn--fixed-height btn--truncated" style="width: 200px;">
+    Button with a lot of text that will wrap
+</button>
+    {% endhighlight %}
+
+    <h3 id="button-expandable">Expandable Buttons</h3>
+    <p>Use the "dropdown" icon to create an expandable button style. Use <span class="highlight">aria-expanded</span> to convey state.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary" aria-expanded="false" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
             </button>
         </div>
     </div>
 
     {% highlight html %}
-<div style="max-width: 200px;">
-    <button class="btn btn--fixed-height btn--truncated">
-        Button with a lot of text that will wrap
-    </button>
-</div>
+<button class="btn btn--primary" aria-expanded="false" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
     {% endhighlight %}
 
-    {% if page.ds == 4 %}
-
-    <h3 id="button-wide">Wide Button</h3>
-
-    <p>For a wider button, use the <span class="highlight">btn--wide</span> modifier.</p>
+    <p>Use the <span class="highlight">borderless</span> modifier to remove the border from the expandable button.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <button class="btn btn--wide">Button</button>
+            <button class="btn btn--borderless" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
         </div>
     </div>
 
     {% highlight html %}
-<button class="btn btn--wide">Button</button>
+<button class="btn btn--borderless" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
     {% endhighlight %}
 
-    {% endif %}
+    <p>Use the <span class="highlight">form</span> modifier to create an expandable button style that matches the look of form controls (e.g. textbox, select).</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form" aria-expanded="false" type="button">
+                <span class="btn__cell">
+                    <span class="btn__text">Button</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form" aria-expanded="false" type="button">
+    <span class="btn__cell">
+        <span class="btn__text">Button</span>
+        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>Use the <span class="highlight">btn--slim</span> modifier, in conjunction with <span class="highlight">btn--form</span>, if displaying an icon only.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--slim expand-btn-example" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                    {% include symbol.html name="dropdown" %}
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--slim" type="button" aria-expanded="false" aria-label="Expand/Collapse">
+    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+        <use xlink:href="#icon-dropdown"></use>
+    </svg>
+</button>
+    {% endhighlight %}
+
+    <p>For a floated "label", which will appear above the value, use the <span class="highlight">btn--floating-label</span> and <span class="highlight">btn__floating-label</span> classes.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+                <span class="btn__cell">
+                    <span class="btn__floating-label">Color</span>
+                    <span class="btn__text">Blue</span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+    <span class="btn__cell">
+        <span class="btn__floating-label">Color</span>
+        <span class="btn__text">Blue</span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <p>In a resting state, with no value, the <span class="highlight">btn__floating-label--inline</span> modifier is required. This should be added with JavaScript</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+                <span class="btn__cell">
+                    <span class="btn__floating-label btn__floating-label--inline">Color</span>
+                    <span class="btn__text"></span>
+                    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+                        {% include symbol.html name="dropdown" %}
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button class="btn btn--form btn--floating-label" style="min-width: 150px;">
+    <span class="btn__cell">
+        <span class="btn__floating-label btn__floating-label--inline">Color</span>
+        <span class="btn__text"></span>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>
+    {% endhighlight %}
 
 </div>

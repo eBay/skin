@@ -1,0 +1,78 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/public/utility-mixins.less";
+
+// clear floated elements
+.clearfix {
+    &::before,
+    &::after {
+        content: " ";
+        display: table;
+        line-height: 0;
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+// visibly hidden
+.clipped {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+// visibly unhidden on focus
+.clipped--stealth:focus {
+    clip: auto;
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+    width: auto;
+}
+
+// Image will stretch up and down
+.image-stretch {
+    height: auto;
+    width: 100%;
+}
+
+// Image will scale up and down
+.image-scale {
+    height: auto;
+    max-width: 100%;
+}
+
+// Vertically and horizontally center an image
+.image-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+//greys out space in the li not taken by the img, in order to match height to other img
+.image-treatment {
+    .imageTreatment();
+}
+
+// Image will have border-radius of 16px; this should be applied to images larger than 40px
+.image-treatment-large {
+    .imageTreatment(16px);
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

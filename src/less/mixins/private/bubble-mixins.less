@@ -1,0 +1,162 @@
+// this mixin is used by infotip, tooltip, tourtip
+
+@bubble-base-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499);
+@bubble-left-box-shadow: @bubble-base-box-shadow;
+@bubble-right-box-shadow: @bubble-base-box-shadow;
+@bubble-bottom-box-shadow: @bubble-base-box-shadow;
+@bubble-top-box-shadow: @bubble-base-box-shadow;
+
+.bubble() {
+    .border-radius-token(bubble-border-radius, border-radius-50);
+    box-shadow: var(--bubble-base-box-shadow, @bubble-base-box-shadow);
+    font-size: 14px;
+    max-width: 344px;
+    width: max-content;
+    z-index: 1;
+}
+
+.bubble-mask() {
+    .border-radius-token(bubble-border-radius, border-radius-50);
+    position: relative;
+    z-index: 1;
+}
+
+.bubble-large-screen() {
+    max-width: 400px;
+}
+
+// creates basic layout
+.bubble-cell() {
+    display: flex;
+    padding: @spacing-200;
+    word-break: break-word;
+}
+
+.bubble-content() {
+    flex-grow: 1;
+
+    p {
+        margin: 0;
+    }
+
+    p:not(:first-of-type) {
+        margin-top: @spacing-50;
+    }
+}
+
+.bubble-close() {
+    align-self: flex-start;
+    background: none;
+    border: 0;
+    flex-shrink: 0;
+    height: @spacing-400;
+    margin: -@spacing-100 -@spacing-100 0 @spacing-100;
+    padding: 0;
+    white-space: nowrap;
+    width: 32px;
+}
+
+// styles common to all pointers
+.pointer-base() {
+    height: 16px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 16px;
+    z-index: 0;
+}
+
+.pointer-bottom() {
+    bottom: -7px;
+    .box-shadow-token(bubble-bottom-box-shadow);
+    top: auto;
+}
+
+.pointer-side-middle() {
+    top: calc(50% - 8px);
+}
+
+.pointer-top() {
+    .box-shadow-token(bubble-top-box-shadow);
+    top: -7px;
+}
+
+.pointer-center() {
+    left: calc(50% - 8px);
+}
+
+.pointer-top-center() {
+    .pointer-top();
+    .pointer-center();
+}
+
+.pointer-top-left() {
+    .pointer-top();
+
+    left: 12px;
+}
+
+.pointer-top-right() {
+    .pointer-top();
+
+    left: auto;
+    right: 12px;
+}
+
+.pointer-bottom-center() {
+    .pointer-bottom();
+    .pointer-center();
+}
+
+.pointer-bottom-left() {
+    .pointer-bottom();
+
+    left: 12px;
+}
+
+.pointer-bottom-right() {
+    .pointer-bottom();
+
+    left: auto;
+    right: 12px;
+}
+
+.pointer-left() {
+    .pointer-side-middle();
+
+    left: -7px;
+}
+
+.pointer-left-top() {
+    .box-shadow-token(bubble-left-box-shadow);
+    left: -7px;
+    top: 12px;
+}
+
+.pointer-left-bottom() {
+    bottom: 12px;
+    .box-shadow-token(bubble-left-box-shadow);
+    left: -7px;
+    top: auto;
+}
+
+.pointer-right() {
+    .pointer-side-middle();
+    .box-shadow-token(bubble-right-box-shadow);
+    left: auto;
+    right: -7px;
+}
+
+.pointer-right-top() {
+    .box-shadow-token(bubble-right-box-shadow);
+    left: auto;
+    right: -7px;
+    top: 12px;
+}
+
+.pointer-right-bottom() {
+    bottom: 12px;
+    .box-shadow-token(bubble-right-box-shadow);
+    left: auto;
+    right: -7px;
+    top: auto;
+}

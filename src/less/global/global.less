@@ -1,0 +1,31 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+
+body {
+    .background-color-token(color-background-primary);
+    .color-token(color-foreground-primary);
+    font-family: @font-family-default;
+    font-size: @font-size-regular;
+    -webkit-text-size-adjust: 100%;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+legend {
+    margin-bottom: @spacing-100;
+}
+
+a {
+    .color-token(link-foreground-color-default, color-foreground-accent);
+
+    &:visited {
+        .color-token(link-foreground-color-visited, color-foreground-visited);
+    }
+
+    &:hover {
+        color: var(--color-state-accent-hover);
+    }
+}

@@ -1,0 +1,24 @@
+@import "./selection-list-mixins.less";
+
+.listbox-option-base() {
+    .selection-list-item-base();
+    .border-color-token(listbox-option-border-color, color-background-primary);
+    .color-token(listbox-option-foreground-color, color-foreground-primary);
+
+    &[hidden] {
+        display: none; // https://css-tricks.com/the-hidden-attribute-is-visibly-weak/
+    }
+
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+        .color-token(listbox-option-hover-foreground-color, color-foreground-primary);
+    }
+
+    &:active {
+        font-weight: bold;
+    }
+}
+
+.listbox-option-status() {
+    .selection-list-item-status();
+}

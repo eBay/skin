@@ -1,0 +1,164 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/public/utility-mixins.less";
+
+nav.pagination {
+    .inline-flex-items-centered();
+
+    .color-token(pagination-item-foreground-color, color-foreground-secondary);
+    font-family: inherit;
+    font-size: 1rem;
+    margin: @spacing-100 0;
+    max-width: 100%;
+}
+
+nav.pagination a,
+nav.pagination button {
+    color: inherit;
+    font-size: 1em;
+}
+
+ol.pagination__items {
+    .inline-flex-items-centered();
+
+    box-sizing: border-box;
+    height: 44px;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+
+    li:not([hidden]) {
+        .flex-items-centered();
+    }
+}
+
+a.pagination__next,
+a.pagination__previous,
+button.pagination__next,
+button.pagination__previous {
+    .inline-flex-items-centered();
+}
+
+a.pagination__next,
+button.pagination__next {
+    margin-left: @spacing-100;
+}
+
+a.pagination__previous,
+button.pagination__previous {
+    margin-right: @spacing-100;
+}
+
+.pagination__item {
+    .inline-flex-items-centered();
+
+    box-sizing: border-box;
+    font-weight: @font-weight-regular;
+    height: 44px;
+    width: 44px;
+}
+
+button.pagination__item {
+    background: none;
+    border: none;
+    font-family: inherit;
+}
+
+a.pagination__item {
+    text-decoration: none;
+}
+
+a.pagination__item,
+button.pagination__item {
+    position: relative;
+
+    &::after {
+        background-color: transparent;
+        border-radius: 4px;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: calc(50% - 10px);
+        position: absolute;
+        width: 20px;
+    }
+
+    &[aria-current="page"] {
+        .color-token(pagination-item-current-foreground-color, color-foreground-primary);
+        font-weight: @font-weight-bold;
+
+        &::after {
+            background-color: currentColor;
+        }
+    }
+
+    &:not([aria-current="page"]) {
+        &:active {
+            .color-token(pagination-item-active-foreground-color, color-foreground-primary);
+        }
+
+        &:focus,
+        &:hover {
+            .color-token(pagination-item-hover-foreground-color, color-foreground-accent);
+
+            &::after {
+                background-color: currentColor;
+            }
+        }
+    }
+
+    // https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+span.pagination__item svg.icon--overflow {
+    transform: rotate(90deg);
+}
+
+span.pagination__item button.icon-btn--transparent {
+    &:focus,
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+    }
+
+    &:active {
+        background-color: var(--color-state-primary-active);
+    }
+}
+
+nav.pagination--fluid {
+    width: 100%;
+}
+
+nav.pagination--fluid ol.pagination__items {
+    flex-grow: 1;
+    max-width: none;
+}
+
+nav.pagination--fluid ol.pagination__items li {
+    flex: 1 0 @spacing-600;
+}
+
+[dir="rtl"] {
+    a.pagination__next,
+    button.pagination__next {
+        margin-left: 0;
+        margin-right: @spacing-100;
+    }
+
+    a.pagination__previous,
+    button.pagination__previous {
+        margin-left: @spacing-100;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: @screen-size-3) {
+    nav.pagination {
+        margin: @spacing-200 0;
+    }
+}

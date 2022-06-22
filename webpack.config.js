@@ -11,6 +11,6 @@ module.exports = {
     },
     output: {
         filename: 'docs.min.js',
-        path: path.resolve(__dirname, './docs/static/common'),
+        path: path.resolve(__dirname, './docs/static'),
     },
 };

@@ -1,69 +1,74 @@
 # Ebay Skin Scripts
 
-1. [cdn-version.js](#cdn-version.js)
-2. [generate-bundle.js](#generate-bundle.js)
-3. [generate-images.js](#generate-images.js)
+-   [Ebay Skin Scripts](#ebay-skin-scripts)
+    -   [cdn-bundle.js](#cdn-bundlejs)
+    -   [scripts runner](#scripts-runner)
+    -   [bundle](#bundle)
+        -   [Examples](#examples)
+    -   [gen](#gen)
+    -   [clean](#clean)
+    -   [genSVG](#gensvg)
+        -   [Configuration](#configuration)
+    -   [importSVG](#importsvg)
+        -   [Usage](#usage)
 
 ## cdn-bundle.js
 
 This script automatically updates the CDN version inside of the HTML based on the version specified in `package.json`.
 
-## generate-bundle.js
+## scripts runner
+
+Run `node scripts` to execute the runner. This will give you info about each command.
+
+## bundle
 
 This script allows users to create their own custom Skin bundle.
-In order to view all the avaialbe options and subcommands you can run `scripts/generate-bundle.js --help`. Also eash subcommand has it's own help.
+In order to view all the avaialbe options and subcommands you can run `scripts bundle --help`. Also eash subcommand has it's own help.
 
 ### Examples
 
-| Command                                                            | Description                                                                    |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `scripts/generate-bundle.js list`                                  | Lists the available modules for use with the `--modules` option                |
-| `scripts/generate-bundle.js bundle ebay --modules global carousel` | Creates a bundle called ebay which consists of the global and carousel modules |
-| `scripts/generate-bundle.js bundle ebay --scope-class ebay-wrap`   | Creates a bundle called ebay which has all styles wrapped by `.ebay-wrap`      |
+| Command                                         | Description                                                                    |
+| ----------------------------------------------- | ------------------------------------------------------------------------------ |
+| `scripts list`                                  | Lists the available modules for use with the `--modules` option                |
+| `scripts bundle ebay --modules global carousel` | Creates a bundle called ebay which consists of the global and carousel modules |
+| `scripts bundle ebay --scope-class ebay-wrap`   | Creates a bundle called ebay which has all styles wrapped by `.ebay-wrap`      |
 
-## generate-images.js
+## gen
 
-This script cleans all SVG images and generates base64 variables for the images
-For all base64 images, it scans inside the `src/svg` directory and takes each symbol and converts it to base64.
+Generates top level improts. See `generate-imports/README.md`
+
+## clean
+
+Cleans top level improts. See `generate-imports/README.md`
+
+## genSVG
+
+Generates less files with width/height styles for all icons located in `src/svg` directory. See the `configuration` section for more info on how to configure.
 
 ### Configuration
 
-Configuration for this script is located at `scripts/image-config.json`
+Configuration for this script is located at `docs/_data/icons.yaml`
+This contains a list of icon modules to generate. Each key will look up an icon file, if that exists then it will generate css for those.
 
-There are two main keys in the config.
-Config| Description
----|---
-`svgoConfig`|The config used for optimizing svg's. All avaiable options are located at [svgo](https://github.com/svg/svgo)
-`base64Config`|This config is used to parse all SVGs into base64 and provide variable names as well as colors. **Note**: Any `fill=` attributes already located within `<path>` in the `icons.svg` file will not be overriden by any colors in the config
+| Global Config | Description |
+| `skip` | The id of icons to not generate config for |
 
-### base64Config
+| Icon specific config | Description                                                                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prefix`             | The prefixed name, this will be used as the beginning part of the icon name as well as the default output directory if `output` is not defined |
+| `size`               | Default size for these icons. Defaults to 24px for regular sizes, and 16px for small.                                                          |
+| `postfix`            | The postfix name, this will be used as the end part of the icon name                                                                           |
+| `file`               | The `src/svg` filename to pull icons from                                                                                                      |
+| `output`             | The file directory to output the generated css file to. Defaults to the `src/less/icon` directory.                                             |
 
-```
-{
-    "ds6Color": "#123456", // The base color to apply to ds6 icons
-    "ds4Color": "#123456", // The base color to apply to ds4 icons
-    "color": "#123456", // The base color to apply to all icons (note ds4Color or ds6Color take prescedence)
+## importSVG
 
-    "overrides": {
-        "icon-checkbox-checked": "#123456"
-        // A map of all color overrides for each icon. The key is the icon id and the value is the color
-    },
+Script used to import an SVG into the icon file. It will try to optimize the SVG and remove any unused tags.
+It is recommended to run `scripts gen` script after running the `scripts importSVG` script
 
-    "modules": [
-        // A list of different variable to generate based on the colors provided and the icon list
-        {
-            "suffix": "a", // The text to apply to the end of the variable after -base64
-            "prefix": "b" // The text to apply before the -base64 part of the variable
-            "color": "#ffffff", // The color to apply for this
-            "list": [
-                // The list of all icons to apply this change to
-                "icon-arrow-left",
-                "icon-arrow-right"
-            ]
-        }
-        // The above would generate the following base64 variables
-        // @icon-arrow-left-a-base64-b: "base64 with arrow-left icon in white color
-        // @icon-arrow-right-a-base64-b: "base64 with arrow-right icon in white color
-    ]
-}
-```
+### Usage
+
+`scripts importSVG path/to/svg.svg svgID skinSvgFileName`
+
+_Example_
+`scripts importSVG ~/Downloads/newSvg.svg icon-new-large-icon large`

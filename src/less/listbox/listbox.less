@@ -1,0 +1,65 @@
+@import "../variables/variables.less";
+@import "../mixins/private/dropdown-mixins.less";
+@import "../mixins/private/listbox-mixins.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/public/utility-mixins.less";
+
+div.listbox {
+    margin: @spacing-200 0; // margin collapse sensible default
+}
+
+span.listbox {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+div.listbox__options[role="listbox"] {
+    .background-color-token(listbox-background-color, color-background-primary);
+    cursor: default; // needed to override text cursor
+}
+
+span.listbox__options[role="listbox"] {
+    display: inline-block;
+}
+
+div.listbox__options--fix-width[role="listbox"] {
+    width: 100%;
+}
+
+div.listbox__options--reverse[role="listbox"] {
+    right: 0;
+}
+
+div.listbox__option[role="option"] {
+    .listbox-option-base();
+}
+
+span.listbox__value {
+    .truncate();
+
+    flex: 1;
+}
+
+div.listbox__option svg.icon {
+    .listbox-option-status();
+
+    margin-left: @spacing-100;
+}
+
+[dir="rtl"] div.listbox__option svg.icon {
+    margin-left: 0;
+    margin-right: @spacing-100;
+}
+
+div.listbox__options[role="listbox"]:focus .listbox__option--active[role="option"] {
+    background-color: var(--color-state-primary-hover);
+}
+
+div.listbox__option[aria-selected="true"] svg.icon {
+    opacity: 1;
+}
+
+// https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+.listbox__options:focus:not(:focus-visible) {
+    outline: none;
+}

@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
+var fs = require('fs');
 var child_process = require('child_process');
 var banner = require('gulp-banner');
 var pkg = require('./package.json');
-var flatten = require('gulp-flatten');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 var cleanCSS = require('gulp-clean-css');
@@ -15,6 +15,7 @@ var siteStaticTarget = './_site/static';
 var docsStaticTarget = './docs/static';
 var minifiedFileExtensionName = '.min.css';
 var cdnTarget = './_cdn/skin/v' + pkg.version;
+var yargs = require('yargs');
 
 var comment = [
     '/*!',
@@ -25,39 +26,69 @@ var comment = [
     '*/\n',
 ].join('\n');
 
-// Compile all modules to /dist
-function modules() {
-    return gulp
-        .src([
-            './src/less/**/*.less',
-            '!./src/**/base/*.less',
-            '!./src/less/**/*-static.less',
-            '!./src/less/bundles/**/*.less',
-            '!./src/less/gh/**/*.less',
-            '!./src/less/grid/**/*.less',
-            '!./src/less/mixins/**/*.less',
-            '!./src/less/primitives/**/*.less',
-            '!./src/less/tokens/**/*.less',
-        ])
+const excludedFolders = ['bundles', 'gh', 'mixins', 'skins', 'variables', 'icon'];
+
+// use for debug purposes only
+const includedFolders = ['badge', 'switch', 'tabs'];
+
+// filter for removing files and folders under src/less that should not be compiled by lessc
+const filterSrc = (dirent) => dirent.isDirectory() && !excludedFolders.includes(dirent.name);
+
+async function compileNestedModule(moduleName) {
+    const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
+
+    gulp.src([`./src/less/${name}/*.less`])
         .pipe(less({ plugins: [autoprefixPlugin] }))
-        .pipe(gulp.dest(distTarget));
+        .on('error', console.log)
+        .pipe(gulp.dest(`${distTarget}/${name}`));
+
+    await Promise.resolve();
 }
 
-// Compile and minify the full skin bundle to docs/static, _site/static and cdn
-function megabundle() {
-    return gulp
-        .src(['./src/less/bundles/skin/**/*.less'])
-        .pipe(banner(comment, { pkg: pkg }))
-        .pipe(
-            rename(function (path) {
-                path.extname = minifiedFileExtensionName;
-            })
-        )
+async function compileModule(moduleName) {
+    const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
+
+    gulp.src([`./src/less/${name}/${name}.less`])
         .pipe(less({ plugins: [autoprefixPlugin] }))
+        .on('error', console.log)
+        .pipe(gulp.dest(`${distTarget}/${name}`));
+
+    await Promise.resolve();
+}
+
+async function compileAllModules() {
+    fs.readdir(path.join(__dirname, 'src/less'), { withFileTypes: true }, (err, files) => {
+        files.filter(filterSrc).forEach((dirent) => {
+            compileModule(dirent.name);
+        });
+    });
+    // Treat icons differently since it is a nested module
+    compileNestedModule('icon');
+
+    await Promise.resolve();
+}
+
+// Compile and minify given bundle to docs/static, _site/static and cdn
+async function compileBundle(filename) {
+    gulp.src(`./src/less/bundles/${filename}`)
+        .pipe(banner(comment, { pkg: pkg }))
+        .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
+        .pipe(less({ plugins: [autoprefixPlugin] }))
+        .on('error', console.log)
         .pipe(cleanCSS())
-        .pipe(gulp.dest(docsStaticTarget))
-        .pipe(gulp.dest(siteStaticTarget))
-        .pipe(gulp.dest(cdnTarget));
+        .pipe(gulp.dest(`${docsStaticTarget}`))
+        .pipe(gulp.dest(`${siteStaticTarget}`))
+        .pipe(gulp.dest(`${cdnTarget}`));
+
+    await Promise.resolve();
+}
+
+async function compileAllBundles() {
+    fs.readdir(path.join(__dirname, 'src/less/bundles'), (err, files) => {
+        files.forEach((dirent) => compileBundle(dirent));
+    });
+
+    await Promise.resolve();
 }
 
 // Static Server + watching src & docs files
@@ -65,7 +96,10 @@ function server() {
     // Start the server.
     browserSync.init({ server: '_site' });
     // Watch less files under src/less. Resync CSS on change.
+    // TODO: only re-compile modules that changed
     gulp.watch('src/less/**/*.less', gulp.series('default', injectSkinCSS));
+    // Watch css files under src/tokens. Resync CSS on change.
+    // gulp.watch('src/tokens/*.css', syncTokensCss);
     // Watch less files under docs. Resync CSS on change.
     gulp.watch('docs/src/less/**/*.less', syncDocsCss);
     // Watch js files under docs. Resync JS on change.
@@ -88,24 +122,31 @@ function syncDocsCss() {
     return child_process
         .spawn('npm', ['run', 'bundle:css'], { stdio: 'inherit' })
         .on('close', function () {
-            gulp.src(['./docs/static/ds4/docs.min.css'])
-                .pipe(gulp.dest(siteStaticTarget + '/ds4'))
-                .pipe(browserSync.stream());
-
-            gulp.src(['./docs/static/ds6/docs.min.css'])
-                .pipe(gulp.dest(siteStaticTarget + '/ds6'))
+            gulp.src(['./docs/static/docs.min.css'])
+                .pipe(gulp.dest(siteStaticTarget))
                 .pipe(browserSync.stream());
         });
 }
+
+// Re-bundle the docs CSS, copy to jekyll _site/static, inject into browsers
+/*
+function syncTokensCss() {
+    return child_process
+        .spawn('npm', ['run', 'copy:tokensToDocs'], { stdio: 'inherit' })
+        .on('close', function () {
+            gulp.src(['./docs/static/evo-core.css', './docs/static/evo-light.css'])
+                .pipe(gulp.dest(siteStaticTarget))
+                .pipe(browserSync.stream());
+        });
+}
+*/
 
 // Re-bundle the docs JS, copy it to jekyll _site/static, then reload browsers
 function syncDocsJs() {
     return child_process
         .spawn('npm', ['run', 'bundle:js'], { stdio: 'inherit' })
         .on('close', function () {
-            gulp.src(['./docs/static/common/docs.min.js']).pipe(
-                gulp.dest(siteStaticTarget + '/common')
-            );
+            gulp.src(['./docs/static/docs.min.js']).pipe(gulp.dest(siteStaticTarget));
 
             browserSync.reload();
         });
@@ -127,7 +168,36 @@ function syncDocsHtml(cb) {
         .on('close', cb);
 }
 
-// public tasks listed below
+async function runSnapshots(storiesList, isDryRun) {
+    const stories = yargs.argv.stories === undefined ? storiesList : yargs.argv.stories;
+    const aStories = stories.split(',');
+    const storiesReg = aStories.join('|');
+    const storiesRX = `^\b(?:${storiesReg})\b`;
+    const storiesRXString = '\\b(?:' + storiesReg + ')\\b';
+    const dryRun = yargs.argv.dry === undefined ? isDryRun : yargs.argv.dry;
+    const percyExecutable = dryRun ? 'snapshots:execute:dry' : 'snapshots:execute';
 
+    console.log(`
+************************************************************
+Running Percy Snapshot(s)...
+Snapshot(s):         ${stories}
+Percy Stories Regex: ${storiesRXString}
+Percy Dry Run:       ${dryRun}
+Running Snapshot(s)...
+************************************************************
+	`);
+
+    return child_process
+        .spawn('npm', ['run', percyExecutable, storiesRX], { stdio: 'inherit' })
+        .on('close', function () {
+            console.log('\nCompleted\n\n');
+        });
+}
+
+// public tasks
+exports.compileModule = compileModule;
+exports.compileAllModules = compileAllModules;
+exports.compileAllBundles = compileAllBundles;
 exports.server = server;
-exports.default = gulp.series(gulp.parallel(modules, megabundle));
+exports.runSnapshots = runSnapshots;
+exports.default = gulp.series(gulp.parallel(compileAllModules, compileAllBundles));

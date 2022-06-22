@@ -1,0 +1,130 @@
+@import "../variables/variables.less";
+@import "../mixins/private/bubble-mixins.less";
+@import "../mixins/private/token-mixins.less";
+
+.infotip {
+    position: relative;
+}
+
+span.infotip {
+    display: inline-block;
+}
+
+.infotip__overlay {
+    .bubble();
+    .background-color-token(infotip-background-color, color-background-primary);
+    .color-token(infotip-foreground-color, color-foreground-primary);
+    display: none;
+    left: 0 - 10px;
+    margin-top: @spacing-200;
+    position: absolute;
+}
+
+.infotip__mask {
+    .bubble-mask();
+    .background-color-token(infotip-background-color, color-background-primary);
+    .color-token(infotip-foreground-color, color-foreground-primary);
+}
+
+span.infotip__mask {
+    display: block;
+}
+
+.infotip__cell {
+    .bubble-cell();
+}
+
+.infotip__content {
+    .bubble-content();
+}
+
+.infotip__pointer {
+    .background-color-token(infotip-background-color, color-background-primary);
+
+    .pointer-base();
+    .pointer-top();
+    .pointer-center();
+}
+
+.infotip__pointer--top-left {
+    .pointer-top-left();
+}
+
+.infotip__pointer--top {
+    .pointer-top-center();
+}
+
+.infotip__pointer--top-right {
+    .pointer-top-right();
+}
+
+.infotip__pointer--bottom-left {
+    .pointer-bottom-left();
+}
+
+.infotip__pointer--bottom {
+    .pointer-bottom-center();
+}
+
+.infotip__pointer--bottom-right {
+    .pointer-bottom-right();
+}
+
+.infotip__pointer--left {
+    .pointer-left();
+}
+
+.infotip__pointer--left-bottom {
+    .pointer-left-bottom();
+}
+
+.infotip__pointer--left-top {
+    .pointer-left-top();
+}
+
+.infotip__pointer--right {
+    .pointer-right();
+}
+
+.infotip__pointer--right-bottom {
+    .pointer-right-bottom();
+}
+
+.infotip__pointer--right-top {
+    .pointer-right-top();
+}
+
+.infotip__heading {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 @spacing-50;
+}
+
+span.infotip__heading {
+    display: block;
+}
+
+.infotip__host[aria-expanded="true"] ~ .infotip__overlay {
+    display: block;
+}
+
+// todo: refactor out this dependency. Use a mixin instead
+.infotip .icon-btn {
+    flex-shrink: 0; // todo: Should move to icon-btn in next major
+    height: 20px;
+    min-width: 20px;
+    outline-offset: 2px;
+    overflow: visible;
+    width: 20px;
+}
+
+button.infotip__close,
+.infotip__close {
+    margin-left: @spacing-200;
+}
+
+@media (min-width: 601px) {
+    .infotip__overlay {
+        .bubble-large-screen();
+    }
+}
