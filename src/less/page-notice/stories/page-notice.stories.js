@@ -126,6 +126,49 @@ export const informationWithLink = () => `
 </section>
 `;
 
+export const dismissableWithTitle = () => `
+<section class="page-notice page-notice--information" role="region" aria-label="Information">
+    <div class="page-notice__header">
+        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h3 class="page-notice__title">Notice Title</h3>
+        <p>Opt into eBay payments before Jan 12th to pay no selling fees.</p>
+        <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
+    </div>
+    <div class="page-notice__footer">
+        <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
+            <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="10" width="10">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </a>
+    </div>
+</section>
+`;
+
+export const dismissableWithoutTitle = () => `
+<section class="page-notice page-notice--information" role="region" aria-label="Information">
+    <div class="page-notice__header">
+        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h3 class="page-notice__title">Opt into eBay payments before Jan 12th to pay no selling fees.</h3>
+        <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
+    </div>
+    <div class="page-notice__footer">
+        <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
+            <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="10" width="10">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </a>
+    </div>
+</section>
+`;
+
 export const formErrors = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
