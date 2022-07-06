@@ -85,6 +85,9 @@ class ModuleBuilder {
         if (this.options.isNested) {
             try {
                 await fs.promises.rm(this.moduleName, { recursive: true });
+                await removeFile(getMJSFileName(this.moduleName));
+                await removeFile(getFileName(this.moduleName, 'js'));
+                await removeFile(getFileName(this.moduleName, 'css'));
             } catch (e) {
                 return;
             }
@@ -122,14 +125,24 @@ class ModuleBuilder {
 
             if (this.options.addIndexModules) {
                 for (const file of Object.keys(this.options.addIndexModules)) {
-                    await this.overrideData(
-                        { hasBaseModule: false },
-                        this.options.addIndexModules[file],
-                        async () => {
-                            await this.writeBrowserJSON(file);
-                            await this.writeModuleFiles(file);
-                        }
-                    );
+                    if (file === this.moduleName) {
+                        await this.overrideData(
+                            { hasBaseModule: false, isNested: false },
+                            this.options.addIndexModules[file],
+                            async () => {
+                                await this.writeModuleFiles(file);
+                            }
+                        );
+                    } else {
+                        await this.overrideData(
+                            { hasBaseModule: false },
+                            this.options.addIndexModules[file],
+                            async () => {
+                                await this.writeBrowserJSON(file);
+                                await this.writeModuleFiles(file);
+                            }
+                        );
+                    }
                 }
             }
 
