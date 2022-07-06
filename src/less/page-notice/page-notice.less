@@ -14,11 +14,13 @@
 
 div[role="region"].page-notice,
 section.page-notice {
-    display: flex;
+    display: grid;
+    // provide explicit structure up front, create loose markup model
+    grid-template-columns: 40px auto auto auto;
 }
 
 span[role="region"].page-notice {
-    display: inline-flex;
+    display: grid;
 }
 
 .page-notice__title {
@@ -93,24 +95,20 @@ span[role="region"].page-notice {
 }
 
 .page-notice__header {
-    align-items: flex-start;
-    display: flex;
-    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
     padding-right: @spacing-200;
 }
 
-.page-notice__main,
-.page-notice__footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.page-notice__main {
+    grid-column: 2;
+    grid-row: 1;
+    padding-right: @spacing-200;
 }
 
 .page-notice__footer {
-    flex-shrink: 0;
-    margin-left: auto;
-    padding-left: @spacing-200;
-    width: auto;
+    grid-column: 4;
+    grid-row: 1;
 }
 
 /* support legacy 6.5 notice with heading + paragaphs */
@@ -119,8 +117,12 @@ span[role="region"].page-notice {
     margin: @spacing-50 0 0;
 }
 
-.page-notice__main p.page-notice__cta {
-    margin-top: 16px;
+p.page-notice__cta {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin-right: @spacing-200;
+    margin-top: @spacing-200;
 }
 
 @media (min-width: 601px) {
@@ -130,32 +132,20 @@ span[role="region"].page-notice {
         margin: @spacing-200 0;
     }
 
-    // for wider viewport widths, use grid layout to more easily move/place elements
-    .page-notice__main {
-        display: grid;
-        justify-content: initial;
-        width: 100%;
-    }
-
     .page-notice__title {
-        grid-column: 1 / 2;
-        grid-row: 1;
         margin-top: 4px;
     }
 
-    .page-notice__main p {
-        grid-column: 1 / 2;
-        grid-row: 2;
-    }
-
-    .page-notice__main p.page-notice__cta {
-        grid-column: 2 / 2;
+    p.page-notice__cta {
+        grid-column: 4;
         grid-row: 1;
         justify-self: end;
         margin-top: 0;
+        padding-right: @spacing-200;
     }
 
     .page-notice__footer {
+        justify-self: end;
         margin-top: 0;
     }
 }

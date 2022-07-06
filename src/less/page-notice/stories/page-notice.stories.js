@@ -136,8 +136,8 @@ export const dismissableWithTitle = () => `
     <div class="page-notice__main">
         <h3 class="page-notice__title">Notice Title</h3>
         <p>Opt into eBay payments before Jan 12th to pay no selling fees.</p>
-        <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     </div>
+    <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="10" width="10">
@@ -157,8 +157,8 @@ export const dismissableWithoutTitle = () => `
     </div>
     <div class="page-notice__main">
         <h3 class="page-notice__title">Opt into eBay payments before Jan 12th to pay no selling fees.</h3>
-        <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     </div>
+    <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="10" width="10">
