@@ -70,18 +70,23 @@ span.select {
     display: none;
 }
 
-.select,
-.select--borderless {
-    select[disabled],
-    select[readonly] {
-        .background-color-token(select-disabled-background-color, color-background-disabled);
-        .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
-        opacity: 1;
+.select select[disabled] {
+    .background-color-token(select-disabled-background-color, color-background-disabled);
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
+    opacity: 1;
+}
 
-        + svg {
-            .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
-        }
-    }
+.select select[disabled] + svg {
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
+}
+
+.select select[readonly] {
+    .background-color-token(select-disabled-background-color, color-background-disabled);
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
+}
+
+.select select[readonly] + svg {
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
 }
 
 .select select[aria-invalid="true"] {
