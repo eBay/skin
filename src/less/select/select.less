@@ -71,18 +71,22 @@ span.select {
 }
 
 .select select[disabled] {
-    .background-color-token(select-disabled-background-color, color-background-secondary);
-    .color-token(select-disabled-foregound-color, color-foreground-ghost);
+    .background-color-token(select-disabled-background-color, color-background-disabled);
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
+    opacity: 1;
 }
 
-.select--borderless select[disabled] {
-    .background-color-token(select-borderless-disabled-background-color, color-background-secondary);
-    .color-token(select-borderless-disabled-foregound-color, color-foreground-disabled);
+.select select[disabled] + svg {
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
 }
 
 .select select[readonly] {
-    .background-color-token(select-disabled-background-color, color-background-secondary);
-    .color-token(select-readonly-foregound-color, color-foreground-ghost);
+    .background-color-token(select-disabled-background-color, color-background-disabled);
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
+}
+
+.select select[readonly] + svg {
+    .color-token(select-disabled-foregound-color, color-foreground-on-disabled);
 }
 
 .select select[aria-invalid="true"] {
@@ -100,10 +104,6 @@ span.select {
 
 .select select[aria-invalid="true"] + svg {
     .color-token(select-invalid-foreground-color, color-foreground-primary);
-}
-
-.select select[disabled] + svg {
-    .color-token(select-disabled-foregound-color, color-foreground-ghost);
 }
 
 // stylelint-disable no-descending-specificity
