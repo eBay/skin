@@ -108,6 +108,38 @@ export const selectInline = () => `
 </span>
 `;
 
+export const selectInlineDoubled = () => `
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--inline">Select Option long text with ellipsis</label>
+    <span class="select">
+        <select aria-label="Select demo" name="options">
+            <option value=""></option>
+            <option value="item1">Pick Option 1 (default)</option>
+            <option value="item2">Pick Option 2</option>
+            <option value="item3">Pick Option 3</option>
+        </select>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</span>
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--inline">Select Option long text</label>
+    <span class="select">
+        <select aria-label="Select demo" name="options">
+            <option value=""></option>
+            <option value="item1">Pick Option 1 (default)</option>
+            <option value="item2">Pick Option 2</option>
+            <option value="item3">Pick Option 3</option>
+        </select>
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</span>
+
+`;
+
 export const RTLSelectInline = () => `
 <div dir="rtl">
     <span class="floating-label">
@@ -125,4 +157,13 @@ export const RTLSelectInline = () => `
         </span>
     </span>
 </div>
+`;
+
+export const TextArea = () => `
+<span class="floating-label">
+    <label class="floating-label__label" for="first-name">Enter list of users</label>
+    <span class="textbox">
+        <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
+    </span>
+</span>
 `;
