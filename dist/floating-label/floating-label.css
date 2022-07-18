@@ -8,20 +8,24 @@ div.floating-label {
   display: block;
 }
 label.floating-label__label {
+  background-color: var(--floating-label-background-color, var(--color-background-secondary));
   color: var(--floating-label-color, var(--color-foreground-primary));
   display: inline-block;
   left: 16px;
   overflow: hidden;
+  padding-top: 3px;
   pointer-events: none;
   position: absolute;
   text-overflow: ellipsis;
+  top: -3px;
   transform: scale(0.75, 0.75) translate(0, 2px);
   transform-origin: left;
   white-space: nowrap;
-  width: calc(100% - 24px);
+  width: calc(100% - 40px);
   z-index: 1;
 }
 label.floating-label__label--focus {
+  background-color: var(--floating-label-focus-background-color, var(--color-background-primary));
   color: var(--color-background-inverse);
 }
 .floating-label--large label.floating-label__label {
@@ -38,10 +42,12 @@ label.floating-label__label--animate {
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 label.floating-label__label--disabled {
+  background-color: var(--floating-label-disabled-background-color, var(--color-background-secondary));
   color: var(--floating-label-disabled-color, var(--color-foreground-disabled));
 }
 label.floating-label__label--invalid {
   color: var(--floating-label-invalid-color, var(--color-foreground-attention));
+  background-color: var(--color-red-1);
 }
 .floating-label .textbox__control,
 .floating-label .combobox__control > input {
@@ -53,16 +59,9 @@ label.floating-label__label--invalid {
   padding-bottom: 5px;
   padding-top: 23px;
 }
-.floating-label .select {
-  margin-right: -24px;
-}
 .floating-label .select select {
   line-height: 52px;
 }
 .floating-label .select--large select {
   line-height: 60px;
-}
-[dir="rtl"] .floating-label .select {
-  margin-left: -24px;
-  margin-right: 0;
 }

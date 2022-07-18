@@ -14,21 +14,25 @@ div.floating-label {
 }
 
 label.floating-label__label {
+    .background-color-token(floating-label-background-color, color-background-secondary);
     .color-token(floating-label-color, color-foreground-primary);
     display: inline-block;
     left: 16px;
     overflow: hidden;
+    padding-top: 3px;
     pointer-events: none;
     position: absolute;
     text-overflow: ellipsis;
+    top: -3px;
     transform: scale(0.75, 0.75) translate(0, 2px);
     transform-origin: left;
     white-space: nowrap;
-    width: calc(100% - 24px);
+    width: calc(100% - 40px);
     z-index: 1;
 }
 
 label.floating-label__label--focus {
+    .background-color-token(floating-label-focus-background-color, color-background-primary);
     color: var(--color-background-inverse);
 }
 
@@ -51,11 +55,14 @@ label.floating-label__label--animate {
 }
 
 label.floating-label__label--disabled {
+    .background-color-token(floating-label-disabled-background-color, color-background-secondary);
     .color-token(floating-label-disabled-color, color-foreground-disabled);
 }
 
 label.floating-label__label--invalid {
     .color-token(floating-label-invalid-color, color-foreground-attention);
+
+    background-color: var(--color-red-1);
 }
 
 .floating-label .textbox__control,
@@ -72,21 +79,10 @@ label.floating-label__label--invalid {
     padding-top: 23px;
 }
 
-// For select floating label
-.floating-label .select {
-    // Reduce space given for floating-label so that it doesn't cover the chevron
-    margin-right: -24px;
-}
-
 .floating-label .select select {
     line-height: 52px;
 }
 
 .floating-label .select--large select {
     line-height: 60px;
-}
-
-[dir="rtl"] .floating-label .select {
-    margin-left: -24px;
-    margin-right: 0;
 }
