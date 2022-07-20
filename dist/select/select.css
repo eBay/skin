@@ -11,7 +11,7 @@ span.select {
      -moz-appearance: none;
           appearance: none;
   background-color: var(--select-background-color, var(--color-background-secondary));
-  border-color: var(--select-border-color, var(--color-foreground-secondary));
+  border-color: var(--select-border-color, var(--color-stroke-default));
   border-radius: var(--select-border-radius, var(--border-radius-50));
   border-style: solid;
   border-width: 1px;
@@ -48,9 +48,9 @@ span.select {
 .select--borderless select:focus {
   text-decoration: underline;
 }
-.select select:focus {
+.select select:focus:not(:read-only) {
   background-color: var(--select-focus-background-color, var(--color-background-primary));
-  border-color: var(--select-focus-border-color, var(--color-foreground-primary));
+  border-color: var(--select-focus-border-color, var(--color-stroke-default));
   outline: 0;
   text-decoration: underline;
 }
@@ -67,24 +67,15 @@ span.select {
 }
 .select select[readonly] {
   background-color: var(--select-disabled-background-color, var(--color-background-disabled));
-  color: var(--select-disabled-foregound-color, var(--color-foreground-on-disabled));
-}
-.select select[readonly] + svg {
-  color: var(--select-disabled-foregound-color, var(--color-foreground-on-disabled));
 }
 .select select[aria-invalid="true"] {
-  background-color: var(--select-invalid-background-color, var(--color-red-1));
   border-color: var(--select-invalid-border-color, var(--color-stroke-attention));
   border-style: solid;
   border-width: 1px;
-  color: var(--select-invalid-foreground-color, var(--color-foreground-primary));
 }
 .select select[aria-invalid="true"]:focus {
   background-color: var(--select-focus-background-color, var(--color-background-primary));
   border-color: var(--select-focus-border-color, var(--color-stroke-default));
-}
-.select select[aria-invalid="true"] + svg {
-  color: var(--select-invalid-foreground-color, var(--color-foreground-primary));
 }
 [dir="rtl"] .select > select {
   padding-left: 30px;

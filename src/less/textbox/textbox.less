@@ -69,19 +69,11 @@ textarea.textbox__control {
     }
 
     &[readonly] {
-        .color-token(textbox-readonly-color, color-foreground-ghost);
+        .background-color-token(textbox-readonly-background-color, color-background-disabled);
     }
 
     &[aria-invalid="true"] {
-        background-color: var(--color-red-1);
         .border-color-token(textbox-invalid-foreground-color, color-stroke-attention);
-    }
-
-    &:focus {
-        .border-color-token(textbox-focus-border-color, color-stroke-default);
-        .background-color-token(textbox-focus-background-color, color-background-primary);
-        .color-token(textbox-focus-foreground-color, color-foreground-secondary);
-        outline: 0;
     }
 
     &::-webkit-input-placeholder {
@@ -131,6 +123,14 @@ input.textbox__control--large {
     > svg:last-child {
         right: @spacing-200;
     }
+}
+
+input.textbox__control:not(:read-only):focus,
+textarea.textbox__control:not(:read-only):focus {
+    .border-color-token(textbox-focus-border-color, color-stroke-default);
+    .background-color-token(textbox-focus-background-color, color-background-primary);
+    .color-token(textbox-focus-foreground-color, color-foreground-secondary);
+    outline: 0;
 }
 
 .textbox > svg:first-child {
