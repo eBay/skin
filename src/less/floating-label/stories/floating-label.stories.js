@@ -49,9 +49,27 @@ export const disabledTextbox = () => `
 
 export const invalidTextbox = () => `
 <span class="floating-label">
-    <label class="floating-label__label" for="firstName">First Name</label>
+    <label class="floating-label__label floating-label__label--inline floating-label__label--invalid" for="firstName">First Name</label>
     <span class="textbox">
         <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" />
+    </span>
+</span>
+`;
+
+export const invalidTextboxWithValue = () => `
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--invalid" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" value="value" />
+    </span>
+</span>
+`;
+
+export const invalidTextboxWithPlaceholder = () => `
+<span class="floating-label">
+    <label class="floating-label__label floating-label__label--invalid" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" placeholder="placeholder" />
     </span>
 </span>
 `;

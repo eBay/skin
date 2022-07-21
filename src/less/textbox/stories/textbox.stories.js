@@ -46,6 +46,18 @@ export const inheritColor = () => `
 </div>
 `;
 
+export const error = () => `
+<span class="textbox">
+    <input class="textbox__control" type="text"  aria-invalid="true" placeholder="placeholder text" />
+</span>
+`;
+
+export const errorWithValue = () => `
+<span class="textbox">
+    <input class="textbox__control" type="text" placeholder="placeholder text" aria-invalid="true" value="value" />
+</span>
+`;
+
 export const fluid = () => `
 <div class="textbox">
     <input class="textbox__control textbox__control--fluid" type="text" placeholder="placeholder text" />
