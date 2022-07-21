@@ -51,7 +51,6 @@ textarea.textbox__control {
     margin: 0; // Remove the margin in Firefox and Safari.
 
     &[disabled] {
-        .background-color-token(textbox-disabled-background-color, color-background-secondary);
         .border-color-token(textbox-disabled-border-color, color-background-disabled);
         .color-token(textbox-disabled-foreground-color, color-foreground-disabled);
 
@@ -69,19 +68,12 @@ textarea.textbox__control {
     }
 
     &[readonly] {
-        .color-token(textbox-readonly-color, color-foreground-on-secondary);
+        background-color: transparent;
+        border: none;
     }
 
     &[aria-invalid="true"] {
-        background-color: var(--color-red-1);
         .border-color-token(textbox-invalid-foreground-color, color-stroke-attention);
-    }
-
-    &:focus {
-        .border-color-token(textbox-focus-border-color, color-stroke-default);
-        .background-color-token(textbox-focus-background-color, color-background-primary);
-        .color-token(textbox-focus-foreground-color, color-foreground-on-secondary);
-        outline: 0;
     }
 
     &::-webkit-input-placeholder {
@@ -131,6 +123,13 @@ input.textbox__control--large {
     > svg:last-child {
         right: @spacing-200;
     }
+}
+
+input.textbox__control:not(:read-only):focus,
+textarea.textbox__control:not(:read-only):focus {
+    .border-color-token(textbox-focus-border-color, color-stroke-default);
+    .background-color-token(textbox-focus-background-color, color-background-primary);
+    outline: 0;
 }
 
 .textbox > svg:first-child {
