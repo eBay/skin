@@ -14,16 +14,22 @@ const cleanCSSInstance = new CleanCSS({
 const currentDir = path.dirname(__dirname);
 const { exec } = require('child_process');
 const bodyMatch = new RegExp('body ?({(?:.|\\s|\\S)*?})', 'm');
+const rootMatch = new RegExp(':root ?({(?:.|\\s|\\S)*?})', 'm');
 
 // The list of directories in the dist to pull
-const dsList = ['ds4', 'ds6'];
+const tokensList = [
+    ['evo-core', 'evo-light'],
+    ['ds4-core', 'ds4-light'],
+];
+const tokensDirList = ['evo', 'ds4'];
 
 /**
  * Main Processing class. Holds info about args passed and ds version
  */
 class CssProcesser {
-    constructor(dsVersion, args) {
-        this.dsVersion = dsVersion;
+    constructor(tokensFile, tokensDir, args) {
+        this.tokensFile = tokensFile;
+        this.tokensDir = tokensDir;
         this.args = args;
         this.processed = [];
         this.skipped = [];
@@ -52,10 +58,11 @@ class CssProcesser {
 
     getDistCss() {
         return new Promise((resolve, reject) => {
-            glob(`${currentDir}/dist/**/${this.dsVersion}/**/*.css`, (err, files) => {
+            glob(`${currentDir}/dist/**/*.css`, (err, files) => {
                 if (err) {
                     return reject(err);
                 }
+                console.log(files);
                 resolve(files);
             });
         });
@@ -80,6 +87,18 @@ class CssProcesser {
         return this.wrap(cssContents);
     }
 
+    rewrapRoot(cssContents) {
+        const root = rootMatch.exec(cssContents);
+        if (root && root[1]) {
+            // Add newroot
+            const newContents = cssContents.replace(rootMatch, '');
+            return `${this.classDef} ${root[1]}
+      ${this.wrap(newContents)}
+     `;
+        }
+        return this.wrap(cssContents);
+    }
+
     /**
      * Generates a raw less file for given css file
      * @param {*} file
@@ -87,8 +106,10 @@ class CssProcesser {
     generateRawLess(file) {
         const fileName = path.basename(file, '.css');
         if (this.args.modules.length > 0 && this.args.modules.indexOf(fileName) === -1) {
-            this.skipped.push(fileName);
-            return '';
+            if (this.tokensFile.indexOf(fileName) === -1) {
+                this.skipped.push(fileName);
+                return '';
+            }
         }
         this.processed.push(fileName);
 
@@ -98,6 +119,9 @@ class CssProcesser {
             // Check if it's global module and change body
             if (fileName === 'global') {
                 return this.rewrapBody(cssContents);
+            }
+            if (this.tokensFile.indexOf(fileName) > -1) {
+                return this.rewrapRoot(cssContents);
             }
             return this.wrap(cssContents);
         }
@@ -109,23 +133,23 @@ class CssProcesser {
             const compiled = files.map((file) => this.generateRawLess(file)).join('\n');
             const processed = this.processed;
             const skipped = this.skipped;
-            const dsVersion = this.dsVersion;
+            const tokensFile = this.tokensFile;
 
             if (this.args.modules.length > 0 || this.args.verbose) {
-                console.log(`Processed ${processed.length} modules for ${dsVersion}`);
+                console.log(`Processed ${processed.length} modules for ${tokensFile}`);
             }
             if (this.args.verbose) {
-                console.log(`Modules processed: ${processed.join(',')} for ${dsVersion}`);
+                console.log(`Modules processed: ${processed.join(',')} for ${tokensFile}`);
 
-                console.log(`Skipped ${skipped.length} modules for ${dsVersion}`);
-                console.log(`Modules skipped: ${skipped.join(',')} for ${dsVersion}`);
+                console.log(`Skipped ${skipped.length} modules for ${tokensFile}`);
+                console.log(`Modules skipped: ${skipped.join(',')} for ${tokensFile}`);
             }
             resolve(compiled);
         });
     }
 
     generateLESS() {
-        return this.getDistCss(this.dsVersion).then((files) => this.processFiles(files));
+        return this.getDistCss(this.tokensFile).then((files) => this.processFiles(files));
     }
 
     compileLess(raw) {
@@ -133,24 +157,24 @@ class CssProcesser {
     }
 
     writeAllFiles(raw) {
-        const cdnPath = getCDNPath(this.args.name, this.dsVersion);
+        const cdnPath = getCDNPath(this.args.name);
         rimraf.sync(cdnPath);
         return makeDir(cdnPath).then(() =>
             writeFile(
-                `${cdnPath}/skin.${this.minify ? 'min.' : ''}css`,
+                `${cdnPath}/skin-${this.tokensDir}.${this.minify ? 'min.' : ''}css`,
                 `/* autoprefixer: off */\n${raw}\n/* autoprefixer: on */`
             )
         );
     }
 }
 
-function getCDNPath(bundle, dsVersion) {
-    return `${currentDir}/_cdn/${bundle}/v${pkg.version}/${dsVersion}`;
+function getCDNPath(bundle) {
+    return `${currentDir}/_cdn/${bundle}/v${pkg.version}`;
 }
 
 /**
  * Runs the compilation of less
- * @param {*} res The response with dsVersion and raw css/less
+ * @param {*} res The response with tokensFile and raw css/less
  * @param {*} plugin The given plugin to run the render with
  */
 /**
@@ -200,8 +224,8 @@ function runCSSBuild(name, args) {
     prebuild()
         .then(() =>
             Promise.all(
-                dsList.map((ds) => {
-                    const cssProcesser = new CssProcesser(ds, args);
+                tokensList.map((token, index) => {
+                    const cssProcesser = new CssProcesser(token, tokensDirList[index], args);
                     return cssProcesser.run();
                 })
             )
@@ -218,11 +242,11 @@ Please upload the ./_cdn/${args.name}/v${pkg.version} directory to CDN
 
 async function listBundles(argv) {
     await prebuild();
-    dsList.forEach((dsVersion) => {
-        const cssProcesser = new CssProcesser(dsVersion, argv);
+    tokensList.forEach((tokensFile) => {
+        const cssProcesser = new CssProcesser(tokensFile, argv);
         cssProcesser.getDistCss().then((files) => {
             console.log(`======================`);
-            console.log(`${dsVersion} - modules avaiable`);
+            console.log(`${tokensFile} - modules avaiable`);
             console.log(`======================`);
             files.forEach((file) => {
                 console.log(path.basename(file, '.css'));
