@@ -1,5 +1,6 @@
 @import "../public/utility-mixins.less";
 
+// Deprecated, remove the gutter sizes next major
 @dialog-small-gutter-size: 16px;
 @dialog-large-gutter-size: 24px;
 @dialog-scrim-color-hide: rgba(17, 24, 32, 0);
@@ -52,7 +53,7 @@
     display: flex;
     // Fix for Safari not honoring min-height
     flex-shrink: 0;
-    margin: @dialog-small-gutter-size (@dialog-small-gutter-size - 8) 0;
+    margin: @spacing-200 @spacing-200 0;
     position: relative;
 
     h1,
@@ -63,18 +64,18 @@
     h6 {
         align-self: center;
         flex: 1 1 auto;
-        margin: 0 8px;
+        margin: 0;
     }
 
     & > :last-child:not(:only-child) {
-        margin-left: 16px;
+        margin-left: @spacing-200;
     }
 }
 
 .dialog-body-content() {
     box-sizing: border-box;
     flex: 1 1 auto;
-    margin: @dialog-small-gutter-size;
+    margin: @spacing-200;
     position: relative;
 
     & > :first-child {
@@ -90,29 +91,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 16px;
+    padding: @spacing-200;
     position: relative;
 
     & > :not(:first-child) {
-        margin-top: 16px;
+        margin-top: @spacing-200;
     }
 }
 
+// Unused, small and large are the same now
 .dialog-header-content-large() {
-    margin: (@dialog-large-gutter-size - 8px) (@dialog-large-gutter-size - 8px) 0;
+    margin: @spacing-200 @spacing-200 0;
 }
 
+// Unused, small and large are the same now
 .dialog-body-content-large() {
-    margin: (@dialog-large-gutter-size - 8px) @dialog-large-gutter-size @dialog-large-gutter-size;
+    margin: @spacing-200;
 }
 
 .dialog-footer-content-large() {
     flex-direction: row;
     justify-content: flex-end;
-    padding: @dialog-large-gutter-size;
+    padding: 0 @spacing-200 @spacing-200;
 
     & > :not(:first-child) {
-        margin-left: @dialog-large-gutter-size;
+        margin-left: @spacing-100;
         margin-top: initial;
     }
 }

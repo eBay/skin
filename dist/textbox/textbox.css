@@ -4,6 +4,7 @@
   position: relative;
 }
 .textbox button.icon-btn {
+  background-color: transparent;
   display: inline-flex;
   height: 100%;
   justify-content: center;
@@ -46,7 +47,6 @@ textarea.textbox__control {
 }
 input.textbox__control[disabled],
 textarea.textbox__control[disabled] {
-  background-color: var(--textbox-disabled-background-color, var(--color-background-secondary));
   border-color: var(--textbox-disabled-border-color, var(--color-background-disabled));
   color: var(--textbox-disabled-foreground-color, var(--color-foreground-disabled));
 }
@@ -64,19 +64,12 @@ textarea.textbox__control[disabled]:-ms-input-placeholder {
 }
 input.textbox__control[readonly],
 textarea.textbox__control[readonly] {
-  color: var(--textbox-readonly-color, var(--color-foreground-on-secondary));
+  background-color: transparent;
+  border: none;
 }
 input.textbox__control[aria-invalid="true"],
 textarea.textbox__control[aria-invalid="true"] {
-  background-color: var(--color-red-1);
   border-color: var(--textbox-invalid-foreground-color, var(--color-stroke-attention));
-}
-input.textbox__control:focus,
-textarea.textbox__control:focus {
-  border-color: var(--textbox-focus-border-color, var(--color-stroke-default));
-  background-color: var(--textbox-focus-background-color, var(--color-background-primary));
-  color: var(--textbox-focus-foreground-color, var(--color-foreground-on-secondary));
-  outline: 0;
 }
 input.textbox__control::-webkit-input-placeholder,
 textarea.textbox__control::-webkit-input-placeholder {
@@ -120,6 +113,12 @@ input.textbox__control--large {
 }
 .textbox--icon-end > svg:last-child {
   right: 16px;
+}
+input.textbox__control:not(:read-only):focus,
+textarea.textbox__control:not(:read-only):focus {
+  border-color: var(--textbox-focus-border-color, var(--color-stroke-default));
+  background-color: var(--textbox-focus-background-color, var(--color-background-primary));
+  outline: 0;
 }
 .textbox > svg:first-child {
   left: 16px;
