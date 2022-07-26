@@ -5,9 +5,9 @@ export const primaryAction = () => `
     <div class="toast-dialog__window">
         <div class="toast-dialog__header">
             <h2>User Privacy Preferences</h2>
-            <button class="icon-btn toast-dialog__close" type="button" aria-label="Close notification dialog">
-                <svg class="icon icon--close" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-close"></use>
+            <button class="icon-btn icon-btn--transparent toast-dialog__close" type="button" aria-label="Close notification dialog">
+                <svg class="icon icon--close icon--close-small" focusable="false">
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -27,9 +27,9 @@ export const secondaryAction = () => `
     <div class="toast-dialog__window">
         <div class="toast-dialog__header">
             <h2>User Privacy Preferences</h2>
-            <button class="icon-btn toast-dialog__close" type="button" aria-label="Close notification dialog">
-                <svg class="icon icon--close" focusable="false" height="24" width="24">
-                    <use xlink:href="#icon-close"></use>
+            <button class="icon-btn icon-btn--transparent toast-dialog__close" type="button" aria-label="Close notification dialog">
+                <svg class="icon icon--close icon--close-small" focusable="false">
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -51,9 +51,9 @@ export const RTL = () => `
         <div class="toast-dialog__window">
             <div class="toast-dialog__header">
                 <h2>User Privacy Preferences</h2>
-                <button style="margin-right: 140px;" class="icon-btn toast-dialog__close" type="button" aria-label="Close notification dialog">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24">
-                        <use xlink:href="#icon-close"></use>
+                <button class="icon-btn icon-btn--transparent toast-dialog__close" type="button" aria-label="Close notification dialog">
+                    <svg class="icon icon--close icon--close-small" focusable="false">
+                        <use href="#icon-close-small"></use>
                     </svg>
                 </button>
             </div>
