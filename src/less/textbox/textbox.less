@@ -71,6 +71,8 @@ textarea.textbox__control {
     &[readonly] {
         background-color: transparent;
         border: none;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     &[aria-invalid="true"] {
@@ -131,6 +133,12 @@ textarea.textbox__control:not(:read-only):focus {
     .border-color-token(textbox-focus-border-color, color-stroke-default);
     .background-color-token(textbox-focus-background-color, color-background-primary);
     outline: 0;
+}
+
+input.textbox__control[readonly]:focus,
+textarea.textbox__control[readonly]:focus {
+    outline: 0;
+    text-decoration: underline;
 }
 
 .textbox > svg:first-child {
