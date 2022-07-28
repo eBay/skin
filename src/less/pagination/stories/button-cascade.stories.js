@@ -1,4 +1,4 @@
-export default { title: 'Pagination/Pagination/Buttons/Cascade' };
+export default { title: 'Pagination/Buttons/Cascade' };
 
 export const fontSize = () => `
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation" style="font-size: 200%">

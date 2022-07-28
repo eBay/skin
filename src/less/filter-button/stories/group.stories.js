@@ -1,4 +1,4 @@
-export default { title: 'Filter/Filter/Button/Group' };
+export default { title: 'Filter/Button/Group' };
 
 export const group = () => `
 <div class="filter-group">

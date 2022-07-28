@@ -1,4 +1,4 @@
-export default { title: 'Snackbar Dialog/Snackbar Dialog/Base' };
+export default { title: 'Snackbar Dialog/Base' };
 
 export const noAction = () => `
     <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog">

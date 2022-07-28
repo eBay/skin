@@ -1,4 +1,4 @@
-export default { title: 'Tooltip/Tooltip/Pointer' };
+export default { title: 'Tooltip/Pointer' };
 
 export const left = () => `
 <span class="tooltip">

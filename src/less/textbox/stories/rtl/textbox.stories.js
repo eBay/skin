@@ -1,4 +1,4 @@
-export default { title: 'Textbox/Textbox/RTL' };
+export default { title: 'Textbox/RTL' };
 
 export const singleLine = () => `
 <div dir="rtl">

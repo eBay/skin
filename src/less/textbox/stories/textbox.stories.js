@@ -1,4 +1,4 @@
-export default { title: 'Textbox/Textbox' };
+export default { title: 'Textbox' };
 
 export const singleLine = () => `
 <span class="textbox">

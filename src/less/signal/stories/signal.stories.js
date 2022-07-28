@@ -1,4 +1,4 @@
-export default { title: 'Hotness Signals/Hotness Signals' };
+export default { title: 'Hotness Signals' };
 
 export const trustWorthy = () => `
 <span class="signal signal--trustworthy">

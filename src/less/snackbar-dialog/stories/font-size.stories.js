@@ -1,4 +1,4 @@
-export default { title: 'Snackbar Dialog/Snackbar Dialog/Font-Size' };
+export default { title: 'Snackbar Dialog/Font-Size' };
 
 export const noAction = () => `
     <div style="font-size: 200%">

@@ -1,4 +1,4 @@
-export default { title: 'Split Button/Split Button/RTL' };
+export default { title: 'Split Button/RTL' };
 
 export const primaryCollapsed = () => `
 <div dir="rtl">

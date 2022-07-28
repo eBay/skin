@@ -1,4 +1,4 @@
-export default { title: 'Toast Dialog/Toast Dialog' };
+export default { title: 'Toast Dialog' };
 
 export const primaryAction = () => `
 <aside class="toast-dialog" aria-label="Notification" aria-live="polite" aria-modal="false" role="dialog">
