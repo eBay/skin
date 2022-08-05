@@ -1,4 +1,4 @@
-export default { title: 'Select/Select' };
+export default { title: 'Select' };
 
 export const defaultSelection = () => `
 <span class="select">

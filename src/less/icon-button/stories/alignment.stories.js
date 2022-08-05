@@ -1,4 +1,4 @@
-export default { title: 'Icon Button/Icon Button/Alignment' };
+export default { title: 'Icon Button/Alignment' };
 
 export const menu = () => `
 <button aria-label="menu" type="button" class="icon-btn">

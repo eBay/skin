@@ -1,4 +1,4 @@
-export default { title: 'Infotip/Infotip' };
+export default { title: 'Infotip' };
 
 export const collapsed = () => `
 <span class="infotip">

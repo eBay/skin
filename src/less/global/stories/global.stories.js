@@ -1,4 +1,4 @@
-export default { title: 'Global/Global' };
+export default { title: 'Global' };
 
 export const headings = () => `
     <h1>This is a level 1 heading</h1>

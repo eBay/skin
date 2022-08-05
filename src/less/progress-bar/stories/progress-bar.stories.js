@@ -1,4 +1,4 @@
-export default { title: 'Progress Bar/Progress Bar' };
+export default { title: 'Progress Bar' };
 
 export const empty = () => `<progress class="progress" value=1 max=100>0%</progress>`;
 

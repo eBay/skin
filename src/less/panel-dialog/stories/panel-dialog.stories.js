@@ -1,4 +1,4 @@
-export default { title: 'Panel Dialog/Panel Dialog' };
+export default { title: 'Panel Dialog' };
 
 export const panelStart = () => `
 <div aria-labelledby="panel-title" aria-modal="true" class="panel-dialog" role="dialog">

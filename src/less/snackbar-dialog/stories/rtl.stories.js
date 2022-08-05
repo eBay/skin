@@ -1,4 +1,4 @@
-export default { title: 'Snackbar Dialog/Snackbar Dialog/RTL' };
+export default { title: 'Snackbar Dialog/RTL' };
 
 export const noAction = () => `
     <div dir="rtl">
