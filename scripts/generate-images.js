@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const currentDir = path.dirname(__dirname);
 const svgDir = path.resolve(currentDir, 'src', 'svg');
+const svgIconDir = path.resolve(currentDir, 'src', 'svg', 'icon');
 const masterIconPath = path.resolve(svgDir, 'icons.svg');
 const jsdom = require('jsdom');
 const prettier = require('prettier');
@@ -27,39 +28,44 @@ async function getFiles(dir) {
 
 class GenerateImages {
     constructor(files, masterIconFile) {
-        this.imageList = {};
+        this.imageList = [];
         this.svgs = files.filter((f) => f.endsWith('.svg') && f !== 'icons.svg');
         this.masterIconSymbols = new JSDOM(masterIconFile);
         this.masterDocument = this.masterIconSymbols.window.document;
         this.masterList = [];
     }
 
-    appendImages(filename, nameObj) {
-        this.imageList[filename].push(nameObj.fullName);
+    processSymbolToSVG(symbol, name) {
+        const newSVGCode = symbol.outerHTML.replace('<svg', '<symbol').replace('</svg', '</symbol');
+
+        const svgJsDom = new JSDOM(newSVGCode, { contentType: 'text/xml' });
+        const svgFragment = svgJsDom.window.document.querySelector('symbol');
+        svgFragment.setAttribute('id', name);
+        svgFragment.removeAttribute('xmlns');
+        return svgFragment;
     }
 
-    async processSvg(filePath, mappedName, filename) {
+    async processSvg(filePath, filename, lessFile) {
         const data = await fs.promises.readFile(filePath, 'utf8');
         const symbols = JSDOM.fragment(data);
+        const symbol = symbols.querySelector('svg');
 
-        const lessFile = [`/* ${genText} */`];
-        symbols.querySelectorAll('symbol').forEach((symbol) => {
-            const nameObj = stripName(symbol.id, mappedName.prefix, mappedName.postfix);
-            this.appendImages(filename, nameObj);
+        const nameObj = stripName(filename);
+        if (config.skipDocs.indexOf(nameObj.simpleName) === -1) {
+            this.imageList.push(nameObj.fullName);
+        }
 
-            this.masterList.push(symbol);
+        // Need to parse it before pushing
+        this.masterList.push(this.processSymbolToSVG(symbol, filename));
 
-            if (config.skip.indexOf(symbol.id) > -1) {
-                return;
-            }
-            const sizes = symbol.getAttribute('viewBox');
-            const [, , width, height] = sizes.split(' ');
-            lessFile.push(
-                `svg.${nameObj.prefix}-${nameObj.name}${nameObj.postfix} { height: ${height}px; width: ${width}px; }`
-            );
-        });
-
-        return lessFile;
+        if (config.skip.indexOf(filename) > -1) {
+            return;
+        }
+        const sizes = symbol.getAttribute('viewBox');
+        const [, , width, height] = sizes.split(' ');
+        lessFile.push(
+            `svg.${nameObj.prefix}-${nameObj.fullName} { height: ${height}px; width: ${width}px; }`
+        );
     }
 
     async run() {
@@ -69,37 +75,23 @@ class GenerateImages {
             masterSvg.removeChild(masterSvg.lastChild);
         }
 
+        const lessFile = [`/* ${genText} */`];
+
         await Promise.all(
             this.svgs.map(async (filePath) => {
-                let filename = path.parse(filePath).name;
-                const writeFilename = filename;
-                if (filename === 'icons') {
-                    return;
-                }
-                let mappedName = config[filename];
-                if (config.icons.file.indexOf(filename) > -1) {
-                    mappedName = config.icons;
-                    filename = 'icons';
-                }
-                if (!mappedName) {
-                    return;
-                }
-
-                this.imageList[filename] = this.imageList[filename] || [];
-
-                const lessFile = await this.processSvg(filePath, mappedName, filename);
-
-                // this.imageList[filename].sort();
-                await fs.promises.writeFile(
-                    `src/less/icon/generated/${writeFilename}.less`,
-                    prettier.format(lessFile.join('\n'), { parser: 'less', tabWidth: 4 })
-                );
+                const filename = path.parse(filePath).name;
+                await this.processSvg(filePath, filename, lessFile);
             })
         );
-        Object.keys(config).forEach((key) => {
-            (this.imageList[key] || []).sort();
-            config[key].list = this.imageList[key] || [];
-        });
+
+        await fs.promises.writeFile(
+            `src/less/icon/generated/icon.less`,
+            prettier.format(lessFile.join('\n'), { parser: 'less', tabWidth: 4 })
+        );
+
+        this.imageList.sort();
+        config.icons.list = this.imageList;
+
         await fs.promises.writeFile(configFilePath, YAML.stringify(config));
 
         this.masterList.sort((a, b) => {
@@ -120,17 +112,17 @@ class GenerateImages {
 }
 
 function stripName(name, mappedPrefix, mappedPostfix) {
-    const matcher = new RegExp(
-        `^((?:${mappedPrefix}-|icon-))([\\w-]+?)((?:${mappedPostfix || ''}|-small))$`
-    );
+    const matcher = new RegExp(`^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`);
     const nameMatch = name.match(matcher);
     if (nameMatch) {
         const [, prefix, newName, postfix] = nameMatch;
+        const fullName = `${newName}${postfix}`;
         return {
             prefix,
             name: newName,
             postfix,
-            fullName: `${newName}${postfix}`,
+            simpleName: prefix === 'icon-' ? fullName : `${prefix}${fullName}`,
+            fullName,
         };
     }
     return {
@@ -139,7 +131,7 @@ function stripName(name, mappedPrefix, mappedPostfix) {
 }
 
 async function runGenerate() {
-    const files = await getFiles(svgDir);
+    const files = await getFiles(svgIconDir);
     const masterIconFile = await fs.promises.readFile(masterIconPath);
 
     const gen = new GenerateImages(files, masterIconFile);

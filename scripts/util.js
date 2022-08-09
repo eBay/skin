@@ -18,6 +18,13 @@ function html2xhtml(html) {
     return prettier.format(parsedString, { parser: 'html' });
 }
 
+function html2xhtml2(html) {
+    const bodyHtml = html.outerHTML;
+    const dom = parse(bodyHtml);
+    const parsedString = `${serializeToString(dom.childNodes[0].childNodes[1].childNodes[0])}\n`;
+    return prettier.format(parsedString, { parser: 'html' });
+}
+
 function rawSvgToHtml(data) {
     return data
         .replace(/<svg.*>/, '<div hidden>\n<svg>')
@@ -35,6 +42,7 @@ async function removeFile(file) {
 
 module.exports = {
     html2xhtml,
+    html2xhtml2,
     rawSvgToHtml,
     removeFile,
 };

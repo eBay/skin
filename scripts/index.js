@@ -4,9 +4,28 @@ const { runImport } = require('./import-svgs');
 const { verifyBuild } = require('./verify-build');
 const { generateTopLevel, cleanTopLevel } = require('./generate-imports');
 const { copySVGIcons, copyCustomStyles } = require('./storybook/copy');
+const { splitter } = require('./split-icon');
 
 require('yargs') // eslint-disable-line
     .usage('Usage: $0 <command> [options]')
+    .command(
+        'split <file>',
+        'generates less files with styles from svg icons',
+        (yargs) => {
+            yargs.positional('svg', {
+                describe: 'SVG file',
+                demand: true,
+                default: '',
+            });
+        },
+        async (argv) => {
+            try {
+                await splitter(argv.file, argv);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    )
     .command(
         'genSVG',
         'generates less files with styles from svg icons',
@@ -19,6 +38,7 @@ require('yargs') // eslint-disable-line
             }
         }
     )
+
     .command(
         'importSVG <svg> <name> <file>',
         'imports given svg into an icon pack or updates if it exists',
