@@ -19,7 +19,7 @@ This page contains instructions and guidelines for anybody contributing code to 
     -   [Custom Property API](#custom-property-api)
     -   [Dark Mode](#dark-mode)
     -   [Storybook](#storybook)
-    -   [Percy](#percy)
+    -   [Visual Regression Testing](#visual-regression-testing)
     -   [Website](#website)
     -   [Scripts](#scripts)
     -   [Icon Creation](#icon-creation)
