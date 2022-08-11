@@ -1,18 +1,25 @@
 // this mixin is used by infotip, tooltip, tourtip
 
+// Deprecated
 @bubble-base-box-shadow: 0 0 3px rgba(17, 24, 32, 0.499);
 
 :root {
+    // Deprecated variables, remove next version
     --bubble-base-box-shadow: @bubble-base-box-shadow;
     --bubble-left-box-shadow: @bubble-base-box-shadow;
     --bubble-right-box-shadow: @bubble-base-box-shadow;
     --bubble-bottom-box-shadow: @bubble-base-box-shadow;
     --bubble-top-box-shadow: @bubble-base-box-shadow;
+    // End deprecated
+
+    --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15))
+        drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
 }
 
 .bubble() {
     .border-radius-token(bubble-border-radius, border-radius-50);
-    .box-shadow-token(bubble-base-box-shadow);
+
+    filter: var(--bubble-filter);
     font-size: 14px;
     max-width: 344px;
     width: max-content;
@@ -32,7 +39,7 @@
 // creates basic layout
 .bubble-cell() {
     display: flex;
-    padding: @spacing-200;
+    padding: @spacing-100 @spacing-200;
     word-break: break-word;
 }
 
@@ -62,30 +69,28 @@
 
 // styles common to all pointers
 .pointer-base() {
-    height: 16px;
+    height: 8px;
     position: absolute;
     transform: rotate(45deg);
-    width: 16px;
+    width: 8px;
     z-index: 0;
 }
 
 .pointer-bottom() {
-    bottom: -7px;
-    .box-shadow-token(bubble-bottom-box-shadow);
+    bottom: -4px;
     top: auto;
 }
 
 .pointer-side-middle() {
-    top: calc(50% - 8px);
+    top: calc(50% - 4px);
 }
 
 .pointer-top() {
-    .box-shadow-token(bubble-top-box-shadow);
-    top: -7px;
+    top: -4px;
 }
 
 .pointer-center() {
-    left: calc(50% - 8px);
+    left: calc(50% - 4px);
 }
 
 .pointer-top-center() {
@@ -127,40 +132,35 @@
 .pointer-left() {
     .pointer-side-middle();
 
-    left: -7px;
+    left: -4px;
 }
 
 .pointer-left-top() {
-    .box-shadow-token(bubble-left-box-shadow);
-    left: -7px;
+    left: -4px;
     top: 12px;
 }
 
 .pointer-left-bottom() {
     bottom: 12px;
-    .box-shadow-token(bubble-left-box-shadow);
-    left: -7px;
+    left: -4px;
     top: auto;
 }
 
 .pointer-right() {
     .pointer-side-middle();
-    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
-    right: -7px;
+    right: -4px;
 }
 
 .pointer-right-top() {
-    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
-    right: -7px;
+    right: -4px;
     top: 12px;
 }
 
 .pointer-right-bottom() {
     bottom: 12px;
-    .box-shadow-token(bubble-right-box-shadow);
     left: auto;
-    right: -7px;
+    right: -4px;
     top: auto;
 }
