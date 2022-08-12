@@ -1,0 +1,84 @@
+:root {
+  --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15)) drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
+}
+.donut-graph {
+  display: block;
+  width: 100%;
+}
+.donut-graph svg {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+}
+.donut-graph__segment {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.donut-graph__segment--primary {
+  fill: var(--donut-chart-primary, var(--color-data-viz-chart-primary));
+  stroke: var(--donut-chart-primary, var(--color-data-viz-chart-primary));
+}
+.donut-graph__segment--secondary {
+  fill: var(--donut-chart-secondary, var(--color-data-viz-chart-secondary));
+  stroke: var(--donut-chart-secondary, var(--color-data-viz-chart-secondary));
+}
+.donut-graph__segment--tertiary {
+  fill: url("#dataVizPattern0");
+  stroke: var(--donut-chart-quaternary, var(--color-data-viz-chart-quaternary-stroke));
+}
+.donut-graph__segment--quaternary {
+  fill: url("#dataVizPattern1");
+  stroke: var(--donut-chart-tertiary, var(--color-data-viz-chart-tertiary-stroke));
+}
+.donut-graph__segment--quinary {
+  fill: var(--donut-chart-quinary-background, var(--color-data-viz-chart-quinary-background));
+  stroke: var(--donut-chart-quinary-stroke, var(--color-data-viz-chart-quinary-stroke));
+}
+.donut-graph--inactive {
+  opacity: 0.2;
+}
+.donut-graph__tooltip {
+  color: var(--color-neutral-7);
+  display: block;
+  font-size: 0.75rem;
+  pointer-events: none;
+  position: fixed;
+}
+.donut-graph__tooltip--top {
+  top: 5px;
+  transform: translate(0, 0) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--left {
+  left: -5px;
+  transform: translate(0, 2.5px) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--right {
+  left: 5px;
+  transform: translate(0, 2.5px) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--bottom {
+  transform: translate(0, 0) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip__label {
+  display: block;
+  font-weight: 700;
+}
+.donut-graph__tooltip__value {
+  display: block;
+}
+.donut-graph__tooltip-container {
+  border-radius: var(--bubble-border-radius, var(--border-radius-50));
+  position: relative;
+  z-index: 1;
+  background-color: var(--donut-tooltip-background-color, var(--color-background-primary));
+  color: var(--donut-tooltip-foreground-color, var(--color-foreground-primary));
+  display: block;
+  filter: var(--bubble-filter);
+  font-size: 14px;
+  max-width: 344px;
+  padding: 8px 16px;
+  top: -10px;
+  transform: translate(-50%, -100%) scale3d(1, 1, 1);
+  white-space: nowrap;
+}

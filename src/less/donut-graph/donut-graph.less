@@ -1,0 +1,87 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/private/bubble-mixins.less";
+
+@inactive-opacity: 0.2;
+
+.donut-graph {
+    display: block;
+    width: 100%;
+}
+
+.donut-graph svg {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.donut-graph__segment {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.donut-graph__segment--primary {
+    .fill-token(donut-chart-primary, color-data-viz-chart-primary);
+    .stroke-token(donut-chart-primary, color-data-viz-chart-primary);
+}
+.donut-graph__segment--secondary {
+    .fill-token(donut-chart-secondary, color-data-viz-chart-secondary);
+    .stroke-token(donut-chart-secondary, color-data-viz-chart-secondary);
+}
+.donut-graph__segment--tertiary {
+    fill: url("#dataVizPattern0");
+    .stroke-token(donut-chart-quaternary, color-data-viz-chart-quaternary-stroke);
+}
+.donut-graph__segment--quaternary {
+    fill: url("#dataVizPattern1");
+    .stroke-token(donut-chart-tertiary, color-data-viz-chart-tertiary-stroke);
+}
+.donut-graph__segment--quinary {
+    .fill-token(donut-chart-quinary-background, color-data-viz-chart-quinary-background);
+    .stroke-token(donut-chart-quinary-stroke, color-data-viz-chart-quinary-stroke);
+}
+.donut-graph--inactive {
+    opacity: @inactive-opacity;
+}
+.donut-graph__tooltip {
+    color: var(--color-neutral-7);
+    display: block;
+    font-size: @font-size-12;
+    pointer-events: none;
+    position: fixed;
+}
+.donut-graph__tooltip--top {
+    top: 5px;
+    transform: translate(0, 0) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--left {
+    left: -5px;
+    transform: translate(0, 2.5px) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--right {
+    left: 5px;
+    transform: translate(0, 2.5px) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip--bottom {
+    transform: translate(0, 0) scale3d(1, 1, 1);
+}
+.donut-graph__tooltip__label {
+    display: block;
+    font-weight: 700;
+}
+.donut-graph__tooltip__value {
+    display: block;
+}
+.donut-graph__tooltip-container {
+    .bubble-mask();
+    .background-color-token(donut-tooltip-background-color, color-background-primary);
+    .color-token(donut-tooltip-foreground-color, color-foreground-primary);
+    display: block;
+    filter: var(--bubble-filter);
+    font-size: 14px;
+    max-width: 344px;
+    padding: @spacing-100 @spacing-200;
+    top: -10px;
+    transform: translate(-50%, -100%) scale3d(1, 1, 1);
+    white-space: nowrap;
+}
