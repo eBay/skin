@@ -1,0 +1,123 @@
+.chart-legend {
+    display: inline-block;
+}
+.chart-legend--hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+.chart-legend__table {
+    flex-shrink: 0;
+}
+.chart-legend ul {
+    list-style: none;
+    margin: 0;
+    padding-inline-start: 24px;
+}
+.chart-legend__item {
+    line-height: 2rem;
+    position: relative;
+    transition: opacity 0.5s;
+    &--patternfill::before {
+        border-radius: 2px;
+        height: 12px;
+        position: relative;
+        top: 1px;
+        width: 12px;
+    }
+    &--primary::before {
+        background-color: var(--data-viz-primary, var(--color-data-viz-primary));
+    }
+    &--secondary::before {
+        background-color: var(--data-viz-secondary, var(--color-data-viz-secondary));
+    }
+    &--tertiary::before {
+        background-color: var(--data-viz-tertiary, var(--color-data-viz-tertiary));
+    }
+    &--quaternary::before {
+        background-color: var(--data-viz-quaternary, var(--color-data-viz-quaternary));
+    }
+    &--quinary::before {
+        background-color: var(--data-viz-quinary, var(--color-data-viz-quinary));
+    }
+    &--senary::before {
+        background-color: var(--data-viz-senary, var(--color-data-viz-senary));
+    }
+    &--septenary::before {
+        background-color: var(--data-viz-septenary, var(--color-data-viz-septenary));
+    }
+    &--octanary::before {
+        background-color: var(--data-viz-octanary, var(--color-data-viz-octanary));
+    }
+    &--pattern-0::before {
+        background: repeating-linear-gradient(
+            -45deg,
+            var(--data-viz-tertiary, var(--color-data-viz-tertiary)),
+            var(--data-viz-tertiary, var(--color-data-viz-tertiary)) 2px,
+            var(--data-viz-primary, var(--color-data-viz-primary)) 2px,
+            var(--data-viz-primary, var(--color-data-viz-primary)) 4px
+        );
+        background-color: var(--data-viz-primary, var(--color-data-viz-primary));
+    }
+    &--pattern-1::before {
+        background-color: var(--data-viz-septenary, var(--color-data-viz-septenary));
+        background-image: repeating-linear-gradient(
+                45deg,
+                var(--data-viz-senary, var(--color-data-viz-senary)) 25%,
+                transparent 25%,
+                transparent 75%,
+                var(--data-viz-senary, var(--color-data-viz-senary)) 75%,
+                var(--data-viz-senary, var(--color-data-viz-senary))
+            ),
+            repeating-linear-gradient(
+                45deg,
+                var(--data-viz-senary, var(--color-data-viz-senary)) 25%,
+                var(--data-viz-septenary, var(--color-data-viz-septenary)) 25%,
+                var(--data-viz-septenary, var(--color-data-viz-septenary)) 75%,
+                var(--data-viz-senary, var(--color-data-viz-senary)) 75%,
+                var(--data-viz-senary, var(--color-data-viz-senary))
+            );
+        background-position: 0 0, 6px 6px;
+        background-size: 12px 12px;
+    }
+    &--pattern-2::before {
+        background-color: var(--data-viz-quinary, var(--color-data-viz-quinary));
+    }
+}
+.chart-legend__table ul {
+    width: 100%;
+}
+.chart-legend__table li {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+.chart-legend__table li span {
+    flex-grow: 1;
+    text-align: right;
+}
+.chart-legend ul li::before {
+    border-radius: 5px;
+    content: "";
+    display: inline-block;
+    height: 10px;
+    margin-right: 10px;
+    width: 10px;
+}
+.chart-legend ul li::after {
+    background-color: rgba(0, 0, 0, 0);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.chart-legend--inactive {
+    opacity: 0.2;
+}
