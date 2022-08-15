@@ -5,7 +5,7 @@ div.filter-group {
 button.filter-button,
 a.filter-link {
   align-items: center;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 16px;
   box-sizing: border-box;
   color: var(--filter-button-foreground-color, var(--color-foreground-primary));
@@ -19,7 +19,7 @@ a.filter-link {
   margin: 0;
   max-width: 280px;
   min-width: 56px;
-  padding: 8px 16px;
+  padding: 0 16px;
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
@@ -37,7 +37,7 @@ button.filter-button:hover,
 a.filter-link:hover,
 button.filter-button:active,
 a.filter-link:active {
-  background-color: var(--color-state-secondary-hover);
+  background-color: var(--filter-button-background-color, var(--color-state-secondary-hover));
 }
 button.filter-button .filter-button__cell,
 a.filter-link .filter-link__cell {
@@ -53,20 +53,11 @@ a.filter-link:visited {
 }
 button.filter-button[aria-pressed="true"],
 a.filter-link--selected {
-  background-color: var(--filter-button-selected-background-color, var(--color-background-inverse));
-  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse));
+  border-color: var(--filter-button-selected-border-color, var(--color-foreground-primary));
   font-weight: bold;
 }
-button.filter-button[aria-pressed="true"]:focus,
-a.filter-link--selected:focus,
-button.filter-button[aria-pressed="true"]:hover,
-a.filter-link--selected:hover,
-button.filter-button[aria-pressed="true"]:active,
-a.filter-link--selected:active {
-  background-color: var(--color-state-inverse-hover);
-}
 a.filter-link--selected:visited {
-  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse));
+  border-color: var(--filter-button-selected-border-color, var(--color-foreground-primary));
 }
 button.filter-button[disabled],
 button.filter-button[aria-disabled="true"],
@@ -96,13 +87,13 @@ a.filter-link[aria-disabled="true"]:focus,
 a.filter-link--selected:not([href]):focus,
 a.filter-link--selected[aria-disabled="true"]:focus {
   background-color: var(--filter-button-background-color, var(--color-background-secondary));
-  color: var(--filter-button-disabled-foreground-color, var(--color-background-disabled));
+  color: var(--filter-button-disabled-foreground-color, var(--color-foreground-disabled));
 }
 button.filter-button[aria-pressed="true"][disabled]:hover,
 button.filter-button[aria-pressed="true"][aria-disabled="true"]:hover,
 a.filter-link--selected:not([href]):hover,
 a.filter-link--selected[aria-disabled="true"]:hover {
-  background-color: var(--filter-button-selected-background-color, var(--color-background-disabled));
+  background-color: var(--filter-button-selected-background-color, var(--color-state-secondary-hover));
 }
 a.filter-link:focus:not(:focus-visible),
 button.filter-button:focus:not(:focus-visible) {
