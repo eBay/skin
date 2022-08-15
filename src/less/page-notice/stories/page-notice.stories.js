@@ -33,8 +33,8 @@ export const generalWithLink = () => `
 export const confirmationWithButton = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg class="icon icon--confirmation-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+            <use xlink:href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -49,8 +49,8 @@ export const confirmationWithButton = () => `
 export const confirmationWithLink = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg class="icon icon--confirmation-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+            <use xlink:href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -65,8 +65,8 @@ export const confirmationWithLink = () => `
 export const attentionWithButton = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -81,8 +81,8 @@ export const attentionWithButton = () => `
 export const attentionWithLink = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -97,8 +97,8 @@ export const attentionWithLink = () => `
 export const informationWithButton = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -113,8 +113,8 @@ export const informationWithButton = () => `
 export const informationWithLink = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -129,8 +129,8 @@ export const informationWithLink = () => `
 export const dismissableWithTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -151,8 +151,8 @@ export const dismissableWithTitle = () => `
 export const dismissableWithoutTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled" focusable="false" height="24" width="24" role="img" aria-label="Information">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use xlink:href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -172,8 +172,8 @@ export const dismissableWithoutTitle = () => `
 export const formErrors = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled" focusable="false" height="24" width="24" role="img" aria-label="Attention">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use xlink:href="#icon-attention-filled-small"></use>
         </svg>
     </div>
     <div class="page-notice__main">
