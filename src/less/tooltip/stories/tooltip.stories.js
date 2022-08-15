@@ -26,7 +26,7 @@ export const expanded = () => `
             <use xlink:href="#icon-settings"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="bottom: calc(100% - 100px); left: 0">
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="bottom: calc(100% - 90px); left: 4px">
         <span class="tooltip__pointer tooltip__pointer--top-left"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
