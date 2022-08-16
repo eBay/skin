@@ -33,8 +33,8 @@ export const generalWithLink = () => `
 export const confirmationWithButton = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -49,8 +49,8 @@ export const confirmationWithButton = () => `
 export const confirmationWithLink = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -65,8 +65,8 @@ export const confirmationWithLink = () => `
 export const attentionWithButton = () => `
 <div class="section-notice section-notice--attention" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--attention-filled-small">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -81,8 +81,8 @@ export const attentionWithButton = () => `
 export const attentionWithLink = () => `
 <div class="section-notice section-notice--attention" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--attention-filled">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--attention-filled-small">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -97,8 +97,8 @@ export const attentionWithLink = () => `
 export const informationWithButton = () => `
 <div class="section-notice section-notice--information" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--information-filled-small">
+            <use href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -113,8 +113,8 @@ export const informationWithButton = () => `
 export const informationWithLink = () => `
 <div class="section-notice section-notice--information" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--information-filled">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--information-filled-small">
+            <use href="#icon-information-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
