@@ -4,8 +4,8 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
-            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-                <use xlink:href="#icon-confirmation-filled"></use>
+            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+                <use href="#icon-confirmation-filled-small"></use>
             </svg>
         </div>
         <div class="section-notice__main">
@@ -21,8 +21,8 @@ export const RTL = () => `
 export const longText = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -34,8 +34,8 @@ export const longText = () => `
 export const longTextWithCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -50,8 +50,8 @@ export const longTextWithCTA = () => `
 export const legacy = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -64,8 +64,8 @@ export const legacy = () => `
 export const legacyWithCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </div>
     <div class="section-notice__main">
