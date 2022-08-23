@@ -1,4 +1,4 @@
-export default { title: 'Checkbox/Checkbox/Mixed' };
+export default { title: 'Checkbox/Mixed' };
 
 export const base = () => `
 <span class="checkbox">

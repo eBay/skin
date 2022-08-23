@@ -1,4 +1,4 @@
-export default { title: 'Field/Field/Unstacked' };
+export default { title: 'Field/Unstacked' };
 
 export const inlineLevel = () => `
 <span class="field">

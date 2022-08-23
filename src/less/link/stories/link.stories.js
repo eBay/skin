@@ -1,4 +1,4 @@
-export default { title: 'Link/Link' };
+export default { title: 'Link' };
 
 export const base = () => `
 <a href="https://www.ebay.com/urw/ZTE-AXON-7-Mini-32GB-Ion-Gold-Unlocked-Smartphone/product-reviews/230215749?_itm=222972816761">Link</a>

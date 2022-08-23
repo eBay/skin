@@ -1,4 +1,4 @@
-export default { title: 'Breadcrumbs/Breadcrumbs/Links' };
+export default { title: 'Breadcrumbs/Links' };
 
 export const currentLocation = () => `
 <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">

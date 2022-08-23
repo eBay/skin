@@ -1,4 +1,4 @@
-export default { title: 'Filter/Filter/Button' };
+export default { title: 'Filter/Button' };
 
 export const base = () => `
 <button type="button" class="filter-button">

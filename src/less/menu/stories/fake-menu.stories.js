@@ -1,4 +1,4 @@
-export default { title: 'Menu/Menu/Fake Menu' };
+export default { title: 'Menu/Fake Menu' };
 
 export const links = () => `
 <div class="fake-menu">

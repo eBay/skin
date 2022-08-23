@@ -1,16 +1,89 @@
-@import "./aliased.less";
-@import "./direction.less";
-@import "./large.less";
-@import "./reviews.less";
-@import "./user.less";
-@import "./content.less";
-@import "./filter.less";
-@import "./interface.less";
-@import "./media.less";
-@import "./shipping.less";
-@import "./device.less";
-@import "./general.less";
-@import "./internal.less";
-@import "./photo.less";
-@import "./status.less";
-@import "./social.less";
+@import "./generated/icon.less";
+@import "../mixins/private/icon-mixins.less";
+@import "../mixins/private/token-mixins.less";
+
+svg {
+    &.icon {
+        .icon-base-mixin();
+    }
+    &.icon--disabled {
+        .color-token(color-foreground-disabled);
+        fill: currentColor;
+    }
+    &.icon--attention-filled {
+        .color-token(color-foreground-attention);
+    }
+    &.icon--confirmation-filled {
+        .color-token(color-foreground-confirmation);
+    }
+    &.icon--information-filled {
+        .color-token(color-foreground-information);
+    }
+    &.icon--star-empty {
+        .color-token(color-foreground-disabled);
+    }
+    &.icon--attention-filled-small {
+        .color-token(color-foreground-attention);
+    }
+    &.icon--confirmation-filled-small {
+        .color-token(color-foreground-confirmation);
+    }
+    &.icon--information-filled-small {
+        .color-token(color-foreground-information);
+    }
+    &.icon--star-empty-small {
+        .color-token(color-foreground-disabled);
+    }
+    // todo: these should be .color-token(icon-foreground-color, color-foreground-primary) ?
+    &.icon--social-link {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-discord {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-facebook {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-messenger {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-pinterest {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-reddit {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-twitter {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-whatsapp {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--social-linkedin {
+        .color-token(color-social-icons-background);
+    }
+    &.icon--spinner-large {
+        .icon-image-mixin("spinner-large");
+    }
+    &.icon--dropdown {
+        height: 8px;
+        width: 8px;
+    }
+    &.icon--breadcrumb {
+        height: 8px;
+        width: 8px;
+    }
+}
+[dir="rtl"] svg {
+    &.icon--back,
+    &.icon--breadcrumb,
+    &.icon--carousel-next,
+    &.icon--carousel-prev,
+    &.icon--chevron-left,
+    &.icon--chevron-right,
+    &.icon--cta,
+    &.icon--pagination-next,
+    &.icon--pagination-prev {
+        transform: rotate(180deg);
+    }
+}

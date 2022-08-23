@@ -1,10 +1,10 @@
-export default { title: 'Inline Notice/Inline Notice' };
+export default { title: 'Inline Notice' };
 
 export const confirmation = () => `
 <div class="inline-notice inline-notice--confirmation">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--confirmation-filled" role="img">
-            <use xlink:href="#icon-confirmation-filled"></use>
+        <svg focusable="false" class="icon icon--confirmation-filled-small" role="img">
+            <use href="#icon-confirmation-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -17,8 +17,8 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="inline-notice inline-notice--confirmation">
         <span class="inline-notice__header">
-            <svg focusable="false" class="icon icon--confirmation-filled" role="img">
-                <use xlink:href="#icon-confirmation-filled"></use>
+            <svg focusable="false" class="icon icon--confirmation-filled-small" role="img">
+                <use href="#icon-confirmation-filled-small"></use>
             </svg>
         </span>
         <span class="inline-notice__main">
@@ -31,8 +31,8 @@ export const RTL = () => `
 export const attention = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled" role="img">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small" role="img">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -44,8 +44,8 @@ export const attention = () => `
 export const information = () => `
 <div class="inline-notice inline-notice--information">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--information-filled" role="img">
-            <use xlink:href="#icon-information-filled"></use>
+        <svg focusable="false" class="icon icon--information-filled-small" role="img">
+            <use href="#icon-information-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -65,8 +65,8 @@ export const general = () => `
 export const paragraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled" role="img">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small" role="img">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -79,8 +79,8 @@ export const paragraphAndLink = () => `
 export const longParagraph = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled" role="img">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small" role="img">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -92,8 +92,8 @@ export const longParagraph = () => `
 export const longParagraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header" role="img">
-        <svg focusable="false" class="icon icon--attention-filled">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -106,8 +106,8 @@ export const longParagraphAndLink = () => `
 export const multiParagraph = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled" role="img">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small" role="img">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -120,8 +120,8 @@ export const multiParagraph = () => `
 export const multiParagraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled" role="img">
-            <use xlink:href="#icon-attention-filled"></use>
+        <svg focusable="false" class="icon icon--attention-filled-small" role="img">
+            <use href="#icon-attention-filled-small"></use>
         </svg>
     </span>
     <span class="inline-notice__main">
@@ -136,8 +136,8 @@ export const longWordInConstrainedWidth = () => `
 <div style="width:300px;">
     <div class="inline-notice inline-notice--confirmation">
         <span class="inline-notice__header">
-            <svg focusable="false" class="icon icon--confirmation-filled" role="img">
-                <use xlink:href="#icon-confirmation-filled"></use>
+            <svg focusable="false" class="icon icon--confirmation-filled-small" role="img">
+                <use href="#icon-confirmation-filled-small"></use>
             </svg>
         </span>
         <span class="inline-notice__main">

@@ -11,7 +11,7 @@ span.filter-menu-button + span.filter-menu-button {
 }
 button.filter-menu-button__button {
   align-items: center;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 16px;
   box-sizing: border-box;
   color: var(--filter-button-foreground-color, var(--color-foreground-primary));
@@ -25,7 +25,7 @@ button.filter-menu-button__button {
   margin: 0;
   max-width: 280px;
   min-width: 56px;
-  padding: 8px 16px;
+  padding: 0 16px;
   text-align: center;
   text-decoration: none;
   vertical-align: bottom;
@@ -37,7 +37,7 @@ button.filter-menu-button__button + button.filter-menu-button__button {
 button.filter-menu-button__button:focus,
 button.filter-menu-button__button:hover,
 button.filter-menu-button__button:active {
-  background-color: var(--color-state-secondary-hover);
+  background-color: var(--filter-button-background-color, var(--color-state-secondary-hover));
 }
 .filter-menu-button__button-cell {
   display: flex;
@@ -60,17 +60,8 @@ button.filter-menu-button__button:active {
   transform: rotate(180deg);
 }
 button.filter-menu-button__button[aria-pressed="true"] {
-  background-color: var(--filter-button-selected-background-color, var(--color-background-inverse));
-  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse));
+  border-color: var(--filter-button-foreground-color, var(--color-foreground-primary));
   font-weight: bold;
-}
-button.filter-menu-button__button[aria-pressed="true"] svg.icon {
-  color: var(--filter-button-selected-foreground-color, var(--color-foreground-on-inverse));
-}
-button.filter-menu-button__button[aria-pressed="true"]:focus,
-button.filter-menu-button__button[aria-pressed="true"]:hover,
-button.filter-menu-button__button[aria-pressed="true"]:active {
-  background-color: var(--color-state-inverse-hover);
 }
 button.filter-menu-button__button[disabled],
 button.filter-menu-button__button[aria-disabled="true"],
@@ -88,7 +79,7 @@ button.filter-menu-button__button[aria-disabled="true"]:focus,
 button.filter-menu-button__button[aria-pressed="true"][disabled]:focus,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:focus {
   background-color: var(--filter-button-background-color, var(--color-background-secondary));
-  color: var(--filter-button-disabled-foreground-color, var(--color-foreground-disabled));
+  color: var(--filter-button-disabled-foreground-color, var(--color-background-disabled));
 }
 button.filter-menu-button__button[disabled] .filter-menu-button__button-cell > svg.icon,
 button.filter-menu-button__button[aria-disabled="true"] .filter-menu-button__button-cell > svg.icon,
@@ -98,10 +89,10 @@ button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"] .fi
 }
 button.filter-menu-button__button[aria-pressed="true"][disabled]:hover,
 button.filter-menu-button__button[aria-pressed="true"][aria-disabled="true"]:hover {
-  background-color: var(--filter-button-selected-background-color, var(--color-foreground-disabled));
+  background-color: var(--filter-button-selected-background-color, var(--color-background-secondary));
 }
 .filter-menu-button__menu {
-  background-color: var(--filter-menu-item-background-color, var(--color-background-primary));
+  background-color: var(--filter-menu-item-background-color, var(--color-background-secondary));
   border: none;
   border-radius: 16px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);

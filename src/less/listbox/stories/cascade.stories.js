@@ -1,4 +1,4 @@
-export default { title: 'Listbox/Listbox/Cascade' };
+export default { title: 'Listbox/Cascade' };
 
 export const RTL = () => `
 <span class="listbox" dir="rtl">

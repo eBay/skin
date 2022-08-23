@@ -1,4 +1,4 @@
-export default { title: 'Combobox/Combobox' };
+export default { title: 'Combobox' };
 
 export const collapsed = () => `
 <span class="combobox">
