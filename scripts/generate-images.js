@@ -26,6 +26,16 @@ async function getFiles(dir) {
     return Array.prototype.concat(...files);
 }
 
+function sortMethod({ id: a }, { id: b }) {
+    if (a < b) {
+        return -1;
+    }
+    if (a > b) {
+        return 1;
+    }
+    return 0;
+}
+
 class GenerateImages {
     constructor(files, masterIconFile) {
         this.imageList = [];
@@ -63,9 +73,11 @@ class GenerateImages {
         }
         const sizes = symbol.getAttribute('viewBox');
         const [, , width, height] = sizes.split(' ');
-        lessFile.push(
-            `svg.${nameObj.prefix}-${nameObj.fullName} { height: ${height}px; width: ${width}px; }`
-        );
+        const id = `${nameObj.prefix}-${nameObj.fullName}`;
+        lessFile.push({
+            id,
+            data: `svg.${id} { height: ${height}px; width: ${width}px; }`,
+        });
     }
 
     async run() {
@@ -75,7 +87,7 @@ class GenerateImages {
             masterSvg.removeChild(masterSvg.lastChild);
         }
 
-        const lessFile = [`/* ${genText} */`];
+        const lessFile = [];
 
         await Promise.all(
             this.svgs.map(async (filePath) => {
@@ -84,9 +96,14 @@ class GenerateImages {
             })
         );
 
+        lessFile.sort(sortMethod);
+
         await fs.promises.writeFile(
             `src/less/icon/generated/icon.less`,
-            prettier.format(lessFile.join('\n'), { parser: 'less', tabWidth: 4 })
+            prettier.format(
+                [`/* ${genText} */`].concat(lessFile.map(({ data }) => data)).join('\n'),
+                { parser: 'less', tabWidth: 4 }
+            )
         );
 
         this.imageList.sort();
@@ -94,15 +111,7 @@ class GenerateImages {
 
         await fs.promises.writeFile(configFilePath, YAML.stringify(config));
 
-        this.masterList.sort((a, b) => {
-            if (a.id < b.id) {
-                return -1;
-            }
-            if (a.id > b.id) {
-                return 1;
-            }
-            return 0;
-        });
+        this.masterList.sort(sortMethod);
         this.masterList.forEach((symbol) => {
             this.masterDocument.querySelector('svg').appendChild(symbol);
         });
