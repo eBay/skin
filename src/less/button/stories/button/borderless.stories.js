@@ -26,3 +26,11 @@ export const ariaDisabled = () => `<button class="btn btn--borderless" aria-disa
         </svg>
     </span>
 </button>`;
+
+export const empty = () => `<button class="btn btn--borderless" disabled="true">
+    <span class="btn__cell">
+        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
+            <use xlink:href="#icon-dropdown"></use>
+        </svg>
+    </span>
+</button>`;
