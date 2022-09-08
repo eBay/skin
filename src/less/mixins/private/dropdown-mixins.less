@@ -9,6 +9,7 @@
     .box-shadow-token(~"@{component}-box-shadow", dropdown-box-shadow);
     box-sizing: border-box;
     display: none;
+    left: 0;
     max-height: 400px;
     min-width: 100%;
     overflow-y: auto;
@@ -16,6 +17,21 @@
     top: calc(100% + 4px);
     width: auto;
     z-index: 2;
+
+    [dir="rtl"] & {
+        left: unset;
+        right: 0;
+    }
+}
+
+.dropdown-reverse() {
+    left: unset;
+    right: 0;
+
+    [dir="rtl"] & {
+        left: 0;
+        right: unset;
+    }
 }
 
 .dropdown-item-border-radius(@component) {

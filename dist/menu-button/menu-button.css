@@ -13,6 +13,7 @@
   box-shadow: var(--menu-button-menu-box-shadow, var(--dropdown-box-shadow));
   box-sizing: border-box;
   display: none;
+  left: 0;
   max-height: 400px;
   min-width: 100%;
   overflow-y: auto;
@@ -21,6 +22,11 @@
   width: auto;
   z-index: 2;
   outline: 0;
+}
+[dir="rtl"] .menu-button__menu,
+[dir="rtl"] .fake-menu-button__menu {
+  left: unset;
+  right: 0;
 }
 span.menu-button__button,
 span.fake-menu-button__button {
@@ -189,12 +195,13 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 }
 .menu-button__menu--reverse,
 .fake-menu-button__menu--reverse {
+  left: unset;
   right: 0;
 }
 [dir="rtl"] .menu-button__menu--reverse,
 [dir="rtl"] .fake-menu-button__menu--reverse {
   left: 0;
-  right: inherit;
+  right: unset;
 }
 .menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu-button__button[aria-expanded="true"] ~ .fake-menu-button__menu,
