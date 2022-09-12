@@ -72,7 +72,8 @@ hr.progress-stepper__separator {
 .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
   background-image: linear-gradient(90deg, var(--progress-stepper-active-color, var(--color-background-information)) 50%, var(--progress-stepper-upcoming-color, var(--color-background-disabled)) 50%);
 }
-.progress-stepper__item--attention[aria-current] ~ hr.progress-stepper__separator {
+.progress-stepper__item--attention[aria-current] ~ hr.progress-stepper__separator,
+.progress-stepper__items--current .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
   background-color: var(--progress-stepper-upcoming-color, var(--color-background-disabled));
   background-image: none;
 }
@@ -102,7 +103,8 @@ hr.progress-stepper__separator {
 .progress-stepper--vertical .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
   background: linear-gradient(180deg, var(--progress-stepper-active-color, var(--color-background-information)) 50%, var(--progress-stepper-upcoming-color, var(--color-background-disabled)) 50%);
 }
-.progress-stepper--vertical .progress-stepper__item--attention[aria-current] ~ hr.progress-stepper__separator {
+.progress-stepper--vertical .progress-stepper__item--attention[aria-current] ~ hr.progress-stepper__separator,
+.progress-stepper--vertical .progress-stepper__items--current .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
   background-color: var(--progress-stepper-upcoming-color, var(--color-background-disabled));
   background-image: none;
 }
@@ -141,8 +143,16 @@ hr.progress-stepper__separator {
 [dir="rtl"] .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
   background-image: linear-gradient(90deg, var(--progress-stepper-upcoming-color, var(--color-background-disabled)) 50%, var(--progress-stepper-active-color, var(--color-background-information)) 50%);
 }
+[dir="rtl"] .progress-stepper__items--current .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
+  background-color: var(--progress-stepper-upcoming-color, var(--color-background-disabled));
+  background-image: none;
+}
 [dir="rtl"] .progress-stepper--vertical .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
   background: linear-gradient(180deg, var(--progress-stepper-active-color, var(--color-background-information)) 50%, var(--progress-stepper-upcoming-color, var(--color-background-disabled)) 50%);
+}
+[dir="rtl"] .progress-stepper--vertical .progress-stepper__items--current .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
+  background-color: var(--progress-stepper-upcoming-color, var(--color-background-disabled));
+  background-image: none;
 }
 [dir="rtl"] .progress-stepper__item:last-child .progress-stepper__text {
   margin-left: 4px;

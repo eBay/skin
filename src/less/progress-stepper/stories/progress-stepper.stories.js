@@ -159,6 +159,60 @@ export const allSelected = () => `
 </div>
 `;
 
+export const currentBubble = () => `
+<div class="progress-stepper">
+    <div class="progress-stepper__items  progress-stepper__items--current" role="list">
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Started</h4>
+                <p>July 3rd</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Shipped</h4>
+                <p>July 4th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div aria-current="step" class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-current"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Transit</h4>
+                <p>July 5th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-upcoming"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Delivered</h4>
+                <p>July 6th</p>
+            </span>
+        </div>
+    </div>
+</div>
+`;
+
 export const noneSelected = () => `
 <div class="progress-stepper">
     <div class="progress-stepper__items  progress-stepper__items--upcoming" role="list">
@@ -266,6 +320,60 @@ export const RTL = () => `
     </div>
 </div>
 
+`;
+
+export const currentBubbleRTL = () => `
+<div class="progress-stepper" dir="rtl">
+    <div class="progress-stepper__items  progress-stepper__items--current" role="list">
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Started</h4>
+                <p>July 3rd</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Shipped</h4>
+                <p>July 4th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div aria-current="step" class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-current"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Transit</h4>
+                <p>July 5th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-upcoming"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Delivered</h4>
+                <p>July 6th</p>
+            </span>
+        </div>
+    </div>
+</div>
 `;
 
 export const vertical = () => `
@@ -431,6 +539,116 @@ export const verticalRTL = () => `
                 <span class="progress-stepper__text">
                     <h3>Delivered</h3>
                     <p>Guaranteed Wednesday, October 09.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+export const currentBubbleVertical = () => `
+<div class="progress-stepper progress-stepper--vertical">
+    <div class="progress-stepper__items  progress-stepper__items--current" role="list">
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Started</h4>
+                <p>July 3rd</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-confirmation"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Shipped</h4>
+                <p>July 4th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div aria-current="step" class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-current"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Transit</h4>
+                <p>July 5th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-upcoming"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Delivered</h4>
+                <p>July 6th</p>
+            </span>
+        </div>
+    </div>
+</div>
+`;
+
+export const currentBubbleVerticalRTL = () => `
+<div dir="rtl">
+    <div class="progress-stepper progress-stepper--vertical">
+        <div class="progress-stepper__items  progress-stepper__items--current" role="list">
+            <div class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-confirmation"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Started</h4>
+                    <p>July 3rd</p>
+                </span>
+            </div>
+            <hr class="progress-stepper__separator" role="presentation" />
+            <div class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-confirmation"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Shipped</h4>
+                    <p>July 4th</p>
+                </span>
+            </div>
+            <hr class="progress-stepper__separator" role="presentation" />
+            <div aria-current="step" class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-current"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Transit</h4>
+                    <p>July 5th</p>
+                </span>
+            </div>
+            <hr class="progress-stepper__separator" role="presentation" />
+            <div class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-upcoming"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Delivered</h4>
+                    <p>July 6th</p>
                 </span>
             </div>
         </div>
