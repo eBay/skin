@@ -76,12 +76,6 @@ button.fake-menu-button__item {
     text-align: left;
 }
 
-a.fake-menu-button__item:not([href]),
-button.fake-menu-button__item[disabled],
-div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
-    .color-token(menu-button-menuitem-disabled-foreground-color, color-foreground-disabled);
-}
-
 a.fake-menu-button__item[aria-current="page"] svg.icon--tick-small,
 button.fake-menu-button__item[aria-current="page"] svg.icon--tick-small {
     opacity: 1;
@@ -94,6 +88,12 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon--tick-smal
 .fake-menu-button__menu a.fake-menu-button__item,
 .fake-menu-button__menu button.fake-menu-button__item {
     .menu-menuitem-base(menu-button);
+}
+
+.fake-menu-button__menu a.fake-menu-button__item:not([href]),
+.fake-menu-button__menu button.fake-menu-button__item[disabled],
+.fake-menu-button__menu div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
+    .color-token(menu-button-menuitem-disabled-foreground-color, color-foreground-disabled);
 }
 
 .fake-menu-button__menu > li:first-child a.fake-menu-button__item {
