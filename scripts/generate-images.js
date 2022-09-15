@@ -72,6 +72,12 @@ class GenerateImages {
             return;
         }
         const sizes = symbol.getAttribute('viewBox');
+
+        if (sizes === null) {
+            console.log('ERROR: viewbox dimensions missing from ' + filename);
+            return;
+        }
+
         const [, , width, height] = sizes.split(' ');
         const id = `${nameObj.prefix}-${nameObj.fullName}`;
         lessFile.push({
