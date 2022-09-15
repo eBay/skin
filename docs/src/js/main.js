@@ -171,13 +171,17 @@ document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
 });
 
 // INFOTIP
-document.querySelectorAll('.infotip:not(.infotip--modal)').forEach(function(widgetEl) {
+document.querySelectorAll('.infotip').forEach(function(widgetEl) {
     const infotipButton = widgetEl.querySelector('button');
+    const hostSelector = '.infotip__host'
+    if (!widgetEl.querySelector(hostSelector)) {
+        return;
+    }
     const widget = new Expander(widgetEl, {
         contentSelector: '.infotip__overlay',
         expandOnFocus: false,
         expandOnClick: true,
-        hostSelector: '.infotip__host'
+        hostSelector
     });
 
     widgetEl.querySelector('.infotip__close').addEventListener('click', function() {
