@@ -2,6 +2,13 @@
 @import "../mixins/private/icon-mixins.less";
 @import "../mixins/private/token-mixins.less";
 
+@color-star-rating-icon-unfilled-foreground: transparent;
+@color-star-rating-icon-filled-foreground: var(--color-foreground-primary);
+
+// we have to use core color here since dark mode and light mode have the same stroke
+@color-star-rating-icon-unfilled-stroke: var(--color-neutral-5);
+@color-star-rating-icon-filled-stroke: var(--color-foreground-primary);
+
 div.star-rating-select {
     cursor: pointer; // this ensures text selection cursor is not used between stars
     display: inline-block;
@@ -23,20 +30,20 @@ span.star-rating-select__radio-icon {
 }
 
 span.star-rating-select__radio-icon svg {
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
 }
 
 span.star-rating-select__radio input.star-rating-select__control[type="radio"] {
     cursor: pointer;
     font-size: 100%;
-    height: 12px;
+    height: 16px;
     margin: 0;
-    min-width: 12px;
+    min-width: 16px;
     opacity: 0;
     padding: 0;
     position: absolute;
-    width: 12px;
+    width: 16px;
     z-index: 1;
 
     &:focus + span.star-rating-select__radio-icon {
@@ -51,12 +58,26 @@ span.star-rating-select__radio input.star-rating-select__control[type="radio"] {
 }
 
 div.star-rating-select span.star-rating-select__radio-icon svg {
-    --color-star-rating-full: var(--color-star-rating-unfilled, #ccc);
+    --color-star-rating-full: var(
+        --color-star-rating-unfilled,
+        @color-star-rating-icon-unfilled-foreground
+    );
 }
 
 div.star-rating-select input {
     &.star-rating-select__control--filled + span.star-rating-select__radio-icon svg,
     &.star-rating-select__control[type="radio"]:checked + span.star-rating-select__radio-icon svg {
-        --color-star-rating-full: var(--color-star-rating-filled, #000);
+        --color-star-rating-full: var(
+            --color-star-rating-filled,
+            @color-star-rating-icon-filled-foreground
+        );
+        --color-star-rating-full-stroke: var(
+            --color-star-rating-filled-stroke,
+            @color-star-rating-icon-filled-stroke
+        );
+        --color-star-rating-half-stroke: var(
+            --color-star-rating-filled-stroke,
+            @color-star-rating-icon-filled-stroke
+        );
     }
 }
