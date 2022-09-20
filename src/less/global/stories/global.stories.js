@@ -60,9 +60,9 @@ export const alignment = () => `
 </span>
 
 <span class="listbox-button">
-    <button class="expand-btn expand-btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+    <button class="btn btn--form btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
+        <span class="btn__cell">
+            <span class="btn__text">Options</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -71,9 +71,9 @@ export const alignment = () => `
 </span>
 
 <span class="menu-button">
-    <button class="expand-btn expand-btn--fixed-height" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Menu</span>
+    <button class="btn btn--form btn--fixed-height" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Menu</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -113,9 +113,9 @@ export const RTLAlignment = () => `
     </span>
 
     <span class="listbox-button">
-        <button class="expand-btn expand-btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
-            <span class="expand-btn__cell">
-                <span class="expand-btn__text">Options</span>
+        <button class="btn btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
+            <span class="btn__cell">
+                <span class="btn__text">Options</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
@@ -124,9 +124,9 @@ export const RTLAlignment = () => `
     </span>
 
     <span class="menu-button">
-        <button class="expand-btn expand-btn--fixed-height" aria-haspopup="true" type="button">
-            <span class="expand-btn__cell">
-                <span class="expand-btn__text">Menu</span>
+        <button class="btn btn--fixed-height" aria-haspopup="true" type="button">
+            <span class="btn__cell">
+                <span class="btn__text">Menu</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                     <use xlink:href="#icon-dropdown"></use>
                 </svg>
@@ -166,9 +166,9 @@ export const alignmentLarge = () => `
 </span>
 
 <span class="listbox-button">
-    <button class="expand-btn expand-btn--large expand-btn--large-fixed-height" aria-expanded="false" aria-haspopup="listbox">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Options</span>
+    <button class="btn btn--large btn--form btn--large-fixed-height" aria-expanded="false" aria-haspopup="listbox">
+        <span class="btn__cell">
+            <span class="btn__text">Options</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
@@ -177,9 +177,9 @@ export const alignmentLarge = () => `
 </span>
 
 <span class="menu-button">
-    <button class="expand-btn expand-btn--large expand-btn--large-fixed-height" aria-haspopup="true" type="button">
-        <span class="expand-btn__cell">
-            <span class="expand-btn__text">Menu</span>
+    <button class="btn btn--large btn--form btn--large-fixed-height" aria-haspopup="true" type="button">
+        <span class="btn__cell">
+            <span class="btn__text">Menu</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use xlink:href="#icon-dropdown"></use>
             </svg>
