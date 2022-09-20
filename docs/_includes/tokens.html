@@ -11,4 +11,49 @@
         <dd>eBay semantic aliases for dark mode</dd>
     </dl>
     <p><sup>*</sup>This sub-module will not be included automatically by it's parent module; it must be explicitly included by any page that is itself dark-mode compatible.</p>
+
+    <h3 id="tokens-color-primitive">Primitive Color Tokens</h3>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-primitive">
+                {% assign colours = "blue, green, red, magenta, teal, neutral" | split: ", " %}
+                {% for colourName in colours %}
+                    {% for i in (1..7) %}
+                    <li class="demo-color-{{ colourName }}-{{ i }}">color-{{ colourName }}-{{ i }}</li>
+                    {% endfor %}
+                {% endfor %}
+                <li class="demo-color-neutral-8">color-neutral-8</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 id="tokens-color-semantic">Semantic Color Tokens</h3>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul class="demo-color-token">
+                {% assign tokens = "primary, secondary, disabled, inverse, attention, confirmation, information, accent, invalid" | split: ", " %}
+                {% for tokenName in tokens %}
+                    <li class="demo-color-background-{{ tokenName }}">color-background-{{ tokenName }}</li>
+                {% endfor %}
+                {% assign tokens = "primary, secondary, disabled, attention, confirmation, information, accent, visited" | split: ", " %}
+                {% for tokenName in tokens %}
+                    <li class="demo-color-foreground-{{ tokenName }}">color-foreground-{{ tokenName }}</li>
+                {% endfor %}
+                {% assign tokens = "primary, secondary, disabled, inverse, accent, attention, confirmation, information" | split: ", " %}
+                {% for tokenName in tokens %}
+                    <li class="demo-color-foreground-on-{{ tokenName }}">color-foreground-on-{{ tokenName }}</li>
+                {% endfor %}
+                {% assign tokens = "default, accent, attention, confirmation, information, disabled, strong, subtle" | split: ", " %}
+                {% for tokenName in tokens %}
+                    <li class="demo-color-stroke-{{ tokenName }}">color-stroke-{{ tokenName }}</li>
+                {% endfor %}
+                {% assign tokens = "visited, primary-hover, primary-active, secondary-hover, secondary-active, inverse-hover, inverse-active, accent-hover, accent-active, attention-hover, attention-active" | split: ", " %}
+                {% for tokenName in tokens %}
+                    <li class="demo-color-state-{{ tokenName }}">color-state-{{ tokenName }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
 </div>
