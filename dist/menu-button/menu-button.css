@@ -13,6 +13,7 @@
   box-shadow: var(--menu-button-menu-box-shadow, var(--dropdown-box-shadow));
   box-sizing: border-box;
   display: none;
+  left: 0;
   max-height: 400px;
   min-width: 100%;
   overflow-y: auto;
@@ -21,6 +22,11 @@
   width: auto;
   z-index: 2;
   outline: 0;
+}
+[dir="rtl"] .menu-button__menu,
+[dir="rtl"] .fake-menu-button__menu {
+  left: unset;
+  right: 0;
 }
 span.menu-button__button,
 span.fake-menu-button__button {
@@ -102,11 +108,6 @@ button.fake-menu-button__item {
   font-size: 1em;
   text-align: left;
 }
-a.fake-menu-button__item:not([href]),
-button.fake-menu-button__item[disabled],
-div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
-  color: var(--menu-button-menuitem-disabled-foreground-color, var(--color-foreground-disabled));
-}
 a.fake-menu-button__item[aria-current="page"] svg.icon--tick-small,
 button.fake-menu-button__item[aria-current="page"] svg.icon--tick-small {
   opacity: 1;
@@ -144,6 +145,11 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon--tick-smal
 .fake-menu-button__menu a.fake-menu-button__item:active,
 .fake-menu-button__menu button.fake-menu-button__item:active {
   font-weight: bold;
+}
+.fake-menu-button__menu a.fake-menu-button__item:not([href]),
+.fake-menu-button__menu button.fake-menu-button__item[disabled],
+.menu-button__menu div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
+  color: var(--menu-button-menuitem-disabled-foreground-color, var(--color-foreground-disabled));
 }
 .fake-menu-button__menu > li:first-child a.fake-menu-button__item {
   border-top-left-radius: var(--menu-button-menu-border-radius, var(--border-radius-50));
@@ -189,24 +195,13 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 }
 .menu-button__menu--reverse,
 .fake-menu-button__menu--reverse {
+  left: unset;
   right: 0;
 }
 [dir="rtl"] .menu-button__menu--reverse,
 [dir="rtl"] .fake-menu-button__menu--reverse {
   left: 0;
-  right: inherit;
-}
-.menu-button button.expand-btn--borderless,
-.fake-menu-button button.expand-btn--borderless {
-  background-color: transparent;
-  border-color: transparent;
-  padding-left: 0;
-  vertical-align: initial;
-}
-.menu-button button.expand-btn--borderless:focus,
-.fake-menu-button button.expand-btn--borderless:focus {
-  outline: none;
-  text-decoration: underline;
+  right: unset;
 }
 .menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
 .fake-menu-button__button[aria-expanded="true"] ~ .fake-menu-button__menu,
@@ -223,10 +218,6 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 .btn ~ .menu-button__menu--static,
 .btn ~ .fake-menu-button__menu--static {
   position: static;
-}
-.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
-.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
-  top: 41px;
 }
 div.menu-button__option--active[role="option"] {
   font-weight: bold;

@@ -1,9 +1,19 @@
 @import "../variables/variables.less";
 @import "../mixins/private/token-mixins.less";
 
-@progress-stepper-icon-size: 24px;
 @progress-stepper-min-width: 80px;
 @progress-stepper-large-min-width: 120px;
+// Shortcut private variables
+@_progress-stepper-active-gradient: var(
+        --progress-stepper-active-color,
+        var(--color-background-information)
+    )
+    50%;
+@_progress-stepper-upcoming-gradient: var(
+        --progress-stepper-upcoming-color,
+        var(--color-background-disabled)
+    )
+    50%;
 
 .progress-stepper__items {
     align-items: flex-start;
@@ -20,12 +30,13 @@
 hr.progress-stepper__separator {
     .background-color-token(progress-stepper-active-color, color-background-information);
     border: 0 none;
+    border-radius: 2px;
     flex: 1;
-    height: 2px;
+    height: 4px;
     margin: 0;
     min-width: @progress-stepper-min-width;
     position: relative;
-    top: 11px;
+    top: 10px;
 }
 
 .progress-stepper__text {
@@ -47,11 +58,11 @@ hr.progress-stepper__separator {
     font-weight: normal;
 }
 
-.progress-stepper__item--upcoming .progress-stepper__text h2,
-.progress-stepper__item--upcoming .progress-stepper__text h3,
-.progress-stepper__item--upcoming .progress-stepper__text h4,
-.progress-stepper__item--upcoming .progress-stepper__text h5,
-.progress-stepper__item--upcoming .progress-stepper__text h6 {
+.progress-stepper__items--upcoming .progress-stepper__text h2,
+.progress-stepper__items--upcoming .progress-stepper__text h3,
+.progress-stepper__items--upcoming .progress-stepper__text h4,
+.progress-stepper__items--upcoming .progress-stepper__text h5,
+.progress-stepper__items--upcoming .progress-stepper__text h6 {
     .color-token(progress-stepper-text-light-color, color-foreground-secondary);
 }
 
@@ -63,39 +74,47 @@ hr.progress-stepper__separator {
     font-weight: bold;
 }
 
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__text h2,
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__text h3,
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__text h4,
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__text h5,
+.progress-stepper__item[aria-current] ~ .progress-stepper__item .progress-stepper__text h6 {
+    .color-token(progress-stepper-text-light-color, color-foreground-secondary);
+}
+
 .progress-stepper__text p {
     .color-token(progress-stepper-text-light-color, color-foreground-secondary);
 }
 
 .progress-stepper__icon {
-    .color-token(progress-stepper-active-color, color-background-information);
-
     height: 24px;
     margin: auto;
     width: 24px;
 }
 
-// TODO remove next major version
-.progress-stepper__icon > span[role="img"] {
-    align-items: center;
-    .border-color-token(progress-stepper-badge-current-border-color, color-background-information);
-    border-radius: @progress-stepper-icon-size;
-    border-style: solid;
-    border-width: 2px;
-    box-sizing: border-box;
-    .color-token(progress-stepper-badge-current-color, color-foreground-primary);
-    display: inline-flex;
-    font-weight: @font-weight-bold;
-    height: @progress-stepper-icon-size;
-    justify-content: center;
-    top: 0;
-    width: @progress-stepper-icon-size;
-}
-
 .progress-stepper__items--upcoming hr.progress-stepper__separator,
-hr.progress-stepper__separator--upcoming,
 .progress-stepper__item[aria-current] ~ hr.progress-stepper__separator {
     .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+    background-image: none;
+}
+
+.progress-stepper__item[aria-current] + hr.progress-stepper__separator {
+    background-image: linear-gradient(
+        90deg,
+        @_progress-stepper-active-gradient,
+        @_progress-stepper-upcoming-gradient
+    );
+}
+
+// DEPRECATED remove progress-stepper__item--current in next major version
+.progress-stepper__item--attention[aria-current] ~ hr.progress-stepper__separator,
+.progress-stepper__items--current
+    .progress-stepper__item[aria-current]
+    ~ hr.progress-stepper__separator {
+    .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+    background-image: none;
 }
 
 .progress-stepper__text > * {
@@ -126,34 +145,25 @@ hr.progress-stepper__separator--upcoming,
     width: auto;
 }
 
-.progress-stepper__item--upcoming,
-.progress-stepper__items--upcoming .progress-stepper__item > [role="img"] {
-    .color-token(progress-stepper-text-light-color, color-foreground-secondary);
+.progress-stepper--vertical .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
+    background: linear-gradient(
+        180deg,
+        @_progress-stepper-active-gradient,
+        @_progress-stepper-upcoming-gradient
+    );
 }
 
-.progress-stepper__items--upcoming .progress-stepper__icon > [role="img"],
-.progress-stepper__item--upcoming .progress-stepper__icon > [role="img"] {
-    .background-color-token(progress-stepper-badge-upcoming-background-color, color-background-primary);
-    .border-color-token(progress-stepper-badge-upcoming-border-color, color-foreground-disabled);
-    .color-token(progress-stepper-badge-upcoming-color, color-foreground-secondary);
-}
+// DEPRECATED remove progress-stepper__item--current in next major version
+.progress-stepper--vertical
+    .progress-stepper__item--attention[aria-current]
+    ~ hr.progress-stepper__separator,
+.progress-stepper--vertical
+    .progress-stepper__items--current
+    .progress-stepper__item[aria-current]
+    ~ hr.progress-stepper__separator {
+    .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
 
-.progress-stepper__item--attention .progress-stepper__icon > [role="img"] {
-    .color-token(progress-stepper-attention-color, color-foreground-attention);
-}
-
-.progress-stepper__item[aria-current] {
-    ~ .progress-stepper__item {
-        > [role="img"] {
-            .color-token(progress-stepper-text-light-color, color-foreground-secondary);
-        }
-
-        .progress-stepper__icon > [role="img"] {
-            .background-color-token(progress-stepper-badge-upcoming-background-color, color-background-primary);
-            .border-color-token(progress-stepper-badge-upcoming-border-color, color-foreground-disabled);
-            .color-token(progress-stepper-badge-upcoming-color, color-foreground-secondary);
-        }
-    }
+    background-image: none;
 }
 
 .progress-stepper--vertical .progress-stepper__items {
@@ -181,10 +191,10 @@ hr.progress-stepper__separator--upcoming,
     flex: inherit;
     height: 51px;
     margin-bottom: 12px;
-    margin-left: 11px;
+    margin-left: 10px;
     margin-top: -4px;
     min-width: inherit;
-    width: 2px;
+    width: 4px;
 }
 
 [dir="rtl"] {
@@ -192,6 +202,44 @@ hr.progress-stepper__separator--upcoming,
         margin-left: 0;
         margin-right: @spacing-50;
         text-align: right;
+    }
+
+    // stylelint-disable no-descending-specificity
+    .progress-stepper__item[aria-current] + hr.progress-stepper__separator {
+        background-image: linear-gradient(
+            90deg,
+            @_progress-stepper-upcoming-gradient,
+            @_progress-stepper-active-gradient
+        );
+    }
+    // stylelint-enable no-descending-specificity
+
+    // DEPRECATED remove progress-stepper__item--current in next major version
+    .progress-stepper__items--current
+        .progress-stepper__item[aria-current]
+        ~ hr.progress-stepper__separator {
+        .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+        background-image: none;
+    }
+
+    .progress-stepper--vertical
+        .progress-stepper__item[aria-current]
+        + hr.progress-stepper__separator {
+        background: linear-gradient(
+            180deg,
+            @_progress-stepper-active-gradient,
+            @_progress-stepper-upcoming-gradient
+        );
+    }
+
+    .progress-stepper--vertical
+        .progress-stepper__items--current
+        .progress-stepper__item[aria-current]
+        ~ hr.progress-stepper__separator {
+        .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+        background-image: none;
     }
 
     .progress-stepper__item:last-child .progress-stepper__text {

@@ -76,12 +76,6 @@ button.fake-menu-button__item {
     text-align: left;
 }
 
-a.fake-menu-button__item:not([href]),
-button.fake-menu-button__item[disabled],
-div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
-    .color-token(menu-button-menuitem-disabled-foreground-color, color-foreground-disabled);
-}
-
 a.fake-menu-button__item[aria-current="page"] svg.icon--tick-small,
 button.fake-menu-button__item[aria-current="page"] svg.icon--tick-small {
     opacity: 1;
@@ -94,6 +88,12 @@ div.menu-button__item[role^="menuitem"][aria-checked="true"] svg.icon--tick-smal
 .fake-menu-button__menu a.fake-menu-button__item,
 .fake-menu-button__menu button.fake-menu-button__item {
     .menu-menuitem-base(menu-button);
+}
+
+.fake-menu-button__menu a.fake-menu-button__item:not([href]),
+.fake-menu-button__menu button.fake-menu-button__item[disabled],
+.menu-button__menu div.menu-button__item[role^="menuitem"][aria-disabled="true"] {
+    .color-token(menu-button-menuitem-disabled-foreground-color, color-foreground-disabled);
 }
 
 .fake-menu-button__menu > li:first-child a.fake-menu-button__item {
@@ -146,27 +146,7 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 
 .menu-button__menu--reverse,
 .fake-menu-button__menu--reverse {
-    right: 0;
-}
-
-[dir="rtl"] .menu-button__menu--reverse,
-[dir="rtl"] .fake-menu-button__menu--reverse {
-    left: 0;
-    right: inherit;
-}
-
-// DEPRECATED. Remove in v15
-.menu-button button.expand-btn--borderless,
-.fake-menu-button button.expand-btn--borderless {
-    background-color: transparent;
-    border-color: transparent;
-    padding-left: 0;
-    vertical-align: initial;
-
-    &:focus {
-        outline: none;
-        text-decoration: underline;
-    }
+    .dropdown-reverse();
 }
 
 .menu-button__button[aria-expanded="true"] ~ .menu-button__menu,
@@ -185,12 +165,6 @@ div.menu-button__item--badged[role^="menuitem"] .badge {
 .btn ~ .menu-button__menu--static,
 .btn ~ .fake-menu-button__menu--static {
     position: static;
-}
-
-// DEPRECATED. Remove in v15
-.menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu,
-.fake-menu button.expand-btn--borderless[aria-expanded="true"] ~ .menu-button__menu {
-    top: 41px; // button height plus one px, to meet design guidelines
 }
 
 div.menu-button__option--active[role="option"] {

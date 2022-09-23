@@ -16,22 +16,6 @@ a.fake-btn {
     padding: @button-padding-vertical @button-padding-horizontal;
 }
 
-button.btn--form,
-a.fake-btn--form {
-    border-color: inherit;
-    .border-radius-token(expand-btn-border-radius, border-radius-50);
-    max-width: 100%;
-
-    &:hover,
-    &:focus {
-        background-color: var(--color-state-primary-hover);
-    }
-
-    &:active {
-        background-color: var(--color-state-primary-active);
-    }
-}
-
 button.btn[disabled],
 button.btn[aria-disabled="true"] {
     .border-color-token(expand-btn-disabled-border-color, color-stroke-disabled);
@@ -41,6 +25,7 @@ button.btn[aria-disabled="true"] {
 button.btn--borderless,
 a.fake-btn--borderless {
     border-color: transparent;
+    min-width: auto;
     padding-left: 0;
     vertical-align: initial;
 
@@ -65,13 +50,6 @@ a.fake-btn--slim {
     min-width: auto;
     padding-left: @spacing-100;
     padding-right: @spacing-100;
-}
-
-// deprecated
-button.btn--wide,
-a.fake-btn--wide {
-    padding-left: @button-padding-horizontal-wide;
-    padding-right: @button-padding-horizontal-wide;
 }
 
 a.fake-btn:visited {
@@ -335,6 +313,26 @@ a.fake-btn--large {
     font-size: @font-size-medium;
     min-height: @button-height-large;
     padding: @button-padding-vertical-large @button-padding-horizontal;
+}
+
+button.btn--form,
+a.fake-btn--form {
+    border-color: inherit;
+    .border-radius-token(expand-btn-border-radius, border-radius-50);
+    max-width: 100%;
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-state-primary-hover);
+    }
+
+    &:active {
+        background-color: var(--color-state-primary-active);
+    }
+}
+
+button.btn--form.btn--large {
+    padding: @button-padding-vertical-large @button-padding-horizontal-large;
 }
 
 button.btn--transparent,
