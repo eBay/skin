@@ -1,4 +1,4 @@
-export default { title: 'Donut-chart/Donut-chart' };
+export default { title: 'Donut-chart' };
 
 export const basic = () => `
 <div aria-labelledby="donutcharttitle" tabindex="0" class="donut-chart donut-chart-large">
