@@ -126,6 +126,22 @@ export const informationWithLink = () => `
 </section>
 `;
 
+export const InformationWithParagraph = () => `
+<section class="page-notice page-notice--information" role="region" aria-label="Information">
+    <div class="page-notice__header">
+        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-small"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <p>You have opted into eBay Pay</p>
+    </div>
+    <div class="page-notice__footer">
+        <button class="fake-link">Dismiss</button>
+    </div>
+</section>
+`;
+
 export const dismissableWithTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
