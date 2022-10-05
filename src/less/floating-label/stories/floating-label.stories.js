@@ -178,7 +178,7 @@ export const RTLSelectInline = () => `
 `;
 
 export const TextArea = () => `
-<span class="floating-label">
+<span class="floating-label floating-label--opaque">
     <label class="floating-label__label" for="first-name">Enter list of users</label>
     <span class="textbox">
         <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
