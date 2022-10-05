@@ -30,6 +30,22 @@ export const generalWithLink = () => `
 </div>
 `;
 
+export const confirmationWithParagraph = () => `
+<div class="section-notice section-notice--confirmation" role="region">
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
+            <use href="#icon-confirmation-filled-small"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <p>Your price has been updated.</p>
+    </div>
+    <div class="section-notice__footer">
+        <button class="fake-link">Dismiss</button>
+    </div>
+</div>
+`;
+
 export const confirmationWithButton = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
