@@ -30,6 +30,8 @@ span.tourtip__mask {
 .tourtip__cell {
     .bubble-cell();
 
+    flex-wrap: wrap;
+
     a {
         .color-token(tourtip-foreground-color, color-foreground-primary);
 
@@ -41,10 +43,14 @@ span.tourtip__mask {
 
 .tourtip__content {
     .bubble-content();
+
+    flex-basis: 0;
 }
 
 button.tourtip__close {
     .bubble-close();
+
+    outline-offset: -2px;
 }
 
 button.tourtip__close > svg {
@@ -119,6 +125,40 @@ span.tourtip__heading {
 
 .tourtip--expanded .tourtip__overlay {
     display: block;
+}
+
+.tourtip__footer {
+    align-items: center;
+    display: flex;
+    justify-content: end;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.tourtip__footer > button:not(:last-child),
+.tourtip__footer > a:not(:last-child) {
+    margin-right: 8px;
+}
+
+// stylelint-disable no-descending-specificity
+// TODO need to remove this once we update fake-links/links to allow no underline and black text
+.tourtip__footer > .fake-link,
+.tourtip__footer > a {
+    color: var(--color-foreground-primary);
+
+    text-decoration: none;
+
+    &:hover:not(:disabled) {
+        color: var(--color-foreground-primary);
+
+        text-decoration: underline;
+    }
+}
+// stylelint-enable no-descending-specificity
+
+.tourtip__index {
+    .color-token(tourtip-index-color, color-foreground-secondary);
+    flex: 1;
 }
 
 @media (min-width: 601px) {
