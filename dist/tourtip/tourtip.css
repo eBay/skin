@@ -33,6 +33,7 @@ span.tourtip__mask {
   display: flex;
   padding: 8px 16px;
   word-break: break-word;
+  flex-wrap: wrap;
 }
 .tourtip__cell a {
   color: var(--tourtip-foreground-color, var(--color-foreground-primary));
@@ -42,6 +43,7 @@ span.tourtip__mask {
 }
 .tourtip__content {
   flex-grow: 1;
+  flex-basis: 0;
 }
 .tourtip__content p {
   margin: 0;
@@ -59,6 +61,7 @@ button.tourtip__close {
   padding: 0;
   white-space: nowrap;
   width: 32px;
+  outline-offset: -2px;
 }
 button.tourtip__close > svg {
   fill: currentColor;
@@ -142,6 +145,31 @@ span.tourtip__heading {
 }
 .tourtip--expanded .tourtip__overlay {
   display: block;
+}
+.tourtip__footer {
+  align-items: center;
+  display: flex;
+  justify-content: end;
+  margin-top: 16px;
+  width: 100%;
+}
+.tourtip__footer > button:not(:last-child),
+.tourtip__footer > a:not(:last-child) {
+  margin-right: 8px;
+}
+.tourtip__footer > .fake-link,
+.tourtip__footer > a {
+  color: var(--color-foreground-primary);
+  text-decoration: none;
+}
+.tourtip__footer > .fake-link:hover:not(:disabled),
+.tourtip__footer > a:hover:not(:disabled) {
+  color: var(--color-foreground-primary);
+  text-decoration: underline;
+}
+.tourtip__index {
+  color: var(--tourtip-index-color, var(--color-foreground-secondary));
+  flex: 1;
 }
 @media (min-width: 601px) {
   .tourtip__overlay {
