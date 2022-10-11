@@ -4,10 +4,8 @@ export const collapsedUnselected = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="false" aria-haspopup="listbox">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">-</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">-</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -48,10 +46,8 @@ export const expandedUnselected = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="true" aria-haspopup="listbox">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">-</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">-</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -92,10 +88,8 @@ export const collapsedSelected = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="false" aria-haspopup="listbox">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">Blue</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">Blue</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -136,10 +130,8 @@ export const expandedSelected = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="true" aria-haspopup="listbox">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">Blue</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">Blue</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -180,10 +172,8 @@ export const disabled = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="false" aria-haspopup="listbox" disabled>
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">Blue</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">Blue</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -224,10 +214,8 @@ export const invalid = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">Blue</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">Blue</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
@@ -268,10 +256,8 @@ export const longOption = () => `
 <span class="listbox-button">
     <button class="btn btn--form" aria-expanded="true" aria-haspopup="listbox">
         <span class="btn__cell">
-            <span class="btn__contents">
-                <span class="btn__label">Color: </span>
-                <span class="btn__text">Red with very very very long text</span>
-            </span>
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">Red with very very very long text</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>

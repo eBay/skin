@@ -4,10 +4,8 @@ export const fluid = () => `
 <span class="listbox-button listbox-button--fluid">
     <button class="btn btn--form" aria-expanded="true" aria-haspopup="listbox">
         <span class="btn__cell">
-                <span class="btn__contents">
-                    <span class="btn__label">Color: </span>
-                    <span class="btn__text">Red</span>
-                </span>
+                <span class="btn__label">Color: </span>
+                <span class="btn__text">Red</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
                 <use href="#icon-dropdown"></use>
             </svg>
