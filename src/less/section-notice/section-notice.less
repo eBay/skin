@@ -5,24 +5,30 @@
     .background-color-token(section-notice-default-background-color, color-background-secondary);
     .border-radius-token(section-notice-border-radius, border-radius-50);
     font-size: @font-size-14;
-    justify-content: flex-start;
     margin: 8px 0;
     padding: 16px;
 }
 
 div[role="region"].section-notice,
 section.section-notice {
-    display: flex;
+    display: grid;
+    // provide explicit structure up front, create loose markup model
+    grid-template-columns: 32px auto auto auto;
 }
 
 span[role="region"].section-notice {
-    display: inline-flex;
+    display: grid;
 }
 
 .section-notice__title {
     font-size: @font-size-regular;
     font-weight: normal;
     margin: 0;
+}
+
+// force links with text having more than one word to remain on same line
+.section-notice__cta a {
+    white-space: nowrap;
 }
 
 /* legacy version with separate bold heading */
@@ -50,30 +56,40 @@ span[role="region"].section-notice {
     .color-token(section-notice-foreground-color, color-foreground-primary);
 }
 
+.section-notice .icon {
+    vertical-align: top;
+}
+
 .section-notice__header {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding-right: @spacing-150;
+    grid-column: 1;
+    grid-row: 1;
+    height: @spacing-200;
+    padding-right: @spacing-200;
 }
 
-.section-notice__main,
-.section-notice__footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.section-notice__main {
+    grid-column: 2;
+    grid-row: 1;
+    padding-right: @spacing-200;
 }
 
 .section-notice__footer {
-    flex-shrink: 0;
-    margin-left: auto;
-    padding-left: 0;
-    width: auto;
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end;
 }
 
 .section-notice__main p {
     font-size: @font-size-regular;
     margin: 0;
+}
+
+p.section-notice__cta {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin-right: @spacing-200;
+    margin-top: @spacing-200;
 }
 
 /* support legacy 6.5 notice with heading + paragaphs */
@@ -90,6 +106,15 @@ span[role="region"].section-notice {
         margin: @spacing-200 0;
     }
 
+    p.section-notice__cta {
+        grid-column: 4;
+        grid-row: 1;
+        justify-self: end;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-right: @spacing-200;
+    }
+
     .section-notice__footer {
         margin-top: 0;
         padding-left: @spacing-200;
@@ -103,9 +128,14 @@ span[role="region"].section-notice {
     }
 
     .section-notice__footer {
+        justify-self: start;
         margin-left: initial;
         margin-right: auto;
         padding-left: initial;
+        padding-right: 0;
+    }
+
+    .section-notice__main {
         padding-right: 0;
     }
 }
