@@ -2,21 +2,24 @@
   background-color: var(--section-notice-default-background-color, var(--color-background-secondary));
   border-radius: var(--section-notice-border-radius, var(--border-radius-50));
   font-size: 0.875rem;
-  justify-content: flex-start;
   margin: 8px 0;
   padding: 16px;
 }
 div[role="region"].section-notice,
 section.section-notice {
-  display: flex;
+  display: grid;
+  grid-template-columns: 32px auto auto auto;
 }
 span[role="region"].section-notice {
-  display: inline-flex;
+  display: grid;
 }
 .section-notice__title {
   font-size: 0.875rem;
   font-weight: normal;
   margin: 0;
+}
+.section-notice__cta a {
+  white-space: nowrap;
 }
 /* legacy version with separate bold heading */
 .section-notice__title:not(:only-child) {
@@ -38,27 +41,35 @@ span[role="region"].section-notice {
 .section-notice a:hover {
   color: var(--section-notice-foreground-color, var(--color-foreground-primary));
 }
+.section-notice .icon {
+  vertical-align: top;
+}
 .section-notice__header {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding-right: 12px;
+  grid-column: 1;
+  grid-row: 1;
+  height: 16px;
+  padding-right: 16px;
 }
-.section-notice__main,
-.section-notice__footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.section-notice__main {
+  grid-column: 2;
+  grid-row: 1;
+  padding-right: 16px;
 }
 .section-notice__footer {
-  flex-shrink: 0;
-  margin-left: auto;
-  padding-left: 0;
-  width: auto;
+  grid-column: 4;
+  grid-row: 1;
+  justify-self: end;
 }
 .section-notice__main p {
   font-size: 0.875rem;
   margin: 0;
+}
+p.section-notice__cta {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  margin-right: 16px;
+  margin-top: 16px;
 }
 /* support legacy 6.5 notice with heading + paragaphs */
 .section-notice__main .section-notice__title ~ p {
@@ -71,6 +82,14 @@ span[role="region"].section-notice {
     flex-wrap: nowrap;
     margin: 16px 0;
   }
+  p.section-notice__cta {
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-right: 16px;
+  }
   .section-notice__footer {
     margin-top: 0;
     padding-left: 16px;
@@ -81,8 +100,16 @@ span[role="region"].section-notice {
   padding-right: 0;
 }
 [dir="rtl"] .section-notice__footer {
+  justify-self: start;
   margin-left: initial;
   margin-right: auto;
   padding-left: initial;
   padding-right: 0;
+}
+[dir="rtl"] .section-notice__main {
+  padding-right: 0;
+}
+[dir="rtl"] p.page-notice__cta {
+  margin-left: 16px;
+  padding-left: 16px;
 }
