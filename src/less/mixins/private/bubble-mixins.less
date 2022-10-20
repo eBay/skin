@@ -5,8 +5,8 @@
         drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
 }
 
-.bubble() {
-    .border-radius-token(bubble-border-radius, border-radius-50);
+.bubble(@border-radius-value: border-radius-50) {
+    .border-radius-token(bubble-border-radius, @border-radius-value);
 
     filter: var(--bubble-filter);
     font-size: 14px;
@@ -17,8 +17,8 @@
     z-index: 1;
 }
 
-.bubble-mask() {
-    .border-radius-token(bubble-border-radius, border-radius-50);
+.bubble-mask(@border-radius-value: border-radius-50) {
+    .border-radius-token(bubble-border-radius, @border-radius-value);
     position: relative;
     z-index: 1;
 }
@@ -28,9 +28,9 @@
 }
 
 // creates basic layout
-.bubble-cell() {
+.bubble-cell(@tourtip-spacing: @spacing-100 @spacing-200) {
     display: flex;
-    padding: @spacing-100 @spacing-200;
+    padding: @tourtip-spacing;
     word-break: break-word;
 }
 
