@@ -143,9 +143,10 @@
     <h3 id="floating-label-textarea">Floating Label with Textarea</h3>
     <p>Use the textarea tag for a multi-line textbox.</p>
     <p>A multi-line textbox allows line breaks and has a minimum height of 200px.</p>
+    <p>In order to prevent overlap for floating label, use <span class="highlight">.floating-label--opaque</span> class</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="floating-label">
+            <span class="floating-label floating-label--opaque">
                 <label class="floating-label__label" for="first-name">Enter list of users</label>
                 <span class="textbox">
                     <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
@@ -155,7 +156,7 @@
     </div>
 
     {% highlight html %}
-<span class="floating-label">
+<span class="floating-label floating-label--opaque">
     <label class="floating-label__label" for="first-name">Enter list of users</label>
     <span class="textbox">
         <textarea aria-label="Textbox demo" class="textbox__control"></textarea>
@@ -324,6 +325,7 @@
     <h3 id="floating-label-transitions">Floating Label Transitions</h3>
     <p>By default, with only the base markup shown above, the label remains in a floating state above the input. This default state ensures that the label does not obscure the textbox value while we wait for JavaScript.</p>
     <p>When JavaScript is ready, the label can be re-positioned inside the textbox by adding the <span class="highlight">floating-label__label--inline</span> modifier class. By default, this re-positioning of label happens instantly, without a transition. Typically, we do not want to show transitions on the initial page render, as this might be too jarring and distracting for some users.</p>
+    <p>You will also need to add the <span class="highlight">floating-label__label--focus</span> class when the input recieves focus and remove it when the input loses focus. This is to ensure the right colors are applied to the label when focusing the input.</p>
     <p>To opt into transitions after the initial render is complete, add the  <span class="highlight">floating-label__label--animate</span> modifier when the textbox receives focus.</p>
     <p>The examples above use <a href="https://github.com/makeup-js/makeup-floating-label">makeup-floating-label</a>, a simple JavaScript module that adds the aforementioned logic. Feel free to use this module or use it as the basis to roll your own.</p>
 </div>

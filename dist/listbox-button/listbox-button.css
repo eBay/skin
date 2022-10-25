@@ -56,6 +56,17 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button button.btn--borderless[aria-expanded="true"] ~ .listbox-button__listbox {
   top: 41px;
 }
+.listbox-button .btn__label {
+  color: var(--listbox-button-label-color, var(--color-foreground-secondary));
+  margin-right: 3px;
+}
+.listbox-button--expanded .btn__label {
+  color: var(--listbox-button-label-color, var(--color-foreground-primary));
+}
+.listbox-button .btn__text {
+  font-weight: bold;
+  margin-right: auto;
+}
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
   background-color: var(--color-state-primary-hover);
 }
@@ -103,6 +114,12 @@ div.listbox-button__option[role="option"]:hover {
 div.listbox-button__option[role="option"]:active {
   font-weight: bold;
 }
+div.listbox-button__option[role="option"]:disabled,
+div.listbox-button__option[role="option"][aria-disabled="true"] {
+  color: var(--listbox-option-disabled-foreground-color, var(--color-foreground-disabled));
+  background-color: unset;
+  font-weight: unset;
+}
 div.listbox-button__option[role="option"]:first-child {
   border-top-left-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
   border-top-right-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
@@ -126,4 +143,9 @@ span.listbox-button__value {
 [dir="rtl"] .listbox-button__option svg.icon {
   margin-left: 0;
   margin-right: 8px;
+}
+[dir="rtl"] .listbox-button .btn__label {
+  color: var(--listbox-button-label-color, var(--color-foreground-secondary));
+  margin-left: 3px;
+  margin-right: 0;
 }

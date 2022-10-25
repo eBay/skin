@@ -13,7 +13,11 @@
 }
 
 .drawer-dialog__header {
-    .dialog-header-content();
+    .dialog-header-content(@top-margin: @spacing-250);
+}
+
+.drawer-dialog__header .fake-link {
+    text-decoration: none;
 }
 
 .drawer-dialog__handle {
@@ -30,12 +34,12 @@
 
 // Added :after class in order to increase parent hit box
 .drawer-dialog__handle::after {
-    .background-color-token(dialog-handle-color, color-foreground-secondary);
-    border-radius: 5px;
+    .background-color-token(dialog-handle-color, color-stroke-default);
+    border-radius: 3px;
     content: "";
     display: block;
-    height: 3px;
-    width: 20px;
+    height: 2px;
+    width: 24px;
 }
 
 .drawer-dialog__main {
@@ -61,7 +65,8 @@
 }
 
 // inherits from .icon-btn
-button.drawer-dialog__close {
+// Added icon button selector so it doesn't override fake-link
+button.icon-button.drawer-dialog__close {
     background-color: transparent;
     border: 0;
     height: auto;
