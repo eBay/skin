@@ -7,9 +7,7 @@ nav.breadcrumbs {
     height: fit-content;
     margin: 8px 0;
     min-height: 16px;
-    overflow-x: scroll;
     padding: 8px;
-    scrollbar-width: none;
     white-space: nowrap;
 
     ul {
@@ -25,6 +23,7 @@ nav.breadcrumbs {
     li {
         align-items: center;
         display: inline-flex;
+        vertical-align: middle;
     }
 
     li svg {
@@ -72,8 +71,25 @@ nav.breadcrumbs {
     }
 }
 
-nav.breadcrumbs::-webkit-scrollbar {
-    display: none;
+nav.breadcrumbs .menu-button__button {
+    background-color: var(--icon-button-background-color, var(--color-background-secondary));
+    height: @spacing-250;
+    min-height: @spacing-250;
+    min-width: @spacing-250;
+    outline-offset: 1px;
+    width: @spacing-250;
+}
+
+nav.breadcrumbs .menu-button__menu {
+    font-size: @font-size-14;
+}
+
+nav.breadcrumbs svg.icon--overflow-small {
+    transform: rotate(90deg);
+}
+
+nav.breadcrumbs div.menu-button__item[role^="menuitem"] {
+    display: block;
 }
 
 @media (min-width: 601px) {

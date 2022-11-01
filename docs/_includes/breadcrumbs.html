@@ -40,19 +40,19 @@
         <li>
             <a href="https://www.ebay.com/">ebay</a>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
@@ -95,13 +95,13 @@
         <li>
             <a href="https://www.ebay.com/">ebay</a>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
@@ -111,50 +111,121 @@
 </nav>
     {% endhighlight %}
 
-    <p>Long breadcrumbs can arise due to any combination of small screen sizes, large category names and language translations. In these situations the breadcrumbs region is horizontally scrollable.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <nav aria-labelledby="breadcrumbs-heading-3" class="breadcrumbs" role="navigation">
-                <h2 id="breadcrumbs-heading-3" class="clipped">You are here</h2>
-                <ul>
-                    <li>
-                        <a href="https://www.ebay.com/">ebay</a>
-                        <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include symbol.html name="breadcrumb" %}
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="https://www.ebay.com/b/Business-Industrial/12576/bn_1853744">Business & Industrial</a>
-                        <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include symbol.html name="breadcrumb" %}
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="https://www.ebay.com/b/CNC-Metalworking-Manufacturing/11804/bn_1861284">CNC, Metalworking & Manufacturing</a>
-                        <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include symbol.html name="breadcrumb" %}
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="https://www.ebay.com/b/Semiconductor-PCB-Manufacturing-Equipment/58290/bn_2310616">Semiconductor & PCB Manufacturing Equipment</a>
-                        <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include symbol.html name="breadcrumb" %}
-                        </svg>
-                    </li>
-                    <li>
-                        <a href="https://www.ebay.com/b/Semiconductor-Test-Assembly-Equipment/258284/bn_7115875865">Semiconductor Test & Assembly Equipment</a>
-                        <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                            {% include symbol.html name="breadcrumb" %}
-                        </svg>
-                    </li>
-                    <li>
-                        <a aria-current="location">Other Semiconductor Test & Assembly Equipment & Components</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
     <p>Anchor tags can be replaced with buttons if the hierarchy is not intended to be <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">deep linkable</a>. This is a rare &amp; unlikely scenario - therefore please exercise caution!</p>
+
+    <h3>Long Breadcrumbs with Overflows</h3>
+
+    <p>Long breadcrumbs can arise due to any combination of small screen sizes, large category names and language translations. In these situations the breadcrumbs will need to get an overflow treatment in the second node with an overflow button and menu items.</p>
+
+    <p>If there are 4 or more nodes for breadcrumbs, an overflow on node 2 should be used instead of various additional nodes between that node and the final one. The list of items in the overflow menu should include content from node 2 until last node minur 2 nodes so that there are always 4 nodes on screen including the overflow button node.</p>
+
+    <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+        <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+        <ul>
+            <li>
+                <a href="https://www.ebay.com/">ebay</a>
+                <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                    {% include symbol.html name="breadcrumb" %}
+                </svg>
+            </li>
+            <li>
+                <span class="menu-button">
+                    <button class="menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
+                        <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false">
+                            {% include symbol.html name="overflow-small" %}
+                        </svg>
+                    </button>
+    
+                    <span tabindex="-1" class="menu-button__menu">
+                        <div role="menu" class="menu-button__items">
+                            <div class="menu-button__item" role="menuitem" tabindex="-1">
+                                <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+                            </div>
+                            <div class="menu-button__item" role="menuitem" tabindex="-1">
+                                <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+                            </div>
+                            <div class="menu-button__item" role="menuitem" tabindex="-1">
+                                <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906">Smart Watch Bands</a>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+    
+                <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use href="#icon-breadcrumb"></use>
+                </svg>
+            </li>
+            <li>
+                <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand1">Smart Watch Band Type 1</a>
+                <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                    {% include symbol.html name="breadcrumb" %}
+                </svg>
+            </li>
+            <li>
+                <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Type 2</a>
+                <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                    {% include symbol.html name="breadcrumb" %}
+                </svg>
+            </li>
+            <li>
+                <a aria-current="location">Current Band</a>
+            </li>
+        </ul>
+    </nav>
+    {% highlight html %}
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+    <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+    <ul>
+        <li>
+            <a href="https://www.ebay.com/">ebay</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-breadcrumb"></use>
+            </svg>
+        </li>
+        <li>
+            <span class="menu-button">
+                <button class="menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
+                    <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false">
+                        <use href="#icon-overflow-small"></use>
+                    </svg>
+                </button>
+
+                <span tabindex="-1" class="menu-button__menu">
+                    <div role="menu" class="menu-button__items">
+                        <div class="menu-button__item" role="menuitem" tabindex="-1">
+                            <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+                        </div>
+                        <div class="menu-button__item" role="menuitem" tabindex="-1">
+                            <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+                        </div>
+                        <div class="menu-button__item" role="menuitem" tabindex="-1">
+                            <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906">Smart Watch Bands</a>
+                        </div>
+                    </div>
+                </span>
+            </span>
+
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-breadcrumb"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand1">Smart Watch Band Type 1</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-breadcrumb"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Type 2</a>
+            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-breadcrumb"></use>
+            </svg>
+        </li>
+        <li>
+            <a aria-current="location">Current Band</a>
+        </li>
+    </ul>
+</nav>
+    {% endhighlight %}
 
 </div>
