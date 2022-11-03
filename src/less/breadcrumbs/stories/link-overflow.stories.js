@@ -1,7 +1,7 @@
 export default { title: 'Breadcrumbs/Links/Overflow' };
 
 export const collapsed = () => `
-<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs breadcrumb--overflow" role="navigation">
     <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
     <ul>
         <li>
@@ -57,7 +57,7 @@ export const collapsed = () => `
 `;
 
 export const expanded = () => `
-<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs breadcrumb--overflow" role="navigation">
     <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
     <ul>
         <li>

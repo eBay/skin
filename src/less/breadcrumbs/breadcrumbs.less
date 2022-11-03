@@ -7,7 +7,9 @@ nav.breadcrumbs {
     height: fit-content;
     margin: 8px 0;
     min-height: 16px;
+    overflow-x: scroll; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     padding: 8px;
+    scrollbar-width: none; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     white-space: nowrap;
 
     ul {
@@ -69,6 +71,17 @@ nav.breadcrumbs {
     button:focus:not(:focus-visible) {
         outline: none;
     }
+
+    // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
+    nav.breadcrumbs::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// Introduced modifier in 15.2.0; supports new implementations; @TODO remove in 16.0.0 and remove modifier class from markup
+nav.breadcrumbs.breadcrumb--overflow {
+    overflow-x: unset;
+    scrollbar-width: unset;
 }
 
 nav.breadcrumbs .menu-button__button {
