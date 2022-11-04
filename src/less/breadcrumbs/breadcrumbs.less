@@ -2,14 +2,14 @@
 @import "../mixins/private/token-mixins.less";
 
 nav.breadcrumbs {
-    .color-token(breadcrumbs-item-foreground-color, color-foreground-primary);
+    .color-token(breadcrumbs-item-foreground-color, color-foreground-secondary);
     font-size: @font-size-12;
     height: fit-content;
     margin: 8px 0;
     min-height: 16px;
-    overflow-x: scroll;
+    overflow-x: scroll; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     padding: 8px;
-    scrollbar-width: none;
+    scrollbar-width: none; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     white-space: nowrap;
 
     ul {
@@ -25,6 +25,7 @@ nav.breadcrumbs {
     li {
         align-items: center;
         display: inline-flex;
+        vertical-align: middle;
     }
 
     li svg {
@@ -57,7 +58,7 @@ nav.breadcrumbs {
         }
 
         &[aria-current] {
-            .color-token(breadcrumbs-item-current-foreground-color, color-foreground-secondary);
+            .color-token(breadcrumbs-item-current-foreground-color, color-foreground-primary);
             text-decoration: none;
         }
     }
@@ -70,10 +71,38 @@ nav.breadcrumbs {
     button:focus:not(:focus-visible) {
         outline: none;
     }
+
+    // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
+    nav.breadcrumbs::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-nav.breadcrumbs::-webkit-scrollbar {
-    display: none;
+// Introduced modifier in 15.2.0; supports new implementations; @TODO remove in 16.0.0 and remove modifier class from markup
+nav.breadcrumbs.breadcrumb--overflow {
+    overflow-x: unset;
+    scrollbar-width: unset;
+}
+
+nav.breadcrumbs .menu-button__button {
+    background-color: var(--icon-button-background-color, var(--color-background-secondary));
+    height: @spacing-250;
+    min-height: @spacing-250;
+    min-width: @spacing-250;
+    outline-offset: 1px;
+    width: @spacing-250;
+}
+
+nav.breadcrumbs .menu-button__menu {
+    font-size: @font-size-14;
+}
+
+nav.breadcrumbs svg.icon--overflow-small {
+    transform: rotate(90deg);
+}
+
+nav.breadcrumbs div.menu-button__item[role^="menuitem"] {
+    display: block;
 }
 
 @media (min-width: 601px) {
