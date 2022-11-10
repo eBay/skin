@@ -65,11 +65,18 @@
 }
 
 .snackbar-dialog__actions .fake-link {
+    .color-token(snackbar-dialog-foreground-color, color-foreground-on-inverse);
     text-decoration: none;
 
     &::first-letter {
         text-decoration: underline;
     }
+}
+
+// this needs to be super specific to override base fake-link
+.snackbar-dialog__actions button.fake-link:hover:not(:disabled) {
+    .color-token(snackbar-dialog-foreground-color, color-foreground-on-inverse);
+    text-decoration: underline;
 }
 
 @media (min-width: 601px) {
