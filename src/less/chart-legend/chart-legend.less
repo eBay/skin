@@ -1,4 +1,17 @@
 @import "../variables/variables.less";
+.chart-legend__gradient(@deg, @backgroundColor, @strokeColor) {
+    background: repeating-linear-gradient(
+        @deg,
+        var(~"--@{backgroundColor}"),
+        var(~"--@{backgroundColor}") 2px,
+        var(~"--@{strokeColor}") 2px,
+        var(~"--@{strokeColor}") 3px,
+        var(~"--@{backgroundColor}") 3px,
+        var(~"--@{backgroundColor}") 4px
+    );
+    background-color: var(~"--@{backgroundColor}");
+    border: 1px solid var(~"--@{strokeColor}");
+}
 .chart-legend {
     display: inline-block;
     font-size: @font-size-12;
@@ -32,43 +45,10 @@
     border: 1px solid var(--chart-legend-secondary, var(--color-data-viz-chart-secondary));
 }
 .chart-legend__item--tertiary::before {
-    background: repeating-linear-gradient(
-        var(
-            --chart-legend-quaternary-background,
-            var(--color-data-viz-chart-quaternary-background)
-        ),
-        var(--chart-legend-quaternary-background, var(--color-data-viz-chart-quaternary-background))
-            2px,
-        var(--chart-legend-quaternary-stroke, var(--color-data-viz-chart-quaternary-stroke)) 2px,
-        var(--chart-legend-quaternary-stroke, var(--color-data-viz-chart-quaternary-stroke)) 3px,
-        var(--chart-legend-quaternary-background, var(--color-data-viz-chart-quaternary-background))
-            3px,
-        var(--chart-legend-quaternary-background, var(--color-data-viz-chart-quaternary-background))
-            4px
-    );
-    background-color: var(
-        --chart-legend-tertiary-background,
-        var(--color-data-viz-chart-quaternary-background)
-    );
-    border: 1px solid
-        var(--chart-legend-tertiary-stroke, var(--color-data-viz-chart-quaternary-stroke));
+    .chart-legend__gradient(0deg, color-data-viz-chart-quaternary-background, color-data-viz-chart-quaternary-stroke);
 }
 .chart-legend__item--quaternary::before {
-    background: repeating-linear-gradient(
-        30deg,
-        var(--chart-legend-tertiary-background, var(--color-data-viz-chart-tertiary-background)),
-        var(--chart-legend-tertiary-background, var(--color-data-viz-chart-tertiary-background)) 2px,
-        var(--chart-legend-tertiary-stroke, var(--color-data-viz-chart-tertiary-stroke)) 2px,
-        var(--chart-legend-tertiary-stroke, var(--color-data-viz-chart-tertiary-stroke)) 3px,
-        var(--chart-legend-tertiary-background, var(--color-data-viz-chart-tertiary-background)) 3px,
-        var(--chart-legend-tertiary-background, var(--color-data-viz-chart-tertiary-background)) 4px
-    );
-    background-color: var(
-        --chart-legend-quaternary-background,
-        var(--color-data-viz-chart-tertiary-background)
-    );
-    border: 1px solid
-        var(--chart-legend-quaternary-stroke, var(--color-data-viz-chart-tertiary-stroke));
+    .chart-legend__gradient(30deg, color-data-viz-chart-tertiary-background, color-data-viz-chart-tertiary-stroke);
 }
 .chart-legend__item--quinary::before {
     background-color: var(

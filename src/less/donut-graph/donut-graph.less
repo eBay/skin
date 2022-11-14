@@ -1,7 +1,6 @@
 @import "../variables/variables.less";
 @import "../mixins/private/token-mixins.less";
 @import "../mixins/private/bubble-mixins.less";
-@import "../tooltip/tooltip.less";
 
 @inactive-opacity: 0.2;
 
@@ -60,7 +59,9 @@
     display: block;
 }
 .donut-graph__tooltip-container {
-    .tooltip__mask;
+    .bubble-mask();
+    .background-color-token(donut-tooltip-background-color, color-background-primary);
+    .color-token(donut-tooltip-foreground-color, color-foreground-primary);
     display: block;
     filter: var(--bubble-filter);
     font-size: 14px;
