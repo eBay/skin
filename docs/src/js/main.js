@@ -357,3 +357,10 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 
     widgetEl.addEventListener('makeup-switch-toggle', logEvent);
 });
+
+// DONUT GRAPH
+document.querySelectorAll('.donut-graph').forEach(function (widgetEl) {
+    RovingTabindex.createLinear(widgetEl, '.donut-graph__segment', {
+      wrap: true
+    });
+})    
