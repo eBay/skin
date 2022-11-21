@@ -1,5 +1,5 @@
 nav.breadcrumbs {
-  color: var(--breadcrumbs-item-foreground-color, var(--color-foreground-primary));
+  color: var(--breadcrumbs-item-foreground-color, var(--color-foreground-secondary));
   font-size: 0.75rem;
   height: -webkit-fit-content;
   height: fit-content;
@@ -10,25 +10,29 @@ nav.breadcrumbs {
   scrollbar-width: none;
   white-space: nowrap;
 }
-nav.breadcrumbs ul {
-  display: inline;
+nav.breadcrumbs > ul {
+  display: inline-block;
   margin: 0;
   min-width: 100%;
   padding: 0;
   right: 0;
 }
-nav.breadcrumbs li {
+nav.breadcrumbs > ul > li {
   align-items: center;
   display: inline-flex;
+  vertical-align: middle;
 }
-nav.breadcrumbs li svg {
+nav.breadcrumbs > ul > li[hidden] {
+  display: none;
+}
+nav.breadcrumbs > ul > li svg {
   margin-left: 7px;
   margin-right: 7px;
 }
-nav.breadcrumbs a {
+nav.breadcrumbs > ul > li > a {
   text-decoration: none;
 }
-nav.breadcrumbs button {
+nav.breadcrumbs > ul > li > button {
   background: none;
   border: none;
   font-family: inherit;
@@ -36,32 +40,55 @@ nav.breadcrumbs button {
   margin: 0;
   padding: 0;
 }
-nav.breadcrumbs a,
-nav.breadcrumbs button {
+nav.breadcrumbs > ul > li > a,
+nav.breadcrumbs > ul > li > button {
   color: inherit;
+  max-width: 168px;
   outline-offset: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-nav.breadcrumbs a:focus,
-nav.breadcrumbs button:focus,
-nav.breadcrumbs a:hover,
-nav.breadcrumbs button:hover {
-  color: var(--breadcrumbs-item-hover-foreground-color, var(--color-foreground-accent));
+nav.breadcrumbs > ul > li > a:focus,
+nav.breadcrumbs > ul > li > button:focus,
+nav.breadcrumbs > ul > li > a:hover,
+nav.breadcrumbs > ul > li > button:hover {
   text-decoration: underline;
 }
-nav.breadcrumbs a[aria-current],
-nav.breadcrumbs button[aria-current] {
-  color: var(--breadcrumbs-item-current-foreground-color, var(--color-foreground-secondary));
+nav.breadcrumbs > ul > li > a[aria-current],
+nav.breadcrumbs > ul > li > button[aria-current] {
+  color: var(--breadcrumbs-item-current-foreground-color, var(--color-foreground-primary));
   text-decoration: none;
 }
-nav.breadcrumbs a:visited {
-  color: inherit;
-}
-nav.breadcrumbs a:focus:not(:focus-visible),
-nav.breadcrumbs button:focus:not(:focus-visible) {
+nav.breadcrumbs > ul > li > a:focus:not(:focus-visible),
+nav.breadcrumbs > ul > li > button:focus:not(:focus-visible) {
   outline: none;
 }
 nav.breadcrumbs::-webkit-scrollbar {
   display: none;
+}
+nav.breadcrumbs.breadcrumb--overflow {
+  overflow-x: unset;
+  scrollbar-width: unset;
+}
+nav.breadcrumbs .fake-menu-button__button,
+nav.breadcrumbs .menu-button__button {
+  background-color: var(--icon-button-background-color, var(--color-background-secondary));
+  height: 24px;
+  min-height: 24px;
+  min-width: 24px;
+  outline-offset: 1px;
+  width: 24px;
+}
+nav.breadcrumbs .fake-menu-button__button svg.icon,
+nav.breadcrumbs .menu-button__button svg.icon {
+  fill: var(--breadcrumbs-overflow-foreground-color, var(--color-foreground-secondary));
+}
+nav.breadcrumbs .fake-menu-button__menu,
+nav.breadcrumbs .menu-button__menu {
+  font-size: 0.875rem;
+}
+nav.breadcrumbs svg.icon--overflow-small {
+  transform: rotate(90deg);
 }
 @media (min-width: 601px) {
   nav.breadcrumbs {

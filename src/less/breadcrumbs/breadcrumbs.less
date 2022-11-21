@@ -2,78 +2,112 @@
 @import "../mixins/private/token-mixins.less";
 
 nav.breadcrumbs {
-    .color-token(breadcrumbs-item-foreground-color, color-foreground-primary);
+    .color-token(breadcrumbs-item-foreground-color, color-foreground-secondary);
     font-size: @font-size-12;
     height: fit-content;
     margin: 8px 0;
     min-height: 16px;
-    overflow-x: scroll;
+    overflow-x: scroll; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     padding: 8px;
-    scrollbar-width: none;
+    scrollbar-width: none; // Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
     white-space: nowrap;
+}
 
-    ul {
-        display: inline;
-        margin: 0;
-        min-width: 100%;
-        padding: 0;
-        right: 0;
+nav.breadcrumbs > ul {
+    display: inline-block;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    right: 0;
+}
+
+// On certain pages spacing in each container can vary in size even if content is the same.
+// Force content to flex makes it all have the same size
+nav.breadcrumbs > ul > li {
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+nav.breadcrumbs > ul > li[hidden] {
+    display: none;
+}
+
+nav.breadcrumbs > ul > li svg {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+nav.breadcrumbs > ul > li > a {
+    text-decoration: none;
+}
+
+nav.breadcrumbs > ul > li > button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+nav.breadcrumbs > ul > li > a,
+nav.breadcrumbs > ul > li > button {
+    color: inherit;
+    max-width: 168px;
+    outline-offset: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
     }
 
-    // On certain pages spacing in each container can vary in size even if content is the same.
-    // Force content to flex makes it all have the same size
-    li {
-        align-items: center;
-        display: inline-flex;
-    }
-
-    li svg {
-        margin-left: 7px;
-        margin-right: 7px;
-    }
-
-    a {
+    &[aria-current] {
+        .color-token(breadcrumbs-item-current-foreground-color, color-foreground-primary);
         text-decoration: none;
-    }
-
-    button {
-        background: none;
-        border: none;
-        font-family: inherit;
-        font-size: 1em;
-        margin: 0;
-        padding: 0;
-    }
-
-    a,
-    button {
-        color: inherit;
-        outline-offset: 5px;
-
-        &:focus,
-        &:hover {
-            .color-token(breadcrumbs-item-hover-foreground-color, color-foreground-accent);
-            text-decoration: underline;
-        }
-
-        &[aria-current] {
-            .color-token(breadcrumbs-item-current-foreground-color, color-foreground-secondary);
-            text-decoration: none;
-        }
-    }
-
-    a:visited {
-        color: inherit;
-    }
-
-    a:focus:not(:focus-visible),
-    button:focus:not(:focus-visible) {
-        outline: none;
     }
 }
 
+nav.breadcrumbs > ul > li > a:focus:not(:focus-visible),
+nav.breadcrumbs > ul > li > button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+// Deprecated in 15.2.0; kept it in to support deprecated implementations; @TODO remove in 16.0.0
 nav.breadcrumbs::-webkit-scrollbar {
     display: none;
+}
+
+// Introduced modifier in 15.2.0; supports new implementations; @TODO remove in 16.0.0 and remove modifier class from markup
+nav.breadcrumbs.breadcrumb--overflow {
+    overflow-x: unset;
+    scrollbar-width: unset;
+}
+
+nav.breadcrumbs .fake-menu-button__button,
+nav.breadcrumbs .menu-button__button {
+    background-color: var(--icon-button-background-color, var(--color-background-secondary));
+    height: @spacing-300;
+    min-height: @spacing-300;
+    min-width: @spacing-300;
+    outline-offset: 1px;
+    width: @spacing-300;
+}
+
+nav.breadcrumbs .fake-menu-button__button svg.icon,
+nav.breadcrumbs .menu-button__button svg.icon {
+    .fill-token(breadcrumbs-overflow-foreground-color, color-foreground-secondary);
+}
+
+nav.breadcrumbs .fake-menu-button__menu,
+nav.breadcrumbs .menu-button__menu {
+    font-size: @font-size-14;
+}
+
+nav.breadcrumbs svg.icon--overflow-small {
+    transform: rotate(90deg);
 }
 
 @media (min-width: 601px) {

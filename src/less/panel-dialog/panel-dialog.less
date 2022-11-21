@@ -4,8 +4,11 @@
 
 .panel-dialog[role="dialog"] {
     .dialog-base();
-
     flex-direction: column;
+
+    // need to override base as panel dialog is the only one to scroll the content only
+    /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+    overflow-y: hidden;
 }
 
 .panel-dialog__window {
@@ -33,6 +36,9 @@
 
 .panel-dialog__main {
     .dialog-body-content();
+
+    height: 1px;
+    overflow-y: auto;
 }
 
 .panel-dialog__footer {
