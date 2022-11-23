@@ -1,7 +1,7 @@
 export default { title: 'Donut-graph' };
 
 export const basic = () => `
-<div class="donut-graph donut-graph-vertical"><svg version="1.1" width="190"
+<div class="donut-graph donut-graph-vertical"><svg width="190"
         height="190" viewBox="0 0 190 190" role="graphics-document" aria-label="donut chart title">
         <desc>This donut chart is displaying a selection of sample values</desc>
         <defs>
@@ -35,7 +35,7 @@ export const basic = () => `
 
 export const maxValues = () => `
 <div class="donut-graph">
-    <svg version="1.1" width="190"
+    <svg width="190"
         height="190" viewBox="0 0 190 190" role="graphics-document" aria-label="donutcharttitle">
         <desc>This donut chart is displaying a selection of sample values</desc>
         <defs>

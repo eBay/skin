@@ -2,7 +2,7 @@ export default { title: 'Chart' };
 export const stacked = () => `
 <div aria-label="chart title" class="chart chart--stacked">
     <div tabindex="0" class="donut-graph chart__container chart__container-stacked">
-        <svg version="1.1" width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
+        <svg width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
                 <pattern patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" width="3" height="5" x="0"
@@ -55,7 +55,7 @@ export const composition = () => `
         <span class="chart__subtitle">return rate</span>
     </div>
     <div tabindex="0" class="donut-graph chart__container">
-        <svg version="1.1" width="120" height="120" viewBox="0 0 120 120" role="graphics-document">
+        <svg width="120" height="120" viewBox="0 0 120 120" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
                 <pattern patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" width="3" height="5" x="0"
@@ -131,7 +131,7 @@ export const composition = () => `
 export const legendOnRight = () => `
 <div aria-label="chart title" class="chart chart--horizontal chart--right">
     <div tabindex="0" class="donut-graph chart__container chart__container-horizontal chart__container-right">
-        <svg version="1.1" width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
+        <svg width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
                 <pattern patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" width="3" height="5" x="0"
@@ -209,7 +209,7 @@ export const legendOnRight = () => `
 export const legendOnLeft = () => `
 <div aria-label="chart title" class="chart chart--horizontal chart--left">
     <div  tabindex="0" class="donut-graph chart__container chart__container-horizontal chart__container-left">
-        <svg version="1.1" width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
+        <svg width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
                 <pattern patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse" width="3" height="5" x="0"
