@@ -1,7 +1,7 @@
 export default { title: 'Chart' };
 export const stacked = () => `
-<div aria-label="chart title" class="chart chart--stacked">
-    <div tabindex="0" class="donut-graph chart__container chart__container-stacked">
+<div aria-label="chart title" class="chart">
+    <div tabindex="0" class="donut-graph chart__container">
         <svg width="190" height="190" viewBox="0 0 190 190" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
@@ -54,7 +54,7 @@ export const composition = () => `
         <span class="chart__metric">$178 total</span>
         <span class="chart__subtitle">return rate</span>
     </div>
-    <div tabindex="0" class="donut-graph chart__container">
+    <div tabindex="0" class="donut-graph chart__container chart__container-composition">
         <svg width="120" height="120" viewBox="0 0 120 120" role="graphics-document">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
