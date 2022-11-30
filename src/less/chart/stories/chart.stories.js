@@ -54,7 +54,7 @@ export const composition = () => `
         <span class="chart__metric">$178 total</span>
         <span class="chart__subtitle">return rate</span>
     </div>
-    <div tabindex="0" class="donut-graph chart-graph__container chart-graph__container-composition">
+    <div tabindex="0" class="donut-graph chart-graph__container chart-graph__container--composition">
         <svg width="120" height="120" viewBox="0 0 120 120">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
@@ -130,7 +130,7 @@ export const composition = () => `
 
 export const legendOnRight = () => `
 <div aria-label="chart title" class="chart chart--horizontal chart--right">
-    <div tabindex="0" class="donut-graph chart-graph__container chart-graph__container-horizontal chart-graph__container-right">
+    <div tabindex="0" class="donut-graph chart-graph__container chart-graph__container--horizontal chart-graph__container--right">
         <svg width="190" height="190" viewBox="0 0 190 190">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
@@ -208,7 +208,7 @@ export const legendOnRight = () => `
 
 export const legendOnLeft = () => `
 <div aria-label="chart title" class="chart chart--horizontal chart--left">
-    <div  tabindex="0" class="donut-graph chart-graph__container chart-graph__container-horizontal chart-graph__container-left">
+    <div  tabindex="0" class="donut-graph chart-graph__container chart-graph__container--horizontal chart-graph__container--left">
         <svg width="190" height="190" viewBox="0 0 190 190">
             <desc>This donut chart is displaying a selection of sample values</desc>
             <defs>
