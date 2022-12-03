@@ -12,6 +12,14 @@ a.nav-link:visited,
 a.standalone-link:visited {
   color: var(--link-foreground-color-default, var(--color-foreground-primary));
 }
+a.nav-link:not([href]),
+a.standalone-link:not([href]),
+a.nav-link[aria-disabled="true"],
+a.standalone-link[aria-disabled="true"] {
+  color: var(--link-forground-color-disabled, var(--color-foreground-disabled));
+  opacity: 1;
+  text-decoration: none;
+}
 button.fake-link {
   background-color: transparent;
   border: 0;
@@ -24,6 +32,7 @@ button.fake-link {
 button.fake-link:hover {
   opacity: 0.7;
 }
-button.fake-link[disabled] {
+button.fake-link:not([href]),
+button.fake-link[aria-disabled="true"] {
   color: var(--fake-link-foreground-disabled-color, var(--color-foreground-disabled));
 }
