@@ -1,0 +1,128 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+
+.date-picker {
+    .background-color-token(date-picker-background-color, color-background-primary);
+    .border-color-token(date-picker-border-color, color-stroke-default);
+    border: 1px solid;
+    border-radius: @spacing-200;
+    box-shadow: 0 0 @spacing-200 0 rgba(0, 0, 0, 0.35);
+    display: flex;
+    gap: @spacing-200;
+    padding: @spacing-200;
+    position: absolute;
+}
+
+.date-picker[hidden] {
+    display: none;
+}
+
+.date-picker__month h3 {
+    margin: 0 0 @spacing-200;
+    text-align: center;
+}
+
+.date-picker--single-month .date-picker__month h3 {
+    text-align: left;
+}
+
+.date-picker__month-button.icon-btn {
+    position: absolute;
+    top: @spacing-125;
+
+    svg {
+        width: @spacing-200;
+    }
+}
+
+.date-picker__month-button--left {
+    left: @spacing-200;
+}
+
+.date-picker--single-month .date-picker__month-button--left {
+    left: inherit;
+    right: @spacing-600;
+}
+
+.date-picker__month-button--right {
+    right: @spacing-200;
+}
+
+.date-picker__month div[role="grid"] {
+    display: flex;
+    flex-direction: column;
+
+    div[role="row"] {
+        display: flex;
+    }
+}
+
+.date-picker__day-label {
+    .color-token(date-picker-day-label-color, color-foreground-secondary);
+    line-height: @spacing-125;
+    margin: @spacing-100;
+    text-align: center;
+    width: @spacing-400;
+}
+
+.date-picker__day {
+    .color-token(color-foreground-primary);
+    line-height: @spacing-400;
+    margin: @spacing-100 0;
+    padding: 0 @spacing-100;
+    text-align: center;
+    user-select: none;
+    width: @spacing-400;
+}
+
+.date-picker__day button {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: @spacing-200;
+    color: inherit;
+    font: inherit;
+    height: @spacing-400;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    width: @spacing-400;
+}
+
+.date-picker__day--range {
+    .background-color-token(date-picker-day-range-background-color, color-state-secondary-active);
+}
+
+.date-picker__day--start {
+    border-radius: @spacing-200 0 0 @spacing-200;
+    margin-left: @spacing-100;
+    padding-left: 0;
+}
+
+.date-picker__day--end {
+    border-radius: 0 @spacing-200 @spacing-200 0;
+    margin-right: @spacing-100;
+    padding-right: 0;
+}
+
+.date-picker__day--start.date-picker__day--end {
+    border-radius: @spacing-200;
+}
+
+.date-picker__day--today > button:not([aria-selected="true"]) {
+    .border-color-token(date-picker-day-today-border-color, color-foreground-primary);
+}
+
+.date-picker__day > button:disabled {
+    .color-token(date-picker-day-disabled-color, color-foreground-disabled);
+}
+
+.date-picker__day:not(.date-picker__day--range)
+    > button:not(:disabled, [aria-selected="true"]):hover {
+    .background-color-token(date-picker-day-hover-background-color, color-state-primary-hover);
+}
+
+.date-picker__day > button[aria-selected="true"] {
+    .background-color-token(date-picker-day-selected-background-color, color-background-inverse);
+    .color-token(date-picker-day-selected-color, color-foreground-on-inverse);
+    font-weight: bold;
+}
