@@ -37,6 +37,18 @@ export const busy = () => `
 </button>
 `;
 
+export const formBusy = () => `
+<button class="btn btn--form" aria-label="Busy">
+    <span class="btn__cell">
+        <span class="progress-spinner">
+            <svg class="icon icon--spinner" focusable="false" aria-hidden="true">
+                <use xlink:href="#icon-spinner"></use>
+            </svg>
+        </span>
+    </span>
+</button>
+`;
+
 export const submit = () => '<button type="submit" class="btn">Submit</button>';
 
 export const reset = () => '<button type="reset" class="btn">Reset</button>';
