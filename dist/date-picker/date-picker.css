@@ -12,34 +12,36 @@
 .date-picker[hidden] {
   display: none;
 }
-.calendar-month__header {
+.calendar__header {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
-.calendar-month__header h3 {
+.calendar__header h3 {
   margin: 0;
 }
-.calendar-month:not(:first-child) .date-picker__month-button--left,
-.calendar-month:not(:last-child) .date-picker__month-button--right {
+.calendar__body > caption {
+  display: none;
+}
+.calendar:not(:first-child) .calendar__nav-button--left,
+.calendar:not(:last-child) .calendar__nav-button--right {
   visibility: hidden;
 }
-.date-picker__month-button.icon-btn svg {
+.calendar__header .icon-btn svg {
   width: 16px;
 }
-.calendar-month__body {
-  border-collapse: separate;
+.calendar__body {
   border-spacing: 0 12px;
 }
-.calendar-month__body th {
+.calendar__body th {
   color: var(--date-picker-day-label-color, var(--color-foreground-secondary));
   font-weight: normal;
   line-height: 10px;
 }
-.calendar-month__body td {
+.calendar__body td {
   padding: 0;
 }
-.calendar-month__day > * {
+.calendar__body td > * {
   background: none;
   border: 1px solid transparent;
   border-radius: 16px;
@@ -50,35 +52,35 @@
   text-align: center;
   width: 32px;
 }
-.calendar-month__day--range {
+.calendar__range {
   background-color: var(--date-picker-day-range-background-color, var(--color-state-secondary-active));
 }
-.calendar-month__day--start {
+.calendar__range--start {
   background-color: transparent;
   background-image: linear-gradient(to right, transparent 50%, var(--color-state-secondary-active) 50%);
 }
-.calendar-month__day--end {
+.calendar__range--end {
   background-color: transparent;
   background-image: linear-gradient(to left, transparent 50%, var(--color-state-secondary-active) 50%);
 }
-.calendar-month__day--start.calendar-month__day--end {
+.calendar__range--start.calendar__range--end {
   background: transparent;
 }
-.calendar-month__day--start > :not(:disabled, [aria-disabled="true"], [aria-selected="true"]),
-.calendar-month__day--end > :not(:disabled, [aria-disabled="true"], [aria-selected="true"]) {
+.calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
+.calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
   background-color: var(--date-picker-day-hover, var(--color-state-secondary-active));
 }
-.calendar-month__day--today > :not(:disabled, [aria-disabled="true"], [aria-selected="true"]) {
+.calendar__body td[aria-current="date"]:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
   border-color: var(--date-picker-day-today-border-color, var(--color-foreground-primary));
 }
-.calendar-month__day > :disabled,
-.calendar-month__day > [aria-disabled="true"] {
+.calendar__body td > :disabled,
+.calendar__body td > [aria-disabled="true"] {
   color: var(--date-picker-day-disabled-color, var(--color-foreground-disabled));
 }
-.calendar-month__day:not(.calendar-month__day--range) > :not(:disabled, [aria-disabled="true"], [aria-selected="true"]):hover {
+.calendar__body td:not(.calendar__range, [aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]):hover {
   background-color: var(--date-picker-day-hover-background-color, var(--color-state-primary-hover));
 }
-.calendar-month__day > [aria-selected="true"] {
+.calendar__body td[aria-selected="true"] > * {
   background-color: var(--date-picker-day-selected-background-color, var(--color-background-inverse));
   color: var(--date-picker-day-selected-color, var(--color-foreground-on-inverse));
   font-weight: bold;
