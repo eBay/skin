@@ -7,13 +7,20 @@ a.standalone-link {
     text-decoration: none;
 
     &:visited {
-        .color-token(nav-link-foreground-color, color-foreground-primary);
+        .color-token(link-foreground-color-default, color-foreground-primary);
     }
 
     &:hover {
-        .color-token(nav-link-foreground-color-hover, color-foreground-primary);
+        .color-token(nav-link-foreground-hover-color, color-foreground-secondary);
 
         text-decoration: underline;
+    }
+
+    &:not([href]),
+    &[aria-disabled="true"] {
+        .color-token(link-forground-color-disabled, color-foreground-disabled);
+
+        text-decoration: none;
     }
 }
 
@@ -26,7 +33,12 @@ button.fake-link {
     padding: 0;
     text-decoration: underline;
 
-    &[disabled] {
+    &:hover {
+        .color-token(fake-link-foreground-color-hover, color-foreground-secondary);
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
         .color-token(fake-link-foreground-disabled-color, color-foreground-disabled);
     }
 }
