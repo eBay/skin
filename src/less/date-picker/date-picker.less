@@ -28,12 +28,16 @@
     width: 0; // In conjunction with `flex-grow: 1`, this forces all headers to be an equal size
 }
 
-.date-picker:not(.date-picker--single-month) .date-picker__header h3:nth-child(2) {
+.date-picker__header h3:nth-child(2) {
     margin-right: 40px; // total width of icon-btn--small
 }
 
-.date-picker:not(.date-picker--single-month) .date-picker__header h3:nth-last-child(2) {
+.date-picker__header h3:nth-last-child(2) {
     margin-left: 40px; // total width of icon-btn--small
+}
+
+.date-picker__header h3:nth-child(2):nth-last-child(2) {
+    margin: 0;
 }
 
 .date-picker__header .icon-btn svg {
@@ -43,93 +47,4 @@
 .date-picker__body {
     display: flex;
     gap: @spacing-200;
-}
-
-.calendar > caption {
-    text-align: left;
-}
-
-.date-picker .calendar > caption {
-    display: none;
-}
-
-.calendar {
-    border-spacing: 0 @spacing-150;
-    max-width: 311px; // 343px - 16px - 16px
-    width: 100vw; // TODO: This _almost_ allows margins to shrink with screen width, but not quite
-}
-
-.calendar th {
-    .color-token(date-picker-day-label-color, color-foreground-secondary);
-    font-weight: normal;
-    line-height: @spacing-125;
-}
-
-.calendar td {
-    padding: 0;
-    text-align: center;
-}
-
-.calendar td > * {
-    background: none;
-    border: 1px solid transparent;
-    border-radius: @spacing-200;
-    color: inherit;
-    font: inherit;
-    height: @spacing-400;
-    width: @spacing-400;
-}
-
-.calendar__range {
-    .background-color-token(date-picker-day-range-background-color, color-state-secondary-active);
-}
-
-.calendar__range--start {
-    background-color: transparent;
-    background-image: linear-gradient(
-        to right,
-        transparent 50%,
-        var(--color-state-secondary-active) 50%
-    );
-}
-
-.calendar__range--end {
-    background-color: transparent;
-    background-image: linear-gradient(
-        to left,
-        transparent 50%,
-        var(--color-state-secondary-active) 50%
-    );
-}
-
-.calendar__range--start.calendar__range--end {
-    background: transparent;
-}
-
-.calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
-.calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
-    .background-color-token(date-picker-day-hover, color-state-secondary-active);
-}
-
-.calendar
-    td[aria-current="date"]:not([aria-selected="true"])
-    > :not(:disabled, [aria-disabled="true"]) {
-    .border-color-token(date-picker-day-today-border-color, color-foreground-primary);
-}
-
-.calendar td > :disabled,
-.calendar td > [aria-disabled="true"] {
-    .color-token(date-picker-day-disabled-color, color-foreground-disabled);
-}
-
-.calendar
-    td:not(.calendar__range, [aria-selected="true"])
-    > :not(:disabled, [aria-disabled="true"]):hover {
-    .background-color-token(date-picker-day-hover-background-color, color-state-primary-hover);
-}
-
-.calendar td[aria-selected="true"] > * {
-    .background-color-token(date-picker-day-selected-background-color, color-background-inverse);
-    .color-token(date-picker-day-selected-color, color-foreground-on-inverse);
-    font-weight: bold;
 }

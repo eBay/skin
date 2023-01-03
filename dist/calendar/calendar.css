@@ -1,0 +1,65 @@
+.calendar > caption {
+  text-align: left;
+}
+.date-picker .calendar > caption {
+  display: none;
+}
+.calendar {
+  border-spacing: 0 12px;
+  width: 311px;
+}
+.calendar th {
+  color: var(--date-picker-day-label-color, var(--color-foreground-secondary));
+  font-weight: normal;
+  line-height: 10px;
+}
+.calendar td {
+  padding: 0;
+  text-align: center;
+}
+.calendar td > * {
+  align-items: center;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  box-sizing: border-box;
+  color: inherit;
+  display: inline-flex;
+  font: inherit;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+}
+.calendar__range {
+  background-color: var(--date-picker-day-range-background-color, var(--color-state-secondary-active));
+}
+.calendar__range--start {
+  background-color: transparent;
+  background-image: linear-gradient(to right, transparent 50%, var(--color-state-secondary-active) 50%);
+}
+.calendar__range--end {
+  background-color: transparent;
+  background-image: linear-gradient(to left, transparent 50%, var(--color-state-secondary-active) 50%);
+}
+.calendar__range--start.calendar__range--end {
+  background: transparent;
+}
+.calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
+.calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
+  background-color: var(--date-picker-day-range-end, var(--color-state-secondary-active));
+}
+.calendar td[aria-current="date"]:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
+  border-color: var(--date-picker-day-today-border-color, var(--color-foreground-primary));
+}
+.calendar td > :disabled,
+.calendar td > [aria-disabled="true"] {
+  color: var(--date-picker-day-disabled-color, var(--color-foreground-disabled));
+}
+.calendar td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
+  background-color: var(--date-picker-day-hover-background-color, var(--color-state-primary-hover));
+}
+.calendar td[aria-selected="true"] > * {
+  background-color: var(--date-picker-day-selected-background-color, var(--color-background-inverse));
+  color: var(--date-picker-day-selected-color, var(--color-foreground-on-inverse));
+  font-weight: bold;
+}

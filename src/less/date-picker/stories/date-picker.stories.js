@@ -5,7 +5,7 @@ export const double = () => /* HTML */ `
         <div class="date-picker__header">
             <button
                 class="icon-btn icon-btn--small icon-btn--transparent"
-                aria-label="Show July 2019"
+                aria-label="Previous Month - July 2019"
                 variant="icon"
             >
                 <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
@@ -16,7 +16,7 @@ export const double = () => /* HTML */ `
             <h3>September 2019</h3>
             <button
                 class="icon-btn icon-btn--small icon-btn--transparent"
-                aria-label="Show October 2019"
+                aria-label="Next Month - October 2019"
                 variant="icon"
             >
                 <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
@@ -173,11 +173,11 @@ export const double = () => /* HTML */ `
 `;
 
 export const single = () => /* HTML */ `
-    <div class="date-picker date-picker--single-month" role="dialog" aria-label="date picker">
+    <div class="date-picker" role="dialog" aria-label="date picker">
         <div class="date-picker__header">
             <button
                 class="icon-btn icon-btn--small icon-btn--transparent"
-                aria-label="Show July 2019"
+                aria-label="Previous Month - July 2019"
                 variant="icon"
             >
                 <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
@@ -187,7 +187,7 @@ export const single = () => /* HTML */ `
             <h3>August 2019</h3>
             <button
                 class="icon-btn icon-btn--small icon-btn--transparent"
-                aria-label="Show July 2019"
+                aria-label="Next Month - September 2019"
                 variant="icon"
             >
                 <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">

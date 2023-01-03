@@ -1,0 +1,96 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+
+.calendar > caption {
+    text-align: left;
+}
+
+.date-picker .calendar > caption {
+    display: none;
+}
+
+.calendar {
+    border-spacing: 0 @spacing-150;
+    // TODO: This forces the calendar to fit with designs,
+    // but ideally it should shrink with container size.
+    // Some combination of `max-width` and other properties
+    // probably allow this to happen, but I can't find it
+    width: 311px; // 343px - 16px - 16px
+}
+
+.calendar th {
+    .color-token(date-picker-day-label-color, color-foreground-secondary);
+    font-weight: normal;
+    line-height: @spacing-125;
+}
+
+.calendar td {
+    padding: 0;
+    text-align: center;
+}
+
+.calendar td > * {
+    align-items: center;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: @spacing-200;
+    box-sizing: border-box;
+    color: inherit;
+    display: inline-flex;
+    font: inherit;
+    height: @spacing-400;
+    justify-content: center;
+    width: @spacing-400;
+}
+
+.calendar__range {
+    .background-color-token(date-picker-day-range-background-color, color-state-secondary-active);
+}
+
+.calendar__range--start {
+    background-color: transparent;
+    background-image: linear-gradient(
+        to right,
+        transparent 50%,
+        var(--color-state-secondary-active) 50%
+    );
+}
+
+.calendar__range--end {
+    background-color: transparent;
+    background-image: linear-gradient(
+        to left,
+        transparent 50%,
+        var(--color-state-secondary-active) 50%
+    );
+}
+
+.calendar__range--start.calendar__range--end {
+    background: transparent;
+}
+
+.calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
+.calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
+    .background-color-token(date-picker-day-range-end, color-state-secondary-active);
+}
+
+.calendar
+    td[aria-current="date"]:not([aria-selected="true"])
+    > :not(:disabled, [aria-disabled="true"]) {
+    .border-color-token(date-picker-day-today-border-color, color-foreground-primary);
+}
+
+.calendar td > :disabled,
+.calendar td > [aria-disabled="true"] {
+    .color-token(date-picker-day-disabled-color, color-foreground-disabled);
+}
+
+.calendar td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
+    .background-color-token(date-picker-day-hover-background-color, color-state-primary-hover);
+}
+
+.calendar td[aria-selected="true"] > * {
+    .background-color-token(date-picker-day-selected-background-color, color-background-inverse);
+    .color-token(date-picker-day-selected-color, color-foreground-on-inverse);
+    font-weight: bold;
+}
