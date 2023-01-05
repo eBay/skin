@@ -103,7 +103,7 @@ export const select = () => `
             <option value="item3">Pick Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -120,7 +120,7 @@ export const selectInline = () => `
             <option value="item3">Pick Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -137,7 +137,7 @@ export const selectInlineDoubled = () => `
             <option value="item3">Pick Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -151,7 +151,7 @@ export const selectInlineDoubled = () => `
             <option value="item3">Pick Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -170,7 +170,7 @@ export const RTLSelectInline = () => `
                 <option value="item3">Pick Option 3</option>
             </select>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </span>

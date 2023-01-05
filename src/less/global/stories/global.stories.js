@@ -42,7 +42,7 @@ export const alignment = () => `
         <option value="3">Option 3</option>
     </select>
     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use xlink:href="#icon-dropdown"></use>
+        <use href="#icon-dropdown"></use>
     </svg>
 </span>
 
@@ -54,7 +54,7 @@ export const alignment = () => `
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -64,7 +64,7 @@ export const alignment = () => `
         <span class="btn__cell">
             <span class="btn__text">Options</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -75,7 +75,7 @@ export const alignment = () => `
         <span class="btn__cell">
             <span class="btn__text">Menu</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -95,7 +95,7 @@ export const RTLAlignment = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 
@@ -107,7 +107,7 @@ export const RTLAlignment = () => `
         <span class="combobox__control">
             <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </span>
@@ -117,7 +117,7 @@ export const RTLAlignment = () => `
             <span class="btn__cell">
                 <span class="btn__text">Options</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </button>
@@ -128,7 +128,7 @@ export const RTLAlignment = () => `
             <span class="btn__cell">
                 <span class="btn__text">Menu</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </button>
@@ -148,7 +148,7 @@ export const alignmentLarge = () => `
         <option value="3">Option 3</option>
     </select>
     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use xlink:href="#icon-dropdown"></use>
+        <use href="#icon-dropdown"></use>
     </svg>
 </span>
 
@@ -160,7 +160,7 @@ export const alignmentLarge = () => `
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -170,7 +170,7 @@ export const alignmentLarge = () => `
         <span class="btn__cell">
             <span class="btn__text">Options</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -181,7 +181,7 @@ export const alignmentLarge = () => `
         <span class="btn__cell">
             <span class="btn__text">Menu</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>

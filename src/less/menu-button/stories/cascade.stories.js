@@ -7,7 +7,7 @@ export const RTL = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -35,7 +35,7 @@ export const colour = () => `
             <span class="btn__cell">
                 <span class="btn__text">Button</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </button>
@@ -63,7 +63,7 @@ export const fontSize = () => `
             <span class="btn__cell">
                 <span class="btn__text">Button</span>
                 <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </button>
@@ -72,19 +72,19 @@ export const fontSize = () => `
                 <div class="menu-button__item" role="menuitemradio" tabindex="0" aria-checked="true">
                     <span>Item 10000</span>
                     <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use xlink:href="#icon-tick-small"></use>
+                        <use href="#icon-tick-small"></use>
                     </svg>
                 </div>
                 <div class="menu-button__item" role="menuitemradio">
                     <span>Item 20000</span>
                     <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use xlink:href="#icon-tick-small"></use>
+                        <use href="#icon-tick-small"></use>
                     </svg>
                 </div>
                 <div class="menu-button__item" role="menuitemradio">
                     <span>Item 30000</span>
                     <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use xlink:href="#icon-tick-small"></use>
+                        <use href="#icon-tick-small"></use>
                     </svg>
                 </div>
             </div>

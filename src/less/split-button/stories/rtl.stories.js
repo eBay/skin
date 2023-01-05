@@ -11,7 +11,7 @@ export const primaryCollapsed = () => `
         <span class="menu-button">
             <button class="btn btn--primary btn--split-end" aria-haspopup="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -43,7 +43,7 @@ export const primaryExpanded = () => `
         <span class="menu-button">
             <button class="btn btn--primary btn--split-end" aria-haspopup="true" aria-expanded="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -75,7 +75,7 @@ export const secondaryCollapsed = () => `
         <span class="menu-button">
             <button class="btn btn--secondary btn--split-end" aria-haspopup="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -107,7 +107,7 @@ export const secondaryExpanded = () => `
         <span class="menu-button">
             <button class="btn btn--secondary btn--split-end" aria-expanded="true" aria-haspopup="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -139,7 +139,7 @@ export const tertiaryCollapsed = () => `
         <span class="menu-button">
             <button class="btn btn--tertiary btn--split-end" aria-haspopup="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -171,7 +171,7 @@ export const tertiaryExpanded = () => `
         <span class="menu-button">
             <button class="btn btn--tertiary btn--split-end" aria-expanded="true" aria-haspopup="true" type="button">
                 <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
