@@ -6,7 +6,7 @@ export const fixedWidth = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>

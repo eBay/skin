@@ -6,7 +6,7 @@ export const closed = () => `
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
             <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </summary>
@@ -20,7 +20,7 @@ export const open = () => `
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
             <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </summary>
@@ -34,7 +34,7 @@ export const centered = () => `
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
             <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </summary>
@@ -48,7 +48,7 @@ export const small = () => `
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
             <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </summary>

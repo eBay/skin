@@ -7,7 +7,7 @@ export const base = () => `
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -30,7 +30,7 @@ export const baseWithFooter = () => `
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -59,7 +59,7 @@ export const baseRTL = () => `
                 <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
                 <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
                     <svg class="icon icon--close-small" aria-hidden="true">
-                        <use xlink:href="#icon-close-small"></use>
+                        <use href="#icon-close-small"></use>
                     </svg>
                 </button>
             </div>
@@ -83,7 +83,7 @@ export const baseWithLongHeader = () => `
             <h2 id="lightbox-dialog-title">Dialog Lightbox with a very long header that should wrap to the next line, but is actually cut off</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>

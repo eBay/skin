@@ -5,7 +5,7 @@ export const textOnly = () => '<a href="http://www.ebay/com" class="fake-btn">Fa
 export const iconAndText = () => `
 <a class="fake-btn" href="http://www.ebay.com">
     <span class="fake-btn__cell">
-        <svg class="icon icon--settings" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+        <svg class="icon icon--settings" width="16" height="16"><use href="#icon-settings"></use></svg>
         <span>Fake Button</span>
     </span>
 </a>
@@ -14,7 +14,7 @@ export const iconAndText = () => `
 export const disabled = () => `
 <a class="fake-btn">
     <span class="fake-btn__cell">
-        <svg class="icon icon--settings" width="16" height="16"><use xlink:href="#icon-settings"></use></svg>
+        <svg class="icon icon--settings" width="16" height="16"><use href="#icon-settings"></use></svg>
         <span>Fake Button</span>
     </span>
 </a>

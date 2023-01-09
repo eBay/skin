@@ -8,7 +8,7 @@ export const empty = () => `
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+                    <use href="#icon-close"></use>
                 </svg>
             </button>
         </div>
@@ -26,7 +26,7 @@ export const partial = () => `
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+                    <use href="#icon-close"></use>
                 </svg>
             </button>
         </div>
@@ -49,7 +49,7 @@ export const withFooter = () => `
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+                    <use href="#icon-close"></use>
                 </svg>
             </button>
         </div>
@@ -77,7 +77,7 @@ export const RTL = () => `
                 <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
                 <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                     <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
             </div>
@@ -101,7 +101,7 @@ export const half = () => `
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+                    <use href="#icon-close"></use>
                 </svg>
             </button>
         </div>
@@ -160,7 +160,7 @@ export const full = () => `
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use xlink:href="#icon-close"></use>
+                    <use href="#icon-close"></use>
                 </svg>
             </button>
         </div>

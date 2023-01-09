@@ -9,10 +9,10 @@ export const group = () => `
                 <input class="radio__control" id="paccount" type="radio" name="account"/>
                 <span class="radio__icon" hidden>
                     <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-radio-unchecked"></use>
+                        <use href="#icon-radio-unchecked"></use>
                     </svg>
                     <svg class="radio__checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-radio-checked"></use>
+                        <use href="#icon-radio-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -23,10 +23,10 @@ export const group = () => `
                 <input class="radio__control" id="baccount" type="radio" name="account"/>
                 <span class="radio__icon" hidden>
                     <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-radio-unchecked"></use>
+                        <use href="#icon-radio-unchecked"></use>
                     </svg>
                     <svg class="radio__checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-radio-checked"></use>
+                        <use href="#icon-radio-checked"></use>
                     </svg>
                 </span>
             </span>
@@ -75,7 +75,7 @@ export const group = () => `
                 <option value="1">Canada +1</option>
             </select>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </div>
     </span>

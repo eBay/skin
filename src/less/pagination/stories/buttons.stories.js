@@ -7,7 +7,7 @@ export const base = () => `
     </span>
     <button aria-disabled="true" aria-label="Previous Page" class="icon-btn pagination__previous">
         <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-prev"></use>
+            <use href="#icon-pagination-prev"></use>
         </svg>
     </button>
     <ol class="pagination__items">
@@ -35,7 +35,7 @@ export const base = () => `
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-next"></use>
+            <use href="#icon-pagination-next"></use>
         </svg>
     </button>
 </nav>
@@ -48,7 +48,7 @@ export const fluid = () => `
     </span>
     <button aria-disabled="true" aria-label="Previous Page" class="icon-btn pagination__previous">
         <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-prev"></use>
+            <use href="#icon-pagination-prev"></use>
         </svg>
     </button>
     <ol class="pagination__items">
@@ -76,7 +76,7 @@ export const fluid = () => `
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-next"></use>
+            <use href="#icon-pagination-next"></use>
         </svg>
     </button>
 </nav>
