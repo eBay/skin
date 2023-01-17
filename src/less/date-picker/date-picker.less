@@ -1,21 +1,40 @@
 @import "../variables/variables.less";
 @import "../mixins/private/token-mixins.less";
 
-.date-picker {
+.date-picker__dropdown {
     .background-color-token(date-picker-background-color, color-background-primary);
     .border-color-token(date-picker-border-color, color-stroke-default);
     border: 1px solid;
     border-radius: @spacing-200;
     box-shadow: 0 0 @spacing-200 0 rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
     padding: @spacing-200;
     position: absolute;
 }
 
-.date-picker[hidden] {
+@media only screen and (max-width: 622px) {
+    .date-picker__dropdown {
+        left: 0;
+    }
+}
+
+.date-picker__dropdown[hidden] {
     display: none;
 }
 
+.date-picker .calendar > caption {
+    display: none;
+}
+
+.date-picker {
+    display: table;
+}
+
 .date-picker__header {
+    display: table-caption;
+}
+
+.date-picker__header > div {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -45,6 +64,16 @@
 }
 
 .date-picker__body {
-    display: flex;
-    gap: @spacing-200;
+    display: table-row;
+}
+
+.date-picker__body > div {
+    box-sizing: content-box;
+    display: table-cell;
+    width: 311px;
+}
+
+.date-picker__body > div + div {
+    border-left: @spacing-200 solid transparent;
+    box-sizing: content-box;
 }
