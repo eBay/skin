@@ -7,7 +7,6 @@
 
 .calendar {
     border-spacing: 0 @spacing-150;
-    max-width: 311px; // 343px - 16px - 16px
     width: 100%;
 }
 
@@ -27,6 +26,7 @@
     background: none;
     border: 1px solid transparent;
     border-radius: @spacing-200;
+    border-style: none; // Only effects high contrast users
     box-sizing: border-box;
     color: inherit;
     display: inline-flex;
@@ -38,24 +38,35 @@
 
 .calendar__range {
     .background-color-token(date-picker-day-range-background-color, color-state-secondary-active);
+    position: relative;
+}
+
+// HIGH CONTRAST MODE
+.calendar__range::before {
+    border: solid transparent;
+    border-width: 1px 0;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.calendar__range--start::before {
+    border-left-width: 1px;
+}
+
+.calendar__range--end::before {
+    border-right-width: 1px;
 }
 
 .calendar__range--start {
-    background-color: transparent;
-    background-image: linear-gradient(
-        to right,
-        transparent 50%,
-        var(--color-state-secondary-active) 50%
-    );
+    background: linear-gradient(to right, transparent 50%, var(--color-state-secondary-active) 50%);
 }
 
 .calendar__range--end {
-    background-color: transparent;
-    background-image: linear-gradient(
-        to left,
-        transparent 50%,
-        var(--color-state-secondary-active) 50%
-    );
+    background: linear-gradient(to left, transparent 50%, var(--color-state-secondary-active) 50%);
 }
 
 .calendar__range--start.calendar__range--end {
@@ -71,6 +82,7 @@
     td[aria-current="date"]:not([aria-selected="true"])
     > :not(:disabled, [aria-disabled="true"]) {
     .border-color-token(date-picker-day-today-border-color, color-foreground-primary);
+    border-style: solid;
 }
 
 .calendar td > :disabled,

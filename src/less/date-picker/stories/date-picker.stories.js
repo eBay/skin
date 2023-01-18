@@ -3,7 +3,7 @@ export default { title: 'Date Picker' };
 export const double = () => /* HTML */ `
     <div class="date-picker" role="dialog" aria-label="date picker">
         <div class="date-picker__header">
-            <div>
+            <div class="date-picker__header--inner">
                 <button
                     class="icon-btn icon-btn--small icon-btn--transparent"
                     aria-label="Previous Month - July 2019"
@@ -27,7 +27,7 @@ export const double = () => /* HTML */ `
             </div>
         </div>
         <div class="date-picker__body">
-            <div>
+            <div class="date-picker__calendar-cell">
                 <table class="calendar">
                     <caption>
                         August 2019
@@ -91,7 +91,7 @@ export const double = () => /* HTML */ `
                     </tbody>
                 </table>
             </div>
-            <div>
+            <div class="date-picker__calendar-cell">
                 <table class="calendar">
                     <caption>
                         September 2019
@@ -178,7 +178,7 @@ export const double = () => /* HTML */ `
 export const single = () => /* HTML */ `
     <div class="date-picker" role="dialog" aria-label="date picker">
         <div class="date-picker__header">
-            <div>
+            <div class="date-picker__header--inner">
                 <button
                     class="icon-btn icon-btn--small icon-btn--transparent"
                     aria-label="Previous Month - July 2019"
@@ -201,7 +201,7 @@ export const single = () => /* HTML */ `
             </div>
         </div>
         <div class="date-picker__body">
-            <div>
+            <div class="date-picker__calendar-cell">
                 <table class="calendar">
                     <caption>
                         August 2019
@@ -283,7 +283,7 @@ export const dropdown = () => /* HTML */ `
     <div class="date-picker__dropdown">
         <div class="date-picker" role="dialog" aria-label="date picker">
             <div class="date-picker__header">
-                <div>
+                <div class="date-picker__calendar-cell">
                     <button
                         class="icon-btn icon-btn--small icon-btn--transparent"
                         aria-label="Previous Month - July 2019"
@@ -307,7 +307,7 @@ export const dropdown = () => /* HTML */ `
                 </div>
             </div>
             <div class="date-picker__body">
-                <div>
+                <div class="date-picker__calendar-cell">
                     <table class="calendar">
                         <caption>
                             August 2019
@@ -371,7 +371,7 @@ export const dropdown = () => /* HTML */ `
                         </tbody>
                     </table>
                 </div>
-                <div>
+                <div class="date-picker__calendar-cell">
                     <table class="calendar">
                         <caption>
                             September 2019

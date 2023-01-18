@@ -3,7 +3,6 @@
 }
 .calendar {
   border-spacing: 0 12px;
-  max-width: 311px;
   width: 100%;
 }
 .calendar th {
@@ -20,6 +19,7 @@
   background: none;
   border: 1px solid transparent;
   border-radius: 16px;
+  border-style: none;
   box-sizing: border-box;
   color: inherit;
   display: inline-flex;
@@ -30,14 +30,29 @@
 }
 .calendar__range {
   background-color: var(--date-picker-day-range-background-color, var(--color-state-secondary-active));
+  position: relative;
+}
+.calendar__range::before {
+  border: solid transparent;
+  border-width: 1px 0;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.calendar__range--start::before {
+  border-left-width: 1px;
+}
+.calendar__range--end::before {
+  border-right-width: 1px;
 }
 .calendar__range--start {
-  background-color: transparent;
-  background-image: linear-gradient(to right, transparent 50%, var(--color-state-secondary-active) 50%);
+  background: linear-gradient(to right, transparent 50%, var(--color-state-secondary-active) 50%);
 }
 .calendar__range--end {
-  background-color: transparent;
-  background-image: linear-gradient(to left, transparent 50%, var(--color-state-secondary-active) 50%);
+  background: linear-gradient(to left, transparent 50%, var(--color-state-secondary-active) 50%);
 }
 .calendar__range--start.calendar__range--end {
   background: transparent;
@@ -48,6 +63,7 @@
 }
 .calendar td[aria-current="date"]:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
   border-color: var(--date-picker-day-today-border-color, var(--color-foreground-primary));
+  border-style: solid;
 }
 .calendar td > :disabled,
 .calendar td > [aria-disabled="true"] {
