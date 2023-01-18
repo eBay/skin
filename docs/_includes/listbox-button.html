@@ -438,4 +438,106 @@
 </span>
     {% endhighlight %}
 
+    <h3 id="listbox-button-borderless">Form Variant</h3>
+    <p>Apply the <span class="highlight">listbox-button--form</span> modifier to create a listbox button inside a form matching other form controls.</p>
+    <p>Additionally, to allow the component to send the value from a selected option in a form submission, there needs to be custom <span class="highlight">js</span> to populate the <span class="highlight">select.listbox__native</span> with the value upon selection. If using Skin outside of eBay UI, you will need to account for that independantly.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="listbox-button listbox-button--form" data-makeup-auto-select="false">
+                <button class="btn btn--form" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="btn__cell">
+                        <span class="btn__label">Color: </span>
+                        <span class="btn__text">-</span>
+                        <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                            {% include symbol.html name="dropdown" %}
+                        </svg>
+                    </span>
+                </button>
+                <div class="listbox-button__listbox">
+                    <div class="listbox-button__options" role="listbox">
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Red</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                                {% include symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Blue</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                                {% include symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option" aria-disabled="true">
+                            <span class="listbox-button__value">Yellow</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                                {% include symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                        <div class="listbox-button__option" role="option">
+                            <span class="listbox-button__value">Green</span>
+                            <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                                {% include symbol.html name="tick-small" %}
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <select hidden="" class="listbox__native">
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                </select>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="listbox-button listbox-button--form">
+    <button class="btn btn--form" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox">
+        <span class="btn__cell">
+            <span class="btn__label">Color: </span>
+            <span class="btn__text">-</span>
+            <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
+                <use href="#icon-dropdown"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="listbox-button__listbox">
+        <div class="listbox-button__options" role="listbox" tabindex="0">
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Red</span>
+                <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                    <use href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Blue</span>
+                <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                    <use href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option" aria-disabled="true">
+                <span class="listbox-button__value">Yellow</span>
+                <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                    <use href="#icon-tick-small"></use>
+                </svg>
+            </div>
+            <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">Green</span>
+                <svg class="icon icon--tick-small" focusable="false" height="10" width="14">
+                    <use href="#icon-tick-small"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <select hidden="" class="listbox__native">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+    </select>
+</span>
+    {% endhighlight %}
+
 </div>
