@@ -3,150 +3,35 @@
 
     <p>The calendar component is used as a building block for other components, such as date picker.</p>
 
-    <table class="calendar">
-        <caption>
-            August 2019
-        </caption>
-        <thead>
-            <tr>
-                <th>Su</th>
-                <th>Mo</th>
-                <th>Tu</th>
-                <th>We</th>
-                <th>Th</th>
-                <th>Fr</th>
-                <th>Sa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="4"></td>
-                <td><span class="calendar__cell--disabled">1</span></td>
-                <td><span class="calendar__cell--disabled">2</span></td>
-                <td><span class="calendar__cell--disabled">3</span></td>
-            </tr>
-            <tr>
-                <td><span class="calendar__cell--disabled">4</span></td>
-                <td><span class="calendar__cell--disabled">5</span></td>
-                <td><span class="calendar__cell--disabled">6</span></td>
-                <td><span class="calendar__cell--disabled">7</span></td>
-                <td><span class="calendar__cell--disabled">8</span></td>
-                <td><span class="calendar__cell--disabled">9</span></td>
-                <td><span class="calendar__cell--disabled">10</span></td>
-            </tr>
-            <tr>
-                <td><span class="calendar__cell--disabled">11</span></td>
-                <td><span class="calendar__cell--disabled">12</span></td>
-                <td><span class="calendar__cell--disabled">13</span></td>
-                <td aria-current="date">
-                    <span>14</span>
-                </td>
-                <td><span>15</span></td>
-                <td><span>16</span></td>
-                <td><span>17</span></td>
-            </tr>
-            <tr>
-                <td><span>18</span></td>
-                <td><span>19</span></td>
-                <td><span>20</span></td>
-                <td><span>21</span></td>
-                <td><span>22</span></td>
-                <td class="calendar__range calendar__range--start" aria-selected="true">
-                    <span aria-label="23 - start of range">23</span>
-                </td>
-                <td class="calendar__range">
-                    <span aria-label="24 - in range">24</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="calendar__range">
-                    <span aria-label="25 - in range">25</span>
-                </td>
-                <td class="calendar__range">
-                    <span aria-label="26 - in range">26</span>
-                </td>
-                <td class="calendar__range calendar__range--end" aria-selected="true">
-                    <span aria-label="27 - end of range">27</span>
-                </td>
-                <td><span>28</span></td>
-                <td><span>29</span></td>
-                <td><span>30</span></td>
-                <td><span>31</span></td>
-            </tr>
-        </tbody>
-    </table>
+    <h3>Standard Calendar</h3>
+
+    <p>This component will stretch to the width of its container.</p>
+
+    {% include calendar-month.html %}
     {% highlight html %}
-    <table class="calendar">
-        <caption>
-            August 2019
-        </caption>
-        <thead>
-            <tr>
-                <th>Su</th>
-                <th>Mo</th>
-                <th>Tu</th>
-                <th>We</th>
-                <th>Th</th>
-                <th>Fr</th>
-                <th>Sa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="4"></td>
-                <td><span class="calendar__cell--disabled">1</span></td>
-                <td><span class="calendar__cell--disabled">2</span></td>
-                <td><span class="calendar__cell--disabled">3</span></td>
-            </tr>
-            <tr>
-                <td><span class="calendar__cell--disabled">4</span></td>
-                <td><span class="calendar__cell--disabled">5</span></td>
-                <td><span class="calendar__cell--disabled">6</span></td>
-                <td><span class="calendar__cell--disabled">7</span></td>
-                <td><span class="calendar__cell--disabled">8</span></td>
-                <td><span class="calendar__cell--disabled">9</span></td>
-                <td><span class="calendar__cell--disabled">10</span></td>
-            </tr>
-            <tr>
-                <td><span class="calendar__cell--disabled">11</span></td>
-                <td><span class="calendar__cell--disabled">12</span></td>
-                <td><span class="calendar__cell--disabled">13</span></td>
-                <td aria-current="date">
-                    <span>14</span>
-                </td>
-                <td><span>15</span></td>
-                <td><span>16</span></td>
-                <td><span>17</span></td>
-            </tr>
-            <tr>
-                <td><span>18</span></td>
-                <td><span>19</span></td>
-                <td><span>20</span></td>
-                <td><span>21</span></td>
-                <td><span>22</span></td>
-                <td class="calendar__range calendar__range--start" aria-selected="true">
-                    <span aria-label="23 - start of range">23</span>
-                </td>
-                <td class="calendar__range">
-                    <span aria-label="24 - in range">24</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="calendar__range">
-                    <span aria-label="25 - in range">25</span>
-                </td>
-                <td class="calendar__range">
-                    <span aria-label="26 - in range">26</span>
-                </td>
-                <td class="calendar__range calendar__range--end" aria-selected="true">
-                    <span aria-label="27 - end of range">27</span>
-                </td>
-                <td><span>28</span></td>
-                <td><span>29</span></td>
-                <td><span>30</span></td>
-                <td><span>31</span></td>
-            </tr>
-        </tbody>
-    </table>
+{% include calendar-month.html %}
     {% endhighlight %}
+
+    <h3>Stacked Calendars</h3>
+
+    <p>This is a demonstration of a context in which the calendar module may be used.</p>
+
+    <div style="width: 311px">
+        {% include calendar-month.html index="1" %}
+        {% include calendar-month.html index="2" %}
+    </div>
+
+    {% highlight html %}
+<div style="width: 311px">
+    <table class="calendar">
+        <caption>August 2019</caption>
+        <!-- see above for thead and tbody -->
+    </table>
+    <table class="calendar">
+        <caption>September 2019</caption>
+        <!-- see above for thead and tbody -->
+    </table>
+</div>
+    {% endhighlight %}
+
 </div>
