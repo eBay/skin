@@ -6,7 +6,7 @@ export const collapsed = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -15,10 +15,10 @@ export const collapsed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -26,10 +26,10 @@ export const collapsed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -37,10 +37,10 @@ export const collapsed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -57,7 +57,7 @@ export const expanded = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -66,10 +66,10 @@ export const expanded = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -77,10 +77,10 @@ export const expanded = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -88,10 +88,10 @@ export const expanded = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -108,7 +108,7 @@ export const pressed = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -117,10 +117,10 @@ export const pressed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -128,10 +128,10 @@ export const pressed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -139,10 +139,10 @@ export const pressed = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -159,7 +159,7 @@ export const disabled = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -168,10 +168,10 @@ export const disabled = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -179,10 +179,10 @@ export const disabled = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -190,10 +190,10 @@ export const disabled = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -209,7 +209,7 @@ export const overflow = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -218,10 +218,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -229,10 +229,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -240,10 +240,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -251,10 +251,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 4</span>
@@ -262,10 +262,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 5</span>
@@ -273,10 +273,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 6</span>
@@ -284,10 +284,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 7</span>
@@ -295,10 +295,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 8</span>
@@ -306,10 +306,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 9</span>
@@ -317,10 +317,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 10</span>
@@ -328,10 +328,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 11</span>
@@ -339,10 +339,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 12</span>
@@ -350,10 +350,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 13</span>
@@ -361,10 +361,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 14</span>
@@ -372,10 +372,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 15</span>
@@ -383,10 +383,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 16</span>
@@ -394,10 +394,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 17</span>
@@ -405,10 +405,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 18</span>
@@ -416,10 +416,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 19</span>
@@ -427,10 +427,10 @@ export const overflow = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 20</span>
@@ -447,7 +447,7 @@ export const truncated = () => `
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button with a lot of text that will truncate</span>
             <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -456,10 +456,10 @@ export const truncated = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 1</span>
@@ -467,10 +467,10 @@ export const truncated = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 2</span>
@@ -478,10 +478,10 @@ export const truncated = () => `
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
                     <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-unchecked"></use>
+                        <use href="#icon-checkbox-unchecked"></use>
                     </svg>
                     <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                        <use xlink:href="#icon-checkbox-checked"></use>
+                        <use href="#icon-checkbox-checked"></use>
                     </svg>
                 </span>
                 <span class="filter-menu-button__text">Item 3</span>
@@ -499,7 +499,7 @@ export const RTL = () => `
             <span class="filter-menu-button__button-cell">
                 <span class="filter-menu-button__button-text">Filter Menu Button</span>
                 <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </button>
@@ -508,10 +508,10 @@ export const RTL = () => `
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
                         <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                            <use href="#icon-checkbox-unchecked"></use>
                         </svg>
                         <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-checked"></use>
+                            <use href="#icon-checkbox-checked"></use>
                         </svg>
                     </span>
                     <span class="filter-menu-button__text">Item 1</span>
@@ -519,10 +519,10 @@ export const RTL = () => `
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
                         <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                            <use href="#icon-checkbox-unchecked"></use>
                         </svg>
                         <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-checked"></use>
+                            <use href="#icon-checkbox-checked"></use>
                         </svg>
                     </span>
                     <span class="filter-menu-button__text">Item 2</span>
@@ -530,10 +530,10 @@ export const RTL = () => `
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
                         <svg class="icon icon--checkbox-unchecked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-unchecked"></use>
+                            <use href="#icon-checkbox-unchecked"></use>
                         </svg>
                         <svg class="icon icon--checkbox-checked" focusable="false" height="18" width="18">
-                            <use xlink:href="#icon-checkbox-checked"></use>
+                            <use href="#icon-checkbox-checked"></use>
                         </svg>
                     </span>
                     <span class="filter-menu-button__text">Item 3</span>

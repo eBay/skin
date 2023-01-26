@@ -16,7 +16,7 @@ export const inlineLevel = () => `
             <option value="item3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -52,7 +52,7 @@ export const RTL = () => `
                 <option value="item3">Option 3</option>
             </select>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </span>
@@ -88,7 +88,7 @@ export const blockLevel = () => `
             <option value="item3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </div>
@@ -123,7 +123,7 @@ export const disabled = () => `
             <option value="item3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>

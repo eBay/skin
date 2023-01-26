@@ -9,7 +9,7 @@ export const RTL = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </div>
@@ -23,7 +23,7 @@ export const fontSize = () => `
         <option value="3">Option 3</option>
     </select>
     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use xlink:href="#icon-dropdown"></use>
+        <use href="#icon-dropdown"></use>
     </svg>
 </span>
 `;
@@ -36,7 +36,7 @@ export const color = () => `
         <option value="3">Option 3</option>
     </select>
     <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use xlink:href="#icon-dropdown"></use>
+        <use href="#icon-dropdown"></use>
     </svg>
 </span>
 `;

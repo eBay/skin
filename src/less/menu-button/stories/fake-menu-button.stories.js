@@ -6,7 +6,7 @@ export const links = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -36,7 +36,7 @@ export const linksSelected = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -45,7 +45,7 @@ export const linksSelected = () => `
         <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
             <span>Link 1</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
+                <use href="#icon-tick-small"></use>
             </svg>
         </a>
         </li>
@@ -69,7 +69,7 @@ export const linksDisabled = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>
@@ -78,7 +78,7 @@ export const linksDisabled = () => `
         <a aria-current="page" class="fake-menu-button__item">
             <span>Link 1</span>
             <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-tick-small"></use>
+                <use href="#icon-tick-small"></use>
             </svg>
         </a>
         </li>
@@ -102,7 +102,7 @@ export const linksFixedWidth = () => `
         <span class="btn__cell">
             <span class="btn__text">Button</span>
             <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </span>
     </button>

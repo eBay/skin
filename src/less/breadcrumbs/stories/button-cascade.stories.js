@@ -7,19 +7,19 @@ export const color = () => `
         <li>
             <button>ebay</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
@@ -36,19 +36,19 @@ export const fontSize = () => `
         <li>
             <button>ebay</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
             <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use xlink:href="#icon-breadcrumb"></use>
+                <use href="#icon-breadcrumb"></use>
             </svg>
         </li>
         <li>
@@ -66,19 +66,19 @@ export const RTL = () => `
             <li>
                 <button>ebay</button>
                 <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-breadcrumb"></use>
+                    <use href="#icon-breadcrumb"></use>
                 </svg>
             </li>
             <li>
                 <button>Cell Phones, Smart Watches &amp; Accessories</button>
                 <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-breadcrumb"></use>
+                    <use href="#icon-breadcrumb"></use>
                 </svg>
             </li>
             <li>
                 <button>Smart Watch Accessories</button>
                 <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-breadcrumb"></use>
+                    <use href="#icon-breadcrumb"></use>
                 </svg>
             </li>
             <li>

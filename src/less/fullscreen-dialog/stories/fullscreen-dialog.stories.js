@@ -7,7 +7,7 @@ export const closeButton = () => `
             <h2 id="fullscreen-dialog-title">Dialog Full</h2>
             <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -30,7 +30,7 @@ export const withFooter = () => `
             <h2 id="fullscreen-dialog-title">Dialog Full</h2>
             <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -58,7 +58,7 @@ export const RTL = () => `
                 <h2 id="fullscreen-dialog-title">Dialog Full</h2>
                 <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
                     <svg class="icon icon--close-small" aria-hidden="true">
-                        <use xlink:href="#icon-close-small"></use>
+                        <use href="#icon-close-small"></use>
                     </svg>
                 </button>
             </div>
@@ -82,7 +82,7 @@ export const backButton = () => `
             <h2 id="fullscreen-dialog-title">Fullscreen Dialog</h2>
             <button class="icon-btn fullscreen-dialog__back" type="button" aria-label="Back">
                 <svg class="icon icon--back" aria-hidden="true">
-                    <use xlink:href="#icon-back"></use>
+                    <use href="#icon-back"></use>
                 </svg>
             </button>
         </div>

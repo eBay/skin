@@ -10,7 +10,7 @@ export const defaultLabel = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -27,7 +27,7 @@ export const selectedOption = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -43,7 +43,7 @@ export const errorState = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>
@@ -59,7 +59,7 @@ export const disabled = () => `
             <option value="3">Option 3</option>
         </select>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </span>

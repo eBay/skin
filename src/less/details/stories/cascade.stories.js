@@ -7,7 +7,7 @@ export const RTL = () => `
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
                 <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </summary>
@@ -23,7 +23,7 @@ export const colour = () => `
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
                 <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </summary>
@@ -39,7 +39,7 @@ export const fontSize = () => `
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
                 <svg class="icon icon--dropdown" focusable="false" aria-hidden="true">
-                    <use xlink:href="#icon-dropdown"></use>
+                    <use href="#icon-dropdown"></use>
                 </svg>
             </span>
         </summary>
