@@ -36,6 +36,9 @@ In order to view all the avaialbe options and subcommands you can run `scripts b
 ## gen
 
 Generates top level improts. See `generate-imports/README.md`
+This creates multiple files. We create a `{module}.browser.json` a `{module}.js` a `{module}.css` and a `{module}.mjs` file, where the module is each skin module.
+These are easy improts to all dist files, which include all of each of the modules dependencies.
+A js file is included as a way to import in any bundler (`lasso`, `wepack`, or `vite`). This allows a common way for bundlers to import the modules and not duplicate any imports. However, CSS and MJS files are also available if needed for different bundlers or imports directly form less files or module imports.
 
 ## clean
 
