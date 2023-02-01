@@ -5,12 +5,19 @@ a.standalone-link {
 }
 a.nav-link:visited,
 a.standalone-link:visited {
-  color: var(--nav-link-foreground-color, var(--color-foreground-primary));
+  color: var(--link-foreground-color-default, var(--color-foreground-primary));
 }
 a.nav-link:hover,
 a.standalone-link:hover {
-  color: var(--nav-link-foreground-color-hover, var(--color-foreground-primary));
+  color: var(--nav-link-foreground-hover-color, var(--color-foreground-secondary));
   text-decoration: underline;
+}
+a.nav-link:not([href]),
+a.standalone-link:not([href]),
+a.nav-link[aria-disabled="true"],
+a.standalone-link[aria-disabled="true"] {
+  color: var(--link-forground-color-disabled, var(--color-foreground-disabled));
+  text-decoration: none;
 }
 button.fake-link {
   background-color: transparent;
@@ -21,6 +28,10 @@ button.fake-link {
   padding: 0;
   text-decoration: underline;
 }
-button.fake-link[disabled] {
+button.fake-link:hover {
+  color: var(--fake-link-foreground-color-hover, var(--color-foreground-secondary));
+}
+button.fake-link[disabled],
+button.fake-link[aria-disabled="true"] {
   color: var(--fake-link-foreground-disabled-color, var(--color-foreground-disabled));
 }

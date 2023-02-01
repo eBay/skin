@@ -7,7 +7,7 @@ export const fontSize = () => `
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
         <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-prev"></use>
+            <use href="#icon-pagination-prev"></use>
         </svg>
     </a>
     <ol class="pagination__items">
@@ -35,7 +35,7 @@ export const fontSize = () => `
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-next"></use>
+            <use href="#icon-pagination-next"></use>
         </svg>
     </a>
 </nav>
@@ -48,7 +48,7 @@ export const color = () => `
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
         <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-prev"></use>
+            <use href="#icon-pagination-prev"></use>
         </svg>
     </a>
     <ol class="pagination__items">
@@ -76,7 +76,7 @@ export const color = () => `
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
         <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use xlink:href="#icon-pagination-next"></use>
+            <use href="#icon-pagination-next"></use>
         </svg>
     </a>
 </nav>
@@ -90,7 +90,7 @@ export const RTL = () => `
         </span>
         <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
             <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-                <use xlink:href="#icon-pagination-prev"></use>
+                <use href="#icon-pagination-prev"></use>
             </svg>
         </a>
         <ol class="pagination__items">
@@ -118,7 +118,7 @@ export const RTL = () => `
         </ol>
         <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
             <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-                <use xlink:href="#icon-pagination-next"></use>
+                <use href="#icon-pagination-next"></use>
             </svg>
         </a>
     </nav>

@@ -4,7 +4,7 @@ export const base = () => `<button class="btn btn--borderless">
     <span class="btn__cell">
         <span class="btn__text">Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </button>`;
@@ -13,7 +13,7 @@ export const disabled = () => `<button class="btn btn--borderless" disabled="tru
     <span class="btn__cell">
         <span class="btn__text">Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </button>`;
@@ -22,7 +22,7 @@ export const ariaDisabled = () => `<button class="btn btn--borderless" aria-disa
     <span class="btn__cell">
         <span class="btn__text">Button</span>
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </button>`;
@@ -30,7 +30,7 @@ export const ariaDisabled = () => `<button class="btn btn--borderless" aria-disa
 export const empty = () => `<button class="btn btn--borderless" disabled="true">
     <span class="btn__cell">
         <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use xlink:href="#icon-dropdown"></use>
+            <use href="#icon-dropdown"></use>
         </svg>
     </span>
 </button>`;

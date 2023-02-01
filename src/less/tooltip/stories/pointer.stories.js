@@ -95,7 +95,7 @@ export const top = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('top')}">
@@ -115,7 +115,7 @@ export const topLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -137,7 +137,7 @@ export const leftTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -159,7 +159,7 @@ export const left = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('left')}">
@@ -179,7 +179,7 @@ export const leftBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -201,7 +201,7 @@ export const bottomLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -223,7 +223,7 @@ export const bottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -245,7 +245,7 @@ export const bottomRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -267,7 +267,7 @@ export const rightBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -289,7 +289,7 @@ export const right = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('right')}">
@@ -309,7 +309,7 @@ export const rightTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -331,7 +331,7 @@ export const topRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
         <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use xlink:href="#icon-settings"></use>
+            <use href="#icon-settings"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(

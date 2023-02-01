@@ -4,7 +4,7 @@ export const collapsed = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
         <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-            <use xlink:href="#icon-information-small"></use>
+            <use href="#icon-information-small"></use>
         </svg>
     </button>
     <div class="infotip__overlay">
@@ -17,7 +17,7 @@ export const collapsed = () => `
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
             </div>
@@ -29,7 +29,7 @@ export const expanded = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
         <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-            <use xlink:href="#icon-information-small"></use>
+            <use href="#icon-information-small"></use>
         </svg>
     </button>
     <div class="infotip__overlay">
@@ -42,7 +42,7 @@ export const expanded = () => `
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
             </div>
@@ -56,7 +56,7 @@ export const paragraphCollapsed = () => `
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
             <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-                <use xlink:href="#icon-information-small"></use>
+                <use href="#icon-information-small"></use>
             </svg>
         </button>
         <span class="infotip__overlay">
@@ -69,7 +69,7 @@ export const paragraphCollapsed = () => `
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
                         <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                            <use xlink:href="#icon-close"></use>
+                            <use href="#icon-close"></use>
                         </svg>
                     </button>
                 </span>
@@ -84,7 +84,7 @@ export const paragraphExpanded = () => `
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
             <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-                <use xlink:href="#icon-information-small"></use>
+                <use href="#icon-information-small"></use>
             </svg>
         </button>
         <span class="infotip__overlay">
@@ -97,7 +97,7 @@ export const paragraphExpanded = () => `
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
                         <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                            <use xlink:href="#icon-close"></use>
+                            <use href="#icon-close"></use>
                         </svg>
                     </button>
                 </span>

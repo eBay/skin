@@ -13,7 +13,7 @@ export const collapsed = () => `
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
             </div>
@@ -34,7 +34,7 @@ export const expanded = () => `
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
             </div>
@@ -55,7 +55,7 @@ export const withActions = () => `
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
                 <div class="tourtip__footer">
@@ -81,7 +81,7 @@ export const withOneAction = () => `
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
                     <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use xlink:href="#icon-close"></use>
+                        <use href="#icon-close"></use>
                     </svg>
                 </button>
                 <div class="tourtip__footer">

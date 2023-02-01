@@ -9,7 +9,7 @@ export const longTextCollapsed = () => `
     <span class="menu-button">
         <button class="btn btn--primary btn--split-end" aria-haspopup="true" type="button">
             <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </button>
         <div class="menu-button__menu menu-button__menu--reverse">
@@ -39,7 +39,7 @@ export const longTextExpanded = () => `
     <span class="menu-button">
         <button class="btn btn--primary btn--split-end" aria-expanded="true" aria-haspopup="true" type="button">
             <svg class="icon icon--dropdown" focusable="false" height="10" width="14" aria-hidden="true">
-                <use xlink:href="#icon-dropdown"></use>
+                <use href="#icon-dropdown"></use>
             </svg>
         </button>
         <div class="menu-button__menu menu-button__menu--reverse">

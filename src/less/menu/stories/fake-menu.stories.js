@@ -37,7 +37,7 @@ export const linksSelected = () => `
             <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
                 <span>Link 1</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-tick-small"></use>
+                    <use href="#icon-tick-small"></use>
                 </svg>
             </a>
         </li>
@@ -54,7 +54,7 @@ export const buttonsSelected = () => `
             <button aria-current="page" class="fake-menu__item">
                 <span>Button 1</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-tick-small"></use>
+                    <use href="#icon-tick-small"></use>
                 </svg>
             </button>
         </li>
@@ -71,7 +71,7 @@ export const linksDisabled = () => `
             <a aria-current="page" class="fake-menu__item">
                 <span>Link 1</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-tick-small"></use>
+                    <use href="#icon-tick-small"></use>
                 </svg>
             </a>
         </li>
@@ -88,7 +88,7 @@ export const buttonsDisabled = () => `
             <button aria-current="page" class="fake-menu__item" disabled>
                 <span>Button 1</span>
                 <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use xlink:href="#icon-tick-small"></use>
+                    <use href="#icon-tick-small"></use>
                 </svg>
             </button>
         </li>

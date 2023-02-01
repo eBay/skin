@@ -7,7 +7,7 @@ export const panelStart = () => `
             <h2 id="panel-title">Left Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -31,7 +31,7 @@ export const RTL = () => `
                 <h2 id="panel-title">Left Panel</h2>
                 <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                     <svg class="icon icon--close-small" aria-hidden="true">
-                        <use xlink:href="#icon-close-small"></use>
+                        <use href="#icon-close-small"></use>
                     </svg>
                 </button>
             </div>
@@ -55,7 +55,7 @@ export const panelEnd = () => `
             <h2 id="panel-title">Right Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -78,7 +78,7 @@ export const panelEndWithFooter = () => `
             <h2 id="panel-title">Right Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -124,7 +124,7 @@ export const panelScroll = () => `
             <h2 id="panel-title">Scrolling Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
@@ -165,7 +165,7 @@ export const panelScrollWithFooter = () => `
             <h2 id="panel-title">Scrolling Panel with Footer</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
                 <svg class="icon icon--close-small" aria-hidden="true">
-                    <use xlink:href="#icon-close-small"></use>
+                    <use href="#icon-close-small"></use>
                 </svg>
             </button>
         </div>
