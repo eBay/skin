@@ -1,27 +1,120 @@
 @import "../variables/variables.less";
 @import "../mixins/private/token-mixins.less";
 
-.calendar > caption {
+.calendar {
+    display: table;
+}
+
+.calendar__dropdown {
+    .background-color-token(calendar-background-color, color-background-primary);
+    .border-color-token(calendar-border-color, color-stroke-default);
+    border: 1px solid;
+    border-radius: @spacing-200;
+    box-shadow: 0 0 @spacing-200 0 rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    padding: @spacing-200;
+    position: absolute;
+}
+
+.calendar__dropdown[hidden] {
+    display: none;
+}
+
+.calendar__dropdown .calendar {
+    // 343px - (2 * @spacing-200) [not autmatically compiled by LESS]
+    --calendar-month-width: 311px;
+}
+
+@media only screen and (max-width: 686px) {
+    .calendar__dropdown {
+        left: 0;
+    }
+}
+
+/************
+ ** HEADER **
+ ************/
+
+.calendar__header {
+    display: table-caption;
+}
+
+.calendar__header--inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.calendar__header h3 {
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
+    width: 0; // In conjunction with `flex-grow: 1`, this forces all headers to be an equal size
+}
+
+.calendar__header h3:nth-child(2) {
+    margin-right: 40px; // total width of icon-btn--small
+}
+
+.calendar__header h3:nth-last-child(2) {
+    margin-left: 40px; // total width of icon-btn--small
+}
+
+.calendar__header h3:nth-child(2):nth-last-child(2) {
+    margin: 0;
+}
+
+.calendar__header .icon-btn svg {
+    width: @spacing-200;
+}
+
+/************
+ *** BODY ***
+ ************/
+
+.calendar__body {
+    display: table-row;
+}
+
+.calendar__month {
+    box-sizing: content-box;
+    display: table-cell;
+    width: var(--calendar-month-width, 100vw);
+}
+
+.calendar__month + .calendar__month {
+    padding-left: @spacing-200;
+}
+
+/************
+ ** MONTHS **
+ ************/
+
+.calendar__month > table > caption {
     text-align: left;
 }
 
-.calendar {
+.calendar__header + .calendar__body > .calendar__month > table > caption {
+    display: none;
+}
+
+.calendar__month > table {
     border-spacing: 0 @spacing-150;
     width: 100%;
 }
 
-.calendar th {
-    .color-token(date-picker-day-label-color, color-foreground-secondary);
+.calendar__month th {
+    .color-token(calendar-day-label-color, color-foreground-secondary);
     font-weight: normal;
     line-height: @spacing-125;
 }
 
-.calendar td {
+.calendar__month td {
     padding: 0;
     text-align: center;
 }
 
-.calendar td > * {
+.calendar__month td > * {
     align-items: center;
     background: none;
     border: 1px solid transparent;
@@ -36,13 +129,43 @@
     width: @spacing-400;
 }
 
+/************
+ *** DAYS ***
+ ************/
+
+.calendar__month
+    td[aria-current="date"]:not([aria-selected="true"])
+    > :not(:disabled, [aria-disabled="true"]) {
+    .border-color-token(calendar-day-today-border-color, color-foreground-primary);
+    border-style: solid;
+}
+
+.calendar__month td > :disabled,
+.calendar__month .calendar__cell--disabled {
+    .color-token(calendar-day-disabled-color, color-foreground-disabled);
+}
+
+.calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
+    .background-color-token(calendar-day-hover-background-color, color-state-primary-hover);
+}
+
+.calendar__month td[aria-selected="true"] > * {
+    .background-color-token(calendar-day-selected-background-color, color-background-inverse);
+    .color-token(calendar-day-selected-color, color-foreground-on-inverse);
+    font-weight: bold;
+}
+
+/************
+ * SELECTED *
+ ************/
+
 .calendar__range {
-    .background-color-token(date-picker-day-range-background-color, color-state-secondary-active);
+    .background-color-token(calendar-day-range-background-color, color-state-secondary-active);
     position: relative;
 }
 
-// HIGH CONTRAST MODE
 .calendar__range::before {
+    // Only visible in WHCM
     border: solid transparent;
     border-width: 1px 0;
     bottom: 0;
@@ -55,10 +178,12 @@
 }
 
 .calendar__range--start::before {
+    // WHCM
     border-left-width: 1px;
 }
 
 .calendar__range--end::before {
+    // WHCM
     border-right-width: 1px;
 }
 
@@ -76,27 +201,5 @@
 
 .calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
 .calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
-    .background-color-token(date-picker-day-range-end, color-state-secondary-active);
-}
-
-.calendar
-    td[aria-current="date"]:not([aria-selected="true"])
-    > :not(:disabled, [aria-disabled="true"]) {
-    .border-color-token(date-picker-day-today-border-color, color-foreground-primary);
-    border-style: solid;
-}
-
-.calendar td > :disabled,
-.calendar .calendar__cell--disabled {
-    .color-token(date-picker-day-disabled-color, color-foreground-disabled);
-}
-
-.calendar td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
-    .background-color-token(date-picker-day-hover-background-color, color-state-primary-hover);
-}
-
-.calendar td[aria-selected="true"] > * {
-    .background-color-token(date-picker-day-selected-background-color, color-background-inverse);
-    .color-token(date-picker-day-selected-color, color-foreground-on-inverse);
-    font-weight: bold;
+    .background-color-token(calendar-day-range-end, color-state-secondary-active);
 }

@@ -1,36 +1,222 @@
 <div id="calendar">
     {% include section-header.html name="calendar" version=page.versions.calendar %}
 
-    <p>The calendar component is used as a building block for other components, such as date picker.</p>
+    <p>The calendar component is used to display months, dates, and date ranges.</p>
 
-    <h3>Standard Calendar</h3>
+    <p>The base building block of a calendar is a table which contains dates for a single month. This can be either static or interactive, and looks the same for all types of calendars.</p>
 
-    <p>This component will stretch to the width of its container.</p>
-
-    {% include calendar-month.html %}
+    <h4>Static Month</h4>
+    {% highlight html %}
+{% include calendar-month.html %}
+    {% endhighlight %}
+    <h4>Interactive Month</h4>
     {% highlight html %}
 {% include calendar-month.html %}
     {% endhighlight %}
 
-    <h3>Stacked Calendars</h3>
+    <h3>Default Calendar</h3>
 
-    <p>This is a demonstration of a context in which the calendar module may be used.</p>
+    <p>This component will stretch to the width of its container. In this example it is static, but would work the same way if the table was dynamic.</p>
 
-    <div style="width: 311px">
-        {% include calendar-month.html index="1" %}
-        {% include calendar-month.html index="2" %}
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <!-- month table (static or interactive) -->
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Calendar with Header</h3>
+
+    <p>A common use case for calendars is to allow users to switch between months dynamically using JavaScript. The styles for this use case are provided here.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__header">
+                    <div class="calendar__header--inner">
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                            <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                                {% include symbol.html name="chevron-left" %}
+                            </svg>
+                        </button>
+                        <h3>August 2019</h3>
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2019">
+                            <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                                {% include symbol.html name="chevron-right" %}
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="1" %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     {% highlight html %}
-<div style="width: 311px">
-    <table class="calendar">
-        <caption>August 2019</caption>
-        <!-- see above for thead and tbody -->
-    </table>
-    <table class="calendar">
-        <caption>September 2019</caption>
-        <!-- see above for thead and tbody -->
-    </table>
+<div class="calendar">
+    <div class="calendar__header">
+        <div class="calendar__header--inner">
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                    <use href="#icon-chevron-left"></use>
+                </svg>
+            </button>
+            <h3>August 2019</h3>
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2019">
+                <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                    <use href="#icon-chevron-right"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <!-- month table (static or interactive) -->
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Multi-month Calendar with Header</h3>
+
+    <p>Displaying multiple months simultaneously is trivial. Modifications are shown below.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__header">
+                    <div class="calendar__header--inner">
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                            <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                                {% include symbol.html name="chevron-left" %}
+                            </svg>
+                        </button>
+                        <h3>August 2019</h3>
+                        <h3>September 2019</h3>
+                        <h3>October 2019</h3>
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - November 2019">
+                            <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                                {% include symbol.html name="chevron-right" %}
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="1" %}
+                    </div>
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="2" %}
+                    </div>
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="3" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__header">
+        <div class="calendar__header--inner">
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                    <use href="#icon-chevron-left"></use>
+                </svg>
+            </button>
+            <h3>August 2019</h3>
+            <h3>September 2019</h3>
+            <h3>October 2019</h3>
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - November 2019">
+                <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                    <use href="#icon-chevron-right"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <!-- month table (static or interactive) -->
+        </div>
+        <div class="calendar__month">
+            <!-- month table (static or interactive) -->
+        </div>
+        <div class="calendar__month">
+            <!-- month table (static or interactive) -->
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Calendar Dropdown</h3>
+
+    <p>Calendars will stretch to the size of any container that they are placed inside, but the standard dropdown container should be used for most cases.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button variant="icon" class="icon-btn icon-btn--small" aria-label="Open calendar" onclick="this.nextElementSibling.toggleAttribute('hidden')">
+                <svg aria-hidden="true" class="icon icon--calendar" focusable="false">
+                    {% include symbol.html name="calendar" %}
+                </svg>
+            </button>
+            <div class="calendar__dropdown" hidden>
+                <div class="calendar">
+                    <div class="calendar__header">
+                        <div class="calendar__header--inner">
+                            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                                <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                                    {% include symbol.html name="chevron-left" %}
+                                </svg>
+                            </button>
+                            <h3>August 2019</h3>
+                            <h3>September 2019</h3>
+                            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - October 2019">
+                                <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                                    {% include symbol.html name="chevron-right" %}
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="calendar__body">
+                        <div class="calendar__month">
+                            {% include calendar-month.html index="1" interactive="true" %}
+                        </div>
+                        <div class="calendar__month">
+                            {% include calendar-month.html index="2" interactive="true" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button variant="icon" class="icon-btn icon-btn--small" aria-label="Open calendar" onclick="this.nextElementSibling.toggleAttribute('hidden')">
+    <svg aria-hidden="true" class="icon icon--calendar" focusable="false">
+        <use href="#icon-calendar"></use>
+    </svg>
+</button>
+<div class="calendar__dropdown">
+    <!-- interactive calendar from above -->
 </div>
     {% endhighlight %}
 
