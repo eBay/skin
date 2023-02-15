@@ -1,6 +1,18 @@
 <div id="icon">
     {% include section-header.html name="icon" version=page.versions.icon %}
 
+    <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
+        <div class="section-notice__header" id="section-notice-attention">
+            <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" aria-label="Attention">
+                {% include symbol.html name="attention-filled-small" %}
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <h3 class="section-notice__title">Icon Transition and Upcoming Deprecation</h3>
+            <p>As of Skin 15.5.0, icons are transitioning. Along with the introduction of new icons, we are transitioning the postfix naming convention from descriptive ("-large") sizing to more specific size-based icon naming ("-24"). With the next major Skin release (16.0.0), all icons with the old naming convention will be removed. More information will be coming to help with the transition and upgrade.</p>
+        </div>
+    </section>
+
     <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span
             class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
     <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the
@@ -8,16 +20,16 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Icon example" class="icon icon--information" focusable="false" height="24" width="24"
+            <svg aria-label="Icon example" class="icon icon--information-24" focusable="false" height="24" width="24"
                 role="img">
-                {% include symbol.html name="information" %}
+                {% include symbol.html name="information-24" %}
             </svg>
         </div>
     </div>
 
     {% highlight html %}
-    <svg class="icon icon--information" focusable="false" height="24" width="24">
-        <use href="#icon-information"></use>
+    <svg class="icon icon--information-24" focusable="false" height="24" width="24">
+        <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
 
@@ -35,9 +47,8 @@
     {% highlight html %}
     <div hidden>
         <svg>
-            <symbol id="icon-information" viewBox="0 0 24 24">
-                <path
-                    d="M0 12C0 5.373 5.373 0 12 0c6.625.006 11.994 5.375 12 12 0 6.627-5.373 12-12 12S0 18.627 0 12zm2 0c0 5.523 4.477 10 10 10 5.52-.006 9.994-4.48 10-10 0-5.523-4.477-10-10-10S2 6.477 2 12zm10-2a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm1-3a1 1 0 11-2 0 1 1 0 012 0z" />
+            <symbol id="icon-information-24" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0Zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c-.006 5.52-4.48 9.994-10 10Zm-1-11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Zm1-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
             </symbol>
         </svg>
     </div>
@@ -52,8 +63,8 @@
         assistive technology.</p>
 
     {% highlight html %}
-    <svg class="icon icon--information" focusable="false" height="24" width="24" aria-hidden="true">
-        <use href="#icon-information"></use>
+    <svg class="icon icon--information-24" focusable="false" height="24" width="24" aria-hidden="true">
+        <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
 
@@ -64,13 +75,12 @@
             class="highlight">aria-label</span> for assistive technology.</p>
 
     {% highlight html %}
-    <svg class="icon icon--information" focusable="false" height="24" width="24" role="img" aria-label="Information">
-        <use href="#icon-information"></use>
+    <svg class="icon icon--information-24" focusable="false" height="24" width="24" role="img" aria-label="Information">
+        <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
 
-    <p>Icons in the default set have dimensions of 24x24.</p>
-    <p>Icons in the small set have dimensions of 16x16.</p>
+    <p>Icons have a name postfix that corresponds to the width of the icon. For example, "icon-information-24" corresponds to the information icon of the 24px width. Heights may differ depending on the icon.</p>
 
     {% include icon-list.html icon=site.data.icons.icons %}
 
@@ -80,16 +90,16 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Disabled icon example" class="icon icon--chevron-right icon--disabled" focusable="false"
+            <svg aria-label="Disabled icon example" class="icon icon--chevron-right-24 icon--disabled" focusable="false"
                 height="24" width="24" role="img">
-                {% include symbol.html name="chevron-right" %}
+                {% include symbol.html name="chevron-right-24" %}
             </svg>
         </div>
     </div>
 
     {% highlight html %}
-    <svg class="icon icon--chevron-right icon--disabled" focusable="false" height="24" width="24">
-        <use href="#icon-chevron-right"></use>
+    <svg class="icon icon--chevron-right-24 icon--disabled" focusable="false" height="24" width="24">
+        <use href="#icon-chevron-right-24"></use>
     </svg>
     {% endhighlight %}
 </div>
