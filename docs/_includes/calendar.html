@@ -3,32 +3,14 @@
 
     <p>The calendar component is used to display months, dates, and date ranges.</p>
 
-    <p>The base building block of a calendar is a table which contains dates for a single month. This can be either static or interactive, and looks the same for all types of calendars.</p>
-
-    <details>
-        <summary>Static Month</summary>
-        {% highlight html %}
-{% include calendar-month.html %}
-        {% endhighlight %}
-    </details>
-    <br/>
-    <details>
-        <summary>Interactive Month</summary>
-        {% highlight html %}
-{% include calendar-month.html %}
-        {% endhighlight %}
-    </details>
-
-    <h3>Default Calendar</h3>
-
-    <p>This component will stretch to the width of its container. In this example it is static, but would work the same way if the table was dynamic.</p>
+    <h3>Static Calendar</h3>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html %}
+                        {% include calendar-month.html index="3" %}
                     </div>
                 </div>
             </div>
@@ -38,7 +20,247 @@
 <div class="calendar">
     <div class="calendar__body">
         <div class="calendar__month">
-            <!-- month table (static or interactive) -->
+            <table>
+                <caption>
+                    August 2019
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><span>1</span></td>
+                        <td><span>2</span></td>
+                        <td><span>3</span></td>
+                        <td><span>4</span></td>
+                        <td><span>5</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>6</span></td>
+                        <td><span>7</span></td>
+                        <td><span>8</span></td>
+                        <td><span>9</span></td>
+                        <td><span>10</span></td>
+                        <td><span>11</span></td>
+                        <td><span>12</span></td>
+                    </tr>
+                    ...
+                    <tr>
+                        <td><span>27</span></td>
+                        <td><span>28</span></td>
+                        <td><span>29</span></td>
+                        <td><span>30</span></td>
+                        <td><span>31</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Calendar with Disabled Cells and "Today"</h3>
+
+    <p>Each cell can be disabled, and the current day can be marked with aria roles.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="1" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <table>
+                <caption>
+                    August 2019
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><span class="calendar__cell--disabled">1</span></td>
+                        <td><span class="calendar__cell--disabled">2</span></td>
+                        <td><span class="calendar__cell--disabled">3</span></td>
+                    </tr>
+                    ...
+                    <tr>
+                        <td><span class="calendar__cell--disabled">11</span></td>
+                        <td><span class="calendar__cell--disabled">12</span></td>
+                        <td><span class="calendar__cell--disabled">13</span></td>
+                        <td aria-current="date">
+                            <button>14
+                        </button></td>
+                        <td><span>15</span></td>
+                        <td><span>16</span></td>
+                        <td><span>17</span></td>
+                    </tr>
+                    ...
+                    <tr>
+                        <td><span>25</span></td>
+                        <td><span>26</span></td>
+                        <td><span>27</span></td>
+                        <td><span>28</span></td>
+                        <td><span>29</span></td>
+                        <td><span>30</span></td>
+                        <td><span>31</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Interactive Calendar</h3>
+
+    <p>To make a calendar interactive, replace the <code>span</code> elements with <code>button</code>. Buttons are disabled directly instead of with a class, but all other attributes remain the same between static and interactive calendars. In interactive calendars, one and only one button should have a <code>tabindex</code> in the table. The rest need to set <code>tabindex</code> to <code>-1</code>.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html interactive="true" index="1" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <table>
+                <caption>
+                    August 2019
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><button tabindex="-1" disabled>1</button></td>
+                        <td><button tabindex="-1" disabled>2</button></td>
+                        <td><button tabindex="-1" disabled>3</button></td>
+                    </tr>
+                    ...
+                    <tr>
+                        <td><button tabindex="-1" disabled>11</button></td>
+                        <td><button tabindex="-1" disabled>12</button></td>
+                        <td><button tabindex="-1" disabled>13</button></td>
+                        <td aria-current="date">
+                            <button>14</button>
+                        </td>
+                        <td><button tabindex="-1">15</button></td>
+                        <td><button tabindex="-1">16</button></td>
+                        <td><button tabindex="-1">17</button></td>
+                    </tr>
+                    ...
+                    <tr>
+                        <td><button tabindex="-1">25</button></td>
+                        <td><button tabindex="-1">26</button></td>
+                        <td><button tabindex="-1">27</button></td>
+                        <td><button tabindex="-1">28</button></td>
+                        <td><button tabindex="-1">29</button></td>
+                        <td><button tabindex="-1">30</button></td>
+                        <td><button tabindex="-1">31</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3>Calendar with selected range</h3>
+
+    <p>Static and dynamic calendars support the selection of a range of dates with identical changes to the markup.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        {% include calendar-month.html index="2" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <table>
+                <caption>
+                    August 2019
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ...
+                    <tr>
+                        <td><span>15</span></td>
+                        <td class="calendar__range calendar__range--start" aria-selected="true">
+                            <span aria-label="16 - start of range">16</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="17 - in range">17</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="18 - in range">18</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="19 - in range">19</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="20 - in range">20</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="21 - in range">21</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__range">
+                            <span aria-label="22 - in range">22</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="23 - in range">23</span>
+                        </td>
+                        <td class="calendar__range">
+                            <span aria-label="24 - in range">24</span>
+                        </td>
+                        <td class="calendar__range calendar__range--end" aria-selected="true">
+                            <span aria-label="25 - end of range">25</span>
+                        </td>
+                        <td><span>26</span></td>
+                        <td><span>27</span></td>
+                        <td><span>28</span></td>
+                    </tr>
+                    ...
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -46,7 +268,7 @@
 
     <h3>Calendar with Header</h3>
 
-    <p>A common use case for calendars is to allow users to switch between months dynamically using JavaScript. The styles for this use case are provided here.</p>
+    <p>A more detailed header may be added to the calendar, which enables you to switch between months using JavaScript.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -102,7 +324,7 @@
 
     <h3>Multi-month Calendar with Header</h3>
 
-    <p>Displaying multiple months simultaneously is trivial. Modifications are shown below.</p>
+    <p>Displaying multiple months simultaneously underneath the same header is trivial.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -171,58 +393,4 @@
     </div>
 </div>
     {% endhighlight %}
-
-    <h3>Calendar Dropdown</h3>
-
-    <p>Calendars will stretch to the size of any container that they are placed inside, but the standard dropdown container should be used for most cases.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button variant="icon" class="icon-btn icon-btn--small" aria-label="Open calendar" onclick="this.nextElementSibling.toggleAttribute('hidden')">
-                <svg aria-hidden="true" class="icon icon--calendar" focusable="false">
-                    {% include symbol.html name="calendar" %}
-                </svg>
-            </button>
-            <div class="calendar__dropdown" hidden>
-                <div class="calendar">
-                    <div class="calendar__header">
-                        <div class="calendar__header--inner">
-                            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
-                                <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
-                                    {% include symbol.html name="chevron-left" %}
-                                </svg>
-                            </button>
-                            <h3>August 2019</h3>
-                            <h3>September 2019</h3>
-                            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - October 2019">
-                                <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
-                                    {% include symbol.html name="chevron-right" %}
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="calendar__body">
-                        <div class="calendar__month">
-                            {% include calendar-month.html index="1" interactive="true" %}
-                        </div>
-                        <div class="calendar__month">
-                            {% include calendar-month.html index="2" interactive="true" %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button variant="icon" class="icon-btn icon-btn--small" aria-label="Open calendar" onclick="this.nextElementSibling.toggleAttribute('hidden')">
-    <svg aria-hidden="true" class="icon icon--calendar" focusable="false">
-        <use href="#icon-calendar"></use>
-    </svg>
-</button>
-<div class="calendar__dropdown">
-    <!-- interactive calendar from above -->
-</div>
-    {% endhighlight %}
-
 </div>
