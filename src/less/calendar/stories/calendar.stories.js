@@ -171,8 +171,8 @@ export const header = () => /* HTML */ `
                     aria-label="Previous Month - July 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-left">
-                        <use href="#icon-chevron-left"></use>
+                    <svg class="icon icon--chevron-left-24">
+                        <use href="#icon-chevron-left-24"></use>
                     </svg>
                 </button>
                 <h3>August 2019</h3>
@@ -181,8 +181,8 @@ export const header = () => /* HTML */ `
                     aria-label="Next Month - September 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-right">
-                        <use href="#icon-chevron-right"></use>
+                    <svg class="icon icon--chevron-right-24">
+                        <use href="#icon-chevron-right-24"></use>
                     </svg>
                 </button>
             </div>
@@ -426,8 +426,8 @@ export const doubleWithHeader = () => /* HTML */ `
                     aria-label="Previous Month - July 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-left">
-                        <use href="#icon-chevron-left"></use>
+                    <svg class="icon icon--chevron-left-24">
+                        <use href="#icon-chevron-left-24"></use>
                     </svg>
                 </button>
                 <h3>August 2019</h3>
@@ -437,8 +437,8 @@ export const doubleWithHeader = () => /* HTML */ `
                     aria-label="Next Month - October 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-right">
-                        <use href="#icon-chevron-right"></use>
+                    <svg class="icon icon--chevron-right-24">
+                        <use href="#icon-chevron-right-24"></use>
                     </svg>
                 </button>
             </div>
