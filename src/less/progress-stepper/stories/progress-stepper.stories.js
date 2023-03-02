@@ -845,3 +845,45 @@ export const noneSelectedVertical = () => `
     </div>
 </div>
 `;
+
+export const smallScreens = () => `
+<div style="width: 320px">
+    <div class="progress-stepper">
+        <div class="progress-stepper__items" role="list">
+            <div class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-confirmation"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Gestartet</h4>
+                    <p>July 3rd</p>
+                </span>
+            </div>
+            <hr class="progress-stepper__separator" role="presentation" />
+            <div aria-current="step" class="progress-stepper__item" role="listitem">
+                <span class="progress-stepper__icon">
+                    <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
+                        <use href="#icon-stepper-confirmation"></use>
+                    </svg>
+                </span>
+                <span class="progress-stepper__text">
+                    <h4>Verschicken</h4>
+                    <p>bis 27. Jan</p>
+                </span>
+            </div>
+            <hr class="progress-stepper__separator" role="presentation" />
+            <div class="progress-stepper__item" role="listitem">
+                <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
+                    <use href="#icon-stepper-upcoming"></use>
+                </svg>
+                <span class="progress-stepper__text">
+                    <h4>Ruckerstattung</h4>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+`;

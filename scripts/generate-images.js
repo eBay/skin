@@ -26,6 +26,49 @@ async function getFiles(dir) {
     return Array.prototype.concat(...files);
 }
 
+/**
+ * Processes missing icon file prefixing
+ * @param {string} dir
+ * @returns promise
+ */
+async function processFilePrefixing(dir) {
+    const aFiles = await getFiles(dir);
+    const prefixedFiles = await normalizeFiles(aFiles);
+
+    // return prefixedFiles;
+    return await getFiles(dir);
+}
+
+async function prefixIcon(fileDir, fileBase) {
+    const renameFrom = fileDir + '/' + fileBase;
+    const renameTo = fileDir + '/' + config.icons.prefix + '-' + fileBase;
+
+    await fs.rename(renameFrom, renameTo, (error) => {
+        if (error) return console.log(error);
+
+        console.log('Prefixed Icon: ' + fileBase + ' > ' + config.icons.prefix + '-' + fileBase);
+    });
+}
+
+async function normalizeFiles(svgs) {
+    const svgFiles = svgs.filter((f) => f.endsWith('.svg') && f !== 'icons.svg');
+
+    svgFiles.map(async (filePath) => {
+        const fileDir = path.parse(filePath).dir;
+        const fileBase = path.parse(filePath).base;
+
+        if (
+            !fileBase.startsWith('icon-') &&
+            !fileBase.startsWith('star-rating-') &&
+            !fileBase.startsWith('program-badge-')
+        ) {
+            await prefixIcon(fileDir, fileBase);
+        }
+    });
+
+    return svgFiles;
+}
+
 function sortMethod({ id: a }, { id: b }) {
     if (a < b) {
         return -1;
@@ -146,6 +189,8 @@ function stripName(name, mappedPrefix, mappedPostfix) {
 }
 
 async function runGenerate() {
+    await processFilePrefixing(svgIconDir);
+
     const files = await getFiles(svgIconDir);
     const masterIconFile = await fs.promises.readFile(masterIconPath);
 
