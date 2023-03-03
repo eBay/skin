@@ -13,6 +13,7 @@ const file = fs.readFileSync(configFilePath, 'utf8');
 const YAML = require('yaml');
 const config = YAML.parse(file);
 const { html2xhtml } = require('./util');
+const { query } = require('winston');
 const genText = 'This is a generated file, DO NOT EDIT';
 
 async function getFiles(dir) {
@@ -56,6 +57,14 @@ async function normalizeFiles(svgs) {
     svgFiles.map(async (filePath) => {
         const fileDir = path.parse(filePath).dir;
         const fileBase = path.parse(filePath).base;
+        const data = await fs.promises.readFile(filePath, 'utf8');
+        const svgJsDom = new JSDOM(data, { contentType: 'text/xml' });
+        const querySelector = svgJsDom.window.document.querySelector('svg');
+        if (querySelector.hasAttribute('height') || querySelector.hasAttribute('width')) {
+            querySelector.removeAttribute('height');
+            querySelector.removeAttribute('width');
+            await fs.promises.writeFile(filePath, html2xhtml(svgJsDom, true));
+        }
 
         if (
             !fileBase.startsWith('icon-') &&
@@ -95,6 +104,9 @@ class GenerateImages {
         const svgFragment = svgJsDom.window.document.querySelector('symbol');
         svgFragment.setAttribute('id', name);
         svgFragment.removeAttribute('xmlns');
+        svgFragment.removeAttribute('width');
+        svgFragment.removeAttribute('heightt');
+
         return svgFragment;
     }
 

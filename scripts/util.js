@@ -8,10 +8,10 @@ const fs = require('fs');
  *
  * @param {string} htmlString : html string to convert to xhtml
  */
-function html2xhtml(html) {
+function html2xhtml(html, skipHeader) {
     const bodyHtml = html.window.document.documentElement.outerHTML;
     const dom = parse(bodyHtml);
-    const xmlHeader = `<?xml version="1.0" encoding="utf-8"?>\n`;
+    const xmlHeader = skipHeader ? '' : `<?xml version="1.0" encoding="utf-8"?>\n`;
     const parsedString = `${xmlHeader}${serializeToString(
         dom.childNodes[0].childNodes[1].childNodes[0]
     )}\n`;
