@@ -1,0 +1,76 @@
+<div id="date-textbox">
+  {% include section-header.html name="date-textbox" version=page.versions.date-textbox %}
+
+  <p>The date textbox is used to collect dates from users</p>
+
+  <h3>Standard Date Textbox</h3>
+
+  <p>The textbox consists almost entirely of a <a href="#textbox">textbox</a> with an <a href="#icon-button">icon
+      button</a> and an interactive <a href="#calendar">calendar</a></p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <span class="date-textbox">
+        <span class="textbox textbox--icon-end">
+          <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
+          <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text"
+            onclick="dateTextboxPopover1.toggleAttribute('hidden')">
+            <svg aria-hidden="true" class="icon icon--calendar" focusable="false" width="16" height="16">
+              {% include symbol.html name="calendar" %}
+            </svg>
+          </button>
+        </span>
+        <div class="date-textbox__popover" id="dateTextboxPopover1" hidden>
+          <div class="calendar">
+            <div class="calendar__header">
+              <div class="calendar__header--inner">
+                <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent"
+                  aria-label="Previous Month - July 2019">
+                  <svg aria-hidden="true" class="icon icon--chevron-left" focusable="false">
+                    {% include symbol.html name="chevron-left" %}
+                  </svg>
+                </button>
+                <h3>August 2019</h3>
+                <h3>September 2019</h3>
+                <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent"
+                  aria-label="Next Month - October 2019">
+                  <svg aria-hidden="true" class="icon icon--chevron-right" focusable="false">
+                    {% include symbol.html name="chevron-right" %}
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="calendar__body">
+              <div class="calendar__month">
+                {% include calendar-month.html index="1" interactive="true" %}
+              </div>
+              <div class="calendar__month">
+                {% include calendar-month.html index="2" interactive="true" %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+
+  {% highlight html %}
+  <span class="date-textbox">
+    <span class="textbox textbox--icon-end">
+      <input class="textbox__control" type="text" placeholder="placeholder text" />
+      <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text">
+        <svg aria-hidden="true" class="icon icon--calendar" focusable="false" width="16" height="16">
+          <use href="#icon-calendar"></use>
+        </svg>
+      </button>
+    </span>
+    <div class="date-textbox__popover">
+      <!-- interactive calendar from the Calendar module -->
+      <div class="calendar">
+        ...
+      </div>
+    </div>
+  </span>
+  {% endhighlight %}
+
+</div>
