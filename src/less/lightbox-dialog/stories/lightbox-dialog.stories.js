@@ -6,8 +6,8 @@ export const base = () => `
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-small" aria-hidden="true">
-                    <use href="#icon-close-small"></use>
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -29,8 +29,8 @@ export const baseWithFooter = () => `
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-small" aria-hidden="true">
-                    <use href="#icon-close-small"></use>
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -58,8 +58,8 @@ export const baseRTL = () => `
             <div class="lightbox-dialog__header">
                 <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
                 <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
-                    <svg class="icon icon--close-small" aria-hidden="true">
-                        <use href="#icon-close-small"></use>
+                    <svg class="icon icon--close-16" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -82,8 +82,8 @@ export const baseWithLongHeader = () => `
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox with a very long header that should wrap to the next line, but is actually cut off</h2>
             <button class="icon-btn lightbox-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-small" aria-hidden="true">
-                    <use href="#icon-close-small"></use>
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>

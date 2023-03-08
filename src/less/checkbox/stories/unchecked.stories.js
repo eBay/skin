@@ -47,10 +47,10 @@ export const customIcon = () => `
     <input aria-label="Custom icon checkbox" class="checkbox__control" type="checkbox" />
     <span class="checkbox__icon" hidden>
         <svg aria-hidden="true" class="checkbox__unchecked" focusable="false">
-            <use href="#icon-attention"></use>
+            <use href="#icon-attention-24"></use>
         </svg>
         <svg aria-hidden="true" class="checkbox__checked" focusable="false" style="color: #5ba71b">
-            <use href="#icon-confirmation"></use>
+            <use href="#icon-confirmation-24"></use>
         </svg>
     </span>
 </span>

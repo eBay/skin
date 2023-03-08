@@ -6,15 +6,15 @@ export const minimum = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false">
-                        <use href="#icon-overflow-small"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
+                        <use href="#icon-overflow-ios-16"></use>
                     </svg>
                 </button>
 
@@ -34,8 +34,8 @@ export const minimum = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
@@ -51,15 +51,15 @@ export const collapsed = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false">
-                        <use href="#icon-overflow-small"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
+                        <use href="#icon-overflow-ios-16"></use>
                     </svg>
                 </button>
 
@@ -79,14 +79,14 @@ export const collapsed = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Long Band Text Type 2</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
@@ -102,15 +102,15 @@ export const expanded = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="true" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-small" focusable="false">
-                        <use href="#icon-overflow-small"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
+                        <use href="#icon-overflow-ios-16"></use>
                     </svg>
                 </button>
 
@@ -127,14 +127,14 @@ export const expanded = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand1">Smart Watch Band Long Band Text Type 2</a>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>

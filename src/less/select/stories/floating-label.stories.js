@@ -9,8 +9,8 @@ export const defaultLabel = () => `
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>
@@ -26,8 +26,8 @@ export const selectedOption = () => `
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>
@@ -42,8 +42,8 @@ export const errorState = () => `
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>
@@ -58,8 +58,8 @@ export const disabled = () => `
             <option value="2">Option 2 can't pick</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>

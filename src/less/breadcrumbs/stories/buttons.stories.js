@@ -6,20 +6,20 @@ export const currentLocation = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
@@ -35,14 +35,14 @@ export const noCurrentLocation = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
-            <svg class="icon icon--breadcrumb" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-breadcrumb"></use>
+            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>

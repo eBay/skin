@@ -6,8 +6,8 @@ export const fontSize = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use href="#icon-pagination-prev"></use>
+        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
     <ol class="pagination__items">
@@ -34,8 +34,8 @@ export const fontSize = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use href="#icon-pagination-next"></use>
+        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
 </nav>
@@ -47,8 +47,8 @@ export const color = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-            <use href="#icon-pagination-prev"></use>
+        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
     <ol class="pagination__items">
@@ -75,8 +75,8 @@ export const color = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-            <use href="#icon-pagination-next"></use>
+        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
 </nav>
@@ -89,8 +89,8 @@ export const RTL = () => `
             <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
         </span>
         <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-            <svg class="icon icon--pagination-prev" focusable="false" height="24" width="24" aria-hidden="true">
-                <use href="#icon-pagination-prev"></use>
+            <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+                <use href="#icon-arrow-left-16"></use>
             </svg>
         </a>
         <ol class="pagination__items">
@@ -117,8 +117,8 @@ export const RTL = () => `
             </li>
         </ol>
         <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-            <svg class="icon icon--pagination-next" focusable="false" height="24" width="24" aria-hidden="true">
-                <use href="#icon-pagination-next"></use>
+            <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+                <use href="#icon-arrow-right-16"></use>
             </svg>
         </a>
     </nav>

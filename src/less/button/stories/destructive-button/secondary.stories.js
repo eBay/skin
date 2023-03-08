@@ -6,7 +6,7 @@ export const textOnly = () =>
 export const iconAndText = () => `
 <button type="button" class="btn btn--secondary btn--destructive">
     <span class="btn__cell">
-        <svg class="icon icon--close" width="16" height="16"><use href="#icon-close"></use></svg>
+        <svg class="icon icon--close-16" width="16" height="16"><use href="#icon-close-16"></use></svg>
         <span>Destructive Button</span>
     </span>
 </button>
@@ -19,7 +19,7 @@ export const disabled = () => `
 export const disabledWithIcon = () => `
 <button type="button" class="btn btn--secondary btn--destructive" disabled>
     <span class="btn__cell">
-        <svg class="icon icon--close" width="16" height="16"><use href="#icon-close"></use></svg>
+        <svg class="icon icon--close-16" width="16" height="16"><use href="#icon-close-16"></use></svg>
         <span>Destructive Button</span>
     </span>
 </button>

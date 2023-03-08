@@ -4,8 +4,8 @@ export const RTL = () => `
 <div dir="rtl">
     <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
         <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">
@@ -22,8 +22,8 @@ export const RTL = () => `
 export const longText = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -38,8 +38,8 @@ export const longText = () => `
 export const legacy = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -52,8 +52,8 @@ export const legacy = () => `
 export const legacyLongText = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
         <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">
@@ -66,8 +66,8 @@ export const legacyLongText = () => `
 export const legacyLongTextAndCTA = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
         <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">
@@ -83,8 +83,8 @@ export const legacyLongTextAndCTA = () => `
 export const legacyMultiParagraph = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
         <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">
@@ -98,8 +98,8 @@ export const legacyMultiParagraph = () => `
 export const legacyMultiParagraphWithCTA = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
         <div class="page-notice__header">
-            <svg class="icon icon--confirmation-filled-small" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg class="icon icon--confirmation-filled-16" focusable="false" height="24" width="24" role="img" aria-label="Confirmation">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">

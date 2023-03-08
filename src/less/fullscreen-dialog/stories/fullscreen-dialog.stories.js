@@ -6,8 +6,8 @@ export const closeButton = () => `
         <div class="fullscreen-dialog__header">
             <h2 id="fullscreen-dialog-title">Dialog Full</h2>
             <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-small" aria-hidden="true">
-                    <use href="#icon-close-small"></use>
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -29,8 +29,8 @@ export const withFooter = () => `
         <div class="fullscreen-dialog__header">
             <h2 id="fullscreen-dialog-title">Dialog Full</h2>
             <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-small" aria-hidden="true">
-                    <use href="#icon-close-small"></use>
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -57,8 +57,8 @@ export const RTL = () => `
             <div class="fullscreen-dialog__header">
                 <h2 id="fullscreen-dialog-title">Dialog Full</h2>
                 <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
-                    <svg class="icon icon--close-small" aria-hidden="true">
-                        <use href="#icon-close-small"></use>
+                    <svg class="icon icon--close-16" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>

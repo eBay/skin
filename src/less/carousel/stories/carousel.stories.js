@@ -4,8 +4,8 @@ export const continuous = () => `
 <div class="carousel">
     <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
@@ -21,8 +21,8 @@ export const continuous = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
@@ -33,8 +33,8 @@ export const imageTreatment = () => `
 <div class="carousel">
     <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
@@ -50,8 +50,8 @@ export const imageTreatment = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
@@ -62,8 +62,8 @@ export const imageTreatmentLarge = () => `
 <div class="carousel">
     <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
@@ -79,8 +79,8 @@ export const imageTreatmentLarge = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
@@ -94,8 +94,8 @@ export const slides = () => `
             <span>Top Products - Slide 1 of 2</span>
         </h4>
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false" >
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false" >
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport">
@@ -111,8 +111,8 @@ export const slides = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
@@ -126,8 +126,8 @@ export const slideshow = () => `
             <span>Top Products - Slide 1 of 4</span>
         </h4>
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false" >
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false" >
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport">
@@ -139,14 +139,14 @@ export const slideshow = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
     <button class="carousel__playback" aria-label="Play - Top Products">
-        <svg class="icon icon--play" focusable="false" aria-hidden="true">
-            <use href="#icon-play"></use>
+        <svg class="icon icon--play-24" focusable="false" aria-hidden="true">
+            <use href="#icon-play-24"></use>
         </svg>
     </button>
 </div>
@@ -160,8 +160,8 @@ export const RTL = () => `
                 <span>Top Products - Slide 1 of 4</span>
             </h4>
             <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-                <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
-                    <use href="#icon-carousel-prev"></use>
+                <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
+                    <use href="#icon-chevron-left-24"></use>
                 </svg>
             </button>
             <div class="carousel__viewport">
@@ -173,14 +173,14 @@ export const RTL = () => `
                 </ul>
             </div>
             <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-                <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false" >
-                    <use href="#icon-carousel-next"></use>
+                <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false" >
+                    <use href="#icon-chevron-right-24"></use>
                 </svg>
             </button>
         </div>
         <button class="carousel__playback" aria-label="Play - Top Products">
-            <svg class="icon icon--play" focusable="false" aria-hidden="true">
-                <use href="#icon-play"></use>
+            <svg class="icon icon--play-24" focusable="false" aria-hidden="true">
+                <use href="#icon-play-24"></use>
             </svg>
         </button>
     </div>
@@ -191,8 +191,8 @@ export const hiddenScrollbar = () => `
 <div class="carousel carousel--hidden-scrollbar">
     <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-prev" focusable="false">
-                <use href="#icon-carousel-prev"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
+                <use href="#icon-chevron-left-24"></use>
             </svg>
         </button>
         <div class="carousel__viewport carousel__viewport--mask">
@@ -208,8 +208,8 @@ export const hiddenScrollbar = () => `
             </ul>
         </div>
         <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products">
-            <svg aria-hidden="true" class="icon icon--carousel-next" focusable="false">
-                <use href="#icon-carousel-next"></use>
+            <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
+                <use href="#icon-chevron-right-24"></use>
             </svg>
         </button>
     </div>
