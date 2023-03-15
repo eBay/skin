@@ -24,8 +24,8 @@ export const RTL = () => `
 <div dir="rtl">
     <button type="button" class="btn btn--primary">
         <span class="btn__cell">
-            <svg class="icon icon--close-16" width="16" height="16" style="margin-right: 0px;"><use href="#icon-close-16"></use></svg>
-            <span style="margin-right: 8px;">Button</span>
+            <svg class="icon icon--close-16" width="16" height="16"><use href="#icon-close-16"></use></svg>
+            <span>Button</span>
         </span>
     </button>
 </div>
