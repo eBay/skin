@@ -1,59 +1,72 @@
 @import "../variables/variables.less";
 
 :root {
-    --page-grid-gutter-width-small: @page-grid-gutter-width-small;
-    --page-grid-gutter-width-large: @page-grid-gutter-width-large;
-    --page-grid-col-width-small: calc(
-        (100% / @page-grid-cols-small) - var(--page-grid-gutter-width-small) + 1px
+    --page-grid-number-cols: @page-grid-number-cols-small;
+    --page-grid-outside-margins: @page-grid-outside-margins-small;
+    --page-grid-column-gaps: @page-grid-column-gaps-small;
+    --page-grid-row-gaps: @page-grid-row-gaps-large;
+    --page-grid-column-widths: calc(
+        (100% / @page-grid-number-cols-small) - @page-grid-column-gaps-small + 1px
     );
-    --page-grid-col-width-large: calc(
-        (100% / @page-grid-cols-large) - var(--page-grid-gutter-width-large) + 1px
+    --page-grid-max-width: @page-grid-max-width;
+    // TODO: determine if needed. This is the max width inclusive of outside margins (not currently used)
+    --page-grid-total-max-width: calc(
+        var(--page-grid-max-width) + (var(--page-grid-outside-margins) * 2)
     );
+
+    @media screen and (min-width: @screen-size-SM) {
+        --page-grid-number-cols: @page-grid-number-cols-large;
+        --page-grid-column-gaps: @page-grid-column-gaps-large;
+        --page-grid-column-widths: calc(
+            (100% / @page-grid-number-cols-large) - @page-grid-column-gaps-large + 1px
+        );
+        --page-grid-outside-margins: @page-grid-outside-margins-large;
+    }
+
+    @media screen and (min-width: @screen-size-XL) {
+        --page-grid-outside-margins: @page-grid-outside-margins-max;
+    }
 }
 
+/* Mobile-first implies defaults, there is no "first" breakpoint,
+   and we don't need a minimum viewport width to support. */
 .page-grid-container {
-    display: flex;
-    justify-content: center;
-    margin: 0 @spacing-200;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--page-grid-max-width);
+    padding-left: var(--page-grid-outside-margins);
+    padding-right: var(--page-grid-outside-margins);
+    position: relative;
+    width: 100%;
+
+    // handle any nested instances
+    & & {
+        max-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
 }
 
 .page-grid {
-    column-gap: var(--page-grid-gutter-width-small);
+    column-gap: var(--page-grid-column-gaps);
     display: grid;
-    grid-template-columns: repeat(@page-grid-cols-small, var(--page-grid-col-width-small));
-    row-gap: @spacing-200;
-    width: ~"min(100%, 1280px)"; // https://stackoverflow.com/questions/17904088/disable-less-css-overwriting-calc
+    grid-template-columns: repeat(var(--page-grid-number-cols), var(--page-grid-column-widths));
+    row-gap: var(--page-grid-row-gaps);
 }
 
 /* prettier-ignore */
 .page-grid--debug {
-    --debug-grid-col-color: var(--color-background-secondary);
+    --debug-grid-col-color: pink;
     --debug-grid-gutter-color: transparent;
 
     /* stylelint-disable-next-line */
     background: repeating-linear-gradient(
         90deg,
         var(--debug-grid-col-color) 0,
-        var(--debug-grid-col-color) var(--page-grid-col-width-small),
-        var(--debug-grid-gutter-color) var(--page-grid-col-width-small),
-        var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-small) + var(--page-grid-gutter-width-small))
+        var(--debug-grid-col-color) var(--page-grid-column-widths),
+        var(--debug-grid-gutter-color) var(--page-grid-column-widths),
+        var(--debug-grid-gutter-color) calc(var(--page-grid-column-widths) + var(--page-grid-column-gaps))
     );
-}
-
-@media @breakpoint-3 {
-    .page-grid {
-        column-gap: var(--page-grid-gutter-width-large);
-        grid-template-columns: repeat(@page-grid-cols-large, var(--page-grid-col-width-large));
-    }
-
-    /* prettier-ignore */
-    .page-grid--debug {
-        background: repeating-linear-gradient(
-            90deg,
-            var(--debug-grid-col-color) 0,
-            var(--debug-grid-col-color) var(--page-grid-col-width-large),
-            var(--debug-grid-gutter-color) var(--page-grid-col-width-large),
-            var(--debug-grid-gutter-color) calc(var(--page-grid-col-width-large) + var(--page-grid-gutter-width-large))
-        );
-    }
 }
