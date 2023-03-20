@@ -12,8 +12,8 @@ export const collapsed = () => `
                     <p>Here's something new to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -33,8 +33,8 @@ export const expanded = () => `
                     <p>Here's something new to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -54,8 +54,8 @@ export const withActions = () => `
                     <p>Here's something new to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
                 <div class="tourtip__footer">
@@ -80,8 +80,8 @@ export const withOneAction = () => `
                     <p>Here's something new to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn tourtip__close" type="button" aria-label="Dismiss tourtip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
                 <div class="tourtip__footer">

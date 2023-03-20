@@ -5,8 +5,8 @@ export const collapsed = () => `
     <button type="button" class="filter-menu-button__button">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -56,8 +56,8 @@ export const expanded = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -107,8 +107,8 @@ export const pressed = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true" aria-pressed="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -158,8 +158,8 @@ export const disabled = () => `
     <button aria-expaned="true" type="button" class="filter-menu-button__button" disabled>
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -208,8 +208,8 @@ export const overflow = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -446,8 +446,8 @@ export const truncated = () => `
     <button aria-expanded="true" type="button" class="filter-menu-button__button">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button with a lot of text that will truncate</span>
-            <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -498,8 +498,8 @@ export const RTL = () => `
         <button type="button" class="filter-menu-button__button" aria-expanded="true">
             <span class="filter-menu-button__button-cell">
                 <span class="filter-menu-button__button-text">Filter Menu Button</span>
-                <svg class="icon icon--dropdown" focusable="false" height="12" width="12">
-                    <use href="#icon-dropdown"></use>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="12" width="12">
+                    <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
         </button>

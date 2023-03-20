@@ -6,8 +6,8 @@ export const RTL = () => `
     <button class="btn btn--secondary" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -34,8 +34,8 @@ export const colour = () => `
         <button class="btn" aria-expanded="true" aria-haspopup="true" style="background-color: #6a29b9; color: white" type="button">
             <span class="btn__cell">
                 <span class="btn__text">Button</span>
-                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use href="#icon-dropdown"></use>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
         </button>
@@ -62,8 +62,8 @@ export const fontSize = () => `
         <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
             <span class="btn__cell">
                 <span class="btn__text">Button</span>
-                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use href="#icon-dropdown"></use>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
         </button>
@@ -71,20 +71,20 @@ export const fontSize = () => `
             <div class="menu-button__items" role="menu">
                 <div class="menu-button__item" role="menuitemradio" tabindex="0" aria-checked="true">
                     <span>Item 10000</span>
-                    <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use href="#icon-tick-small"></use>
+                    <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                        <use href="#icon-tick-16"></use>
                     </svg>
                 </div>
                 <div class="menu-button__item" role="menuitemradio">
                     <span>Item 20000</span>
-                    <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use href="#icon-tick-small"></use>
+                    <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                        <use href="#icon-tick-16"></use>
                     </svg>
                 </div>
                 <div class="menu-button__item" role="menuitemradio">
                     <span>Item 30000</span>
-                    <svg class="icon icon--tick-small" focusable="false" height="8" width="8" aria-hidden="true">
-                        <use href="#icon-tick-small"></use>
+                    <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                        <use href="#icon-tick-16"></use>
                     </svg>
                 </div>
             </div>

@@ -7,8 +7,8 @@ export const empty = () => `
         <div class="drawer-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use href="#icon-close"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -25,8 +25,8 @@ export const partial = () => `
         <div class="drawer-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use href="#icon-close"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -48,8 +48,8 @@ export const withFooter = () => `
         <div class="drawer-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use href="#icon-close"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -76,8 +76,8 @@ export const RTL = () => `
             <div class="drawer-dialog__header">
                 <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
                 <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                    <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                        <use href="#icon-close"></use>
+                    <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -100,8 +100,8 @@ export const half = () => `
         <div class="drawer-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use href="#icon-close"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>
@@ -159,8 +159,8 @@ export const full = () => `
         <div class="drawer-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn drawer-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--close" focusable="false" height="16" width="16">
-                    <use href="#icon-close"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </button>
         </div>

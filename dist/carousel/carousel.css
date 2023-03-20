@@ -123,10 +123,10 @@ div.carousel {
 .carousel__control--next {
   right: 0;
 }
-.carousel__control .icon--carousel-next {
+.carousel__control .icon--chevron-right-24 {
   margin-left: 2px;
 }
-.carousel__control .icon--carousel-prev {
+.carousel__control .icon--chevron-left-24 {
   margin-left: -2px;
 }
 .carousel__control svg {
@@ -184,15 +184,19 @@ span.carousel__container {
   left: unset;
   right: 0;
 }
-[dir="rtl"] .carousel__control .icon--carousel-prev {
+[dir="rtl"] .carousel__control .icon--chevron-left-24 {
   margin-left: 2px;
 }
 [dir="rtl"] .carousel__control--next {
   left: 0;
   right: unset;
 }
-[dir="rtl"] .carousel__control .icon--carousel-next {
+[dir="rtl"] .carousel__control .icon--chevron-right-24 {
   margin-left: -2px;
+}
+[dir="rtl"] .carousel__control .icon--chevron-left-24,
+[dir="rtl"] .carousel__control .icon--chevron-right-24 {
+  transform: rotate(180deg);
 }
 /* autoprefixer: ignore next */
 @supports not /*!Y */ (
@@ -234,14 +238,8 @@ span.carousel__container {
     padding-bottom: 10px;
     scroll-behavior: smooth;
     /* stylelint-disable declaration-block-no-duplicate-properties */
-    -webkit-scroll-snap-type: mandatory;
-    -webkit-scroll-snap-type: x mandatory;
-    -ms-scroll-snap-type: mandatory;
-    -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: proximity;
-    -webkit-scroll-snap-type: x proximity;
-        -ms-scroll-snap-type: x proximity;
-            scroll-snap-type: x proximity;
+    scroll-snap-type: x proximity;
     /* stylelint-enable declaration-block-no-duplicate-properties */
     scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     scrollbar-width: thin;
@@ -262,8 +260,6 @@ span.carousel__container {
   }
   .carousel__snap-point {
     scroll-snap-align: start;
-    -webkit-scroll-snap-coordinate: 0 0;
-    -ms-scroll-snap-coordinate: 0 0;
     scroll-snap-coordinate: 0 0;
   }
   /* autoprefixer: on */

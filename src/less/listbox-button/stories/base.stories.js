@@ -6,8 +6,8 @@ export const collapsedUnselected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -15,26 +15,26 @@ export const collapsedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -48,8 +48,8 @@ export const expandedUnselected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -57,26 +57,26 @@ export const expandedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -90,8 +90,8 @@ export const collapsedSelected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -99,26 +99,26 @@ export const collapsedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -132,8 +132,8 @@ export const expandedSelected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -141,26 +141,26 @@ export const expandedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -174,8 +174,8 @@ export const disabled = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -183,26 +183,26 @@ export const disabled = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -216,8 +216,8 @@ export const invalid = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -225,26 +225,26 @@ export const invalid = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>
@@ -258,8 +258,8 @@ export const longOption = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Red with very very very long text</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -267,20 +267,20 @@ export const longOption = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Red with very very very long text</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-small" focusable="false" height="8" width="8">
-                    <use href="#icon-tick-small"></use>
+                <svg class="icon icon--tick-16" focusable="false" height="8" width="8">
+                    <use href="#icon-tick-16"></use>
                 </svg>
             </div>
         </div>

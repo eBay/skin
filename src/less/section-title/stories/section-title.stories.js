@@ -44,8 +44,8 @@ export const overflow = () => `
     <div class="section-title__overflow">
         <span class="menu-button">
             <button class="menu-button__button icon-btn" type="button" aria-expanded="true" aria-haspopup="true" type="button">
-                <svg class="icon icon--overflow" focusable="false" width="24" height="24" aria-hidden="true">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-android-24" focusable="false" width="24" height="24" aria-hidden="true">
+                    <use href="#icon-overflow-android-24"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
@@ -68,8 +68,8 @@ export const withFavorite = () => `
     </div>
     <div class="section-title__info">
         <button class="icon-btn" type="button" aria-expanded="false" aria-label="Help">
-            <svg aria-hidden="true" class="icon icon--save-small" focusable="false" width="16" height="14">
-                <use href="#icon-save-small"></use>
+            <svg aria-hidden="true" class="icon icon--save-16" focusable="false" width="16" height="14">
+                <use href="#icon-save-16"></use>
             </svg>
         </button>
     </div>
@@ -84,8 +84,8 @@ export const withFavoriteAndLink = () => `
     </div>
     <div class="section-title__info">
         <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
-            <svg aria-hidden="true" class="icon icon--save-small" focusable="false" width="16" height="14">
-                <use href="#icon-save-small"></use>
+            <svg aria-hidden="true" class="icon icon--save-16" focusable="false" width="16" height="14">
+                <use href="#icon-save-16"></use>
             </svg>
         </button>
     </div>

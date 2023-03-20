@@ -8,8 +8,8 @@ export const RTL = () => `
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </div>
@@ -22,8 +22,8 @@ export const fontSize = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use href="#icon-dropdown"></use>
+    <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
 `;
@@ -35,8 +35,8 @@ export const color = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use href="#icon-dropdown"></use>
+    <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
 `;
