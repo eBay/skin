@@ -66,11 +66,7 @@ async function normalizeFiles(svgs) {
             await fs.promises.writeFile(filePath, html2xhtml(svgJsDom, true));
         }
 
-        if (
-            !fileBase.startsWith('icon-') &&
-            !fileBase.startsWith('star-rating-') &&
-            !fileBase.startsWith('program-badge-')
-        ) {
+        if (!fileBase.startsWith('icon-') && !fileBase.startsWith('star-rating-')) {
             await prefixIcon(fileDir, fileBase);
         }
     });

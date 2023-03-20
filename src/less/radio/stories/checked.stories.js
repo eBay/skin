@@ -5,10 +5,10 @@ export const base = () => `
     <input aria-label="Foreground SVG radio example" class="radio__control" name="r1" type="radio" checked />
     <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-            <use href="#icon-radio-unchecked"></use>
+            <use href="#icon-web-radio-unselected-18"></use>
         </svg>
         <svg aria-hidden="true" class="radio__checked" focusable="false">
-            <use href="#icon-radio-checked"></use>
+            <use href="#icon-web-radio-selected-18"></use>
         </svg>
     </span>
 </span>
@@ -20,10 +20,10 @@ export const RTL = () => `
         <input aria-label="Foreground SVG radio example" class="radio__control" name="r1" type="radio" checked />
         <span class="radio__icon" hidden>
             <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-                <use href="#icon-radio-unchecked"></use>
+                <use href="#icon-web-radio-unselected-18"></use>
             </svg>
             <svg aria-hidden="true" class="radio__checked" focusable="false">
-                <use href="#icon-radio-checked"></use>
+                <use href="#icon-web-radio-selected-18"></use>
             </svg>
         </span>
     </span>
@@ -35,10 +35,10 @@ export const disabled = () => `
     <input aria-label="Disabled Foreground SVG radio example" class="radio__control" name="r3" disabled checked type="radio" />
     <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-            <use href="#icon-radio-unchecked"></use>
+            <use href="#icon-web-radio-unselected-18"></use>
         </svg>
         <svg aria-hidden="true" class="radio__checked" focusable="false">
-            <use href="#icon-radio-checked"></use>
+            <use href="#icon-web-radio-selected-18"></use>
         </svg>
     </span>
 </span>
@@ -49,10 +49,10 @@ export const customColour = () => `
     <input aria-label="Foreground SVG radio example" class="radio__control" name="r5" type="radio" checked />
     <span class="radio__icon" hidden>
         <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-            <use href="#icon-radio-unchecked"></use>
+            <use href="#icon-web-radio-unselected-18"></use>
         </svg>
         <svg aria-hidden="true" class="radio__checked" focusable="false" style="color: #5ba71b">
-            <use href="#icon-radio-checked"></use>
+            <use href="#icon-web-radio-selected-18"></use>
         </svg>
     </span>
 </span>
@@ -63,7 +63,7 @@ export const customIcon = () => `
 <input aria-label="Custom radio example" class="radio__control" name="r7" type="radio" checked />
 <span class="radio__icon" hidden>
     <svg aria-hidden="true" class="radio__unchecked" focusable="false">
-        <use href="#icon-radio-unchecked"></use>
+        <use href="#icon-web-radio-unselected-18"></use>
     </svg>
     <svg aria-hidden="true" class="radio__checked" focusable="false">
         <use href="#icon-confirmation"></use>
@@ -80,10 +80,10 @@ export const multiLineLabel = () => `
             <input class="radio__control" id="group-radio-1" type="radio" value="1" name="radio-group" />
             <span class="radio__icon" hidden>
                 <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-unchecked"></use>
+                    <use href="#icon-web-radio-unselected-18"></use>
                 </svg>
                 <svg class="radio__checked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-checked"></use>
+                    <use href="#icon-web-radio-selected-18"></use>
                 </svg>
             </span>
         </span>
@@ -94,10 +94,10 @@ export const multiLineLabel = () => `
             <input class="radio__control" id="group-radio-2" type="radio" value="2" name="radio-group" />
             <span class="radio__icon" hidden>
                 <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-unchecked"></use>
+                    <use href="#icon-web-radio-unselected-18"></use>
                 </svg>
                 <svg class="radio__checked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-checked"></use>
+                    <use href="#icon-web-radio-selected-18"></use>
                 </svg>
             </span>
         </span>
@@ -108,10 +108,10 @@ export const multiLineLabel = () => `
             <input class="radio__control" id="group-radio-3" type="radio" value="3" name="radio-group" />
             <span class="radio__icon" hidden>
                 <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-unchecked"></use>
+                    <use href="#icon-web-radio-unselected-18"></use>
                 </svg>
                 <svg class="radio__checked" focusable="false" height="18" width="18">
-                    <use href="#icon-radio-checked"></use>
+                    <use href="#icon-web-radio-selected-18"></use>
                 </svg>
             </span>
         </span>
