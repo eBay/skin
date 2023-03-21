@@ -44,8 +44,8 @@ export const overflow = () => `
     <div class="section-title__overflow">
         <span class="menu-button">
             <button class="menu-button__button icon-btn" type="button" aria-expanded="true" aria-haspopup="true" type="button">
-                <svg class="icon icon--overflow-android-24" focusable="false" width="24" height="24" aria-hidden="true">
-                    <use href="#icon-overflow-android-24"></use>
+                <svg class="icon icon--overflow-vertical-24" focusable="false" width="24" height="24" aria-hidden="true">
+                    <use href="#icon-overflow-vertical-24"></use>
                 </svg>
             </button>
             <div class="menu-button__menu menu-button__menu--reverse">
