@@ -9,10 +9,10 @@ export const group = () => `
                 <input class="radio__control" id="paccount" type="radio" name="account"/>
                 <span class="radio__icon" hidden>
                     <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                        <use href="#icon-web-radio-unselected-18"></use>
+                        <use href="#icon-radio-unchecked-18"></use>
                     </svg>
                     <svg class="radio__checked" focusable="false" height="18" width="18">
-                        <use href="#icon-web-radio-selected-18"></use>
+                        <use href="#icon-radio-checked-18"></use>
                     </svg>
                 </span>
             </span>
@@ -23,10 +23,10 @@ export const group = () => `
                 <input class="radio__control" id="baccount" type="radio" name="account"/>
                 <span class="radio__icon" hidden>
                     <svg class="radio__unchecked" focusable="false" height="18" width="18">
-                        <use href="#icon-web-radio-unselected-18"></use>
+                        <use href="#icon-radio-unchecked-18"></use>
                     </svg>
                     <svg class="radio__checked" focusable="false" height="18" width="18">
-                        <use href="#icon-web-radio-selected-18"></use>
+                        <use href="#icon-radio-checked-18"></use>
                     </svg>
                 </span>
             </span>
