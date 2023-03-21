@@ -54,6 +54,10 @@ footer {
   text-align: center;
 }
 
+.featured__article {
+  grid-area: 1 / 1 / span 1 / span 8;
+}
+
 .featured__article,
 .featured__thumbnail {
   padding: var(--spacing-large);
@@ -91,20 +95,9 @@ main {
 aside {
   grid-area: 7 / 1 / span 1 / span 8;
 }
-/* end small page grid layout */
 
-
-.subgrid {
-  display: grid;
-}
-
-@supports (grid-template-columns: subgrid) {
-  .subgrid {
-      grid-template-columns: subgrid;
-  }
-}
-
-@media (min-width: 600px) { 
+/* Skin goes from 8 columns to 16 columns at this SM (small) breakpoint */
+@media (min-width: 512px) { 
   header {
     grid-area: 1 / 1 / span 1 / span 16;
   }
@@ -125,37 +118,24 @@ aside {
     grid-area: 4 / 9 / span 1 / span 8;
   }
 
+  .featured__article {
+    grid-area: 1 / 1 / span 1 / span 12;
+  }
+
+  .featured__thumbnail {
+    grid-area: 1 / 12 / span 1 / span 4;
+    align-items: center;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+
   main {
     grid-area: 5 / 1 / span 1 / span 10;
   }
 
   aside {
     grid-area: 5 / 11 / span 1 / span 6;
-  }
-  /* end large page grid layout */
-    
-  /* begin nested grid layout */ 
-  @supports not (grid-template-columns: subgrid) {
-    .featured {
-      column-gap: 16px;
-      grid-template-columns: repeat(8, 1fr);
-    } 
-  }
-    
-  .featured__article {
-    grid-column: 1 / span 5;
-  }
-  
-    .featured__thumbnail {
-    grid-column: 6 / span 3;
-  }
-  /* end nested grid layout */  
-  
-  .featured__thumbnail {
-    align-items: center;
-    background-color: #343a40;
-    color: white;
-    display: flex;
-    justify-content: center;
   }
 }
