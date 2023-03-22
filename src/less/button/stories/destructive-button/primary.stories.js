@@ -34,3 +34,13 @@ export const busy = () => `
     </span>
 </button>
 `;
+
+export const busyDisabled = () => `
+<button class="btn btn--primary btn--destructive" aria-label="Busy" aria-disabled="true" disabled>
+    <span class="progress-spinner">
+        <svg aria-hidden="true" class="icon icon--spinner-24" focusable="false">
+            <use href="#icon-spinner-24"></use>
+        </svg>
+    </span>
+</button>
+`;
