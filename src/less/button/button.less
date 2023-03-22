@@ -132,8 +132,8 @@ a.fake-btn--primary.fake-btn--destructive {
 
 button.btn--primary.btn--destructive[disabled],
 button.btn--primary.btn--destructive[aria-disabled="true"] {
-    .background-color-token(btn-primary-destructive-disabled-background, color-background-disabled);
-    .border-color-token(btn-primary-destructive-disabled-border, color-stroke-disabled);
+    .background-color-token(btn-primary-destructive-disabled-background, color-background-attention);
+    .border-color-token(btn-primary-destructive-disabled-border, color-stroke-attention);
 }
 
 button.btn--primary.btn--destructive:not([disabled], [aria-disabled="true"]),
@@ -159,9 +159,14 @@ button.btn--form .progress-spinner {
     margin-right: auto;
 }
 
+button.btn--primary .progress-spinner {
+    --color-spinner-icon-background: var(--color-background-primary);
+    --color-spinner-icon-foreground: #8fa3f8; // 40% of white on top of --color-foreground-on-accent
+}
+
 button.btn--primary.btn--destructive .progress-spinner {
-    --color-spinner-icon-background: #ec7089;
-    --color-spinner-icon-foreground: var(--color-foreground-on-accent);
+    --color-spinner-icon-background: var(--color-foreground-on-accent);
+    --color-spinner-icon-foreground: #ec7089;
 }
 
 button.btn[aria-expanded="true"] svg.icon--chevron-down-12,
@@ -176,8 +181,8 @@ a.fake-btn--large svg.icon {
 
 button.btn--primary[disabled],
 button.btn--primary[aria-disabled="true"] {
-    .background-color-token(btn-primary-disabled-background-color, color-foreground-disabled);
-    .border-color-token(btn-primary-disabled-border-color, color-foreground-disabled);
+    .background-color-token(btn-primary-disabled-background-color, color-background-accent);
+    .border-color-token(btn-primary-disabled-border-color, color-background-accent);
     .color-token(btn-primary-foreground-color, color-foreground-on-accent);
 
     svg.icon {
