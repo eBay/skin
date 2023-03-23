@@ -1,5 +1,5 @@
 <div id="page-grid">
-    {% include section-header.html name="page-grid" version=page.versions.page-grid beta="true" %}
+    {% include section-header.html name="page-grid" version=page.versions.page-grid %}
     <p>The page grid module establishes the rows, columns and areas onto which child elements can be placed. The page grid is fully responsive.</p>
     <p>Setting up a responsive page grid requires two key elements: a container element, and the grid element itself.</p>
     <p>The container element takes care of positioning the grid in relation to the page (typically center-justified) and adds outer margins.</p>
@@ -16,22 +16,38 @@
     <p>Any content that is <em>off-grid</em>, a full bleed banner for example, should be placed outside of these two elements.</p>
     <p>Grid areas are definable with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">CSS Grid syntax</a>. The following CSS shows the grid layout of the Skin website itself.</p>
 
+    <h3>Responsive Methodology</h3>
+    <p>
+        When working with responsive web pages, the mindset should always be mobile-first.
+        This means that your default styles (outside of media queries) should be targeting
+        phones - the smallest of screens. As such, there is no need to have a minimum
+        threshold by wrapping mobile styles inside a media query.
+    </p>
+    <p>
+        Though our minimum screen width support starts at <span class="highlight">320px</span>, in theory this means that
+        default styles will support devices much narrower than that since we don't set a
+        minimum. The <span class="highlight">320px</span> is, at best, an implied breakpoint.
+    </p>
+    <p>
+        Subsequent media queries should increase in screen width and alter the UI
+        styling additively avoiding style declaration duplications when possible.
+    </p>
+
     {% highlight css %}
-@media only screen and (min-width: 320px){
-    nav {
-        display: none;
-    }
 
-    main {
-        grid-area: ~"1 / 1 / span 1 / span 8";
-    }
-
-    footer {
-        grid-area: ~"2 / 1 / span 1 / span 8";
-    }
+nav {
+    display: none;
 }
 
-@media only screen and (min-width: 600px) {
+main {
+    grid-area: ~"1 / 1 / span 1 / span 8";
+}
+
+footer {
+    grid-area: ~"2 / 1 / span 1 / span 8";
+}
+
+@media screen and (min-width: 600px) {
     nav {
         grid-area: ~"1 / 1 / span 1 / span 3";
     }
@@ -45,7 +61,7 @@
     }
 }
 
-@media only screen and (min-width: 968px) {
+@media screen and (min-width: 968px) {
     nav {
         grid-area: ~"1 / 1 / span 1 / span 2";
     }
@@ -86,4 +102,8 @@
     <h3 id="page-grid-nested">Nested Grids</h3>
     <p>Obviously, this top-level page grid only gets us so far. How do we align the deeper nested elements and their content to our grid system?</p>
     <p>Watch this space for more information on how to create nested grids (with and without <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">CSS Subgrid</a> support).</p>
+
+    <h3 id="page-grid-templates">Page Grid Templates</h3>
+    <p>To see how the page grid system (engine) works in conjunction with various types of implementations (templates), check out our set of templates utiliing page grid.</p>
+    <a href="/page-grid-templates/">Page Grid Templates</a>
 </div>

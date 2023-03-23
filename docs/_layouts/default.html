@@ -19,27 +19,20 @@
         {% endif %}
 
         <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/docs.min.css"/>
-        <!-- critical styles -->
-        <style>
-            @media only screen and (min-width: 600px) {
-                .modules-expander {
-                    display: none;
-                }
-                .site-nav {
-                    display: block;
-                }
-            }
-        </style>
     </head>
     <body>
         <header>
-            <div class="app-bar">
-                <h1 class="app-bar__title">{{ page.title }}</h1>
-                <ul class="app-bar__links">
-                    <li><a href="{{ site.url }}/archive/index.html">v{{page.version}}</a></li>
-                    <li><a href="https://github.com/eBay/skin">GitHub</a></li>
-                    <li><a href="{{ site.url }}/{% if page.ds == 4 %}ds4/{% endif %}storybook">Storybook</a></li>
-                </ul>
+            <div class="page-grid-container">
+                <div class="page-grid">
+                    <div class="app-bar">
+                        <h1 class="app-bar__title">{{ page.title }}</h1>
+                        <ul class="app-bar__links">
+                            <li><a href="{{ site.url }}/archive/index.html">v{{page.version}}</a></li>
+                            <li><a href="https://github.com/eBay/skin">GitHub</a></li>
+                            <li><a href="{{ site.url }}/{% if page.ds == 4 %}ds4/{% endif %}storybook">Storybook</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <details class="details modules-expander">
                 <summary class="details__summary">
@@ -82,7 +75,7 @@
                 </main>
                 <footer>
                     <hr />
-                    <p>Copyright &copy; 2022 eBay, Inc. All rights reserved.</p>
+                    <p>Copyright &copy; {{ 'now' | date: "%Y" }} eBay, Inc. All rights reserved.</p>
                 </footer>
             </div>
         </div>

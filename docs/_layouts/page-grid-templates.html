@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        {% if jekyll.environment == "development" %}
+        {% if page.ds != 4 %}
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/skin-full.min.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/skin-legacy.min.css"/>
+        {% endif %}
+        {% else %}
+        {% if page.ds != 4 %}
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/skin-full.min.css"/>
+        {% else %}
+        <link type="text/css" rel="stylesheet" href="{{ page.cdn_path }}/v{{page.version}}/skin-legacy.min.css"/>
+        {% endif %}
+        {% endif %}
+
+        <link type="text/css" rel="stylesheet" href="{{ page.static_dir }}/docs.min.css"/>
+    </head>
+    <body>
+        <header>
+            <div class="page-grid-container">
+                <div class="page-grid">
+                    <div class="app-bar">
+                        <h1 class="app-bar__title">{{ page.title }}</h1>
+                        <ul class="app-bar__links">
+                            <li><a href="/#page-grid">< Back to Skin Site</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="page-grid-container">
+            <div class="page-grid">
+                <div class="content">
+                    {{ content }}
+                </div>
+                <footer>
+                    <hr />
+                    <p>Copyright &copy; {{ 'now' | date: "%Y" }} eBay, Inc. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+    <script src="{{ page.static_dir }}/docs.min.js"></script>
+</html>
