@@ -89,11 +89,14 @@
   border-style: solid;
 }
 .calendar__month td > :disabled,
-.calendar__month .calendar__cell--disabled {
+.calendar__month td > [aria-disabled="true"] {
   color: var(--calendar-day-disabled-color, var(--color-foreground-disabled));
 }
 .calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
   background-color: var(--calendar-day-hover-background-color, var(--color-state-primary-hover));
+}
+.calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):active {
+  font-weight: bold;
 }
 .calendar__month td[aria-selected="true"] > * {
   background-color: var(--calendar-day-selected-background-color, var(--color-background-inverse));

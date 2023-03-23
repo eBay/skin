@@ -116,12 +116,16 @@
 }
 
 .calendar__month td > :disabled,
-.calendar__month .calendar__cell--disabled {
+.calendar__month td > [aria-disabled="true"] {
     .color-token(calendar-day-disabled-color, color-foreground-disabled);
 }
 
 .calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
     .background-color-token(calendar-day-hover-background-color, color-state-primary-hover);
+}
+
+.calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):active {
+    font-weight: bold;
 }
 
 .calendar__month td[aria-selected="true"] > * {
