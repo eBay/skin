@@ -13,8 +13,8 @@ export const minimum = () => `
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
-                        <use href="#icon-overflow-ios-16"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                        <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
 
@@ -58,8 +58,8 @@ export const collapsed = () => `
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
-                        <use href="#icon-overflow-ios-16"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                        <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
 
@@ -109,8 +109,8 @@ export const expanded = () => `
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="true" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-ios-16" focusable="false">
-                        <use href="#icon-overflow-ios-16"></use>
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                        <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
 
