@@ -22,23 +22,75 @@ export const base = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span class="calendar__cell--disabled">1</span></td>
-                            <td><span class="calendar__cell--disabled">2</span></td>
-                            <td><span class="calendar__cell--disabled">3</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >1 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >2 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >3 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">4</span></td>
-                            <td><span class="calendar__cell--disabled">5</span></td>
-                            <td><span class="calendar__cell--disabled">6</span></td>
-                            <td><span class="calendar__cell--disabled">7</span></td>
-                            <td><span class="calendar__cell--disabled">8</span></td>
-                            <td><span class="calendar__cell--disabled">9</span></td>
-                            <td><span class="calendar__cell--disabled">10</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >4 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >5 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >6 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >7 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >8 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >9 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >10 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">11</span></td>
-                            <td><span class="calendar__cell--disabled">12</span></td>
-                            <td><span class="calendar__cell--disabled">13</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >11 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >12 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >13 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -224,23 +276,75 @@ export const header = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span class="calendar__cell--disabled">1</span></td>
-                            <td><span class="calendar__cell--disabled">2</span></td>
-                            <td><span class="calendar__cell--disabled">3</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >1 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >2 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >3 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">4</span></td>
-                            <td><span class="calendar__cell--disabled">5</span></td>
-                            <td><span class="calendar__cell--disabled">6</span></td>
-                            <td><span class="calendar__cell--disabled">7</span></td>
-                            <td><span class="calendar__cell--disabled">8</span></td>
-                            <td><span class="calendar__cell--disabled">9</span></td>
-                            <td><span class="calendar__cell--disabled">10</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >4 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >5 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >6 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >7 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >8 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >9 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >10 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">11</span></td>
-                            <td><span class="calendar__cell--disabled">12</span></td>
-                            <td><span class="calendar__cell--disabled">13</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >11 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >12 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >13 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -314,23 +418,75 @@ export const double = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span class="calendar__cell--disabled">1</span></td>
-                            <td><span class="calendar__cell--disabled">2</span></td>
-                            <td><span class="calendar__cell--disabled">3</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >1 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >2 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >3 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">4</span></td>
-                            <td><span class="calendar__cell--disabled">5</span></td>
-                            <td><span class="calendar__cell--disabled">6</span></td>
-                            <td><span class="calendar__cell--disabled">7</span></td>
-                            <td><span class="calendar__cell--disabled">8</span></td>
-                            <td><span class="calendar__cell--disabled">9</span></td>
-                            <td><span class="calendar__cell--disabled">10</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >4 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >5 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >6 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >7 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >8 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >9 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >10 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">11</span></td>
-                            <td><span class="calendar__cell--disabled">12</span></td>
-                            <td><span class="calendar__cell--disabled">13</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >11 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >12 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >13 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -498,23 +654,75 @@ export const doubleWithHeader = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span class="calendar__cell--disabled">1</span></td>
-                            <td><span class="calendar__cell--disabled">2</span></td>
-                            <td><span class="calendar__cell--disabled">3</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >1 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >2 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >3 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">4</span></td>
-                            <td><span class="calendar__cell--disabled">5</span></td>
-                            <td><span class="calendar__cell--disabled">6</span></td>
-                            <td><span class="calendar__cell--disabled">7</span></td>
-                            <td><span class="calendar__cell--disabled">8</span></td>
-                            <td><span class="calendar__cell--disabled">9</span></td>
-                            <td><span class="calendar__cell--disabled">10</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >4 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >5 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >6 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >7 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >8 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >9 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >10 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                         </tr>
                         <tr>
-                            <td><span class="calendar__cell--disabled">11</span></td>
-                            <td><span class="calendar__cell--disabled">12</span></td>
-                            <td><span class="calendar__cell--disabled">13</span></td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >11 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >12 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
+                            <td>
+                                <span class="calendar__cell--disabled"
+                                    >13 <span class="clipped">- inactive</span></span
+                                >
+                            </td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
