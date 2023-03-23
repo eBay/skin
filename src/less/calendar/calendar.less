@@ -109,26 +109,28 @@
  ************/
 
 .calendar__month
-    td[aria-current="date"]:not([aria-selected="true"])
-    > :not(:disabled, [aria-disabled="true"]) {
+    td[aria-current="date"]:not(.calendar__cell--selected)
+    > :not(:disabled, .calendar__cell--disabled) {
     .border-color-token(calendar-day-today-border-color, color-foreground-primary);
     border-style: solid;
 }
 
 .calendar__month td > :disabled,
-.calendar__month td > [aria-disabled="true"] {
+.calendar__month td > .calendar__cell--disabled {
     .color-token(calendar-day-disabled-color, color-foreground-disabled);
 }
 
-.calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):hover {
+.calendar__month td:not(.calendar__range, .calendar__cell--selected) > button:not(:disabled):hover {
     .background-color-token(calendar-day-hover-background-color, color-state-primary-hover);
 }
 
-.calendar__month td:not(.calendar__range, [aria-selected="true"]) > button:not(:disabled):active {
+.calendar__month
+    td:not(.calendar__range, .calendar__cell--selected)
+    > button:not(:disabled):active {
     font-weight: bold;
 }
 
-.calendar__month td[aria-selected="true"] > * {
+.calendar__month td.calendar__cell--selected > * {
     .background-color-token(calendar-day-selected-background-color, color-background-inverse);
     .color-token(calendar-day-selected-color, color-foreground-on-inverse);
     font-weight: bold;
@@ -178,7 +180,7 @@
     background: transparent;
 }
 
-.calendar__range--start:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]),
-.calendar__range--end:not([aria-selected="true"]) > :not(:disabled, [aria-disabled="true"]) {
+.calendar__range--start:not(.calendar__cell--selected) > :not(:disabled, [aria-disabled="true"]),
+.calendar__range--end:not(.calendar__cell--selected) > :not(:disabled, [aria-disabled="true"]) {
     .background-color-token(calendar-day-range-end, color-state-secondary-active);
 }

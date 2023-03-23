@@ -22,23 +22,23 @@ export const base = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span aria-disabled="true">1</span></td>
-                            <td><span aria-disabled="true">2</span></td>
-                            <td><span aria-disabled="true">3</span></td>
+                            <td><span class="calendar__cell--disabled">1</span></td>
+                            <td><span class="calendar__cell--disabled">2</span></td>
+                            <td><span class="calendar__cell--disabled">3</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">4</span></td>
-                            <td><span aria-disabled="true">5</span></td>
-                            <td><span aria-disabled="true">6</span></td>
-                            <td><span aria-disabled="true">7</span></td>
-                            <td><span aria-disabled="true">8</span></td>
-                            <td><span aria-disabled="true">9</span></td>
-                            <td><span aria-disabled="true">10</span></td>
+                            <td><span class="calendar__cell--disabled">4</span></td>
+                            <td><span class="calendar__cell--disabled">5</span></td>
+                            <td><span class="calendar__cell--disabled">6</span></td>
+                            <td><span class="calendar__cell--disabled">7</span></td>
+                            <td><span class="calendar__cell--disabled">8</span></td>
+                            <td><span class="calendar__cell--disabled">9</span></td>
+                            <td><span class="calendar__cell--disabled">10</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">11</span></td>
-                            <td><span aria-disabled="true">12</span></td>
-                            <td><span aria-disabled="true">13</span></td>
+                            <td><span class="calendar__cell--disabled">11</span></td>
+                            <td><span class="calendar__cell--disabled">12</span></td>
+                            <td><span class="calendar__cell--disabled">13</span></td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -52,8 +52,13 @@ export const base = () => /* HTML */ `
                             <td><span>20</span></td>
                             <td><span>21</span></td>
                             <td><span>22</span></td>
-                            <td class="calendar__range calendar__range--start" aria-selected="true">
-                                <span>23 <span class="clipped">- start of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--start"
+                            >
+                                <span
+                                    >23
+                                    <span class="clipped">- selected - start of range</span></span
+                                >
                             </td>
                             <td class="calendar__range">
                                 <span>24 <span class="clipped">- in range</span></span>
@@ -66,8 +71,12 @@ export const base = () => /* HTML */ `
                             <td class="calendar__range">
                                 <span>26 <span class="clipped">- in range</span></span>
                             </td>
-                            <td class="calendar__range calendar__range--end" aria-selected="true">
-                                <span>27 <span class="clipped">- end of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--end"
+                            >
+                                <span
+                                    >27 <span class="clipped">- selected - end of range</span></span
+                                >
                             </td>
                             <td><span>28</span></td>
                             <td><span>29</span></td>
@@ -133,8 +142,12 @@ export const interactive = () => /* HTML */ `
                             <td><button tabindex="-1">20</button></td>
                             <td><button tabindex="-1">21</button></td>
                             <td><button tabindex="-1">22</button></td>
-                            <td class="calendar__range calendar__range--start" aria-selected="true">
-                                <button tabindex="-1" aria-label="23 - start of range">23</button>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--start"
+                            >
+                                <button tabindex="-1" aria-label="23 - selected - start of range">
+                                    23
+                                </button>
                             </td>
                             <td class="calendar__range">
                                 <button tabindex="-1" aria-label="24 - in range">24</button>
@@ -147,8 +160,12 @@ export const interactive = () => /* HTML */ `
                             <td class="calendar__range">
                                 <button tabindex="-1" aria-label="26 - in range">26</button>
                             </td>
-                            <td class="calendar__range calendar__range--end" aria-selected="true">
-                                <button tabindex="-1" aria-label="27 - end of range">27</button>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--end"
+                            >
+                                <button tabindex="-1" aria-label="27 - selected - end of range">
+                                    27
+                                </button>
                             </td>
                             <td><button tabindex="-1">28</button></td>
                             <td><button tabindex="-1">29</button></td>
@@ -207,23 +224,23 @@ export const header = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span aria-disabled="true">1</span></td>
-                            <td><span aria-disabled="true">2</span></td>
-                            <td><span aria-disabled="true">3</span></td>
+                            <td><span class="calendar__cell--disabled">1</span></td>
+                            <td><span class="calendar__cell--disabled">2</span></td>
+                            <td><span class="calendar__cell--disabled">3</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">4</span></td>
-                            <td><span aria-disabled="true">5</span></td>
-                            <td><span aria-disabled="true">6</span></td>
-                            <td><span aria-disabled="true">7</span></td>
-                            <td><span aria-disabled="true">8</span></td>
-                            <td><span aria-disabled="true">9</span></td>
-                            <td><span aria-disabled="true">10</span></td>
+                            <td><span class="calendar__cell--disabled">4</span></td>
+                            <td><span class="calendar__cell--disabled">5</span></td>
+                            <td><span class="calendar__cell--disabled">6</span></td>
+                            <td><span class="calendar__cell--disabled">7</span></td>
+                            <td><span class="calendar__cell--disabled">8</span></td>
+                            <td><span class="calendar__cell--disabled">9</span></td>
+                            <td><span class="calendar__cell--disabled">10</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">11</span></td>
-                            <td><span aria-disabled="true">12</span></td>
-                            <td><span aria-disabled="true">13</span></td>
+                            <td><span class="calendar__cell--disabled">11</span></td>
+                            <td><span class="calendar__cell--disabled">12</span></td>
+                            <td><span class="calendar__cell--disabled">13</span></td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -237,8 +254,13 @@ export const header = () => /* HTML */ `
                             <td><span>20</span></td>
                             <td><span>21</span></td>
                             <td><span>22</span></td>
-                            <td class="calendar__range calendar__range--start" aria-selected="true">
-                                <span>23 <span class="clipped">- start of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--start"
+                            >
+                                <span
+                                    >23
+                                    <span class="clipped">- selected - start of range</span></span
+                                >
                             </td>
                             <td class="calendar__range">
                                 <span>24 <span class="clipped">- in range</span></span>
@@ -251,8 +273,12 @@ export const header = () => /* HTML */ `
                             <td class="calendar__range">
                                 <span>26 <span class="clipped">- in range</span></span>
                             </td>
-                            <td class="calendar__range calendar__range--end" aria-selected="true">
-                                <span>27 <span class="clipped">- end of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--end"
+                            >
+                                <span
+                                    >27 <span class="clipped">- selected - end of range</span></span
+                                >
                             </td>
                             <td><span>28</span></td>
                             <td><span>29</span></td>
@@ -288,23 +314,23 @@ export const double = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span aria-disabled="true">1</span></td>
-                            <td><span aria-disabled="true">2</span></td>
-                            <td><span aria-disabled="true">3</span></td>
+                            <td><span class="calendar__cell--disabled">1</span></td>
+                            <td><span class="calendar__cell--disabled">2</span></td>
+                            <td><span class="calendar__cell--disabled">3</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">4</span></td>
-                            <td><span aria-disabled="true">5</span></td>
-                            <td><span aria-disabled="true">6</span></td>
-                            <td><span aria-disabled="true">7</span></td>
-                            <td><span aria-disabled="true">8</span></td>
-                            <td><span aria-disabled="true">9</span></td>
-                            <td><span aria-disabled="true">10</span></td>
+                            <td><span class="calendar__cell--disabled">4</span></td>
+                            <td><span class="calendar__cell--disabled">5</span></td>
+                            <td><span class="calendar__cell--disabled">6</span></td>
+                            <td><span class="calendar__cell--disabled">7</span></td>
+                            <td><span class="calendar__cell--disabled">8</span></td>
+                            <td><span class="calendar__cell--disabled">9</span></td>
+                            <td><span class="calendar__cell--disabled">10</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">11</span></td>
-                            <td><span aria-disabled="true">12</span></td>
-                            <td><span aria-disabled="true">13</span></td>
+                            <td><span class="calendar__cell--disabled">11</span></td>
+                            <td><span class="calendar__cell--disabled">12</span></td>
+                            <td><span class="calendar__cell--disabled">13</span></td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -370,8 +396,13 @@ export const double = () => /* HTML */ `
                         </tr>
                         <tr>
                             <td><span>15</span></td>
-                            <td class="calendar__range calendar__range--start" aria-selected="true">
-                                <span>16 <span class="clipped">- start of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--start"
+                            >
+                                <span
+                                    >16
+                                    <span class="clipped">- selected - start of range</span></span
+                                >
                             </td>
                             <td class="calendar__range">
                                 <span>17 <span class="clipped">- in range</span></span>
@@ -399,8 +430,12 @@ export const double = () => /* HTML */ `
                             <td class="calendar__range">
                                 <span>24 <span class="clipped">- in range</span></span>
                             </td>
-                            <td class="calendar__range calendar__range--end" aria-selected="true">
-                                <span>25 <span class="clipped">- end of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--end"
+                            >
+                                <span
+                                    >25 <span class="clipped">- selected - end of range</span></span
+                                >
                             </td>
                             <td><span>26</span></td>
                             <td><span>27</span></td>
@@ -463,23 +498,23 @@ export const doubleWithHeader = () => /* HTML */ `
                     <tbody>
                         <tr>
                             <td colspan="4"></td>
-                            <td><span aria-disabled="true">1</span></td>
-                            <td><span aria-disabled="true">2</span></td>
-                            <td><span aria-disabled="true">3</span></td>
+                            <td><span class="calendar__cell--disabled">1</span></td>
+                            <td><span class="calendar__cell--disabled">2</span></td>
+                            <td><span class="calendar__cell--disabled">3</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">4</span></td>
-                            <td><span aria-disabled="true">5</span></td>
-                            <td><span aria-disabled="true">6</span></td>
-                            <td><span aria-disabled="true">7</span></td>
-                            <td><span aria-disabled="true">8</span></td>
-                            <td><span aria-disabled="true">9</span></td>
-                            <td><span aria-disabled="true">10</span></td>
+                            <td><span class="calendar__cell--disabled">4</span></td>
+                            <td><span class="calendar__cell--disabled">5</span></td>
+                            <td><span class="calendar__cell--disabled">6</span></td>
+                            <td><span class="calendar__cell--disabled">7</span></td>
+                            <td><span class="calendar__cell--disabled">8</span></td>
+                            <td><span class="calendar__cell--disabled">9</span></td>
+                            <td><span class="calendar__cell--disabled">10</span></td>
                         </tr>
                         <tr>
-                            <td><span aria-disabled="true">11</span></td>
-                            <td><span aria-disabled="true">12</span></td>
-                            <td><span aria-disabled="true">13</span></td>
+                            <td><span class="calendar__cell--disabled">11</span></td>
+                            <td><span class="calendar__cell--disabled">12</span></td>
+                            <td><span class="calendar__cell--disabled">13</span></td>
                             <td aria-current="date">
                                 <span>14</span>
                             </td>
@@ -545,8 +580,13 @@ export const doubleWithHeader = () => /* HTML */ `
                         </tr>
                         <tr>
                             <td><span>15</span></td>
-                            <td class="calendar__range calendar__range--start" aria-selected="true">
-                                <span>16 <span class="clipped">- start of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--start"
+                            >
+                                <span
+                                    >16
+                                    <span class="clipped">- selected - start of range</span></span
+                                >
                             </td>
                             <td class="calendar__range">
                                 <span>17 <span class="clipped">- in range</span></span>
@@ -574,8 +614,12 @@ export const doubleWithHeader = () => /* HTML */ `
                             <td class="calendar__range">
                                 <span>24 <span class="clipped">- in range</span></span>
                             </td>
-                            <td class="calendar__range calendar__range--end" aria-selected="true">
-                                <span>25 <span class="clipped">- end of range</span></span>
+                            <td
+                                class="calendar__cell--selected calendar__range calendar__range--end"
+                            >
+                                <span
+                                    >25 <span class="clipped">- selected - end of range</span></span
+                                >
                             </td>
                             <td><span>26</span></td>
                             <td><span>27</span></td>
