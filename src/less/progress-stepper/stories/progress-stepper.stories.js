@@ -6,7 +6,7 @@ export const base = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -18,7 +18,7 @@ export const base = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -30,7 +30,7 @@ export const base = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -41,7 +41,7 @@ export const base = () => `
         <hr class="progress-stepper__separator" role="presentation" />
         <div class="progress-stepper__item" role="listitem">
             <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                <use href="#icon-stepper-upcoming"></use>
+                <use href="#icon-stepper-upcoming-24"></use>
             </svg>
             <span class="progress-stepper__text">
                 <h4>Delivered</h4>
@@ -58,7 +58,7 @@ export const multipleUpcoming = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -70,7 +70,7 @@ export const multipleUpcoming = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -82,7 +82,7 @@ export const multipleUpcoming = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -93,7 +93,7 @@ export const multipleUpcoming = () => `
         <hr class="progress-stepper__separator" role="presentation" />
         <div class="progress-stepper__item" role="listitem">
             <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                <use href="#icon-stepper-upcoming"></use>
+                <use href="#icon-stepper-upcoming-24"></use>
             </svg>
             <span class="progress-stepper__text">
                 <h4>Delivered</h4>
@@ -111,7 +111,7 @@ export const allSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -123,7 +123,7 @@ export const allSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -135,7 +135,7 @@ export const allSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -147,7 +147,7 @@ export const allSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -165,7 +165,7 @@ export const currentBubble = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -177,7 +177,7 @@ export const currentBubble = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -189,7 +189,7 @@ export const currentBubble = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-current"></use>
+                    <use href="#icon-stepper-current-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -201,7 +201,7 @@ export const currentBubble = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -219,7 +219,7 @@ export const noneSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -231,7 +231,7 @@ export const noneSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -243,7 +243,7 @@ export const noneSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -255,7 +255,7 @@ export const noneSelected = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -273,7 +273,7 @@ export const RTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -285,7 +285,7 @@ export const RTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -297,7 +297,7 @@ export const RTL = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -309,7 +309,7 @@ export const RTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -328,7 +328,7 @@ export const currentBubbleRTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -340,7 +340,7 @@ export const currentBubbleRTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -352,7 +352,7 @@ export const currentBubbleRTL = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-current"></use>
+                    <use href="#icon-stepper-current-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -364,7 +364,7 @@ export const currentBubbleRTL = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -382,7 +382,7 @@ export const vertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -395,7 +395,7 @@ export const vertical = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -407,7 +407,7 @@ export const vertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
            <span class="progress-stepper__text">
@@ -425,7 +425,7 @@ export const verticalUpcoming = () => `
         <div aria-current="current" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -438,7 +438,7 @@ export const verticalUpcoming = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -450,7 +450,7 @@ export const verticalUpcoming = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
            <span class="progress-stepper__text">
@@ -468,7 +468,7 @@ export const verticalSingleLine = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -479,7 +479,7 @@ export const verticalSingleLine = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -490,7 +490,7 @@ export const verticalSingleLine = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -508,7 +508,7 @@ export const verticalRTL = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -521,7 +521,7 @@ export const verticalRTL = () => `
             <div aria-current="step" class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -533,7 +533,7 @@ export const verticalRTL = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -552,7 +552,7 @@ export const currentBubbleVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -564,7 +564,7 @@ export const currentBubbleVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -576,7 +576,7 @@ export const currentBubbleVertical = () => `
         <div aria-current="step" class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-current"></use>
+                    <use href="#icon-stepper-current-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -588,7 +588,7 @@ export const currentBubbleVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -607,7 +607,7 @@ export const currentBubbleVerticalRTL = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -619,7 +619,7 @@ export const currentBubbleVerticalRTL = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -631,7 +631,7 @@ export const currentBubbleVerticalRTL = () => `
             <div aria-current="step" class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-current"></use>
+                        <use href="#icon-stepper-current-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -643,7 +643,7 @@ export const currentBubbleVerticalRTL = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-upcoming"></use>
+                        <use href="#icon-stepper-upcoming-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -662,7 +662,7 @@ export const errorState = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -674,7 +674,7 @@ export const errorState = () => `
         <div aria-current="step" class="progress-stepper__item progress-stepper__item--attention" role="listitem">
             <span class="progress-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-attention"></use>
+                    <use href="#icon-stepper-attention-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -686,7 +686,7 @@ export const errorState = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -703,7 +703,7 @@ export const errorStateVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -715,7 +715,7 @@ export const errorStateVertical = () => `
         <div aria-current="step" class="progress-stepper__item progress-stepper__item--attention" role="listitem">
             <span class="progress-stepper__icon">
                 <svg aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-attention"></use>
+                    <use href="#icon-stepper-attention-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -727,7 +727,7 @@ export const errorStateVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -744,7 +744,7 @@ export const allSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -756,7 +756,7 @@ export const allSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -768,7 +768,7 @@ export const allSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -780,7 +780,7 @@ export const allSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-confirmation"></use>
+                    <use href="#icon-stepper-confirmation-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -798,7 +798,7 @@ export const noneSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -810,7 +810,7 @@ export const noneSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -822,7 +822,7 @@ export const noneSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -834,7 +834,7 @@ export const noneSelectedVertical = () => `
         <div class="progress-stepper__item" role="listitem">
             <span class="progress-stepper__icon">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
             </span>
             <span class="progress-stepper__text">
@@ -853,7 +853,7 @@ export const smallScreens = () => `
             <div class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -865,7 +865,7 @@ export const smallScreens = () => `
             <div aria-current="step" class="progress-stepper__item" role="listitem">
                 <span class="progress-stepper__icon">
                     <svg role="img" aria-hidden="true" class="icon" focusable="false" height="24" width="24">
-                        <use href="#icon-stepper-confirmation"></use>
+                        <use href="#icon-stepper-confirmation-24"></use>
                     </svg>
                 </span>
                 <span class="progress-stepper__text">
@@ -876,7 +876,7 @@ export const smallScreens = () => `
             <hr class="progress-stepper__separator" role="presentation" />
             <div class="progress-stepper__item" role="listitem">
                 <svg role="img" aria-label="upcoming" class="icon" focusable="false" height="24" width="24">
-                    <use href="#icon-stepper-upcoming"></use>
+                    <use href="#icon-stepper-upcoming-24"></use>
                 </svg>
                 <span class="progress-stepper__text">
                     <h4>Ruckerstattung</h4>
