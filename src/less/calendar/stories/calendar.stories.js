@@ -91,8 +91,10 @@ export const base = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td class="calendar__cell--current">
-                                <span>14<span class="clipped"> - today</span></span>
+                            <td>
+                                <span class="calendar__cell--current"
+                                    >14<span class="clipped"> - today</span></span
+                                >
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -346,8 +348,10 @@ export const header = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td class="calendar__cell--current">
-                                <span>14<span class="clipped"> - today</span></span>
+                            <td>
+                                <span class="calendar__cell--current"
+                                    >14<span class="clipped"> - today</span></span
+                                >
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -489,8 +493,10 @@ export const double = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td class="calendar__cell--current">
-                                <span>14<span class="clipped"> - today</span></span>
+                            <td>
+                                <span class="calendar__cell--current"
+                                    >14<span class="clipped"> - today</span></span
+                                >
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -726,8 +732,10 @@ export const doubleWithHeader = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td class="calendar__cell--current">
-                                <span>14<span class="clipped"> - today</span></span>
+                            <td>
+                                <span class="calendar__cell--current"
+                                    >14<span class="clipped"> - today</span></span
+                                >
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
