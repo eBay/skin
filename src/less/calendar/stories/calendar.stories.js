@@ -91,8 +91,8 @@ export const base = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td aria-current="date">
-                                <span>14</span>
+                            <td class="calendar__cell--current">
+                                <span>14<span class="clipped"> - today</span></span>
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -182,8 +182,8 @@ export const interactive = () => /* HTML */ `
                             <td><button tabindex="-1" disabled>11</button></td>
                             <td><button tabindex="-1" disabled>12</button></td>
                             <td><button tabindex="-1" disabled>13</button></td>
-                            <td aria-current="date">
-                                <button>14</button>
+                            <td>
+                                <button aria-current="date">14</button>
                             </td>
                             <td><button tabindex="-1">15</button></td>
                             <td><button tabindex="-1">16</button></td>
@@ -346,8 +346,8 @@ export const header = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td aria-current="date">
-                                <span>14</span>
+                            <td class="calendar__cell--current">
+                                <span>14<span class="clipped"> - today</span></span>
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -489,8 +489,8 @@ export const double = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td aria-current="date">
-                                <span>14</span>
+                            <td class="calendar__cell--current">
+                                <span>14<span class="clipped"> - today</span></span>
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
@@ -726,8 +726,8 @@ export const doubleWithHeader = () => /* HTML */ `
                                     >13<span class="clipped"> - inactive</span></span
                                 >
                             </td>
-                            <td aria-current="date">
-                                <span>14</span>
+                            <td class="calendar__cell--current">
+                                <span>14<span class="clipped"> - today</span></span>
                             </td>
                             <td><span>15</span></td>
                             <td><span>16</span></td>
