@@ -8,7 +8,7 @@ export const base = () => `
             <use href="#icon-checkbox-unchecked-18"></use>
         </svg>
         <svg aria-hidden="true" class="checkbox__checked" focusable="false">
-            <use href="#icon-web-checkbox-indterminate-18"></use>
+            <use href="#icon-checkbox-mixed-18"></use>
         </svg>
     </span>
 </span>
