@@ -93,16 +93,16 @@
                 <tbody>
                     <tr>
                         <td colspan="4"></td>
-                        <td><span class="calendar__cell--disabled">1</span></td>
-                        <td><span class="calendar__cell--disabled">2</span></td>
-                        <td><span class="calendar__cell--disabled">3</span></td>
+                        <td><span class="calendar__cell--disabled">1<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">2<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">3<span class="clipped"> - inactive</span></span></td>
                     </tr>
                     ...
                     <tr>
-                        <td><span class="calendar__cell--disabled">11</span></td>
-                        <td><span class="calendar__cell--disabled">12</span></td>
-                        <td><span class="calendar__cell--disabled">13</span></td>
-                        <td aria-current="date"><span>14</span></td>
+                        <td><span class="calendar__cell--disabled">11<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">12<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">13<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
                         <td><span>15</span></td>
                         <td><span>16</span></td>
                         <td><span>17</span></td>
@@ -156,37 +156,37 @@
                     ...
                     <tr>
                         <td><span>15</span></td>
-                        <td class="calendar__range calendar__range--start" aria-selected="true">
-                            <span aria-label="16 - start of range">16</span>
+                        <td class="calendar__cell--selected calendar__range calendar__range--start">
+                            <span>16<span class="clipped"> - selected - end of range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="17 - in range">17</span>
+                            <span>17<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="18 - in range">18</span>
+                            <span>18<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="19 - in range">19</span>
+                            <span>19<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="20 - in range">20</span>
+                            <span>20<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="21 - in range">21</span>
+                            <span>21<span class="clipped"> - in range</span></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="calendar__range">
-                            <span aria-label="22 - in range">22</span>
+                            <span>22<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="23 - in range">23</span>
+                            <span>23<span class="clipped"> - in range</span></span>
                         </td>
                         <td class="calendar__range">
-                            <span aria-label="24 - in range">24</span>
+                            <span>24<span class="clipped"> - in range</span></span>
                         </td>
-                        <td class="calendar__range calendar__range--end" aria-selected="true">
-                            <span aria-label="25 - end of range">25</span>
+                        <td class="calendar__cell--selected calendar__range calendar__range--end">
+                            <span>25<span class="clipped"> - selected - end of range</span></span>
                         </td>
                         <td><span>26</span></td>
                         <td><span>27</span></td>
@@ -202,7 +202,7 @@
 
     <h3>Interactive Calendar</h3>
 
-    <p>To make a calendar interactive, replace the <code>span</code> elements with <code>button</code>. Buttons are disabled directly instead of with a class, but all other attributes remain the same between static and interactive calendars. Keyboard focus management should be handled via JavaScript and a roving tab index.</p>
+    <p>To make a calendar interactive, replace the <code>span</code> elements with <code>button</code>. Buttons are disabled directly instead of with a class and clipped text can be moved into <code>aria</code> roles, but all other attributes remain the same between static and interactive calendars. Keyboard focus management should be handled with JavaScript and a roving tab index.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -240,9 +240,7 @@
                         <td><button tabindex="-1" disabled>11</button></td>
                         <td><button tabindex="-1" disabled>12</button></td>
                         <td><button tabindex="-1" disabled>13</button></td>
-                        <td aria-current="date">
-                            <button>14</button>
-                        </td>
+                        <td><button aria-current="date">14</button></td>
                         <td><button tabindex="-1">15</button></td>
                         <td><button tabindex="-1">16</button></td>
                         <td><button tabindex="-1">17</button></td>
