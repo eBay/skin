@@ -1,19 +1,18 @@
 <div id="date-textbox">
   {% include section-header.html name="date-textbox" version=page.versions.date-textbox %}
+  <p>The date textbox offers a calendar based "date picker" as an alternative to manual text entry.</p>
 
-  <p>The date textbox is used to collect dates from users</p>
-
-  <h3>Standard Date Textbox</h3>
-
-  <p>The textbox consists almost entirely of a <a href="#textbox">textbox</a> with an <a href="#icon-button">icon
-      button</a> and an interactive <a href="#calendar">calendar</a></p>
+  <h3 id="date-textbox-single">Single Select Date Textbox</h3>
+  <p>The single select date textbox consists of a <a href="#textbox">textbox</a> plus <a href="#icon-button">icon button</a>. The icon button launches an interactive <a href="#calendar">calendar</a> inside of a flyout.</p>
+  <p>The aria-label of the calendar button must be intuitive to users of speech recognition software.</p>
+  <p>NOTE: a fully functional interactive calendar requires JavaScript and is outside the scope of a CSS library. The calendar in this example is a simple readonly version.</p>
 
   <div class="demo">
     <div class="demo__inner">
       <span class="date-textbox">
         <span class="textbox textbox--icon-end">
           <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
-          <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text"
+          <button class="icon-btn icon-btn--transparent" type="button" aria-label="Calendar"
             onclick="dateTextboxPopover1.toggleAttribute('hidden')">
             <svg aria-hidden="true" class="icon icon--calendar-24" focusable="false" width="16" height="16">
               {% include symbol.html name="calendar-24" %}
@@ -42,10 +41,111 @@
             </div>
             <div class="calendar__body">
               <div class="calendar__month">
-                {% include calendar-month.html index="1" interactive="true" %}
+                <table>
+                  <caption>August 2023</caption>
+                  <thead>
+                      <tr>
+                          <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td colspan="2"></td>
+                          <td><span>1</span></td>
+                          <td><span>2</span></td>
+                          <td><span>3</span></td>
+                          <td><span>4</span></td>
+                          <td><span>5</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>6</span></td>
+                          <td><span>7</span></td>
+                          <td><span>8</span></td>
+                          <td><span>9</span></td>
+                          <td><span>10</span></td>
+                          <td><span>11</span></td>
+                          <td><span>12</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>13</span></td>
+                          <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                          <td><span>15</span></td>
+                          <td><span>16</span></td>
+                          <td><span>17</span></td>
+                          <td><span>18</span></td>
+                          <td><span>19</span></td>
+                      </tr>
+                      <tr>
+                          <td><a href="http://www.ebay.com">20</a></td>
+                          <td><span>21</span></td>
+                          <td><span>22</span></td>
+                          <td><span>23</span></td>
+                          <td><span>24</span></td>
+                          <td><span>25</span></td>
+                          <td><span>26</span></td>
+                      </tr>
+                      <tr>
+                          <td><a href="http://www.ebay.com">27</a></td>
+                          <td><span>28</span></td>
+                          <td><a href="http://www.ebay.com">29</a></td>
+                          <td><span>30</span></td>
+                          <td><span>31</span></td>
+                          <td colspan="2"></td>
+                      </tr>
+                  </tbody>
+              </table>
               </div>
               <div class="calendar__month">
-                {% include calendar-month.html index="2" interactive="true" %}
+                <table>
+                  <caption>September 2023</caption>
+                  <thead>
+                      <tr>
+                          <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td colspan="5"></td>
+                          <td><span>1</span></td>
+                          <td><span>2</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>3</span></td>
+                          <td><span>4</span></td>
+                          <td><span>5</span></td>
+                          <td><span>6</span></td>
+                          <td><span>7</span></td>
+                          <td><span>8</span></td>
+                          <td><span>9</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>10</span></td>
+                          <td><span>11</span></td>
+                          <td><span>15</span></td>
+                          <td><span>16</span></td>
+                          <td><span>17</span></td>
+                          <td><span>18</span></td>
+                          <td><span>19</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>21</span></td>
+                          <td><span>21</span></td>
+                          <td><span>22</span></td>
+                          <td><span>23</span></td>
+                          <td><span>24</span></td>
+                          <td><span>25</span></td>
+                          <td><span>26</span></td>
+                      </tr>
+                      <tr>
+                          <td><span>21</span></td>
+                          <td><span>28</span></td>
+                          <td><span>21</span></td>
+                          <td><span>30</span></td>
+                          <td><span>31</span></td>
+                          <td colspan="2"></td>
+                      </tr>
+                  </tbody>
+              </table>
               </div>
             </div>
           </div>
@@ -57,17 +157,16 @@
   {% highlight html %}
   <span class="date-textbox">
     <span class="textbox textbox--icon-end">
-      <input class="textbox__control" type="text" placeholder="placeholder text" />
-      <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text">
+      <input class="textbox__control" type="text" placeholder="Date picker" />
+      <button class="icon-btn icon-btn--transparent" type="button" aria-label="Calendar">
         <svg aria-hidden="true" class="icon icon--calendar-24" focusable="false" width="16" height="16">
           <use href="#icon-calendar-24"></use>
         </svg>
       </button>
     </span>
     <div class="date-textbox__popover">
-      <!-- interactive calendar from the Calendar module -->
       <div class="calendar">
-        ...
+        <!-- see calendar module -->
       </div>
     </div>
   </span>
