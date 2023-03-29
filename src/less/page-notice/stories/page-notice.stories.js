@@ -33,8 +33,8 @@ export const generalWithLink = () => `
 export const confirmationWithButton = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg class="icon icon--confirmation-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -49,8 +49,8 @@ export const confirmationWithButton = () => `
 export const confirmationWithLink = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg class="icon icon--confirmation-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Confirmation">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -65,8 +65,8 @@ export const confirmationWithLink = () => `
 export const attentionWithButton = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
-            <use href="#icon-attention-filled-small"></use>
+        <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -81,8 +81,8 @@ export const attentionWithButton = () => `
 export const attentionWithLink = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
-            <use href="#icon-attention-filled-small"></use>
+        <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -97,8 +97,8 @@ export const attentionWithLink = () => `
 export const informationWithButton = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-            <use href="#icon-information-filled-small"></use>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -113,8 +113,8 @@ export const informationWithButton = () => `
 export const informationWithLink = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-            <use href="#icon-information-filled-small"></use>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -129,8 +129,8 @@ export const informationWithLink = () => `
 export const InformationWithParagraph = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-            <use href="#icon-information-filled-small"></use>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -145,8 +145,8 @@ export const InformationWithParagraph = () => `
 export const dismissableWithTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-            <use href="#icon-information-filled-small"></use>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -156,8 +156,8 @@ export const dismissableWithTitle = () => `
     <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="14" width="14">
-                <use href="#icon-close-small"></use>
+            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="14" width="14">
+                <use href="#icon-close-16"></use>
             </svg>
         </a>
     </div>
@@ -167,8 +167,8 @@ export const dismissableWithTitle = () => `
 export const dismissableWithoutTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-            <use href="#icon-information-filled-small"></use>
+        <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">
@@ -177,8 +177,8 @@ export const dismissableWithoutTitle = () => `
     <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="14" width="14">
-                <use href="#icon-close-small"></use>
+            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="14" width="14">
+                <use href="#icon-close-16"></use>
             </svg>
         </a>
     </div>
@@ -188,8 +188,8 @@ export const dismissableWithoutTitle = () => `
 export const formErrors = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Attention">
-            <use href="#icon-attention-filled-small"></use>
+        <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Attention">
+            <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
     <div class="page-notice__main">

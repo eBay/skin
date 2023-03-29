@@ -41,8 +41,8 @@ export const alignment = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use href="#icon-dropdown"></use>
+    <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
 
@@ -53,8 +53,8 @@ export const alignment = () => `
 <span class="combobox">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>
@@ -63,8 +63,8 @@ export const alignment = () => `
     <button class="btn btn--form btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
         <span class="btn__cell">
             <span class="btn__text">Options</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -74,8 +74,8 @@ export const alignment = () => `
     <button class="btn btn--form btn--fixed-height" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Menu</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -94,8 +94,8 @@ export const RTLAlignment = () => `
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
         </select>
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 
@@ -106,8 +106,8 @@ export const RTLAlignment = () => `
     <span class="combobox">
         <span class="combobox__control">
             <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </span>
@@ -116,8 +116,8 @@ export const RTLAlignment = () => `
         <button class="btn btn--fixed-height" aria-expanded="false" aria-haspopup="listbox">
             <span class="btn__cell">
                 <span class="btn__text">Options</span>
-                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use href="#icon-dropdown"></use>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
         </button>
@@ -127,8 +127,8 @@ export const RTLAlignment = () => `
         <button class="btn btn--fixed-height" aria-haspopup="true" type="button">
             <span class="btn__cell">
                 <span class="btn__text">Menu</span>
-                <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                    <use href="#icon-dropdown"></use>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                    <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
         </button>
@@ -147,8 +147,8 @@ export const alignmentLarge = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-        <use href="#icon-dropdown"></use>
+    <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
 
@@ -159,8 +159,8 @@ export const alignmentLarge = () => `
 <span class="combobox combobox--large">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
-        <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-            <use href="#icon-dropdown"></use>
+        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
 </span>
@@ -169,8 +169,8 @@ export const alignmentLarge = () => `
     <button class="btn btn--large btn--form btn--large-fixed-height" aria-expanded="false" aria-haspopup="listbox">
         <span class="btn__cell">
             <span class="btn__text">Options</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>
@@ -180,8 +180,8 @@ export const alignmentLarge = () => `
     <button class="btn btn--large btn--form btn--large-fixed-height" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Menu</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>

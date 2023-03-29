@@ -1,0 +1,27 @@
+:root {
+  --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15)) drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
+}
+.date-textbox {
+  --calendar-month-width: 311px;
+}
+.date-textbox > .textbox + .textbox {
+  margin-left: 8px;
+}
+.date-textbox__popover {
+  background-color: var(--calendar-background-color, var(--color-background-primary));
+  border-radius: 16px;
+  filter: var(--bubble-filter);
+  margin-left: -8px;
+  padding: 16px;
+  position: absolute;
+  z-index: 1;
+}
+.date-textbox__popover[hidden] {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .date-textbox__popover {
+    left: 0;
+    margin-left: 0;
+  }
+}

@@ -5,8 +5,8 @@ export const fixedWidth = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--dropdown" focusable="false" height="8" width="8" aria-hidden="true">
-                <use href="#icon-dropdown"></use>
+            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
     </button>

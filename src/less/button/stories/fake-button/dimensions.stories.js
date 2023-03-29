@@ -3,7 +3,7 @@ export default { title: 'Fake Button/Dimensions' };
 export const large = () => `
 <a class="fake-btn fake-btn--large" href="http://www.ebay.com">
     <span class="fake-btn__cell">
-        <svg class="icon icon--settings" width="16" height="16"><use href="#icon-settings"></use></svg>
+        <svg class="icon icon--settings-24" width="16" height="16"><use href="#icon-settings-24"></use></svg>
         <span>Fake Button</span>
     </span>
 </a>

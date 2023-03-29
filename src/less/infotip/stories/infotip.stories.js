@@ -3,8 +3,8 @@ export default { title: 'Infotip' };
 export const collapsed = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
-        <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-            <use href="#icon-information-small"></use>
+        <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+            <use href="#icon-information-16"></use>
         </svg>
     </button>
     <div class="infotip__overlay">
@@ -16,8 +16,8 @@ export const collapsed = () => `
                     <p>Here's a tip to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -28,8 +28,8 @@ export const collapsed = () => `
 export const expanded = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
-        <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-            <use href="#icon-information-small"></use>
+        <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+            <use href="#icon-information-16"></use>
         </svg>
     </button>
     <div class="infotip__overlay">
@@ -41,8 +41,8 @@ export const expanded = () => `
                     <p>Here's a tip to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                    <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                        <use href="#icon-close"></use>
+                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
                     </svg>
                 </button>
             </div>
@@ -55,8 +55,8 @@ export const paragraphCollapsed = () => `
     Inside paragraph
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
-            <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-                <use href="#icon-information-small"></use>
+            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+                <use href="#icon-information-16"></use>
             </svg>
         </button>
         <span class="infotip__overlay">
@@ -68,8 +68,8 @@ export const paragraphCollapsed = () => `
                         <span>Here's a tip to help you be successful at your task.</span>
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                        <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                            <use href="#icon-close"></use>
+                        <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                            <use href="#icon-close-16"></use>
                         </svg>
                     </button>
                 </span>
@@ -83,8 +83,8 @@ export const paragraphExpanded = () => `
     Inside paragraph
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
-            <svg class="icon icon--information-small" focusable="false" width="16" height="16" aria-hidden="true">
-                <use href="#icon-information-small"></use>
+            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+                <use href="#icon-information-16"></use>
             </svg>
         </button>
         <span class="infotip__overlay">
@@ -96,8 +96,8 @@ export const paragraphExpanded = () => `
                         <span>Here's a tip to help you be successful at your task.</span>
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                        <svg class="icon icon--close" focusable="false" height="24" width="24" aria-hidden="true">
-                            <use href="#icon-close"></use>
+                        <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                            <use href="#icon-close-16"></use>
                         </svg>
                     </button>
                 </span>

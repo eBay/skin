@@ -4,8 +4,8 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
-            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
-                <use href="#icon-confirmation-filled-small"></use>
+            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+                <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
         <div class="section-notice__main">
@@ -22,8 +22,8 @@ export const RTLDismissable = () => `
 <div dir="rtl">
     <section class="page-notice page-notice--information" role="region" aria-label="Information">
         <div class="page-notice__header">
-            <svg class="icon icon--information-filled-small" focusable="false" height="16" width="16" role="img" aria-label="Information">
-                <use href="#icon-information-filled-small"></use>
+            <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" role="img" aria-label="Information">
+                <use href="#icon-information-filled-16"></use>
             </svg>
         </div>
         <div class="page-notice__main">
@@ -33,8 +33,8 @@ export const RTLDismissable = () => `
         <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
         <div class="page-notice__footer">
             <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-                <svg aria-hidden="true" class="icon icon--close-small" focusable="false" height="14" width="14">
-                    <use href="#icon-close-small"></use>
+                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="14" width="14">
+                    <use href="#icon-close-16"></use>
                 </svg>
             </a>
         </div>
@@ -45,8 +45,8 @@ export const RTLDismissable = () => `
 export const longText = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -58,8 +58,8 @@ export const longText = () => `
 export const longTextWithCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -74,8 +74,8 @@ export const longTextWithCTA = () => `
 export const legacy = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -88,8 +88,8 @@ export const legacy = () => `
 export const legacyWithCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-small">
-            <use href="#icon-confirmation-filled-small"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
     <div class="section-notice__main">

@@ -1,0 +1,33 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+@import "../mixins/private/bubble-mixins.less";
+
+.date-textbox {
+    // 343px - (2 * @spacing-200) [not autmatically compiled by LESS]
+    --calendar-month-width: 311px;
+}
+
+.date-textbox > .textbox + .textbox {
+    margin-left: @spacing-100;
+}
+
+.date-textbox__popover {
+    .background-color-token(calendar-background-color, color-background-primary);
+    border-radius: @spacing-200;
+    filter: var(--bubble-filter);
+    margin-left: -@spacing-100;
+    padding: @spacing-200;
+    position: absolute;
+    z-index: 1;
+}
+
+.date-textbox__popover[hidden] {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .date-textbox__popover {
+        left: 0;
+        margin-left: 0;
+    }
+}

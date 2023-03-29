@@ -3,7 +3,7 @@ export default { title: 'Button/Dimensions' };
 export const large = () => `
 <button type="button" class="btn btn--large">
     <span class="btn__cell">
-        <svg class="icon icon--settings" width="16" height="16"><use href="#icon-settings"></use></svg>
+        <svg class="icon icon--settings-24" width="16" height="16"><use href="#icon-settings-24"></use></svg>
         <span>Button</span>
     </span>
 </button>

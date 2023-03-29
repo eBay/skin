@@ -1,20 +1,44 @@
-@media @breakpoint-1 {
+/* Mobile-first implies defaults, there is no "first" breakpoint,
+   and we don't need a minimum viewport width to support. */
+
+.content {
+    grid-area: ~"1 / 1 / span 1 / span 8";
+}
+
+main {
+    grid-area: ~"1 / 1 / span 1 / span 8";
+}
+
+footer {
+    grid-area: ~"2 / 1 / span 1 / span 8";
+}
+
+
+@media screen and (min-width: @_screen-size-SM) {
     .site-nav {
-        display: none;
+        grid-area: ~"1 / 1 / span 1 / span 5";
+    }
+
+    .content {
+        grid-area: ~"1 / 1 / span 1 / span 16";
     }
 
     main {
-        grid-area: ~"1 / 1 / span 1 / span 8";
+        grid-area: ~"1 / 6 / span 1 / span 11";
     }
 
     footer {
-        grid-area: ~"2 / 1 / span 1 / span 8";
+        grid-area: ~"2 / 1 / span 1 / span 16";
     }
 }
 
-@media @breakpoint-3 {
+@media screen and (min-width: @_screen-size-MD) {
     .site-nav {
         grid-area: ~"1 / 1 / span 1 / span 3";
+    }
+
+    .content {
+        grid-area: ~"1 / 1 / span 1 / span 16";
     }
 
     main {
@@ -26,7 +50,7 @@
     }
 }
 
-@media @breakpoint-5 {
+@media screen and (min-width: @_screen-size-XL) {
     .site-nav {
         grid-area: ~"1 / 1 / span 1 / span 2";
     }

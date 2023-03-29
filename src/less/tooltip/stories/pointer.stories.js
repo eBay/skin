@@ -94,8 +94,8 @@ function getPointerStyle(key) {
 export const top = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('top')}">
@@ -114,8 +114,8 @@ export const top = () => `
 export const topLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -136,8 +136,8 @@ export const topLeft = () => `
 export const leftTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -158,8 +158,8 @@ export const leftTop = () => `
 export const left = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('left')}">
@@ -178,8 +178,8 @@ export const left = () => `
 export const leftBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -200,8 +200,8 @@ export const leftBottom = () => `
 export const bottomLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -222,8 +222,8 @@ export const bottomLeft = () => `
 export const bottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -244,8 +244,8 @@ export const bottom = () => `
 export const bottomRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -266,8 +266,8 @@ export const bottomRight = () => `
 export const rightBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -288,8 +288,8 @@ export const rightBottom = () => `
 export const right = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('right')}">
@@ -308,8 +308,8 @@ export const right = () => `
 export const rightTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
@@ -330,8 +330,8 @@ export const rightTop = () => `
 export const topRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings" focusable="false" height="16" width="16" aria-hidden="true">
-            <use href="#icon-settings"></use>
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(

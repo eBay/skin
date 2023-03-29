@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "15.5.1",
+    "version": "16.0.0-2",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -23,6 +23,7 @@
         "postpublish": "node scripts clean",
         "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy",
         "build:css": "npm run lint:less && gulp && npm run lint:css",
+        "build:ci": "npm run build:css && npm run lint:js && npm run bundle && npm run copy",
         "build:jekyll": "bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
         "build:site": "npm run copy:svgToDocs && npm run build:jekyll",
         "build:storybook": "npm run copy:assetsToStorybook && npm run build:storybook:ds6",

@@ -114,10 +114,6 @@ button.pagination__item {
     }
 }
 
-span.pagination__item svg.icon--overflow {
-    transform: rotate(90deg);
-}
-
 span.pagination__item button.icon-btn--transparent {
     &:focus,
     &:hover {
@@ -143,12 +139,16 @@ nav.pagination--fluid ol.pagination__items li {
 }
 
 [dir="rtl"] {
+    nav.pagination svg.icon--arrow-right-16,
+    nav.pagination svg.icon--arrow-left-16 {
+        transform: rotate(180deg);
+    }
+
     a.pagination__next,
     button.pagination__next {
         margin-left: 0;
         margin-right: @spacing-100;
     }
-
     a.pagination__previous,
     button.pagination__previous {
         margin-left: @spacing-100;
@@ -156,7 +156,7 @@ nav.pagination--fluid ol.pagination__items li {
     }
 }
 
-@media (min-width: @screen-size-3) {
+@media (min-width: @_screen-size-MD) {
     nav.pagination {
         margin: @spacing-200 0;
     }
