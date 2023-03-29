@@ -1,16 +1,70 @@
 <div id="calendar">
     {% include section-header.html name="calendar" version=page.versions.calendar %}
+    <p>The calendar module offers readonly and interactive calendar capabilities.</p>
+    <p>Both types of calendar are structured as data tables; each column representing a day of the week.</p>
 
-    <p>The calendar component is used to display months, dates, and date ranges.</p>
-
-    <h3>Static Calendar</h3>
+    <h3 id="calendar-readonly">Readonly Calendar</h3>
+    <p>A readonly calendar has cells containing static text or hypertext.</p>
+    <p>The current date is conveyed using <span class="highlight">calendar__cell--current</span> and clipped text.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html index="3" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><span>1</span></td>
+                                    <td><span>2</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>6</span></td>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                    <td><span>9</span></td>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>13</span></td>
+                                    <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">20</a></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">27</a></td>
+                                    <td><span>28</span></td>
+                                    <td><a href="https://www.ebay.com">29</a></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -21,9 +75,7 @@
     <div class="calendar__body">
         <div class="calendar__month">
             <table>
-                <caption>
-                    August 2019
-                </caption>
+                <caption>August 2019</caption>
                 <thead>
                     <tr>
                         <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
@@ -47,13 +99,31 @@
                         <td><span>11</span></td>
                         <td><span>12</span></td>
                     </tr>
-                    ...
                     <tr>
-                        <td><span>27</span></td>
+                        <td><span>13</span></td>
+                        <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                        <td><span>15</span></td>
+                        <td><span>16</span></td>
+                        <td><span>17</span></td>
+                        <td><span>18</span></td>
+                        <td><span>19</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.ebay.com">20</a></td>
+                        <td><span>21</span></td>
+                        <td><span>22</span></td>
+                        <td><span>23</span></td>
+                        <td><span>24</span></td>
+                        <td><span>25</span></td>
+                        <td><span>26</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.ebay.com">27</a></td>
                         <td><span>28</span></td>
-                        <td><span>29</span></td>
+                        <td><a href="https://www.ebay.com">29</a></td>
                         <td><span>30</span></td>
                         <td><span>31</span></td>
+                        <td colspan="2"></td>
                     </tr>
                 </tbody>
             </table>
@@ -62,16 +132,69 @@
 </div>
     {% endhighlight %}
 
-    <h3>Calendar with Disabled Cells and "Today"</h3>
-
-    <p>Each cell can be disabled, and the current day can be marked with aria roles.</p>
+    <p><strong>NOTE:</strong> for the eagle-eyed BEM afionados, we are saying each span has an <em>implicit</em> class of <span class="highlight">calendar__cell</span>.</p>
+    
+    <h3 id="calendar-readonly-inactive">Read-Only Calendar with Inactive Dates</h3>
+    <p>Inactive/unavailable dates are conveyed using <span class="highlight">calendar__cell--disabled</span> and offscreen text.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html index="1" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><span class="calendar__cell--disabled">1<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">2<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">3<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">4<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">5<span class="clipped"> - inactive</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="calendar__cell--disabled">6<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">7<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">8<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">9<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">10<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">11<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">12<span class="clipped"> - inactive</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="calendar__cell--disabled">13<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">20</a></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">27</a></td>
+                                    <td><span>28</span></td>
+                                    <td><a href="https://www.ebay.com">29</a></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -82,9 +205,7 @@
     <div class="calendar__body">
         <div class="calendar__month">
             <table>
-                <caption>
-                    August 2019
-                </caption>
+                <caption>August 2023</caption>
                 <thead>
                     <tr>
                         <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
@@ -92,30 +213,47 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="4"></td>
+                        <td colspan="2"></td>
                         <td><span class="calendar__cell--disabled">1<span class="clipped"> - inactive</span></span></td>
                         <td><span class="calendar__cell--disabled">2<span class="clipped"> - inactive</span></span></td>
                         <td><span class="calendar__cell--disabled">3<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">4<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">5<span class="clipped"> - inactive</span></span></td>
                     </tr>
-                    ...
                     <tr>
+                        <td><span class="calendar__cell--disabled">6<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">7<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">8<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">9<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">10<span class="clipped"> - inactive</span></span></td>
                         <td><span class="calendar__cell--disabled">11<span class="clipped"> - inactive</span></span></td>
                         <td><span class="calendar__cell--disabled">12<span class="clipped"> - inactive</span></span></td>
+                    </tr>
+                    <tr>
                         <td><span class="calendar__cell--disabled">13<span class="clipped"> - inactive</span></span></td>
                         <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
                         <td><span>15</span></td>
                         <td><span>16</span></td>
                         <td><span>17</span></td>
+                        <td><span>18</span></td>
+                        <td><span>19</span></td>
                     </tr>
-                    ...
                     <tr>
+                        <td><a href="https://www.ebay.com">20</a></td>
+                        <td><span>21</span></td>
+                        <td><span>22</span></td>
+                        <td><span>23</span></td>
+                        <td><span>24</span></td>
                         <td><span>25</span></td>
                         <td><span>26</span></td>
-                        <td><span>27</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.ebay.com">27</a></td>
                         <td><span>28</span></td>
-                        <td><span>29</span></td>
+                        <td><a href="https://www.ebay.com">29</a></td>
                         <td><span>30</span></td>
                         <td><span>31</span></td>
+                        <td colspan="2"></td>
                     </tr>
                 </tbody>
             </table>
@@ -124,16 +262,85 @@
 </div>
     {% endhighlight %}
 
-    <h3>Calendar with selected range</h3>
-
-    <p>All calendars support the selection of a range of dates with identical changes to the markup.</p>
+    <h3 id="calendar-readonly-range">Read-Only Calendar with Date Range</h3>
+    <p>Date ranges are conveyed using <span class="highlight">calendar__cell--selected</span>, <span class="highlight">calendar__range</span>, <span class="highlight">calendar__range--start</span>, <span class="highlight">calendar__range-end</span> and clipped text.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html index="2" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><span class="calendar__cell--disabled">1<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">2<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">3<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">4<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">5<span class="clipped"> - inactive</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="calendar__cell--disabled">6<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">7<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">8<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">9<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">10<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">11<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--disabled">12<span class="clipped"> - inactive</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="calendar__cell--disabled">13<span class="clipped"> - inactive</span></span></td>
+                                    <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td class="calendar__cell--selected calendar__range calendar__range--start">
+                                        <span>17<span class="clipped"> - start of range</span></span>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>18<span class="clipped"> - in range</span></span>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>19<span class="clipped"> - in range</span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="calendar__range">
+                                        <a href="#">20<span class="clipped"> - in range</span></a>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>21<span class="clipped"> - in range</span></span>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>22<span class="clipped"> - in range</span></span>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>23<span class="clipped"> - in range</span></span>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <span>24<span class="clipped"> - in range</span></span>
+                                    </td>
+                                    <td class="calendar__cell--selected calendar__range calendar__range--end">
+                                        <span>25<span class="clipped"> - end of range</span></span>
+                                    </td>
+                                    <td><span>26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">27</a></td>
+                                    <td><span>28</span></td>
+                                    <td><a href="https://www.ebay.com">29</a></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -144,23 +351,37 @@
     <div class="calendar__body">
         <div class="calendar__month">
             <table>
-                <caption>
-                    August 2019
-                </caption>
+                <caption>August 2023</caption>
                 <thead>
                     <tr>
                         <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    ...
                     <tr>
+                        <td colspan="2"></td>
+                        <td><span class="calendar__cell--disabled">1<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">2<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">3<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">4<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">5<span class="clipped"> - inactive</span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="calendar__cell--disabled">6<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">7<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">8<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">9<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">10<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">11<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--disabled">12<span class="clipped"> - inactive</span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="calendar__cell--disabled">13<span class="clipped"> - inactive</span></span></td>
+                        <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
                         <td><span>15</span></td>
+                        <td><span>16</span></td>
                         <td class="calendar__cell--selected calendar__range calendar__range--start">
-                            <span>16<span class="clipped"> - selected - end of range</span></span>
-                        </td>
-                        <td class="calendar__range">
-                            <span>17<span class="clipped"> - in range</span></span>
+                            <span>17<span class="clipped"> - selected - start of range</span></span>
                         </td>
                         <td class="calendar__range">
                             <span>18<span class="clipped"> - in range</span></span>
@@ -168,14 +389,14 @@
                         <td class="calendar__range">
                             <span>19<span class="clipped"> - in range</span></span>
                         </td>
+                    </tr>
+                    <tr>
                         <td class="calendar__range">
-                            <span>20<span class="clipped"> - in range</span></span>
+                            <a href="#">20<span class="clipped"> - in range</span></a>
                         </td>
                         <td class="calendar__range">
                             <span>21<span class="clipped"> - in range</span></span>
                         </td>
-                    </tr>
-                    <tr>
                         <td class="calendar__range">
                             <span>22<span class="clipped"> - in range</span></span>
                         </td>
@@ -189,10 +410,15 @@
                             <span>25<span class="clipped"> - selected - end of range</span></span>
                         </td>
                         <td><span>26</span></td>
-                        <td><span>27</span></td>
-                        <td><span>28</span></td>
                     </tr>
-                    ...
+                    <tr>
+                        <td><a href="https://www.ebay.com">27</a></td>
+                        <td><span>28</span></td>
+                        <td><a href="https://www.ebay.com">29</a></td>
+                        <td><span>30</span></td>
+                        <td><span>31</span></td>
+                        <td colspan="2"></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -200,16 +426,75 @@
 </div>
     {% endhighlight %}
 
-    <h3>Interactive Calendar</h3>
+    <h3 id="calendar-interactive">Interactive Calendar</h3>
 
-    <p>To make a calendar interactive, replace the <code>span</code> elements with <code>button</code>. Buttons are disabled directly instead of with a class and clipped text can be moved into <code>aria</code> roles, but all other attributes remain the same between static and interactive calendars. Keyboard focus management should be handled with JavaScript and a roving tab index.</p>
+    <p>An interactive calendar uses toggle buttons to allow the input of single dates or date ranges.</p>
+    <p><strong>NOTE:</strong> a fully functional and accessible interactive calendar requires JavaScript and is outside the scope of a CSS library such as eBay Skin. The examples below are NOT fully functional and serve to demonstrate the necessary HTML semantics and styling hooks only.</p>
+
+    <h4 id="calendar-interactive-single">Interactive Calendar With Single Date Selection</h4>
+    <p>A single date selection is conveyed using <span class="highlight">aria-pressed</span>.</p>
+    <p><strong>NOTE:</strong> in comparison to the readonly calendar, with buttons we can now leverage the <span class="highlight">disabled</span> property and <span class="highlight">aria-current</span> instead of clipped text.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html interactive="true" index="1" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><button disabled>1</button></td>
+                                    <td><button disabled>2</button></td>
+                                    <td><button disabled>3</button></td>
+                                    <td><button disabled>4</button></td>
+                                    <td><button disabled>5</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button disabled>6</button></td>
+                                    <td><button disabled>7</button></td>
+                                    <td><button disabled>8</button></td>
+                                    <td><button disabled>9</button></td>
+                                    <td><button disabled>10</button></td>
+                                    <td><button disabled>11</button></td>
+                                    <td><button disabled>12</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button disabled>13</button></td>
+                                    <td><button aria-current="date">14</button></td>
+                                    <td><button>15</button></td>
+                                    <td><button>16</button></td>
+                                    <td class="calendar__cell--selected">
+                                        <button aria-pressed="true">17</button>
+                                    </td>
+                                    <td><button>18</button></td>
+                                    <td><button>19</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button>20</button></td>
+                                    <td><button>21</button></td>
+                                    <td><button>22</button></td>
+                                    <td><button>23</button></td>
+                                    <td><button>24</button></td>
+                                    <td><button>25</button></td>
+                                    <td><button>26</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button>27</button></td>
+                                    <td><button>28</button></td>
+                                    <td><button>29</button></td>
+                                    <td><button>30</button></td>
+                                    <td><button>31</button></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -220,9 +505,7 @@
     <div class="calendar__body">
         <div class="calendar__month">
             <table>
-                <caption>
-                    August 2019
-                </caption>
+                <caption>August 2023</caption>
                 <thead>
                     <tr>
                         <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
@@ -230,30 +513,49 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="4"></td>
-                        <td><button tabindex="-1" disabled>1</button></td>
-                        <td><button tabindex="-1" disabled>2</button></td>
-                        <td><button tabindex="-1" disabled>3</button></td>
+                        <td colspan="2"></td>
+                        <td><button disabled>1</button></td>
+                        <td><button disabled>2</button></td>
+                        <td><button disabled>3</button></td>
+                        <td><button disabled>4</button></td>
+                        <td><button disabled>5</button></td>
                     </tr>
-                    ...
                     <tr>
-                        <td><button tabindex="-1" disabled>11</button></td>
-                        <td><button tabindex="-1" disabled>12</button></td>
-                        <td><button tabindex="-1" disabled>13</button></td>
+                        <td><button disabled>6</button></td>
+                        <td><button disabled>7</button></td>
+                        <td><button disabled>8</button></td>
+                        <td><button disabled>9</button></td>
+                        <td><button disabled>10</button></td>
+                        <td><button disabled>11</button></td>
+                        <td><button disabled>12</button></td>
+                    </tr>
+                    <tr>
+                        <td><button disabled>13</button></td>
                         <td><button aria-current="date">14</button></td>
-                        <td><button tabindex="-1">15</button></td>
-                        <td><button tabindex="-1">16</button></td>
-                        <td><button tabindex="-1">17</button></td>
+                        <td><button>15</button></td>
+                        <td><button>16</button></td>
+                        <td class="calendar__cell--selected">
+                            <button aria-pressed="true">17</button>
+                        </td>
+                        <td><button>18</button></td>
+                        <td><button>19</button></td>
                     </tr>
-                    ...
                     <tr>
-                        <td><button tabindex="-1">25</button></td>
-                        <td><button tabindex="-1">26</button></td>
-                        <td><button tabindex="-1">27</button></td>
-                        <td><button tabindex="-1">28</button></td>
-                        <td><button tabindex="-1">29</button></td>
-                        <td><button tabindex="-1">30</button></td>
-                        <td><button tabindex="-1">31</button></td>
+                        <td><button>20</button></td>
+                        <td><button>21</button></td>
+                        <td><button>22</button></td>
+                        <td><button>23</button></td>
+                        <td><button>24</button></td>
+                        <td><button>25</button></td>
+                        <td><button>26</button></td>
+                    </tr>
+                    <tr>
+                        <td><button>27</button></td>
+                        <td><button>28</button></td>
+                        <td><button>29</button></td>
+                        <td><button>30</button></td>
+                        <td><button>31</button></td>
+                        <td colspan="2"></td>
                     </tr>
                 </tbody>
             </table>
@@ -262,22 +564,185 @@
 </div>
     {% endhighlight %}
 
-    <h3>Calendar with Header</h3>
+    <h4 id="calendar-interactive-range">Interactive Calendar With Date Range Selection</h4>
+    <p>Date ranges are bookended by two buttons with the <span class="highlight">aria-pressed</span> property. All buttons in between these dates leverage clipped text for assistive technology.</p>
 
-    <p>A more detailed header may be added to the calendar, which enables you to switch between months using JavaScript.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="calendar">
+                <div class="calendar__body">
+                    <div class="calendar__month">
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><button disabled>1</button></td>
+                                    <td><button disabled>2</button></td>
+                                    <td><button disabled>3</button></td>
+                                    <td><button disabled>4</button></td>
+                                    <td><button disabled>5</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button disabled>6</button></td>
+                                    <td><button disabled>7</button></td>
+                                    <td><button disabled>8</button></td>
+                                    <td><button disabled>9</button></td>
+                                    <td><button disabled>10</button></td>
+                                    <td><button disabled>11</button></td>
+                                    <td><button disabled>12</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button disabled>13</button></td>
+                                    <td><button aria-current="date">14</button></td>
+                                    <td><button>15</button></td>
+                                    <td><button>16</button></td>
+                                    <td class="calendar__cell--selected calendar__range calendar__range--start">
+                                        <button aria-label="17 - start of range" aria-pressed="true">17</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="18 - in range">18</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="19 - in range">19</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="calendar__range">
+                                        <button aria-label="20 - in range">20</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="21 - in range">21</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="22 - in range">22</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="23 - in range">23</button>
+                                    </td>
+                                    <td class="calendar__range">
+                                        <button aria-label="24 - in range">24</button>
+                                    </td>
+                                    <td class="calendar__cell--selected calendar__range calendar__range--end">
+                                        <button aria-label="25 - end of range" aria-pressed="true">25</span>
+                                    </td>
+                                    <td><button>26</button></td>
+                                </tr>
+                                <tr>
+                                    <td><button>27</button></td>
+                                    <td><button>28</button></td>
+                                    <td><button>29</button></td>
+                                    <td><button>30</button></td>
+                                    <td><button>31</button></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% highlight html %}
+<div class="calendar">
+    <div class="calendar__body">
+        <div class="calendar__month">
+            <table>
+                <caption>August 2023</caption>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><button disabled>1</button></td>
+                        <td><button disabled>2</button></td>
+                        <td><button disabled>3</button></td>
+                        <td><button disabled>4</button></td>
+                        <td><button disabled>5</button></td>
+                    </tr>
+                    <tr>
+                        <td><button disabled>6</button></td>
+                        <td><button disabled>7</button></td>
+                        <td><button disabled>8</button></td>
+                        <td><button disabled>9</button></td>
+                        <td><button disabled>10</button></td>
+                        <td><button disabled>11</button></td>
+                        <td><button disabled>12</button></td>
+                    </tr>
+                    <tr>
+                        <td><button disabled>13</button></td>
+                        <td><button aria-current="date">14</button></td>
+                        <td><button>15</button></td>
+                        <td><button>16</button></td>
+                        <td class="calendar__cell--selected calendar__range calendar__range--start">
+                            <button aria-label="17 - start of range" aria-pressed="true">17</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="18 - in range">18</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="19 - in range">19</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar__range">
+                            <button aria-label="20 - in range">20</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="21 - in range">21</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="22 - in range">22</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="23 - in range">23</button>
+                        </td>
+                        <td class="calendar__range">
+                            <button aria-label="24 - in range">24</button>
+                        </td>
+                        <td class="calendar__cell--selected calendar__range calendar__range--end">
+                            <button aria-label="25 - end of range" aria-pressed="true">25</span>
+                        </td>
+                        <td><button>26</button></td>
+                    </tr>
+                    <tr>
+                        <td><button>27</button></td>
+                        <td><button>28</button></td>
+                        <td><button>29</button></td>
+                        <td><button>30</button></td>
+                        <td><button>31</button></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3 id="calendar-header">Calendar With Header Pagination</h3>
+    <p>The calendar module allows an optional header section for pagination between months.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <div class="calendar">
                 <div class="calendar__header">
                     <div class="calendar__header--inner">
-                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2023">
                             <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
                                 {% include symbol.html name="chevron-left-24" %}
                             </svg>
                         </button>
-                        <h3>August 2019</h3>
-                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2019">
+                        <h3>August 2023</h3>
+                        <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2023">
                             <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
                                 {% include symbol.html name="chevron-right-24" %}
                             </svg>
@@ -286,7 +751,59 @@
                 </div>
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html index="1" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><span>1</span></td>
+                                    <td><span>2</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>6</span></td>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                    <td><span>9</span></td>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>13</span></td>
+                                    <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">20</a></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ebay.com">27</a></td>
+                                    <td><span>28</span></td>
+                                    <td><a href="https://www.ebay.com">29</a></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -297,13 +814,13 @@
 <div class="calendar">
     <div class="calendar__header">
         <div class="calendar__header--inner">
-            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2019">
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Previous Month - July 2023">
                 <svg aria-hidden="true" class="icon icon--chevron-left-24" focusable="false">
                     <use href="#icon-chevron-left-24"></use>
                 </svg>
             </button>
-            <h3>August 2019</h3>
-            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2019">
+            <h3>August 2023</h3>
+            <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - September 2023">
                 <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
                     <use href="#icon-chevron-right-24"></use>
                 </svg>
@@ -312,15 +829,14 @@
     </div>
     <div class="calendar__body">
         <div class="calendar__month">
-            <!-- month table (static or interactive) -->
+            <!-- readonly or interactive table goes here -->
         </div>
     </div>
 </div>
     {% endhighlight %}
 
-    <h3>Multi-month Calendar with Header</h3>
-
-    <p>Displaying multiple months simultaneously underneath the same header is trivial. Applications should use JavaScript to detect screen width and update the number of visible months accordingly.</p>
+    <h3 id="calendar-header-multi">Multi-month Calendar with Header Pagination</h3>
+    <p>Multiple instances of <span class="highlight">calendar__month</span> can be rendered inside of the <span class="highlight">calendar__body</span>.</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -332,9 +848,9 @@
                                 {% include symbol.html name="chevron-left-24" %}
                             </svg>
                         </button>
-                        <h3>August 2019</h3>
-                        <h3>September 2019</h3>
-                        <h3>October 2019</h3>
+                        <h3>July 2023</h3>
+                        <h3>August 2023</h3>
+                        <h3>September 2023</h3>
                         <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - November 2019">
                             <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
                                 {% include symbol.html name="chevron-right-24" %}
@@ -344,13 +860,169 @@
                 </div>
                 <div class="calendar__body">
                     <div class="calendar__month">
-                        {% include calendar-month.html index="1" %}
+                        <table>
+                            <caption>July 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="6"></td>
+                                    <td><span>1</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>2</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                    <td><span>6</span></td>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>9</span></td>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                    <td><span>13</span></td>
+                                    <td><span>14</span></td>
+                                    <td><span>15</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                    <td><span>20</span></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                    <td><span>27</span></td>
+                                    <td><span>28</span></td>
+                                    <td><span>29</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td cospan="5"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="calendar__month">
-                        {% include calendar-month.html index="2" %}
+                        <table>
+                            <caption>August 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><span>1</span></td>
+                                    <td><span>2</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>6</span></td>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                    <td><span>9</span></td>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>13</span></td>
+                                    <td><span class="calendar__cell--current">14<span class="clipped"> - today</span></span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>20</span></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>27</span></td>
+                                    <td><span>28</span></td>
+                                    <td><span>29</span></td>
+                                    <td><span>30</span></td>
+                                    <td><span>31</span></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="calendar__month">
-                        {% include calendar-month.html index="3" %}
+                        <table>
+                            <caption>September 2023</caption>
+                            <thead>
+                                <tr>
+                                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5"></td>
+                                    <td><span>1</span></td>
+                                    <td><span>2</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>3</span></td>
+                                    <td><span>4</span></td>
+                                    <td><span>5</span></td>
+                                    <td><span>6</span></td>
+                                    <td><span>7</span></td>
+                                    <td><span>8</span></td>
+                                    <td><span>9</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>10</span></td>
+                                    <td><span>11</span></td>
+                                    <td><span>12</span></td>
+                                    <td><span>13</span></td>
+                                    <td><span>14</span></td>
+                                    <td><span>15</span></td>
+                                    <td><span>16</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>17</span></td>
+                                    <td><span>18</span></td>
+                                    <td><span>19</span></td>
+                                    <td><span>20</span></td>
+                                    <td><span>21</span></td>
+                                    <td><span>22</span></td>
+                                    <td><span>23</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span>24</span></td>
+                                    <td><span>25</span></td>
+                                    <td><span>26</span></td>
+                                    <td><span>27</span></td>
+                                    <td><span>28</span></td>
+                                    <td><span>29</span></td>
+                                    <td><span>30</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -366,9 +1038,9 @@
                     <use href="#icon-chevron-left-24"></use>
                 </svg>
             </button>
-            <h3>August 2019</h3>
-            <h3>September 2019</h3>
-            <h3>October 2019</h3>
+            <h3>July 2023</h3>
+            <h3>August 2023</h3>
+            <h3>September 2023</h3>
             <button variant="icon" class="icon-btn icon-btn--small icon-btn--transparent" aria-label="Next Month - November 2019">
                 <svg aria-hidden="true" class="icon icon--chevron-right-24" focusable="false">
                     <use href="#icon-chevron-right-24"></use>
@@ -378,13 +1050,13 @@
     </div>
     <div class="calendar__body">
         <div class="calendar__month">
-            <!-- month table (static or interactive) -->
+            <!-- readonly or interactive table goes here -->
         </div>
         <div class="calendar__month">
-            <!-- month table (static or interactive) -->
+            <!-- readonly or interactive table goes here -->
         </div>
         <div class="calendar__month">
-            <!-- month table (static or interactive) -->
+            <!-- readonly or interactive table goes here -->
         </div>
     </div>
 </div>
