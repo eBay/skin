@@ -2,63 +2,40 @@
 
 Skin uses the SVG tag to deliver all iconography. This guide will help you properly add or modify SVG files for the Skin library.
 
-## Step 1: Set up the icon
+## Step 1: Import the SVG
 
-First you should use a graphics editor, like Illustrator or Sketch, to export the SVG markup. For our examples we will use Sketch.
+In order to import the SVG into Skin, all you need to do is drop the SVG into `src/svg/icon` directory. The icon name will be the way the icon will be imported into Skin. If the icon does not have `icon-` prefix, it will be renamed automatically to include the prefix.
+The viewbox given will be translated to the `width` and `height` that the icons is going to use.
 
--   Open the necessary icon Sketch file
--   Copy the icon layer (right-click > copy ... or [Command ⌘] + [c] on Mac when the layer is highlighted). This should be the 24x24 layer only. It should contain the glyph altogether, with the 24x24 bounding box and the paths.
-    > ![copy layer](https://user-images.githubusercontent.com/105656/39767546-43b5c59c-52a4-11e8-8fcd-f8ede4764ef9.png)
--   Open a new file ([Command ⌘] + [n] on a Mac)
--   Paste the icon layer in the new file ([Command ⌘] + v ... or right-click > paste)
--   Reset the icon (X,Y) to (0,0)
-    > ![reset coordinates](https://user-images.githubusercontent.com/105656/39767589-5b3ad2ac-52a4-11e8-8bd7-39560f653af4.png)
+**Couple of Notes**
 
-## Step 2: Import the SVG
+-   We should not apply fill on base icons. We use `fill: currentColor` to be able to change the color on icons
+-   We should not apply base sizes. We will apply those using CSS
+-   If there is a `<use>` tag, move necessary attributes to the `<path>` and remove this tag
+    -   Specific attributes to look for: `fill` (if it needs to be different), `fill-rule`, etc.
+-   In all cases, remove the `id` from the `<path>`, as it is unnecessary
+-   If `id` is needed for certain `clip-path` or such, make sure it is unique
 
--   Run the command `node/scripts importSVG path/to/icon.svg name-of-svg iconfile`.
--   For example: `node/scripts importSVG ~/Downloads/new-icon.svg icon-photo photo` will import the new-icon svg into the `photo.svg` file with an `id="icon-photo"`
-    -   Ensure the `fill` is set to the correct color (this is set to black as an example, but could be different based on design)
-    -   If there is a `<use>` tag, move necessary attributes to the `<path>` and remove this tag
-        -   Specific attributes to look for: `fill` (if it needs to be different), `fill-rule`, etc.
-    -   In all cases, remove the `id` from the `<path>`, as it is unnecessary
+## Step 2: Run scripts
 
-## Step 3: Run the generate images script
-
-Run `node scripts/generate-images.js gen` to generate the CSS definition for the icon. This will take the width/height from the `viewBox` and create a CSS selector for the given icon.
-If the width/height is incorrect from the SVG `viewBox`, you need to manually add the width/height using the icon mixin (See the `Adding CSS manually` section)
-
--   The documentation will be updated automatically.
+To properly setup the icon after it is placed in the `src/svg/icon` directory, run `node scripts genSVG` from the root of the skin project. This will properly setup the icon in docs, in the `icon.svg` bundle, and generate the CSS needed for the icon.
+Afterward, you should run `npm run build` in order to also copy all those files to `dist`.
 
 ## Appendix
 
-## Adding CSS manually
+## Star-rating
 
-This step is only needed when the CSS generated from the `generate-images` does not align up correctly.
+Star rating icons are the only unique set of icons. These will not recieve an `icon-` prefix
 
--   Add the icon `id` into the `skip` array in `scripts/image-config.json`
--   Create two new variables in `/src/less/less/ds6/variables.less` for the width and height of your icon
--   Use the width and height values from the SVG width and height, **rounded to the nearest tens decimal place**
+## Skip skin docs
 
-```less
-@ds6-icon-following-width: 21.5px;
-@ds6-icon-following-height: 19.4px;
-```
+If you do not want an icon to show up in the skin docs, add the name of the icon in `docs/_data/icons.yaml` under `skipDocs` key. Then rerun `step 2` scripts.
 
--   Add a mixin for your icon in `/src/less/less/ds6/mixins.less`
--   Add the CSS class and reference the new mixin in `/src/less/icon/ds6/icon.less`
+## Skip CSS generation
 
-```less
-.icon--following {
-    .icon-mixin("icon-following", { .icon-following() });
-}
-```
+In order to skip an icon to have it's CSS be generated add the name of the icon in `docs/_data/icons.yaml` under `skip` key. Then rerun `step 2` scripts.
+This can be done for certain icons which might want to have different sizes than those specified in the `viewbox`
 
-## Adding a new icon file pack
+## Script changes
 
--   Add a new `.svg` file in `src/svg`. Add the `<?xml>` and `<svg>` tag as in other files in that directory.
--   Add a new section in `docs/_data/icons.yaml`. See `scripts/README.md` for more info on the keys. No need to add list and smallList as those keys are autogenerated.
--   Add a new `.less` file into `src/less/icon`. This should follow the same syntax as the other files in that directory. (importing base icon and the generated icon).
--   Add the icons in the new svg file using `scripts importSVG` command
--   Run `node scripts genSVG`
--   Run `npm run build`
+Any script changes needed should be done in `scripts/generate-images.js`.
