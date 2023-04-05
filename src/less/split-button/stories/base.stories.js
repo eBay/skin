@@ -1,4 +1,4 @@
-export default { title: 'Split Button/Base' };
+export default { title: "Split Button/Base" };
 export const primaryCollapsed = () => `
 <span class="split-button">
     <button class="btn btn--primary btn--split-start" type="button">

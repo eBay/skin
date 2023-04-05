@@ -1,27 +1,27 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-const glob = require('glob');
-const path = require('path');
-const less = require('less');
-const fs = require('fs');
-const pkg = require('../package.json');
-const rimraf = require('rimraf');
-const CleanCSS = require('clean-css');
+const glob = require("glob");
+const path = require("path");
+const less = require("less");
+const fs = require("fs");
+const pkg = require("../package.json");
+const rimraf = require("rimraf");
+const CleanCSS = require("clean-css");
 const cleanCSSInstance = new CleanCSS({
     advanced: true,
     promise: true,
 });
 const currentDir = path.dirname(__dirname);
-const { exec } = require('child_process');
-const bodyMatch = new RegExp('body ?({(?:.|\\s|\\S)*?})', 'm');
-const rootMatch = new RegExp(':root ?({(?:.|\\s|\\S)*?})', 'm');
+const { exec } = require("child_process");
+const bodyMatch = new RegExp("body ?({(?:.|\\s|\\S)*?})", "m");
+const rootMatch = new RegExp(":root ?({(?:.|\\s|\\S)*?})", "m");
 
 // The list of directories in the dist to pull
 const tokensList = [
-    ['evo-core', 'evo-light'],
-    ['ds4-core', 'ds4-light'],
+    ["evo-core", "evo-light"],
+    ["ds4-core", "ds4-light"],
 ];
-const tokensDirList = ['evo', 'ds4'];
+const tokensDirList = ["evo", "ds4"];
 
 /**
  * Main Processing class. Holds info about args passed and ds version
@@ -34,7 +34,7 @@ class CssProcesser {
         this.processed = [];
         this.skipped = [];
 
-        let classDef = '';
+        let classDef = "";
         const scopeClass = args.scopeClass;
         if (scopeClass) {
             for (let i = 0; i < args.scopeSpecificity; i++) {
@@ -51,7 +51,9 @@ class CssProcesser {
     run() {
         return this.generateLESS()
             .then((raw) => this.compileLess(raw))
-            .then((raw) => (this.minify ? cleanCSSInstance.minify(raw) : { styles: raw }))
+            .then((raw) =>
+                this.minify ? cleanCSSInstance.minify(raw) : { styles: raw }
+            )
             .then((raw) => this.writeAllFiles(raw.styles))
             .catch((e) => console.error(e));
     }
@@ -79,7 +81,7 @@ class CssProcesser {
         const body = bodyMatch.exec(cssContents);
         if (body && body[1]) {
             // Add new body
-            const newContents = cssContents.replace(bodyMatch, '');
+            const newContents = cssContents.replace(bodyMatch, "");
             return `body ${this.classDef} ${body[1]}
       ${this.wrap(newContents)}
      `;
@@ -91,7 +93,7 @@ class CssProcesser {
         const root = rootMatch.exec(cssContents);
         if (root && root[1]) {
             // Add newroot
-            const newContents = cssContents.replace(rootMatch, '');
+            const newContents = cssContents.replace(rootMatch, "");
             return `${this.classDef} ${root[1]}
       ${this.wrap(newContents)}
      `;
@@ -104,11 +106,14 @@ class CssProcesser {
      * @param {*} file
      */
     generateRawLess(file) {
-        const fileName = path.basename(file, '.css');
-        if (this.args.modules.length > 0 && this.args.modules.indexOf(fileName) === -1) {
+        const fileName = path.basename(file, ".css");
+        if (
+            this.args.modules.length > 0 &&
+            this.args.modules.indexOf(fileName) === -1
+        ) {
             if (this.tokensFile.indexOf(fileName) === -1) {
                 this.skipped.push(fileName);
-                return '';
+                return "";
             }
         }
         this.processed.push(fileName);
@@ -117,7 +122,7 @@ class CssProcesser {
             // Need to read file and output
             const cssContents = fs.readFileSync(file).toString();
             // Check if it's global module and change body
-            if (fileName === 'global') {
+            if (fileName === "global") {
                 return this.rewrapBody(cssContents);
             }
             if (this.tokensFile.indexOf(fileName) > -1) {
@@ -130,26 +135,40 @@ class CssProcesser {
 
     processFiles(files) {
         return new Promise((resolve) => {
-            const compiled = files.map((file) => this.generateRawLess(file)).join('\n');
+            const compiled = files
+                .map((file) => this.generateRawLess(file))
+                .join("\n");
             const processed = this.processed;
             const skipped = this.skipped;
             const tokensFile = this.tokensFile;
 
             if (this.args.modules.length > 0 || this.args.verbose) {
-                console.log(`Processed ${processed.length} modules for ${tokensFile}`);
+                console.log(
+                    `Processed ${processed.length} modules for ${tokensFile}`
+                );
             }
             if (this.args.verbose) {
-                console.log(`Modules processed: ${processed.join(',')} for ${tokensFile}`);
+                console.log(
+                    `Modules processed: ${processed.join(
+                        ","
+                    )} for ${tokensFile}`
+                );
 
-                console.log(`Skipped ${skipped.length} modules for ${tokensFile}`);
-                console.log(`Modules skipped: ${skipped.join(',')} for ${tokensFile}`);
+                console.log(
+                    `Skipped ${skipped.length} modules for ${tokensFile}`
+                );
+                console.log(
+                    `Modules skipped: ${skipped.join(",")} for ${tokensFile}`
+                );
             }
             resolve(compiled);
         });
     }
 
     generateLESS() {
-        return this.getDistCss(this.tokensFile).then((files) => this.processFiles(files));
+        return this.getDistCss(this.tokensFile).then((files) =>
+            this.processFiles(files)
+        );
     }
 
     compileLess(raw) {
@@ -161,7 +180,9 @@ class CssProcesser {
         rimraf.sync(cdnPath);
         return makeDir(cdnPath).then(() =>
             writeFile(
-                `${cdnPath}/skin-${this.tokensDir}.${this.minify ? 'min.' : ''}css`,
+                `${cdnPath}/skin-${this.tokensDir}.${
+                    this.minify ? "min." : ""
+                }css`,
                 `/* autoprefixer: off */\n${raw}\n/* autoprefixer: on */`
             )
         );
@@ -182,12 +203,12 @@ function getCDNPath(bundle) {
  */
 function prebuild() {
     return new Promise((resolve, reject) => {
-        console.log('Running build...');
-        exec('npm run build:css', (err) => {
+        console.log("Running build...");
+        exec("npm run build:css", (err) => {
             if (err) {
                 return reject(err);
             }
-            console.log('npm build successful');
+            console.log("npm build successful");
             return resolve();
         });
     });
@@ -225,7 +246,11 @@ function runCSSBuild(name, args) {
         .then(() =>
             Promise.all(
                 tokensList.map((token, index) => {
-                    const cssProcesser = new CssProcesser(token, tokensDirList[index], args);
+                    const cssProcesser = new CssProcesser(
+                        token,
+                        tokensDirList[index],
+                        args
+                    );
                     return cssProcesser.run();
                 })
             )
@@ -249,7 +274,7 @@ async function listBundles(argv) {
             console.log(`${tokensFile} - modules avaiable`);
             console.log(`======================`);
             files.forEach((file) => {
-                console.log(path.basename(file, '.css'));
+                console.log(path.basename(file, ".css"));
             });
         });
     });

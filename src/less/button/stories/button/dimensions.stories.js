@@ -1,4 +1,4 @@
-export default { title: 'Button/Dimensions' };
+export default { title: "Button/Dimensions" };
 
 export const large = () => `
 <button type="button" class="btn btn--large">

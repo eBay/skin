@@ -1,21 +1,21 @@
-const { listBundles, runCSSBuild } = require('./generate-bundle');
-const { runGenerate } = require('./generate-images');
-const { runImport } = require('./import-svgs');
-const { verifyBuild } = require('./verify-build');
-const { generateTopLevel, cleanTopLevel } = require('./generate-imports');
-const { copySVGIcons, copyCustomStyles } = require('./storybook/copy');
-const { splitter } = require('./split-icon');
+const { listBundles, runCSSBuild } = require("./generate-bundle");
+const { runGenerate } = require("./generate-images");
+const { runImport } = require("./import-svgs");
+const { verifyBuild } = require("./verify-build");
+const { generateTopLevel, cleanTopLevel } = require("./generate-imports");
+const { copySVGIcons, copyCustomStyles } = require("./storybook/copy");
+const { splitter } = require("./split-icon");
 
-require('yargs') // eslint-disable-line
-    .usage('Usage: $0 <command> [options]')
+require("yargs") // eslint-disable-line
+    .usage("Usage: $0 <command> [options]")
     .command(
-        'split <file>',
-        'generates less files with styles from svg icons',
+        "split <file>",
+        "generates less files with styles from svg icons",
         (yargs) => {
-            yargs.positional('svg', {
-                describe: 'SVG file',
+            yargs.positional("svg", {
+                describe: "SVG file",
                 demand: true,
-                default: '',
+                default: "",
             });
         },
         async (argv) => {
@@ -27,8 +27,8 @@ require('yargs') // eslint-disable-line
         }
     )
     .command(
-        'genSVG',
-        'generates less files with styles from svg icons',
+        "genSVG",
+        "generates less files with styles from svg icons",
         () => {},
         () => {
             try {
@@ -40,28 +40,28 @@ require('yargs') // eslint-disable-line
     )
 
     .command(
-        'importSVG <svg> <name> <file>',
-        'imports given svg into an icon pack or updates if it exists',
+        "importSVG <svg> <name> <file>",
+        "imports given svg into an icon pack or updates if it exists",
         (yargs) => {
-            yargs.positional('svg', {
-                describe: 'SVG file',
+            yargs.positional("svg", {
+                describe: "SVG file",
                 demand: true,
-                default: '',
+                default: "",
             });
-            yargs.positional('name', {
-                describe: 'The ID of the SVG',
+            yargs.positional("name", {
+                describe: "The ID of the SVG",
                 demand: true,
-                default: '',
+                default: "",
             });
-            yargs.positional('file', {
-                describe: 'The file in skin to append the SVG to',
+            yargs.positional("file", {
+                describe: "The file in skin to append the SVG to",
                 demand: true,
-                default: '',
+                default: "",
             });
-            yargs.option('keep-fill', {
-                describe: 'If true, will keep fill property on svg',
-                type: 'boolean',
-                default: 'false',
+            yargs.option("keep-fill", {
+                describe: "If true, will keep fill property on svg",
+                type: "boolean",
+                default: "false",
             });
         },
         async (argv) => {
@@ -73,41 +73,41 @@ require('yargs') // eslint-disable-line
         }
     )
     .command(
-        'list',
-        'List all available modules',
+        "list",
+        "List all available modules",
         (yargs) => {},
         async (argv) => {
             await listBundles(argv);
         }
     )
     .command(
-        'bundle <name>',
-        'generates a CDN bundle with the given name',
+        "bundle <name>",
+        "generates a CDN bundle with the given name",
         (yargs) => {
             yargs
-                .positional('name', {
-                    describe: 'name to generate bundle',
+                .positional("name", {
+                    describe: "name to generate bundle",
                     demand: true,
-                    default: 'skin',
+                    default: "skin",
                 })
-                .option('scope-class', {
-                    describe: 'Scoped class to prefix bundle with',
-                    default: '',
+                .option("scope-class", {
+                    describe: "Scoped class to prefix bundle with",
+                    default: "",
                 })
-                .option('no-minify', {
+                .option("no-minify", {
                     describe:
-                        'Skips minify stage. Should set this when another bundler like lasso will be used.',
-                    type: 'boolean',
+                        "Skips minify stage. Should set this when another bundler like lasso will be used.",
+                    type: "boolean",
                 })
-                .option('scope-specificity', {
-                    describe: 'How many times to repeat scope',
-                    default: '1',
+                .option("scope-specificity", {
+                    describe: "How many times to repeat scope",
+                    default: "1",
                 })
-                .option('modules', {
-                    alias: 'm',
-                    type: 'array',
+                .option("modules", {
+                    alias: "m",
+                    type: "array",
                     describe:
-                        'Space separated list of modules to include. If empty, will include all',
+                        "Space separated list of modules to include. If empty, will include all",
                     default: [],
                 });
         },
@@ -116,17 +116,17 @@ require('yargs') // eslint-disable-line
         }
     )
     .command(
-        'storybook-copy',
-        'Copies files to storybook',
+        "storybook-copy",
+        "Copies files to storybook",
         (yargs) => {
-            yargs.option('no-svg', {
-                describe: 'Skips copying svgs. Default is false',
-                type: 'boolean',
+            yargs.option("no-svg", {
+                describe: "Skips copying svgs. Default is false",
+                type: "boolean",
                 default: true,
             });
-            yargs.option('no-styles', {
-                describe: 'Skips copying styles. Default is false',
-                type: 'boolean',
+            yargs.option("no-styles", {
+                describe: "Skips copying styles. Default is false",
+                type: "boolean",
                 default: true,
             });
         },
@@ -140,32 +140,32 @@ require('yargs') // eslint-disable-line
         }
     )
     .command(
-        'gen',
-        'Generates all imports',
+        "gen",
+        "Generates all imports",
         () => {},
         async () => {
             await generateTopLevel();
         }
     )
     .command(
-        'clean',
-        'Cleans all imports',
+        "clean",
+        "Cleans all imports",
         () => {},
         async () => {
             await cleanTopLevel();
         }
     )
     .command(
-        'verify',
-        'Verifies that build is not broken and there are no unchecked files',
+        "verify",
+        "Verifies that build is not broken and there are no unchecked files",
         () => {},
         async () => {
             await verifyBuild();
         }
     )
-    .option('verbose', {
-        alias: 'v',
-        type: 'boolean',
+    .option("verbose", {
+        alias: "v",
+        type: "boolean",
     })
     .demandCommand(1)
     .help().argv;

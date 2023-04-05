@@ -1,16 +1,16 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: "source-map",
     entry: {
-        main: './docs/_babel/main.js',
+        main: "./docs/_babel/main.js",
     },
-    mode: 'production',
+    mode: "production",
     optimization: {
         minimize: true,
     },
     output: {
-        filename: 'docs.min.js',
-        path: path.resolve(__dirname, './docs/static'),
+        filename: "docs.min.js",
+        path: path.resolve(__dirname, "./docs/static"),
     },
 };

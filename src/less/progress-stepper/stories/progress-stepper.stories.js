@@ -1,4 +1,4 @@
-export default { title: 'Progress Stepper' };
+export default { title: "Progress Stepper" };
 
 export const base = () => `
 <div class="progress-stepper">

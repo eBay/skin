@@ -1,4 +1,4 @@
-export default { title: 'Inline Notice' };
+export default { title: "Inline Notice" };
 
 export const confirmation = () => `
 <div class="inline-notice inline-notice--confirmation">

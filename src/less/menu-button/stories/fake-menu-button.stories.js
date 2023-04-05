@@ -1,4 +1,4 @@
-export default { title: 'Menu Button/Fake Menu Button' };
+export default { title: "Menu Button/Fake Menu Button" };
 
 export const links = () => `
 <span class="fake-menu-button">

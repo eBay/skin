@@ -1,4 +1,4 @@
-export default { title: 'Star Rating' };
+export default { title: "Star Rating" };
 
 export const empty = () => `
 <div role="img" aria-label="Rating: 0/5" class="star-rating" data-stars="0">

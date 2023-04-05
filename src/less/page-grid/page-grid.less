@@ -6,7 +6,8 @@
     --page-grid-column-gaps: @_page-grid-column-gaps-small;
     --page-grid-row-gaps: @_page-grid-row-gaps-large;
     --page-grid-column-widths: calc(
-        (100% / @_page-grid-number-cols-small) - @_page-grid-column-gaps-small + 1px
+        (100% / @_page-grid-number-cols-small) - @_page-grid-column-gaps-small +
+            1px
     );
     --page-grid-max-width: @_page-grid-max-width;
     // TODO: determine if needed. This is the max width inclusive of outside margins (not currently used)
@@ -18,7 +19,8 @@
         --page-grid-number-cols: @_page-grid-number-cols-large;
         --page-grid-column-gaps: @_page-grid-column-gaps-large;
         --page-grid-column-widths: calc(
-            (100% / @_page-grid-number-cols-large) - @_page-grid-column-gaps-large + 1px
+            (100% / @_page-grid-number-cols-large) -
+                @_page-grid-column-gaps-large + 1px
         );
         --page-grid-outside-margins: @_page-grid-outside-margins-large;
     }
@@ -52,7 +54,10 @@
 .page-grid {
     column-gap: var(--page-grid-column-gaps);
     display: grid;
-    grid-template-columns: repeat(var(--page-grid-number-cols), var(--page-grid-column-widths));
+    grid-template-columns: repeat(
+        var(--page-grid-number-cols),
+        var(--page-grid-column-widths)
+    );
     row-gap: var(--page-grid-row-gaps);
 }
 

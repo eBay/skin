@@ -1,6 +1,7 @@
-export default { title: 'Fake Button/Base' };
+export default { title: "Fake Button/Base" };
 
-export const textOnly = () => '<a href="http://www.ebay/com" class="fake-btn">Fake Button</a>';
+export const textOnly = () =>
+    '<a href="http://www.ebay/com" class="fake-btn">Fake Button</a>';
 
 export const iconAndText = () => `
 <a class="fake-btn" href="http://www.ebay.com">

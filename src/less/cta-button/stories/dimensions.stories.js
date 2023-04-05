@@ -1,4 +1,4 @@
-export default { title: 'CTA Button/Dimensions' };
+export default { title: "CTA Button/Dimensions" };
 
 export const large = () => `
 <a class="cta-btn cta-btn--large" href="http://www.ebay.com">

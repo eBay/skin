@@ -1,12 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const log = require('../../log');
-const writeLine = require('../util/line-writer');
-const BaseGenerator = require('./base-generator');
+const fs = require("fs");
+const path = require("path");
+const log = require("../../log");
+const writeLine = require("../util/line-writer");
+const BaseGenerator = require("./base-generator");
 
-const DS_VERSION = 'DS6.5.v1.01';
+const DS_VERSION = "DS6.5.v1.01";
 
-const getModuleDocContent = (moduleName, moduleId) => `<!-- Auto generated code -->
+const getModuleDocContent = (
+    moduleName,
+    moduleId
+) => `<!-- Auto generated code -->
 <div id="${moduleId}">
     {% include section-header.html name="${moduleId}" version=page.versions.${moduleId} %}
 
@@ -44,8 +47,8 @@ class DocumentationGenerator extends BaseGenerator {
      */
     constructor(moduleName, moduleId) {
         super(moduleName, moduleId);
-        this.docsFolder = path.join(__dirname, '..', '..', '..', 'docs');
-        this.docsCommonFolder = path.join(this.docsFolder, '_includes');
+        this.docsFolder = path.join(__dirname, "..", "..", "..", "docs");
+        this.docsCommonFolder = path.join(this.docsFolder, "_includes");
     }
 
     generate() {
@@ -54,22 +57,35 @@ class DocumentationGenerator extends BaseGenerator {
         this._addDocsMain();
         this._addDocsIndex();
 
-        log.info('Docs added! Make changes in %s file.', path.join(this.moduleDocFilePath));
+        log.info(
+            "Docs added! Make changes in %s file.",
+            path.join(this.moduleDocFilePath)
+        );
     }
 
     _addDocsModuleDoc() {
-        const moduleDocFilePath = path.join(this.docsCommonFolder, `${this.moduleId}.html`);
+        const moduleDocFilePath = path.join(
+            this.docsCommonFolder,
+            `${this.moduleId}.html`
+        );
         if (fs.existsSync(moduleDocFilePath)) {
-            log.warn('[DOC][%s] Module doc already exists!', moduleDocFilePath);
+            log.warn("[DOC][%s] Module doc already exists!", moduleDocFilePath);
             return;
         }
-        fs.writeFileSync(moduleDocFilePath, getModuleDocContent(this.moduleName, this.moduleId));
+        fs.writeFileSync(
+            moduleDocFilePath,
+            getModuleDocContent(this.moduleName, this.moduleId)
+        );
 
         this.moduleDocFilePath = moduleDocFilePath;
     }
 
     _addDocsModuleList() {
-        const filePathFromRoot = path.join('docs', '_includes', 'module-list.html');
+        const filePathFromRoot = path.join(
+            "docs",
+            "_includes",
+            "module-list.html"
+        );
         const newLineContent = `<li><a href="#${this.moduleId}">${this.moduleName}</a></li>`;
         writeLine({
             filePathFromRoot,
@@ -81,7 +97,7 @@ class DocumentationGenerator extends BaseGenerator {
     }
 
     _addDocsMain() {
-        const filePathFromRoot = path.join('docs', '_includes', 'main.html');
+        const filePathFromRoot = path.join("docs", "_includes", "main.html");
         const newLineContent = getMainContent(this.moduleId).trim();
         writeLine({
             filePathFromRoot,
@@ -94,7 +110,7 @@ class DocumentationGenerator extends BaseGenerator {
     }
 
     _addDocsIndex() {
-        const filePathFromRoot = path.join('docs', 'index.html');
+        const filePathFromRoot = path.join("docs", "index.html");
         const newLineContent = `    ${this.moduleId}: ${DS_VERSION}`;
         writeLine({
             filePathFromRoot,

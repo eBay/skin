@@ -1,4 +1,4 @@
-export default { title: 'Select/Cascade' };
+export default { title: "Select/Cascade" };
 
 export const RTL = () => `
 <div dir="rtl">

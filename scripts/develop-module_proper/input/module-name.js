@@ -1,6 +1,6 @@
-const IllegalInputError = require('../errors/illegal-input');
+const IllegalInputError = require("../errors/illegal-input");
 
-const VALUE = Symbol('value');
+const VALUE = Symbol("value");
 
 /**
  * This is a value object for module name.
@@ -28,21 +28,23 @@ class ModuleName {
      * Do not invoke this as the user inputs are immutable!
      */
     set value(newMoudleName) {
-        throw new Error('Module name provided by user is immutable!');
+        throw new Error("Module name provided by user is immutable!");
     }
 }
 
 function _validate(moduleName) {
     if (!moduleName) {
-        throw new IllegalInputError('Module name has to be provided!');
+        throw new IllegalInputError("Module name has to be provided!");
     }
 
-    if (typeof moduleName !== 'string') {
-        throw new IllegalInputError('Module name has to be string!');
+    if (typeof moduleName !== "string") {
+        throw new IllegalInputError("Module name has to be string!");
     }
 
     if (moduleName.trim().length < 2) {
-        throw new IllegalInputError('Module name has to be atleast 2 character long!');
+        throw new IllegalInputError(
+            "Module name has to be atleast 2 character long!"
+        );
     }
 }
 

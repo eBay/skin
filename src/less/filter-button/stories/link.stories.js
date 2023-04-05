@@ -1,4 +1,4 @@
-export default { title: 'Filter/Button/Link' };
+export default { title: "Filter/Button/Link" };
 
 export const base = () => `
 <a href="http://www.ebay.com" class="filter-link">

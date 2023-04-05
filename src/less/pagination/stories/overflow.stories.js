@@ -1,4 +1,4 @@
-export default { title: 'Pagination/Overflow' };
+export default { title: "Pagination/Overflow" };
 
 export const start = () => `
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">

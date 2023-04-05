@@ -1,4 +1,4 @@
-const BaseError = require('./base-error');
+const BaseError = require("./base-error");
 
 class IllegalInputError extends BaseError {
     constructor(message) {

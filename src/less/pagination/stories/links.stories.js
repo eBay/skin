@@ -1,4 +1,4 @@
-export default { title: 'Pagination/Links' };
+export default { title: "Pagination/Links" };
 
 export const base = () => `
 <nav class="pagination" aria-labelledby="pagination-heading" role="navigation">

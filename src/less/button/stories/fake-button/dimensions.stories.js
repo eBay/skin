@@ -1,4 +1,4 @@
-export default { title: 'Fake Button/Dimensions' };
+export default { title: "Fake Button/Dimensions" };
 
 export const large = () => `
 <a class="fake-btn fake-btn--large" href="http://www.ebay.com">

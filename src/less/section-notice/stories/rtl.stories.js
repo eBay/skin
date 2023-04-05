@@ -1,4 +1,4 @@
-export default { title: 'Section Notice/RTL' };
+export default { title: "Section Notice/RTL" };
 
 export const confirmationWithButton = () => `
 <div dir="rtl">

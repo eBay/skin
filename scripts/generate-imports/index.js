@@ -1,21 +1,25 @@
-const fs = require('fs');
-const prettier = require('prettier');
-const path = require('path');
-const config = require('./config.json');
-const { removeFile } = require('../util');
+const fs = require("fs");
+const prettier = require("prettier");
+const path = require("path");
+const config = require("./config.json");
+const { removeFile } = require("../util");
 const currentDir = path.dirname(path.dirname(__dirname));
-const distDir = path.join(currentDir, 'dist');
+const distDir = path.join(currentDir, "dist");
 const files = fs
     .readdirSync(distDir)
-    .filter((filename) => config.skip.indexOf(filename) === -1 && !config.nested[filename]);
+    .filter(
+        (filename) =>
+            config.skip.indexOf(filename) === -1 && !config.nested[filename]
+    );
 const indexFiles = fs
     .readdirSync(distDir)
     .filter(
         (filename) =>
-            config.skip.indexOf(filename) === -1 && config.skipIndex.indexOf(filename) === -1
+            config.skip.indexOf(filename) === -1 &&
+            config.skipIndex.indexOf(filename) === -1
     );
 
-const { ModuleBuilder } = require('./module-builder');
+const { ModuleBuilder } = require("./module-builder");
 
 async function generateTopLevelFiles() {
     const browser = {};
@@ -24,50 +28,52 @@ async function generateTopLevelFiles() {
         .map((item) => {
             return `require('./${item}.js');\n`;
         })
-        .join('');
+        .join("");
     const contentMJS = indexFiles
         .map((item) => {
             return `import './${item}.css';\n`;
         })
-        .join('');
+        .join("");
 
     const contentBrowser = indexFiles
         .map((item) => {
             return `"require: ./${item}.js"`;
         })
-        .join(',');
+        .join(",");
     const contentCSS = indexFiles
         .map((item) => {
             return `@import "./${item}.css";\n`;
         })
-        .join('');
+        .join("");
     await fs.promises.writeFile(
-        path.join(currentDir, 'browser.json'),
-        prettier.format(JSON.stringify(browser), { parser: 'json' })
+        path.join(currentDir, "browser.json"),
+        prettier.format(JSON.stringify(browser), { parser: "json" })
     );
-    await fs.promises.writeFile(path.join(currentDir, 'index.js'), contentJS);
-    await fs.promises.writeFile(path.join(currentDir, 'index.mjs'), contentMJS);
-    await fs.promises.writeFile(path.join(currentDir, 'index.css'), contentCSS);
+    await fs.promises.writeFile(path.join(currentDir, "index.js"), contentJS);
+    await fs.promises.writeFile(path.join(currentDir, "index.mjs"), contentMJS);
+    await fs.promises.writeFile(path.join(currentDir, "index.css"), contentCSS);
     await fs.promises.writeFile(
-        path.join(currentDir, 'index.browser.json'),
-        prettier.format(`{ "dependencies": [ ${contentBrowser} ]}`, { parser: 'json' })
+        path.join(currentDir, "index.browser.json"),
+        prettier.format(`{ "dependencies": [ ${contentBrowser} ]}`, {
+            parser: "json",
+        })
     );
 
     // Generate SVGs
-    const svgDistDir = path.join(distDir, 'svg');
+    const svgDistDir = path.join(distDir, "svg");
     await fs.promises.copyFile(
-        path.join(svgDistDir, 'icons.svg'),
-        path.join(currentDir, 'svg.svg')
+        path.join(svgDistDir, "icons.svg"),
+        path.join(currentDir, "svg.svg")
     );
 }
 
 async function cleanTopLevelFiles() {
-    await removeFile(path.join(currentDir, 'browser.json'));
-    await removeFile(path.join(currentDir, 'index.js'));
-    await removeFile(path.join(currentDir, 'index.mjs'));
-    await removeFile(path.join(currentDir, 'index.css'));
-    await removeFile(path.join(currentDir, 'index.browser.json'));
-    await removeFile(path.join(currentDir, 'svg.svg'));
+    await removeFile(path.join(currentDir, "browser.json"));
+    await removeFile(path.join(currentDir, "index.js"));
+    await removeFile(path.join(currentDir, "index.mjs"));
+    await removeFile(path.join(currentDir, "index.css"));
+    await removeFile(path.join(currentDir, "index.browser.json"));
+    await removeFile(path.join(currentDir, "svg.svg"));
 }
 
 const moduleData = [].concat(

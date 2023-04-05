@@ -1,4 +1,4 @@
-export default { title: 'Button/Cascade' };
+export default { title: "Button/Cascade" };
 
 export const color = () => `
 <button type="button" class="btn" style="color: red;">
