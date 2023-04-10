@@ -3,6 +3,7 @@
 @dialog-scrim-color-hide: rgba(17, 24, 32, 0);
 @dialog-scrim-color-show: rgba(17, 24, 32, 0.7);
 @dialog-lightbox-max-width: 616px;
+@dialog-lightbox-wide-max-width: 896px;
 
 .dialog-base() {
     background-color: @dialog-scrim-color-show;
@@ -39,8 +40,10 @@
     .dialog-window();
     .border-radius-token(lightbox-border-radius, border-radius-100);
 
-    margin-top: 15vh;
+    margin: auto;
+    max-height: 90%;
     max-width: calc(100% - 32px);
+    min-width: 208px;
 }
 
 .dialog-header-content(@top-margin: @spacing-200) {
@@ -72,7 +75,7 @@
 .dialog-body-content() {
     box-sizing: border-box;
     flex: 1 1 auto;
-    margin: @spacing-200;
+    padding: @spacing-200;
     position: relative;
 
     & > :first-child {
