@@ -33,16 +33,24 @@
   position: relative;
   width: 100%;
 }
-.page-grid-container .page-grid-container {
-  max-width: 100%;
-  padding: 0;
-  width: 100%;
-}
 .page-grid {
   column-gap: var(--page-grid-column-gaps);
   display: grid;
   grid-template-columns: repeat(var(--page-grid-number-cols), var(--page-grid-column-widths));
   row-gap: var(--page-grid-row-gaps);
+}
+.subgrid {
+  display: grid;
+}
+@supports (grid-template-columns: subgrid) {
+  .subgrid {
+    grid-template-columns: subgrid;
+  }
+}
+.page-grid-container .nested-grid-container {
+  max-width: 100%;
+  padding: 0;
+  width: 100%;
 }
 /* prettier-ignore */
 .page-grid--debug {

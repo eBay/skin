@@ -19,7 +19,7 @@ header {
 }
 
 header > p {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
   margin: 0;
 }
@@ -57,7 +57,8 @@ footer {
 }
 
 /* add some lines marking the edges of grids */
-.page-grid {
+.page-grid,
+.subgrid {
   outline: 1px solid;
   outline-offset: -1px;
 }
@@ -106,6 +107,15 @@ aside {
 
 /* Skin goes from 8 columns to 16 columns at this SM (small) breakpoint */
 @media (min-width: 512px) { 
+
+  /* Set up subgrid columns */
+  @supports not (grid-template-columns: subgrid) {
+    .featured {
+      column-gap: var(--spacing-large);
+      grid-template-columns: repeat(8, 1fr);
+    } 
+  }
+
   header {
     grid-area: 1 / 1 / span 1 / span 16;
   }
@@ -127,11 +137,11 @@ aside {
   }
 
   .featured__article {
-    grid-area: 1 / 1 / span 1 / span 12;
+    grid-column: 1 / span 5;
   }
 
   .featured__thumbnail {
-    grid-area: 1 / 13 / span 1 / span 4;
+    grid-column: 6 / span 3;
     align-items: center;
     background-color: #343a40;
     color: white;
