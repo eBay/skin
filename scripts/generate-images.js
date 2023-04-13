@@ -80,7 +80,8 @@ async function normalizeFiles(svgs) {
 
         if (
             !fileBase.startsWith("icon-") &&
-            !fileBase.startsWith("star-rating-")
+            !fileBase.startsWith("star-rating-") &&
+            !fileBase.startsWith("image-placeholder")
         ) {
             await prefixIcon(fileDir, fileBase);
         }
