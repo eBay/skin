@@ -42,13 +42,6 @@
     padding-right: var(--page-grid-outside-margins);
     position: relative;
     width: 100%;
-
-    // handle any nested instances
-    & & {
-        max-width: 100%;
-        padding: 0;
-        width: 100%;
-    }
 }
 
 .page-grid {
@@ -59,6 +52,30 @@
         var(--page-grid-column-widths)
     );
     row-gap: var(--page-grid-row-gaps);
+}
+
+// handle subgrid
+// fallback for lack of subgrid support in client browser
+// @TODO remove .subgrid in next major version
+.subgrid,
+.page-grid__subgrid {
+    display: grid;
+}
+
+// subgrid supported
+@supports (grid-template-columns: subgrid) {
+    // @TODO remove .subgrid  in next major version
+    .subgrid,
+    .page-grid__subgrid {
+        grid-template-columns: subgrid;
+    }
+}
+
+// handle nested grid
+.page-grid-container .nested-grid-container {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
 }
 
 /* prettier-ignore */

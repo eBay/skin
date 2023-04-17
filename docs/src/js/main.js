@@ -4,7 +4,9 @@ if (window.URLSearchParams !== undefined) {
     const searchParams = new URLSearchParams(location.search);
 
     if (searchParams.has('debug') && searchParams.get('debug') === '1') {
-        document.querySelector('.page-grid').classList.add('page-grid--debug');
+        document.querySelectorAll('.page-grid').forEach((pageGridElement) => {
+            pageGridElement.classList.add('page-grid--debug');
+        });
     }
 
     if (searchParams.has('dark') && searchParams.get('dark') === '1') {
