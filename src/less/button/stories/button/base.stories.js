@@ -10,7 +10,7 @@ export const formSlim = () =>
 export const iconAndText = () => `
 <button type="button" class="btn">
     <span class="btn__cell">
-        <svg class="icon icon--settings-24" width="16" height="16"><use href="#icon-settings-24"></use></svg>
+        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Button</span>
     </span>
 </button>
@@ -19,7 +19,7 @@ export const iconAndText = () => `
 export const disabled = () => `
 <button type="button" class="btn" disabled>
     <span class="btn__cell">
-        <svg class="icon icon--settings-24" width="16" height="16"><use href="#icon-settings-24"></use></svg>
+        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Button</span>
     </span>
 </button>
