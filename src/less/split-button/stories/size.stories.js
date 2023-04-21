@@ -1,4 +1,4 @@
-export default { title: 'Split Button/Size' };
+export default { title: "Split Button/Size" };
 export const longTextCollapsed = () => `
 <span class="split-button">
     <button class="btn btn--primary btn--split-start btn--truncated" aria-haspopup="true" type="button">

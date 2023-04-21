@@ -1,4 +1,4 @@
-export default { title: 'Menu Button/Cascade' };
+export default { title: "Menu Button/Cascade" };
 
 export const RTL = () => `
 <div dir="rtl">

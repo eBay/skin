@@ -1,4 +1,4 @@
-export default { title: 'Listbox Button/Dimensions' };
+export default { title: "Listbox Button/Dimensions" };
 
 export const fluid = () => `
 <span class="listbox-button listbox-button--fluid">

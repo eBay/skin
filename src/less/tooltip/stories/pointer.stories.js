@@ -1,85 +1,85 @@
-export default { title: 'Tooltip/Pointer' };
+export default { title: "Tooltip/Pointer" };
 
 const pointerStyles = {
     left: {
-        transform: 'translateX(16px) translateY(-50%)',
-        left: '100%',
-        right: 'auto',
-        top: '0',
-        bottom: 'auto',
+        transform: "translateX(16px) translateY(-50%)",
+        left: "100%",
+        right: "auto",
+        top: "0",
+        bottom: "auto",
     },
-    'left-top': {
-        transform: 'translateX(16px)',
-        left: '100%',
-        right: 'auto',
-        top: '-25%',
-        bottom: 'auto',
+    "left-top": {
+        transform: "translateX(16px)",
+        left: "100%",
+        right: "auto",
+        top: "-25%",
+        bottom: "auto",
     },
-    'left-bottom': {
-        transform: 'translateX(16px)',
-        left: '100%',
-        right: 'auto',
-        top: 'auto',
-        bottom: '8px',
+    "left-bottom": {
+        transform: "translateX(16px)",
+        left: "100%",
+        right: "auto",
+        top: "auto",
+        bottom: "8px",
     },
     right: {
-        transform: 'translateX(-16px) translateY(-50%)',
-        left: 'auto',
-        right: '100%',
-        top: '0',
-        bottom: 'auto',
+        transform: "translateX(-16px) translateY(-50%)",
+        left: "auto",
+        right: "100%",
+        top: "0",
+        bottom: "auto",
     },
-    'right-top': {
-        transform: 'translateX(-16px)',
-        left: 'auto',
-        right: '100%',
-        top: '-25%',
-        bottom: 'auto',
+    "right-top": {
+        transform: "translateX(-16px)",
+        left: "auto",
+        right: "100%",
+        top: "-25%",
+        bottom: "auto",
     },
-    'right-bottom': {
-        transform: 'translateX(-16px)',
-        left: 'auto',
-        right: '100%',
-        top: 'auto',
-        bottom: '4px',
+    "right-bottom": {
+        transform: "translateX(-16px)",
+        left: "auto",
+        right: "100%",
+        top: "auto",
+        bottom: "4px",
     },
     top: {
-        transform: 'translateX(-50%)',
-        left: '50%',
-        right: 'auto',
-        top: 'calc(100% + 2px)',
-        bottom: 'auto',
+        transform: "translateX(-50%)",
+        left: "50%",
+        right: "auto",
+        top: "calc(100% + 2px)",
+        bottom: "auto",
     },
-    'top-left': {
-        left: '4px',
-        right: 'auto',
-        top: 'calc(100% + 2px)',
-        bottom: 'auto',
+    "top-left": {
+        left: "4px",
+        right: "auto",
+        top: "calc(100% + 2px)",
+        bottom: "auto",
     },
-    'top-right': {
-        left: 'auto',
-        right: '4px',
-        top: 'calc(100% + 2px)',
-        bottom: 'auto',
+    "top-right": {
+        left: "auto",
+        right: "4px",
+        top: "calc(100% + 2px)",
+        bottom: "auto",
     },
-    'bottom-right': {
-        left: 'auto',
-        right: '4px',
-        top: 'auto',
-        bottom: 'calc(100% + 12px)',
+    "bottom-right": {
+        left: "auto",
+        right: "4px",
+        top: "auto",
+        bottom: "calc(100% + 12px)",
     },
-    'bottom-left': {
-        left: '4px',
-        right: 'auto',
-        top: 'auto',
-        bottom: 'calc(100% + 12px)',
+    "bottom-left": {
+        left: "4px",
+        right: "auto",
+        top: "auto",
+        bottom: "calc(100% + 12px)",
     },
     bottom: {
-        transform: 'translateX(-50%)',
-        left: '50%',
-        right: 'auto',
-        top: 'auto',
-        bottom: 'calc(100% + 12px)',
+        transform: "translateX(-50%)",
+        left: "50%",
+        right: "auto",
+        top: "auto",
+        bottom: "calc(100% + 12px)",
     },
 };
 
@@ -88,7 +88,7 @@ function getPointerStyle(key) {
     for (const pointerKey of Object.keys(pointerStyles[key])) {
         ret.push(`${pointerKey}: ${pointerStyles[key][pointerKey]}`);
     }
-    return ret.join('; ');
+    return ret.join("; ");
 }
 
 export const top = () => `
@@ -98,7 +98,9 @@ export const top = () => `
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('top')}">
+    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
+        "top"
+    )}">
         <span class="tooltip__pointer tooltip__pointer--top"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
@@ -119,7 +121,7 @@ export const topLeft = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'top-left'
+        "top-left"
     )}">
         <span class="tooltip__pointer tooltip__pointer--top-left"></span>
         <div class="tooltip__mask">
@@ -141,7 +143,7 @@ export const leftTop = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'left-top'
+        "left-top"
     )}">
         <span class="tooltip__pointer tooltip__pointer--left-top"></span>
         <div class="tooltip__mask">
@@ -162,7 +164,9 @@ export const left = () => `
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('left')}">
+    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
+        "left"
+    )}">
         <span class="tooltip__pointer tooltip__pointer--left"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
@@ -183,7 +187,7 @@ export const leftBottom = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'left-bottom'
+        "left-bottom"
     )}">
         <span class="tooltip__pointer tooltip__pointer--left-bottom"></span>
         <div class="tooltip__mask">
@@ -205,7 +209,7 @@ export const bottomLeft = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'bottom-left'
+        "bottom-left"
     )}">
         <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
         <div class="tooltip__mask">
@@ -227,7 +231,7 @@ export const bottom = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'bottom'
+        "bottom"
     )}">
         <span class="tooltip__pointer tooltip__pointer--bottom"></span>
         <div class="tooltip__mask">
@@ -249,7 +253,7 @@ export const bottomRight = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'bottom-right'
+        "bottom-right"
     )}">
         <span class="tooltip__pointer tooltip__pointer--bottom-right"></span>
         <div class="tooltip__mask">
@@ -271,7 +275,7 @@ export const rightBottom = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'right-bottom'
+        "right-bottom"
     )}">
         <span class="tooltip__pointer tooltip__pointer--right-bottom"></span>
         <div class="tooltip__mask">
@@ -292,7 +296,9 @@ export const right = () => `
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle('right')}">
+    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
+        "right"
+    )}">
         <span class="tooltip__pointer tooltip__pointer--right"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
@@ -313,7 +319,7 @@ export const rightTop = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'right-top'
+        "right-top"
     )}">
         <span class="tooltip__pointer tooltip__pointer--right-top"></span>
         <div class="tooltip__mask">
@@ -335,7 +341,7 @@ export const topRight = () => `
         </svg>
     </button>
     <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="${getPointerStyle(
-        'top-right'
+        "top-right"
     )}">
         <span class="tooltip__pointer tooltip__pointer--top-right"></span>
         <div class="tooltip__mask">

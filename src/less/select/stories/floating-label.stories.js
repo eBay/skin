@@ -1,4 +1,4 @@
-export default { title: 'Select/Select/Floating Label' };
+export default { title: "Select/Select/Floating Label" };
 
 export const defaultLabel = () => `
 <span class="floating-label">

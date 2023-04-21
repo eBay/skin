@@ -14,7 +14,7 @@
     {% endhighlight %}
 
     <p>Any content that is <em>off-grid</em>, a full bleed banner for example, should be placed outside of these two elements.</p>
-    <p>Grid areas are definable with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">CSS Grid syntax</a>. The following CSS shows the grid layout of the Skin website itself.</p>
+    <p>Grid areas are definable with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area">CSS Grid syntax</a>.</p>
 
     <h3>Responsive Methodology</h3>
     <p>
@@ -30,7 +30,7 @@
     </p>
     <p>
         Subsequent media queries should increase in screen width and alter the UI
-        styling additively avoiding style declaration duplications when possible.
+        styling additively avoiding style declaration duplications when possible. The following <span class="highlight">CSS</span> shows the grid layout of the Skin website itself.
     </p>
 
     {% highlight css %}
@@ -47,7 +47,9 @@ footer {
     grid-area: ~"2 / 1 / span 1 / span 8";
 }
 
-@media screen and (min-width: 600px) {
+/* If you're using LESS, alternatively, you can reference our constant for the page width - @_screen-size-SM */
+/* See below for all the references. */
+@media screen and (min-width: 512px) {
     nav {
         grid-area: ~"1 / 1 / span 1 / span 3";
     }
@@ -61,7 +63,9 @@ footer {
     }
 }
 
-@media screen and (min-width: 968px) {
+/* If you're using LESS, alternatively, you can reference our constant for the page width - @_screen-size-MD */
+/* See below for all the references. */
+@media screen and (min-width: 768px) {
     nav {
         grid-area: ~"1 / 1 / span 1 / span 2";
     }
@@ -99,11 +103,102 @@ footer {
 
     <p>You can see how it looks on this page by enabling our <a href="?debug=1#page-grid">debug mode</a>, which gives a quick visual indication of the grid columns.<p>
 
-    <h3 id="page-grid-nested">Nested Grids</h3>
-    <p>Obviously, this top-level page grid only gets us so far. How do we align the deeper nested elements and their content to our grid system?</p>
-    <p>Watch this space for more information on how to create nested grids (with and without <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">CSS Subgrid</a> support).</p>
+    <h3 id="page-grid-vars">Page Grid LESS/CSS Properties</h3>
+    <p>We've set up <span class="highlight">CSS</span> properties and <span class="highlight">LESS</span> constants to provide developers with easy reference for responsive adjustments of UIs. The <span class="highlight">CSS</span> properties allow for customization of page grid for UIs that require it, but <strong>please use them sparingly and be mindful of the impact those overrides can have</strong>.</p>
+
+    <section class="section-notice section-notice--information" role="region" aria-label="Information" aria-roledescription="Notice">
+        <div class="section-notice__header" id="section-notice-information">
+            <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" aria-label="Information">
+                {% include symbol.html name="information-filled-16" %}
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <h3 class="section-notice__title">The <span class="highlight">CSS</span> properties to allow for customization</h3>
+            <p>These properties allow for costumization of page grid for UIs that require it, but please <em>use them sparingly and be mindful of the impact those overrides can have</em>.</p>
+        </div>
+    </section>
+
+    {% highlight css %}
+--page-grid-number-cols     /* The number of columns. */
+--page-grid-outside-margins /* The left/right margins outside page grid. */
+--page-grid-column-gaps     /* The gaps between grid columns.*/
+--page-grid-row-gaps        /* The gaps between grid rows.*/
+--page-grid-column-widths   /* The widths of grid columns. If columns is changed, this will need a new calculation to distribute evenly withing the grid.*/
+--page-grid-max-width       /* The maximum width of the page.*/
+    {% endhighlight %}
+
+    <p>Additionally, we've set up <span class="highlight">LESS</span> constants for easier reference of the current breakpoints as well as some other dimension/spacing values.</p>
+
+    <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
+        <div class="section-notice__header" id="section-notice-attention">
+            <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" aria-label="Attention">
+                {% include symbol.html name="attention-filled-16" %}
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <h3 class="section-notice__title">Please do NOT overwrite these!</h3>
+            <p>They are meant to be consumed ONLY as constants for read-only purposes as references.</p>
+        </div>
+    </section>
+
+    {% highlight css %}
+@_screen-size-XS: 320px;
+@_screen-size-SM: 512px;
+@_screen-size-MD: 768px;
+@_screen-size-LG: 1024px;
+@_screen-size-XL: 1280px;
+@_screen-size-XL2: 1440px;
+@_screen-size-XL3: 1680px;
+@_screen-size-XL4: 1920px;
+
+@_page-grid-max-width: 1584px;
+@_page-grid-number-cols-small: 8;
+@_page-grid-number-cols-large: 16;
+@_page-grid-outside-margins-small: 16px;
+@_page-grid-outside-margins-large: 32px;
+@_page-grid-outside-margins-max: 48px;
+@_page-grid-column-gaps-small: @spacing-100;
+@_page-grid-column-gaps-large: @spacing-200;
+@_page-grid-row-gaps-small: @spacing-100;
+@_page-grid-row-gaps-large: @spacing-200;
+    {% endhighlight %}
+
+    <h3 id="page-grid-subgrids">Subgrids</h3>
+    <p>Subgrids allow you to create alignment of child elements on the same grid as page grid. Currently, subgrid only has partial support (with and without <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid">CSS Subgrid</a> support), but fallbacks allow for a seamless implementation.  You will need to add a bit of <span class="highlight">CSS</span> on your implementation side to accomplish this.</p>
+
+    <p>Firstly, you will need to add a class of <span class="highlight">page-grid__subgrid</span> to the internal subgrid:</p>
+    {% highlight html %}
+<div class="page-grid-container">
+    <div class="page-grid">
+        <main>
+            <!-- main grid content here -->
+        </main>
+        <article id="featured-1" class="featured page-grid__subgrid">
+            <div class="featured__article">
+                <h2>Featured Post 1</h2>
+                <p>This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="featured__thumbnail">
+            Thumbnail
+            </div>
+        </article>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <p>Additionally, you will need to set up the corresponding subgrid <span class="highlight">CSS</span> as such to allow for support of subgrids in browsers that do not yet have support:</p>
+
+    {% highlight css %}
+/* Set up subgrid columns */
+@supports not (grid-template-columns: subgrid) {
+    .featured {
+        column-gap: var(--spacing-large);
+        grid-template-columns: repeat(8, 1fr);
+    } 
+}
+    {% endhighlight %}
     
     <h3 id="page-grid-templates">Page Grid Templates</h3>
-    <p>To see how the page grid system (engine) works in conjunction with various types of implementations (templates), check out our set of templates utiliing page grid.</p>
+    <p>To see how the page grid system (engine) works in conjunction with various types of implementations (templates), check out our set of templates utilizing page grid and subgrid.</p>
     <a href="{{ site.url }}/page-grid-templates/">Page Grid Templates</a>
 </div>

@@ -1,12 +1,15 @@
+:root {
+  --dialog-scrim-color-hide: rgba(17, 24, 32, 0);
+  --dialog-scrim-color-show: rgba(17, 24, 32, 0.7);
+  --dialog-lightbox-max-width: 616px;
+  --dialog-lightbox-wide-max-width: 896px;
+}
 .confirm-dialog[role="dialog"] {
-  background-color: rgba(17, 24, 32, 0.7);
-  bottom: 0;
-  left: 0;
+  background-color: var(--dialog-scrim-color-show);
+  inset: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   position: fixed;
-  right: 0;
-  top: 0;
   will-change: background-color;
   z-index: 100000;
   align-items: flex-start;
@@ -23,8 +26,10 @@
   min-height: 55px;
   will-change: opacity, transform;
   border-radius: var(--lightbox-border-radius, var(--border-radius-100));
-  margin-top: 15vh;
+  margin: auto;
+  max-height: 90%;
   max-width: calc(100% - 32px);
+  min-width: 208px;
   margin-left: 16px;
   margin-right: 16px;
   padding: 16px;
@@ -72,7 +77,7 @@ button.confirm-dialog__confirm {
 .confirm-dialog--show-init.confirm-dialog--mask-fade,
 .confirm-dialog--hide.confirm-dialog--mask-fade-slow,
 .confirm-dialog--show-init.confirm-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0);
+  background-color: var(--dialog-scrim-color-hide);
 }
 .confirm-dialog--hide .confirm-dialog__window--fade,
 .confirm-dialog--show-init .confirm-dialog__window--fade {
@@ -88,19 +93,19 @@ button.confirm-dialog__confirm {
 .confirm-dialog--hide-init.confirm-dialog--mask-fade,
 .confirm-dialog--show.confirm-dialog--mask-fade-slow,
 .confirm-dialog--hide-init.confirm-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0.7);
+  background-color: var(--dialog-scrim-color-show);
 }
 .confirm-dialog--show .confirm-dialog__window--fade,
 .confirm-dialog--hide-init .confirm-dialog__window--fade {
   opacity: 1;
 }
-@media (min-width: calc(768px + 1px)) and (max-width: 1024px) {
+@media (min-width: 768px) {
   .confirm-dialog__window {
     max-width: calc(88% - 32px);
   }
 }
-@media (min-width: calc(1024px + 1px)) {
+@media (min-width: 1024px) {
   .confirm-dialog__window {
-    max-width: 616px;
+    max-width: var(--dialog-lightbox-max-width);
   }
 }

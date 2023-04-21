@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const log = require('../../log');
+const fs = require("fs");
+const path = require("path");
+const log = require("../../log");
 
 /**
  * Write a line to an existing file.
@@ -20,47 +20,60 @@ function writeLine(options) {
         getLineMeta,
     } = options;
 
-    const filePath = path.join(__dirname, '..', '..', '..', filePathFromRoot);
+    const filePath = path.join(__dirname, "..", "..", "..", filePathFromRoot);
     if (!fs.existsSync(filePath)) {
-        log.warn('%s file does not exist to append to!', filePath);
+        log.warn("%s file does not exist to append to!", filePath);
     }
 
     let isSectionMatched = false;
     let lineAppended = false;
     const newFileContents = [];
-    const currentFileContent = fs.readFileSync(filePath, 'utf8');
-    const currentFileContents = currentFileContent.split('\n');
+    const currentFileContent = fs.readFileSync(filePath, "utf8");
+    const currentFileContents = currentFileContent.split("\n");
     for (let i = 0; i < currentFileContents.length; i++) {
         const line = currentFileContents[i];
         if (line.match(duplicateCheckText || newLineContent)) {
-            log.warn('[%s] File already has line appended!', filePath);
+            log.warn("[%s] File already has line appended!", filePath);
             return;
         }
         if (
             !isSectionMatched &&
-            (typeof sectionPredicate !== 'function' || sectionPredicate(line))
+            (typeof sectionPredicate !== "function" || sectionPredicate(line))
         ) {
             isSectionMatched = true;
         } else if (isSectionMatched && !lineAppended) {
             const prevLine = i > 0 ? currentFileContents[i - 1] : null;
-            const nextLine = i < currentFileContents.length ? currentFileContents[i + 1] : null;
-            const { prevLineSuffix, newLineSuffix = '', shouldAppend = false } = getLineMeta(
-                prevLine,
-                line,
-                nextLine
-            );
+            const nextLine =
+                i < currentFileContents.length
+                    ? currentFileContents[i + 1]
+                    : null;
+            const {
+                prevLineSuffix,
+                newLineSuffix = "",
+                shouldAppend = false,
+            } = getLineMeta(prevLine, line, nextLine);
             if (shouldAppend) {
-                _processUpdates(newFileContents, newLineContent, prevLineSuffix, newLineSuffix);
+                _processUpdates(
+                    newFileContents,
+                    newLineContent,
+                    prevLineSuffix,
+                    newLineSuffix
+                );
                 lineAppended = true;
             }
         }
         newFileContents.push(line);
     }
 
-    fs.writeFileSync(filePath, newFileContents.join('\n'));
+    fs.writeFileSync(filePath, newFileContents.join("\n"));
 }
 
-function _processUpdates(newFileContents, newLineContent, prevLineSuffix, newLineSuffix) {
+function _processUpdates(
+    newFileContents,
+    newLineContent,
+    prevLineSuffix,
+    newLineSuffix
+) {
     if (prevLineSuffix) {
         newFileContents.push(newFileContents.pop() + prevLineSuffix);
     }

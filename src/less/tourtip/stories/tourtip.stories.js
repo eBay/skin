@@ -1,4 +1,4 @@
-export default { title: 'Tourtip' };
+export default { title: "Tourtip" };
 
 export const collapsed = () => `
 <div class="tourtip">

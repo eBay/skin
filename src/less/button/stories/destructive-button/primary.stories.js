@@ -1,4 +1,4 @@
-export default { title: 'Button/Destructive/Primary' };
+export default { title: "Button/Destructive/Primary" };
 
 export const textOnly = () =>
     '<button class="btn btn--primary btn--destructive">Destructive Button</button>';

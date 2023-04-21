@@ -1,4 +1,4 @@
-export default { title: 'Menu Button/Dimensions' };
+export default { title: "Menu Button/Dimensions" };
 
 export const fixedWidth = () => `
 <span class="menu-button">

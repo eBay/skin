@@ -1,4 +1,4 @@
-export default { title: 'Switch/Form' };
+export default { title: "Switch/Form" };
 
 export const on = () => `
 <div class="switch">

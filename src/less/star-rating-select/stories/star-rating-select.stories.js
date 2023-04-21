@@ -1,4 +1,4 @@
-export default { title: 'Star Rating Select' };
+export default { title: "Star Rating Select" };
 
 export const empty = () => `
 <div role="radiogroup" aria-label="Rate this product" class="star-rating-select">

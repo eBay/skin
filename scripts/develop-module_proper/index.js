@@ -1,13 +1,13 @@
-const inputParser = require('./input/parse-input');
-const titleCase = require('./util/title-case');
-const StyleGenerator = require('./code-generators/style-generator');
-const DocumentationGenerator = require('./code-generators/doc-generator');
-const TestGenerator = require('./code-generators/test-generator');
+const inputParser = require("./input/parse-input");
+const titleCase = require("./util/title-case");
+const StyleGenerator = require("./code-generators/style-generator");
+const DocumentationGenerator = require("./code-generators/doc-generator");
+const TestGenerator = require("./code-generators/test-generator");
 
 class DevelopModule {
     constructor() {
         this.moduleName = titleCase(inputParser.parse().value);
-        this.moduleId = this.moduleName.replace(/\s/g, '-').toLowerCase();
+        this.moduleId = this.moduleName.replace(/\s/g, "-").toLowerCase();
     }
 
     run() {

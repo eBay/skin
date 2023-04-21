@@ -1,22 +1,22 @@
-const fs = require('fs');
-const prettier = require('prettier');
-const path = require('path');
-const { removeFile } = require('../util');
+const fs = require("fs");
+const prettier = require("prettier");
+const path = require("path");
+const { removeFile } = require("../util");
 const currentDir = path.dirname(path.dirname(__dirname));
 
 function getBrowserFileName(filename, basePath) {
-    if (filename === 'index') {
-        return path.join(currentDir, basePath || '', `browser.json`);
+    if (filename === "index") {
+        return path.join(currentDir, basePath || "", `browser.json`);
     }
-    return path.join(currentDir, basePath || '', `${filename}.browser.json`);
+    return path.join(currentDir, basePath || "", `${filename}.browser.json`);
 }
 
 function getMJSFileName(filename, basePath) {
-    return path.join(currentDir, basePath || '', `${filename}.mjs`);
+    return path.join(currentDir, basePath || "", `${filename}.mjs`);
 }
 
 function getFileName(filename, ext, basePath) {
-    return path.join(currentDir, basePath || '', `${filename}.${ext}`);
+    return path.join(currentDir, basePath || "", `${filename}.${ext}`);
 }
 
 function getBrowserRequireSyntax(filename) {
@@ -25,7 +25,7 @@ function getBrowserRequireSyntax(filename) {
 
 function getCSSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.endsWith('.css') || filepath.includes('svg')) {
+    if (filepath.endsWith(".css") || filepath.includes("svg")) {
         fullFilePath = filepath;
     }
     return `@import "./${fullFilePath}";\n`;
@@ -33,7 +33,7 @@ function getCSSRequireSyntax(filepath, ext) {
 
 function getJSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.endsWith('.css') || filepath.includes('svg')) {
+    if (filepath.endsWith(".css") || filepath.includes("svg")) {
         fullFilePath = filepath;
     }
     return `require('./${fullFilePath}');\n`;
@@ -41,7 +41,7 @@ function getJSRequireSyntax(filepath, ext) {
 
 function getMJSRequireSyntax(filepath, ext) {
     let fullFilePath = `${filepath}.${ext}`;
-    if (filepath.endsWith('.css') || filepath.includes('svg')) {
+    if (filepath.endsWith(".css") || filepath.includes("svg")) {
         fullFilePath = filepath;
     }
     return `import './${fullFilePath}';\n`;
@@ -61,7 +61,7 @@ class ModuleBuilder {
             {
                 hasBaseModule: true,
                 isNested: false,
-                distDir: '',
+                distDir: "",
                 addIndexModules: null,
             },
             options
@@ -71,13 +71,13 @@ class ModuleBuilder {
     getFilePath(filename) {
         let file = filename;
         let filePath = filename;
-        let prefixPath = '';
+        let prefixPath = "";
         if (this.config.overrideFile[filename]) {
             file = this.config.overrideFile[filename];
         } else if (this.options.isNested) {
-            filePath = filename === this.moduleName ? 'index' : this.moduleName;
-            file = file === this.moduleName ? 'index' : filename;
-            prefixPath = '../';
+            filePath = filename === this.moduleName ? "index" : this.moduleName;
+            file = file === this.moduleName ? "index" : filename;
+            prefixPath = "../";
         }
         return `${prefixPath}dist/${filePath}/${file}`;
     }
@@ -86,8 +86,8 @@ class ModuleBuilder {
             try {
                 await fs.promises.rm(this.moduleName, { recursive: true });
                 await removeFile(getMJSFileName(this.moduleName));
-                await removeFile(getFileName(this.moduleName, 'js'));
-                await removeFile(getFileName(this.moduleName, 'css'));
+                await removeFile(getFileName(this.moduleName, "js"));
+                await removeFile(getFileName(this.moduleName, "css"));
             } catch (e) {
                 return;
             }
@@ -95,8 +95,8 @@ class ModuleBuilder {
             await removeFile(getBrowserFileName(this.moduleName));
             await removeFile(getMJSFileName(this.moduleName));
 
-            await removeFile(getFileName(this.moduleName, 'js'));
-            await removeFile(getFileName(this.moduleName, 'css'));
+            await removeFile(getFileName(this.moduleName, "js"));
+            await removeFile(getFileName(this.moduleName, "css"));
         }
     }
 
@@ -117,7 +117,9 @@ class ModuleBuilder {
     async run() {
         if (this.options.isNested) {
             // create directory
-            await fs.promises.mkdir(path.join(currentDir, this.moduleName), { recursive: true });
+            await fs.promises.mkdir(path.join(currentDir, this.moduleName), {
+                recursive: true,
+            });
             // Get all modules now in directory
             const moduleList = await fs.promises.readdir(
                 path.join(this.options.distDir, this.moduleName)
@@ -150,7 +152,7 @@ class ModuleBuilder {
                 let modName = path.parse(file).name;
 
                 if (modName === this.moduleName) {
-                    modName = 'index';
+                    modName = "index";
                 }
                 await this.writeBrowserJSON(modName);
                 await this.writeModuleFiles(modName);
@@ -167,42 +169,62 @@ class ModuleBuilder {
         );
         const filename = currentModule || this.moduleName;
         const requires = additionalRequires.concat(
-            this.options.hasBaseModule ? [getBrowserRequireSyntax(filename)] : []
+            this.options.hasBaseModule
+                ? [getBrowserRequireSyntax(filename)]
+                : []
         );
 
         const content = { dependencies: requires };
         return await fs.promises.writeFile(
-            getBrowserFileName(filename, this.options.isNested && this.moduleName),
-            prettier.format(JSON.stringify(content), { parser: 'json' })
+            getBrowserFileName(
+                filename,
+                this.options.isNested && this.moduleName
+            ),
+            prettier.format(JSON.stringify(content), { parser: "json" })
         );
     }
 
     async writeModuleFiles(currentModule) {
         const modules = this.additionalModules;
         const mod = currentModule || this.moduleName;
-        const filename = this.options.hasBaseModule ? this.getFilePath(mod) : null;
+        const filename = this.options.hasBaseModule
+            ? this.getFilePath(mod)
+            : null;
         const baseDirectory = this.options.isNested ? this.moduleName : false;
 
         await fs.promises.writeFile(
-            getFileName(mod, 'js', baseDirectory),
-            this.parseAdditionalModules(getJSRequireSyntax, 'js', { modules, filename })
+            getFileName(mod, "js", baseDirectory),
+            this.parseAdditionalModules(getJSRequireSyntax, "js", {
+                modules,
+                filename,
+            })
         );
 
         await fs.promises.writeFile(
-            getFileName(mod, 'css', baseDirectory),
-            this.parseAdditionalModules(getCSSRequireSyntax, 'css', { modules, filename })
+            getFileName(mod, "css", baseDirectory),
+            this.parseAdditionalModules(getCSSRequireSyntax, "css", {
+                modules,
+                filename,
+            })
         );
 
         await fs.promises.writeFile(
-            getFileName(mod, 'mjs', baseDirectory),
-            this.parseAdditionalModules(getMJSRequireSyntax, 'css', { modules, filename })
+            getFileName(mod, "mjs", baseDirectory),
+            this.parseAdditionalModules(getMJSRequireSyntax, "css", {
+                modules,
+                filename,
+            })
         );
     }
 
     parseAdditionalModules(getSyntax, ext, { modules, filename }) {
-        const additioanlContent = modules.map((addFile) => getSyntax(addFile, ext));
-        const content = additioanlContent.concat(filename ? [getSyntax(filename, 'css')] : []);
-        return content.join('');
+        const additioanlContent = modules.map((addFile) =>
+            getSyntax(addFile, ext)
+        );
+        const content = additioanlContent.concat(
+            filename ? [getSyntax(filename, "css")] : []
+        );
+        return content.join("");
     }
 }
 

@@ -1,4 +1,4 @@
-export default { title: 'Fullscreen Dialog' };
+export default { title: "Fullscreen Dialog" };
 
 export const closeButton = () => `
 <div aria-labelledby="fullscreen-dialog-title" aria-modal="true" class="fullscreen-dialog" role="dialog">

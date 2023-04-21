@@ -1,4 +1,4 @@
-export default { title: 'Tabs/Inline-Block' };
+export default { title: "Tabs/Inline-Block" };
 
 export const two = () => `
 <span class="tabs">

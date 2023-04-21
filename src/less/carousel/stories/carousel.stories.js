@@ -1,4 +1,4 @@
-export default { title: 'Carousel' };
+export default { title: "Carousel" };
 
 export const continuous = () => `
 <div class="carousel">

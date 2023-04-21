@@ -1,4 +1,4 @@
-export default { title: 'Breadcrumbs/Buttons/Overflow' };
+export default { title: "Breadcrumbs/Buttons/Overflow" };
 
 export const minimum = () => `
 <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs breadcrumb--overflow" role="navigation">

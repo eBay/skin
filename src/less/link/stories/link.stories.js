@@ -1,4 +1,4 @@
-export default { title: 'Link' };
+export default { title: "Link" };
 
 export const base = () => `
 <a href="https://www.ebay.com/urw/ZTE-AXON-7-Mini-32GB-Ion-Gold-Unlocked-Smartphone/product-reviews/230215749?_itm=222972816761">Link</a>
@@ -18,7 +18,8 @@ export const RTL = () => `
 <div>
 `;
 
-export const fake = () => `<button class="fake-link" type="button">Button</button>`;
+export const fake = () =>
+    `<button class="fake-link" type="button">Button</button>`;
 
 export const nav = () =>
     `<a class="nav-link" href="https://www.ebay.com/?r=${Math.floor(

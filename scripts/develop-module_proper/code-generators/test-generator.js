@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const log = require('../../log');
-const BaseGenerator = require('./base-generator');
+const fs = require("fs");
+const path = require("path");
+const log = require("../../log");
+const BaseGenerator = require("./base-generator");
 
 const getStorybookTestContent = (moduleName, moduleId) => `// Generated test
 export default { title: '${moduleName}' };
@@ -27,25 +27,31 @@ class TestGenerator extends BaseGenerator {
     generate() {
         this._addStoryBookTests();
 
-        log.info('Tests added! Make changes in %s file.', path.join(this.storybookTestFilePath));
+        log.info(
+            "Tests added! Make changes in %s file.",
+            path.join(this.storybookTestFilePath)
+        );
     }
 
     _addStoryBookTests() {
         const testFilePath = path.join(
             __dirname,
-            '..',
-            '..',
-            '..',
-            'src',
-            'less',
+            "..",
+            "..",
+            "..",
+            "src",
+            "less",
             this.moduleId,
             `${this.moduleId}.stories.js`
         );
         if (fs.existsSync(testFilePath)) {
-            log.warn('[TESTS][%s] Test file already exists!', testFilePath);
+            log.warn("[TESTS][%s] Test file already exists!", testFilePath);
             return;
         }
-        fs.writeFileSync(testFilePath, getStorybookTestContent(this.moduleName, this.moduleId));
+        fs.writeFileSync(
+            testFilePath,
+            getStorybookTestContent(this.moduleName, this.moduleId)
+        );
         this.storybookTestFilePath = testFilePath;
     }
 }

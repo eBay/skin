@@ -63,7 +63,7 @@ button.confirm-dialog__confirm {
 
     &.confirm-dialog--mask-fade,
     &.confirm-dialog--mask-fade-slow {
-        background-color: @dialog-scrim-color-hide;
+        background-color: var(--dialog-scrim-color-hide);
     }
 
     .confirm-dialog__window--fade {
@@ -79,7 +79,7 @@ button.confirm-dialog__confirm {
 
     &.confirm-dialog--mask-fade,
     &.confirm-dialog--mask-fade-slow {
-        background-color: @dialog-scrim-color-show;
+        background-color: var(--dialog-scrim-color-show);
     }
 
     .confirm-dialog__window--fade {
@@ -87,15 +87,14 @@ button.confirm-dialog__confirm {
     }
 }
 
-// In order to prevent the margins to meet the ege of the page at medium screen sizes
-@media (min-width: calc(@_screen-size-MD + 1px)) and (max-width: @_screen-size-LG) {
+@media (min-width: @_screen-size-MD) {
     .confirm-dialog__window {
         max-width: calc(88% - @spacing-400);
     }
 }
 
-@media (min-width: calc(@_screen-size-LG + 1px)) {
+@media (min-width: @_screen-size-LG) {
     .confirm-dialog__window {
-        max-width: @dialog-lightbox-max-width;
+        max-width: var(--dialog-lightbox-max-width);
     }
 }

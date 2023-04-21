@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const log = require('../../log');
-const BaseGenerator = require('./base-generator');
-const writeLine = require('../util/line-writer');
+const fs = require("fs");
+const path = require("path");
+const log = require("../../log");
+const BaseGenerator = require("./base-generator");
+const writeLine = require("../util/line-writer");
 
 const getBaseStyleContent = (
     moduleId
@@ -11,7 +11,8 @@ const getBaseStyleContent = (
     display: block;
 }
 `;
-const getReferBaseStyleContent = (moduleId) => `@import '../base/${moduleId}.less';\n`;
+const getReferBaseStyleContent = (moduleId) =>
+    `@import '../base/${moduleId}.less';\n`;
 const getModuleBrowserContent = (moduleId) => `{
     "dependencies": [
         "require: ./${moduleId}"
@@ -30,7 +31,14 @@ class StyleGenerator extends BaseGenerator {
      */
     constructor(moduleName, moduleId) {
         super(moduleName, moduleId);
-        this.sourceStyleLocation = path.join(__dirname, '..', '..', '..', 'src', 'less');
+        this.sourceStyleLocation = path.join(
+            __dirname,
+            "..",
+            "..",
+            "..",
+            "src",
+            "less"
+        );
     }
 
     generate() {
@@ -38,11 +46,17 @@ class StyleGenerator extends BaseGenerator {
         this._addSourceBundleStyles();
         this._addPackagingStyles();
 
-        log.info('Styles added! Make changes in %s folder.', path.join(this.sourceModuleLocation));
+        log.info(
+            "Styles added! Make changes in %s folder.",
+            path.join(this.sourceModuleLocation)
+        );
     }
 
     _addSourceStyles() {
-        const sourceModuleLocation = path.join(this.sourceStyleLocation, this.moduleId);
+        const sourceModuleLocation = path.join(
+            this.sourceStyleLocation,
+            this.moduleId
+        );
 
         if (!fs.existsSync(sourceModuleLocation)) {
             fs.mkdirSync(sourceModuleLocation);
@@ -51,9 +65,18 @@ class StyleGenerator extends BaseGenerator {
         const baseStyleContent = getBaseStyleContent(this.moduleId);
         const dsContent = getReferBaseStyleContent(this.moduleId);
 
-        this._addSourceStylesProper(path.join(sourceModuleLocation, 'base'), baseStyleContent);
-        this._addSourceStylesProper(path.join(sourceModuleLocation, 'ds4'), dsContent);
-        this._addSourceStylesProper(path.join(sourceModuleLocation, 'ds6'), dsContent);
+        this._addSourceStylesProper(
+            path.join(sourceModuleLocation, "base"),
+            baseStyleContent
+        );
+        this._addSourceStylesProper(
+            path.join(sourceModuleLocation, "ds4"),
+            dsContent
+        );
+        this._addSourceStylesProper(
+            path.join(sourceModuleLocation, "ds6"),
+            dsContent
+        );
 
         this.sourceModuleLocation = sourceModuleLocation;
     }
@@ -71,12 +94,19 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addSourceBundleStyles() {
-        this._addSourceBundleStylesProper('ds4');
-        this._addSourceBundleStylesProper('ds6');
+        this._addSourceBundleStylesProper("ds4");
+        this._addSourceBundleStylesProper("ds6");
     }
 
     _addSourceBundleStylesProper(version) {
-        const filePathFromRoot = path.join('src', 'less', 'bundles', 'skin', version, 'skin.less');
+        const filePathFromRoot = path.join(
+            "src",
+            "less",
+            "bundles",
+            "skin",
+            version,
+            "skin.less"
+        );
         const newLineContent = `@import "../../../${this.moduleId}/${version}/${this.moduleId}.less";`;
         writeLine({
             filePathFromRoot,
@@ -91,25 +121,34 @@ class StyleGenerator extends BaseGenerator {
         this._addPackagingIndexDependencies();
         this._addPackagingBrowserDependencies();
         this._addPackagingModuleBrowserDependencies();
-        this._addPackagingStylesDsReference('ds4');
-        this._addPackagingStylesDsReference('ds6');
+        this._addPackagingStylesDsReference("ds4");
+        this._addPackagingStylesDsReference("ds6");
         this._addPackagingStylesIndexReference();
     }
 
     _addPackagingIndexDependencies() {
-        this._addDependencies(`        "require: ./${this.moduleId}"`, 'index.browser.json');
+        this._addDependencies(
+            `        "require: ./${this.moduleId}"`,
+            "index.browser.json"
+        );
     }
 
     _addPackagingBrowserDependencies() {
-        this._addDependencies(`    "./${this.moduleId}"`, 'browser.json');
+        this._addDependencies(`    "./${this.moduleId}"`, "browser.json");
 
         const from = `./dist/${this.moduleId}/ds6/${this.moduleId}.css`;
         const newMappingItem = {
             from,
             to: `./dist/${this.moduleId}/ds4/${this.moduleId}.css`,
-            'if-flag': 'ds-4',
+            "if-flag": "ds-4",
         };
-        const browserJsonFile = path.join(__dirname, '..', '..', '..', 'browser.json');
+        const browserJsonFile = path.join(
+            __dirname,
+            "..",
+            "..",
+            "..",
+            "browser.json"
+        );
         const newMappings = [];
         const browserJson = require(browserJsonFile);
         let newItemAdded = false;
@@ -132,36 +171,49 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addPackagingModuleBrowserDependencies() {
-        const projectRootPath = path.join(__dirname, '..', '..', '..');
-        const moduleBrowserPath = path.join(projectRootPath, `${this.moduleId}.browser.json`);
+        const projectRootPath = path.join(__dirname, "..", "..", "..");
+        const moduleBrowserPath = path.join(
+            projectRootPath,
+            `${this.moduleId}.browser.json`
+        );
 
         if (fs.existsSync(moduleBrowserPath)) {
-            log.warn('[STYLES][%s] Module browser content already exists!', moduleBrowserPath);
+            log.warn(
+                "[STYLES][%s] Module browser content already exists!",
+                moduleBrowserPath
+            );
             return;
         }
 
-        fs.writeFileSync(moduleBrowserPath, getModuleBrowserContent(this.moduleId));
+        fs.writeFileSync(
+            moduleBrowserPath,
+            getModuleBrowserContent(this.moduleId)
+        );
     }
 
     _addDependencies(newLineContent, filePathFromRoot) {
         writeLine({
             filePathFromRoot,
-            sectionPredicate: (line) => line.match(/"dependencies"\s*\t*:\s*\t*\[/),
+            sectionPredicate: (line) =>
+                line.match(/"dependencies"\s*\t*:\s*\t*\[/),
             newLineContent,
             getLineMeta: (prevLine, currentLine, nextLine) => ({
                 shouldAppend:
                     (nextLine && nextLine.match(/]/)) ||
-                    (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
-                prevLineSuffix: prevLine && !prevLine.endsWith(',') ? ',' : '',
-                newLineSuffix: !nextLine || nextLine.match(/]/) ? '' : ',',
+                    (!StyleGenerator._isLegacyLine(currentLine) &&
+                        currentLine > newLineContent),
+                prevLineSuffix: prevLine && !prevLine.endsWith(",") ? "," : "",
+                newLineSuffix: !nextLine || nextLine.match(/]/) ? "" : ",",
             }),
         });
     }
 
     _addPackagingStylesDsReference(version) {
-        const filePathFromRoot = `${this.moduleId}${version === 'ds4' ? '[ds-4]' : ''}.js`;
+        const filePathFromRoot = `${this.moduleId}${
+            version === "ds4" ? "[ds-4]" : ""
+        }.js`;
         if (fs.existsSync(filePathFromRoot)) {
-            log.warn('[STYLES][%s] Style already exists!', filePathFromRoot);
+            log.warn("[STYLES][%s] Style already exists!", filePathFromRoot);
             return;
         }
         fs.writeFileSync(
@@ -171,7 +223,7 @@ class StyleGenerator extends BaseGenerator {
     }
 
     _addPackagingStylesIndexReference() {
-        const filePathFromRoot = 'index.js';
+        const filePathFromRoot = "index.js";
         const newLineContent = `import './${this.moduleId}';`;
         writeLine({
             filePathFromRoot,
@@ -179,14 +231,17 @@ class StyleGenerator extends BaseGenerator {
             getLineMeta: (prevLine, currentLine, nextLine) => ({
                 shouldAppend:
                     !nextLine ||
-                    (!StyleGenerator._isLegacyLine(currentLine) && currentLine > newLineContent),
+                    (!StyleGenerator._isLegacyLine(currentLine) &&
+                        currentLine > newLineContent),
             }),
         });
     }
 
     static _isLegacyLine(currentLine) {
         return (
-            currentLine.match(/global/) || currentLine.match(/utility/) || currentLine.match(/root/)
+            currentLine.match(/global/) ||
+            currentLine.match(/utility/) ||
+            currentLine.match(/root/)
         );
     }
 }

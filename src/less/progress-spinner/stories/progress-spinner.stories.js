@@ -1,4 +1,4 @@
-export default { title: 'Progress Spinner' };
+export default { title: "Progress Spinner" };
 
 export const base = () =>
     `<span class="progress-spinner" aria-label="Busy animation" role="img">

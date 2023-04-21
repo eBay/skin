@@ -1,12 +1,15 @@
+:root {
+  --dialog-scrim-color-hide: rgba(17, 24, 32, 0);
+  --dialog-scrim-color-show: rgba(17, 24, 32, 0.7);
+  --dialog-lightbox-max-width: 616px;
+  --dialog-lightbox-wide-max-width: 896px;
+}
 .panel-dialog[role="dialog"] {
-  background-color: rgba(17, 24, 32, 0.7);
-  bottom: 0;
-  left: 0;
+  background-color: var(--dialog-scrim-color-show);
+  inset: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   position: fixed;
-  right: 0;
-  top: 0;
   will-change: background-color;
   z-index: 100000;
   flex-direction: column;
@@ -61,7 +64,7 @@
 .panel-dialog__main {
   box-sizing: border-box;
   flex: 1 1 auto;
-  margin: 16px;
+  padding: 16px;
   position: relative;
   height: 1px;
   overflow-y: auto;
@@ -117,7 +120,7 @@ button.icon-btn.panel-dialog__close {
 .panel-dialog--show-init.panel-dialog--mask-fade,
 .panel-dialog--hide.panel-dialog--mask-fade-slow,
 .panel-dialog--show-init.panel-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0);
+  background-color: var(--dialog-scrim-color-hide);
 }
 .panel-dialog--hide .panel-dialog__window--slide-left,
 .panel-dialog--show-init .panel-dialog__window--slide-left {
@@ -145,13 +148,13 @@ button.icon-btn.panel-dialog__close {
 .panel-dialog--hide-init.panel-dialog--mask-fade,
 .panel-dialog--show.panel-dialog--mask-fade-slow,
 .panel-dialog--hide-init.panel-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0.7);
+  background-color: var(--dialog-scrim-color-show);
 }
 .panel-dialog--show .panel-dialog__window--slide,
 .panel-dialog--hide-init .panel-dialog__window--slide {
   transform: translateX(0);
 }
-@media (min-width: 601px) {
+@media (min-width: 512px) {
   .panel-dialog__window {
     width: 384px;
   }

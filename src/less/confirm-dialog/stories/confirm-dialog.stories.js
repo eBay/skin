@@ -1,4 +1,4 @@
-export default { title: 'Confirm Dialog' };
+export default { title: "Confirm Dialog" };
 
 export const base = () => `
 <div aria-labelledby="confirm-dialog-title" aria-modal="true" class="confirm-dialog confirm-dialog--mask-fade" role="dialog">

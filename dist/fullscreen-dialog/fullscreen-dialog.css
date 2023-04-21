@@ -1,12 +1,15 @@
+:root {
+  --dialog-scrim-color-hide: rgba(17, 24, 32, 0);
+  --dialog-scrim-color-show: rgba(17, 24, 32, 0.7);
+  --dialog-lightbox-max-width: 616px;
+  --dialog-lightbox-wide-max-width: 896px;
+}
 .fullscreen-dialog[role="dialog"] {
-  background-color: rgba(17, 24, 32, 0.7);
-  bottom: 0;
-  left: 0;
+  background-color: var(--dialog-scrim-color-show);
+  inset: 0;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   position: fixed;
-  right: 0;
-  top: 0;
   will-change: background-color;
   z-index: 100000;
 }
@@ -56,7 +59,7 @@
 .fullscreen-dialog__main {
   box-sizing: border-box;
   flex: 1 1 auto;
-  margin: 16px;
+  padding: 16px;
   position: relative;
   min-height: auto;
 }
@@ -117,7 +120,7 @@ button.fullscreen-dialog__back {
 .fullscreen-dialog--show-init.fullscreen-dialog--mask-fade,
 .fullscreen-dialog--hide.fullscreen-dialog--mask-fade-slow,
 .fullscreen-dialog--show-init.fullscreen-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0);
+  background-color: var(--dialog-scrim-color-hide);
 }
 .fullscreen-dialog--hide .fullscreen-dialog__window--fade,
 .fullscreen-dialog--show-init .fullscreen-dialog__window--fade {
@@ -141,7 +144,7 @@ button.fullscreen-dialog__back {
 .fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade,
 .fullscreen-dialog--show.fullscreen-dialog--mask-fade-slow,
 .fullscreen-dialog--hide-init.fullscreen-dialog--mask-fade-slow {
-  background-color: rgba(17, 24, 32, 0.7);
+  background-color: var(--dialog-scrim-color-show);
 }
 .fullscreen-dialog--show .fullscreen-dialog__window--fade,
 .fullscreen-dialog--hide-init .fullscreen-dialog__window--fade {
