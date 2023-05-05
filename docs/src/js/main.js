@@ -340,6 +340,20 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     widgetEl.addEventListener('makeup-menu-toggle', logEvent);
 });
 
+// SEGMENTED-BUTTON
+document.querySelectorAll('.segmented-button').forEach(function(widgetEl) {
+    const buttons = widgetEl.querySelectorAll('.btn');
+    buttons.forEach(function(buttonEl) {
+        buttonEl.addEventListener('click', function() {
+            buttons.forEach(function(el) {
+                el.removeAttribute('aria-current');
+            });
+            buttonEl.setAttribute('aria-current', 'true');
+        });
+    });
+});
+
+
 // SWITCH - CHECKBOX/FORM VERSION
 document.querySelectorAll('input.switch__control').forEach(function(widgetEl) {
     widgetEl.setAttribute('aria-checked', widgetEl.checked ? 'true' : 'false');
