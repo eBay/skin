@@ -340,8 +340,8 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
     widgetEl.addEventListener('makeup-menu-toggle', logEvent);
 });
 
-// SEGMENTED-BUTTON
-document.querySelectorAll('.segmented-button').forEach(function(widgetEl) {
+// segmented-buttons
+document.querySelectorAll('.segmented-buttons').forEach(function(widgetEl) {
     const buttons = widgetEl.querySelectorAll('.btn');
     buttons.forEach(function(buttonEl) {
         buttonEl.addEventListener('click', function() {
