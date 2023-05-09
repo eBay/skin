@@ -1,3 +1,6 @@
+@import "../variables/variables.less";
+@import "../mixins/private/button-mixins.less";
+
 .segmented-buttons {
     border: 1px solid var(--color-stroke-default);
     border-radius: 24px;
@@ -21,19 +24,32 @@
     margin-left: 8px;
 }
 
-.segmented-buttons .btn {
+.segmented-buttons__button {
+    background-color: transparent;
     border: none;
-    min-width: 0;
+    border-radius: var(--btn-border-radius, calc(@button-height-small / 2));
+    font-size: @font-size-regular;
+    min-height: @button-height-small;
     padding: 8px 16px;
     width: 100%;
 }
 
-.segmented-buttons .btn[aria-current] {
+.segmented-buttons__button-cell {
+    .btn-cell-base();
+
+    justify-content: center;
+}
+
+.segmented-buttons__button svg.icon {
+    .btn-icon-base();
+}
+
+.segmented-buttons__button[aria-current] {
     background-color: var(--color-foreground-primary);
     color: var(--color-foreground-on-inverse);
 }
 
-.segmented-buttons .btn:not([aria-current]) {
+.segmented-buttons__button:not([aria-current]) {
     &:active {
         background-color: var(--color-state-primary-active);
     }

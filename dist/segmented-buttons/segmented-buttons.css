@@ -17,20 +17,55 @@
 .segmented-buttons__item:not(:first-child) {
   margin-left: 8px;
 }
-.segmented-buttons .btn {
+.segmented-buttons__button {
+  background-color: transparent;
   border: none;
-  min-width: 0;
+  border-radius: var(--btn-border-radius, calc(40px / 2));
+  font-size: 0.875rem;
+  min-height: 40px;
   padding: 8px 16px;
   width: 100%;
 }
-.segmented-buttons .btn[aria-current] {
+.segmented-buttons__button-cell {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.segmented-buttons__button-cell--fixed-height {
+  display: inline-flex;
+}
+.segmented-buttons__button-cell--fixed-height > svg {
+  align-self: baseline;
+  max-width: calc(100% - 32px);
+}
+.segmented-buttons__button-cell--truncated {
+  display: inline-flex;
+}
+.segmented-buttons__button-cell--truncated > svg {
+  align-self: baseline;
+  max-width: calc(100% - 32px);
+}
+.segmented-buttons__button svg.icon {
+  align-self: center;
+}
+.segmented-buttons__button svg.icon:first-child {
+  margin-right: 8px;
+}
+.segmented-buttons__button svg.icon:last-child {
+  margin-left: 8px;
+}
+.segmented-buttons__button svg.icon:only-child {
+  margin: 0;
+}
+.segmented-buttons__button[aria-current] {
   background-color: var(--color-foreground-primary);
   color: var(--color-foreground-on-inverse);
 }
-.segmented-buttons .btn:not([aria-current]):active {
+.segmented-buttons__button:not([aria-current]):active {
   background-color: var(--color-state-primary-active);
 }
-.segmented-buttons .btn:not([aria-current]):hover,
-.segmented-buttons .btn:not([aria-current]):focus {
+.segmented-buttons__button:not([aria-current]):hover,
+.segmented-buttons__button:not([aria-current]):focus {
   background-color: var(--color-state-primary-hover);
 }

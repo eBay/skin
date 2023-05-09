@@ -342,7 +342,7 @@ document.querySelectorAll('.filter-menu').forEach(function(widgetEl) {
 
 // segmented-buttons
 document.querySelectorAll('.segmented-buttons').forEach(function(widgetEl) {
-    const buttons = widgetEl.querySelectorAll('.btn');
+    const buttons = widgetEl.querySelectorAll('button');
     buttons.forEach(function(buttonEl) {
         buttonEl.addEventListener('click', function() {
             buttons.forEach(function(el) {
