@@ -359,3 +359,12 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 
     widgetEl.addEventListener('makeup-switch-toggle', logEvent);
 });
+
+// TOGGLE-BUTTON
+document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
+    elToggleButton.addEventListener("click", function(event) {
+        const isToggled = this.getAttribute('aria-pressed') == 'true';
+
+        this.setAttribute('aria-pressed', !isToggled);
+    });
+});
