@@ -376,8 +376,8 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 
 // TOGGLE-BUTTON
 document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
-    elToggleButton.addEventListener("click", function(event) {
-        const isToggled = this.getAttribute('aria-pressed') == 'true';
+    elToggleButton.addEventListener("click", function() {
+        const isToggled = this.getAttribute('aria-pressed') === 'true';
 
         this.setAttribute('aria-pressed', !isToggled);
     });
