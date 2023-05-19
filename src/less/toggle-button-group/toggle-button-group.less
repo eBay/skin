@@ -1,0 +1,66 @@
+@import "../variables/variables.less";
+
+.toggle-button-group {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-button-group li {
+    display: inline-flex;
+}
+
+/* Layout Themes */
+
+.toggle-button-group-theme-minimal .toggle-button {
+    justify-content: center;
+}
+
+.toggle-button-group-theme-gallery .toggle-button {
+    flex-direction: column;
+}
+
+.toggle-button-group-theme-minimal[data-columns] .toggle-button {
+    margin-bottom: @spacing-100;
+    min-width: var(--toggle-button-minimal-width-min);
+}
+
+.toggle-button-group-theme-minimal[data-columns="2"] .toggle-button {
+    width: calc(100% / 2 - 8px);
+}
+
+.toggle-button-group-theme-minimal[data-columns="3"] .toggle-button {
+    width: calc(100% / 3 - 8px);
+}
+
+.toggle-button-group-theme-minimal[data-columns="4"] .toggle-button {
+    width: calc(100% / 4 - 9px);
+}
+
+.toggle-button-group-theme-minimal[data-columns="5"] .toggle-button {
+    width: calc(100% / 5 - 10px);
+}
+
+.toggle-button-group-theme-minimal[data-columns="6"] .toggle-button {
+    width: calc(100% / 6 - 10px);
+}
+
+// avoid spacing on right for the last button column
+.toggle-button-group-theme-minimal[data-columns="2"] button:nth-of-type(2n),
+.toggle-button-group-theme-minimal[data-columns="3"] button:nth-of-type(3n),
+.toggle-button-group-theme-minimal[data-columns="4"] button:nth-of-type(4n),
+.toggle-button-group-theme-minimal[data-columns="5"] button:nth-of-type(5n),
+.toggle-button-group-theme-minimal[data-columns="6"] button:nth-of-type(6n) {
+    margin-right: 0;
+}
+
+.toggle-button-group-theme-gallery .toggle-button .toggle-button__image,
+.toggle-button-group-theme-gallery .toggle-button .toggle-button__icon {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.toggle-button-group .toggle-button:last-child {
+    margin-right: 0;
+}
