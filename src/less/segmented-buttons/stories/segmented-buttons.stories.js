@@ -1,4 +1,4 @@
-export default { title: "Segmented Buttons" };
+export default { title: "Skin/Segmented Buttons" };
 export const base = () => `
     <div class="segmented-buttons">
         <ul>

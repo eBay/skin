@@ -1,4 +1,4 @@
-export default { title: "Floating Label" };
+export default { title: "Skin/Floating Label" };
 
 export const base = () => `
 <span class="floating-label">

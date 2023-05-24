@@ -1,4 +1,4 @@
-export default { title: "Section Notice/Tests" };
+export default { title: "Skin/Section Notice/Tests" };
 
 export const RTL = () => `
 <div dir="rtl">
