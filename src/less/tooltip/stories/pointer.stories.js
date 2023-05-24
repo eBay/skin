@@ -1,4 +1,4 @@
-export default { title: "Tooltip/Pointer" };
+export default { title: "Skin/Tooltip/Pointer" };
 
 const pointerStyles = {
     left: {

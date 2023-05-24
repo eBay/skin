@@ -1,4 +1,4 @@
-export default { title: "Listbox" };
+export default { title: "Skin/Listbox" };
 
 export const unselected = () => `
 <span class="listbox">

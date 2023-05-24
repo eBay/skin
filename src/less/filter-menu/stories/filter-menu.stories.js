@@ -1,4 +1,4 @@
-export default { title: "Filter/Menu" };
+export default { title: "Skin/Filter/Menu" };
 
 export const base = () => `
 <span class="filter-menu">

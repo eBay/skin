@@ -1,4 +1,4 @@
-export default { title: "CTA Button/Cascade" };
+export default { title: "Skin/CTA Button/Cascade" };
 
 export const color = () => `
 <a class="cta-btn" href="http://www.ebay.com" style="color: red">

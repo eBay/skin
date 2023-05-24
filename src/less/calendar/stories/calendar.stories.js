@@ -1,4 +1,4 @@
-export default { title: "Calendar" };
+export default { title: "Skin/Calendar" };
 
 export const base = () => /* HTML */ `
     <div class="calendar">

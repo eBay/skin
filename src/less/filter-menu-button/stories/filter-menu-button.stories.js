@@ -1,4 +1,4 @@
-export default { title: "Filter/Menu Button" };
+export default { title: "Skin/Filter/Menu Button" };
 
 export const collapsed = () => `
 <span class="filter-menu-button">

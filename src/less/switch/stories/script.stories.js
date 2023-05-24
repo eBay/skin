@@ -1,4 +1,4 @@
-export default { title: "Switch/Script" };
+export default { title: "Skin/Switch/Script" };
 
 export const on = () => `
 <div class="switch">

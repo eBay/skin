@@ -1,4 +1,4 @@
-export default { title: "Checkbox/Unchecked" };
+export default { title: "Skin/Checkbox/Unchecked" };
 
 export const base = () => `
 <span class="checkbox">

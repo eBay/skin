@@ -1,4 +1,4 @@
-export default { title: "Image Placeholder" };
+export default { title: "Skin/Image Placeholder" };
 
 export const insideHeading = () => `
 <h2>
