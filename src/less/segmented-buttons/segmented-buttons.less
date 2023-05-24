@@ -28,11 +28,19 @@
 .segmented-buttons__button {
     background-color: transparent;
     border: none;
-    border-radius: var(--btn-border-radius, calc(@button-height-small / 2));
+    border-radius: var(--btn-border-radius, calc(@button-height-regular / 2));
     font-size: @font-size-regular;
-    min-height: @button-height-small;
+    // Use xsmall height for regular segmented buttons, this will make the container be regular size
+    // (32px + 4px top padding + 4px button padding = 40px)
+    min-height: @button-height-xsmall;
     padding: 8px 16px;
     width: 100%;
+}
+
+.segmented-buttons--large .segmented-buttons__button {
+    // Use regular height for large segmented buttons. This will cause the container to be large size
+    // (40px + 4px top padding + 4px button padding = 48px)
+    min-height: @button-height-regular;
 }
 
 .segmented-buttons__button-cell {
