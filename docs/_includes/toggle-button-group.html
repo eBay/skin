@@ -3,135 +3,307 @@
 
     <p>The Toggle Button Group is a group of single or multi-toggle buttons providing a visual emphasis on the available selectable choices.</p>
 
-    <p>The component allows for single or multiple selections based on need. However, when using Skin by itself you will need to have your own JavaScript to establish those rules based on the specific needs for each implementation context.</p>
+    <p>The component allows for single or multiple selections based on need. However, when using Skin by itself you will need to have your own <span class="highlight">JavaScript</span> to establish those rules based on the specific needs for each implementation context.</p>
+
+    <h3>Accessibility</h3>
+
+    <p>The accessibility-preferred implementation includes an on-screen heading and the list associated with the heading (a). The second option is an off-screen heading with the same association (b). The third is to use the label directly on the component markup (c). Here are examples (a), (b), and (c) respectively.</p>
+
+    <h4>On-screen Heading with Associated List (a)</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <h5 id="toggle-button-group-a">Select Payment Method</h5>
+            <ul aria-labelledby="toggle-button-group-a" class="toggle-button-group" data-columns="2">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 1</span>
+                            <span class="toggle-button__subtitle">Payment description 1</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false"> 
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 3</span>
+                            <span class="toggle-button__subtitle">Payment description 3</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% highlight html %}
+<h4>Option (a)</h4>
+<h5 id="toggle-button-group-a">Select Payment Method</h5>
+<ul aria-labelledby="toggle-button-group-a" class="toggle-button-group" data-columns="2">
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 1</span>
+                <span class="toggle-button__subtitle">Payment description 1</span>
+            </span>
+        </button>
+    </li>
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false"> 
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 3</span>
+                <span class="toggle-button__subtitle">Payment description 3</span>
+            </span>
+        </button>
+    </li>
+</ul>
+{% endhighlight %}
+
+    <h4>Off-screen Heading with Associated List (b)</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <h5 id="toggle-button-group-b" class="clipped">Select Payment Method</h5>
+            <ul aria-labelledby="toggle-button-group-b" class="toggle-button-group" data-columns="2">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 1</span>
+                            <span class="toggle-button__subtitle">Payment description 1</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false"> 
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 3</span>
+                            <span class="toggle-button__subtitle">Payment description 3</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% highlight html %}
+<h4>Option (b)</h4>
+<h5 id="toggle-button-group-b" class="clipped">Select Payment Method</h5>
+<ul aria-labelledby="toggle-button-group-b" class="toggle-button-group" data-columns="2">
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 1</span>
+                <span class="toggle-button__subtitle">Payment description 1</span>
+            </span>
+        </button>
+    </li>
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false"> 
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 3</span>
+                <span class="toggle-button__subtitle">Payment description 3</span>
+            </span>
+        </button>
+    </li>
+</ul>
+{% endhighlight %}
+
+    <h4>Label Directly on Component (c)</h4>
+    <div class="demo">
+        <div class="demo__inner">
+            <ul aria-label="Select Payment Method" class="toggle-button-group" data-columns="2">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 1</span>
+                            <span class="toggle-button__subtitle">Payment description 1</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false"> 
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">Payment Method 3</span>
+                            <span class="toggle-button__subtitle">Payment description 3</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% highlight html %}
+<h4>Option (c)</h4>
+<ul aria-label="Select Payment Method" class="toggle-button-group" data-columns="2">
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 1</span>
+                <span class="toggle-button__subtitle">Payment description 1</span>
+            </span>
+        </button>
+    </li>
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false"> 
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">Payment Method 3</span>
+                <span class="toggle-button__subtitle">Payment description 3</span>
+            </span>
+        </button>
+    </li>
+</ul>
+{% endhighlight %}
 
     <h3>Layout Themes</h3>
 
+    <p>There are various layout themes based on the specific needs at implementation. The implied theme (needs no modifier), is the list view.</p>
+
     <h4>Minimal View Toggle Button Group</h4>
 
-    <p>To utilize the minimal layout theme, add the <span class="highlight">toggle-button-group-theme-minimal</span> to the Toggle Button Group container (<span class="highlight">toggle-button-group</span>). Additionally, you can provide the preferred number of columns to display per row by adding the attribute <span class="highlight">data-columns="x"</span> where is <span class="highlight">x</span> is how many buttons you'd like per row.</p>
+    <p>To utilize the minimal layout theme, add the <span class="highlight">toggle-button-group-theme-minimal</span> to the Toggle Button Group container (<span class="highlight">toggle-button-group</span>). All other layout themes can be used by adding their own modifiers.</p>
+    
+    <p>Additionally, you can provide the preferred number of columns to display per row by adding the attribute <span class="highlight">data-columns="x"</span> where is <span class="highlight">x</span> is how many buttons you'd prefer per row. Keep in mind, however, that this doesn't guarantee you will end up with the number of columns specified. The columns will responsively shrink and stretch to the limits of min/max widths of the specific type of button in use and attempt to fit the buttons nicely within the container. When the number of buttons per row no longer fits within the container, the buttons will wrap to the next line automatically.</p>
 
-    <p>In this example, the container housing the Toggle Button Group is artificially limited to <span class="highlight">500px</span> to demonstrate how the buttons will wrap after the specific columns (in this case, 3).</p>
+    <p>In this example, the container housing the Toggle Button Group is artificially limited to <span class="highlight">500px</span> to demonstrate how the buttons will wrap after the specific columns (in this case, 3). Feel free to reduce/expand the container width in dev console to see how the columns will react.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="demo-toggle-button-group-container-narrow" style="width: 500px; background-color: lightskyblue;">
-                <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group toggle-button-group-theme-minimal" data-columns="3">
-                    <button type="button" class="toggle-button" aria-pressed="false">
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">4.5</span>
-                        </span>
-                    </button>
-                
-                    <button type="button" class="toggle-button" aria-pressed="true">
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">5</span>
-                        </span>
-                    </button>
-                
-                    <button type="button" class="toggle-button" aria-pressed="false">
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">5.5</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">6</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">6.5</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">7</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">7.5</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">8</span>
-                        </span>
-                    </button>
-
-                    <button type="button" class="toggle-button" aria-pressed="false"> 
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">8.5</span>
-                        </span>
-                    </button>
-                </div>
+            <h5 id="toggle-button-group-1">Select Sizes</h5>
+            <div style="width: 500px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-1" class="toggle-button-group toggle-button-group-theme-minimal" data-columns="3">
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">4.5</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">5</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">5.5</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">6</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">6.5</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">7</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">7.5</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">8</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">8.5</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div class="demo-toggle-button-group-container-narrow" style="width: 500px;">
-    <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group toggle-button-group-theme-minimal" data-columns="3">
-        <button type="button" class="toggle-button" aria-pressed="false">
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">4.5</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="true">
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">5</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="false">
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">5.5</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">6</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">6.5</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">7</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">7.5</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">8</span>
-            </span>
-        </button>
-
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">8.5</span>
-            </span>
-        </button>
-    </div>
+<h5 id="toggle-button-group-1">Select Sizes</h5>
+<div style="width: 500px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-1" class="toggle-button-group toggle-button-group-theme-minimal" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">4.5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">5.5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">6</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">6.5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">7</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">7.5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">8</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">8.5</span>
+                </span>
+            </button>
+        </li>
+    </ul>
 </div>
     {% endhighlight %}
 
@@ -139,8 +311,9 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="demo-toggle-button-group-container-narrow">
-                <ul class="toggle-button-group" aria-label="Single-selection of payment options">
+            <h5 id="toggle-button-group-2">Select Payment</h5>
+            <div style="width: 500px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-2" class="toggle-button-group" data-columns="2">
                     <li>
                         <button type="button" class="toggle-button" aria-pressed="false">
                             <span class="toggle-button__content">
@@ -173,117 +346,134 @@
     </div>
 
     {% highlight html %}
-    <div class="demo-toggle-button-group-container-narrow">
-        <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
+<h5 id="toggle-button-group-2">Select Payment</h5>
+<div style="width: 500px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-2" class="toggle-button-group" data-columns="2">
+        <li>
             <button type="button" class="toggle-button" aria-pressed="false">
                 <span class="toggle-button__content">
-                    <span class="toggle-button__title">Text Title 1</span>
-                    <span class="toggle-button__subtitle">Text Subtitle 1</span>
+                    <span class="toggle-button__title">Payment Type 1</span>
+                    <span class="toggle-button__subtitle">Payment description 1</span>
                 </span>
             </button>
-        
+        </li>
+    
+        <li>
             <button type="button" class="toggle-button" aria-pressed="true">
                 <span class="toggle-button__content">
-                    <span class="toggle-button__title">Text Title 2</span>
-                    <span class="toggle-button__subtitle">Text Subtitle 2</span>
+                    <span class="toggle-button__title">Payment Type 2</span>
+                    <span class="toggle-button__subtitle">Payment description 2</span>
                 </span>
             </button>
-        
+        </li>
+    
+        <li>
             <button type="button" class="toggle-button" aria-pressed="false"> 
                 <span class="toggle-button__content">
-                    <span class="toggle-button__title">Text Title 3</span>
-                    <span class="toggle-button__subtitle">Text Subtitle 3</span>
+                    <span class="toggle-button__title">Payment Type 3</span>
+                    <span class="toggle-button__subtitle">Payment description 3</span>
                 </span>
             </button>
-        </div>
-    </div>
+        </li>
+    </ul>
+</div>
     {% endhighlight %}
 
     <h4>Gallery View</h4>
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="demo-toggle-button-group-container-narrow">
-                <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group toggle-button-group-theme-gallery">
-                    <button type="button" class="toggle-button" aria-pressed="false">
-                        <span class="toggle-button__image">
-                            <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
-                                {% include symbol.html name="image-64" prefix="icon" %}
-                            </svg>
-                        </span>
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">Gallery Title 1</span>
-                            <span class="toggle-button__subtitle">Gallery Subtitle 1</span>
-                        </span>
-                    </button>
-                
-                    <button type="button" class="toggle-button" aria-pressed="true">
-                        <span class="toggle-button__image">
-                            <svg aria-hidden="true" class="icon icon--credit-card-64" focusable="false" height="64" width="64">
-                                {% include symbol.html name="credit-card-64" prefix="icon" %}
-                            </svg>
-                        </span>
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">Gallery Title 2</span>
-                            <span class="toggle-button__subtitle">Gallery Subtitle 2</span>
-                        </span>
-                    </button>
-                
-                    <button type="button" class="toggle-button" aria-pressed="false">
-                        <span class="toggle-button__image">
-                            <svg aria-hidden="true" class="icon icon--bank-64" focusable="false" height="64" width="64">
-                                {% include symbol.html name="bank-64" prefix="icon" %}
-                            </svg>
-                        </span>
-                        <span class="toggle-button__content">
-                            <span class="toggle-button__title">Gallery Title 3</span>
-                            <span class="toggle-button__subtitle">Gallery Subtitle 3</span>
-                        </span>
-                    </button>
-                </div>
+            <h5 id="toggle-button-group-3">Selection Options</h5>
+            <div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-3" class="toggle-button-group toggle-button-group-theme-gallery" data-columns="3">
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
+                                    {% include symbol.html name="image-64" prefix="icon" %}
+                                </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Gallery Title 1</span>
+                                <span class="toggle-button__subtitle">Gallery Subtitle 1</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--credit-card-64" focusable="false" height="64" width="64">
+                                    {% include symbol.html name="credit-card-64" prefix="icon" %}
+                                </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Gallery Title 2</span>
+                                <span class="toggle-button__subtitle">Gallery Subtitle 2</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--bank-64" focusable="false" height="64" width="64">
+                                    {% include symbol.html name="bank-64" prefix="icon" %}
+                                </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Gallery Title 3</span>
+                                <span class="toggle-button__subtitle">Gallery Subtitle 3</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div class="demo-toggle-button-group-container-narrow">
-    <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-        <button type="button" class="toggle-button" aria-pressed="false">
-            <span class="toggle-button__image">
-                <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
-                    <use href="static/icons.svg#icon-image-64"></use>
-                </svg>
-            </span>
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 1</span>
-                <span class="toggle-button__subtitle">Text Subtitle 1</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="true">
-            <span class="toggle-button__image">
-                <svg aria-hidden="true" class="icon icon--credit-card-64" focusable="false" height="64" width="64">
-                    <use href="static/icons.svg#icon-credit-card-64"></use>
-                </svg>
-            </span>
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 2</span>
-                <span class="toggle-button__subtitle">Text Subtitle 2</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="false"> 
-            <span class="toggle-button__image">
-                <svg aria-hidden="true" class="icon icon--bank-64" focusable="false" height="64" width="64">
-                    <use href="static/icons.svg#icon-bank-64"></use>
-                </svg>
-            </span>
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 3</span>
-                <span class="toggle-button__subtitle">Text Subtitle 3</span>
-            </span>
-        </button>
-    </div>
+<h5 id="toggle-button-group-3">Selection Options</h5>
+<div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-3" class="toggle-button-group toggle-button-group-theme-gallery" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
+                        <use href="static/icons.svg#icon-image-64"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Gallery Title 1</span>
+                    <span class="toggle-button__subtitle">Gallery Subtitle 1</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--credit-card-64" focusable="false" height="64" width="64">
+                        <use href="static/icons.svg#icon-credit-card-64"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Gallery Title 2</span>
+                    <span class="toggle-button__subtitle">Gallery Subtitle 2</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--bank-64" focusable="false" height="64" width="64">
+                        <use href="static/icons.svg#icon-bank-64"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Gallery Title 3</span>
+                    <span class="toggle-button__subtitle">Gallery Subtitle 3</span>
+                </span>
+            </button>
+        </li>
+    </ul>
 </div>
     {% endhighlight %}
    
@@ -293,47 +483,61 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-                <button type="button" class="toggle-button" aria-pressed="false">
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Button 1</span>
-                    </span>
-                </button>
-            
-                <button type="button" class="toggle-button" aria-pressed="true">
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Button 2</span>
-                    </span>
-                </button>
-            
-                <button type="button" class="toggle-button" aria-pressed="false">
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Button 3</span>
-                    </span>
-                </button>
+            <h5 id="toggle-button-group-4">Text Options</h5>
+            <div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-4" class="toggle-button-group" data-columns="3">
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Button 1</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Button 2</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Button 3</span>
+                            </span>
+                        </button>
+                    </li>  
+                </ul>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-    <button type="button" class="toggle-button" aria-pressed="false">
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Text Button 1</span>
-        </span>
-    </button>
-
-    <button type="button" class="toggle-button" aria-pressed="true">
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Text Button 2</span>
-        </span>
-    </button>
-
-    <button type="button" class="toggle-button" aria-pressed="false">
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Text Button 3</span>
-        </span>
-    </button>
+<h5 id="toggle-button-group-4">Text Options</h5>
+<div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-4" class="toggle-button-group" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Button 1</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Button 2</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Button 3</span>
+                </span>
+            </button>
+        </li>  
+    </ul>
 </div>
     {% endhighlight %}
 
@@ -341,55 +545,67 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-                <button type="button" class="toggle-button" aria-pressed="false">
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Title 1</span>
-                        <span class="toggle-button__subtitle">Text Subtitle 1</span>
-                    </span>
-                </button>
-            
-                <button type="button" class="toggle-button" aria-pressed="true">
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Title 2</span>
-                        <span class="toggle-button__subtitle">Text Subtitle 2</span>
-                    </span>
-                </button>
-            
-                <button type="button" class="toggle-button" aria-pressed="true"> 
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Text Title 3</span>
-                        <span class="toggle-button__subtitle">Text Subtitle 3</span>
-                    </span>
-                </button>
+            <h5 id="toggle-button-group-5">Text Options</h5>
+            <div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-5" class="toggle-button-group" data-columns="3">
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Title 1</span>
+                                <span class="toggle-button__subtitle">Text Subtitle 1</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true">
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Title 2</span>
+                                <span class="toggle-button__subtitle">Text Subtitle 2</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true"> 
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Text Title 3</span>
+                                <span class="toggle-button__subtitle">Text Subtitle 3</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-    <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-        <button type="button" class="toggle-button" aria-pressed="false">
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 1</span>
-                <span class="toggle-button__subtitle">Text Subtitle 1</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="true">
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 2</span>
-                <span class="toggle-button__subtitle">Text Subtitle 2</span>
-            </span>
-        </button>
-    
-        <button type="button" class="toggle-button" aria-pressed="true"> 
-            <span class="toggle-button__content">
-                <span class="toggle-button__title">Text Title 3</span>
-                <span class="toggle-button__subtitle">Text Subtitle 3</span>
-            </span>
-        </button>
-    </div>
+<h5 id="toggle-button-group-5">Text Options</h5>
+<div style="width: 750px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-5" class="toggle-button-group" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Title 1</span>
+                    <span class="toggle-button__subtitle">Text Subtitle 1</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Title 2</span>
+                    <span class="toggle-button__subtitle">Text Subtitle 2</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true"> 
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Title 3</span>
+                    <span class="toggle-button__subtitle">Text Subtitle 3</span>
+                </span>
+            </button>
+        </li>
+    </ul>
 </div>
     {% endhighlight %}
 
@@ -397,83 +613,97 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-                <button type="button" class="toggle-button" aria-pressed="false">
-                    <span class="toggle-button__image">
-                        <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
-                            {% include symbol.html name="visa-32-colored" prefix="icon" %}
-                    </svg>
-                    </span>
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Image Button Title 1</span>
-                        <span class="toggle-button__subtitle">Image Button Subtitle 1</span>
-                    </span>
-                </button>
-
-                <button type="button" class="toggle-button" aria-pressed="true">
-                    <span class="toggle-button__image">
-                        <svg aria-hidden="true" class="icon icon--paypal-32-colored" focusable="false" height="3" width="3">
-                            {% include symbol.html name="paypal-32-colored" prefix="icon" %}
-                        </svg>
-                    </span>
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Image Button Title 2</span>
-                        <span class="toggle-button__subtitle">Image Button Subtitle 2</span>
-                    </span>
-                </button>
-
-                <button type="button" class="toggle-button" aria-pressed="false">
-                    <span class="toggle-button__image">
-                        <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="3" width="3">
-                            {% include symbol.html name="mastercard-32-colored" prefix="icon" %}
-                    </svg>
-                    </span>
-                    <span class="toggle-button__content">
-                        <span class="toggle-button__title">Image Button Title 3</span>
-                        <span class="toggle-button__subtitle">Image Button Subtitle 3</span>
-                    </span>
-                </button>
+            <h5 id="toggle-button-group-6">Select Payment Option</h5>
+            <div style="width: 800px; background-color: lightyellow; border: 1px dashed orange;;">
+                <ul aria-labelledby="toggle-button-group-6" class="toggle-button-group" data-columns="3">
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
+                                    {% include symbol.html name="visa-32-colored" prefix="icon" %}
+                            </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Image Button Title 1</span>
+                                <span class="toggle-button__subtitle">Image Button Subtitle 1</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="true">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--paypal-32-colored" focusable="false" height="3" width="3">
+                                    {% include symbol.html name="paypal-32-colored" prefix="icon" %}
+                                </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Image Button Title 2</span>
+                                <span class="toggle-button__subtitle">Image Button Subtitle 2</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="toggle-button" aria-pressed="false">
+                            <span class="toggle-button__image">
+                                <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="3" width="3">
+                                    {% include symbol.html name="mastercard-32-colored" prefix="icon" %}
+                            </svg>
+                            </span>
+                            <span class="toggle-button__content">
+                                <span class="toggle-button__title">Image Button Title 3</span>
+                                <span class="toggle-button__subtitle">Image Button Subtitle 3</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div role="group" aria-label="Toggle button group of text items" class="toggle-button-group">
-    <button type="button" class="toggle-button" aria-pressed="false">
-        <span class="toggle-button__image">
-            <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
-                <use href="static/icons.svg#icon-visa-32-colored"></use>
-            </svg>
-        </span>
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Image Button Title 1</span>
-            <span class="toggle-button__subtitle">Image Button Subtitle 1</span>
-        </span>
-    </button>
-
-    <button type="button" class="toggle-button" aria-pressed="true">
-        <span class="toggle-button__image">
-            <svg aria-hidden="true" class="icon icon--paypal-32-colored" focusable="false" height="3" width="3">
-                <use href="static/icons.svg#icon-paypal-32-colored"></use>
-            </svg>
-        </span>
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Image Button Title 2</span>
-            <span class="toggle-button__subtitle">Image Button Subtitle 2</span>
-        </span>
-    </button>
-
-    <button type="button" class="toggle-button" aria-pressed="false">
-        <span class="toggle-button__image">
-            <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="3" width="3">
-                <use href="static/icons.svg#icon-mastercard-32-colored"></use>
-            </svg>
-        </span>
-        <span class="toggle-button__content">
-            <span class="toggle-button__title">Image Button Title 3</span>
-            <span class="toggle-button__subtitle">Image Button Subtitle 3</span>
-        </span>
-    </button>
+<h5 id="toggle-button-group-6">Select Payment Option</h5>
+<div style="width: 800px; background-color: lightyellow; border: 1px dashed orange;;">
+    <ul aria-labelledby="toggle-button-group-6" class="toggle-button-group" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
+                        <use href="static/icons.svg#icon-visa-32-colored"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Image Button Title 1</span>
+                    <span class="toggle-button__subtitle">Image Button Subtitle 1</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="true">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--paypal-32-colored" focusable="false" height="3" width="3">
+                        <use href="static/icons.svg#icon-paypal-32-colored"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Image Button Title 2</span>
+                    <span class="toggle-button__subtitle">Image Button Subtitle 2</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="3" width="3">
+                        <use href="static/icons.svg#icon-mastercard-32-colored"></use>
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Image Button Title 3</span>
+                    <span class="toggle-button__subtitle">Image Button Subtitle 3</span>
+                </span>
+            </button>
+        </li>
+    </ul>
 </div>
     {% endhighlight %}
 
