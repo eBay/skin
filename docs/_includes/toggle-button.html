@@ -1,139 +1,23 @@
 <div id="toggle-button">
     {% include section-header.html name="toggle-button" version=page.versions.toggle-button %}
 
-    <p>The Toggle Button is a button that can be toggled/pressed on or off. It is an atomic piece of the Toggle Button Group. Titles are required and other elements, such as subtitles and images can be included as well.</p>
+    <p>The Toggle Button is a button that can be toggled/pressed on or off. It is an atomic piece of the Toggle Button Group.</p>
+    
+    <p>Titles are required and other elements, such as subtitles and images can be included as well.</p>
+
+    <p>These buttons should <strong>NOT</strong> contain structural elements, such as headings or lists.</p>
 
     <p>For detailed requirements and usage details, please review the <a href="https://ebay.gitbook.io/mindpatterns/input/toggle-button">eBay MIND Pattern for Toggle Button</a></p>
 
-    <p>To use these buttons as a set of multi-selection or single-selection variations, use a <span class="highlight">&lt;ul aria-label="Single-selection of payment options"&gt;</span> with buttons inside <span class="highlight">&lt;li&gt;</span>.</p>
-
     <p><strong>NOTE:</strong> If you're using the Skin library in standalone capacity, you'll have to manually set the button toggled/pressed state using <span class="highlight">JavaScript</span> on your own by applying/changing <span class="highlight">aria-pressed="true"</span> when toggled on and <span class="highlight">aria-pressed="false"</span> when off.</p>
 
-    <h3>Layout Themes</h3>
+    <h3>List View Theme</h3>
+
+    <p>The List View Theme toggle buttons should be used when it's desired to have wider horizontal buttons with less emphasis on graphical elements. These are more easily stackable on narrower screens.</p>
 
     <p>The default layout is the list view theme. To use a different layout theme, use the modifier on a button. See each layout theme for each class.</p>
 
-    <h4>Minimal View Toggle Button</h4>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button type="button" class="toggle-button toggle-button-theme-minimal" aria-pressed="false">
-                <span class="toggle-button__content">
-                    <span class="toggle-button__title">4.5</span>
-                </span>
-            </button>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button type="button" class="toggle-button toggle-button-theme-minimal" aria-pressed="false">
-    <span class="toggle-button__content">
-        <span class="toggle-button__title">4.5</span>
-    </span>
-</button>
-    {% endhighlight %}
-
-    <h4>List View Toggle Button</h4>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button type="button" class="toggle-button" aria-pressed="false">
-                <span class="toggle-button__content">
-                    <span class="toggle-button__title">Text Title</span>
-                    <span class="toggle-button__subtitle">Text Subtitle</span>
-                </span>
-            </button>
-
-            <button type="button" class="toggle-button" aria-pressed="false">
-                <span class="toggle-button__content">
-                    <span class="toggle-button__title">Multiline Text Title</span>
-                    <span class="toggle-button__subtitle">
-                        <p>Text Subtitle Line 1</p>
-                        <p>Text Subtitle Line 2 (max)</p>
-                    </span>
-                </span>
-            </button>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button type="button" class="toggle-button" aria-pressed="false">
-    <span class="toggle-button__content">
-        <span class="toggle-button__title">Text Title</span>
-        <span class="toggle-button__subtitle">Text Subtitle</span>
-    </span>
-</button>
-
-<button type="button" class="toggle-button" aria-pressed="false">
-    <span class="toggle-button__content">
-        <span class="toggle-button__title">Multiline Text Title</span>
-        <span class="toggle-button__subtitle">
-            <p>Text Subtitle Line 1</p>
-            <p>Text Subtitle Line 2 (max)</p>
-        </span>
-    </span>
-</button>
-    {% endhighlight %}
-
-    <h4>Gallery View Toggle Button with Image and Icon</h4>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-                <span class="toggle-button__image">
-                    <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
-                        {% include symbol.html name="image-64" prefix="icon" %}
-                </svg>
-                </span>
-                <span class="toggle-button__content">
-                    <span class="toggle-button__title">Text Title</span>
-                    <span class="toggle-button__subtitle">Text Subtitle</span>
-                </span>
-            </button>
-
-            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-                <span class="toggle-button__icon">
-                    <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
-                        {% include symbol.html name="on-the-way-16" prefix="icon" %}
-                </svg>
-                </span>
-                <span class="toggle-button__content">
-                    <span class="toggle-button__title">Icon Button Title</span>
-                    <span class="toggle-button__subtitle">Icon Button Subtitle</span>
-                </span>
-            </button>
-        </div>
-    </div>
-
-    {% highlight html %}
-<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-    <span class="toggle-button__image">
-        <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
-            <use href="static/icons.svg#icon-image-64"></use>
-        </svg>
-    </span>
-    <span class="toggle-button__content">
-        <span class="toggle-button__title">Text Title</span>
-        <span class="toggle-button__subtitle">Text Subtitle</span>
-    </span>
-</button>
-
-<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-    <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
-            <use href="static/icons.svg#on-the-way-16"></use>
-        </svg>
-    </span>
-    <span class="toggle-button__content">
-        <span class="toggle-button__title">Icon Button Title</span>
-        <span class="toggle-button__subtitle">Icon Button Subtitle</span>
-    </span>
-</button>
-    {% endhighlight %}
-
-    <h3>List View Variations</h3>
-
-    <h4>Simple Text Toggle Button</h4>
+    <h4>Toggle Button with Simple Text</h4>
  
     <div class="demo">
         <div class="demo__inner">
@@ -187,6 +71,34 @@
 </button>
     {% endhighlight %}
 
+    <h4>Toggle Button with Title and Multi-line Subtitle</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Multiline Text Title</span>
+                    <span class="toggle-button__subtitle">
+                        <p>Text Subtitle Line 1</p>
+                        <p>Text Subtitle Line 2 (max)</p>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button" aria-pressed="false">
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Multiline Text Title</span>
+        <span class="toggle-button__subtitle">
+            <p>Text Subtitle Line 1</p>
+            <p>Text Subtitle Line 2 (max)</p>
+        </span>
+    </span>
+</button>
+    {% endhighlight %}
+
     <h4>Toggle Button with Icon, Title, and Subtitle</h4>
 
     <div class="demo">
@@ -195,7 +107,7 @@
                 <span class="toggle-button__icon">
                     <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
                         {% include symbol.html name="on-the-way-16" prefix="icon" %}
-                </svg>
+                    </svg>
                 </span>
                 <span class="toggle-button__content">
                     <span class="toggle-button__title">Icon Button Title</span>
@@ -227,7 +139,7 @@
                 <span class="toggle-button__image">
                     <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
                         {% include symbol.html name="visa-32-colored" prefix="icon" %}
-                </svg>
+                    </svg>
                 </span>
                 <span class="toggle-button__content">
                     <span class="toggle-button__title">Image Button Title</span>
@@ -247,6 +159,96 @@
     <span class="toggle-button__content">
         <span class="toggle-button__title">Image Button Title</span>
         <span class="toggle-button__subtitle">Image Button Subtitle</span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h3>Minimal View Theme</h3>
+
+    <p>The Minimal View Theme toggle buttons should be used when the contents are single-line and very short, as in shoe sizing, for example. This theme is geared more towards allowing the display of many more options and maximize screen real estate.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-minimal" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">4.5</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button toggle-button-theme-minimal" aria-pressed="false">
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">4.5</span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h3>Gallery View Theme</h3>
+
+    <p>The Gallery View Theme toggle buttons should be used when there will be fewer buttons (as larger buttons take up more screen real estate) and it's desired to have a more vertical/square implementations with more emphasis on graphical elements (images/icons).</p>
+
+    <h4>Toggle Button with Image</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+                <span class="toggle-button__image">
+                    <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
+                        {% include symbol.html name="image-64" prefix="icon" %}
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Text Title</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+    <span class="toggle-button__image">
+        <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
+            <use href="static/icons.svg#icon-image-64"></use>
+        </svg>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Text Title</span>
+        <span class="toggle-button__subtitle">Text Subtitle</span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h4>Toggle Button with Icon</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+                <span class="toggle-button__icon">
+                    <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
+                        {% include symbol.html name="on-the-way-16" prefix="icon" %}
+                    </svg>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Icon Button Title</span>
+                    <span class="toggle-button__subtitle">Icon Button Subtitle</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+    <span class="toggle-button__icon">
+        <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
+            <use href="static/icons.svg#on-the-way-16"></use>
+        </svg>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Icon Button Title</span>
+        <span class="toggle-button__subtitle">Icon Button Subtitle</span>
     </span>
 </button>
     {% endhighlight %}
