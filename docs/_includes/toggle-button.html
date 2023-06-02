@@ -139,15 +139,17 @@
 
     <h4>Toggle Button with Image, Title, and Subtitle</h4>
 
-    <p>To add an image to a toggle button, you can use the <span class="highlight">toggle-button__image</span> block.</p>
+    <p>To add an image to a toggle button, you can use the <span class="highlight">toggle-button__image-container</span> block using an <span class="highlight">&lt;img&gt;</span> or as a <span class="highlight">css</span> background.</p>
+
+    <h5>Using an Image with an &lt;img&gt; Tag</h5>
 
     <div class="demo">
         <div class="demo__inner">
             <button type="button" class="toggle-button" aria-pressed="false">
-                <span class="toggle-button__image">
-                    <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
-                        {% include symbol.html name="visa-32-colored" prefix="icon" %}
-                    </svg>
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+                    </span>
                 </span>
                 <span class="toggle-button__content">
                     <span class="toggle-button__title">Image Button Title</span>
@@ -159,10 +161,52 @@
 
     {% highlight html %}
 <button type="button" class="toggle-button" aria-pressed="false">
-    <span class="toggle-button__image">
-        <svg aria-hidden="true" class="icon icon--visa-32-colored" focusable="false" height="3" width="3">
-            <use href="static/icons.svg#icon-visa-32-colored"></use>
-        </svg>
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Image Button Title</span>
+        <span class="toggle-button__subtitle">Image Button Subtitle</span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h5>Using an Image with a CSS Background</h5>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">CSS Image Button 1</span>
+                    <span class="toggle-button__subtitle">With contained background size</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">CSS Image Button 2</span>
+                    <span class="toggle-button__subtitle">With cover background size</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button" aria-pressed="false">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+        </span>
     </span>
     <span class="toggle-button__content">
         <span class="toggle-button__title">Image Button Title</span>
@@ -203,15 +247,15 @@
 
     <h4>Toggle Button with Image</h4>
 
-    <p>To add an image to a toggle button, you can use the <span class="highlight">toggle-button__image</span> block.</p>
+    <p>To add an image to a toggle button, you can use the <span class="highlight">toggle-button__image-container</span> block.</p>
 
     <div class="demo">
         <div class="demo__inner">
             <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-                <span class="toggle-button__image">
-                    <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
-                        {% include symbol.html name="image-64" prefix="icon" %}
-                    </svg>
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+                    </span>
                 </span>
                 <span class="toggle-button__content">
                     <span class="toggle-button__title">Text Title</span>
@@ -223,7 +267,7 @@
 
     {% highlight html %}
 <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
-    <span class="toggle-button__image">
+    <span class="toggle-button__image-container">
         <svg aria-hidden="true" class="icon icon--image-64" focusable="false" height="64" width="64">
             <use href="static/icons.svg#icon-image-64"></use>
         </svg>
@@ -234,6 +278,170 @@
     </span>
 </button>
     {% endhighlight %}
+
+    <h3>Toggle Button Responsive Adjustments</h3>
+
+    <p>Toggle buttons have a mininum and maximum width and are meant to be fluid between those boundaries. If using these buttons separately, you will need to set up their combined high-level layouts on your own. In these examples, their widths are artificially/manually set to various widths to demonstrate how the buttons undergo responsive adjustments.</p>
+
+    <p>The image used in these buttons will shrink/grow responsively in width and height based on the overall button width.</p>
+
+    <h4>Resonsive Images Using &lt;img&gt; Tag</h4>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Minimum Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 260px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">260px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 342px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">342px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    {% highlight html %}
+<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Minimum Sized Button</span>
+        <span class="toggle-button__subtitle">Text Subtitle</span>
+    </span>
+</button>
+<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+    <span class="toggle-button__image-container" style="width: 260px;">
+        <span class="toggle-button__image">
+            <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">260px Sized Button</span>
+        <span class="toggle-button__subtitle">Text Subtitle</span>
+    </span>
+</button>
+<button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 342px;">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="{{ page.static_dir }}/img/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">342px Sized Button</span>
+        <span class="toggle-button__subtitle">Text Subtitle</span>
+    </span>
+</button>
+    {% endhighlight %}
+
+    <h4>Resonsive Images Using CSS Backgrounds</h4>
+
+    <p>These buttons use <span class="highlight">background-size: contain;</span> for background image scaling/filling.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Minimum Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 260px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">260px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 342px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">342px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <p>These buttons use <span class="highlight">background-size: cover;</span> for background image filling the alloted space. The following buttons have the background image positioning using <span class="highlight">background-position-y: 20%;</span>. Depending on your specific image, you may also need to adjust the background positioning along the x and y axis to ensure the main focal point remains visible and centered in your implementation.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-position-y: 20%; background-size: cover;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">Minimum Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 260px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-position-y: 20%; background-size: cover;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">260px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+
+            <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false" style="width: 342px;">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image" style="background-image: url('{{ page.static_dir }}/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-position-y: 20%; background-size: cover;">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">342px Sized Button</span>
+                    <span class="toggle-button__subtitle">Text Subtitle</span>
+                </span>
+            </button>
+        </div>
+    </div>
 
     <h4>Toggle Button with Icon</h4>
 
