@@ -1,4 +1,4 @@
-export default { title: "Toggle Button/List View Variations" };
+export default { title: "Skin/Toggle Button/List View Variations" };
 
 export const simpleText = () => `
 <button type="button" class="toggle-button" aria-pressed="false">

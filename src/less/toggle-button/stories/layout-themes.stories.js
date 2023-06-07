@@ -1,4 +1,4 @@
-export default { title: "Toggle Button/Layout Themes" };
+export default { title: "Skin/Toggle Button/Layout Themes" };
 
 export const minimalView = () => `
 <button type="button" class="toggle-button toggle-button-theme-minimal" aria-pressed="false">

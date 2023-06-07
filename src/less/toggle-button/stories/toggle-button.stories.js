@@ -1,4 +1,4 @@
-export default { title: "Toggle Button" };
+export default { title: "Skin/Toggle Button" };
 
 export const toggledOff = () => `
 <button type="button" class="toggle-button" aria-pressed="false">

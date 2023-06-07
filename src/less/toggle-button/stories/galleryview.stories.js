@@ -1,4 +1,4 @@
-export default { title: "Toggle Button/Gallery View Variations" };
+export default { title: "Skin/Toggle Button/Gallery View Variations" };
 
 export const iconTitleSubtitle = () => `
 <button type="button" class="toggle-button toggle-button-theme-gallery" aria-pressed="false">
