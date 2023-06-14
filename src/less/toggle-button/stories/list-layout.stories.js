@@ -1,6 +1,6 @@
 export default { title: "Skin/Toggle Button/List Layout" };
 
-export const simpleText = () => `
+export const titleOnly = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false">
     <span class="toggle-button__content">
         <span class="toggle-button__title">Simple Text Button</span>
@@ -39,6 +39,20 @@ export const iconTitleSubtitle = () => `
     <span class="toggle-button__content">
         <span class="toggle-button__title">Icon Button Title</span>
         <span class="toggle-button__subtitle">Icon Button Subtitle</span>
+    </span>
+</button>
+`;
+
+export const longTitle = () => `
+<button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false" style="width: 168px;">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Long Title for Toggle Button</span>
+        <span class="toggle-button__subtitle">Image Button Subtitle</span>
     </span>
 </button>
 `;
