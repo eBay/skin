@@ -48,8 +48,8 @@ document.getElementById('busy-button').addEventListener('click', function() {
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
-                <svg class="icon icon--spinner" focusable="false" height="24" width="24" aria-hidden="true" >
-                    <use href="static/icons.svg#icon-spinner"></use>
+                <svg class="icon icon--spinner-24" focusable="false" height="24" width="24" aria-hidden="true" >
+                    <use href="static/icons.svg#icon-spinner-24"></use>
                 </svg>
             </span>
         </span>
@@ -372,4 +372,13 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
     }));
 
     widgetEl.addEventListener('makeup-switch-toggle', logEvent);
+});
+
+// TOGGLE-BUTTON
+document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
+    elToggleButton.addEventListener("click", function() {
+        const isToggled = this.getAttribute('aria-pressed') === 'true';
+
+        this.setAttribute('aria-pressed', !isToggled);
+    });
 });
