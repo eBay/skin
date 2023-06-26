@@ -20,6 +20,16 @@ export const shortItems = () => `
     </div>
 `;
 
+export const large = () => `
+    <div class="segmented-buttons segmented-buttons--large">
+        <ul>
+            <li><button type="button" class="segmented-buttons__button" aria-current="true">Day</button></li>
+            <li><button type="button" class="segmented-buttons__button">Month</button></li>
+            <li><button type="button" class="segmented-buttons__button">Year</button></li>
+        </ul>
+    </div>
+`;
+
 export const withIcons = () => `
     <div class="segmented-buttons">
         <ul>

@@ -200,8 +200,8 @@ async function runSnapshots(storiesList, isDryRun) {
         yargs.argv.stories === undefined ? storiesList : yargs.argv.stories;
     const aStories = stories.split(",");
     const storiesReg = aStories.join("|");
-    const storiesRX = `^\\b(?:${storiesReg})\\b`;
-    const storiesRXString = "\\b(?:" + storiesReg + ")\\b";
+    const storiesRX = `^\\bSkin/\(?:${storiesReg})\\b`;
+    const storiesRXString = "\\bSkin/\\(?:" + storiesReg + ")\\b";
     const dryRun = yargs.argv.dry === undefined ? isDryRun : yargs.argv.dry;
     const percyExecutable = dryRun
         ? "snapshots:execute:dry"
