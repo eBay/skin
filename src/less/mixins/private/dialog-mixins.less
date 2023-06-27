@@ -38,6 +38,7 @@
     flex: 1 0 auto;
     flex-direction: column;
     min-height: 55px;
+    overflow: hidden;
     will-change: opacity, transform;
 }
 
@@ -49,6 +50,11 @@
     max-height: 90%;
     max-width: calc(100% - 32px);
     min-width: 208px;
+
+    & > img {
+        height: 218px;
+        object-fit: cover;
+    }
 }
 
 .dialog-header-content(@top-margin: @spacing-200) {
@@ -74,6 +80,13 @@
 
     & > :last-child:not(:only-child) {
         margin-left: @spacing-200;
+    }
+
+    img + & > :last-child:not(:only-child) {
+        margin: 0;
+        position: fixed;
+        right: @spacing-300;
+        top: @spacing-300;
     }
 }
 

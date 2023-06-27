@@ -27,12 +27,17 @@
   flex: 1 0 auto;
   flex-direction: column;
   min-height: 55px;
+  overflow: hidden;
   will-change: opacity, transform;
   border-radius: var(--lightbox-border-radius, var(--border-radius-100));
   margin: auto;
   max-height: 90%;
   max-width: calc(100% - 32px);
   min-width: 208px;
+}
+.lightbox-dialog__window > img {
+  height: 218px;
+  object-fit: cover;
 }
 .lightbox-dialog__header {
   display: flex;
@@ -55,6 +60,12 @@
 }
 .lightbox-dialog__header > :last-child:not(:only-child) {
   margin-left: 16px;
+}
+img + .lightbox-dialog__header > :last-child:not(:only-child) {
+  margin: 0;
+  position: fixed;
+  right: 24px;
+  top: 24px;
 }
 .lightbox-dialog__main {
   box-sizing: border-box;
@@ -159,5 +170,8 @@ button.icon-btn.lightbox-dialog__close {
   }
   .lightbox-dialog--wide .lightbox-dialog__window {
     max-width: var(--dialog-lightbox-wide-max-width);
+  }
+  .lightbox-dialog--wide .lightbox-dialog__window > img {
+    height: 256px;
   }
 }
