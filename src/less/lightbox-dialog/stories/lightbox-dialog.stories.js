@@ -25,7 +25,7 @@ export const base = () => `
 
 export const expressiveBase = () => `
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" role="dialog">
-    <div class="lightbox-dialog__window">
+    <div class="lightbox-dialog__window lightbox-dialog__window--expressive">
         <div class="lightbox-dialog__image" style="background-image:url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg)"></div>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
@@ -115,7 +115,7 @@ export const scrollingLightbox = () => `
 
 export const expressiveScrolling = () => `
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" role="dialog">
-    <div class="lightbox-dialog__window">
+    <div class="lightbox-dialog__window lightbox-dialog__window--expressive">
         <div class="lightbox-dialog__image" style="background-image:url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg)"></div>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
@@ -281,7 +281,7 @@ export const wide = () => `
 
 export const expressiveWide = () => `
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--wide" role="dialog">
-    <div class="lightbox-dialog__window">
+    <div class="lightbox-dialog__window lightbox-dialog__window--expressive">
         <div class="lightbox-dialog__image" style="background-image:url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg)"></div>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title">Dialog Lightbox</h2>
