@@ -419,10 +419,8 @@ document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
 // CHARACTER-METER-COUNTER
 const debouncedKeydown = debounce(function() {
     const elInput = arguments[0]
-        , elMeterGroup = arguments[1]
         , elMeter = arguments[2]
         , elMeterText = arguments[3]
-        , nHigh = arguments[4]
         , nMax = arguments[5]
         , sI18nPattern = `{0} of {1}`
         , nCharacters = elInput.value.length
