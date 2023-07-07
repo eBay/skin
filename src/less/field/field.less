@@ -34,6 +34,22 @@ div.field--table {
     display: table;
 }
 
+span.field--grid,
+div.field--grid {
+    align-items: center;
+    display: inline-grid;
+}
+
+span.field--grid.field--grid-fluid,
+div.field--grid.field--grid-fluid {
+    display: grid;
+    grid-template-columns: fit-content(300px) 10fr;
+}
+
+.field--grid-fluid .textbox__control {
+    width: 100%;
+}
+
 // ELEMENT CLASSES
 
 .field__label {
@@ -43,6 +59,8 @@ div.field--table {
 .field__description {
     .color-token(field-description-color, color-foreground-secondary);
     font-size: @font-size-small;
+    line-height: @spacing-200;
+    margin-top: @spacing-50;
 }
 
 .field__description--confirmation {
@@ -148,3 +166,72 @@ div.field__description {
     align-self: start;
     margin-top: 16px;
 }
+
+// field description and character meter counter groupings
+// common
+.field__character-meter {
+    color: var(--field-description-color, var(--color-foreground-secondary));
+    font-size: @font-size-small;
+    line-height: @spacing-200;
+    margin-left: @spacing-200;
+    margin-top: @spacing-50;
+}
+
+// when we only have the character meter and no description
+.field__helper-text-blocks .field__character-meter:first-child {
+    text-align: right;
+    width: 100%;
+}
+
+// unstacked
+.field--grid .field__label {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.field--grid .field__control,
+.field--grid .textbox {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.field--grid .field__helper-text-blocks {
+    align-items: center;
+    display: flex;
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: space-between;
+}
+// stacked
+.field--grid-stacked .field__label {
+    margin-bottom: @spacing-50;
+}
+
+.field--grid.field--grid-stacked.field--grid-fluid {
+    grid-template-columns: auto;
+}
+
+.field--grid.field--grid-stacked .field__control,
+.field--grid.field--grid-stacked .textbox {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.field--grid.field--grid-stacked .field__helper-text-blocks {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+// stylelint-disable no-descending-specificity
+[dir="rtl"] {
+    .field__label {
+        margin-left: @spacing-100;
+        margin-right: 0;
+    }
+
+    .field__character-meter {
+        margin-left: 0;
+        margin-right: @spacing-200;
+    }
+}
+// stylelint-enable no-descending-specificity

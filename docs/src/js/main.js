@@ -41,6 +41,39 @@ let progressBarInterval;
 
 const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no-console
 
+// Originally inspired by  David Walsh (https://davidwalsh.name/javascript-debounce-function)
+
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// `wait` milliseconds.
+const debounce = (func, wait) => {
+    let timeout;
+  
+    // This is the function that is returned and will be executed many times
+    // We spread (...args) to capture any number of parameters we want to pass
+    return function executedFunction(...args) {
+  
+      // The callback function to be executed after 
+      // the debounce time has elapsed
+      const later = () => {
+        // null timeout to indicate the debounce ended
+        timeout = null;
+        
+        // Execute the callback
+        func(...args);
+      };
+      // This will reset the waiting every function execution.
+      // This is the step that prevents the function from
+      // being executed because it will never reach the 
+      // inside of the previous setTimeout  
+      clearTimeout(timeout);
+      
+      // Restart the debounce waiting period.
+      // setTimeout returns a truthy value (it differs in web vs Node)
+      timeout = setTimeout(later, wait);
+    };
+};
+
 // BUSY BUTTON
 document.getElementById('busy-button').addEventListener('click', function() {
     const button = this;
@@ -381,4 +414,33 @@ document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
 
         this.setAttribute('aria-pressed', !isToggled);
     });
+});
+
+// CHARACTER-METER-COUNTER
+const debouncedKeydown = debounce(function() {
+    const elInput = arguments[0]
+        , elMeterGroup = arguments[1]
+        , elMeter = arguments[2]
+        , elMeterText = arguments[3]
+        , nHigh = arguments[4]
+        , nMax = arguments[5]
+        , sI18nPattern = `{0} of {1}`
+        , nCharacters = elInput.value.length
+    ;
+
+    elMeterText.textContent = sI18nPattern.replace('{0}',nCharacters).replace('{1}', nMax);
+    elMeter.value = nCharacters;
+
+}, 500);
+
+document.querySelectorAll('.field--grid').forEach(function(elCharMeterContainer) {
+    const elCharInput = elCharMeterContainer.querySelector('.textbox__control')
+        , elMeterGroup = elCharMeterContainer.querySelector('.field__character-meter')
+        , elMeter = elCharMeterContainer.querySelector('.field__character-meter_meter')
+        , elMeterText = elCharMeterContainer.querySelector('.field__character-meter_text')
+        , nHigh = 100
+        , nMax = 140
+    ;
+
+    elCharInput.addEventListener('keydown', debouncedKeydown.bind(this, elCharInput, elMeterGroup, elMeter, elMeterText, nHigh, nMax));
 });
