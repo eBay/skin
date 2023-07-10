@@ -1,4 +1,4 @@
-export default { title: "Details/Cascade" };
+export default { title: "Skin/Details/Cascade" };
 
 export const RTL = () => `
 <div dir="rtl">

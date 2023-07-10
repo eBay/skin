@@ -1,4 +1,4 @@
-export default { title: "Details" };
+export default { title: "Skin/Details" };
 
 export const closed = () => `
 <details class="details">

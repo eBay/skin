@@ -48,8 +48,8 @@ document.getElementById('busy-button').addEventListener('click', function() {
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
-                <svg class="icon icon--spinner" focusable="false" height="24" width="24" aria-hidden="true" >
-                    <use href="static/icons.svg#icon-spinner"></use>
+                <svg class="icon icon--spinner-24" focusable="false" height="24" width="24" aria-hidden="true" >
+                    <use href="static/icons.svg#icon-spinner-24"></use>
                 </svg>
             </span>
         </span>

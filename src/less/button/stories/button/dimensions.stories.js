@@ -1,4 +1,4 @@
-export default { title: "Button/Dimensions" };
+export default { title: "Skin/Button/Dimensions" };
 
 export const large = () => `
 <button type="button" class="btn btn--large">
@@ -8,6 +8,21 @@ export const large = () => `
     </span>
 </button>
 `;
+
+export const small = () => `
+<button type="button" class="btn btn--small">
+    <span class="btn__cell">
+        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
+        <span>Button</span>
+    </span>
+</button>
+`;
+
+export const formLarge = () =>
+    '<button class="btn btn--form btn--large">Button</button>';
+
+export const formSmall = () =>
+    '<button class="btn btn--form btn--small">Button</button>';
 
 export const fluid = () => '<button class="btn btn--fluid">Button</button>';
 

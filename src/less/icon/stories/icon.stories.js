@@ -1,4 +1,4 @@
-export default { title: "Icon" };
+export default { title: "Skin/Icon" };
 
 export const insideHeading = () => `
 <h2>

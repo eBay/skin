@@ -1,4 +1,4 @@
-export default { title: "Tooltip" };
+export default { title: "Skin/Tooltip" };
 
 export const collapsed = () => `
 <span class="tooltip">

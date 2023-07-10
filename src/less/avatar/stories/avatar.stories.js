@@ -1,4 +1,4 @@
-export default { title: "Avatar" };
+export default { title: "Skin/Avatar" };
 
 export const base = () => /* HTML */ ` <div class="avatar">E</div> `;
 

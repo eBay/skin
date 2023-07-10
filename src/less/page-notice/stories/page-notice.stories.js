@@ -1,4 +1,4 @@
-export default { title: "Page Notice" };
+export default { title: "Skin/Page Notice" };
 
 export const general = () => `
 <section class="page-notice page-notice--general" role="region" aria-label="Information">

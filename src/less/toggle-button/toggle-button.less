@@ -2,10 +2,10 @@
 
 :root {
     --toggle-button-height-min: 72px;
+    --toggle-button-width-min: 72px;
     --toggle-button-width-max: 342px;
-    --toggle-button-width-min: 224px;
-    --toggle-button-minimal-width-min: 72px;
-    --toggle-button-minimal-width-max: 168px;
+    --toggle-button-list-width-min: 224px;
+    --toggle-button-list-width-max: 342px;
     --toggle-button-gallery-width-min: 168px;
     --toggle-button-gallery-width-max: 342px;
 }
@@ -18,6 +18,8 @@
     color: var(--color-foreground-primary);
     display: inline-flex;
     font-size: @font-size-14;
+    justify-content: center;
+    margin-right: @spacing-100;
     margin-top: auto;
     max-width: var(--toggle-button-width-max);
     min-height: var(--toggle-button-height-min);
@@ -52,15 +54,27 @@
     margin-top: @spacing-200;
 }
 
-.toggle-button__image {
+.toggle-button__image-container {
     align-self: center;
     margin-bottom: @spacing-200;
     margin-right: @spacing-200;
     margin-top: @spacing-200;
 }
 
-.toggle-button__image svg.icon {
+.toggle-button__image-container svg.icon {
     height: 100%;
+}
+
+.toggle-button__image-container img {
+    height: 100%;
+    max-height: 56px;
+    max-width: 56px;
+}
+
+.toggle-button__image {
+    display: inline-block;
+    height: 56px;
+    width: 56px;
 }
 
 .toggle-button__title {
@@ -99,24 +113,53 @@
 }
 
 /* Layout Themes */
-.toggle-button-theme-minimal {
-    justify-content: center;
-    max-width: var(--toggle-button-minimal-width-max);
-    min-width: var(--toggle-button-minimal-width-min);
+.toggle-button--list-layout {
+    justify-content: left;
+    max-width: var(--toggle-button-list-width-max);
+    min-width: var(--toggle-button-list-width-min);
 }
 
-.toggle-button-theme-gallery {
+.toggle-button--gallery-layout {
     flex-direction: column;
+    justify-content: left;
     max-width: var(--toggle-button-gallery-width-max);
     min-width: var(--toggle-button-gallery-width-min);
 }
 
-.toggle-button-theme-gallery .toggle-button__image,
-.toggle-button-theme-gallery .toggle-button__icon {
-    margin-bottom: 0;
-    margin-right: 0;
+.toggle-button--gallery-layout .toggle-button__content {
+    align-self: self-start;
 }
 
-.toggle-button-theme-gallery .toggle-button__icon ~ .toggle-button__content {
+.toggle-button--gallery-layout .toggle-button__image-container,
+.toggle-button--gallery-layout .toggle-button__icon {
+    margin-bottom: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.toggle-button--gallery-layout .toggle-button__image-container {
+    padding-bottom: 60%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.toggle-button--gallery-layout .toggle-button__image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.toggle-button--gallery-layout .toggle-button__image-container img {
+    height: 100%;
+    max-height: 200px;
+    max-width: initial;
+}
+
+.toggle-button--gallery-layout .toggle-button__icon ~ .toggle-button__content {
     align-self: flex-start;
 }

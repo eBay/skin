@@ -1,4 +1,4 @@
-export default { title: "Listbox Button/Form" };
+export default { title: "Skin/Listbox Button/Form" };
 
 export const enabled = () => `
 <span class="listbox-button listbox-button--form">

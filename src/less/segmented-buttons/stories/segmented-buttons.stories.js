@@ -1,4 +1,4 @@
-export default { title: "Segmented Buttons" };
+export default { title: "Skin/Segmented Buttons" };
 export const base = () => `
     <div class="segmented-buttons">
         <ul>
@@ -16,6 +16,16 @@ export const shortItems = () => `
             <li><button type="button" class="segmented-buttons__button" aria-current="true">Q2</button></li>
             <li><button type="button" class="segmented-buttons__button">Q3</button></li>
             <li><button type="button" class="segmented-buttons__button">Q4</button></li>
+        </ul>
+    </div>
+`;
+
+export const large = () => `
+    <div class="segmented-buttons segmented-buttons--large">
+        <ul>
+            <li><button type="button" class="segmented-buttons__button" aria-current="true">Day</button></li>
+            <li><button type="button" class="segmented-buttons__button">Month</button></li>
+            <li><button type="button" class="segmented-buttons__button">Year</button></li>
         </ul>
     </div>
 `;

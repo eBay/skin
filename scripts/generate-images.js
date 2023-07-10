@@ -132,7 +132,10 @@ class GenerateImages {
         const symbol = symbols.querySelector("svg");
 
         const nameObj = stripName(filename);
-        if (config.skipDocs.indexOf(nameObj.simpleName) === -1) {
+        if (
+            config.skipDocs.indexOf(nameObj.simpleName) === -1 &&
+            config.deprecated.indexOf(nameObj.simpleName) === -1
+        ) {
             this.imageList.push(nameObj.fullName);
         }
 
