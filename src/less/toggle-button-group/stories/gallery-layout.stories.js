@@ -9,7 +9,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -21,7 +21,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -33,7 +33,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -45,7 +45,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -57,7 +57,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -69,7 +69,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -81,7 +81,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -93,7 +93,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -105,7 +105,7 @@ export const _2Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -122,7 +122,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -134,7 +134,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -146,7 +146,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -158,7 +158,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -170,7 +170,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -182,7 +182,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -194,7 +194,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -206,7 +206,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -218,7 +218,7 @@ export const _3Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -235,7 +235,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -247,7 +247,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -259,7 +259,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -271,7 +271,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -283,7 +283,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -295,7 +295,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -307,7 +307,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -319,7 +319,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -331,7 +331,7 @@ export const _4Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -348,7 +348,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -360,7 +360,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -372,7 +372,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -384,7 +384,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -396,7 +396,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -408,7 +408,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -420,7 +420,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -432,7 +432,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -444,7 +444,7 @@ export const _5Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -461,7 +461,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -473,7 +473,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -485,7 +485,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -497,7 +497,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -509,7 +509,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -521,7 +521,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -533,7 +533,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -545,7 +545,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
@@ -557,7 +557,7 @@ export const _6Column = () => `
                 </span>
             </span>
             <span class="toggle-button__content">
-                <span class="toggle-button__title">List Layout Title</span>
+                <span class="toggle-button__title">Gallery Layout Title</span>
                 <span class="toggle-button__subtitle">Subtitle</span>
             </span>
         </button>
