@@ -48,26 +48,26 @@ const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no
 // `wait` milliseconds.
 const debounce = (func, wait) => {
     let timeout;
-  
+
     // This is the function that is returned and will be executed many times
     // We spread (...args) to capture any number of parameters we want to pass
     return function executedFunction(...args) {
-  
-      // The callback function to be executed after 
+
+      // The callback function to be executed after
       // the debounce time has elapsed
       const later = () => {
         // null timeout to indicate the debounce ended
         timeout = null;
-        
+
         // Execute the callback
         func(...args);
       };
       // This will reset the waiting every function execution.
       // This is the step that prevents the function from
-      // being executed because it will never reach the 
-      // inside of the previous setTimeout  
+      // being executed because it will never reach the
+      // inside of the previous setTimeout
       clearTimeout(timeout);
-      
+
       // Restart the debounce waiting period.
       // setTimeout returns a truthy value (it differs in web vs Node)
       timeout = setTimeout(later, wait);
@@ -417,28 +417,33 @@ document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
 });
 
 // CHARACTER-METER-COUNTER
-const debouncedKeydown = debounce(function() {
-    const elInput = arguments[0]
-        , elMeter = arguments[2]
-        , elMeterText = arguments[3]
-        , nMax = arguments[5]
-        , sI18nPattern = `{0} of {1}`
-        , nCharacters = elInput.value.length
-    ;
+const debouncedKeydown = debounce(function(elInput, elMeterText) {
+    let ariaLive = 'off'
+    const characterCount = elInput.value.length;
+    // Match the text to get the max and current character count
+    const text = elMeterText.innerHTML.split(/([0-9]+)( \w+ )([0-9]+)/g);
 
-    elMeterText.textContent = sI18nPattern.replace('{0}',nCharacters).replace('{1}', nMax);
-    elMeter.value = nCharacters;
+    if (text.length <= 1) {
+        return;
+    }
+    text[1] = characterCount;
+    const maxCharacterCount = text[3];
 
+    elMeterText.innerHTML = text.join('');
+
+    if (characterCount + 10 >= maxCharacterCount) {
+        ariaLive = 'polite';
+    }
+
+    elInput.setAttribute('aria-live', ariaLive);
 }, 500);
 
-document.querySelectorAll('.field--grid').forEach(function(elCharMeterContainer) {
-    const elCharInput = elCharMeterContainer.querySelector('.textbox__control')
-        , elMeterGroup = elCharMeterContainer.querySelector('.field__character-meter')
-        , elMeter = elCharMeterContainer.querySelector('.field__character-meter_meter')
-        , elMeterText = elCharMeterContainer.querySelector('.field__character-meter_text')
-        , nHigh = 100
-        , nMax = 140
-    ;
+document.querySelectorAll('.field').forEach(function(elCharContainer) {
+    const elInput = elCharContainer.querySelector('input,textarea')
+    const characterCount = elInput && elInput.dataset.fieldCount;
+    if (characterCount) {
+        const elMeterText = elCharContainer.querySelector(`#${characterCount}`);
+        elInput.addEventListener('keydown', debouncedKeydown.bind(this, elInput, elMeterText));
 
-    elCharInput.addEventListener('keydown', debouncedKeydown.bind(this, elCharInput, elMeterGroup, elMeter, elMeterText, nHigh, nMax));
+    }
 });

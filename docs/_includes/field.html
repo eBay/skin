@@ -961,31 +961,27 @@
 </div>
         {% endhighlight %}
 
-    <h3 id="field-character-meter">Field Character Meter/Count</h3>
-    <p>A field may have a character meter section typically under the input and aligned to the right.</p>
+    <h3 id="field-character-count">Field Character Count</h3>
+    <p>A field may have a character count section typically under the input and aligned to the right.</p>
 
-    This variant adds a top-level container that houses both the field description and character meter, though field description or error is not necessary.
+    This variant adds a top-level container that houses both the field description and the character count, though field description or error is not necessary.
 
-    <p><strong>TIP:</strong> The character meter container element should be designated as an ARIA <a href="https://ebay.gitbook.io/mindpatterns/techniques/live-region">live-region</a> that is off by default. There is also a <span class="highlight">meter</span> element that relays the typing progress. However, care should be taken using JavaScript to avoid updates that might be too frequent so as to avoid overwhelming screen reader users. DOM updates should <strong>NOT</strong> be made on every keystroke, but after a brief pause in typing. One method would be to use debounce on key strokes using JavaScript. A good pause timeout to use is <span class="highlight">500ms</span>.</p>
+    <p>In order to be accessible, the character count should have a clipped element to describe what it is. At the same time, aria-describedby should be added to the input element that points to the character count element. Finally, <span class="highlight">aria-live</span> should be off by default, but if it reaches 10 characters or over the current max characters, then it should be changed to polite. Once it goes back down below 10 characters the max, it should go back to off.</p>
 
-    <h4>Unstacked Field with Character Meter Only</h4>
-    <p>A character meter can be added by utilizing CSS grid via the <span class="highlight">field--grid</span> field modifier and the addition of the relevant markup below for the <span class="highlight">meter</span> element with its container.</p>
+    <h4>Field with Character Count Only</h4>
+    <p>Character character can be added by utlising CSS grid via the <span class="highlight">field__description--group</span> modifier and the addition of the relevant markup. By default if there is only one element in the group, it will align to the right</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="field field--grid">
-                <label class="field__label" for="field-character-meter-1-input">Field 1</label>
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-character-2-input">Field 2</label>
                 <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-1-metergroup" class="textbox__control" id="field-character-meter-1-input" />
+                    <input type="text" maxlength="140" aria-describedby="field-character-2" class="textbox__control" id="field-character-2-input" aria-live="off"  data-field-count="field-character-2"/>
                 </span>
-
-                <span class="field__helper-text-blocks">
-                    <div id="field-character-meter-1-metergroup" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-                        <div id="field-character-meter-1" class="field__character-meter_text">
-                            0 of 140
-                        </div>
+                <div class="field__description field__description--group">
+                    <div id="field-character-2">
+                        0 of 140
+                        <span class="clipped"> charaters</span>
                     </div>
                 </span>
             </span>
@@ -993,259 +989,90 @@
     </div>
 
 {% highlight html %}
-<span class="field field--grid">
-    <label class="field__label" for="field-character-meter-1-input">Field 1</label>
+<span class="field">
+    <label class="field__label field__label--stacked" for="field-character-2-input">Field 2</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-1-metergroup" class="textbox__control" id="field-character-meter-1-input" />
+        <input type="text" maxlength="140" aria-describedby="field-character-2" class="textbox__control" id="field-character-2-input" aria-live="off" />
     </span>
-
-    <span class="field__helper-text-blocks">
-        <div id="field-character-meter-1-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-1" class="field__character-meter_text">
-                0 of 140
-            </div>
+    <div class="field__description field__description--group">
+        <div id="field-character-2">
+            0 of 140
+            <span class="clipped"> charaters</span>
         </div>
     </span>
 </span>
 {% endhighlight %}
 
-    <h4>Stacked Field with Character Meter Only</h4>
-    <p>A stacked character meter can be added by utlising CSS grid via the <span class="highlight">field--grid</span> and <span class="highlight">field--grid-stacked</span> modifier and the addition of the relevant markup.</p>
+    <h4>Field Description and Character Count</h4>
+    <p>A field description (or error) and character count can be added by adding an element before the field count. It will left align the description and right align the character count.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <span class="field field--grid field--grid-stacked">
-                <label class="field__label" for="field-character-meter-2-input">Field 2</label>
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-character-2-input">Field 2</label>
                 <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-2-metergroup" class="textbox__control" id="field-character-meter-2-input" />
+                    <input type="text" maxlength="140" aria-describedby="field-describe-3 field-character-3" class="textbox__control" aria-live="off" data-field-count="field-character-3"/>
                 </span>
-
-                <span class="field__helper-text-blocks">
-                    <div id="field-character-meter-2-metergroup" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-                        <div id="field-character-meter-2" class="field__character-meter_text">
-                            0 of 140
-                        </div>
-                    </div>
-                </span>
-            </span>
-        </div>
-    </div>
-
-{% highlight html %}
-<span class="field field--grid field--grid-stacked">
-    <label class="field__label" for="field-character-meter-2-input">Field 2</label>
-    <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-2-metergroup" class="textbox__control" id="field-character-meter-2-input" />
-    </span>
-
-    <span class="field__helper-text-blocks">
-        <div id="field-character-meter-2-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-2" class="field__character-meter_text">
-                0 of 140
-            </div>
-        </div>
-    </span>
-</span>
-{% endhighlight %}
-
-    <h4>Unstacked Field Description and Character Meter</h4>
-    <p>A field description (or error) and character meter can be added by using CSS grid via the <span class="highlight">field--grid</span> modifier with the relevant markup for the description.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="field field--grid">
-                <label class="field__label" for="field-character-meter-3-input">Field 3</label>
-                <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-3-description field-character-meter-3-metergroup" class="textbox__control" id="field-character-meter-3-input" />
-                </span>
-
-                <span class="field__helper-text-blocks">
-                    <span id="field-character-meter-3-description" class="field__description">
-                        Field description or error
+                <div class="field__description field__description--group">
+                    <span id="field-describe-3">Field description or error</span>
+                    <span id="field-character-3">
+                        0 of 140
+                        <span class="clipped"> charaters</span>
                     </span>
-                    <div id="id="field-character-meter-3-metergroup"" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-                        <div id="field-character-meter-3" class="field__character-meter_text">
-                            0 of 140
-                        </div>
-                    </div>
-                </span>
-            </span>
+                </div>
+           </span>
         </div>
     </div>
     {% highlight html %}
-<span class="field field--grid">
-    <label class="field__label" for="field-character-meter-3-input">Field 3</label>
+<span class="field">
+    <label class="field__label field__label--stacked" for="field-character-2-input">Field 2</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-3-description field-character-meter-3-metergroup" class="textbox__control" id="field-character-meter-3-input" />
+        <input type="text" maxlength="140" aria-describedby="field-describe-3 field-character-3" class="textbox__control" aria-live="off"/>
     </span>
-
-    <span class="field__helper-text-blocks">
-        <span id="field-character-meter-3-description" class="field__description">
-            Field description or error
+    <div class="field__description field__description--group">
+        <span id="field-describe-3">Field description or error</span>
+        <span id="field-character-3">
+            0 of 140
+            <span class="clipped"> charaters</span>
         </span>
-        <div id="field-character-meter-3-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-3" class="field__character-meter_text">
-                0 of 140
-            </div>
-        </div>
-    </span>
+    </div>
 </span>
     {% endhighlight %}
 
-    <h4>Stacked Field Description and Character Meter</h4>
-    <p>A stacked field description (or error) and character meter can be added directly below the control by using CSS grid via the <span class="highlight">field--grid</span> and <span class="highlight">field--grid-stacked</span> modifiers respectively with the relevant markup.</p>
+    <h4>Field Description and Character Count with Text area</h4>
+    <p>A field description (or error) and character count can also be added to a text area. Use similar markup as before but add a textarea element.</p>
+
     <div class="demo">
         <div class="demo__inner">
-            <span class="field field--grid field--grid-stacked">
-                <label class="field__label" for="field-character-meter-4-input">Field 4</label>
+            <span class="field">
+                <label class="field__label field__label--stacked" for="field-textarea-2">Field 2</label>
                 <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-4-description field-character-meter-4-metergroup" class="textbox__control" id="field-character-meter-4-input" />
-                </span>
+                    <textarea class="textbox__control" id="field-textarea-2" aria-describedby="field-character-4" aria-live="off"  data-field-count="field-character-4"></textarea>
 
-                <span class="field__helper-text-blocks">
-                    <span id="field-character-meter-4-description" class="field__description">
-                        Field description or error
+                </span>
+                <div class="field__description field__description--group">
+                    <span>Field description or error</span>
+                    <span id="field-character-4">
+                        0 of 140
+                        <span class="clipped"> charaters</span>
                     </span>
-
-                    <div id="field-character-meter-4-metergroup" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-            
-                        <div id="field-character-meter-4" class="field__character-meter_text">
-                            0 of 140
-                        </div>
-                    </div>
-                </span>
-            </span>
+                </div>
+           </span>
         </div>
     </div>
     {% highlight html %}
-<span class="field field--grid field--grid-stacked">
-    <label class="field__label" for="field-character-meter-4-input">Field 4</label>
+<span class="field">
+    <label class="field__label field__label--stacked" for="field-textarea-2">Field 2</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-4-description field-character-meter-4-metergroup" class="textbox__control" id="field-character-meter-4-input" />
+        <textarea class="textbox__control" id="field-textarea-2" aria-describedby="field-describe-4 field-character-4" aria-live="off"></textarea>
     </span>
-
-    <span class="field__helper-text-blocks">
-        <span id="field-character-meter-4-description" class="field__description">
-            Field description or error
+    <div class="field__description field__description--group">
+        <span id="field-describe-4">Field description or error</span>
+        <span id="field-character-4">
+            0 of 140
+            <span class="clipped"> charaters</span>
         </span>
-
-        <div id="field-character-meter-4-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-4" class="field__character-meter_text">
-                0 of 140
-            </div>
-        </div>
-    </span>
-</span>
-    {% endhighlight %}
-
-    <h4>Unstacked + Fluid Layout Field Description and Character Meter</h4>
-    <p>A fluid, unstacked field description (or error) and character meter can be added directly below the control by using CSS grid via the <span class="highlight">field--grid</span>, <span class="highlight">field--grid-fluid</span> modifiers respectively with the relevant markup.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="field field--grid field--grid-fluid">
-                <label class="field__label" for="field-character-meter-5-input">Field 5</label>
-                <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-5-description field-character-meter-5-metergroup " class="textbox__control" id="field-character-meter-5-input" />
-                </span>
-
-                <span class="field__helper-text-blocks">
-                    <span id="field-character-meter-5-description" class="field__description">
-                        Field description or error
-                    </span>
-
-                    <div id="field-character-meter-5-metergroup" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-            
-                        <div id="field-character-meter-5" class="field__character-meter_text">
-                            0 of 140
-                        </div>
-                    </div>
-                </span>
-            </span>
-        </div>
     </div>
-    {% highlight html %}
-<span class="field field--grid field--grid-fluid">
-    <label class="field__label" for="field-character-meter-5-input">Field 5</label>
-    <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-5-description field-character-meter-5-metergroup" class="textbox__control" id="field-character-meter-5-input" />
-    </span>
-
-    <span class="field__helper-text-blocks">
-        <span id="field-character-meter-5-description" class="field__description">
-            Field description or error
-        </span>
-
-        <div id="field-character-meter-5-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-5" class="field__character-meter_text">
-                0 of 140
-            </div>
-        </div>
-    </span>
-</span>
-    {% endhighlight %}
-
-    <h4>Stacked + Fluid Layout Field Description and Character Meter</h4>
-    <p>A fluid, stacked field description (or error) and character meter can be added directly below the control by using CSS grid via the <span class="highlight">field--grid</span>, <span class="highlight">field--grid-fluid</span>, <span class="highlight">field--grid-stacked</span> modifiers respectively with the relevant markup.</p>
-    <div class="demo">
-        <div class="demo__inner">
-            <span class="field field--grid field--grid-fluid field--grid-stacked">
-                <label class="field__label" for="field-character-meter-6-input">Field 6</label>
-                <span class="field__control textbox">
-                    <input type="text" maxlength="140" aria-describedby="field-character-meter-6-description field-character-meter-6-metergroup" class="textbox__control" id="field-character-meter-6-input" />
-                </span>
-
-                <span class="field__helper-text-blocks">
-                    <span id="field-character-meter-6-description" class="field__description">
-                        Field description or error
-                    </span>
-
-                    <div id="field-character-meter-6-metergroup" class="field__character-meter">
-                        <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-            
-                        <div id="field-character-meter-6" class="field__character-meter_text">
-                            0 of 140
-                        </div>
-                    </div>
-                </span>
-            </span>
-        </div>
-    </div>
-    {% highlight html %}
-<span class="field field--grid field--grid-fluid field--grid-stacked">
-    <label class="field__label" for="field-character-meter-6-input">Field 6</label>
-    <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-meter-6-description field-character-meter-6-metergroup" class="textbox__control" id="field-character-meter-6-input" />
-    </span>
-
-    <span class="field__helper-text-blocks">
-        <span id="field-character-meter-6-description" class="field__description">
-            Field description or error
-        </span>
-
-        <div id="field-character-meter-6-metergroup" class="field__character-meter">
-            <meter aria-label="Characters Remaining" class="field__character-meter_meter clipped" high="100" low="30" min="0" max="140" value="0"></meter>
-
-            <div id="field-character-meter-6" class="field__character-meter_text">
-                0 of 140
-            </div>
-        </div>
-    </span>
 </span>
     {% endhighlight %}
 
