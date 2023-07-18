@@ -32,6 +32,24 @@ export const descriptionCharacterMeter = () => `
 </span>
 `;
 
+export const longDescriptionCharacterMeter = () => `
+<span class="field" style="width:200px">
+    <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
+    <span class="field__control textbox">
+        <input type="text" maxlength="140" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
+    </span>
+
+    <div class="field__description field__description--group">
+        <span id="field-character-1-description">
+            Field description or error which is long and should wrap to next line
+        </span>
+        <span id="field-character-1">
+            0 of 140
+        </span>
+    </div>
+</span>
+`;
+
 export const fluidDescriptionCharacterMeter = () => `
 <div class="field fluid">
     <label class="field__label field__label--stacked" for="field-character-3-input">Field 1</label>
