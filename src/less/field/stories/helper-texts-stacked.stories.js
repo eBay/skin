@@ -4,7 +4,7 @@ export const characterMeterOnly = () => `
 <span class="field">
     <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
+        <input type="text" aria-describedby="field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
     </span>
     <div class="field__description field__description--group">
         <span id="field-character-1">
@@ -18,7 +18,7 @@ export const descriptionCharacterMeter = () => `
 <span class="field ">
     <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
+        <input type="text" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
     </span>
 
     <div class="field__description field__description--group">
@@ -36,7 +36,7 @@ export const longDescriptionCharacterMeter = () => `
 <span class="field" style="width:200px">
     <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
     <span class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
+        <input type="text" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
     </span>
 
     <div class="field__description field__description--group">
@@ -54,7 +54,7 @@ export const fluidDescriptionCharacterMeter = () => `
 <div class="field fluid">
     <label class="field__label field__label--stacked" for="field-character-3-input">Field 1</label>
     <div class="field__control textbox">
-        <input type="text" maxlength="140" aria-describedby="field-character-3-description field-character-1" class="textbox__control textbox__control--fluid" id="field-character-3-input" aria-live="off" />
+        <input type="text" aria-describedby="field-character-3-description field-character-1" class="textbox__control textbox__control--fluid" id="field-character-3-input" aria-live="off" />
     </div>
     <div class="field__description field__description--group">
         <span id="field-character-1-description">
@@ -72,7 +72,7 @@ export const RTL = () => `
     <span class="field ">
         <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
         <span class="field__control textbox">
-            <input type="text" maxlength="140" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
+            <input type="text" aria-describedby="field-character-1-description field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off" />
         </span>
 
         <div class="field__description field__description--group">
@@ -87,7 +87,7 @@ export const RTL = () => `
     <span class="field ">
         <label class="field__label field__label--stacked" for="field-character-1-input">Field 1</label>
         <span class="field__control textbox">
-            <input type="text" maxlength="140" aria-describedby="field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off"  />
+            <input type="text" aria-describedby="field-character-1" class="textbox__control" id="field-character-1-input" aria-live="off"  />
         </span>
 
         <div class="field__description field__description--group">
@@ -99,7 +99,7 @@ export const RTL = () => `
     <div class="field fluid">
         <label class="field__label field__label--stacked" for="field-character-3-input">Field 1</label>
         <div class="field__control textbox">
-            <input type="text" maxlength="140" aria-describedby="field-character-3-description field-character-1" class="textbox__control textbox__control--fluid" id="field-character-3-input" aria-live="off" />
+            <input type="text" aria-describedby="field-character-3-description field-character-1" class="textbox__control textbox__control--fluid" id="field-character-3-input" aria-live="off" />
         </div>
         <div class="field__description field__description--group">
             <span id="field-character-1-description">

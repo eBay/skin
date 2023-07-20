@@ -431,7 +431,7 @@ const debouncedKeydown = debounce(function(elInput, elMeterText) {
 
     elMeterText.innerHTML = text.join('');
 
-    if (characterCount + 10 >= maxCharacterCount) {
+    if (characterCount >= maxCharacterCount) {
         ariaLive = 'polite';
     }
 
