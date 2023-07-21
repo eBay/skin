@@ -41,6 +41,39 @@ let progressBarInterval;
 
 const logEvent = (e) => console.log(e.type, e.detail); // eslint-disable-line no-console
 
+// Originally inspired by  David Walsh (https://davidwalsh.name/javascript-debounce-function)
+
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// `wait` milliseconds.
+const debounce = (func, wait) => {
+    let timeout;
+
+    // This is the function that is returned and will be executed many times
+    // We spread (...args) to capture any number of parameters we want to pass
+    return function executedFunction(...args) {
+
+      // The callback function to be executed after
+      // the debounce time has elapsed
+      const later = () => {
+        // null timeout to indicate the debounce ended
+        timeout = null;
+
+        // Execute the callback
+        func(...args);
+      };
+      // This will reset the waiting every function execution.
+      // This is the step that prevents the function from
+      // being executed because it will never reach the
+      // inside of the previous setTimeout
+      clearTimeout(timeout);
+
+      // Restart the debounce waiting period.
+      // setTimeout returns a truthy value (it differs in web vs Node)
+      timeout = setTimeout(later, wait);
+    };
+};
+
 // BUSY BUTTON
 document.getElementById('busy-button').addEventListener('click', function() {
     const button = this;
@@ -472,3 +505,34 @@ document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
         }
     });
 })();
+// CHARACTER-METER-COUNTER
+const debouncedKeydown = debounce(function(elInput, elMeterText) {
+    let ariaLive = 'off'
+    const characterCount = elInput.value.length;
+    // Match the text to get the max and current character count
+    const text = elMeterText.innerHTML.split(/([0-9]+)( \w+ )([0-9]+)/g);
+
+    if (text.length <= 1) {
+        return;
+    }
+    text[1] = characterCount;
+    const maxCharacterCount = text[3];
+
+    elMeterText.innerHTML = text.join('');
+
+    if (characterCount >= maxCharacterCount) {
+        ariaLive = 'polite';
+    }
+
+    elInput.setAttribute('aria-live', ariaLive);
+}, 500);
+
+document.querySelectorAll('.field').forEach(function(elCharContainer) {
+    const elInput = elCharContainer.querySelector('input,textarea')
+    const characterCount = elInput && elInput.dataset.fieldCount;
+    if (characterCount) {
+        const elMeterText = elCharContainer.querySelector(`#${characterCount}`);
+        elInput.addEventListener('keydown', debouncedKeydown.bind(this, elInput, elMeterText));
+
+    }
+});
