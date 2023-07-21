@@ -98,6 +98,117 @@
 </ul>
 {% endhighlight %}
 
+    <h3>Interaction Variations of Toggle Button Groups</h3>
+
+    <p>There are three different types of toggle button groups that may be utilized based on interaction need.</p>
+
+    <ol>
+        <li>Multi-select: this is a freeform implementations in which the user can toggle and untoggle any button.</li>
+        <li>Single-select Optional: only one button can be toggled on at any given time and the user CAN untoggle that one button.</li>
+        <li>Single-select Required: only one button can be toggled on at any given time and the user CANNOT untoggle that one button.</li>
+    </ol>
+
+    <p>If you're using Skin outside of a <span class="highlight">JavaScript</span> framework, you will need to write your own <span class="highlight">js</span> code to accomplish these interactivity cases.</p>
+
+    <p>It's generally good practice to use delegated event handlers that allow you to set up a a single event handler for the group of buttons instead of on every button.</p>
+
+    The following examples use an HTML attribute to disitnguish the interaction variations. Using <span class="highlight">data-selection-type</span>. For the associated <span class="highlight">js</span> please see <span class="highlight">/docs/src/js/main.js</span> (TOGGLE-BUTTON-GROUP section) for an example on how the implementation may be accomplished.
+
+    <h4>Multi-select</h4>
+    <p>The Multi-select variation is the default so nothing is specified in the markup.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <h5 id="toggle-button-group-x">Select Sizes</h5>
+            <ul aria-labelledby="toggle-button-group-x" class="toggle-button-group" data-columns="3">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">4.5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5.5</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h4>Single-select Optional</h4>
+    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-optional"</span> is used to split off the variation interactivity.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <h5 id="toggle-button-group-x">Select Sizes</h5>
+            <ul aria-labelledby="toggle-button-group-x" class="toggle-button-group" data-columns="3" data-selection-type="single-optional">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">4.5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5.5</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h4>Single-select Required</h4>
+    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-required"</span> is used to split off the variation interactivity.
+
+    <div class="demo">
+        <div class="demo__inner">
+            <h5 id="toggle-button-group-x">Select Sizes</h5>
+            <ul aria-labelledby="toggle-button-group-x" class="toggle-button-group" data-columns="3" data-selection-type="single-required">
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">4.5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5</span>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="toggle-button" aria-pressed="false">
+                        <span class="toggle-button__content">
+                            <span class="toggle-button__title">5.5</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <h3>Prescriptive Responsive Layouts Using Preferred Minimum Columns</h3>
     
     <p>You can provide the preferred minimum number of columns to display per row by adding the attribute <span class="highlight">data-columns="x"</span> to the Toggle Button Group where <span class="highlight">x</span> is how many buttons you'd prefer to have display per row. Keep in mind, however, that this doesn't guarantee you will end up with the number of columns specified as the preference. The columns will responsively shrink and stretch to the limits of min/max widths of the specific type of button in use and attempt to fit the buttons nicely within the container.</p>
