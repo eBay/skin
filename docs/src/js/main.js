@@ -409,6 +409,12 @@ document.querySelectorAll('.switch:not(.switch--form)').forEach(function(widgetE
 
 // TOGGLE-BUTTON
 document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
+    const elGroupPrent = elToggleButton.closest(".toggle-button-group");
+
+    // exit if toggle button IS inside a toggle button group
+    // since that will be a separate delegated event handler with params for variations
+    if (elGroupPrent) return;
+
     elToggleButton.addEventListener("click", function() {
         const isToggled = this.getAttribute('aria-pressed') === 'true';
 
@@ -416,6 +422,89 @@ document.querySelectorAll('.toggle-button').forEach(function(elToggleButton) {
     });
 });
 
+// TOGGLE-BUTTON-GROUP
+(function(){
+    const sSelectorButtonGroups = ".toggle-button-group",
+        sSelectorButtons = ".toggle-button",
+        sAriaSelectedAttr = "aria-pressed"
+    ;
+    document.querySelectorAll(sSelectorButtonGroups).forEach(function (elToggleButtonGroup) {
+        elToggleButtonGroup.addEventListener("click", function (event) {
+            const sSelectionType = this.getAttribute(
+                "data-selection-type"
+            );
+            const elClicked = event.target;
+            // if delegated event target is not the button, return
+            if (!elClicked.matches("button")) return;
+
+            switch (sSelectionType) {
+                case "single-optional":
+                    handleSingleOptionalSelection(
+                        elClicked,
+                        elToggleButtonGroup
+                    );
+                    break;
+                case "single-required":
+                    handleSingleRequiredlSelection(
+                        elClicked,
+                        elToggleButtonGroup
+                    );
+                    break;
+                default:
+                    handleMultiSelection(elClicked);
+            }
+        });
+
+        function toggleButton(elButton) {
+            const isToggled =
+                elButton.getAttribute(sAriaSelectedAttr) === "true";
+            elButton.setAttribute(sAriaSelectedAttr, !isToggled);
+        }
+
+        function isButtonSelected(elButton) {
+            return (
+                elButton.getAttribute(sAriaSelectedAttr) &&
+                elButton.getAttribute(sAriaSelectedAttr) === "true"
+            );
+        }
+
+        function handleMultiSelection(elButton) {
+            toggleButton(elButton);
+        }
+
+        function handleSingleOptionalSelection(elButton, elButtonGroup) {
+            if (isButtonSelected(elButton)) {
+                return toggleButton(elButton);
+            }
+
+            elButtonGroup
+                .querySelectorAll(sSelectorButtons)
+                .forEach(function (elBtn) {
+                    if (isButtonSelected(elBtn)) {
+                        toggleButton(elBtn);
+                    }
+                });
+
+            toggleButton(elButton);
+        }
+
+        function handleSingleRequiredlSelection(elButton, elButtonGroup) {
+            // if clicked button is already selected, do nothing
+            if (isButtonSelected(elButton)) return;
+
+            elButtonGroup
+                .querySelectorAll(sSelectorButtons)
+                .forEach(function (elBtn) {
+                    // console.warn(elBtn);
+                    if (isButtonSelected(elBtn)) {
+                        toggleButton(elBtn);
+                    }
+                });
+
+            toggleButton(elButton);
+        }
+    });
+})();
 // CHARACTER-METER-COUNTER
 const debouncedKeydown = debounce(function(elInput, elMeterText) {
     let ariaLive = 'off'
