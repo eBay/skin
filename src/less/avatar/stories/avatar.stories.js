@@ -27,13 +27,13 @@ export const variations = () => /* HTML */ `
 export const withImage = () => /* HTML */ `
     <div class="avatar" role="img" aria-label="Signed-in as Doggy">
         <img
-            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
             alt="profile pic"
         />
     </div>
     <div class="avatar avatar--128" role="img" aria-label="Signed-in as Doggy">
         <img
-            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
             alt="profile pic"
         />
     </div>
@@ -101,7 +101,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -111,7 +111,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -121,7 +121,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -131,7 +131,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -141,7 +141,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -151,7 +151,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -161,7 +161,7 @@ export const sizesProfilePic = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
@@ -235,7 +235,7 @@ export const combinations = () => /* HTML */ `
             aria-label="Signed-in as Doggy"
         >
             <img
-                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile.png"
+                src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
                 alt="profile pic"
             />
         </div>
