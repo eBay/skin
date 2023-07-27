@@ -28,6 +28,19 @@ export const longTitle = () => `
 </button>
 `;
 
+export const profileImageTitle = () => `
+<button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Image Button Title</span>
+    </span>
+</button>
+`;
+
 export const profileImageTitleSubtitle = () => `
 <button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false">
     <span class="toggle-button__image-container">

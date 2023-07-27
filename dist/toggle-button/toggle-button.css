@@ -29,6 +29,9 @@
   outline-style: outset;
   outline-width: 2px;
 }
+.toggle-button * {
+  pointer-events: none;
+}
 .toggle-button[aria-pressed="true"] {
   background-color: var(--color-background-secondary);
   border: 1px solid var(--color-stroke-strong);
@@ -72,14 +75,17 @@
   margin-bottom: 4px;
   margin-top: 16px;
 }
-.toggle-button .toggle-button__content .toggle-button__title:only-child {
+.toggle-button__title:only-child {
+  margin-bottom: 16px;
+}
+.toggle-button .toggle-button__content:only-child .toggle-button__title:only-child {
   font-weight: bold;
   margin-bottom: auto;
   margin-top: auto;
   text-align: center;
   width: 100%;
 }
-.toggle-button:not([aria-pressed="true"]) .toggle-button__title:only-child {
+.toggle-button:not([aria-pressed="true"]) .toggle-button__content:only-child .toggle-button__title:only-child {
   font-weight: normal;
 }
 .toggle-button__subtitle {

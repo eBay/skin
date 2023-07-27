@@ -34,6 +34,20 @@ div.field--table {
     display: table;
 }
 
+.field__description--group {
+    display: flex;
+    justify-content: end;
+}
+
+.field__description--group > :last-child {
+    margin-left: 5px;
+    text-align: right;
+}
+
+.field__description--group > :first-child {
+    flex: 1;
+}
+
 // ELEMENT CLASSES
 
 .field__label {
@@ -43,6 +57,8 @@ div.field--table {
 .field__description {
     .color-token(field-description-color, color-foreground-secondary);
     font-size: @font-size-small;
+    line-height: @spacing-200;
+    margin-top: @spacing-50;
 }
 
 .field__description--confirmation {
@@ -147,4 +163,11 @@ div.field__description {
 .field__group--align-top > .field__label {
     align-self: start;
     margin-top: 16px;
+}
+
+[dir="rtl"] {
+    .field__description--group > :last-child {
+        margin-right: 5px;
+        text-align: left;
+    }
 }
