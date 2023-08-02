@@ -54,6 +54,7 @@
 
 // inherits from .icon-btn
 // Might need to see if icon-btn can support a small version
+button.icon-btn.lightbox-dialog__prev,
 button.icon-btn.lightbox-dialog__close {
     align-self: center;
     border: 0;
@@ -64,9 +65,18 @@ button.icon-btn.lightbox-dialog__close {
     z-index: 1;
 }
 
+button.icon-btn.lightbox-dialog__prev {
+    margin-right: 16px;
+}
+
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev,
 .lightbox-dialog--expressive button.icon-btn.lightbox-dialog__close {
     align-self: self-start;
     margin: 0;
+}
+
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev + * {
+    margin-left: -32px;
 }
 
 .lightbox-dialog__title {
@@ -126,6 +136,15 @@ button.icon-btn.lightbox-dialog__close {
     }
 }
 
+[dir="rtl"] {
+    button.icon-btn.lightbox-dialog__prev {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+    button.icon-btn.lightbox-dialog__prev .icon--chevron-left-16 {
+        transform: rotate(180deg);
+    }
+}
 // In order to prevent the margins to meet the ege of the page at medium screen sizes
 @media (min-width: @_screen-size-SM) {
     .lightbox-dialog__window {
