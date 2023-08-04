@@ -105,6 +105,7 @@
 .lightbox-dialog--expressive .lightbox-dialog__footer {
   padding: 16px 24px;
 }
+button.icon-btn.lightbox-dialog__prev,
 button.icon-btn.lightbox-dialog__close {
   align-self: center;
   border: 0;
@@ -114,9 +115,16 @@ button.icon-btn.lightbox-dialog__close {
   width: 32px;
   z-index: 1;
 }
+button.icon-btn.lightbox-dialog__prev {
+  margin-right: 16px;
+}
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev,
 .lightbox-dialog--expressive button.icon-btn.lightbox-dialog__close {
   align-self: self-start;
   margin: 0;
+}
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev + * {
+  margin-left: -32px;
 }
 .lightbox-dialog__title:not(:first-child) {
   margin-left: 16px;
@@ -167,6 +175,13 @@ button.icon-btn.lightbox-dialog__close {
 .lightbox-dialog--show .lightbox-dialog__window--fade,
 .lightbox-dialog--hide-init .lightbox-dialog__window--fade {
   opacity: 1;
+}
+[dir="rtl"] button.icon-btn.lightbox-dialog__prev {
+  margin-left: 16px;
+  margin-right: 0;
+}
+[dir="rtl"] button.icon-btn.lightbox-dialog__prev .icon--chevron-left-16 {
+  transform: rotate(180deg);
 }
 @media (min-width: 512px) {
   .lightbox-dialog__window {
