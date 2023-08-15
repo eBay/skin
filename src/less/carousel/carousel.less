@@ -246,6 +246,7 @@ span.carousel__container {
             (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
     ) {
     // always show paddles when scroll snapping and hover is not supported.
+    // todo: rename to .carousel--autoplay
     .carousel:not(.carousel__autoplay) .carousel__control {
         .show-control();
     }
@@ -267,6 +268,7 @@ span.carousel__container {
         (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
 ) {
     /* autoprefixer: off */
+    // todo: rename to .carousel--autoplay
     .carousel:not(.carousel__autoplay) {
         overflow: visible;
 
@@ -329,6 +331,7 @@ span.carousel__container {
     }
 }
 
+// todo: rename to .carousel--autoplay
 .carousel.carousel--hidden-scrollbar:not(.carousel__autoplay) {
     overflow: hidden;
 }
@@ -343,4 +346,14 @@ span.carousel__container {
 
 .carousel--hidden-scrollbar .carousel__container .carousel__list {
     padding-bottom: 80px;
+}
+
+// hidden-scrollbar must have inner paddle position due to overflow: hidden
+.carousel--hidden-scrollbar .carousel__control--prev {
+    left: 0;
+}
+
+// hidden-scrollbar must have inner paddle position due to overflow: hidden
+.carousel--hidden-scrollbar .carousel__control--next {
+    right: 0;
 }
