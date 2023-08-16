@@ -217,7 +217,7 @@ export const hiddenScrollbar = () => `
 `;
 
 /* paddle opacity set to 1 for purpose of visual regression testing only */
-export const continuousPaddlesVisible = () => `
+export const continuousWithPaddlesVisible = () => `
 <div class="carousel">
     <div class="carousel__container">
         <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products" style="opacity: 1">
@@ -247,7 +247,7 @@ export const continuousPaddlesVisible = () => `
 `;
 
 /* paddle opacity set to 1 for purpose of visual regression testing only */
-export const slidesPaddlesVisible = () => `
+export const slidesWithPaddlesVisible = () => `
 <div class="carousel carousel--slides">
     <div class="carousel__container">
         <h4 class="clipped" aria-live="polite">
@@ -280,7 +280,7 @@ export const slidesPaddlesVisible = () => `
 `;
 
 /* paddle opacity set to 1 for purpose of visual regression testing only */
-export const slideshowPaddlesVisible = () => `
+export const slideshowWithPaddlesVisible = () => `
 <div class="carousel carousel--slides">
     <div class="carousel__container">
         <h4 class="clipped" aria-live="polite">
@@ -310,5 +310,35 @@ export const slideshowPaddlesVisible = () => `
             <use href="#icon-play-24"></use>
         </svg>
     </button>
+</div>
+`;
+
+/* paddle opacity set to 1 for purpose of visual regression testing only */
+export const hiddenScrollbarWithPaddlesVisible = () => `
+<div class="carousel carousel--hidden-scrollbar">
+    <div class="carousel__container">
+        <button class="carousel__control carousel__control--prev" aria-label="Previous Slide - Top Products" style="opacity: 1">
+            <svg aria-hidden="true" class="icon icon--chevron-left-12" focusable="false">
+                <use href="#icon-chevron-left-12"></use>
+            </svg>
+        </button>
+        <div class="carousel__viewport carousel__viewport--mask">
+            <ul class="carousel__list carousel__list--default-demo">
+                <li>Card 1</li>
+                <li>Card 2</li>
+                <li>Card 3</li>
+                <li>Card 4</li>
+                <li>Card 5</li>
+                <li>Card 6</li>
+                <li>Card 7</li>
+                <li>Card 8</li>
+            </ul>
+        </div>
+        <button class="carousel__control carousel__control--next" aria-label="Next Slide - Top Products" style="opacity: 1">
+            <svg aria-hidden="true" class="icon icon--chevron-right-12" focusable="false">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </button>
+    </div>
 </div>
 `;
