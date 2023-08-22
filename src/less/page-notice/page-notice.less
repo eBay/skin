@@ -63,6 +63,16 @@ span[role="region"].page-notice {
     .color-token(page-notice-color, color-foreground-on-inverse);
 }
 
+// Override default outline color to avoid contrast issues
+// with the darker background colors in page notices
+// For explicit focus only: the `focus-visible` instead of `focus`
+// is to exclude the styling on clicks (implied focus).
+.page-notice a:focus-visible,
+.page-notice button.fake-link:focus-visible {
+    outline: 2px solid var(--color-foreground-on-inverse);
+    outline-offset: 2px;
+}
+
 .page-notice--attention {
     .background-color-token(page-notice-attention-background-color, color-background-attention);
     .border-color-token(page-notice-attention-border-color, color-stroke-attention);
@@ -130,6 +140,7 @@ p.page-notice__cta {
     grid-column: 2;
     grid-row: 2;
     justify-self: flex-start;
+    margin-bottom: 0;
     margin-right: @spacing-200;
     margin-top: @spacing-200;
 }
@@ -148,7 +159,6 @@ p.page-notice__cta {
         grid-column: 4;
         grid-row: 1;
         justify-self: flex-end;
-        margin-bottom: 0;
         margin-top: 1px;
         padding-right: @spacing-200;
     }

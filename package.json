@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "16.5.1",
+    "version": "16.6.0-0",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -22,7 +22,7 @@
         "prepublishOnly": "node scripts gen",
         "postpublish": "node scripts clean",
         "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy",
-        "build:css": "npm run lint:less && gulp && npm run lint:css",
+        "build:css": "npm run lint:less && rimraf dist && gulp && npm run lint:css",
         "build:ci": "npm run build:css && npm run lint:js && npm run bundle && npm run copy",
         "build:jekyll": "bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
         "build:site": "npm run copy:svgToDocs && npm run build:jekyll",
@@ -65,7 +65,7 @@
         "@commitlint/cli": "^17.6.3",
         "@commitlint/config-conventional": "^17.6.3",
         "@ebay/browserslist-config": "^2.6.0",
-        "@percy/cli": "^1.26.2",
+        "@percy/cli": "^1.26.3",
         "@percy/storybook": "^4.3.6",
         "@storybook/html": "^7.0.12",
         "@storybook/html-webpack5": "^7.0.12",
