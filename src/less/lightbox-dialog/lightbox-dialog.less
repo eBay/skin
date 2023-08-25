@@ -107,6 +107,10 @@ button.icon-btn.lightbox-dialog__prev {
     .lightbox-dialog__window--fade {
         transition: opacity 0.16s ease-out;
     }
+
+    .lightbox-dialog__window--animate {
+        transition: opacity 0.16s ease-out, transform 0.32s ease-out;
+    }
 }
 
 .lightbox-dialog--hide,
@@ -122,6 +126,11 @@ button.icon-btn.lightbox-dialog__prev {
 
     .lightbox-dialog__window--fade {
         opacity: 0;
+    }
+
+    .lightbox-dialog__window--animate {
+        opacity: 0;
+        transform: translateY(100%);
     }
 }
 
@@ -139,6 +148,38 @@ button.icon-btn.lightbox-dialog__prev {
     .lightbox-dialog__window--fade {
         opacity: 1;
     }
+
+    .lightbox-dialog__window--animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lightbox-dialog__handle {
+    background-color: transparent;
+    border: none;
+    left: 0;
+    margin: -11px auto;
+    padding: 8px;
+    position: relative;
+    right: 0;
+    top: 11px;
+    z-index: 2;
+}
+
+// Added :after class in order to increase parent hit box
+.lightbox-dialog__handle::after {
+    .background-color-token(dialog-handle-color, color-stroke-default);
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 24px;
+}
+
+.lightbox-dialog__window--expanded {
+    height: 95%;
+    max-height: 95%;
 }
 
 [dir="rtl"] {
@@ -153,7 +194,13 @@ button.icon-btn.lightbox-dialog__prev {
 // In order to prevent the margins to meet the ege of the page at medium screen sizes
 @media (min-width: @_screen-size-SM) {
     .lightbox-dialog__window {
+        .lightbox-dialog-window-large();
+
         max-width: calc(88% - @spacing-400);
+    }
+
+    .lightbox-dialog__handle {
+        display: none;
     }
 
     .lightbox-dialog--narrow .lightbox-dialog__window {
@@ -162,6 +209,12 @@ button.icon-btn.lightbox-dialog__prev {
 
     .lightbox-dialog__window .lightbox-dialog__footer {
         .dialog-footer-content-large();
+    }
+    .lightbox-dialog--show .lightbox-dialog__window--animate,
+    .lightbox-dialog--hide-init .lightbox-dialog__window--animate,
+    .lightbox-dialog--show-init .lightbox-dialog__window--animate,
+    .lightbox-dialog--hide .lightbox-dialog__window--animate {
+        transform: translateY(0);
     }
 }
 
