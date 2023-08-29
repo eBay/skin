@@ -16,6 +16,10 @@ section.section-notice {
     grid-template-columns: 32px auto auto auto;
 }
 
+.section-notice--prominent {
+    .background-color-token(section-notice-prominent-background-color, color-blue-1);
+}
+
 span[role="region"].section-notice {
     display: grid;
 }
@@ -31,7 +35,7 @@ span[role="region"].section-notice {
     white-space: nowrap;
 }
 
-/* legacy version with separate bold heading */
+// legacy version with separate bold heading
 .section-notice__title:not(:only-child) {
     font-weight: bold;
 }
@@ -78,6 +82,11 @@ span[role="region"].section-notice {
     grid-column: 2;
 }
 
+// adjustment for larger 24x24 icon
+.section-notice--education .section-notice__main {
+    padding-top: 2px;
+}
+
 .section-notice__footer {
     grid-column: 4;
     grid-row: 1;
@@ -98,12 +107,12 @@ p.section-notice__cta {
     margin-top: @spacing-200;
 }
 
-/* support legacy 6.5 notice with heading + paragaphs */
+// support legacy 6.5 notice with heading + paragaphs
 .section-notice__main .section-notice__title ~ p {
     margin: @spacing-50 0 0;
 }
 
-/* LARGE SCREEN ADJUSTMENTS */
+// LARGE SCREEN ADJUSTMENTS
 
 @media (min-width: @_screen-size-SM) {
     section.section-notice,
