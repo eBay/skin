@@ -3,14 +3,14 @@
 .chip {
     align-items: center;
     background-color: var(--color-background-tertiary);
-    border-radius: @spacing-300;
+    border-radius: @spacing-400;
     box-sizing: border-box;
     color: var(--color-foreground-primary);
     display: inline-flex;
     font-size: @font-size-14;
     gap: 2px;
     height: @spacing-400;
-    margin: @spacing-100;
+    justify-content: center;
     max-width: 320px;
     min-width: 56px;
     padding: @spacing-75 @spacing-150;
@@ -18,16 +18,43 @@
 
 .chip__text {
     margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-button.icon-btn.chip__button {
+button.chip__button {
     background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    box-sizing: border-box;
+    flex-shrink: 0;
     height: @spacing-300;
+    line-height: 0;
     margin-right: -6px;
+    padding: 0;
     width: @spacing-300;
 }
 
-button.icon-btn.chip__button > svg {
+button.chip__button:focus-visible {
+    // we don't currently have an appropriate token for this
+    // all of the current tokens using the prop are for disabled states
+    background-color: var(--color-neutral-3);
+    border-color: var(--color-state-focus-stroke);
+    outline: 0;
+}
+
+button.chip__button:hover {
+    // we don't currently have an appropriate token for this
+    // all of the current tokens using the prop are for disabled states
+    background-color: var(--color-neutral-3);
+}
+
+button.chip__button > svg {
     height: 14px;
     width: 14px;
+}
+
+button.chip__button:hover > svg {
+    fill: var(--color-foreground-on-primary);
 }
