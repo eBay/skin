@@ -22,7 +22,7 @@ async function getFiles(dir) {
         dirents.map((dirent) => {
             const res = path.resolve(dir, dirent.name);
             return dirent.isDirectory() ? getFiles(res) : res;
-        })
+        }),
     );
     return Array.prototype.concat(...files);
 }
@@ -53,14 +53,14 @@ async function prefixIcon(fileDir, fileBase) {
                 " > " +
                 config.icons.prefix +
                 "-" +
-                fileBase
+                fileBase,
         );
     });
 }
 
 async function normalizeFiles(svgs) {
     const svgFiles = svgs.filter(
-        (f) => f.endsWith(".svg") && f !== "icons.svg"
+        (f) => f.endsWith(".svg") && f !== "icons.svg",
     );
 
     svgFiles.map(async (filePath) => {
@@ -104,7 +104,7 @@ class GenerateImages {
     constructor(files, masterIconFile) {
         this.imageList = [];
         this.svgs = files.filter(
-            (f) => f.endsWith(".svg") && f !== "icons.svg"
+            (f) => f.endsWith(".svg") && f !== "icons.svg",
         );
         this.masterIconSymbols = new JSDOM(masterIconFile);
         this.masterDocument = this.masterIconSymbols.window.document;
@@ -173,19 +173,20 @@ class GenerateImages {
             this.svgs.map(async (filePath) => {
                 const filename = path.parse(filePath).name;
                 await this.processSvg(filePath, filename, lessFile);
-            })
+            }),
         );
 
         lessFile.sort(sortMethod);
 
+        const prettierFormat = await prettier.format(
+            [`/* ${genText} */`]
+                .concat(lessFile.map(({ data }) => data))
+                .join("\n"),
+            { parser: "less", tabWidth: 4 },
+        );
         await fs.promises.writeFile(
             `src/less/icon/generated/icon.less`,
-            prettier.format(
-                [`/* ${genText} */`]
-                    .concat(lessFile.map(({ data }) => data))
-                    .join("\n"),
-                { parser: "less", tabWidth: 4 }
-            )
+            prettierFormat,
         );
 
         this.imageList.sort();
@@ -198,16 +199,14 @@ class GenerateImages {
             this.masterDocument.querySelector("svg").appendChild(symbol);
         });
 
-        await fs.promises.writeFile(
-            masterIconPath,
-            html2xhtml(this.masterIconSymbols)
-        );
+        const fileOutput = await html2xhtml(this.masterIconSymbols);
+        await fs.promises.writeFile(masterIconPath, fileOutput);
     }
 }
 
 function stripName(name, mappedPrefix, mappedPostfix) {
     const matcher = new RegExp(
-        `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`
+        `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`,
     );
     const nameMatch = name.match(matcher);
     if (nameMatch) {
