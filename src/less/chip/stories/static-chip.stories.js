@@ -63,3 +63,11 @@ export const set = () => `
     <span class="chip__text">Rugby</span>
 </span>
 `;
+
+export const RTL = () => `
+<div dir="rtl">
+    <span class="chip">
+        <span class="chip__text">Football</span>
+    </span>
+</div>
+`;
