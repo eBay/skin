@@ -64,6 +64,82 @@ export const set = () => `
 </span>
 `;
 
+export const list = () => `
+<ul>
+    <li>
+        <span class="chip">
+            <span class="chip__text">Football</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Basketball</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Baseball</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Hockey</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Tennis</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Golf</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Gymnastics</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Swimming</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Cricket</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Volleyball</span>
+        </span>
+    </li>
+
+    <li>
+        <span class="chip">
+            <span class="chip__text">Rugby</span>
+        </span>
+    </li>
+</ul>
+`;
+
+export const largeText = () => `
+    <span class="chip" style="font-size: 200%;">
+        <span class="chip__text">Football</span>
+    </span>
+`;
+
 export const RTL = () => `
 <div dir="rtl">
     <span class="chip">
