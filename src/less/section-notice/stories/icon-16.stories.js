@@ -27,6 +27,42 @@ export const title = () => `
 </div>
 `;
 
+// known issue: https://github.com/eBay/skin/issues/2146
+export const linkCTA = () => `
+<div class="section-notice section-notice--confirmation" role="region">
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <h3 class="section-notice__title">Notification Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="section-notice__footer">
+        <a href="https://www.ebay.com">Action</a>
+    </div>
+</div>
+`;
+
+// known issue: https://github.com/eBay/skin/issues/2146
+export const fakeLinkCTA = () => `
+<div class="section-notice section-notice--confirmation" role="region">
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <h3 class="section-notice__title">Notification Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="section-notice__footer">
+        <button class="fake-link" type="button">Action</button>
+    </div>
+</div>
+`;
+
 export const dismiss = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
@@ -48,7 +84,7 @@ export const dismiss = () => `
 </div>
 `;
 
-export const linkCTA = () => `
+export const dismissAndLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
         <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
@@ -70,7 +106,7 @@ export const linkCTA = () => `
 </div>
 `;
 
-export const fakeLinkCTA = () => `
+export const dismissAndFakeLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
         <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
@@ -94,7 +130,8 @@ export const fakeLinkCTA = () => `
 </div>
 `;
 
-export const rtl = () => `
+// known issue: https://github.com/eBay/skin/issues/2142
+export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
