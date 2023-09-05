@@ -31,8 +31,8 @@
   flex-direction: column;
   min-height: 55px;
   will-change: opacity, transform;
-  border-radius: var(--lightbox-border-radius, var(--border-radius-100));
-  margin: auto;
+  border-radius: var(--lightbox-border-radius, var(--border-radius-150));
+  margin: auto auto 16px;
   max-height: 90%;
   max-width: calc(100% - 32px);
   min-width: 208px;
@@ -144,6 +144,10 @@ button.icon-btn.lightbox-dialog__prev {
 .lightbox-dialog--hide .lightbox-dialog__window--fade {
   transition: opacity 0.16s ease-out;
 }
+.lightbox-dialog--show .lightbox-dialog__window--animate,
+.lightbox-dialog--hide .lightbox-dialog__window--animate {
+  transition: opacity 0.16s ease-out, transform 0.32s ease-out;
+}
 .lightbox-dialog--hide.lightbox-dialog--hide,
 .lightbox-dialog--hide.lightbox-dialog--show-init,
 .lightbox-dialog--show-init.lightbox-dialog--hide,
@@ -159,6 +163,11 @@ button.icon-btn.lightbox-dialog__prev {
 .lightbox-dialog--hide .lightbox-dialog__window--fade,
 .lightbox-dialog--show-init .lightbox-dialog__window--fade {
   opacity: 0;
+}
+.lightbox-dialog--hide .lightbox-dialog__window--animate,
+.lightbox-dialog--show-init .lightbox-dialog__window--animate {
+  opacity: 0;
+  transform: translateY(100%);
 }
 .lightbox-dialog--show.lightbox-dialog--show,
 .lightbox-dialog--show.lightbox-dialog--hide-init,
@@ -176,6 +185,34 @@ button.icon-btn.lightbox-dialog__prev {
 .lightbox-dialog--hide-init .lightbox-dialog__window--fade {
   opacity: 1;
 }
+.lightbox-dialog--show .lightbox-dialog__window--animate,
+.lightbox-dialog--hide-init .lightbox-dialog__window--animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.lightbox-dialog__handle {
+  background-color: transparent;
+  border: none;
+  left: 0;
+  margin: -11px auto;
+  padding: 8px;
+  position: relative;
+  right: 0;
+  top: 11px;
+  z-index: 2;
+}
+.lightbox-dialog__handle::after {
+  background-color: var(--dialog-handle-color, var(--color-stroke-default));
+  border-radius: 3px;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 24px;
+}
+.lightbox-dialog__window--expanded {
+  height: 95%;
+  max-height: 95%;
+}
 [dir="rtl"] button.icon-btn.lightbox-dialog__prev {
   margin-left: 16px;
   margin-right: 0;
@@ -185,7 +222,12 @@ button.icon-btn.lightbox-dialog__prev {
 }
 @media (min-width: 512px) {
   .lightbox-dialog__window {
+    margin: auto;
+    border-radius: var(--lightbox-border-radius, var(--border-radius-100));
     max-width: calc(88% - 32px);
+  }
+  .lightbox-dialog__handle {
+    display: none;
   }
   .lightbox-dialog--narrow .lightbox-dialog__window {
     max-width: var(--dialog-lightbox-narrow-max-width);
@@ -198,6 +240,12 @@ button.icon-btn.lightbox-dialog__prev {
   .lightbox-dialog__window .lightbox-dialog__footer > :not(:first-child) {
     margin-left: 8px;
     margin-top: initial;
+  }
+  .lightbox-dialog--show .lightbox-dialog__window--animate,
+  .lightbox-dialog--hide-init .lightbox-dialog__window--animate,
+  .lightbox-dialog--show-init .lightbox-dialog__window--animate,
+  .lightbox-dialog--hide .lightbox-dialog__window--animate {
+    transform: translateY(0);
   }
 }
 @media (min-width: 768px) {
