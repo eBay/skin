@@ -136,14 +136,20 @@ export const list = () => `
 
 export const largeText = () => `
     <span class="chip" style="font-size: 200%;">
-        <span class="chip__text">Football</span>
+        <span class="chip__text">Large Text</span>
+    </span>
+`;
+
+export const letterSpacing = () => `
+    <span class="chip" style="letter-spacing: calc(14px * 0.12);">
+        <span class="chip__text">Letter Spacing</span>
     </span>
 `;
 
 export const RTL = () => `
 <div dir="rtl">
     <span class="chip">
-        <span class="chip__text">Football</span>
+        <span class="chip__text">Football RTL</span>
     </span>
 </div>
 `;

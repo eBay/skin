@@ -136,7 +136,18 @@ export const set = () => `
 
 export const largeText = () => `
 <span class="chip" style="font-size: 200%;">
-    <span id="chip-interactive-1-text" class="chip__text">Football</span>
+    <span id="chip-interactive-1-text" class="chip__text">Large Text</span>
+    <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-text">
+        <svg class="icon icon--close-12" focusable="false" width="13" height="12" aria-hidden="true">
+            <use href="#icon-close-12"></use>
+        </svg>
+    </button>
+</span>
+`;
+
+export const letterSpacing = () => `
+<span class="chip" style="letter-spacing: calc(14px * 0.12);">
+    <span id="chip-interactive-1-text" class="chip__text">Letter Spacing</span>
     <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-text">
         <svg class="icon icon--close-12" focusable="false" width="13" height="12" aria-hidden="true">
             <use href="#icon-close-12"></use>
