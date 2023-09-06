@@ -75,7 +75,10 @@ async function normalizeFiles(svgs) {
         ) {
             querySelector.removeAttribute("height");
             querySelector.removeAttribute("width");
-            await fs.promises.writeFile(filePath, html2xhtml(svgJsDom, true));
+            await fs.promises.writeFile(
+                filePath,
+                await html2xhtml(svgJsDom, true),
+            );
         }
 
         if (
