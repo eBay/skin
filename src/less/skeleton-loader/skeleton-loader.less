@@ -1,0 +1,138 @@
+@import "../variables/variables.less";
+
+@skeleton-text-border-radius: 3px;
+@skeleton-text-height-small: 16px;
+@skeleton-text-height-large: 24px;
+
+/* 
+Setting a default height of 40px makes any one use skeleton class 
+Should we restrict this to using just as a building block instead?
+*/
+.skeleton {
+    background: var(--color-loading-fill); // var(--color-loading-shimmer)
+    cursor: progress;
+    height: 40px;
+    min-height: 12px;
+}
+
+.skeleton--avatar {
+    border-radius: 50%;
+    height: 48px;
+    justify-content: center;
+    line-height: 48px;
+    overflow: hidden;
+    width: 48px;
+}
+
+/*
+Should we rename button to btn for consistency?
+*/
+.skeleton--button {
+    border-radius: 20px;
+    height: 40px;
+}
+
+.skeleton--button-small {
+    border-radius: 16px;
+    height: 32px;
+}
+
+.skeleton--button-large {
+    border-radius: 24px;
+    height: 48px;
+}
+
+.skeleton--text-small {
+    border-radius: @skeleton-text-border-radius;
+    height: @skeleton-text-height-small;
+}
+
+.skeleton--text-small::after {
+    height: @skeleton-text-height-small;
+    margin: 24px 80px 0 0; // TODO: Update calc?
+}
+
+.skeleton--text-large {
+    border-radius: @skeleton-text-border-radius;
+    height: @skeleton-text-height-large;
+}
+
+.skeleton--text-large::after {
+    height: @skeleton-text-height-large;
+    margin: 32px 80px 0 0;
+}
+
+.skeleton--text-two-row {
+    position: relative;
+    width: calc(100% - 24px);
+}
+
+.skeleton--text-two-row::after {
+    background: var(--color-loading-fill);
+    content: "";
+    position: absolute;
+    width: calc(100% - 80px);
+}
+
+.skeleton--text-small.skeleton--text-two-row {
+    margin-bottom: 24px;
+}
+
+.skeleton--text-large.skeleton--text-two-row {
+    margin-bottom: 32px;
+}
+
+.skeleton--form {
+    border-radius: 8px;
+    height: 48px;
+}
+
+.skeleton--tile-layout .skeleton__image-container {
+    margin-bottom: 12px;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+}
+
+// TODO: Would like to use aspect-ratio : 1 / 1 to set as square. Browser support is not there yet
+.skeleton--image {
+    border-radius: 8px;
+    height: 100%;
+    max-width: initial;
+}
+
+.skeleton--tile-layout .skeleton--image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+@keyframes loading-frames {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .skeleton {
+        /* By default set to infinite when no preference. this can also be time bound may be < 5s if needed */
+        animation: loading-frames 2s ease infinite;
+        background-size: 80%;
+    }
+}
