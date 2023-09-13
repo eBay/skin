@@ -3,7 +3,7 @@ export default { title: "Skin/Section Notice/Legacy" };
 export const legacy = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -17,7 +17,7 @@ export const legacy = () => `
 export const legacyWithCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>

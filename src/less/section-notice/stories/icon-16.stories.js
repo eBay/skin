@@ -3,7 +3,7 @@ export default { title: "Skin/Section Notice/Icon 16" };
 export const body = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -16,7 +16,7 @@ export const body = () => `
 export const title = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -31,7 +31,7 @@ export const title = () => `
 export const linkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -49,7 +49,7 @@ export const linkCTA = () => `
 export const fakeLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -66,7 +66,7 @@ export const fakeLinkCTA = () => `
 export const dismiss = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -87,7 +87,7 @@ export const dismiss = () => `
 export const dismissAndLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -109,7 +109,7 @@ export const dismissAndLinkCTA = () => `
 export const dismissAndFakeLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+        <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -135,7 +135,7 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
-            <svg aria-hidden="true" focusable="false" class="icon--confirmation-filled-16">
+            <svg aria-hidden="true" focusable="false" class="icon icon--confirmation-filled-16">
                 <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
