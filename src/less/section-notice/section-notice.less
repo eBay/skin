@@ -154,6 +154,11 @@ p.section-notice__cta {
 }
 
 // progressive enhancement adjustment for larger 24x24 icon
-.section-notice__header:has(svg[class*="24"]) + .section-notice__main {
-    padding-top: 2px;
+// browsers without :has support will have text top aligned like regular section-notice
+.section-notice__header:has(svg[class*="24"]) {
+    height: @spacing-300;
+
+    + .section-notice__main {
+        padding-top: 2px;
+    }
 }
