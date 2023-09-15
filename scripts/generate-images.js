@@ -63,23 +63,19 @@ async function normalizeFiles(svgs) {
         (f) => f.endsWith(".svg") && f !== "icons.svg",
     );
 
-    svgFiles.map(async (filePath) => {
+    await svgFiles.map(async (filePath) => {
         const fileDir = path.parse(filePath).dir;
         const fileBase = path.parse(filePath).base;
         const data = await fs.promises.readFile(filePath, "utf8");
         const svgJsDom = new JSDOM(data, { contentType: "text/xml" });
         const querySelector = svgJsDom.window.document.querySelector("svg");
-        if (
-            querySelector.hasAttribute("height") ||
-            querySelector.hasAttribute("width")
-        ) {
+
+        querySelector.hasAttribute("height") &&
             querySelector.removeAttribute("height");
+        querySelector.hasAttribute("width") &&
             querySelector.removeAttribute("width");
-            await fs.promises.writeFile(
-                filePath,
-                await html2xhtml(svgJsDom, true),
-            );
-        }
+
+        await fs.promises.writeFile(filePath, await html2xhtml(svgJsDom, true));
 
         if (
             !fileBase.startsWith("icon-") &&
@@ -141,7 +137,7 @@ class GenerateImages {
         ) {
             this.imageList.push(nameObj.fullName);
         }
-
+        console.log("Processing SVG:", symbol, filename);
         // Need to parse it before pushing
         this.masterList.push(this.processSymbolToSVG(symbol, filename));
 
