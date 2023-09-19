@@ -10,6 +10,9 @@ section.section-notice {
   display: grid;
   grid-template-columns: 32px auto auto auto;
 }
+.section-notice--education {
+  background-color: var(--section-notice-education-background-color, var(--color-background-education));
+}
 span[role="region"].section-notice {
   display: grid;
 }
@@ -21,7 +24,6 @@ span[role="region"].section-notice {
 .section-notice__cta a {
   white-space: nowrap;
 }
-/* legacy version with separate bold heading */
 .section-notice__title:not(:only-child) {
   font-weight: bold;
 }
@@ -76,11 +78,9 @@ p.section-notice__cta {
   margin-right: 16px;
   margin-top: 16px;
 }
-/* support legacy 6.5 notice with heading + paragaphs */
 .section-notice__main .section-notice__title ~ p {
   margin: 4px 0 0;
 }
-/* LARGE SCREEN ADJUSTMENTS */
 @media (min-width: 512px) {
   section.section-notice,
   div[role="region"].section-notice {
@@ -115,4 +115,10 @@ p.section-notice__cta {
 [dir="rtl"] p.page-notice__cta {
   margin-left: 16px;
   padding-left: 16px;
+}
+.section-notice__header:has(svg[class*="24"]) {
+  height: 24px;
+}
+.section-notice__header:has(svg[class*="24"]) + .section-notice__main {
+  padding-top: 2px;
 }
