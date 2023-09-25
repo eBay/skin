@@ -9,14 +9,14 @@ const files = fs
     .readdirSync(distDir)
     .filter(
         (filename) =>
-            config.skip.indexOf(filename) === -1 && !config.nested[filename]
+            config.skip.indexOf(filename) === -1 && !config.nested[filename],
     );
 const indexFiles = fs
     .readdirSync(distDir)
     .filter(
         (filename) =>
             config.skip.indexOf(filename) === -1 &&
-            config.skipIndex.indexOf(filename) === -1
+            config.skipIndex.indexOf(filename) === -1,
     );
 
 const { ModuleBuilder } = require("./module-builder");
@@ -47,23 +47,23 @@ async function generateTopLevelFiles() {
         .join("");
     await fs.promises.writeFile(
         path.join(currentDir, "browser.json"),
-        prettier.format(JSON.stringify(browser), { parser: "json" })
+        await prettier.format(JSON.stringify(browser), { parser: "json" }),
     );
     await fs.promises.writeFile(path.join(currentDir, "index.js"), contentJS);
     await fs.promises.writeFile(path.join(currentDir, "index.mjs"), contentMJS);
     await fs.promises.writeFile(path.join(currentDir, "index.css"), contentCSS);
     await fs.promises.writeFile(
         path.join(currentDir, "index.browser.json"),
-        prettier.format(`{ "dependencies": [ ${contentBrowser} ]}`, {
+        await prettier.format(`{ "dependencies": [ ${contentBrowser} ]}`, {
             parser: "json",
-        })
+        }),
     );
 
     // Generate SVGs
     const svgDistDir = path.join(distDir, "svg");
     await fs.promises.copyFile(
         path.join(svgDistDir, "icons.svg"),
-        path.join(currentDir, "svg.svg")
+        path.join(currentDir, "svg.svg"),
     );
 }
 
@@ -81,14 +81,14 @@ const moduleData = [].concat(
         (moduleName) =>
             new ModuleBuilder(moduleName, config, {
                 distDir,
-            })
+            }),
     ),
     Object.keys(config.modules).map(
         (moduleName) =>
             new ModuleBuilder(moduleName, config, {
                 hasBaseModule: false,
                 distDir,
-            })
+            }),
     ),
     Object.keys(config.nested).map(
         (moduleName) =>
@@ -96,8 +96,8 @@ const moduleData = [].concat(
                 isNested: true,
                 distDir,
                 addIndexModules: config.nested[moduleName],
-            })
-    )
+            }),
+    ),
 );
 
 async function generateTopLevel() {

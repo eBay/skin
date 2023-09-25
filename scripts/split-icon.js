@@ -14,7 +14,7 @@ const { html2xhtml2 } = require("./util");
 async function splitter(file, argv) {
     const skinFile = await fs.promises.readFile(
         path.resolve(svgDir, `${file}.svg`),
-        "utf8"
+        "utf8",
     );
 
     const symbols = JSDOM.fragment(skinFile);
@@ -26,9 +26,9 @@ async function splitter(file, argv) {
 
         await fs.promises.writeFile(
             path.resolve(svgDir, "icon", `${symbolId}.svg`),
-            html2xhtml2(symbol)
+            await html2xhtml2(symbol)
                 .replace("<symbol", "<svg")
-                .replace("</symbol>", "</svg>")
+                .replace("</symbol>", "</svg>"),
         );
     }
 }

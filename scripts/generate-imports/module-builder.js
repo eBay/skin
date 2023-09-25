@@ -64,7 +64,7 @@ class ModuleBuilder {
                 distDir: "",
                 addIndexModules: null,
             },
-            options
+            options,
         );
     }
 
@@ -122,7 +122,7 @@ class ModuleBuilder {
             });
             // Get all modules now in directory
             const moduleList = await fs.promises.readdir(
-                path.join(this.options.distDir, this.moduleName)
+                path.join(this.options.distDir, this.moduleName),
             );
 
             if (this.options.addIndexModules) {
@@ -133,7 +133,7 @@ class ModuleBuilder {
                             this.options.addIndexModules[file],
                             async () => {
                                 await this.writeModuleFiles(file);
-                            }
+                            },
                         );
                     } else {
                         await this.overrideData(
@@ -142,7 +142,7 @@ class ModuleBuilder {
                             async () => {
                                 await this.writeBrowserJSON(file);
                                 await this.writeModuleFiles(file);
-                            }
+                            },
                         );
                     }
                 }
@@ -165,22 +165,22 @@ class ModuleBuilder {
 
     async writeBrowserJSON(currentModule) {
         const additionalRequires = this.additionalModules.map((addFile) =>
-            getBrowserRequireSyntax(addFile)
+            getBrowserRequireSyntax(addFile),
         );
         const filename = currentModule || this.moduleName;
         const requires = additionalRequires.concat(
             this.options.hasBaseModule
                 ? [getBrowserRequireSyntax(filename)]
-                : []
+                : [],
         );
 
         const content = { dependencies: requires };
         return await fs.promises.writeFile(
             getBrowserFileName(
                 filename,
-                this.options.isNested && this.moduleName
+                this.options.isNested && this.moduleName,
             ),
-            prettier.format(JSON.stringify(content), { parser: "json" })
+            await prettier.format(JSON.stringify(content), { parser: "json" }),
         );
     }
 
@@ -197,7 +197,7 @@ class ModuleBuilder {
             this.parseAdditionalModules(getJSRequireSyntax, "js", {
                 modules,
                 filename,
-            })
+            }),
         );
 
         await fs.promises.writeFile(
@@ -205,7 +205,7 @@ class ModuleBuilder {
             this.parseAdditionalModules(getCSSRequireSyntax, "css", {
                 modules,
                 filename,
-            })
+            }),
         );
 
         await fs.promises.writeFile(
@@ -213,16 +213,16 @@ class ModuleBuilder {
             this.parseAdditionalModules(getMJSRequireSyntax, "css", {
                 modules,
                 filename,
-            })
+            }),
         );
     }
 
     parseAdditionalModules(getSyntax, ext, { modules, filename }) {
         const additioanlContent = modules.map((addFile) =>
-            getSyntax(addFile, ext)
+            getSyntax(addFile, ext),
         );
         const content = additioanlContent.concat(
-            filename ? [getSyntax(filename, "css")] : []
+            filename ? [getSyntax(filename, "css")] : [],
         );
         return content.join("");
     }

@@ -22,7 +22,7 @@ async function getFiles(dir) {
         dirents.map((dirent) => {
             const res = path.resolve(dir, dirent.name);
             return dirent.isDirectory() ? getFiles(res) : res;
-        })
+        }),
     );
     return Array.prototype.concat(...files);
 }
@@ -53,30 +53,29 @@ async function prefixIcon(fileDir, fileBase) {
                 " > " +
                 config.icons.prefix +
                 "-" +
-                fileBase
+                fileBase,
         );
     });
 }
 
 async function normalizeFiles(svgs) {
     const svgFiles = svgs.filter(
-        (f) => f.endsWith(".svg") && f !== "icons.svg"
+        (f) => f.endsWith(".svg") && f !== "icons.svg",
     );
 
-    svgFiles.map(async (filePath) => {
+    await svgFiles.map(async (filePath) => {
         const fileDir = path.parse(filePath).dir;
         const fileBase = path.parse(filePath).base;
         const data = await fs.promises.readFile(filePath, "utf8");
         const svgJsDom = new JSDOM(data, { contentType: "text/xml" });
         const querySelector = svgJsDom.window.document.querySelector("svg");
-        if (
-            querySelector.hasAttribute("height") ||
-            querySelector.hasAttribute("width")
-        ) {
+
+        querySelector.hasAttribute("height") &&
             querySelector.removeAttribute("height");
+        querySelector.hasAttribute("width") &&
             querySelector.removeAttribute("width");
-            await fs.promises.writeFile(filePath, html2xhtml(svgJsDom, true));
-        }
+
+        await fs.promises.writeFile(filePath, await html2xhtml(svgJsDom, true));
 
         if (
             !fileBase.startsWith("icon-") &&
@@ -104,7 +103,7 @@ class GenerateImages {
     constructor(files, masterIconFile) {
         this.imageList = [];
         this.svgs = files.filter(
-            (f) => f.endsWith(".svg") && f !== "icons.svg"
+            (f) => f.endsWith(".svg") && f !== "icons.svg",
         );
         this.masterIconSymbols = new JSDOM(masterIconFile);
         this.masterDocument = this.masterIconSymbols.window.document;
@@ -138,7 +137,7 @@ class GenerateImages {
         ) {
             this.imageList.push(nameObj.fullName);
         }
-
+        console.log("Processing SVG:", symbol, filename);
         // Need to parse it before pushing
         this.masterList.push(this.processSymbolToSVG(symbol, filename));
 
@@ -173,19 +172,20 @@ class GenerateImages {
             this.svgs.map(async (filePath) => {
                 const filename = path.parse(filePath).name;
                 await this.processSvg(filePath, filename, lessFile);
-            })
+            }),
         );
 
         lessFile.sort(sortMethod);
 
+        const prettierFormat = await prettier.format(
+            [`/* ${genText} */`]
+                .concat(lessFile.map(({ data }) => data))
+                .join("\n"),
+            { parser: "less", tabWidth: 4 },
+        );
         await fs.promises.writeFile(
             `src/less/icon/generated/icon.less`,
-            prettier.format(
-                [`/* ${genText} */`]
-                    .concat(lessFile.map(({ data }) => data))
-                    .join("\n"),
-                { parser: "less", tabWidth: 4 }
-            )
+            prettierFormat,
         );
 
         this.imageList.sort();
@@ -198,16 +198,14 @@ class GenerateImages {
             this.masterDocument.querySelector("svg").appendChild(symbol);
         });
 
-        await fs.promises.writeFile(
-            masterIconPath,
-            html2xhtml(this.masterIconSymbols)
-        );
+        const fileOutput = await html2xhtml(this.masterIconSymbols);
+        await fs.promises.writeFile(masterIconPath, fileOutput);
     }
 }
 
 function stripName(name, mappedPrefix, mappedPostfix) {
     const matcher = new RegExp(
-        `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`
+        `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`,
     );
     const nameMatch = name.match(matcher);
     if (nameMatch) {

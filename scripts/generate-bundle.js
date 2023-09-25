@@ -52,7 +52,7 @@ class CssProcesser {
         return this.generateLESS()
             .then((raw) => this.compileLess(raw))
             .then((raw) =>
-                this.minify ? cleanCSSInstance.minify(raw) : { styles: raw }
+                this.minify ? cleanCSSInstance.minify(raw) : { styles: raw },
             )
             .then((raw) => this.writeAllFiles(raw.styles))
             .catch((e) => console.error(e));
@@ -144,21 +144,21 @@ class CssProcesser {
 
             if (this.args.modules.length > 0 || this.args.verbose) {
                 console.log(
-                    `Processed ${processed.length} modules for ${tokensFile}`
+                    `Processed ${processed.length} modules for ${tokensFile}`,
                 );
             }
             if (this.args.verbose) {
                 console.log(
                     `Modules processed: ${processed.join(
-                        ","
-                    )} for ${tokensFile}`
+                        ",",
+                    )} for ${tokensFile}`,
                 );
 
                 console.log(
-                    `Skipped ${skipped.length} modules for ${tokensFile}`
+                    `Skipped ${skipped.length} modules for ${tokensFile}`,
                 );
                 console.log(
-                    `Modules skipped: ${skipped.join(",")} for ${tokensFile}`
+                    `Modules skipped: ${skipped.join(",")} for ${tokensFile}`,
                 );
             }
             resolve(compiled);
@@ -167,7 +167,7 @@ class CssProcesser {
 
     generateLESS() {
         return this.getDistCss(this.tokensFile).then((files) =>
-            this.processFiles(files)
+            this.processFiles(files),
         );
     }
 
@@ -183,8 +183,8 @@ class CssProcesser {
                 `${cdnPath}/skin-${this.tokensDir}.${
                     this.minify ? "min." : ""
                 }css`,
-                `/* autoprefixer: off */\n${raw}\n/* autoprefixer: on */`
-            )
+                `/* autoprefixer: off */\n${raw}\n/* autoprefixer: on */`,
+            ),
         );
     }
 }
@@ -249,11 +249,11 @@ function runCSSBuild(name, args) {
                     const cssProcesser = new CssProcesser(
                         token,
                         tokensDirList[index],
-                        args
+                        args,
                     );
                     return cssProcesser.run();
-                })
-            )
+                }),
+            ),
         )
         .then(() => {
             console.log(`Bundles created successfully!
@@ -267,8 +267,12 @@ Please upload the ./_cdn/${args.name}/v${pkg.version} directory to CDN
 
 async function listBundles(argv) {
     await prebuild();
-    tokensList.forEach((tokensFile) => {
-        const cssProcesser = new CssProcesser(tokensFile, argv);
+    tokensList.forEach((tokensFile, index) => {
+        const cssProcesser = new CssProcesser(
+            tokensFile,
+            tokensDirList[index],
+            argv,
+        );
         cssProcesser.getDistCss().then((files) => {
             console.log(`======================`);
             console.log(`${tokensFile} - modules avaiable`);
