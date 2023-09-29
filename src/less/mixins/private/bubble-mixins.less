@@ -28,7 +28,7 @@
 }
 
 // creates basic layout
-.bubble-cell(@tourtip-spacing: @spacing-100 @spacing-200) {
+.bubble-cell(@tourtip-spacing: var(--spacing-100) var(--spacing-200)) {
     display: flex;
     padding: @tourtip-spacing;
     word-break: break-word;
@@ -42,7 +42,7 @@
     }
 
     p:not(:first-of-type) {
-        margin-top: @spacing-50;
+        margin-top: var(--spacing-50);
     }
 }
 
@@ -51,8 +51,9 @@
     background: none;
     border: 0;
     flex-shrink: 0;
-    height: @spacing-400;
-    margin: -@spacing-100 -@spacing-100 0 @spacing-100;
+    height: var(--spacing-400);
+    margin: calc(var(--spacing-100) * -1) calc(var(--spacing-100) * -1) 0
+        var(--spacing-100);
     padding: 0;
     white-space: nowrap;
     width: 32px;
