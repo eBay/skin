@@ -1,4 +1,4 @@
-export default { title: "Skin/Textbox/RTL" };
+export default { title: "Skin/Textbox/RTL/Base" };
 
 export const singleLine = () => `
 <div dir="rtl">
