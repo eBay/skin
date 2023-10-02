@@ -15,6 +15,7 @@ const config = YAML.parse(file);
 const { html2xhtml } = require("./util");
 const { query } = require("winston");
 const genText = "This is a generated file, DO NOT EDIT";
+const defsList = [];
 
 async function getFiles(dir) {
     const dirents = await fs.promises.readdir(dir, { withFileTypes: true });
@@ -120,7 +121,12 @@ class GenerateImages {
         svgFragment.setAttribute("id", name);
         svgFragment.removeAttribute("xmlns");
         svgFragment.removeAttribute("width");
-        svgFragment.removeAttribute("heightt");
+        svgFragment.removeAttribute("height");
+        const defs = svgFragment.querySelector("defs");
+        if (defs) {
+            defsList.push(defs);
+            defs.remove();
+        }
 
         return svgFragment;
     }
@@ -174,6 +180,16 @@ class GenerateImages {
                 await this.processSvg(filePath, filename, lessFile);
             }),
         );
+        if (defsList.length > 0) {
+            const defsEl = this.masterDocument.createElement("defs");
+            console.log(defsList);
+            defsList.forEach((defs) => {
+                Array.from(defs.children).forEach((defChild) => {
+                    defsEl.appendChild(defChild);
+                });
+            });
+            masterSvg.appendChild(defsEl);
+        }
 
         lessFile.sort(sortMethod);
 
