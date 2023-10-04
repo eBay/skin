@@ -180,14 +180,15 @@ class GenerateImages {
                 await this.processSvg(filePath, filename, lessFile);
             }),
         );
-        if (defsList.length > 0) {
-            const defsEl = this.masterDocument.createElement("defs");
-            console.log(defsList);
+        if (defsList.length) {
+            const fragment = this.masterDocument.createDocumentFragment();
             defsList.forEach((defs) => {
                 Array.from(defs.children).forEach((defChild) => {
-                    defsEl.appendChild(defChild);
+                    fragment.appendChild(defChild);
                 });
             });
+            const defsEl = this.masterDocument.createElement("defs");
+            defsEl.appendChild(fragment);
             masterSvg.appendChild(defsEl);
         }
 
