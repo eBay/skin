@@ -105,3 +105,29 @@ export const paragraphExpanded = () => `
         </span>
     </span>
 </p>`;
+
+export const infotipModal = () => `
+    <span class="infotip infotip--modal">
+        <button class="icon-btn icon-btn--transparent dialog-button" type="button" data-makeup-for="lightbox-dialog-mini-infotip-0" aria-expanded="false" aria-label="Help">
+            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+                <use href="#icon-information-16"></use>
+            </svg>
+        </button>
+    </span>
+    <div aria-labelledby="mini-dialog-title" aria-modal="true" class="lightbox-dialog" role="dialog">
+        <div class="lightbox-dialog__window">
+            <button class="lightbox-dialog__handle" type="button"></button>
+            <div class="lightbox-dialog__header">
+                <h2>Info</h2>
+                <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                    <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                        <use href="#icon-close-16"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="lightbox-dialog__main" id="mini-dialog-title">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+ `;
