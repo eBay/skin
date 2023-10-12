@@ -1,15 +1,15 @@
 :root {
   --skeleton-background: var(--color-loading-fill);
+  --skeleton-default-height: 40px;
+  --skeleton-tile-width-min: 121px;
+  --skeleton-tile-width-max: 224px;
 }
-/* 
-Setting a default height of 40px makes any one use skeleton class 
-Should we restrict this to using just as a building block instead?
-*/
 .skeleton {
   background: var(--skeleton-background);
   cursor: progress;
-  height: 40px;
+  height: var(--skeleton-default-height);
   min-height: 12px;
+  width: 100%;
 }
 .skeleton--avatar {
   border-radius: 50%;
@@ -19,18 +19,15 @@ Should we restrict this to using just as a building block instead?
   overflow: hidden;
   width: 48px;
 }
-/*
-Should we rename button to btn for consistency?
-*/
-.skeleton--button {
+.skeleton--btn {
   border-radius: 20px;
   height: 40px;
 }
-.skeleton--button-small {
+.skeleton--btn-small {
   border-radius: 16px;
   height: 32px;
 }
-.skeleton--button-large {
+.skeleton--btn-large {
   border-radius: 24px;
   height: 48px;
 }
@@ -40,7 +37,7 @@ Should we rename button to btn for consistency?
 }
 .skeleton--text-small::after {
   height: 16px;
-  margin: 24px 80px 0 0;
+  margin-top: 24px;
 }
 .skeleton--text-large {
   border-radius: 3px;
@@ -48,32 +45,48 @@ Should we rename button to btn for consistency?
 }
 .skeleton--text-large::after {
   height: 24px;
-  margin: 32px 80px 0 0;
+  margin-top: 32px;
 }
-.skeleton--text-two-row {
+.skeleton--text-multiline {
   position: relative;
   width: calc(100% - 24px);
 }
-.skeleton--text-two-row::after {
-  background: var(--skeleton-background);
+.skeleton--text-multiline::after {
+  background: inherit;
   content: "";
   position: absolute;
-  width: calc(100% - 80px);
+  width: calc(100% - 56px);
 }
-.skeleton--text-small.skeleton--text-two-row {
+.skeleton--text-small.skeleton--text-multiline {
   margin-bottom: 24px;
 }
-.skeleton--text-large.skeleton--text-two-row {
+.skeleton--text-large.skeleton--text-multiline {
   margin-bottom: 32px;
 }
 .skeleton--form {
   border-radius: 8px;
   height: 48px;
 }
-.skeleton--tile-layout {
+.skeleton--tiles-layout {
   display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
-.skeleton--tile-layout .skeleton__image-container {
+.skeleton--tiles-layout li {
+  display: inline-table;
+  margin: 4px;
+}
+.skeleton--tile {
+  max-width: var(--skeleton-tile-width-max);
+  min-width: var(--skeleton-tile-width-min);
+}
+.skeleton--tile .skeleton--text-small,
+.skeleton--tile .skeleton--text-large {
+  width: calc(100% - 24px);
+}
+.skeleton--tile .skeleton__image-container {
   margin-bottom: 12px;
   padding-bottom: 100%;
   position: relative;
@@ -84,7 +97,7 @@ Should we rename button to btn for consistency?
   height: 100%;
   max-width: initial;
 }
-.skeleton--tile-layout .skeleton--image {
+.skeleton__image-container .skeleton--image {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -92,6 +105,25 @@ Should we rename button to btn for consistency?
   right: 0;
   top: 0;
   width: 100%;
+}
+/* Columns */
+.skeleton--tiles-layout[data-columns="2"] li {
+  width: calc(100% / 2 - 11px);
+}
+.skeleton--tiles-layout[data-columns="3"] li {
+  width: calc(100% / 3 - 11px);
+}
+.skeleton--tiles-layout[data-columns="4"] li {
+  width: calc(100% / 4 - 11px);
+}
+.skeleton--tiles-layout[data-columns="5"] li {
+  width: calc(100% / 5 - 11px);
+}
+.skeleton--tiles-layout[data-columns="6"] li {
+  width: calc(100% / 6 - 11px);
+}
+[dir="rtl"] .skeleton--text-multiline::after {
+  left: 56px;
 }
 @keyframes loading-frames {
   0% {
