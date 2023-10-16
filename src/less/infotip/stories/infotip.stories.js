@@ -108,7 +108,7 @@ export const paragraphExpanded = () => `
 
 export const infotipModal = () => `
     <span class="infotip infotip--modal">
-        <button class="icon-btn icon-btn--transparent dialog-button" type="button" data-makeup-for="lightbox-dialog-mini-infotip-0" aria-expanded="false" aria-label="Help">
+        <button class="icon-btn icon-btn--transparent dialog-button" type="button" data-makeup-for="lightbox-dialog-mini-infotip-0" aria-expanded="true" aria-label="Help">
             <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
                 <use href="#icon-information-16"></use>
             </svg>
