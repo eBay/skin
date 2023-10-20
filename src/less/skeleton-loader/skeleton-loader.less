@@ -5,9 +5,6 @@
 @skeleton-text-height-large: 24px;
 
 :root {
-    // css var to allow teams override to another gradient
-    --skeleton-background: var(--color-loading-fill);
-    // var(--color-loading-shimmer)
     --skeleton-default-height: 40px;
     --skeleton-tile-width-min: 121px;
     --skeleton-tile-width-max: 224px;
@@ -15,11 +12,23 @@
 
 // TODO: use css custom properties for spacing
 .skeleton {
-    background: var(--skeleton-background);
+    background: var(--color-loading-shimmer);
     cursor: progress;
     height: var(--skeleton-default-height);
     min-height: 12px;
     width: 100%;
+}
+
+.skeleton-ai-gradient-purple-subtle {
+    background: var(--color-ai-gradient-purple-subtle);
+}
+
+.skeleton-ai-gradient-green-subtle {
+    background: var(--color-ai-gradient-green-subtle);
+}
+
+.skeleton-ai-gradient-blue-subtle {
+    background: var(--color-ai-gradient-blue-subtle);
 }
 
 .skeleton--avatar {
@@ -160,6 +169,10 @@
 }
 
 [dir="rtl"] {
+    .skeleton {
+        animation-direction: reverse;
+    }
+
     .skeleton--text-multiline::after {
         left: @spacing-700;
     }
@@ -169,24 +182,20 @@
     0% {
         background-position: 0% 0%;
     }
-    25% {
-        background-position: 100% 0%;
-    }
     50% {
-        background-position: 100% 100%;
-    }
-    75% {
-        background-position: 0% 100%;
+        background-position: 45% 0%;
     }
     100% {
-        background-position: 0% 0%;
+        background-position: 90% 0%;
     }
 }
 
 @media (prefers-reduced-motion: no-preference) {
     .skeleton {
-        /* By default set to infinite when no preference. this can also be time bound may be < 5s if needed */
-        animation: loading-frames 2s ease infinite;
-        background-size: 80%;
+        /*  setting animation-iteration-count to 6 (5000/833ms)    */
+        /*  so it does not exceed 5s per WCAG 2.2.2    */
+        animation: loading-frames 833ms 667ms linear 6;
+        animation-fill-mode: both;
+        background-size: 200%;
     }
 }
