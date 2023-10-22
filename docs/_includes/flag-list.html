@@ -1,0 +1,11 @@
+<ul class="demo-flag-boxes">
+  {% for flagName in include.flag.list %}
+      <li class="demo-flag-box">
+        <span><b>{{flagName.code}}</b></span>
+          <svg class="{{ include.flag.prefix }} {{ include.flag.prefix }}--{{ flagName.code }}{{ include.flag.postfix }}" focusable="false" height="48" width="64"">
+              {% include symbol.html name=flagName.code file="flags" prefix=include.flag.prefix postfix=include.flag.postfix %}
+          </svg>
+          <span>{{ flagName.name }}</span>
+      </li>
+  {% endfor %}
+</ul>
