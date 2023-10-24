@@ -4,7 +4,11 @@ const { runGenerateFlags } = require("./generate-flags");
 const { runImport } = require("./import-svgs");
 const { verifyBuild } = require("./verify-build");
 const { generateTopLevel, cleanTopLevel } = require("./generate-imports");
-const { copySVGIcons, copyCustomStyles } = require("./storybook/copy");
+const {
+    copySVGIcons,
+    copyCustomStyles,
+    copySVGFlags,
+} = require("./storybook/copy");
 const { splitter } = require("./split-icon");
 
 require("yargs") // eslint-disable-line
@@ -146,6 +150,7 @@ require("yargs") // eslint-disable-line
         (yargs) => {
             if (yargs.noSvg) {
                 copySVGIcons();
+                copySVGFlags();
             }
             if (yargs.noStyles) {
                 copyCustomStyles();
