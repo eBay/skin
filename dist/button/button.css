@@ -11,7 +11,7 @@ a.fake-btn {
   border-radius: var(--btn-border-radius, calc(40px / 2));
   color: inherit;
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: var(--font-size-default);
   min-height: 40px;
   min-width: 88px;
   padding: 9.5px 20px;
@@ -71,8 +71,8 @@ button.btn--slim,
 a.fake-btn--slim {
   height: 40px;
   min-width: auto;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: var(--spacing-100);
+  padding-right: var(--spacing-100);
 }
 a.fake-btn:visited {
   color: inherit;
@@ -118,11 +118,13 @@ a.fake-btn svg.icon {
 }
 button.btn svg.icon:first-child,
 a.fake-btn svg.icon:first-child {
-  margin-right: 8px;
+  -webkit-margin-end: 8px;
+          margin-inline-end: 8px;
 }
 button.btn svg.icon:last-child,
 a.fake-btn svg.icon:last-child {
-  margin-left: 8px;
+  -webkit-margin-start: 8px;
+          margin-inline-start: 8px;
 }
 button.btn svg.icon:only-child,
 a.fake-btn svg.icon:only-child {
@@ -334,14 +336,14 @@ button.btn--tertiary.btn--destructive .progress-spinner {
 button.btn--large,
 a.fake-btn--large {
   border-radius: var(--btn-border-radius, calc(48px / 2));
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
   min-height: 48px;
   padding: 13px 20px;
 }
 button.btn--small,
 a.fake-btn--small {
   border-radius: var(--btn-border-radius, calc(32px / 2));
-  font-size: 0.875rem;
+  font-size: var(--font-size-default);
   min-height: 32px;
   padding: 6px 16px;
 }
@@ -398,7 +400,7 @@ a.fake-btn--truncated span {
 }
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
   height: 48px;
   min-height: 48px;
   padding: 13px 20px;
@@ -471,21 +473,6 @@ button.btn--floating-label .btn__floating-label--inline {
   position: unset;
   transform: translate(0, -6px);
 }
-[dir="rtl"] button.btn svg.icon--chevron-down-12:first-child,
-[dir="rtl"] a.fake-btn svg.icon--chevron-down-12:first-child {
-  margin-left: 8px;
-  margin-right: 0;
-}
-[dir="rtl"] button.btn svg.icon--chevron-down-12:last-child,
-[dir="rtl"] a.fake-btn svg.icon--chevron-down-12:last-child {
-  margin-left: 0;
-  margin-right: 8px;
-}
-[dir="rtl"] button.btn svg.icon--chevron-down-12:only-child,
-[dir="rtl"] a.fake-btn svg.icon--chevron-down-12:only-child {
-  margin-left: 0;
-  margin-right: 0;
-}
 [dir="rtl"] button.btn--split-start,
 [dir="rtl"] a.fake-btn--split-start {
   border-radius: 0 24px 24px 0;
@@ -511,9 +498,4 @@ button.btn--floating-label .btn__floating-label--inline {
 [dir="rtl"] a.fake-btn.fake-btn--primary.fake-btn--split-end:focus {
   border-left-color: var(--btn-primary-border-color, var(--color-stroke-accent));
   border-right-color: var(--primary-border-split-color, var(--color-stroke-subtle));
-}
-[dir="rtl"] button.btn svg.icon,
-[dir="rtl"] a.fake-btn svg.icon {
-  margin-left: 8px;
-  margin-right: 0;
 }

@@ -10,7 +10,7 @@ a.fake-btn {
     border-radius: var(--btn-border-radius, calc(@button-height-regular / 2));
     color: inherit;
     display: inline-block;
-    font-size: @font-size-regular;
+    font-size: var(--font-size-default);
     min-height: @button-height-regular;
     min-width: 88px;
     padding: @button-padding-vertical @button-padding-horizontal;
@@ -53,8 +53,8 @@ button.btn--slim,
 a.fake-btn--slim {
     height: @button-height-regular;
     min-width: auto;
-    padding-left: @spacing-100;
-    padding-right: @spacing-100;
+    padding-left: var(--spacing-100);
+    padding-right: var(--spacing-100);
 }
 
 a.fake-btn:visited {
@@ -345,7 +345,7 @@ a.fake-btn--large {
 button.btn--small,
 a.fake-btn--small {
     border-radius: var(--btn-border-radius, calc(@button-height-xsmall / 2));
-    font-size: @font-size-regular;
+    font-size: var(--font-size-default);
     min-height: @button-height-xsmall;
     padding: @button-padding-vertical-small @button-padding-horizontal-small;
 }
@@ -405,7 +405,7 @@ button.btn--large-truncated,
 a.fake-btn--large-truncated {
     .btn-truncate();
 
-    font-size: @font-size-medium;
+    font-size: var(--font-size-medium);
     height: @button-height-large;
     min-height: @button-height-large;
     padding: @button-padding-vertical-large @button-padding-horizontal;
@@ -479,24 +479,6 @@ button.btn--floating-label .btn__floating-label--inline {
     transform: translate(0, -6px);
 }
 
-[dir="rtl"] button.btn svg.icon--chevron-down-12,
-[dir="rtl"] a.fake-btn svg.icon--chevron-down-12 {
-    &:first-child {
-        margin-left: 8px;
-        margin-right: 0;
-    }
-
-    &:last-child {
-        margin-left: 0;
-        margin-right: 8px;
-    }
-
-    &:only-child {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
 [dir="rtl"] {
     button.btn--split-start,
     a.fake-btn--split-start {
@@ -525,11 +507,5 @@ button.btn--floating-label .btn__floating-label--inline {
             .border-left-color-token(btn-primary-border-color, color-stroke-accent);
             .border-right-color-token(primary-border-split-color, color-stroke-subtle);
         }
-    }
-
-    button.btn svg.icon,
-    a.fake-btn svg.icon {
-        margin-left: 8px;
-        margin-right: 0;
     }
 }

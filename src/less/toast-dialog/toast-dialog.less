@@ -49,7 +49,7 @@
 }
 
 .toast-dialog__window {
-    margin: @spacing-100 @spacing-200 @spacing-200;
+    margin: var(--spacing-100) var(--spacing-200) var(--spacing-200);
 }
 
 .toast-dialog__header {
@@ -68,8 +68,9 @@ button.toast-dialog__close {
     align-self: center;
     border: 0;
     .color-token(toast-dialog-foreground-color, color-foreground-on-information);
-    margin: 0 0 0 auto;
-    outline-offset: -@spacing-100;
+    // margin: 0 0 0 auto;
+    margin-inline-start: auto;
+    outline-offset: calc(var(--spacing-100) * -1);
     padding: 0;
 
     &:focus {
@@ -111,7 +112,7 @@ button.toast-dialog__close > svg {
         background-color: transparent;
         .color-token(toast-dialog-foreground-color, color-background-primary);
         font-weight: 700;
-        margin-right: @spacing-100;
+        margin-inline-end: var(--spacing-100);
     }
 
     button.btn--primary:focus,
@@ -150,19 +151,13 @@ button.toast-dialog__close > svg {
 @media (min-width: @_screen-size-SM) {
     .toast-dialog {
         .border-radius-token(toast-dialog-border-radius, border-radius-100);
-        bottom: @spacing-200;
-        left: @spacing-200;
+        bottom: var(--spacing-200);
+        left: var(--spacing-200);
         max-width: 480px;
         width: auto;
     }
 
     .toast-dialog__window {
-        margin: @spacing-200 @spacing-300 @spacing-300;
-    }
-}
-
-[dir="rtl"] {
-    .toast-dialog__footer .btn--primary {
-        margin-right: 7px;
+        margin: var(--spacing-200) var(--spacing-300) var(--spacing-300);
     }
 }

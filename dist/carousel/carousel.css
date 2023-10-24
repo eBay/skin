@@ -59,6 +59,7 @@
   content: "";
   display: block;
   left: 0;
+  pointer-events: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -83,6 +84,7 @@
   content: "";
   display: block;
   left: 0;
+  pointer-events: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -117,22 +119,18 @@ div.carousel {
   z-index: 1;
 }
 .carousel__control--prev {
-  left: -16px;
+  left: calc(var(--spacing-200) * -1);
 }
 .carousel__control--next {
-  right: -16px;
-}
-.carousel__control .icon--chevron-right-24 {
-  margin-left: 2px;
-}
-.carousel__control .icon--chevron-left-24 {
-  margin-left: -2px;
+  right: calc(var(--spacing-200) * -1);
 }
 .carousel__control .icon--chevron-right-12 {
-  margin-left: 1px;
+  -webkit-margin-start: 1px;
+          margin-inline-start: 1px;
 }
 .carousel__control .icon--chevron-left-12 {
-  margin-left: -1px;
+  -webkit-margin-end: 1px;
+          margin-inline-end: 1px;
 }
 .carousel__control svg {
   color: var(--carousel-paddle-foreground-color, var(--color-foreground-primary));
@@ -187,26 +185,12 @@ span.carousel__container {
 }
 [dir="rtl"] .carousel__control--prev {
   left: unset;
-  right: -16px;
-}
-[dir="rtl"] .carousel__control .icon--chevron-left-24 {
-  margin-left: 2px;
-}
-[dir="rtl"] .carousel__control .icon--chevron-left-12 {
-  margin-left: 1px;
+  right: calc(var(--spacing-200) * -1);
 }
 [dir="rtl"] .carousel__control--next {
-  left: -16px;
+  left: calc(var(--spacing-200) * -1);
   right: unset;
 }
-[dir="rtl"] .carousel__control .icon--chevron-right-24 {
-  margin-left: -2px;
-}
-[dir="rtl"] .carousel__control .icon--chevron-right-12 {
-  margin-left: -1px;
-}
-[dir="rtl"] .carousel__control .icon--chevron-left-24,
-[dir="rtl"] .carousel__control .icon--chevron-right-24,
 [dir="rtl"] .carousel__control .icon--chevron-left-12,
 [dir="rtl"] .carousel__control .icon--chevron-right-12 {
   transform: rotate(180deg);

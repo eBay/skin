@@ -1,6 +1,7 @@
 .textbox {
   color: var(--textbox-foreground-color, var(--color-background-secondary));
-  font-size: 0.875rem;
+  font-size: var(--font-size-default);
+  /* to align with buttons and select, it needs same font-size */
   position: relative;
 }
 .textbox button.icon-btn {
@@ -20,14 +21,14 @@ textarea.textbox__control {
   font-family: inherit;
   min-height: 200px;
   overflow: auto;
-  padding: 16px;
+  padding: var(--spacing-200);
   /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
   resize: vertical;
   vertical-align: middle;
 }
 input.textbox__control {
   font-family: inherit;
-  padding: 0 16px;
+  padding: 0 var(--spacing-200);
   vertical-align: middle;
 }
 input.textbox__control,
@@ -101,10 +102,11 @@ input.textbox__control--large {
 }
 .textbox--icon-end input.textbox__control,
 .textbox--icon-end textarea.textbox__control {
-  padding-right: 40px;
+  -webkit-padding-end: 40px;
+          padding-inline-end: 40px;
 }
 .textbox--icon-end > svg:last-child {
-  right: 16px;
+  right: var(--spacing-200);
 }
 input.textbox__control:not(:read-only):focus,
 textarea.textbox__control:not(:read-only):focus {
@@ -117,31 +119,24 @@ textarea.textbox__control[readonly]:focus {
   text-decoration: underline;
 }
 .textbox > svg:first-child {
-  left: 16px;
+  left: var(--spacing-200);
 }
 .textbox > svg:first-child + input.textbox__control,
 .textbox > svg:first-child + textarea.textbox__control {
-  padding-left: 40px;
+  -webkit-padding-start: 40px;
+          padding-inline-start: 40px;
 }
 .textbox__control--fluid {
   width: 100%;
 }
 [dir="rtl"] .textbox > svg:first-child {
-  right: 16px;
-}
-[dir="rtl"] .textbox > svg:first-child + input.textbox__control,
-[dir="rtl"] .textbox > svg:first-child + textarea.textbox__control {
-  padding-right: 40px;
-}
-[dir="rtl"] .textbox--icon-end input.textbox__control,
-[dir="rtl"] .textbox--icon-end textarea.textbox__control {
-  padding-left: 40px;
+  right: var(--spacing-200);
 }
 [dir="rtl"] .textbox--icon-end button.icon-btn {
   left: 0;
   right: auto;
 }
 [dir="rtl"] .textbox--icon-end > svg:last-child {
-  left: 16px;
+  left: var(--spacing-200);
   right: auto;
 }
