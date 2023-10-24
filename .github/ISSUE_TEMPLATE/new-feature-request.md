@@ -7,9 +7,6 @@ assignees: ''
 
 ---
 
-**Provide a desired name for the feature or module**
-A clear and concise name.
-
 **Describe the feature/module in detail**
 A description of how the feature/module is intended to work.
 
@@ -25,5 +22,5 @@ Add a link to the Figma page for the feature/module.
 - [ ] Supports dark mode.
 - [ ] Supports responsive design.
 - [ ] Tokens have been provided (or already exist)
-- [ ] Successful accessibility review with a11y core team
-- [ ] Successful UX review with eBayUI Team (See UX Guidelines on Wiki)
+- [ ] Passed accessibility review
+- [ ] Successful frontend review with eBayUI Team
