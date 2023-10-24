@@ -21,6 +21,8 @@ Add a link to the Figma page for the feature/module.
 - [ ] Successful design review with Design System Team.
 - [ ] Supports dark mode.
 - [ ] Supports responsive design.
-- [ ] Tokens have been provided (or already exist)
-- [ ] Passed accessibility review
-- [ ] Successful frontend review with eBayUI Team
+- [ ] Tokens have been provided (or already exist).
+- [ ] Successful accessibility review with Core A11Y Team.
+- [ ] Successful frontend review with eBayUI Team.
+
+Note: A "successful review" means those teams give their blessing for it to proceed to engineering.
