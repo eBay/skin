@@ -27,13 +27,20 @@ export const textLargeMultiLine = () =>
 export const form = () =>
     '<div role="img" class="skeleton skeleton--form" aria-label="loading"></div>';
 
+export const smallImage = () =>
+    `<div class="skeleton-image-container" style="height:50px; width: 50px;">
+        <div role="img" class="skeleton skeleton--image" aria-label="loading"></div>
+    </div>`;
+
 export const image = () =>
-    '<div class="container" style="height:150px; width: 150px;"><div role="img" class="skeleton skeleton--image" aria-label="loading"></div></div>';
+    `<div class="skeleton-image-container" style="height:150px; width: 150px;">
+        <div role="img" class="skeleton skeleton--image" aria-label="loading"></div>
+    </div>`;
 
 export const tile = () =>
     `<div class="skeleton--tile" role="img" aria-label="loading">
-        <div class="skeleton__image-container">
-        <div class="skeleton skeleton--image"></div>
+        <div class="skeleton-image-container">
+            <div class="skeleton skeleton--image"></div>
         </div>
         <div class="skeleton skeleton--text-small skeleton--text-multiline"></div>
     </div>`;
