@@ -28,7 +28,7 @@ export const form = () =>
     '<div role="img" class="skeleton skeleton--form" aria-label="loading"></div>';
 
 export const image = () =>
-    '<div role="img" class="skeleton skeleton--image" aria-label="loading"></div>';
+    '<div class="container" style="height:150px; width: 150px;"><div role="img" class="skeleton skeleton--image" aria-label="loading"></div></div>';
 
 export const tile = () =>
     `<div class="skeleton--tile" role="img" aria-label="loading">
