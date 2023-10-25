@@ -8,13 +8,13 @@ assignees: ''
 ---
 
 **Describe the feature/module in detail**
-A description of how the feature/module is intended to work.
+<!-- A description of how the feature/module is intended to work. -->
 
 **Screenshots**
-Add screenshots of the feature/module.
+<!-- Add screenshots of the feature/module. -->
 
-**Figma Link**
-Add a link to the Figma page for the feature/module.
+**Figma link**
+<!-- Add a link to the Figma page for the feature/module. -->
 
 **Prerequisites**
 
