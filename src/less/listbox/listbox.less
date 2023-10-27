@@ -30,8 +30,22 @@ div.listbox__options--reverse[role="listbox"] {
     right: 0;
 }
 
+.listbox__subtitle {
+    .color-token(listbox-button-subtitle-color, color-foreground-secondary);
+
+    font-size: var(--font-size-small);
+    font-weight: normal;
+    grid-column: 1 2;
+    grid-row: 2;
+}
+
 div.listbox__option[role="option"] {
     .listbox-option-base();
+
+    &:disabled .listbox__subtitle,
+    &[aria-disabled="true"] .listbox__subtitle {
+        .listbox-disabled();
+    }
 }
 
 span.listbox__value {

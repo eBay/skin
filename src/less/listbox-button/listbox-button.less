@@ -107,11 +107,25 @@ div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
     opacity: 1;
 }
 
+.listbox-button__subtitle {
+    .color-token(listbox-button-subtitle-color, color-foreground-secondary);
+
+    font-size: var(--font-size-small);
+    font-weight: normal;
+    grid-column: 1 2;
+    grid-row: 2;
+}
+
 div.listbox-button__option[role="option"] {
     .listbox-option-base();
     .dropdown-item-border-radius(listbox-button-listbox);
 
     cursor: default; // needed to override text cursor
+
+    &:disabled .listbox-button__subtitle,
+    &[aria-disabled="true"] .listbox-button__subtitle {
+        .listbox-disabled();
+    }
 }
 
 div.listbox-button__option--active[role="option"] {
