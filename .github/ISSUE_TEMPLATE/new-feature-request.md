@@ -25,4 +25,5 @@ assignees: ''
 - [ ] Successful accessibility review with Core A11Y Team.
 - [ ] Successful frontend review with eBayUI Team.
 
-Note: A "successful review" means those teams give their blessing for it to proceed to engineering.
+> **Note**
+> A "successful review" means those teams give their blessing for it to proceed to engineering.
