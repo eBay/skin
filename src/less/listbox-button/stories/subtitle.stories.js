@@ -15,7 +15,7 @@ export const collapsedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about option 1
                 </span>
@@ -25,7 +25,7 @@ export const collapsedUnselected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about option 2
                 </span>
@@ -35,7 +35,7 @@ export const collapsedUnselected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about option 3
                 </span>
@@ -69,7 +69,7 @@ export const expandedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about red
                 </span>
@@ -79,7 +79,7 @@ export const expandedUnselected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about blue
                 </span>
@@ -89,7 +89,7 @@ export const expandedUnselected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about yellow
                 </span>
@@ -99,7 +99,7 @@ export const expandedUnselected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about green
                 </span>
@@ -127,7 +127,7 @@ export const collapsedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about red
                 </span>
@@ -137,7 +137,7 @@ export const collapsedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about blue
                 </span>
@@ -147,7 +147,7 @@ export const collapsedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about yellow
                 </span>
@@ -157,7 +157,7 @@ export const collapsedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about green
                 </span>
@@ -185,7 +185,7 @@ export const expandedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about red
                 </span>
@@ -195,7 +195,7 @@ export const expandedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about blue
                 </span>
@@ -205,7 +205,7 @@ export const expandedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about yellow
                 </span>
@@ -215,7 +215,7 @@ export const expandedSelected = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about green
                 </span>
@@ -243,7 +243,7 @@ export const disabled = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about red
                 </span>
@@ -253,7 +253,7 @@ export const disabled = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about blue
                 </span>
@@ -263,7 +263,7 @@ export const disabled = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about yellow
                 </span>
@@ -273,7 +273,7 @@ export const disabled = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about green
                 </span>
@@ -301,7 +301,7 @@ export const invalid = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about red
                 </span>
@@ -311,7 +311,7 @@ export const invalid = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about blue
                 </span>
@@ -321,7 +321,7 @@ export const invalid = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about yellow
                 </span>
@@ -331,7 +331,7 @@ export const invalid = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     More info about green
                 </span>
@@ -359,7 +359,7 @@ export const longOption = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Red with very very very long text</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     Small text
                 </span>
@@ -369,7 +369,7 @@ export const longOption = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     Small blue text
                 </span>
@@ -379,7 +379,7 @@ export const longOption = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     Small yellow text
                 </span>
@@ -407,7 +407,7 @@ export const longSubtitle = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Red</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     There is a lot of text here in this subtitle even though red does not have much
                 </span>
@@ -417,7 +417,7 @@ export const longSubtitle = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     Small blue text
                 </span>
@@ -427,7 +427,7 @@ export const longSubtitle = () => `
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <span class="listbox-button__subtitle">
+                <span class="listbox-button__description">
                     <span class="clipped">.</span>
                     Small yellow text
                 </span>

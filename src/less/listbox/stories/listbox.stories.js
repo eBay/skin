@@ -80,7 +80,7 @@ export const subtitleUnselected = () => `
     <div class="listbox__options" role="listbox" tabindex="0">
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 1</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 1
             </span>
@@ -90,7 +90,7 @@ export const subtitleUnselected = () => `
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 2</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 2
             </span>
@@ -100,7 +100,7 @@ export const subtitleUnselected = () => `
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 3</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 3
             </span>
@@ -117,7 +117,7 @@ export const subtitleSelected = () => `
     <div class="listbox__options" role="listbox" tabindex="0">
         <div class="listbox__option" role="option" aria-selected="true">
             <span class="listbox__value">Option 1</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 1
             </span>
@@ -127,7 +127,7 @@ export const subtitleSelected = () => `
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 2</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 2
             </span>
@@ -137,7 +137,7 @@ export const subtitleSelected = () => `
         </div>
         <div class="listbox__option" role="option" aria-selected="false">
             <span class="listbox__value">Option 3</span>
-            <span class="listbox__subtitle">
+            <span class="listbox__description">
                 <span class="clipped">.</span>
                 More info about option 3
             </span>
