@@ -10,133 +10,119 @@
     --skeleton-tile-width-max: 224px;
 }
 
-// TODO: use css custom properties for spacing
-.skeleton {
+.skeleton:empty {
     background: var(--color-loading-fill);
     cursor: progress;
     height: var(--skeleton-default-height);
     min-height: 12px;
     width: 100%;
-}
 
-.skeleton-elevated {
-    background: var(--color-loading-elevated-fill);
-}
+    &.skeleton--avatar {
+        border-radius: 50%;
+        height: 48px;
+        justify-content: center;
+        line-height: 48px;
+        overflow: hidden;
+        width: 48px;
+    }
 
-.skeleton-ai-gradient-purple-subtle {
-    background: var(--color-ai-gradient-purple-subtle);
-}
+    &.skeleton--btn {
+        border-radius: 20px;
+        height: 40px;
+    }
 
-.skeleton-ai-gradient-green-subtle {
-    background: var(--color-ai-gradient-green-subtle);
-}
+    &.skeleton--btn-small {
+        border-radius: 16px;
+        height: 32px;
+    }
 
-.skeleton-ai-gradient-blue-subtle {
-    background: var(--color-ai-gradient-blue-subtle);
-}
+    &.skeleton--btn-large {
+        border-radius: 24px;
+        height: 48px;
+    }
 
-.skeleton--avatar {
-    border-radius: 50%;
-    height: 48px;
-    justify-content: center;
-    line-height: 48px;
-    overflow: hidden;
-    width: 48px;
-}
+    &.skeleton--text-small {
+        border-radius: @skeleton-text-border-radius;
+        height: @skeleton-text-height-small;
+    }
 
-.skeleton--btn {
-    border-radius: 20px;
-    height: 40px;
-}
+    &.skeleton--text-small::after {
+        height: @skeleton-text-height-small;
+        margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
+    }
 
-.skeleton--btn-small {
-    border-radius: 16px;
-    height: 32px;
-}
+    &.skeleton--text-large {
+        border-radius: @skeleton-text-border-radius;
+        height: @skeleton-text-height-large;
+    }
 
-.skeleton--btn-large {
-    border-radius: 24px;
-    height: 48px;
-}
+    &.skeleton--text-large::after {
+        height: @skeleton-text-height-large;
+        margin-top: calc(@skeleton-text-height-large + var(--spacing-100));
+    }
 
-.skeleton--text-small {
-    border-radius: @skeleton-text-border-radius;
-    height: @skeleton-text-height-small;
-}
+    &.skeleton--text-multiline {
+        position: relative;
+        width: calc(100% - var(--spacing-300));
+    }
 
-.skeleton--text-small::after {
-    height: @skeleton-text-height-small;
-    margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
-}
+    &.skeleton--text-multiline::after {
+        background: inherit;
+        content: "";
+        position: absolute;
+        width: calc(100% - var(--spacing-700));
+    }
 
-.skeleton--text-large {
-    border-radius: @skeleton-text-border-radius;
-    height: @skeleton-text-height-large;
-}
+    &.skeleton--text-small.skeleton--text-multiline {
+        margin-bottom: var(--spacing-300);
+    }
 
-.skeleton--text-large::after {
-    height: @skeleton-text-height-large;
-    margin-top: calc(@skeleton-text-height-large + var(--spacing-100));
-}
+    &.skeleton--text-large.skeleton--text-multiline {
+        margin-bottom: var(--spacing-400);
+    }
 
-.skeleton--text-multiline {
-    position: relative;
-    width: calc(100% - var(--spacing-300));
-}
+    &.skeleton--form {
+        border-radius: 8px;
+        height: 48px;
+    }
 
-.skeleton--text-multiline::after {
-    background: inherit;
-    content: "";
-    position: absolute;
-    width: calc(100% - var(--spacing-700));
-}
+    // TODO: Use aspect-ratio : 1 / 1 to set as square once browser support for safari > 15
+    &.skeleton--image {
+        border-radius: 8px;
+        height: 100%;
+        max-width: initial;
+    }
 
-.skeleton--text-small.skeleton--text-multiline {
-    margin-bottom: var(--spacing-300);
-}
+    &.skeleton-elevated {
+        background: var(--color-loading-elevated-fill);
+    }
 
-.skeleton--text-large.skeleton--text-multiline {
-    margin-bottom: var(--spacing-400);
-}
+    &.skeleton-ai-gradient-purple-subtle {
+        background: var(--color-ai-gradient-purple-subtle);
+    }
 
-.skeleton--form {
-    border-radius: 8px;
-    height: 48px;
+    &.skeleton-ai-gradient-green-subtle {
+        background: var(--color-ai-gradient-green-subtle);
+    }
+
+    &.skeleton-ai-gradient-blue-subtle {
+        background: var(--color-ai-gradient-blue-subtle);
+    }
 }
 
 .skeleton-image-container {
     container-name: skeleton-image;
     container-type: inline-size;
-}
 
-// TODO: Use aspect-ratio : 1 / 1 to set as square once browser support for safari > 15
-.skeleton--image {
-    border-radius: 8px;
-    height: 100%;
-    max-width: initial;
-}
-
-.skeleton-image-container .skeleton--image {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-}
-
-.skeleton--tiles-layout {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.skeleton--tiles-layout li {
-    display: inline-table;
-    margin: var(--spacing-50);
+    .skeleton:empty.skeleton--image {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
 }
 
 .skeleton--tile {
@@ -144,8 +130,8 @@
     min-width: var(--skeleton-tile-width-min);
 }
 
-.skeleton--tile .skeleton--text-small,
-.skeleton--tile .skeleton--text-large {
+.skeleton--tile .skeleton:empty.skeleton--text-small,
+.skeleton--tile .skeleton:empty.skeleton--text-large {
     width: calc(100% - var(--spacing-300));
 }
 
@@ -156,34 +142,47 @@
     width: 100%;
 }
 
-/* Columns */
-.skeleton--tiles-layout[data-columns="2"] li {
-    width: calc(100% / 2 - 11px);
-}
+.skeleton--tiles-layout {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 
-.skeleton--tiles-layout[data-columns="3"] li {
-    width: calc(100% / 3 - 11px);
-}
+    li {
+        display: inline-table;
+        margin: var(--spacing-50);
+    }
 
-.skeleton--tiles-layout[data-columns="4"] li {
-    width: calc(100% / 4 - 11px);
-}
+    /* Columns */
+    &[data-columns="2"] li {
+        width: calc(100% / 2 - 11px);
+    }
 
-.skeleton--tiles-layout[data-columns="5"] li {
-    width: calc(100% / 5 - 11px);
-}
+    &[data-columns="3"] li {
+        width: calc(100% / 3 - 11px);
+    }
 
-.skeleton--tiles-layout[data-columns="6"] li {
-    width: calc(100% / 6 - 11px);
+    &[data-columns="4"] li {
+        width: calc(100% / 4 - 11px);
+    }
+
+    &[data-columns="5"] li {
+        width: calc(100% / 5 - 11px);
+    }
+
+    &[data-columns="6"] li {
+        width: calc(100% / 6 - 11px);
+    }
 }
 
 [dir="rtl"] {
-    .skeleton {
+    .skeleton:empty {
         animation-direction: reverse;
-    }
 
-    .skeleton--text-multiline::after {
-        left: var(--spacing-700);
+        &.skeleton--text-multiline::after {
+            left: var(--spacing-700);
+        }
     }
 }
 
@@ -200,7 +199,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .skeleton {
+    .skeleton:empty {
         /*  setting animation-iteration-count to 6 (5000/833ms)    */
         /*  so it does not exceed 5s per WCAG 2.2.2    */
         animation: loading-frames 833ms 667ms linear 6;
@@ -210,7 +209,7 @@
 }
 
 @media screen and (max-width: @_screen-size-SM) {
-    .skeleton {
+    .skeleton:empty {
         background: var(--color-loading-shimmer);
     }
     .skeleton-elevated {
@@ -219,7 +218,7 @@
 }
 
 @container skeleton-image (width > 79px) {
-    .skeleton--image {
+    .skeleton:empty.skeleton--image {
         border-radius: 16px;
     }
 }
