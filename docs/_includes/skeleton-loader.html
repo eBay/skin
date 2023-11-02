@@ -2,23 +2,53 @@
   {% include section-header.html name="skeleton-loader" version=page.versions.skeleton-loader %}
 
   <p>The Skeletons are simplified versions of layouts used on initial page load to indicate that information has not
-    been fully loaded. Skeletons should only be used for loads that take 500ms or longer</p>
+    been fully loaded. Skeletons should only be used for loads that take 500ms or longer.</p>
 
-  <div class="highlight">
-    <h3 id="skeleton-usage">Usage</h3>
-    <h4>Labelling</h4>
-    <p>By default, the skeleton loaders doesn't convey to screen reader users in a meaningful way. The <i>aria-label</i>
-      attribute, set to "loading", is utilized to signify the loading state of the
-      skeleton loader to screen reader users. To prevent the screen reader from repeating the label, the
-      <i>aria-label</i> attribute should be positioned on the container element. For a better
-      understanding of this subtlety, please refer to the Tile and Responsive tile sections below.</p>
-    </p>
-    <h4>Implementation</h4>
-    <p>In terms of implementation, once the actual content is ready to be displayed, you would typically use JavaScript
-      to hide the skeleton loader and display the actual content. This could be done by toggling the <span
-        class="highlight">hidden</span> attribute on the skeleton loader and the content container.</p>
-    <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
+  <h3 id="skeleton-usage">Usage</h3>
+  <h4>Labelling</h4>
+  <p>By default, the skeleton loaders doesn't convey to screen reader users in a meaningful way. The <i>aria-label</i>
+    attribute, set to "loading", is utilized to signify the loading state of the
+    skeleton loader to screen reader users. To prevent the screen reader from repeating the label, the
+    <i>aria-label</i> attribute should be positioned on the container element. For a better
+    understanding of this subtlety, please refer to the Tile and Responsive tile sections below.
+  </p>
+  </p>
+  <h4>Implementation: Using no JavaScript</h4>
+  <p>In this progressive enhancement approach, <span class="highlight">:empty</span> pseudo-class in CSS is used for
+    implementing a skeleton loader without the need for client-side JavaScript. This approach detects if the container
+    with the class skeleton is empty and displays the skeleton loader until the asynchronous content is available.
+    When the asynchronous content is ready, the skeleton loader will automatically disappear because the <span
+      class="highlight">:empty</span> pseudo-class no longer applies.
+  </p>
+  <p>This approach is highly performant and consumes less resources especially on devices with limited CPU resources.
+  </p>
+  <p>NOTE: The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty.
+    Therefore, its important to ensure that the skeleton container doesn't contain any whitespace or comments before
+    the
+    asynchronous content is loaded.</p>
+
+  {% highlight html %}
+  <div role="img" class="skeleton skeleton--avatar" aria-label="loading">
+    <!-- Asynchronous content will go here -->
   </div>
+  {% endhighlight %}
+
+  <h4>Implementation: Using JavaScript</h4>
+  <p>In this approach using JavaScript, we gain more flexibility and control over when and how the skeleton loader is
+    replaced with the actual content. Here we can completely hide or replace the skeleton loader and display the
+    asyncronous content instead. This could be done by toggling the <span class="highlight">hidden</span> attribute on
+    the
+    skeleton loader and the content container.</p>
+  <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
+  {% highlight html %}
+  <!-- Before -->
+  <div role="img" class="skeleton skeleton--text-small" aria-label="loading"></div>
+  <!-- Asynchronous content will go here -->
+
+  <!-- After -->
+  <div role="img" class="skeleton skeleton--text-small" aria-label="loading" hidden></div>
+  <p>asynchronous content</p>
+  {% endhighlight %}
 
   <h3>Building blocks</h3>
 
