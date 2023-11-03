@@ -1,0 +1,90 @@
+.input-chips__container {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-stroke-default);
+  border-radius: var(--border-radius-50);
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px 8px 8px;
+  position: relative;
+}
+.input-chips__content {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.input-chips_items {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+.input-chips label {
+  display: inline-block;
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+.input-chips__helper-text {
+  color: var(--color-foreground-secondary);
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+.input-chips button.icon-btn {
+  background-color: transparent;
+}
+.input-chips input {
+  background-color: inherit;
+  border: none;
+  border-radius: 0;
+  height: auto;
+  margin: 0 8px;
+  padding: 6px 0;
+  width: calc(100% - 16px);
+}
+.input-chips .combobox {
+  margin-left: -8px;
+  margin-top: 8px;
+  width: calc(100% + 24px);
+}
+.input-chips .combobox__listbox {
+  background-color: var(--color-background-elevated);
+  border: none;
+  border-radius: 16px;
+  box-shadow: var(--shadow-strong);
+  top: calc(100% + 12px);
+}
+.input-chips .combobox__option[role^="option"] {
+  border-style: none;
+}
+.input-chips__container:focus-within {
+  background-color: var(--color-background-primary);
+}
+/** Error State **/
+.input-chips--error-state .input-chips__container {
+  border-color: var(--color-stroke-attention);
+}
+.input-chips--error-state .input-chips__helper-text {
+  color: var(--color-foreground-attention);
+}
+/** Disabled State **/
+.input-chips[aria-disabled] .input-chips__container {
+  border-color: var(--color-stroke-disabled);
+  pointer-events: none;
+}
+.input-chips[aria-disabled] button {
+  background-color: transparent;
+}
+.input-chips[aria-disabled] .chip {
+  color: var(--color-foreground-disabled);
+}
+.input-chips[aria-disabled] button.chip__button > svg {
+  fill: var(--color-foreground-disabled);
+}
+.input-chips[aria-disabled] input {
+  border: none;
+  color: var(--color-foreground-disabled);
+}
+.input-chips[aria-disabled] input::placeholder {
+  color: var(--color-foreground-disabled);
+}
