@@ -3,14 +3,14 @@
   --skeleton-tile-width-min: 121px;
   --skeleton-tile-width-max: 224px;
 }
-.skeleton:empty {
+.skeleton {
   background: var(--color-loading-fill);
   cursor: progress;
   height: var(--skeleton-default-height);
   min-height: 12px;
   width: 100%;
 }
-.skeleton:empty.skeleton--avatar {
+.skeleton.skeleton--avatar {
   border-radius: 50%;
   height: 48px;
   justify-content: center;
@@ -18,76 +18,76 @@
   overflow: hidden;
   width: 48px;
 }
-.skeleton:empty.skeleton--btn {
+.skeleton.skeleton--btn {
   border-radius: 20px;
   height: 40px;
 }
-.skeleton:empty.skeleton--btn-small {
+.skeleton.skeleton--btn-small {
   border-radius: 16px;
   height: 32px;
 }
-.skeleton:empty.skeleton--btn-large {
+.skeleton.skeleton--btn-large {
   border-radius: 24px;
   height: 48px;
 }
-.skeleton:empty.skeleton--text-small {
+.skeleton.skeleton--text-small {
   border-radius: 3px;
   height: 16px;
 }
-.skeleton:empty.skeleton--text-small::after {
+.skeleton.skeleton--text-small::after {
   height: 16px;
   margin-top: calc(16px + var(--spacing-100));
 }
-.skeleton:empty.skeleton--text-large {
+.skeleton.skeleton--text-large {
   border-radius: 3px;
   height: 24px;
 }
-.skeleton:empty.skeleton--text-large::after {
+.skeleton.skeleton--text-large::after {
   height: 24px;
   margin-top: calc(24px + var(--spacing-100));
 }
-.skeleton:empty.skeleton--text-multiline {
+.skeleton.skeleton--text-multiline {
   position: relative;
   width: calc(100% - var(--spacing-300));
 }
-.skeleton:empty.skeleton--text-multiline::after {
+.skeleton.skeleton--text-multiline::after {
   background: inherit;
   content: "";
   position: absolute;
   width: calc(100% - var(--spacing-700));
 }
-.skeleton:empty.skeleton--text-small.skeleton--text-multiline {
+.skeleton.skeleton--text-small.skeleton--text-multiline {
   margin-bottom: var(--spacing-300);
 }
-.skeleton:empty.skeleton--text-large.skeleton--text-multiline {
+.skeleton.skeleton--text-large.skeleton--text-multiline {
   margin-bottom: var(--spacing-400);
 }
-.skeleton:empty.skeleton--form {
+.skeleton.skeleton--form {
   border-radius: 8px;
   height: 48px;
 }
-.skeleton:empty.skeleton--image {
+.skeleton.skeleton--image {
   border-radius: 8px;
   height: 100%;
   max-width: initial;
 }
-.skeleton:empty.skeleton-elevated {
+.skeleton.skeleton-elevated {
   background: var(--color-loading-elevated-fill);
 }
-.skeleton:empty.skeleton-ai-gradient-purple-subtle {
+.skeleton.skeleton-ai-gradient-purple-subtle {
   background: var(--color-ai-gradient-purple-subtle);
 }
-.skeleton:empty.skeleton-ai-gradient-green-subtle {
+.skeleton.skeleton-ai-gradient-green-subtle {
   background: var(--color-ai-gradient-green-subtle);
 }
-.skeleton:empty.skeleton-ai-gradient-blue-subtle {
+.skeleton.skeleton-ai-gradient-blue-subtle {
   background: var(--color-ai-gradient-blue-subtle);
 }
 .skeleton-image-container {
   container-name: skeleton-image;
   container-type: inline-size;
 }
-.skeleton-image-container .skeleton:empty.skeleton--image {
+.skeleton-image-container .skeleton.skeleton--image {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -100,8 +100,8 @@
   max-width: var(--skeleton-tile-width-max);
   min-width: var(--skeleton-tile-width-min);
 }
-.skeleton--tile .skeleton:empty.skeleton--text-small,
-.skeleton--tile .skeleton:empty.skeleton--text-large {
+.skeleton--tile .skeleton.skeleton--text-small,
+.skeleton--tile .skeleton.skeleton--text-large {
   width: calc(100% - var(--spacing-300));
 }
 .skeleton--tile .skeleton-image-container {
@@ -137,10 +137,10 @@
 .skeleton--tiles-layout[data-columns="6"] li {
   width: calc(100% / 6 - 11px);
 }
-[dir="rtl"] .skeleton:empty {
+[dir="rtl"] .skeleton {
   animation-direction: reverse;
 }
-[dir="rtl"] .skeleton:empty.skeleton--text-multiline::after {
+[dir="rtl"] .skeleton.skeleton--text-multiline::after {
   left: var(--spacing-700);
 }
 @keyframes loading-frames {
@@ -155,7 +155,7 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .skeleton:empty {
+  .skeleton {
     /*  setting animation-iteration-count to 6 (5000/833ms)    */
     /*  so it does not exceed 5s per WCAG 2.2.2    */
     animation: loading-frames 833ms 667ms linear 6;
@@ -164,7 +164,7 @@
   }
 }
 @media screen and (max-width: 512px) {
-  .skeleton:empty {
+  .skeleton {
     background: var(--color-loading-shimmer);
   }
   .skeleton-elevated {
@@ -172,7 +172,7 @@
   }
 }
 @container skeleton-image (width > 79px) {
-  .skeleton:empty.skeleton--image {
+  .skeleton.skeleton--image {
     border-radius: 16px;
   }
 }

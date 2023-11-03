@@ -1,8 +1,13 @@
 <div id="skeleton-loader">
   {% include section-header.html name="skeleton-loader" version=page.versions.skeleton-loader %}
 
-  <p>The Skeletons are simplified versions of layouts used on initial page load to indicate that information has not
-    been fully loaded. Skeletons should only be used for loads that take 500ms or longer.</p>
+  <p>The Skeletons are simplified versions of layouts to indicate that information has not
+    been fully loaded.</p>
+  <ul>
+    <li>Skeletons should only be used for loads that take 500ms or longer.</li>
+    <li>Not every page or page section requires skeleton.</li>
+    <li>Skeletons are primarily intended as a replacement for spinners.</li>
+  </ul>
 
   <h3 id="skeleton-usage">Usage</h3>
   <h4>Labelling</h4>
@@ -13,7 +18,7 @@
     understanding of this subtlety, please refer to the Tile and Responsive tile sections below.
   </p>
   </p>
-  <h4>Implementation: Using no JavaScript</h4>
+  <h4>Implementation: Using single DOM element and CSS :empty selector</h4>
   <p>In this progressive enhancement approach, <span class="highlight">:empty</span> pseudo-class in CSS is used for
     implementing a skeleton loader without the need for client-side JavaScript. This approach detects if the container
     with the class skeleton is empty and displays the skeleton loader until the asynchronous content is available.
@@ -28,12 +33,12 @@
     asynchronous content is loaded.</p>
 
   {% highlight html %}
-  <div role="img" class="skeleton skeleton--avatar" aria-label="loading">
+  <div role="img" class="custom-skeleton" aria-label="loading">
     <!-- Asynchronous content will go here -->
   </div>
   {% endhighlight %}
 
-  <h4>Implementation: Using JavaScript</h4>
+  <h4>Implementation: Using multiple DOM elements and JavaScript</h4>
   <p>In this approach using JavaScript, we gain more flexibility and control over when and how the skeleton loader is
     replaced with the actual content. Here we can completely hide or replace the skeleton loader and display the
     asyncronous content instead. This could be done by toggling the <span class="highlight">hidden</span> attribute on
@@ -45,10 +50,18 @@
   <div role="img" class="skeleton skeleton--text-small" aria-label="loading"></div>
   <!-- Asynchronous content will go here -->
 
-  <!-- After -->
+  <!-- After using hidden -->
   <div role="img" class="skeleton skeleton--text-small" aria-label="loading" hidden></div>
   <p>asynchronous content</p>
+
+  <!-- After using skeleton swap -->
+  <p>asynchronous content</p>
   {% endhighlight %}
+
+  <div class="highlight">
+    <h3> Which implementation to pick?</h3>
+    <p>TBD..</p>
+  </div>
 
   <h3>Building blocks</h3>
 

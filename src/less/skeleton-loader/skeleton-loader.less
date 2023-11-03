@@ -10,7 +10,7 @@
     --skeleton-tile-width-max: 224px;
 }
 
-.skeleton:empty {
+.skeleton {
     background: var(--color-loading-fill);
     cursor: progress;
     height: var(--skeleton-default-height);
@@ -114,7 +114,7 @@
     container-name: skeleton-image;
     container-type: inline-size;
 
-    .skeleton:empty.skeleton--image {
+    .skeleton.skeleton--image {
         bottom: 0;
         height: 100%;
         left: 0;
@@ -130,8 +130,8 @@
     min-width: var(--skeleton-tile-width-min);
 }
 
-.skeleton--tile .skeleton:empty.skeleton--text-small,
-.skeleton--tile .skeleton:empty.skeleton--text-large {
+.skeleton--tile .skeleton.skeleton--text-small,
+.skeleton--tile .skeleton.skeleton--text-large {
     width: calc(100% - var(--spacing-300));
 }
 
@@ -177,7 +177,7 @@
 }
 
 [dir="rtl"] {
-    .skeleton:empty {
+    .skeleton {
         animation-direction: reverse;
 
         &.skeleton--text-multiline::after {
@@ -199,7 +199,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .skeleton:empty {
+    .skeleton {
         /*  setting animation-iteration-count to 6 (5000/833ms)    */
         /*  so it does not exceed 5s per WCAG 2.2.2    */
         animation: loading-frames 833ms 667ms linear 6;
@@ -209,7 +209,7 @@
 }
 
 @media screen and (max-width: @_screen-size-SM) {
-    .skeleton:empty {
+    .skeleton {
         background: var(--color-loading-shimmer);
     }
     .skeleton-elevated {
@@ -218,7 +218,7 @@
 }
 
 @container skeleton-image (width > 79px) {
-    .skeleton:empty.skeleton--image {
+    .skeleton.skeleton--image {
         border-radius: 16px;
     }
 }
