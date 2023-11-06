@@ -536,3 +536,22 @@ document.querySelectorAll('.field').forEach(function(elCharContainer) {
 
     }
 });
+
+// INPUT CHIPS
+document.querySelectorAll('.input-chips').forEach(function(elInputChips) {
+    const elBtnListToggle = elInputChips.querySelector('.input-chips_list-toggle')
+        , elCombobox = elInputChips.querySelector('.input-chips__combobox')
+    ;
+
+    elBtnListToggle.addEventListener('click', function() {
+        const isExpanded = elCombobox.classList.contains('combobox--expanded');
+
+        if (isExpanded) {
+            elInputChips.classList.remove('input-chips--expanded');
+            return elCombobox.classList.remove('combobox--expanded');
+        }
+
+        elInputChips.classList.add('input-chips--expanded');
+        return elCombobox.classList.add('combobox--expanded');
+    });
+});
