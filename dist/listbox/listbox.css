@@ -18,13 +18,21 @@ div.listbox__options--fix-width[role="listbox"] {
 div.listbox__options--reverse[role="listbox"] {
   right: 0;
 }
+.listbox__description {
+  color: var(--listbox-button-subtitle-color, var(--color-foreground-secondary));
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  grid-column: 1 2;
+  grid-row: 2;
+}
 div.listbox__option[role="option"] {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  display: inline-flex;
+  display: inline-grid;
   font-family: inherit;
+  grid-template-columns: auto auto;
   justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
@@ -49,6 +57,12 @@ div.listbox__option[role="option"]:active {
 }
 div.listbox__option[role="option"]:disabled,
 div.listbox__option[role="option"][aria-disabled="true"] {
+  color: var(--listbox-option-disabled-foreground-color, var(--color-foreground-disabled));
+  background-color: unset;
+  font-weight: unset;
+}
+div.listbox__option[role="option"]:disabled .listbox__description,
+div.listbox__option[role="option"][aria-disabled="true"] .listbox__description {
   color: var(--listbox-option-disabled-foreground-color, var(--color-foreground-disabled));
   background-color: unset;
   font-weight: unset;
