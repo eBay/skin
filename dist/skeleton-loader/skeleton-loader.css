@@ -1,87 +1,87 @@
 :root {
-  --skeleton-default-height: 40px;
-  --skeleton-tile-width-min: 121px;
+  --skeleton-border-radius: 0;
+  --skeleton-height: 48px;
   --skeleton-tile-width-max: 224px;
+  --skeleton-tile-width-min: 121px;
+  --skeleton-width: 100%;
 }
 .skeleton {
   background: var(--color-loading-fill);
+  border-radius: var(--skeleton-border-radius);
   cursor: progress;
-  height: var(--skeleton-default-height);
+  height: var(--skeleton-height);
   min-height: 12px;
-  width: 100%;
+  width: var(--skeleton-width);
 }
-.skeleton.skeleton--avatar {
+.skeleton-elevated {
+  background: var(--color-loading-elevated-fill);
+}
+.skeleton-ai-gradient-purple-subtle {
+  background: var(--color-ai-gradient-purple-subtle);
+}
+.skeleton-ai-gradient-green-subtle {
+  background: var(--color-ai-gradient-green-subtle);
+}
+.skeleton-ai-gradient-blue-subtle {
+  background: var(--color-ai-gradient-blue-subtle);
+}
+.skeleton--avatar {
   border-radius: 50%;
-  height: 48px;
-  justify-content: center;
-  line-height: 48px;
-  overflow: hidden;
-  width: 48px;
+  height: var(--skeleton-height);
+  width: var(--skeleton-height);
 }
-.skeleton.skeleton--btn {
+.skeleton--btn {
   border-radius: 20px;
   height: 40px;
 }
-.skeleton.skeleton--btn-small {
+.skeleton--btn-small {
   border-radius: 16px;
   height: 32px;
 }
-.skeleton.skeleton--btn-large {
+.skeleton--btn-large {
   border-radius: 24px;
   height: 48px;
 }
-.skeleton.skeleton--text-small {
+.skeleton--text-small {
   border-radius: 3px;
   height: 16px;
 }
-.skeleton.skeleton--text-small::after {
+.skeleton--text-small::after {
   height: 16px;
   margin-top: calc(16px + var(--spacing-100));
 }
-.skeleton.skeleton--text-large {
+.skeleton--text-large {
   border-radius: 3px;
   height: 24px;
 }
-.skeleton.skeleton--text-large::after {
+.skeleton--text-large::after {
   height: 24px;
   margin-top: calc(24px + var(--spacing-100));
 }
-.skeleton.skeleton--text-multiline {
+.skeleton--text-multiline {
   position: relative;
   width: calc(100% - var(--spacing-300));
 }
-.skeleton.skeleton--text-multiline::after {
+.skeleton--text-multiline::after {
   background: inherit;
   content: "";
   position: absolute;
   width: calc(100% - var(--spacing-700));
 }
-.skeleton.skeleton--text-small.skeleton--text-multiline {
+.skeleton--text-small.skeleton--text-multiline {
   margin-bottom: var(--spacing-300);
 }
-.skeleton.skeleton--text-large.skeleton--text-multiline {
+.skeleton--text-large.skeleton--text-multiline {
   margin-bottom: var(--spacing-400);
 }
-.skeleton.skeleton--form {
+.skeleton--form {
   border-radius: 8px;
   height: 48px;
 }
-.skeleton.skeleton--image {
+.skeleton--image {
   border-radius: 8px;
   height: 100%;
   max-width: initial;
-}
-.skeleton.skeleton-elevated {
-  background: var(--color-loading-elevated-fill);
-}
-.skeleton.skeleton-ai-gradient-purple-subtle {
-  background: var(--color-ai-gradient-purple-subtle);
-}
-.skeleton.skeleton-ai-gradient-green-subtle {
-  background: var(--color-ai-gradient-green-subtle);
-}
-.skeleton.skeleton-ai-gradient-blue-subtle {
-  background: var(--color-ai-gradient-blue-subtle);
 }
 .skeleton-image-container {
   container-name: skeleton-image;
@@ -138,7 +138,7 @@
   width: calc(100% / 6 - 11px);
 }
 [dir="rtl"] .skeleton {
-  animation-direction: reverse;
+  animation-direction: normal, reverse;
 }
 [dir="rtl"] .skeleton.skeleton--text-multiline::after {
   left: var(--spacing-700);
@@ -154,11 +154,19 @@
     background-position: 90% 0%;
   }
 }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .skeleton {
     /*  setting animation-iteration-count to 6 (5000/833ms)    */
     /*  so it does not exceed 5s per WCAG 2.2.2    */
-    animation: loading-frames 833ms 667ms linear 6;
+    animation: fade-in 500ms forwards, loading-frames 833ms 667ms linear 6;
     animation-fill-mode: both;
     background-size: 200%;
   }
@@ -172,7 +180,7 @@
   }
 }
 @container skeleton-image (width > 79px) {
-  .skeleton.skeleton--image {
+  .skeleton--image {
     border-radius: 16px;
   }
 }
