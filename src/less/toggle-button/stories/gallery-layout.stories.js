@@ -108,3 +108,31 @@ export const profileCSSImageCoverBackground = () => `
     </span>
 </button>
 `;
+
+export const disabledImage = () => `
+<button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false" disabled>
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-square-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Image Button Title</span>
+        <span class="toggle-button__subtitle">Image Button Subtitle</span>
+    </span>
+</button>
+`;
+
+export const disabledIcon = () => `
+<button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false" disabled>
+    <span class="toggle-button__icon">
+        <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="64" width="64">
+            <use href="#icon-on-the-way-16"></use>
+        </svg>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Icon Button Title</span>
+        <span class="toggle-button__subtitle">Icon Button Subtitle</span>
+    </span>
+</button>
+`;
