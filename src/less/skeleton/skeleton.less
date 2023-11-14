@@ -5,51 +5,19 @@
 @skeleton-text-height-small: 16px;
 @skeleton-text-height-large: 24px;
 
-.skeleton-avatar--elevated,
-.skeleton-btn--elevated,
-.skeleton-text--elevated,
-.skeleton-image--elevated,
-.skeleton-form--elevated {
-    background: var(--color-loading-elevated-fill);
-}
-
-.skeleton-avatar--ai-gradient-purple-subtle,
-.skeleton-btn--ai-gradient-purple-subtle,
-.skeleton-text--ai-gradient-purple-subtle,
-.skeleton-image--ai-gradient-purple-subtle,
-.skeleton-form--ai-gradient-purple-subtle {
-    background: var(--color-ai-gradient-purple-subtle);
-}
-
-.skeleton-avatar--ai-gradient-green-subtle,
-.skeleton-btn--ai-gradient-green-subtle,
-.skeleton-text--ai-gradient-green-subtle,
-.skeleton-image--ai-gradient-green-subtle,
-.skeleton-form--ai-gradient-green-subtle {
-    background: var(--color-ai-gradient-green-subtle);
-}
-
-.skeleton-avatar--ai-gradient-blue-subtle,
-.skeleton-btn--ai-gradient-blue-subtle,
-.skeleton-text--ai-gradient-blue-subtle,
-.skeleton-image--ai-gradient-blue-subtle,
-.skeleton-form--ai-gradient-blue-subtle {
-    background: var(--color-ai-gradient-blue-subtle);
-}
-
 .skeleton-avatar {
     .skeleton-base(50%, var(--skeleton-height), var(--skeleton-height));
 }
 
-.skeleton-btn {
+.skeleton-button {
     .skeleton-base(20px, 40px);
 }
 
-.skeleton-btn--small {
+.skeleton-button--small {
     .skeleton-base(16px, 32px);
 }
 
-.skeleton-btn--large {
+.skeleton-button--large {
     .skeleton-base(24px, 48px);
 }
 
@@ -58,6 +26,7 @@
     .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small);
 }
 
+.skeleton-text::after,
 .skeleton-text--small::after {
     height: @skeleton-text-height-small;
     margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
@@ -73,6 +42,7 @@
 }
 
 .skeleton-text--multiline {
+    margin-bottom: var(--spacing-300);
     position: relative;
     width: calc(100% - var(--spacing-300));
 }
@@ -82,10 +52,6 @@
     content: "";
     position: absolute;
     width: calc(100% - var(--spacing-700));
-}
-
-.skeleton-text--small.skeleton-text--multiline {
-    margin-bottom: var(--spacing-300);
 }
 
 .skeleton-text--large.skeleton--text--multiline {
@@ -114,95 +80,47 @@
     width: 100%;
 }
 
-.skeleton__tile {
+.skeleton-tile {
     max-width: var(--skeleton-tile-width-max);
     min-width: var(--skeleton-tile-width-min);
 }
 
-.skeleton__tile .skeleton-text--small,
-.skeleton__tile .skeleton-text--large {
+.skeleton-tile .skeleton-text--small,
+.skeleton-tile .skeleton-text--large {
     width: calc(100% - var(--spacing-300));
 }
 
-.skeleton__tile .skeleton-image {
+.skeleton-tile .skeleton-image {
     margin-bottom: var(--spacing-150);
     padding-bottom: 100%;
     position: relative;
     width: 100%;
 }
 
-.skeleton__tile-container {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.skeleton__tile-container li {
-    display: inline-table;
-    margin: var(--spacing-50);
-}
-
-/* Columns */
-.skeleton__tile-container[data-columns="2"] li {
-    width: calc(100% / 2 - 11px);
-}
-
-.skeleton__tile-container[data-columns="3"] li {
-    width: calc(100% / 3 - 11px);
-}
-
-.skeleton__tile-container[data-columns="4"] li {
-    width: calc(100% / 4 - 11px);
-}
-
-.skeleton__tile-container[data-columns="5"] li {
-    width: calc(100% / 5 - 11px);
-}
-
-.skeleton__tile-container[data-columns="6"] li {
-    width: calc(100% / 6 - 11px);
-}
-
-[dir="rtl"] {
-    .skeleton-avatar,
-    .skeleton-btn,
-    .skeleton-text,
-    .skeleton-image,
-    .skeleton-form {
-        animation-direction: normal, reverse;
-    }
-
-    .skeleton-text--multiline::after {
-        left: var(--spacing-700);
-    }
-}
-
-@keyframes loading-frames {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 45% 0%;
-    }
-    100% {
-        background-position: 90% 0%;
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 @media (prefers-reduced-motion: no-preference) {
+    @keyframes loading-frames {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 45% 0%;
+        }
+        100% {
+            background-position: 90% 0%;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
     .skeleton-avatar,
-    .skeleton-btn,
+    .skeleton-button,
     .skeleton-text,
     .skeleton-image,
     .skeleton-form {
@@ -216,16 +134,24 @@
     }
 }
 
+.skeleton-avatar--elevated,
+.skeleton-button--elevated,
+.skeleton-text--elevated,
+.skeleton-image--elevated,
+.skeleton-form--elevated {
+    background: var(--color-loading-fill-elevated);
+}
+
 @media screen and (max-width: @_screen-size-SM) {
     .skeleton-avatar,
-    .skeleton-btn,
+    .skeleton-button,
     .skeleton-text,
     .skeleton-image,
     .skeleton-form {
         background: var(--color-loading-shimmer);
     }
     .skeleton-avatar--elevated,
-    .skeleton-btn--elevated,
+    .skeleton-button--elevated,
     .skeleton-text--elevated,
     .skeleton-image--elevated,
     .skeleton-form--elevated {
@@ -233,8 +159,46 @@
     }
 }
 
+.skeleton-avatar--purple,
+.skeleton-button--purple,
+.skeleton-text--purple,
+.skeleton-image--purple,
+.skeleton-form--purple {
+    background: var(--color-ai-gradient-purple-subtle);
+}
+
+.skeleton-avatar--green,
+.skeleton-button--green,
+.skeleton-text--green,
+.skeleton-image--green,
+.skeleton-form--green {
+    background: var(--color-ai-gradient-green-subtle);
+}
+
+.skeleton-avatar--blue,
+.skeleton-button--blue,
+.skeleton-text--blue,
+.skeleton-image--blue,
+.skeleton-form--blue {
+    background: var(--color-ai-gradient-blue-subtle);
+}
+
 @container skeleton-image (width > 79px) {
     .skeleton-image {
         border-radius: 16px;
+    }
+}
+
+[dir="rtl"] {
+    .skeleton-avatar,
+    .skeleton-button,
+    .skeleton-text,
+    .skeleton-image,
+    .skeleton-form {
+        animation-direction: normal, reverse;
+    }
+
+    .skeleton-text--multiline::after {
+        left: var(--spacing-700);
     }
 }
