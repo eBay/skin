@@ -1,121 +1,110 @@
 @import "../variables/variables.less";
+@import "../mixins/private/skeleton-mixins.less";
 
 @skeleton-text-border-radius: 3px;
 @skeleton-text-height-small: 16px;
 @skeleton-text-height-large: 24px;
 
-:root {
-    --skeleton-border-radius: 0;
-    --skeleton-height: 48px;
-    --skeleton-tile-width-max: 224px;
-    --skeleton-tile-width-min: 121px;
-    --skeleton-width: 100%;
-}
-
-.skeleton {
-    background: var(--color-loading-fill);
-    border-radius: var(--skeleton-border-radius);
-    cursor: progress;
-    height: var(--skeleton-height);
-    min-height: 12px;
-    width: var(--skeleton-width);
-}
-
-.skeleton-elevated {
+.skeleton-avatar--elevated,
+.skeleton-btn--elevated,
+.skeleton-text--elevated,
+.skeleton-image--elevated,
+.skeleton-form--elevated {
     background: var(--color-loading-elevated-fill);
 }
 
-.skeleton-ai-gradient-purple-subtle {
+.skeleton-avatar--ai-gradient-purple-subtle,
+.skeleton-btn--ai-gradient-purple-subtle,
+.skeleton-text--ai-gradient-purple-subtle,
+.skeleton-image--ai-gradient-purple-subtle,
+.skeleton-form--ai-gradient-purple-subtle {
     background: var(--color-ai-gradient-purple-subtle);
 }
 
-.skeleton-ai-gradient-green-subtle {
+.skeleton-avatar--ai-gradient-green-subtle,
+.skeleton-btn--ai-gradient-green-subtle,
+.skeleton-text--ai-gradient-green-subtle,
+.skeleton-image--ai-gradient-green-subtle,
+.skeleton-form--ai-gradient-green-subtle {
     background: var(--color-ai-gradient-green-subtle);
 }
 
-.skeleton-ai-gradient-blue-subtle {
+.skeleton-avatar--ai-gradient-blue-subtle,
+.skeleton-btn--ai-gradient-blue-subtle,
+.skeleton-text--ai-gradient-blue-subtle,
+.skeleton-image--ai-gradient-blue-subtle,
+.skeleton-form--ai-gradient-blue-subtle {
     background: var(--color-ai-gradient-blue-subtle);
 }
 
-.skeleton--avatar {
-    border-radius: 50%;
-    height: var(--skeleton-height);
-    width: var(--skeleton-height);
+.skeleton-avatar {
+    .skeleton-base(50%, var(--skeleton-height), var(--skeleton-height));
 }
 
-.skeleton--btn {
-    border-radius: 20px;
-    height: 40px;
+.skeleton-btn {
+    .skeleton-base(20px, 40px);
 }
 
-.skeleton--btn-small {
-    border-radius: 16px;
-    height: 32px;
+.skeleton-btn--small {
+    .skeleton-base(16px, 32px);
 }
 
-.skeleton--btn-large {
-    border-radius: 24px;
-    height: 48px;
+.skeleton-btn--large {
+    .skeleton-base(24px, 48px);
 }
 
-.skeleton--text-small {
-    border-radius: @skeleton-text-border-radius;
-    height: @skeleton-text-height-small;
+.skeleton-text,
+.skeleton-text--small {
+    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small);
 }
 
-.skeleton--text-small::after {
+.skeleton-text--small::after {
     height: @skeleton-text-height-small;
     margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
 }
 
-.skeleton--text-large {
-    border-radius: @skeleton-text-border-radius;
-    height: @skeleton-text-height-large;
+.skeleton-text--large {
+    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-large);
 }
 
-.skeleton--text-large::after {
+.skeleton-text--large::after {
     height: @skeleton-text-height-large;
     margin-top: calc(@skeleton-text-height-large + var(--spacing-100));
 }
 
-.skeleton--text-multiline {
+.skeleton-text--multiline {
     position: relative;
     width: calc(100% - var(--spacing-300));
 }
 
-.skeleton--text-multiline::after {
+.skeleton-text--multiline::after {
     background: inherit;
     content: "";
     position: absolute;
     width: calc(100% - var(--spacing-700));
 }
 
-.skeleton--text-small.skeleton--text-multiline {
+.skeleton-text--small.skeleton-text--multiline {
     margin-bottom: var(--spacing-300);
 }
 
-.skeleton--text-large.skeleton--text-multiline {
+.skeleton-text--large.skeleton--text--multiline {
     margin-bottom: var(--spacing-400);
 }
 
-.skeleton--form {
-    border-radius: 8px;
-    height: 48px;
+.skeleton-form {
+    .skeleton-base(8px, 48px);
 }
 
 // TODO: Use aspect-ratio : 1 / 1 to set as square once browser support for safari > 15
-.skeleton--image {
-    border-radius: 8px;
-    height: 100%;
+.skeleton-image {
+    .skeleton-base(8px, 100%);
+    container-name: skeleton-image;
+    container-type: inline-size;
     max-width: initial;
 }
 
-.skeleton-image-container {
-    container-name: skeleton-image;
-    container-type: inline-size;
-}
-
-.skeleton-image-container .skeleton.skeleton--image {
+.skeleton-image::after {
     bottom: 0;
     height: 100%;
     left: 0;
@@ -125,24 +114,24 @@
     width: 100%;
 }
 
-.skeleton--tile {
+.skeleton__tile {
     max-width: var(--skeleton-tile-width-max);
     min-width: var(--skeleton-tile-width-min);
 }
 
-.skeleton--tile .skeleton.skeleton--text-small,
-.skeleton--tile .skeleton.skeleton--text-large {
+.skeleton__tile .skeleton-text--small,
+.skeleton__tile .skeleton-text--large {
     width: calc(100% - var(--spacing-300));
 }
 
-.skeleton--tile .skeleton-image-container {
+.skeleton__tile .skeleton-image {
     margin-bottom: var(--spacing-150);
     padding-bottom: 100%;
     position: relative;
     width: 100%;
 }
 
-.skeleton--tiles-layout {
+.skeleton__tile-container {
     display: inline-block;
     list-style: none;
     margin: 0;
@@ -150,38 +139,42 @@
     width: 100%;
 }
 
-.skeleton--tiles-layout li {
+.skeleton__tile-container li {
     display: inline-table;
     margin: var(--spacing-50);
 }
 
 /* Columns */
-.skeleton--tiles-layout[data-columns="2"] li {
+.skeleton__tile-container[data-columns="2"] li {
     width: calc(100% / 2 - 11px);
 }
 
-.skeleton--tiles-layout[data-columns="3"] li {
+.skeleton__tile-container[data-columns="3"] li {
     width: calc(100% / 3 - 11px);
 }
 
-.skeleton--tiles-layout[data-columns="4"] li {
+.skeleton__tile-container[data-columns="4"] li {
     width: calc(100% / 4 - 11px);
 }
 
-.skeleton--tiles-layout[data-columns="5"] li {
+.skeleton__tile-container[data-columns="5"] li {
     width: calc(100% / 5 - 11px);
 }
 
-.skeleton--tiles-layout[data-columns="6"] li {
+.skeleton__tile-container[data-columns="6"] li {
     width: calc(100% / 6 - 11px);
 }
 
 [dir="rtl"] {
-    .skeleton {
+    .skeleton-avatar,
+    .skeleton-btn,
+    .skeleton-text,
+    .skeleton-image,
+    .skeleton-form {
         animation-direction: normal, reverse;
     }
 
-    .skeleton.skeleton--text-multiline::after {
+    .skeleton-text--multiline::after {
         left: var(--spacing-700);
     }
 }
@@ -208,7 +201,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .skeleton {
+    .skeleton-avatar,
+    .skeleton-btn,
+    .skeleton-text,
+    .skeleton-image,
+    .skeleton-form {
         /*  setting animation-iteration-count to 6 (5000/833ms)    */
         /*  so it does not exceed 5s per WCAG 2.2.2    */
         animation:
@@ -220,16 +217,24 @@
 }
 
 @media screen and (max-width: @_screen-size-SM) {
-    .skeleton {
+    .skeleton-avatar,
+    .skeleton-btn,
+    .skeleton-text,
+    .skeleton-image,
+    .skeleton-form {
         background: var(--color-loading-shimmer);
     }
-    .skeleton-elevated {
+    .skeleton-avatar--elevated,
+    .skeleton-btn--elevated,
+    .skeleton-text--elevated,
+    .skeleton-image--elevated,
+    .skeleton-form--elevated {
         background: var(--color-loading-shimmer-elevated);
     }
 }
 
 @container skeleton-image (width > 79px) {
-    .skeleton--image {
+    .skeleton-image {
         border-radius: 16px;
     }
 }
