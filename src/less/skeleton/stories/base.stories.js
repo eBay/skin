@@ -39,6 +39,35 @@ export const tile = () =>
         <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
     </div>`;
 
+export const inlineTiles = () =>
+    `<div role="img" aria-label="loading">
+        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
+        </div>
+        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
+        </div>
+        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+            <div class="skeleton-image"></div>
+            <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
+        </div>
+    </div>`;
+
+export const inlineSkeletons = () =>
+    `<div role="img" aria-label="loading">
+        <span class="skeleton-avatar"></span>
+        <span class="skeleton-text skeleton-text--small skeleton-text--multiline"
+        style="width: 200px; vertical-align: top;"></span>
+    </div>`;
+
+export const blockSkeletons = () =>
+    `<div role="img" aria-label="loading">
+        <div class="skeleton-button"></div>
+        <div class="skeleton-button"></div>
+    </div>`;
+
 export const rtl = () =>
     `<div class="skeleton-tile" role="img" aria-label="loading" style="width: 225px;" dir="rtl">
         <div class="skeleton-image"></div>

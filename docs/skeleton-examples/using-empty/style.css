@@ -58,12 +58,45 @@ footer {
 
 
 /* skeleton styles */
-.skeleton:empty {
+.skeleton:empty,
+.skeleton-heading:empty {
   background: var(--color-loading-fill);
   border-radius: 8px;
   cursor: progress;
-  min-height: 300px;
+  min-height: 24px;
   width: 100%;
+}
+
+.skeleton:empty{
+  height: 300px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes loading-frames {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 45% 0%;
+    }
+    100% {
+      background-position: 90% 0%;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .skeleton:empty {
+    animation: fade-in 1s forwards;
+    animation-fill-mode: both;
+    background-size: 200%;
+  }
 }
 
 

@@ -10,12 +10,12 @@
     </div>
     <div class="section-notice__main">
       <h3 class="section-notice__title">Attention</h3>
-      <p>Skeletons are currently work in progress and in BETA mode. For guidance and appropriate usage, please reachout the core
-        team.</p>
+      <p>Skeletons are currently work in progress and in BETA mode. For guidance and appropriate usage, please reachout
+        the core team.</p>
     </div>
   </section>
   <p>The Skeletons are simplified versions of layouts to indicate that information has not
-    been fully loaded.</p>
+    been fully loaded to improve the perceived performance.</p>
   <table class="skeleton-table-colors">
     <thead>
       <tr>
@@ -128,23 +128,33 @@
   <h3 id="skeleton-usage">Usage</h3>
   <ul>
     <li>Skeletons should only appear once loading time reaches 500ms or longer.</li>
-    <li>Not every page or page section requires skeleton. Skeletons are primarily intended as a replacement for
+    <li>Not every page or page section requires skeleton.</li>
+    <li>Skeletons are primarily intended as a replacement for
       spinners.</li>
     <li><b>Do not</b> use skeletons if either layout/dimensions are not known.</li>
     <li><b>Do not</b> use skeletons if it will cause layout to shift content.</li>
+    <li><b>Do not</b> use skeletons for content that is below the fold i.e, for lazy loading images etc.</li>
   </ul>
 
   <h4>Labelling</h4>
-  <p>By default, the skeleton loaders doesn't convey to screen reader users in a meaningful way. The <span class="highlight">aria-label</span>
+  <p>By default, the skeleton loaders doesn't convey to screen reader users in a meaningful way. The <span
+      class="highlight">aria-label</span>
     attribute, set to "loading", is utilized to signify the loading state of the
     skeleton loader to screen reader users. To prevent the screen reader from repeating the label, the
     <span class="highlight">aria-label</span> attribute should be positioned on the container element. For a better
     understanding of this subtlety, please refer to below examples.
   </p>
   <h4>Colors</h4>
-  <p>On larger screens, skeleton loaders use standard fill color in the background where as a shimmer is applied on smaller screens. An elevated color can be applied by overriding skeletons with their type classes respectively.</p> 
-  <p>For example, avatar can inherit elevated background using <span class="highlight">skeleton-avatar--elevated</span> class. Similarly, for AI purposes, respective colors can be applied using <span class="highlight">skeleton-avatar--purple</span>, <span class="highlight">skeleton-avatar--green</span> and <span class="highlight">skeleton-avatar--blue</span> classes.</p>
-  <p><a href="{{ site.url }}/skeleton-examples/">Skeleton examples</a></p>
+  <p>On larger screens, skeleton loaders use standard fill color in the background where as a shimmer is applied on
+    smaller screens. An elevated color can be applied by overriding skeletons with their type classes respectively. For
+    example, avatar can inherit elevated background using <span class="highlight">skeleton-avatar--elevated</span>
+    class.</p>
+  <p>Similarly, for AI purposes, respective colors can be applied using <span
+      class="highlight">skeleton-avatar--purple</span>, <span class="highlight">skeleton-avatar--green</span> and <span
+      class="highlight">skeleton-avatar--blue</span> classes.</p>
+
+  <h3>Skeleton Examples</h3>
+  <p>The <a href="{{ site.url }}/skeleton-examples/">Skeleton examples</a> shown illustrate when to utilize skeletons and various techniques for implementing them in different loading scenarios.</p>
 
   <h3 id="skeleton-vars">CSS Properties</h3>
   <p>We've set up <span class="highlight">CSS</span> properties to provide developers with easy reference for responsive
@@ -236,20 +246,17 @@
     loader inherits the height and width of the container.</p>
   <div class="demo">
     <div class="demo__inner">
-      <div class="skeleton-image" role="img" aria-label="loading"
-        style="height: 50px; width: 50px; margin-bottom: 5px;"></div>
-      <div class="skeleton-image" role="img" aria-label="loading"
-        style="height: 150px; width: 150px; margin-bottom: 5px;"></div>
-      <div class="skeleton-image" role="img" aria-label="loading"
-        style="height: 250px; width: 250px; margin-bottom: 5px;"></div>
+      <div class="skeleton-image" role="img" aria-label="loading" style="height: 50px; width: 50px;"></div>
+      <div class="skeleton-image" role="img" aria-label="loading" style="height: 150px; width: 150px;"></div>
+      <div class="skeleton-image" role="img" aria-label="loading" style="height: 250px; width: 250px;"></div>
     </div>
   </div>
   {% highlight html %}
-  <div class="skeleton-image" role="img" aria-label="loading" style="height: 50px; width: 50px; margin-bottom: 5px;">
+  <div class="skeleton-image" role="img" aria-label="loading" style="height: 50px; width: 50px;">
   </div>
-  <div class="skeleton-image" role="img" aria-label="loading" style="height: 150px; width: 150px; margin-bottom: 5px;">
+  <div class="skeleton-image" role="img" aria-label="loading" style="height: 150px; width: 150px;">
   </div>
-  <div class="skeleton-image" role="img" aria-label="loading" style="height: 250px; width: 250px; margin-bottom: 5px;">
+  <div class="skeleton-image" role="img" aria-label="loading" style="height: 250px; width: 250px;">
   </div>
   {% endhighlight %}
 
@@ -305,5 +312,24 @@
   <div class="skeleton-tile" role="img" aria-label="loading" style="width: 225px;">
     <div class="skeleton-image"></div>
     <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
+  </div>
+  {% endhighlight %}
+
+  <h4>Inline blocks</h4>
+  <p>To use skeletons inline, replace div with span.</p>
+  <div class="demo">
+    <div class="demo__inner">
+      <div role="img" aria-label="loading">
+        <span class="skeleton-avatar"></span>
+        <span class="skeleton-text skeleton-text--small skeleton-text--multiline"
+          style="width: 200px; vertical-align: top;"></span>
+      </div>
+    </div>
+  </div>
+  {% highlight html %}
+  <div role="img" aria-label="loading">
+    <span class="skeleton-avatar"></span>
+    <span class="skeleton-text skeleton-text--small skeleton-text--multiline"
+      style="width: 200px; vertical-align: top;"></span>
   </div>
   {% endhighlight %}
