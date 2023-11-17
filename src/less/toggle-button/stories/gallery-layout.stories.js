@@ -136,3 +136,17 @@ export const disabledIcon = () => `
     </span>
 </button>
 `;
+
+export const disabledIconColored = () => `
+<button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false" disabled>
+    <span class="toggle-button__icon">
+        <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="64" width="64">
+            <use href="#icon-mastercard-32-colored"></use>
+        </svg>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Icon Button Title</span>
+        <span class="toggle-button__subtitle">Icon Button Subtitle</span>
+    </span>
+</button>
+`;
