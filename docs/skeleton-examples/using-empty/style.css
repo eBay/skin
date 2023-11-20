@@ -58,16 +58,22 @@ footer {
 
 
 /* skeleton styles */
-.skeleton:empty,
-.skeleton-heading:empty {
+.demo-skeleton:empty {
   background: var(--color-loading-fill);
   border-radius: 8px;
   cursor: progress;
+  position: relative;
   min-height: 24px;
-  width: 100%;
+  margin-bottom: 320px;
 }
 
-.skeleton:empty{
+.demo-skeleton:empty::after {
+  background: inherit;
+  border-radius: 8px;
+  content: "";
+  margin-top: 32px;
+  position: absolute;
+  width: 100%;
   height: 300px;
 }
 
@@ -92,7 +98,8 @@ footer {
     }
   }
 
-  .skeleton:empty {
+  .skeleton:empty,
+  .skeleton:empty::after  {
     animation: fade-in 1s forwards;
     animation-fill-mode: both;
     background-size: 200%;

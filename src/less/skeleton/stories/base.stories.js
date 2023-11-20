@@ -34,22 +34,22 @@ export const image = () =>
     `<div role="img" class="skeleton-image" aria-label="loading" style="height: 250px; width: 250px;"></div>`;
 
 export const tile = () =>
-    `<div class="skeleton-tile" role="img" aria-label="loading" style="width: 225px;">
+    `<div class="skeleton-item-tile" role="img" aria-label="loading" style="width: 225px;">
         <div class="skeleton-image"></div>
         <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
     </div>`;
 
 export const inlineTiles = () =>
     `<div role="img" aria-label="loading">
-        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+        <div class="skeleton-item-tile" style="width: 225px; display: inline-block;">
             <div class="skeleton-image"></div>
             <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
         </div>
-        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+        <div class="skeleton-item-tile" style="width: 225px; display: inline-block;">
             <div class="skeleton-image"></div>
             <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
         </div>
-        <div class="skeleton-tile" style="width: 225px; display: inline-block;">
+        <div class="skeleton-item-tile" style="width: 225px; display: inline-block;">
             <div class="skeleton-image"></div>
             <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
         </div>
@@ -57,8 +57,8 @@ export const inlineTiles = () =>
 
 export const inlineSkeletons = () =>
     `<div role="img" aria-label="loading">
-        <span class="skeleton-avatar"></span>
-        <span class="skeleton-text skeleton-text--small skeleton-text--multiline"
+        <span class="skeleton-avatar skeleton-avatar--purple"></span>
+        <span class="skeleton-text skeleton-text--purple skeleton-text--small skeleton-text--multiline"
         style="width: 200px; vertical-align: top;"></span>
     </div>`;
 
@@ -69,7 +69,7 @@ export const blockSkeletons = () =>
     </div>`;
 
 export const rtl = () =>
-    `<div class="skeleton-tile" role="img" aria-label="loading" style="width: 225px;" dir="rtl">
+    `<div class="skeleton-item-tile" role="img" aria-label="loading" style="width: 225px;" dir="rtl">
         <div class="skeleton-image"></div>
         <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
     </div>`;

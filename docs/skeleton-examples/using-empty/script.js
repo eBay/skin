@@ -1,14 +1,12 @@
 // Here we are using JavaScript setTimeout function here to simulate a delay in loading the content.
 setTimeout(() => {
-  const skeleton = document.querySelector('.skeleton-heading');
-  const skeleton2 = document.querySelector('.skeleton');
+
+const skeleton = document.querySelector('.demo-skeleton');
 const main = document.querySelector('main');
 const body = document.querySelector('body');
-// TODO: remove below attributes as in order streaming doesnt need them?
-skeleton2.removeAttribute('aria-label');
-skeleton2.removeAttribute('role');
-skeleton.innerHTML= "From the Firehose";
-skeleton2.innerHTML = `
+
+skeleton.innerHTML = `
+  <h1>From the Firehose</h1>
   <h2>Sample blog post</h2>
   <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic
     typography, images, and code are all supported.</p>

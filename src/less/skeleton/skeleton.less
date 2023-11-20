@@ -23,7 +23,7 @@
 
 .skeleton-text,
 .skeleton-text--small {
-    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small);
+    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small, calc(100% - var(--spacing-300)));
 }
 
 .skeleton-text::after,
@@ -33,7 +33,7 @@
 }
 
 .skeleton-text--large {
-    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-large);
+    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-large, calc(100% - var(--spacing-300)));
 }
 
 .skeleton-text--large::after {
@@ -62,7 +62,6 @@
     .skeleton-base(8px, 48px);
 }
 
-// TODO: Use aspect-ratio : 1 / 1 to set as square once browser support for safari > 15
 .skeleton-image {
     .skeleton-base(8px, 100%);
     container-name: skeleton-image;
@@ -70,6 +69,8 @@
     max-width: initial;
 }
 
+// TODO: Use aspect-ratio : 1 / 1 to set as square when we have browser support, till then
+// using pseudo element to set as square
 .skeleton-image::after {
     bottom: 0;
     height: 100%;
@@ -104,20 +105,53 @@ div.skeleton-form {
     margin-block-start: var(--spacing-150);
 }
 
-.skeleton-tile {
-    max-width: var(--skeleton-tile-width-max);
-    min-width: var(--skeleton-tile-width-min);
+.skeleton-avatar--elevated,
+.skeleton-button--elevated,
+.skeleton-text--elevated,
+.skeleton-image--elevated,
+.skeleton-form--elevated {
+    background: var(--color-loading-fill-elevated);
 }
 
-.skeleton-tile .skeleton-text--small,
-.skeleton-tile .skeleton-text--large {
-    width: calc(100% - var(--spacing-300));
+@media screen and (max-width: @_screen-size-SM) {
+    .skeleton-avatar,
+    .skeleton-button,
+    .skeleton-text,
+    .skeleton-image,
+    .skeleton-form {
+        background: var(--color-loading-shimmer);
+    }
+    .skeleton-avatar--elevated,
+    .skeleton-button--elevated,
+    .skeleton-text--elevated,
+    .skeleton-image--elevated,
+    .skeleton-form--elevated {
+        background: var(--color-loading-shimmer-elevated);
+    }
 }
 
-.skeleton-tile .skeleton-image {
-    padding-bottom: 100%;
-    position: relative;
-    width: 100%;
+.skeleton-avatar--purple,
+.skeleton-button--purple,
+.skeleton-text--purple,
+.skeleton-image--purple,
+.skeleton-form--purple {
+    background: var(--color-loading-ai-gradient-purple-subtle);
+}
+
+.skeleton-avatar--green,
+.skeleton-button--green,
+.skeleton-text--green,
+.skeleton-image--green,
+.skeleton-form--green {
+    background: var(--color-loading-ai-gradient-green-subtle);
+}
+
+.skeleton-avatar--blue,
+.skeleton-button--blue,
+.skeleton-text--blue,
+.skeleton-image--blue,
+.skeleton-form--blue {
+    background: var(--color-loading-ai-gradient-blue-subtle);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -157,55 +191,7 @@ div.skeleton-form {
     }
 }
 
-.skeleton-avatar--elevated,
-.skeleton-button--elevated,
-.skeleton-text--elevated,
-.skeleton-image--elevated,
-.skeleton-form--elevated {
-    background: var(--color-loading-fill-elevated);
-}
-
-@media screen and (max-width: @_screen-size-SM) {
-    .skeleton-avatar,
-    .skeleton-button,
-    .skeleton-text,
-    .skeleton-image,
-    .skeleton-form {
-        background: var(--color-loading-shimmer);
-    }
-    .skeleton-avatar--elevated,
-    .skeleton-button--elevated,
-    .skeleton-text--elevated,
-    .skeleton-image--elevated,
-    .skeleton-form--elevated {
-        background: var(--color-loading-shimmer-elevated);
-    }
-}
-
-.skeleton-avatar--purple,
-.skeleton-button--purple,
-.skeleton-text--purple,
-.skeleton-image--purple,
-.skeleton-form--purple {
-    background: var(--color-ai-gradient-purple-subtle);
-}
-
-.skeleton-avatar--green,
-.skeleton-button--green,
-.skeleton-text--green,
-.skeleton-image--green,
-.skeleton-form--green {
-    background: var(--color-ai-gradient-green-subtle);
-}
-
-.skeleton-avatar--blue,
-.skeleton-button--blue,
-.skeleton-text--blue,
-.skeleton-image--blue,
-.skeleton-form--blue {
-    background: var(--color-ai-gradient-blue-subtle);
-}
-
+// A progressive enhancement to make the skeleton image rounded
 @container skeleton-image (width > 79px) {
     .skeleton-image {
         border-radius: 16px;

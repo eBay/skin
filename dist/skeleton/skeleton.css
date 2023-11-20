@@ -1,8 +1,6 @@
 :root {
   --skeleton-border-radius: 0;
   --skeleton-height: 48px;
-  --skeleton-tile-width-max: 224px;
-  --skeleton-tile-width-min: 121px;
   --skeleton-width: 100%;
 }
 .skeleton-avatar {
@@ -44,7 +42,7 @@
   cursor: progress;
   height: 16px;
   min-height: 12px;
-  width: var(--skeleton-width);
+  width: calc(100% - var(--spacing-300));
 }
 .skeleton-text::after,
 .skeleton-text--small::after {
@@ -57,7 +55,7 @@
   cursor: progress;
   height: 24px;
   min-height: 12px;
-  width: var(--skeleton-width);
+  width: calc(100% - var(--spacing-300));
 }
 .skeleton-text--large::after {
   height: 24px;
@@ -128,18 +126,49 @@ div.skeleton-form {
   -webkit-margin-before: var(--spacing-150);
           margin-block-start: var(--spacing-150);
 }
-.skeleton-tile {
-  max-width: var(--skeleton-tile-width-max);
-  min-width: var(--skeleton-tile-width-min);
+.skeleton-avatar--elevated,
+.skeleton-button--elevated,
+.skeleton-text--elevated,
+.skeleton-image--elevated,
+.skeleton-form--elevated {
+  background: var(--color-loading-fill-elevated);
 }
-.skeleton-tile .skeleton-text--small,
-.skeleton-tile .skeleton-text--large {
-  width: calc(100% - var(--spacing-300));
+@media screen and (max-width: 512px) {
+  .skeleton-avatar,
+  .skeleton-button,
+  .skeleton-text,
+  .skeleton-image,
+  .skeleton-form {
+    background: var(--color-loading-shimmer);
+  }
+  .skeleton-avatar--elevated,
+  .skeleton-button--elevated,
+  .skeleton-text--elevated,
+  .skeleton-image--elevated,
+  .skeleton-form--elevated {
+    background: var(--color-loading-shimmer-elevated);
+  }
 }
-.skeleton-tile .skeleton-image {
-  padding-bottom: 100%;
-  position: relative;
-  width: 100%;
+.skeleton-avatar--purple,
+.skeleton-button--purple,
+.skeleton-text--purple,
+.skeleton-image--purple,
+.skeleton-form--purple {
+  background: var(--color-loading-ai-gradient-purple-subtle);
+}
+.skeleton-avatar--green,
+.skeleton-button--green,
+.skeleton-text--green,
+.skeleton-image--green,
+.skeleton-form--green {
+  background: var(--color-loading-ai-gradient-green-subtle);
+}
+.skeleton-avatar--blue,
+.skeleton-button--blue,
+.skeleton-text--blue,
+.skeleton-image--blue,
+.skeleton-form--blue {
+  background: var(--color-loading-ai-gradient-blue-subtle);
 }
 @media (prefers-reduced-motion: no-preference) {
   @keyframes loading-frames {
@@ -172,50 +201,6 @@ div.skeleton-form {
     animation-fill-mode: both;
     background-size: 200%;
   }
-}
-.skeleton-avatar--elevated,
-.skeleton-button--elevated,
-.skeleton-text--elevated,
-.skeleton-image--elevated,
-.skeleton-form--elevated {
-  background: var(--color-loading-fill-elevated);
-}
-@media screen and (max-width: 512px) {
-  .skeleton-avatar,
-  .skeleton-button,
-  .skeleton-text,
-  .skeleton-image,
-  .skeleton-form {
-    background: var(--color-loading-shimmer);
-  }
-  .skeleton-avatar--elevated,
-  .skeleton-button--elevated,
-  .skeleton-text--elevated,
-  .skeleton-image--elevated,
-  .skeleton-form--elevated {
-    background: var(--color-loading-shimmer-elevated);
-  }
-}
-.skeleton-avatar--purple,
-.skeleton-button--purple,
-.skeleton-text--purple,
-.skeleton-image--purple,
-.skeleton-form--purple {
-  background: var(--color-ai-gradient-purple-subtle);
-}
-.skeleton-avatar--green,
-.skeleton-button--green,
-.skeleton-text--green,
-.skeleton-image--green,
-.skeleton-form--green {
-  background: var(--color-ai-gradient-green-subtle);
-}
-.skeleton-avatar--blue,
-.skeleton-button--blue,
-.skeleton-text--blue,
-.skeleton-image--blue,
-.skeleton-form--blue {
-  background: var(--color-ai-gradient-blue-subtle);
 }
 @container skeleton-image (width > 79px) {
   .skeleton-image {
