@@ -51,7 +51,7 @@ function copySVGFlags() {
     ${rawSvgToHtml(svgFlagsContent)}
     `;
 
-    fs.writeFileSync(STORYBOOK_HEADER_FILE, storyBookSvgIconsContent, "utf8");
+    fs.appendFileSync(STORYBOOK_HEADER_FILE, storyBookSvgIconsContent, "utf8");
 }
 
 function copyCustomStyles() {
