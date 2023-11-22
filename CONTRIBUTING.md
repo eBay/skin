@@ -14,6 +14,7 @@ This page contains instructions and guidelines for anybody contributing code to 
     -   [Package Dependencies](#package-dependencies)
     -   [Commit Message Format](#commit-message-format)
     -   [Pull Requests](#pull-requests)
+    -   [Naming Scheme](#naming-scheme)
     -   [Style Guide](#style-guide)
     -   [LESS API (deprecated)](#less-api)
     -   [Custom Property API](#custom-property-api)
@@ -194,6 +195,10 @@ Guidance for pull requests:
 -   **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
 -   If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
 -   After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
+
+## Naming Scheme
+
+eBay Skin is an implementation of the [eBay MIND Patterns](https://ebay.gitbook.io/mindpatterns). The MIND patterns [naming scheme](https://ebay.gitbook.io/mindpatterns/appendix/pattern-naming-scheme) follows an accessibility-first mindset; thus aligning our developer speak as closely as possible with existing W3C web standards & conventions.
 
 ## Style Guide
 
