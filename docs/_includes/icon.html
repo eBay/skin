@@ -92,19 +92,36 @@
     {% endhighlight %}
 
     <h3>Deprecated Icons</h3>
-    <p>These deprecated icons have either been removed or renamed. We keep deprecated icon files around to allow some time for transitioning to new icons. Deprecated icon files and mentions in docs, however, get removed with the following major Skin versions.</p>
 
-    <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
-        <div class="section-notice__header" id="section-notice-attention">
-            <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" aria-label="Attention">
-                {% include symbol.html name="attention-filled-16" %}
-            </svg>
-        </div>
-        <div class="section-notice__main">
-            <h3 class="section-notice__title">Do NOT Use These!</h3>
-            <p>The following icons have been deprecated. They will be deleted in the next major Skin version. To transition usage to the new icons, please refer to the icons above and/or refer to the icon transition spreadsheet.</p>
-        </div>
-    </section>
+    {% if site.data.icons.deprecated.size > 0 %}
+        <p>These deprecated icons have either been removed or renamed. We keep deprecated icon files around to allow some time for transitioning to new icons. Deprecated icon files and mentions in docs, however, get removed with the following major Skin versions.</p>
 
-    {% include icon-deprecated-list.html icon=site.data.icons %}
+        <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
+            <div class="section-notice__header" id="section-notice-attention">
+                <svg class="icon icon--attention-filled-16" focusable="false" height="16" width="16" aria-label="Attention">
+                    {% include symbol.html name="attention-filled-16" %}
+                </svg>
+            </div>
+            <div class="section-notice__main">
+                <h3 class="section-notice__title">Do NOT Use These!</h3>
+                <p>The following icons have been deprecated. They will be deleted in the next major Skin version. To transition usage to the new icons, please refer to the icons above and/or refer to the icon transition spreadsheet.</p>
+            </div>
+        </section>
+
+        {% include icon-deprecated-list.html icon=site.data.icons %}
+    {% else %}
+        <section class="section-notice section-notice--information" role="region" aria-label="Information" aria-roledescription="Notice">
+            <div class="section-notice__header" id="section-notice-attention">
+                <svg class="icon icon--information-filled-16" focusable="false" height="16" width="16" aria-label="Information">
+                    {% include symbol.html name="information-filled-16" %}
+                </svg>
+            </div>
+            <div class="section-notice__main">
+                <h3 class="section-notice__title">No Current Depracted Icons</h3>
+                <p>Icons are usually deprecated between major releases when their usage reference are removed, but the icon files are kept to avoiding breaking references. Every major release, we remove the list of deprecated icons and the icon files.</p>
+            </div>
+        </section>
+    {% endif %}
+
+    
 </div>
