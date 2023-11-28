@@ -49,16 +49,16 @@
 
     {% highlight html %}
     <!-- Asynchronous content will load inside below div -->
-    <div class="skeleton" role="img" aria-label="loading"></div>
+    <div class="demo-skeleton" role="img" aria-label="loading"></div>
     {% endhighlight %}
 
     {% highlight css %}
-    /* example css to demonstrate the approach*/
-    .skeleton:empty {
-    background: var(--color-loading-fill);
-    border-radius: 8px;
-    height: 300px;
-    width: 100%;
+    /* example css to demonstrate the approach */
+    .demo-skeleton:empty {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
     }
     {% endhighlight %}
 
@@ -71,14 +71,14 @@
     <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
     {% highlight html %}
     <!-- Before -->
-    <div role="img" class="skeleton" aria-label="loading" style="width: 200px;">
-        <div class="skeleton-button"></div>
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+        <div class="skeleton__button"></div>
     </div>
     <!-- Asynchronous content will go here -->
 
     <!-- After using hidden -->
-    <div role="img" class="skeleton" aria-label="loading" style="width: 200px;" hidden>
-        <div class="skeleton-button"></div>
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;" hidden>
+        <div class="skeleton__button"></div>
     </div>
     <p>asynchronous content</p>
 
@@ -87,12 +87,12 @@
     {% endhighlight %}
 
     {% highlight css %}
-    /* example css to demonstrate the approach*/
-    .skeleton {
-    background: var(--color-loading-fill);
-    border-radius: 8px;
-    height: 300px;
-    width: 100%;
+    /* example css to demonstrate the approach */
+    .skeleton__button {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
     }
     {% endhighlight %}
 
@@ -111,18 +111,17 @@
         4, that require JavaScript to load implementation 2 is the right choice.</p>
     {% highlight css %}
     /* if using a less file, skin provides following mixins to use */
-    .skeleton-base(@border-radius: var(--skeleton-border-radius), @height: var(--skeleton-height), @width:
-    var(--skeleton-width) ) {
-    background: var(--color-loading-fill);
-    border-radius: @border-radius;
-    cursor: progress;
-    height: @height;
-    min-height: 12px;
-    width: @width;
+    .skeleton-base(@border-radius: var(--skeleton-border-radius), @height: var(--skeleton-height), @width: var(--skeleton-width) ) {
+        background: var(--color-loading-fill);
+        border-radius: @border-radius;
+        cursor: progress;
+        height: @height;
+        min-height: 12px;
+        width: @width;
     }
 
-    .skeleton:empty {
-    .skeleton-base(8px, 300px);
+    .demo-skeleton:empty {
+        .skeleton-base(8px, 300px);
     }
     {% endhighlight %}
 

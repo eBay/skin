@@ -5,73 +5,74 @@
 @skeleton-text-height-small: 16px;
 @skeleton-text-height-large: 24px;
 
-.skeleton-avatar {
+.skeleton {
+    container-name: skeleton-container;
+    container-type: inline-size;
+}
+
+.skeleton__avatar {
     .skeleton-base(50%, var(--skeleton-height), var(--skeleton-height));
 }
 
-.skeleton-button {
+.skeleton__button {
     .skeleton-base(20px, 40px);
 }
 
-.skeleton-button--small {
+.skeleton__button--small {
     .skeleton-base(16px, 32px);
 }
 
-.skeleton-button--large {
+.skeleton__button--large {
     .skeleton-base(24px, 48px);
 }
 
-.skeleton-text,
-.skeleton-text--small {
+.skeleton__text {
     .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small, calc(100% - var(--spacing-300)));
 }
 
-.skeleton-text::after,
-.skeleton-text--small::after {
+.skeleton__text::after {
     height: @skeleton-text-height-small;
     margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
 }
 
-.skeleton-text--large {
+.skeleton__text--large {
     .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-large, calc(100% - var(--spacing-300)));
 }
 
-.skeleton-text--large::after {
+.skeleton__text--large::after {
     height: @skeleton-text-height-large;
     margin-top: calc(@skeleton-text-height-large + var(--spacing-100));
 }
 
-.skeleton-text--multiline {
+.skeleton__text--multiline {
     margin-bottom: var(--spacing-300);
     position: relative;
     width: calc(100% - var(--spacing-300));
 }
 
-.skeleton-text--multiline::after {
+.skeleton__text--multiline::after {
     background: inherit;
     content: "";
     position: absolute;
     width: calc(100% - var(--spacing-700));
 }
 
-.skeleton-text--large.skeleton-text--multiline {
+.skeleton__text--large.skeleton__text--multiline {
     margin-bottom: var(--spacing-400);
 }
 
-.skeleton-form {
+.skeleton__textbox {
     .skeleton-base(8px, 48px);
 }
 
-.skeleton-image {
+.skeleton__image {
     .skeleton-base(8px, 100%);
-    container-name: skeleton-image;
-    container-type: inline-size;
     max-width: initial;
 }
 
 // TODO: Use aspect-ratio : 1 / 1 to set as square when we have browser support, till then
 // using pseudo element to set as square
-.skeleton-image::after {
+.skeleton__image::after {
     bottom: 0;
     height: 100%;
     left: 0;
@@ -81,77 +82,53 @@
     width: 100%;
 }
 
-span.skeleton-avatar,
-span.skeleton-button,
-span.skeleton-text,
-span.skeleton-image,
-span.skeleton-form {
+span.skeleton__avatar,
+span.skeleton__button,
+span.skeleton__text,
+span.skeleton__image,
+span.skeleton__textbox {
     display: inline-block;
 }
 
-span.skeleton-avatar + span,
-span.skeleton-button + span,
-span.skeleton-text + span,
-span.skeleton-image + span,
-span.skeleton-form + span {
+span.skeleton__avatar + span,
+span.skeleton__button + span,
+span.skeleton__text + span,
+span.skeleton__image + span,
+span.skeleton__textbox + span {
     margin-inline-start: var(--spacing-100);
 }
 
-div.skeleton-avatar,
-div.skeleton-button,
-div.skeleton-text,
-div.skeleton-image,
-div.skeleton-form {
+div.skeleton__avatar,
+div.skeleton__button,
+div.skeleton__text,
+div.skeleton__image,
+div.skeleton__textbox {
     margin-block-start: var(--spacing-150);
 }
 
-.skeleton-avatar--elevated,
-.skeleton-button--elevated,
-.skeleton-text--elevated,
-.skeleton-image--elevated,
-.skeleton-form--elevated {
-    background: var(--color-loading-fill-elevated);
+.skeleton--elevated {
+    --skeleton-background: var(--color-loading-fill-elevated);
 }
 
 @media screen and (max-width: @_screen-size-SM) {
-    .skeleton-avatar,
-    .skeleton-button,
-    .skeleton-text,
-    .skeleton-image,
-    .skeleton-form {
-        background: var(--color-loading-shimmer);
+    .skeleton {
+        --skeleton-background: var(--color-loading-shimmer);
     }
-    .skeleton-avatar--elevated,
-    .skeleton-button--elevated,
-    .skeleton-text--elevated,
-    .skeleton-image--elevated,
-    .skeleton-form--elevated {
-        background: var(--color-loading-shimmer-elevated);
+    .skeleton--elevated {
+        --skeleton-background: var(--color-loading-shimmer-elevated);
     }
 }
 
-.skeleton-avatar--purple,
-.skeleton-button--purple,
-.skeleton-text--purple,
-.skeleton-image--purple,
-.skeleton-form--purple {
-    background: var(--color-loading-ai-gradient-purple-subtle);
+.skeleton--purple {
+    --skeleton-background: var(--color-loading-ai-gradient-purple-subtle);
 }
 
-.skeleton-avatar--green,
-.skeleton-button--green,
-.skeleton-text--green,
-.skeleton-image--green,
-.skeleton-form--green {
-    background: var(--color-loading-ai-gradient-green-subtle);
+.skeleton--green {
+    --skeleton-background: var(--color-loading-ai-gradient-green-subtle);
 }
 
-.skeleton-avatar--blue,
-.skeleton-button--blue,
-.skeleton-text--blue,
-.skeleton-image--blue,
-.skeleton-form--blue {
-    background: var(--color-loading-ai-gradient-blue-subtle);
+.skeleton--blue {
+    --skeleton-background: var(--color-loading-ai-gradient-blue-subtle);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -176,11 +153,11 @@ div.skeleton-form {
         }
     }
 
-    .skeleton-avatar,
-    .skeleton-button,
-    .skeleton-text,
-    .skeleton-image,
-    .skeleton-form {
+    .skeleton__avatar,
+    .skeleton__button,
+    .skeleton__text,
+    .skeleton__image,
+    .skeleton__textbox {
         /*  setting animation-iteration-count to 6 (5000/833ms)    */
         /*  so it does not exceed 5s per WCAG 2.2.2    */
         animation:
@@ -192,22 +169,22 @@ div.skeleton-form {
 }
 
 // A progressive enhancement to make the skeleton image rounded
-@container skeleton-image (width > 79px) {
-    .skeleton-image {
+@container skeleton-container (width > 79px) {
+    .skeleton__image {
         border-radius: 16px;
     }
 }
 
 [dir="rtl"] {
-    .skeleton-avatar,
-    .skeleton-button,
-    .skeleton-text,
-    .skeleton-image,
-    .skeleton-form {
+    .skeleton__avatar,
+    .skeleton__button,
+    .skeleton__text,
+    .skeleton__image,
+    .skeleton__textbox {
         animation-direction: normal, reverse;
     }
 
-    .skeleton-text--multiline::after {
+    .skeleton__text--multiline::after {
         left: var(--spacing-700);
     }
 }

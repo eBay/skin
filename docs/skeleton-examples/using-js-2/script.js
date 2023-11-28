@@ -5,24 +5,18 @@ setTimeout(() => {
     asyncButton.setAttribute('disabled', true);
     // load some skeletons first
     document.getElementById('featured-3').innerHTML = `
-    <ul class="example-tile-container" role="img" aria-label="loading">
+    <ul class="skeleton example-tile-container" role="img" aria-label="loading">
       <li>
-        <div class="skeleton-item-tile">
-          <div class="skeleton-image" style="width: 225px; height: 225px"></div>
-          <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
-        </div>
+        <div class="skeleton__image" style="width: 225px; height: 225px"></div>
+        <div class="skeleton__text skeleton__text--multiline"></div>
       </li>
       <li>
-        <div class="skeleton-item-tile">
-          <div class="skeleton-image" style="width: 225px; height: 225px"></div>
-          <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
-        </div>
+        <div class="skeleton__image" style="width: 225px; height: 225px"></div>
+        <div class="skeleton__text skeleton__text--multiline"></div>
       </li>
       <li>
-        <div class="skeleton-item-tile">
-          <div class="skeleton-image" style="width: 225px; height: 225px"></div>
-          <div class="skeleton-text skeleton-text--small skeleton-text--multiline"></div>
-        </div>
+        <div class="skeleton__image" style="width: 225px; height: 225px"></div>
+        <div class="skeleton__text skeleton__text--multiline"></div>
       </li>
     </ul>
     `;
@@ -31,21 +25,21 @@ setTimeout(() => {
       document.getElementById('featured-3').innerHTML = `
     <ul class="example-tile-container" role="img" aria-label="loading" style="margin-top: 10px;">
       <li>
-        <div class="skeleton-item-tile">
+        <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
           <div style="margin-top:20px">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</div>
         </div>
       </li>
       <li>
-        <div class="skeleton-item-tile">
+        <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
         <div style="margin-top:20px">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,     making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia</div>
         </div>
       </li>
       <li>
-        <div class="skeleton-item-tile">
+        <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
         <div style="margin-top:20px">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia</div>
