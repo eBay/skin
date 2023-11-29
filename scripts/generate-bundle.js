@@ -17,11 +17,8 @@ const bodyMatch = new RegExp("body ?({(?:.|\\s|\\S)*?})", "m");
 const rootMatch = new RegExp(":root ?({(?:.|\\s|\\S)*?})", "m");
 
 // The list of directories in the dist to pull
-const tokensList = [
-    ["evo-core", "evo-light"],
-    ["ds4-core", "ds4-light"],
-];
-const tokensDirList = ["evo", "ds4"];
+const tokensList = [["evo-core", "evo-light"]];
+const tokensDirList = ["evo"];
 
 /**
  * Main Processing class. Holds info about args passed and ds version
