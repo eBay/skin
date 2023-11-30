@@ -9,22 +9,40 @@ This page contains instructions and guidelines for anybody contributing code to 
     -   [System Requirements](#system-requirements)
     -   [Contribution Steps](#contribution-steps)
     -   [Development Modes](#development-modes)
+        -   [New Module Creation](#new-module-creation)
     -   [Versioning](#versioning)
+        -   [API Change](#api-change)
+        -   [New Functionality](#new-functionality)
+        -   [Bug Fix](#bug-fix)
     -   [Branching](#branching)
     -   [Package Dependencies](#package-dependencies)
     -   [Commit Message Format](#commit-message-format)
     -   [Pull Requests](#pull-requests)
     -   [Naming Scheme](#naming-scheme)
     -   [Style Guide](#style-guide)
-    -   [LESS API (deprecated)](#less-api)
+    -   [LESS API (deprecated)](#less-api-deprecated)
     -   [Custom Property API](#custom-property-api)
+        -   [Core Tokens](#core-tokens)
+        -   [Semantic Tokens](#semantic-tokens)
+        -   [Component Tokens](#component-tokens)
     -   [Dark Mode](#dark-mode)
     -   [Storybook](#storybook)
     -   [Visual Regression Testing](#visual-regression-testing)
+        -   [External Contributors](#external-contributors)
+        -   [Internal Contributors](#internal-contributors)
+            -   [Build Modes](#build-modes)
+            -   [Run All Snapshots](#run-all-snapshots)
+            -   [Run Specific Snapshot(s)](#run-specific-snapshots)
+            -   [Technical Notes](#technical-notes)
     -   [Website](#website)
     -   [Scripts](#scripts)
     -   [Icon Creation](#icon-creation)
     -   [Releases](#releases)
+        -   [Pre-Release](#pre-release)
+        -   [Final Release](#final-release)
+        -   [GitHub Release](#github-release)
+        -   [Hotfix Release](#hotfix-release)
+        -   [Website Archive](#website-archive)
 
 ## System Requirements
 
@@ -357,9 +375,7 @@ Once Jekyll is setup successfully, running a build should create the following f
 -   `./_site/static/dsx/skin.min.css`
     -   the full, minified skin css bundle (only used in development environment)
 -   `./_site/index.html`
-    -   ds6 homepage
--   `./_site/ds4/index.html`
-    -   ds4 homepage
+    -   homepage
 -   `./_site/archive`
     -   archive of old versions of website
 
