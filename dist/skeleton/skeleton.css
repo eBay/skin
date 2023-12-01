@@ -1,0 +1,196 @@
+:root {
+  --skeleton-border-radius: 0;
+  --skeleton-height: 48px;
+  --skeleton-width: 100%;
+  --skeleton-background: var(--color-loading-fill);
+}
+.skeleton {
+  container-name: skeleton-container;
+  container-type: inline-size;
+}
+.skeleton__avatar {
+  background: var(--skeleton-background);
+  border-radius: 50%;
+  cursor: progress;
+  height: var(--skeleton-height);
+  min-height: 12px;
+  width: var(--skeleton-height);
+}
+.skeleton__button {
+  background: var(--skeleton-background);
+  border-radius: 20px;
+  cursor: progress;
+  height: 40px;
+  min-height: 12px;
+  width: var(--skeleton-width);
+}
+.skeleton__button--small {
+  background: var(--skeleton-background);
+  border-radius: 16px;
+  cursor: progress;
+  height: 32px;
+  min-height: 12px;
+  width: var(--skeleton-width);
+}
+.skeleton__button--large {
+  background: var(--skeleton-background);
+  border-radius: 24px;
+  cursor: progress;
+  height: 48px;
+  min-height: 12px;
+  width: var(--skeleton-width);
+}
+.skeleton__text {
+  background: var(--skeleton-background);
+  border-radius: 3px;
+  cursor: progress;
+  height: 16px;
+  min-height: 12px;
+  width: calc(100% - var(--spacing-300));
+}
+.skeleton__text::after {
+  height: 16px;
+  margin-top: calc(16px + var(--spacing-100));
+}
+.skeleton__text--large {
+  background: var(--skeleton-background);
+  border-radius: 3px;
+  cursor: progress;
+  height: 24px;
+  min-height: 12px;
+  width: calc(100% - var(--spacing-300));
+}
+.skeleton__text--large::after {
+  height: 24px;
+  margin-top: calc(24px + var(--spacing-100));
+}
+.skeleton__text--multiline {
+  margin-bottom: var(--spacing-300);
+  position: relative;
+  width: calc(100% - var(--spacing-300));
+}
+.skeleton__text--multiline::after {
+  background: inherit;
+  content: "";
+  position: absolute;
+  width: calc(100% - var(--spacing-700));
+}
+.skeleton__text--large.skeleton__text--multiline {
+  margin-bottom: var(--spacing-400);
+}
+.skeleton__textbox {
+  background: var(--skeleton-background);
+  border-radius: 8px;
+  cursor: progress;
+  height: 48px;
+  min-height: 12px;
+  width: var(--skeleton-width);
+}
+.skeleton__image {
+  background: var(--skeleton-background);
+  border-radius: 8px;
+  cursor: progress;
+  height: 100%;
+  min-height: 12px;
+  width: var(--skeleton-width);
+  max-width: initial;
+}
+.skeleton__image::after {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+span.skeleton__avatar,
+span.skeleton__button,
+span.skeleton__text,
+span.skeleton__image,
+span.skeleton__textbox {
+  display: inline-block;
+}
+span.skeleton__avatar + span,
+span.skeleton__button + span,
+span.skeleton__text + span,
+span.skeleton__image + span,
+span.skeleton__textbox + span {
+  -webkit-margin-start: var(--spacing-100);
+          margin-inline-start: var(--spacing-100);
+}
+div.skeleton__avatar,
+div.skeleton__button,
+div.skeleton__text,
+div.skeleton__image,
+div.skeleton__textbox {
+  -webkit-margin-before: var(--spacing-150);
+          margin-block-start: var(--spacing-150);
+}
+.skeleton--elevated {
+  --skeleton-background: var(--color-loading-fill-elevated);
+}
+@media screen and (max-width: 512px) {
+  .skeleton {
+    --skeleton-background: var(--color-loading-shimmer);
+  }
+  .skeleton--elevated {
+    --skeleton-background: var(--color-loading-shimmer-elevated);
+  }
+}
+.skeleton--purple {
+  --skeleton-background: var(--color-loading-ai-gradient-purple-subtle);
+}
+.skeleton--green {
+  --skeleton-background: var(--color-loading-ai-gradient-green-subtle);
+}
+.skeleton--blue {
+  --skeleton-background: var(--color-loading-ai-gradient-blue-subtle);
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes loading-frames {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 45% 0%;
+    }
+    100% {
+      background-position: 90% 0%;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .skeleton__avatar,
+  .skeleton__button,
+  .skeleton__text,
+  .skeleton__image,
+  .skeleton__textbox {
+    /*  setting animation-iteration-count to 6 (5000/833ms)    */
+    /*  so it does not exceed 5s per WCAG 2.2.2    */
+    animation: fade-in 500ms forwards, loading-frames 833ms 667ms linear 6;
+    animation-fill-mode: both;
+    background-size: 200%;
+  }
+}
+@container skeleton-container (width > 79px) {
+  .skeleton__image {
+    border-radius: 16px;
+  }
+}
+[dir="rtl"] .skeleton__avatar,
+[dir="rtl"] .skeleton__button,
+[dir="rtl"] .skeleton__text,
+[dir="rtl"] .skeleton__image,
+[dir="rtl"] .skeleton__textbox {
+  animation-direction: normal, reverse;
+}
+[dir="rtl"] .skeleton__text--multiline::after {
+  left: var(--spacing-700);
+}

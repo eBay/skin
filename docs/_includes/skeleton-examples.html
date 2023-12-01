@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeleton examples</title>
+    <style>
+        iframe {
+            border: 1px solid #000;
+            width: 320px;
+            height: 480px;
+            min-height: 480px;
+            resize: both;
+            overflow: auto;
+        }
+
+        .template--item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .template--item_head {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .template--item_head_actions {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Implementation 1: Using single DOM element and CSS :empty selector</h2>
+    <p>In this progressive enhancement approach, <span class="highlight">:empty</span> pseudo-class in CSS is used for
+        showing a skeleton loader without the need for client-side JavaScript. This approach detects if the container
+        with the class skeleton is empty and displays the skeleton loader until the asynchronous content is available.
+        When the asynchronous content is ready, the skeleton loader will automatically disappear because the <span
+            class="highlight">:empty</span> pseudo-class no longer applies.
+    </p>
+    <p>This approach is highly performant and consumes less resources especially on devices with limited CPU resources.
+    </p>
+    <p>NOTE: The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty.
+        Therefore, it is important to ensure that the skeleton container doesn't contain any whitespace or comments
+        before
+        the asynchronous content is loaded.</p>
+
+    {% highlight html %}
+    <!-- Asynchronous content will load inside below div -->
+    <div class="demo-skeleton" role="img" aria-label="loading"></div>
+    {% endhighlight %}
+
+    {% highlight css %}
+    /* example css to demonstrate the approach */
+    .demo-skeleton:empty {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
+    }
+    {% endhighlight %}
+
+    <h2>Implementation 2: Using multiple DOM elements and JavaScript</h2>
+    <p>In this approach using JavaScript, we gain more flexibility and control over when and how the skeleton loader is
+        replaced with the actual content. Here we can completely hide or replace the skeleton loader and display the
+        asyncronous content instead. This could be done by toggling the <span class="highlight">hidden</span> attribute
+        on
+        the skeleton loader and the content container.</p>
+    <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
+    {% highlight html %}
+    <!-- Before -->
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+        <div class="skeleton__button"></div>
+    </div>
+    <!-- Asynchronous content will go here -->
+
+    <!-- After using hidden -->
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;" hidden>
+        <div class="skeleton__button"></div>
+    </div>
+    <p>asynchronous content</p>
+
+    <!-- After using skeleton swap -->
+    <p>asynchronous content</p>
+    {% endhighlight %}
+
+    {% highlight css %}
+    /* example css to demonstrate the approach */
+    .skeleton__button {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
+    }
+    {% endhighlight %}
+
+    <h2>When to use one over the other?</h2>
+    <p>Usually, skeletons can be ingressed to four loading scenarios.</p>
+    <ol>
+        <li>Buffered rendering</li>
+        <li>Progressive rendering - In-order (where browser renders different chunks of the page in specified order.)</li>
+        <li>Progressive rendering - Out of order (where browser renders different chunks of the page asynchronously)</li>
+        <li>Client side rendering</li>
+    </ol>
+    <p>In Buffered rendering, the content is loaded in chunks or buffers. Because the content is not loaded all at once,
+        there is no fixed point where skeletons can be displayed.</p>
+    <p>For, progressive in-order rendering the CSS :empty technique is very performant, but requires the app team to
+        construct the customn skeleton. The Skin currently provides following mixins to make importing easier. For scenarios 3 &
+        4, that require JavaScript to load implementation 2 is the right choice.</p>
+    {% highlight css %}
+    /* if using a less file, skin provides following mixins to use */
+    .skeleton-base(@border-radius: var(--skeleton-border-radius), @height: var(--skeleton-height), @width: var(--skeleton-width) ) {
+        background: var(--color-loading-fill);
+        border-radius: @border-radius;
+        cursor: progress;
+        height: @height;
+        min-height: 12px;
+        width: @width;
+    }
+
+    .demo-skeleton:empty {
+        .skeleton-base(8px, 300px);
+    }
+    {% endhighlight %}
+
+    <div class="template--tiles">
+        <div class="template--item">
+            <div class="template--item_head">
+                <h2>Scenario 2</h2>
+                <div class="template--item_head_actions">
+                    <a href="./using-empty/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./using-empty/" frameborder="0"></iframe>
+        </div>
+
+        <div class="template--item">
+            <div class="template--item_head">
+                <h2>Scenario 3</h2>
+                <div class="template--item_head_actions">
+                    <a href="./using-js-1/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./using-js-1/" frameborder="0"></iframe>
+        </div>
+
+        <div class="template--item">
+            <div class="template--item_head">
+                <h3>Scenario 4</h3>
+                <div class="template--item_head_actions">
+                    <a href="./using-js-2/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./using-js-2/" frameborder="0"></iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>
