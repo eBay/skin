@@ -1,51 +1,37 @@
-:root {
-  --skeleton-border-radius: 0;
-  --skeleton-height: 48px;
-  --skeleton-width: 100%;
-  --skeleton-background: var(--color-loading-fill);
-}
 .skeleton {
   container-name: skeleton-container;
   container-type: inline-size;
+  cursor: progress;
+  width: 100%;
+}
+.skeleton__avatar,
+.skeleton__button,
+.skeleton__text,
+.skeleton__image,
+.skeleton__textbox {
+  background: var(--skeleton-background, var(--color-loading-fill));
+  width: 100%;
 }
 .skeleton__avatar {
-  background: var(--skeleton-background);
-  border-radius: 50%;
-  cursor: progress;
-  height: var(--skeleton-height);
-  min-height: 12px;
-  width: var(--skeleton-height);
+  border-radius: var(--avatar-border-radius, 50%);
+  height: 48px;
+  width: 48px;
 }
 .skeleton__button {
-  background: var(--skeleton-background);
-  border-radius: 20px;
-  cursor: progress;
+  border-radius: var(--btn-border-radius, calc(40px / 2));
   height: 40px;
-  min-height: 12px;
-  width: var(--skeleton-width);
 }
 .skeleton__button--small {
-  background: var(--skeleton-background);
-  border-radius: 16px;
-  cursor: progress;
+  border-radius: var(--btn-border-radius, calc(32px / 2));
   height: 32px;
-  min-height: 12px;
-  width: var(--skeleton-width);
 }
 .skeleton__button--large {
-  background: var(--skeleton-background);
-  border-radius: 24px;
-  cursor: progress;
+  border-radius: var(--btn-border-radius, calc(48px / 2));
   height: 48px;
-  min-height: 12px;
-  width: var(--skeleton-width);
 }
 .skeleton__text {
-  background: var(--skeleton-background);
-  border-radius: 3px;
-  cursor: progress;
+  border-radius: var(--text-border-radius, 3px);
   height: 16px;
-  min-height: 12px;
   width: calc(100% - var(--spacing-300));
 }
 .skeleton__text::after {
@@ -53,12 +39,7 @@
   margin-top: calc(16px + var(--spacing-100));
 }
 .skeleton__text--large {
-  background: var(--skeleton-background);
-  border-radius: 3px;
-  cursor: progress;
   height: 24px;
-  min-height: 12px;
-  width: calc(100% - var(--spacing-300));
 }
 .skeleton__text--large::after {
   height: 24px;
@@ -79,20 +60,12 @@
   margin-bottom: var(--spacing-400);
 }
 .skeleton__textbox {
-  background: var(--skeleton-background);
-  border-radius: 8px;
-  cursor: progress;
+  border-radius: var(--textbox-border-radius, var(--border-radius-50));
   height: 48px;
-  min-height: 12px;
-  width: var(--skeleton-width);
 }
 .skeleton__image {
-  background: var(--skeleton-background);
-  border-radius: 8px;
-  cursor: progress;
+  border-radius: var(--image-border-radius, var(--border-radius-50));
   height: 100%;
-  min-height: 12px;
-  width: var(--skeleton-width);
   max-width: initial;
 }
 .skeleton__image::after {
@@ -181,7 +154,7 @@ div.skeleton__textbox {
 }
 @container skeleton-container (width > 79px) {
   .skeleton__image {
-    border-radius: 16px;
+    border-radius: var(--image-border-radius, var(--border-radius-100));
   }
 }
 [dir="rtl"] .skeleton__avatar,

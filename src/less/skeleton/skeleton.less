@@ -1,47 +1,63 @@
 @import "../variables/variables.less";
-@import "../mixins/public/skeleton-mixins.less";
-
-@skeleton-text-border-radius: 3px;
-@skeleton-text-height-small: 16px;
-@skeleton-text-height-large: 24px;
+@import "../mixins/private/button-mixins.less";
+@import "../mixins/private/token-mixins.less";
 
 .skeleton {
     container-name: skeleton-container;
     container-type: inline-size;
+    cursor: progress;
+    width: 100%;
 }
 
+.skeleton__avatar,
+.skeleton__button,
+.skeleton__text,
+.skeleton__image,
+.skeleton__textbox {
+    .background-token(skeleton-background, color-loading-fill);
+    width: 100%;
+}
+
+// TODO: Need to swap these with component css variables and expose it instead
 .skeleton__avatar {
-    .skeleton-base(50%, var(--skeleton-height), var(--skeleton-height));
+    border-radius: var(--avatar-border-radius, 50%);
+    height: 48px;
+    width: 48px;
 }
 
 .skeleton__button {
-    .skeleton-base(20px, 40px);
+    border-radius: var(--btn-border-radius, calc(@button-height-regular / 2));
+    height: @button-height-regular;
 }
 
 .skeleton__button--small {
-    .skeleton-base(16px, 32px);
+    border-radius: var(--btn-border-radius, calc(@button-height-xsmall / 2));
+    height: @button-height-xsmall;
 }
 
 .skeleton__button--large {
-    .skeleton-base(24px, 48px);
+    border-radius: var(--btn-border-radius, calc(@button-height-large / 2));
+    height: @button-height-large;
 }
 
 .skeleton__text {
-    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-small, calc(100% - var(--spacing-300)));
+    border-radius: var(--text-border-radius, 3px);
+    height: 16px;
+    width: calc(100% - var(--spacing-300));
 }
 
 .skeleton__text::after {
-    height: @skeleton-text-height-small;
-    margin-top: calc(@skeleton-text-height-small + var(--spacing-100));
+    height: 16px;
+    margin-top: calc(16px + var(--spacing-100));
 }
 
 .skeleton__text--large {
-    .skeleton-base(@skeleton-text-border-radius, @skeleton-text-height-large, calc(100% - var(--spacing-300)));
+    height: 24px;
 }
 
 .skeleton__text--large::after {
-    height: @skeleton-text-height-large;
-    margin-top: calc(@skeleton-text-height-large + var(--spacing-100));
+    height: 24px;
+    margin-top: calc(24px + var(--spacing-100));
 }
 
 .skeleton__text--multiline {
@@ -62,11 +78,13 @@
 }
 
 .skeleton__textbox {
-    .skeleton-base(8px, 48px);
+    .border-radius-token(textbox-border-radius, border-radius-50);
+    height: 48px;
 }
 
 .skeleton__image {
-    .skeleton-base(8px, 100%);
+    .border-radius-token(image-border-radius, border-radius-50);
+    height: 100%;
     max-width: initial;
 }
 
@@ -171,7 +189,7 @@ div.skeleton__textbox {
 // A progressive enhancement to make the skeleton image rounded
 @container skeleton-container (width > 79px) {
     .skeleton__image {
-        border-radius: 16px;
+        .border-radius-token(image-border-radius, border-radius-100);
     }
 }
 
