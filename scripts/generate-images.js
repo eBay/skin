@@ -135,12 +135,13 @@ class GenerateImages {
         const data = await fs.promises.readFile(filePath, "utf8");
         const symbols = JSDOM.fragment(data);
         const symbol = symbols.querySelector("svg");
-
         const nameObj = stripName(filename);
-        if (
+        const isAllowedInDocs =
             config.skipDocs.indexOf(nameObj.simpleName) === -1 &&
-            config.deprecated.indexOf(nameObj.simpleName) === -1
-        ) {
+            (config.deprecated === null ||
+                config.deprecated.indexOf(nameObj.simpleName) === -1);
+
+        if (isAllowedInDocs) {
             this.imageList.push(nameObj.fullName);
         }
         console.log("Processing SVG:", symbol, filename);
@@ -177,6 +178,7 @@ class GenerateImages {
         await Promise.all(
             this.svgs.map(async (filePath) => {
                 const filename = path.parse(filePath).name;
+                // console.log(filename);
                 await this.processSvg(filePath, filename, lessFile);
             }),
         );
