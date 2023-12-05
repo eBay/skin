@@ -237,15 +237,6 @@ document.querySelectorAll('.floating-label').forEach(function(el) {
     pageWidgets.push(new FloatingLabel(el));
 });
 
-document.querySelectorAll('.legacy-floating-label').forEach(function(el) {
-    pageWidgets.push(new FloatingLabel(el, {
-        labelElementInlineModifier: 'legacy-floating-label__label--inline',
-        labelElementDisabledModifier: 'legacy-floating-label__label--disabled',
-        labelElementAnimateModifier: 'legacy-floating-label__label--animate',
-        textboxElementBackgroundRGB: ['rgba(0, 0, 0, 0)']
-    }));
-});
-
 // PROGRESS BAR PLAY
 document.querySelectorAll('.progress-bar-toggle').forEach(function(el) {
     const progressId = el.dataset.progressPlayButtonFor;
