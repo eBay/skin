@@ -62,4 +62,8 @@ main.insertAdjacentHTML('afterend', `<aside>
 
 body.insertAdjacentHTML('beforeend', `<footer>This pen is a "stretchy" CSS Grid recreation of the <a href="CSS Grid recreation of: https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>`);
 
+document.querySelector('.page-grid').setAttribute('style', "outline: 1px solid");
+document.querySelector('aside').setAttribute('style', "outline: 1px solid");
+document.querySelector('main').setAttribute('style', "outline: 1px solid");
+
 }, 5000);

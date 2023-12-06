@@ -63,11 +63,25 @@ footer {
 
 /* skeleton styles */
 .skeleton {
+  min-height: 300px;
+  display: flex;
+}
+
+.skeleton__main,
+.skeleton__aside {
   background: var(--color-loading-fill);
   border-radius: 8px;
-  cursor: progress;
-  min-height: 300px;
-  width: 100%;
+  height: 100%;
+  margin-inline: 8px;
+  margin-bottom: var(--spacing-large);
+}
+
+.skeleton__main {
+  width: 61%;
+}
+
+.skeleton__aside {
+  width: 35%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -91,11 +105,12 @@ footer {
     }
   }
 
-  .skeleton {
-    animation: fade-in 1s forwards;
-    animation-fill-mode: both;
-    background-size: 200%;
-  }
+  .skeleton__main,
+  .skeleton__aside {
+      animation: fade-in 1s forwards;
+      animation-fill-mode: both;
+      background-size: 200%;
+    }
 }
 
 /* add some lines marking the edges of grids */
@@ -138,12 +153,16 @@ nav {
   grid-area: 5 / 1 / span 1 / span 8;
 }
 
-main {
+.skeleton {
   grid-area: 6 / 1 / span 1 / span 8;
 }
 
+main {
+  grid-area: 8 / 1 / span 1 / span 8;
+}
+
 aside {
-  grid-area: 7 / 1 / span 1 / span 8;
+  grid-area: 9 / 1 / span 1 / span 8;
 }
 
 /* Skin goes from 8 columns to 16 columns at this SM (small) breakpoint */
@@ -181,11 +200,15 @@ aside {
     justify-content: center;
   }
 
+  .skeleton {
+    grid-area: 5 / 1 / span 1 / span 16;
+  }
+
   main {
-    grid-area: 5 / 1 / span 1 / span 10;
+    grid-area: 6 / 1 / span 1 / span 10;
   }
 
   aside {
-    grid-area: 5 / 11 / span 1 / span 6;
+    grid-area: 6 / 11 / span 1 / span 6;
   }
 }

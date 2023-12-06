@@ -27,21 +27,22 @@ setTimeout(() => {
         <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-square-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor...</div>
+          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor. </div>
         </div>
       </li>
       <li>
         <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor...</div>
+          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor. Maecenas dictum diam consectetur, luctus elit nec, interdum turpis. Pellentesque ut finibus est. Maecenas ullamcorper bibendum quam.
+          </div>
         </div>
       </li>
       <li>
         <div>
           <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1;">
           </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor...</div>
+        <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor. Maecenas dictum diam consectetur, luctus elit nec, interdum turpis. Pellentesque ut finibus est. Maecenas ullamcorper bibendum quam. Nulla feugiat fermentum condimentum. Curabitur accumsan nunc et congue aliquam. Sed interdum dolor dui, sit amet venenatis arcu semper pulvinar.</div>
         </div>
       </li>`);
     }, 3000);
