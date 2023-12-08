@@ -1,46 +1,76 @@
 export default { title: "Skin/Avatar" };
 
-export const base = () => /* HTML */ ` <div class="avatar">E</div> `;
+export const base = () => /* HTML */ `
+    <div class="avatar" role="img" aria-label="Profile picture, E">
+        <span>E</span>
+    </div>
+`;
 
 export const variations = () => /* HTML */ `
-    <div class="avatar avatar--teal" role="img" aria-label="Signed-in as Zed">
-        Z
+    <div class="avatar avatar--teal" role="img" aria-label="Profile picture, Z">
+        <span>Z</span>
     </div>
     <div
         class="avatar avatar--light-teal"
         role="img"
-        aria-label="Signed-in as Awesome Jack"
+        aria-label="Profile picture, J"
     >
-        A
+        <span>J</span>
     </div>
-    <div class="avatar avatar--green" aria-label="Signed-in as Bob">B</div>
-    <div class="avatar avatar--lime" aria-label="Signed-in as Carol12345">
-        C
+    <div
+        class="avatar avatar--green"
+        role="img"
+        aria-label="Profile picture, B"
+    >
+        <span>B</span>
     </div>
-    <div class="avatar avatar--yellow" aria-label="Signed-in as DogLover">
-        D
+    <div class="avatar avatar--lime" role="img" aria-label="Profile picture, C">
+        <span>C</span>
     </div>
-    <div class="avatar avatar--orange" aria-label="Signed-in as FooBar">F</div>
-    <div class="avatar avatar--magenta" aria-label="Signed-in as Goolio">G</div>
+    <div
+        class="avatar avatar--yellow"
+        role="img"
+        aria-label="Profile picture, D"
+    >
+        <span>D</span>
+    </div>
+    <div
+        class="avatar avatar--orange"
+        role="img"
+        aria-label="Profile picture, F"
+    >
+        <span>F</span>
+    </div>
+    <div
+        class="avatar avatar--magenta"
+        role="img"
+        aria-label="Profile picture, G"
+    >
+        <span>G</span>
+    </div>
 `;
 
 export const withImage = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Signed-in as Doggy">
+    <div class="avatar" role="img" aria-label="Profile picture, custom">
         <img
             src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-            alt="profile pic"
+            alt=""
         />
     </div>
-    <div class="avatar avatar--128" role="img" aria-label="Signed-in as Doggy">
+    <div
+        class="avatar avatar--128"
+        role="img"
+        aria-label="Profile picture, custom"
+    >
         <img
             src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-            alt="profile pic"
+            alt=""
         />
     </div>
 `;
 
 export const signedOut = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Signed-Out">
+    <div class="avatar" role="img" aria-label="Profile picture, signed out">
         <svg class="icon" focusable="false" aria-hidden="true">
             <use href="#icon-avatar-signed-out"></use>
         </svg>
@@ -52,43 +82,51 @@ export const sizes = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Signed-in as Harry Potter"
+            aria-label="Profile picture, H"
         >
-            H
+            <span>H</span>
         </div>
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Signed-in as Igquana"
+            aria-label="Profile picture, I"
         >
-            I
+            <span>I</span>
         </div>
         <div
             class="avatar avatar--48"
             role="img"
-            aria-label="Signed-in as Josh123"
+            aria-label="Profile picture, J"
         >
-            J
+            <span>J</span>
         </div>
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Signed-in as KoolGuy"
+            aria-label="Profile picture, K"
         >
-            K
+            <span>K</span>
         </div>
-        <div class="avatar avatar--64" role="img" aria-label="Signed-in as Leo">
-            L
+        <div
+            class="avatar avatar--64"
+            role="img"
+            aria-label="Profile picture, L"
+        >
+            <span>L</span>
         </div>
-        <div class="avatar avatar--96" role="img" aria-label="Signed-in as Me">
-            M
+        <div
+            class="avatar avatar--96"
+            role="img"
+            aria-label="Profile picture, M"
+        >
+            <span>M</span>
         </div>
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Signed-in as Noir"
+            aria-label="Profile picture, N"
         >
-            N
+            <span>N</span>
         </div>
     </div>
 `;
@@ -98,71 +136,71 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--48"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--96"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
     </div>
@@ -213,9 +251,9 @@ export const combinations = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Signed-in as Omega"
+            aria-label="Profile picture, O"
         >
-            O
+            <span>O</span>
         </div>
         <div class="avatar avatar--40" role="img" aria-label="Signed-out">
             <svg class="icon" focusable="false" aria-hidden="true">
@@ -225,41 +263,40 @@ export const combinations = () => /* HTML */ `
         <div
             class="avatar avatar--48 avatar--green"
             role="img"
-            aria-label="Signed-in as Queen"
+            aria-label="Profile picture, Q"
         >
-            Q
+            <span>Q</span>
         </div>
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Signed-in as Doggy"
+            aria-label="Profile picture, custom"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
-                alt="profile pic"
+                alt=""
             />
         </div>
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Signed-in as Ryan"
+            aria-label="Profile picture, R"
         >
-            R
+            <span>R</span>
         </div>
         <div
             class="avatar avatar--96 avatar--magenta"
             role="img"
-            aria-label="Signed-in as Sam"
+            aria-label="Profile picture, S"
         >
-            S
+            <span>S</span>
         </div>
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Signed-in as Turner"
+            aria-label="Profile picture, T"
         >
-            T
+            <span>T</span>
         </div>
-        <div></div>
     </div>
 `;
