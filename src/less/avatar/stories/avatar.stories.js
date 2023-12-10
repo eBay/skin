@@ -1,57 +1,65 @@
 export default { title: "Skin/Avatar" };
 
 export const base = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Profile picture, E">
+    <div class="avatar" role="img" aria-label="Profile picture - E">
         <span>E</span>
     </div>
 `;
 
 export const variations = () => /* HTML */ `
-    <div class="avatar avatar--teal" role="img" aria-label="Profile picture, Z">
+    <div
+        class="avatar avatar--teal"
+        role="img"
+        aria-label="Profile picture - Z"
+    >
         <span>Z</span>
     </div>
     <div
         class="avatar avatar--light-teal"
         role="img"
-        aria-label="Profile picture, J"
+        aria-label="Profile picture - J"
     >
         <span>J</span>
     </div>
     <div
         class="avatar avatar--green"
         role="img"
-        aria-label="Profile picture, B"
+        aria-label="Profile picture - B"
     >
         <span>B</span>
     </div>
-    <div class="avatar avatar--lime" role="img" aria-label="Profile picture, C">
+    <div
+        class="avatar avatar--lime"
+        role="img"
+        aria-label="Profile picture - C"
+    >
         <span>C</span>
     </div>
     <div
         class="avatar avatar--yellow"
         role="img"
-        aria-label="Profile picture, D"
+        aria-label="Profile picture - D"
     >
         <span>D</span>
     </div>
     <div
         class="avatar avatar--orange"
         role="img"
-        aria-label="Profile picture, F"
+        aria-label="Profile picture - F"
     >
         <span>F</span>
     </div>
     <div
         class="avatar avatar--magenta"
         role="img"
-        aria-label="Profile picture, G"
+        aria-label="Profile picture - G"
     >
         <span>G</span>
     </div>
 `;
 
 export const withImage = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Profile picture, custom">
+    <div class="avatar" role="img" aria-label="Profile picture - Elizabeth">
         <img
             src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
             alt=""
@@ -60,7 +68,7 @@ export const withImage = () => /* HTML */ `
     <div
         class="avatar avatar--128"
         role="img"
-        aria-label="Profile picture, custom"
+        aria-label="Profile picture - Elizabeth"
     >
         <img
             src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -70,8 +78,8 @@ export const withImage = () => /* HTML */ `
 `;
 
 export const signedOut = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Profile picture, signed out">
-        <svg class="icon" focusable="false" aria-hidden="true">
+    <div class="avatar" role="img" aria-label="Profile picture - unknown">
+        <svg class="icon" aria-hidden="true">
             <use href="#icon-avatar-signed-out"></use>
         </svg>
     </div>
@@ -82,49 +90,49 @@ export const sizes = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Profile picture, H"
+            aria-label="Profile picture - H"
         >
             <span>H</span>
         </div>
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Profile picture, I"
+            aria-label="Profile picture - I"
         >
             <span>I</span>
         </div>
         <div
             class="avatar avatar--48"
             role="img"
-            aria-label="Profile picture, J"
+            aria-label="Profile picture - J"
         >
             <span>J</span>
         </div>
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Profile picture, K"
+            aria-label="Profile picture - K"
         >
             <span>K</span>
         </div>
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Profile picture, L"
+            aria-label="Profile picture - L"
         >
             <span>L</span>
         </div>
         <div
             class="avatar avatar--96"
             role="img"
-            aria-label="Profile picture, M"
+            aria-label="Profile picture - M"
         >
             <span>M</span>
         </div>
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Profile picture, N"
+            aria-label="Profile picture - N"
         >
             <span>N</span>
         </div>
@@ -136,7 +144,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -146,7 +154,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -156,7 +164,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--48"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -166,7 +174,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -176,7 +184,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -186,7 +194,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--96"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -196,7 +204,7 @@ export const sizesProfilePic = () => /* HTML */ `
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -208,38 +216,66 @@ export const sizesProfilePic = () => /* HTML */ `
 
 export const sizesIcon = () => /* HTML */ `
     <div>
-        <div class="avatar avatar--32" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--32"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--40" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--40"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--48" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--48"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--56" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--56"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--64" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--64"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--96" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--96"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
-        <div class="avatar avatar--128" role="img" aria-label="Signed-Out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--128"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
@@ -251,26 +287,30 @@ export const combinations = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Profile picture, O"
+            aria-label="Profile picture - O"
         >
             <span>O</span>
         </div>
-        <div class="avatar avatar--40" role="img" aria-label="Signed-out">
-            <svg class="icon" focusable="false" aria-hidden="true">
+        <div
+            class="avatar avatar--40"
+            role="img"
+            aria-label="Profile picture - unknown"
+        >
+            <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
             </svg>
         </div>
         <div
             class="avatar avatar--48 avatar--green"
             role="img"
-            aria-label="Profile picture, Q"
+            aria-label="Profile picture - Q"
         >
             <span>Q</span>
         </div>
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Profile picture, custom"
+            aria-label="Profile picture - Elizabeth"
         >
             <img
                 src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
@@ -280,21 +320,21 @@ export const combinations = () => /* HTML */ `
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Profile picture, R"
+            aria-label="Profile picture - R"
         >
             <span>R</span>
         </div>
         <div
             class="avatar avatar--96 avatar--magenta"
             role="img"
-            aria-label="Profile picture, S"
+            aria-label="Profile picture - S"
         >
             <span>S</span>
         </div>
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Profile picture, T"
+            aria-label="Profile picture - T"
         >
             <span>T</span>
         </div>
