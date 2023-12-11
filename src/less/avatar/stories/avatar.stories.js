@@ -78,7 +78,7 @@ export const withImage = () => /* HTML */ `
 `;
 
 export const signedOut = () => /* HTML */ `
-    <div class="avatar" role="img" aria-label="Profile picture - unknown">
+    <div class="avatar" role="img" aria-label="Profile picture - Signed out">
         <svg class="icon" aria-hidden="true">
             <use href="#icon-avatar-signed-out"></use>
         </svg>
@@ -219,7 +219,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--32"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -228,7 +228,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -237,7 +237,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--48"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -246,7 +246,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--56"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -255,7 +255,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--64"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -264,7 +264,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--96"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -273,7 +273,7 @@ export const sizesIcon = () => /* HTML */ `
         <div
             class="avatar avatar--128"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
@@ -294,7 +294,7 @@ export const combinations = () => /* HTML */ `
         <div
             class="avatar avatar--40"
             role="img"
-            aria-label="Profile picture - unknown"
+            aria-label="Profile picture - Signed out"
         >
             <svg class="icon" aria-hidden="true">
                 <use href="#icon-avatar-signed-out"></use>
