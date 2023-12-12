@@ -528,21 +528,21 @@ document.querySelectorAll('.field').forEach(function(elCharContainer) {
     }
 });
 
-// INPUT CHIPS
-document.querySelectorAll('.input-chips').forEach(function(elInputChips) {
-    const elBtnListToggle = elInputChips.querySelector('.input-chips_list-toggle')
-        , elCombobox = elInputChips.querySelector('.input-chips__combobox')
+// CHIPS COMBOBOX
+document.querySelectorAll('.chips-combobox').forEach(function(elInputChips) {
+    const elBtnListToggle = elInputChips.querySelector('.chips-combobox_list-toggle')
+        , elCombobox = elInputChips.querySelector('.chips-combobox__combobox')
     ;
 
     elBtnListToggle.addEventListener('click', function() {
         const isExpanded = elCombobox.classList.contains('combobox--expanded');
 
         if (isExpanded) {
-            elInputChips.classList.remove('input-chips--expanded');
+            elInputChips.classList.remove('chips-combobox--expanded');
             return elCombobox.classList.remove('combobox--expanded');
         }
 
-        elInputChips.classList.add('input-chips--expanded');
+        elInputChips.classList.add('chips-combobox--expanded');
         return elCombobox.classList.add('combobox--expanded');
     });
 });

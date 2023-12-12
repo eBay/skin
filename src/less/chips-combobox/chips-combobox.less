@@ -1,6 +1,6 @@
 @import "../variables/variables.less";
 
-.input-chips__container {
+.chips-combobox__container {
     background-color: var(--color-background-secondary);
     border: 1px solid var(--color-stroke-default);
     border-radius: var(--border-radius-50);
@@ -11,14 +11,14 @@
     position: relative;
 }
 
-.input-chips__content {
+.chips-combobox__content {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-100);
     margin-bottom: var(--spacing-100);
 }
 
-.input-chips_items {
+.chips-combobox_items {
     display: flex;
     flex: auto;
     flex-wrap: wrap;
@@ -26,23 +26,23 @@
     max-width: 100%;
 }
 
-.input-chips label {
+.chips-combobox label {
     display: inline-block;
     font-size: var(--font-size-default);
     margin-bottom: var(--spacing-50);
 }
 
-.input-chips__helper-text {
+.chips-combobox__helper-text {
     color: var(--color-foreground-secondary);
     font-size: var(--font-size-small);
     margin-top: var(--spacing-100);
 }
 
-.input-chips button.icon-btn {
+.chips-combobox button.icon-btn {
     background-color: transparent;
 }
 
-.input-chips input {
+.chips-combobox .combobox__control > input {
     background-color: inherit;
     border: none;
     border-radius: 0;
@@ -52,13 +52,17 @@
     width: calc(100% - 16px);
 }
 
-.input-chips .combobox {
+.chips-combobox .combobox__control > input:focus {
+    outline: none;
+}
+
+.chips-combobox .combobox {
     margin-left: -8px;
     margin-top: 8px;
     width: calc(100% + 24px);
 }
 
-.input-chips .combobox__listbox {
+.chips-combobox .combobox__listbox {
     background-color: var(--color-background-elevated);
     border: none;
     border-radius: 16px;
@@ -66,54 +70,55 @@
     top: calc(100% + 12px);
 }
 
-.input-chips .combobox__option[role^="option"] {
+.chips-combobox .combobox__option[role^="option"] {
     border-style: none;
 }
 
-.input-chips__container:focus-within {
+.chips-combobox__container:focus-within {
     background-color: var(--color-background-primary);
+    border-color: var(--color-stroke-strong);
 }
 
-.input-chips--expanded .input-chips_list-toggle {
+.chips-combobox--expanded .chips-combobox_list-toggle {
     transform: rotateZ(180deg);
 }
 
 /** Error State **/
-.input-chips--error-state .input-chips__container {
+.chips-combobox--error-state .chips-combobox__container {
     border-color: var(--color-stroke-attention);
 }
 
-.input-chips--error-state .input-chips__helper-text {
+.chips-combobox--error-state .chips-combobox__helper-text {
     color: var(--color-foreground-attention);
 }
 
 /** Disabled State **/
-.input-chips[aria-disabled] .input-chips__container {
+.chips-combobox[aria-disabled] .chips-combobox__container {
     border-color: var(--color-stroke-disabled);
     pointer-events: none;
 }
 
-.input-chips[aria-disabled] button {
+.chips-combobox[aria-disabled] button {
     background-color: transparent;
 }
 
-.input-chips[aria-disabled] .chip {
+.chips-combobox[aria-disabled] .chip {
     color: var(--color-foreground-disabled);
 }
 
-.input-chips[aria-disabled] button.chip__button > svg {
+.chips-combobox[aria-disabled] button.chip__button > svg {
     fill: var(--color-foreground-disabled);
 }
 
-.input-chips[aria-disabled] input {
+.chips-combobox[aria-disabled] .combobox__control > input {
     border: none;
     color: var(--color-foreground-disabled);
 }
 
-.input-chips[aria-disabled] input::placeholder {
+.chips-combobox[aria-disabled] .combobox__control > input::placeholder {
     color: var(--color-foreground-disabled);
 }
 
-[dir="rtl"] .input-chips .combobox {
+[dir="rtl"] .chips-combobox .combobox {
     margin-right: -16px;
 }
