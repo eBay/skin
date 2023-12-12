@@ -1,9 +1,14 @@
 const { listBundles, runCSSBuild } = require("./generate-bundle");
 const { runGenerate } = require("./generate-images");
+const { runGenerateFlags } = require("./generate-flags");
 const { runImport } = require("./import-svgs");
 const { verifyBuild } = require("./verify-build");
 const { generateTopLevel, cleanTopLevel } = require("./generate-imports");
-const { copySVGIcons, copyCustomStyles } = require("./storybook/copy");
+const {
+    copySVGIcons,
+    copyCustomStyles,
+    copySVGFlags,
+} = require("./storybook/copy");
 const { splitter } = require("./split-icon");
 
 require("yargs") // eslint-disable-line
@@ -24,7 +29,7 @@ require("yargs") // eslint-disable-line
             } catch (e) {
                 console.log(e);
             }
-        }
+        },
     )
     .command(
         "genSVG",
@@ -36,7 +41,19 @@ require("yargs") // eslint-disable-line
             } catch (e) {
                 console.log(e);
             }
-        }
+        },
+    )
+    .command(
+        "genFlags",
+        "generates less files with styles from svg flags",
+        () => {},
+        () => {
+            try {
+                runGenerateFlags();
+            } catch (e) {
+                console.log(e);
+            }
+        },
     )
 
     .command(
@@ -70,7 +87,7 @@ require("yargs") // eslint-disable-line
             } catch (e) {
                 console.log(e);
             }
-        }
+        },
     )
     .command(
         "list",
@@ -78,7 +95,7 @@ require("yargs") // eslint-disable-line
         (yargs) => {},
         async (argv) => {
             await listBundles(argv);
-        }
+        },
     )
     .command(
         "bundle <name>",
@@ -113,7 +130,7 @@ require("yargs") // eslint-disable-line
         },
         (argv) => {
             runCSSBuild(argv.name, argv);
-        }
+        },
     )
     .command(
         "storybook-copy",
@@ -133,11 +150,12 @@ require("yargs") // eslint-disable-line
         (yargs) => {
             if (yargs.noSvg) {
                 copySVGIcons();
+                copySVGFlags();
             }
             if (yargs.noStyles) {
                 copyCustomStyles();
             }
-        }
+        },
     )
     .command(
         "gen",
@@ -145,7 +163,7 @@ require("yargs") // eslint-disable-line
         () => {},
         async () => {
             await generateTopLevel();
-        }
+        },
     )
     .command(
         "clean",
@@ -153,7 +171,7 @@ require("yargs") // eslint-disable-line
         () => {},
         async () => {
             await cleanTopLevel();
-        }
+        },
     )
     .command(
         "verify",
@@ -161,7 +179,7 @@ require("yargs") // eslint-disable-line
         () => {},
         async () => {
             await verifyBuild();
-        }
+        },
     )
     .option("verbose", {
         alias: "v",

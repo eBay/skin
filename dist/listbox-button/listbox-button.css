@@ -44,6 +44,14 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
+.listbox-button button.btn--form {
+  border-color: var(--listbox-button-border-color, var(--color-stroke-default));
+}
+.listbox-button button.btn--form:hover,
+.listbox-button button.btn--form:focus,
+.listbox-button button.btn--form:active {
+  border-color: inherit;
+}
 .listbox-button button.expand-btn--borderless,
 .listbox-button button.btn--borderless {
   background-color: transparent;
@@ -102,13 +110,21 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 div.listbox-button__option[role="option"][aria-selected="true"] svg.icon {
   opacity: 1;
 }
+.listbox-button__description {
+  color: var(--listbox-button-subtitle-color, var(--color-foreground-secondary));
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  grid-column: 1 2;
+  grid-row: 2;
+}
 div.listbox-button__option[role="option"] {
   background-color: transparent;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
-  display: inline-flex;
+  display: inline-grid;
   font-family: inherit;
+  grid-template-columns: auto auto;
   justify-content: space-between;
   padding: 8px 15px;
   width: 100%;
@@ -145,6 +161,12 @@ div.listbox-button__option[role="option"]:first-child {
 div.listbox-button__option[role="option"]:last-child {
   border-bottom-left-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
   border-bottom-right-radius: var(--listbox-button-listbox-border-radius, var(--border-radius-50));
+}
+div.listbox-button__option[role="option"]:disabled .listbox-button__description,
+div.listbox-button__option[role="option"][aria-disabled="true"] .listbox-button__description {
+  color: var(--listbox-option-disabled-foreground-color, var(--color-foreground-disabled));
+  background-color: unset;
+  font-weight: unset;
 }
 div.listbox-button__option--active[role="option"] {
   font-weight: bold;
