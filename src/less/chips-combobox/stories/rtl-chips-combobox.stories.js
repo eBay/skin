@@ -5,7 +5,7 @@ export const simple = () => `
     <div class="chips-combobox">
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-1-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-1-heading">
                     <span class="chip">
                         <span id="chip-interactive-1-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-1-text">
@@ -31,7 +31,7 @@ export const simple = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1">
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1">
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>
@@ -65,7 +65,7 @@ export const expanded = () => `
     <div class="chips-combobox chips-combobox--expanded">
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-3-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-3-heading">
                     <span class="chip">
                         <span id="chip-interactive-3-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-3-1-text">
@@ -91,7 +91,7 @@ export const expanded = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>
@@ -126,7 +126,7 @@ export const withLabel = () => `
         <label id="chips-combobox-3-heading" for="chips-combobox-3-input">Sports</label>
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-3-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-3-heading">
                     <span class="chip">
                         <span id="chip-interactive-3-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-3-1-text">
@@ -152,7 +152,7 @@ export const withLabel = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>
@@ -187,7 +187,7 @@ export const withHelperText = () => `
         <label id="chips-combobox-3-heading" for="chips-combobox-3-input">Sports</label>
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-3-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-3-heading">
                     <span class="chip">
                         <span id="chip-interactive-3-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-3-1-text">
@@ -213,7 +213,7 @@ export const withHelperText = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>
@@ -249,7 +249,7 @@ export const disabledState = () => `
         <label id="chips-combobox-3-heading" for="chips-combobox-3-input">Sports</label>
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-3-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-3-heading">
                     <span class="chip">
                         <span id="chip-interactive-3-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-3-1-text">
@@ -275,7 +275,7 @@ export const disabledState = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3" disabled>
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3" disabled>
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>
@@ -311,7 +311,7 @@ export const errorState = () => `
         <label id="chips-combobox-3-heading" for="chips-combobox-3-input">Sports</label>
         <div class="chips-combobox__container">
             <div class="chips-combobox__content">
-                <div class="chips-combobox_items" role="group" aria-describedby="chips-combobox-3-heading">
+                <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-3-heading">
                     <span class="chip">
                         <span id="chip-interactive-3-1-text" class="chip__text">Football</span>
                         <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-3-1-text">
@@ -337,7 +337,7 @@ export const errorState = () => `
                         </button>
                     </span>
                 </div>
-                <button type="button" class="icon-btn icon-btn--small chips-combobox_list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
+                <button type="button" class="icon-btn icon-btn--small chips-combobox__list-toggle" aria-label="Toggle options list" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-3">
                     <svg class="icon icon--chevron-down-16" focusable="false" height="16" width="16" aria-hidden="true">
                         <use href="#icon-chevron-down-16"></use>
                     </svg>

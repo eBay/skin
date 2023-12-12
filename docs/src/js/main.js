@@ -530,7 +530,7 @@ document.querySelectorAll('.field').forEach(function(elCharContainer) {
 
 // CHIPS COMBOBOX
 document.querySelectorAll('.chips-combobox').forEach(function(elInputChips) {
-    const elBtnListToggle = elInputChips.querySelector('.chips-combobox_list-toggle')
+    const elBtnListToggle = elInputChips.querySelector('.chips-combobox__list-toggle')
         , elCombobox = elInputChips.querySelector('.chips-combobox__combobox')
     ;
 
