@@ -1,37 +1,15 @@
-.chips-combobox__container {
+.chips-combobox {
   background-color: var(--color-background-secondary);
   border: 1px solid var(--color-stroke-default);
   border-radius: var(--border-radius-50);
-  display: flex;
-  flex-direction: column;
   padding: var(--spacing-100) var(--spacing-200) var(--spacing-100) var(--spacing-100);
   position: relative;
 }
-.chips-combobox__content {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-100);
-  margin-bottom: var(--spacing-100);
+.chips-combobox__items:empty {
+  display: none;
 }
-.chips-combobox__items {
-  display: flex;
-  flex: auto;
-  flex-wrap: wrap;
-  gap: var(--spacing-100);
-  max-width: 100%;
-}
-.chips-combobox label {
-  display: inline-block;
-  font-size: var(--font-size-default);
-  margin-bottom: var(--spacing-50);
-}
-.chips-combobox__helper-text {
-  color: var(--color-foreground-secondary);
-  font-size: var(--font-size-small);
-  margin-top: var(--spacing-100);
-}
-.chips-combobox button.icon-btn {
-  background-color: transparent;
+.chips-combobox__items:empty ~ .chips-combobox__combobox {
+  margin-top: 0;
 }
 .chips-combobox .combobox__control > input {
   background-color: inherit;
@@ -50,6 +28,12 @@
   margin-top: 8px;
   width: calc(100% + 24px);
 }
+.chips-combobox .combobox svg.icon {
+  pointer-events: none;
+  position: absolute;
+  right: 17px;
+  top: calc(50% - 8px);
+}
 .chips-combobox .combobox__listbox {
   background-color: var(--color-background-elevated);
   border: none;
@@ -60,27 +44,27 @@
 .chips-combobox .combobox__option[role^="option"] {
   border-style: none;
 }
-.chips-combobox__container:focus-within {
+.chips-combobox:focus-within {
   background-color: var(--color-background-primary);
   border-color: var(--color-stroke-strong);
 }
-.chips-combobox--expanded .chips-combobox__list-toggle {
+.chips-combobox__items:empty ~ .combobox--expanded .combobox__listbox {
+  width: calc(100% + 8px);
+}
+.chips-combobox .combobox--expanded svg.icon {
   transform: rotateZ(180deg);
 }
 /** Error State **/
-.chips-combobox--error-state .chips-combobox__container {
+.chips-combobox--error-state {
   border-color: var(--color-stroke-attention);
 }
-.chips-combobox--error-state .chips-combobox__helper-text {
-  color: var(--color-foreground-attention);
+.chips-combobox--error-state:focus-within {
+  border-color: var(--color-stroke-attention);
 }
 /** Disabled State **/
-.chips-combobox[aria-disabled] .chips-combobox__container {
+.chips-combobox[aria-disabled] {
   border-color: var(--color-stroke-disabled);
   pointer-events: none;
-}
-.chips-combobox[aria-disabled] button {
-  background-color: transparent;
 }
 .chips-combobox[aria-disabled] .chip {
   color: var(--color-foreground-disabled);
@@ -94,6 +78,9 @@
 }
 .chips-combobox[aria-disabled] .combobox__control > input::placeholder {
   color: var(--color-foreground-disabled);
+}
+.chips-combobox__items:empty ~ .combobox__control > input:focus {
+  width: calc(100% - 56px);
 }
 [dir="rtl"] .chips-combobox .combobox {
   margin-right: -16px;
