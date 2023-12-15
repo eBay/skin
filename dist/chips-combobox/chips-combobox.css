@@ -33,6 +33,8 @@
   position: absolute;
   right: 17px;
   top: calc(50% - 8px);
+  transform: rotateX(0deg);
+  transition: transform 200ms linear;
 }
 .chips-combobox .combobox__listbox {
   background-color: var(--color-background-elevated);
@@ -52,7 +54,7 @@
   width: calc(100% + 8px);
 }
 .chips-combobox .combobox--expanded svg.icon {
-  transform: rotateZ(180deg);
+  transform: rotateX(180deg);
 }
 /** Error State **/
 .chips-combobox--error-state {
@@ -69,7 +71,7 @@
 .chips-combobox[aria-disabled] .chip {
   color: var(--color-foreground-disabled);
 }
-.chips-combobox[aria-disabled] button.chip__button > svg {
+.chips-combobox[aria-disabled] svg.icon {
   fill: var(--color-foreground-disabled);
 }
 .chips-combobox[aria-disabled] .combobox__control > input {
@@ -84,4 +86,7 @@
 }
 [dir="rtl"] .chips-combobox .combobox {
   margin-right: -16px;
+}
+[dir="rtl"] .chips-combobox .combobox__control > input {
+  padding: 6px 0;
 }

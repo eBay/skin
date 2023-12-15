@@ -42,6 +42,8 @@
     position: absolute;
     right: 17px;
     top: calc(50% - 8px);
+    transform: rotateX(0deg);
+    transition: transform 200ms linear;
 }
 
 .chips-combobox .combobox__listbox {
@@ -65,8 +67,10 @@
     width: calc(100% + 8px);
 }
 
+// a custom chevron flip is needed since combobox
+// is too specific with its selector of the icons size
 .chips-combobox .combobox--expanded svg.icon {
-    transform: rotateZ(180deg);
+    transform: rotateX(180deg);
 }
 
 /** Error State **/
@@ -88,7 +92,7 @@
     color: var(--color-foreground-disabled);
 }
 
-.chips-combobox[aria-disabled] button.chip__button > svg {
+.chips-combobox[aria-disabled] svg.icon {
     fill: var(--color-foreground-disabled);
 }
 
@@ -105,6 +109,14 @@
     width: calc(100% - 56px);
 }
 
+// stylelint-disable no-descending-specificity
 [dir="rtl"] .chips-combobox .combobox {
     margin-right: -16px;
 }
+
+// this is needed to fix the input padding in rtl
+// that combobox is setting for some reason
+[dir="rtl"] .chips-combobox .combobox__control > input {
+    padding: 6px 0;
+}
+// stylelint-enable no-descending-specificity
