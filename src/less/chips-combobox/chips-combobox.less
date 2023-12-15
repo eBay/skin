@@ -4,8 +4,10 @@
     background-color: var(--color-background-secondary);
     border: 1px solid var(--color-stroke-default);
     border-radius: var(--border-radius-50);
-    padding: var(--spacing-100) var(--spacing-200) var(--spacing-100)
-        var(--spacing-100);
+    padding-bottom: var(--spacing-100);
+    padding-inline-end: var(--spacing-200);
+    padding-inline-start: var(--spacing-100);
+    padding-top: var(--spacing-100);
     position: relative;
 }
 
@@ -22,9 +24,9 @@
     border: none;
     border-radius: 0;
     height: auto;
-    margin: 0 8px;
-    padding: 6px 0;
-    width: calc(100% - 16px);
+    margin: 0 var(--spacing-100);
+    padding: var(--spacing-75) 0;
+    width: calc(100% - var(--spacing-200));
 }
 
 .chips-combobox .combobox__control > input:focus {
@@ -32,16 +34,16 @@
 }
 
 .chips-combobox .combobox {
-    margin-left: -8px;
-    margin-top: 8px;
-    width: calc(100% + 24px);
+    margin-inline-start: calc(var(--spacing-100) * -1);
+    margin-top: var(--spacing-100);
+    width: calc(100% + var(--spacing-300));
 }
 
 .chips-combobox .combobox svg.icon {
     pointer-events: none;
     position: absolute;
-    right: 17px;
-    top: calc(50% - 8px);
+    right: var(--spacing-200);
+    top: calc(50% - var(--spacing-100));
     transform: rotateX(0deg);
     transition: transform 200ms linear;
 }
@@ -49,9 +51,9 @@
 .chips-combobox .combobox__listbox {
     background-color: var(--color-background-elevated);
     border: none;
-    border-radius: 16px;
+    border-radius: var(--spacing-200);
     box-shadow: var(--shadow-strong);
-    top: calc(100% + 12px);
+    top: calc(100% + var(--spacing-150));
 }
 
 .chips-combobox .combobox__option[role^="option"] {
@@ -64,7 +66,7 @@
 }
 
 .chips-combobox__items:empty ~ .combobox--expanded .combobox__listbox {
-    width: calc(100% + 8px);
+    width: calc(100% + var(--spacing-100));
 }
 
 // a custom chevron flip is needed since combobox
@@ -106,17 +108,14 @@
 }
 
 .chips-combobox__items:empty ~ .combobox__control > input:focus {
-    width: calc(100% - 56px);
+    width: calc(100% - var(--spacing-700));
 }
 
 // stylelint-disable no-descending-specificity
-[dir="rtl"] .chips-combobox .combobox {
-    margin-right: -16px;
-}
 
 // this is needed to fix the input padding in rtl
 // that combobox is setting for some reason
 [dir="rtl"] .chips-combobox .combobox__control > input {
-    padding: 6px 0;
+    padding: var(--spacing-75) 0;
 }
 // stylelint-enable no-descending-specificity
