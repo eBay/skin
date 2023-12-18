@@ -193,7 +193,7 @@ export const disabledState = () => `
 
 export const errorState = () => `
 <div dir="rtl">
-    <div class="chips-combobox chips-combobox--error-state">
+    <div class="chips-combobox chips-combobox--error">
         <div class="chips-combobox__items" role="group" aria-describedby="chips-combobox-1-heading">
             <span class="chip">
                 <span id="chip-interactive-1-1-text" class="chip__text">Football</span>
