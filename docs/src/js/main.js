@@ -36,7 +36,7 @@ import InputDialog from 'makeup-input-dialog';
 import PanelDialog from 'makeup-panel-dialog';
 import SnackbarDialog from 'makeup-snackbar-dialog';
 import ToastDialog from 'makeup-toast-dialog';
-import { autoUpdate, flip, computePosition, shift, offset, arrow } from '@floating-ui/dom';
+import { autoUpdate, flip, computePosition, shift, offset, arrow, inline } from '@floating-ui/dom';
 
 let progressBarInterval;
 
@@ -219,9 +219,10 @@ class PopperTooltip {
                 placement: 'bottom-start',
                 middleware: [
                     offset(6),
+                    inline(),
                     flip(),
-                    shift({ padding: 2 }),
-                    arrow({ element: this.arrowEl }),
+                    shift(),
+                    arrow({ element: this.arrowEl, padding: 20 }),
                 ],
             }).then(({ x, y, placement, middlewareData }) => {
                 Object.assign(this.overlay.style, {
@@ -229,24 +230,27 @@ class PopperTooltip {
                     top: `${y}px`,
                 });
 
-                // Accessing the data
-                const { x: arrowX, y: arrowY } = middlewareData.arrow;
+                if (middlewareData.arrow) {
+                    // Accessing the data
+                    const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
-                const staticSide = {
-                    top: 'bottom',
-                    right: 'left',
-                    bottom: 'top',
-                    left: 'right',
-                }[placement.split('-')[0]];
-                console.log(placement, staticSide)
+                    const staticSide = {
+                        top: 'bottom',
+                        right: 'left',
+                        bottom: 'top',
+                        left: 'right',
+                    }[placement.split('-')[0]];
 
-                Object.assign(this.arrowEl.style, {
-                    left: arrowX !== null ? `${arrowX}px` : '',
-                    top: arrowY !== null ? `${arrowY}px` : '',
-                    right: '',
-                    bottom: '',
-                    [staticSide]: '-4px',
-                });
+                    Object.assign(this.arrowEl.style, {
+                        // eslint-disable-next-line eqeqeq
+                        left: arrowX != null ? `${arrowX}px` : '',
+                        // eslint-disable-next-line eqeqeq
+                        top: arrowY != null ? `${arrowY}px` : '',
+                        right: '',
+                        bottom: '',
+                        [staticSide]: '-4px',
+                    });
+                }
             });
         }
 
