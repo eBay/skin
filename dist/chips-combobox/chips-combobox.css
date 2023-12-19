@@ -2,6 +2,7 @@
   background-color: var(--color-background-secondary);
   border: 1px solid var(--color-stroke-default);
   border-radius: var(--border-radius-50);
+  display: inline-block;
   padding-bottom: var(--spacing-100);
   -webkit-padding-end: var(--spacing-200);
           padding-inline-end: var(--spacing-200);
@@ -10,11 +11,20 @@
   padding-top: var(--spacing-100);
   position: relative;
 }
+.chips-combobox--fluid {
+  display: block;
+}
+.chips-combobox__items {
+  list-style: none;
+  margin: 0;
+  margin-bottom: var(--spacing-100);
+  padding: 0;
+}
 .chips-combobox__items:empty {
   display: none;
 }
-.chips-combobox__items:empty ~ .chips-combobox__combobox {
-  margin-top: 0;
+.chips-combobox__items li {
+  display: inline-block;
 }
 .chips-combobox .combobox__control > input {
   background-color: inherit;
@@ -31,7 +41,6 @@
 .chips-combobox .combobox {
   -webkit-margin-start: calc(var(--spacing-100) * -1);
           margin-inline-start: calc(var(--spacing-100) * -1);
-  margin-top: var(--spacing-100);
   width: calc(100% + var(--spacing-300));
 }
 .chips-combobox .combobox svg.icon {
@@ -79,9 +88,6 @@
 }
 .chips-combobox[aria-disabled] .combobox__control > input::placeholder {
   color: var(--color-foreground-disabled);
-}
-.chips-combobox__items:empty ~ .combobox__control > input:focus {
-  width: calc(100% - var(--spacing-700));
 }
 [dir="rtl"] .chips-combobox .combobox__control > input {
   padding: var(--spacing-75) 0;
