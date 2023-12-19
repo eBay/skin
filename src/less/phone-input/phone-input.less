@@ -1,0 +1,78 @@
+@import "../variables/variables.less";
+@import "../mixins/private/token-mixins.less";
+
+.phone-input {
+    display: inline-flex;
+    padding: var(--spacing-50) 0 var(--spacing-100) 0;
+}
+.phone-input button.btn {
+    min-width: 64px;
+    padding-inline-end: var(--spacing-100);
+}
+
+.phone-input button.btn svg.icon:last-child {
+    margin-inline-start: var(--spacing-50);
+}
+
+.phone-input .listbox-button__option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-input span.listbox-button__value {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.phone-input span.listbox-button__value svg {
+    margin-inline-end: var(--spacing-200);
+}
+
+.phone-input span.listbox-button__value span {
+    margin-inline-end: var(--spacing-100);
+}
+
+.phone-input--readonly .listbox-button button[aria-disabled="true"],
+.phone-input--readonly .listbox-button button[disabled] {
+    .border-color-token(textbox-border-color, color-stroke-default);
+}
+
+.phone-input input.textbox__control,
+.phone-input--readonly input.textbox__control[readonly] {
+    border-radius: 0 var(--border-radius-50) var(--border-radius-50) 0;
+    margin-left: -1px;
+    padding-inline: var(--spacing-600) var(--spacing-100);
+}
+
+.phone-input--readonly input.textbox__control[readonly] {
+    .background-color-token(textbox-background-color, color-background-secondary);
+    .border-color-token(textbox-border-color, color-stroke-default);
+    border-style: solid;
+    border-width: 1px;
+    .color-token(textbox-foreground-color, color-foreground-secondary);
+}
+
+.phone-input--readonly .textbox span:first-child {
+    .color-token(textbox-disabled-foreground-color, color-foreground-secondary);
+}
+
+.phone-input--disabled .textbox span:first-child {
+    .color-token(textbox-disabled-foreground-color, color-foreground-disabled);
+}
+
+.phone-input span.listbox-button__value span:last-child {
+    color: var(--color-foreground-secondary);
+}
+
+.phone-input input.textbox__control[aria-invalid="true"] {
+    border-left-color: var(--textbox-border-color, var(--color-stroke-default));
+}
+
+@media screen and (max-width: @_screen-size-XS) {
+    .phone-input span.listbox-button__value span:nth-of-type(1) {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

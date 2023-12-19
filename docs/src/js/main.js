@@ -82,7 +82,7 @@ document.getElementById('busy-button').addEventListener('click', function () {
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
-                <svg class="icon icon--spinner-24" height="24" width="24" aria-hidden="true" >
+                <svg class="icon icon--spinner-24" focusable="false" height="24" width="24" aria-hidden="true" >
                     <use href="static/icons.svg#icon-spinner-24"></use>
                 </svg>
             </span>
@@ -500,21 +500,32 @@ document.querySelectorAll('.listbox').forEach(function (widgetEl) {
 });
 
 document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
-    pageWidgets.push(new ListboxButton(widgetEl, {
+    const isPhoneInput = widgetEl.parentElement.classList.contains('phone-input');
+    const options = {
         autoSelect: widgetEl.dataset.makeupAutoSelect === 'true',
         buttonLabelSelector: '.btn__text',
         floatingLabelSelector: '.btn__floating-label',
         floatingLabelInline: 'btn__floating-label--inline',
-        floatingLabelAnimate: 'btn__floating-label--animate'
-    }));
+        floatingLabelAnimate: 'btn__floating-label--animate',
+        ...(isPhoneInput && { autoSelect: true,  buttonValueType: 'icon', iconSelector: '.flag' })
+    };
 
-    widgetEl.addEventListener('makeup-listbox-button-change', logEvent);
+    pageWidgets.push(new ListboxButton(widgetEl, options));
+
+    widgetEl.addEventListener('makeup-listbox-button-change', (e) => {
+        console.log(e.type, e.detail);
+        if (isPhoneInput) {
+            const selectedOption = widgetEl.querySelector('.listbox-button__option[aria-selected="true"]');
+            widgetEl.nextElementSibling.querySelector('span').textContent = `+${selectedOption.querySelector('svg.flag')?.dataset.countryCode}`;
+        }
+    }
+    );
 });
 
 document.querySelectorAll('.menu-button').forEach(function (widgetEl) {
     const widget = new MenuButton(widgetEl, {
         menuSelector: '.menu-button__menu',
-        buttonTextSelector: `.btn__text`
+        buttonTextSelector: `.btn__text`,
     });
 
     widget.menu.el.addEventListener('makeup-menu-select', logEvent);
@@ -756,7 +767,7 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
                         ${sChipName}
                     </span>
                     <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-1-text">
-                        <svg class="icon icon--close-12" width="13" height="12" aria-hidden="true">
+                        <svg class="icon icon--close-12" focusable="false" width="13" height="12" aria-hidden="true">
                             <use href="#icon-close-12"></use>
                         </svg>
                     </button>

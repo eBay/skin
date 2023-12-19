@@ -71,6 +71,31 @@
 </span>
     {% endhighlight %}
 
+    <h3>Floating Label with Prefix text</h3>
+    <p>If the textbox has a value with prefix text, the label must be positioned above the textbox.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="floating-label">
+                <label class="floating-label__label" id="phone-number-label"><span class="clipped">Area code + </span>Phone Number</label>
+                <span class="textbox">
+                    <span id="country-code" aria-hidden="true">+1</span>
+                    <input class="textbox__control" type="tel" value="123-456-789" aria-labelledby="phone-number-label country-code"/>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+    <span class="floating-label">
+        <label class="floating-label__label" id="phone-number-label"><span class="clipped">area code + </span>Phone Number</label>
+        <span class="textbox">
+            <span id="country-code" aria-hidden="true">+1</span>
+            <input class="textbox__control" type="tel" value="123-456-789" aria-labelledby="phone-number-label country-code"/>
+        </span>
+    </span>
+    {% endhighlight %}
+
     <h3>Floating Label with Disabled Textbox</h3>
     <p>Use the <span class="highlight">disabled</span> property &amp; <span class="highlight">floating-label__label--disabled</span> modifier on the input element and the label element respectively to disable the input.</p>
 
@@ -320,6 +345,104 @@
         </svg>
     </span>
 </span>
+    {% endhighlight %}
+
+    <h3>Phone input with Floating Label</h3>
+    <div class="demo">
+      <div class="demo__inner">
+        <span class="phone-input">
+          <span class="listbox-button listbox-button--form">
+            <button class="btn btn--form btn--split-start" aria-expanded="false" aria-haspopup="listbox" type="button"
+              data-listbox-button-prefix="Country: ">
+              <span class="btn__cell">
+                <span class="btn__text">
+                  <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+                    aria-label="Country: United States of America (+1)">
+                    <use href="#flag-us"></use>
+                  </svg>
+                </span>
+                <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                  <use href="#icon-chevron-down-12"></use>
+                </svg>
+              </span>
+            </button>
+            <div class="listbox-button__listbox">
+              <div class="listbox-button__options" role="listbox">
+                <div class="listbox-button__option" role="option">
+                  <span class="listbox-button__value">
+                    <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
+                      <use href="#flag-al"></use>
+                    </svg>
+                    <span>Albania</span>
+                    <span>(+355)</span>
+                  </span>
+                  <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use href="#icon-tick-16"></use>
+                  </svg>
+                </div>
+                <div class="listbox-button__option" role="option">
+                  <span class="listbox-button__value">
+                    <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
+                      <use href="#flag-in"></use>
+                    </svg>
+                    <span>India</span>
+                    <span>(+91)</span>
+                  </span>
+                  <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use href="#icon-tick-16"></use>
+                  </svg>
+                </div>
+                <div class="listbox-button__option" role="option">
+                  <span class="listbox-button__value">
+                    <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
+                      <use href="#flag-sh"></use>
+                    </svg>
+                    <span>Saint Helena, Ascension and Tristan da Cunha</span>
+                    <span>(+290)</span>
+                  </span>
+                  <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use href="#icon-tick-16"></use>
+                  </svg>
+                </div>
+                <div class="listbox-button__option" role="option">
+                  <span class="listbox-button__value">
+                    <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
+                      <use href="#flag-gb"></use>
+                    </svg>
+                    <span>United Kingdom</span>
+                    <span>(+44)</span>
+                  </span>
+                  <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use href="#icon-tick-16"></use>
+                  </svg>
+                </div>
+                <div class="listbox-button__option" role="option" aria-selected="true">
+                  <span class="listbox-button__value">
+                    <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
+                      <use href="#flag-us"></use>
+                    </svg>
+                    <span>United States of America</span>
+                    <span>(+1)</span>
+                  </span>
+                  <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                    <use href="#icon-tick-16"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span class="field floating-label">
+            <label class="floating-label__label" for="field1"><span class="clipped">area code + </span>Phone
+              Number</label>
+            <div class="field__control textbox">
+              <span aria-hidden="true">+1</span>
+              <input class="textbox__control" type="tel" id="field1" autocomplete="tel-national" value="" />
+            </div>
+          </span>
+        </span>
+      </div>
+    </div>
+    {% highlight html %}
     {% endhighlight %}
 
     <h3 id="floating-label-transitions">Floating Label Transitions</h3>
