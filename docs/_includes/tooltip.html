@@ -4,7 +4,51 @@
     <p>A tooltip gives additional information about an interactive element - typically a button. The tooltip activates on mouse hover or keyboard focus of the button.</p>
     <p>The tooltip must be programmatically associated with the button by using the <span class="highlight">aria-describedby</span> property and <span class="highlight">tooltip</span> role.</p>
     <p>Toggle the <span class="highlight">aria-expanded</span> state of the button to expand or collapse its associated tooltip.</p>
-    <p>For these examples, we are using floating-ui to position the tooltip and the arrow.</p>
+    <p>For this first example this is using CSS positioning and works without JS</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="tooltip">
+                <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="true" aria-label="Settings">
+                    <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+                        {% include symbol.html name="settings-24" %}
+                    </svg>
+                </button>
+                <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: 48px; left: 4px">
+                    <span class="tooltip__pointer tooltip__pointer--top-left"></span>
+                    <div class="tooltip__mask">
+                        <div class="tooltip__cell">
+                            <div class="tooltip__content">
+                                <p>Use Access Key 'S' to display settings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    {% highlight html %}
+<span class="tooltip">
+    <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="false" aria-label="Settings">
+        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+            <use href="#icon-settings-24"></use>
+        </svg>
+    </button>
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: 48px; left: 4px">
+        <span class="tooltip__pointer tooltip__pointer--top-left"></span>
+        <div class="tooltip__mask">
+            <div class="tooltip__cell">
+                <div class="tooltip__content">
+                    <p>Use Access Key 'S' to display settings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+    {% endhighlight %}
+
+    <p>For these following examples, we are using floating-ui to position the tooltip and the arrow.</p>
+    <p>In order to get this to work with floating-ui, you need to remove pointer position <span class="highlight">tooltip__pointer--top-left</span> and remove any style positioning</p>
 
     <div class="demo">
         <div class="demo__inner">
@@ -34,7 +78,7 @@
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="bottom: calc(100% + 8px); left: 4px">
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
         <span class="tooltip__pointer"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">

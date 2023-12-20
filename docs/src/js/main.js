@@ -200,7 +200,9 @@ class PopperTooltip {
         this.arrowEl = widgetEl.querySelector(`.${prefix}__pointer`);
 
         if (this.host && this.overlay) {
-            this.isInitialized = true;
+            if (!this.arrowEl.classList.contains(`${prefix}__pointer--top-left`)) {
+                this.isInitialized = true;
+            }
         }
 
     }
@@ -277,6 +279,7 @@ document.querySelectorAll('.tooltip').forEach(function (widgetEl) {
     const showEvents = ['mouseenter', 'focus'];
     const hideEvents = ['mouseleave', 'blur'];
     const popperTooltip = new PopperTooltip(widgetEl, 'tooltip');
+    if (!popperTooltip.isInitialized) { return; }
 
     showEvents.forEach((event) => {
         popperTooltip.host.addEventListener(event, () => popperTooltip.show());
@@ -311,6 +314,8 @@ document.querySelectorAll('.infotip').forEach(function (widgetEl) {
 // TOURTIP
 document.querySelectorAll('.tourtip').forEach(function (widgetEl) {
     const popperTooltip = new PopperTooltip(widgetEl, 'tourtip');
+    if (!popperTooltip.isInitialized) { return; }
+
     popperTooltip.init();
     widgetEl.querySelector('.tourtip__close').addEventListener('click', function () {
         widgetEl.classList.remove('tourtip--expanded');
