@@ -200,11 +200,8 @@ class PopperTooltip {
         this.arrowEl = widgetEl.querySelector(`.${prefix}__pointer`);
 
         if (this.host && this.overlay) {
-            if (!this.arrowEl.classList.contains(`${prefix}__pointer--top-left`)) {
-                this.isInitialized = true;
-            }
+            this.isInitialized = true;
         }
-
     }
 
     init() {
@@ -263,6 +260,7 @@ class PopperTooltip {
         this.init();
     }
     isExpanded() {
+        console.log(this.host, this.host.getAttribute('aria-expanded'))
         return this.host.getAttribute('aria-expanded') === 'true';
     }
 
@@ -275,7 +273,21 @@ class PopperTooltip {
 }
 
 // TOOLTIP
-document.querySelectorAll('.tooltip').forEach(function (widgetEl) {
+document.querySelectorAll('.tooltip').forEach(function(widgetEl) {
+    if (widgetEl.classList.contains('tooltip--js')) { return }
+    pageWidgets.push(new Expander(widgetEl, {
+        contentSelector: '.tooltip__overlay',
+        collapseOnFocusOut: true,
+        collapseOnMouseOut: true,
+        expandOnFocus: true,
+        expandOnHover: true,
+        focusManagement: 'focusable',
+        hostSelector: '.tooltip__host'
+    }));
+});
+
+
+document.querySelectorAll('.tooltip--js').forEach(function (widgetEl) {
     const showEvents = ['mouseenter', 'focus'];
     const hideEvents = ['mouseleave', 'blur'];
     const popperTooltip = new PopperTooltip(widgetEl, 'tooltip');
@@ -291,9 +303,31 @@ document.querySelectorAll('.tooltip').forEach(function (widgetEl) {
 });
 
 // INFOTIP
-document.querySelectorAll('.infotip').forEach(function (widgetEl) {
+document.querySelectorAll('.infotip').forEach(function(widgetEl) {
+    if (widgetEl.classList.contains('infotip--js')) { return }
+    const infotipButton = widgetEl.querySelector('button');
+    const hostSelector = '.infotip__host'
+    if (!widgetEl.querySelector(hostSelector)) {
+        return;
+    }
+    const widget = new Expander(widgetEl, {
+        contentSelector: '.infotip__overlay',
+        expandOnFocus: false,
+        expandOnClick: true,
+        hostSelector
+    });
+
+    widgetEl.querySelector('.infotip__close').addEventListener('click', function() {
+        widget.expanded = false;
+        infotipButton.focus();
+    });
+});
+
+
+document.querySelectorAll('.infotip--js').forEach(function (widgetEl) {
     const popperTooltip = new PopperTooltip(widgetEl, 'infotip');
     if (!popperTooltip.isInitialized) { return; }
+    console.log('init', widgetEl)
 
     popperTooltip.host.addEventListener('click', () => {
         if (popperTooltip.isExpanded()) {
@@ -312,7 +346,15 @@ document.querySelectorAll('.infotip').forEach(function (widgetEl) {
 });
 
 // TOURTIP
-document.querySelectorAll('.tourtip').forEach(function (widgetEl) {
+document.querySelectorAll('.tourtip').forEach(function(widgetEl) {
+    if (widgetEl.classList.contains('tourtip--js')) { return }
+    widgetEl.querySelector('.tourtip__close').addEventListener('click', function() {
+        widgetEl.classList.remove('tourtip--expanded');
+    });
+});
+
+
+document.querySelectorAll('.tourtip--js').forEach(function (widgetEl) {
     const popperTooltip = new PopperTooltip(widgetEl, 'tourtip');
     if (!popperTooltip.isInitialized) { return; }
 
