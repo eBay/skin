@@ -4,12 +4,12 @@ function getTimeinMS() {
 }
 
 // Function to set content for a given element
-function setAsyncContent(elementId, content) {
+function setAsyncContent(elementId, content, time = getTimeinMS()) {
   setTimeout(() => {
     const element = document.getElementById(elementId);
     element.innerHTML = content;
     element.previousElementSibling.setAttribute('hidden', true);
-  }, getTimeinMS());
+  }, time);
 }
 
 // Set content for featured-3 section
@@ -55,18 +55,18 @@ const content = `
   Maecenas sed diam eget risus varius blandit sit amet non magna.
   Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
 `;
-setAsyncContent('featured-3', content);
+setAsyncContent('featured-3', content, 3000);
 
 // Set content for section-1
 const content2 = `
 <h2>About</h2>
 <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 `;
-setAsyncContent('section-1', content2);
+setAsyncContent('section-1', content2, 4000);
 
 
 const content3 = `
 <h2>Archives</h2>
 <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
 `;
-setAsyncContent('section-2', content3);
+setAsyncContent('section-2', content3, 5000);

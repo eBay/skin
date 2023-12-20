@@ -14,7 +14,7 @@ a {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: var(--spacing-large) 0;
 }
 
@@ -45,8 +45,6 @@ nav li {
 
 aside,
 main {
-  outline: 1px solid;
-  outline-offset: -1px;
   padding: var(--spacing-large);
 }
 
@@ -55,32 +53,12 @@ aside section {
 }
 
 footer {
-  background-color: var(--color-background-tertiary);
+  background-color: #eee;
   padding: var(--spacing-large);
   text-align: center;
 }
 
-/* skeleton styles */
-.example-tile-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
-.example-tile-container li{
-  margin: 15px;
-  width: 220px;
-}
-
-/* add some lines marking the edges of grids */
-.page-grid {
-  outline: 1px solid;
-  outline-offset: -1px;
-}
 
 .featured__article {
   grid-area: 1 / 1 / span 1 / span 8;
@@ -117,11 +95,16 @@ nav {
 }
 
 main {
-  grid-area: 6 / 1 / span 1 / span 8;
+  grid-area: 7 / 1 / span 1 / span 8;
 }
 
 aside {
-  grid-area: 7 / 1 / span 1 / span 8;
+  grid-area: 8 / 1 / span 1 / span 8;
+}
+
+.demo-skeleton:empty {
+  background: var(--color-loading-fill);
+  grid-area: 6 / 1 / span 1 / span 8;
 }
 
 /* Skin goes from 8 columns to 16 columns at this SM (small) breakpoint */
@@ -159,11 +142,24 @@ aside {
     justify-content: center;
   }
 
+  .demo-skeleton:empty {
+    background: linear-gradient(to right, var(--color-loading-fill) 0%, var(--color-loading-fill) 60%, white 60%, white 64%, var(--color-loading-fill) 64%, var(--color-loading-fill) 100%);
+    grid-area: 5 / 1 / span 1 / span 16;
+  }
+
   main {
-    grid-area: 5 / 1 / span 1 / span 10;
+    grid-area: 6 / 1 / span 1 / span 10;
   }
 
   aside {
-    grid-area: 5 / 11 / span 1 / span 6;
+    grid-area: 6 / 11 / span 1 / span 6;
   }
+}
+
+/* skeleton styles */
+.demo-skeleton:empty {
+  border-radius: 8px;
+  cursor: progress;
+  position: relative;
+  height: 400px;
 }
