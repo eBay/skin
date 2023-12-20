@@ -82,6 +82,8 @@ getAsyncContent(data1)
         
         setAsyncContent('section-1', content2);
         setAsyncContent('section-2', content3);
+        const body = document.querySelector('body');
+        body.insertAdjacentHTML('beforeend', `<footer>This pen is a "stretchy" CSS Grid recreation of the <a href="CSS Grid recreation of: https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>`);
     });
   })
   .catch((error) => {
