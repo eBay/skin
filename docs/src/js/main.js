@@ -546,7 +546,7 @@ document.querySelectorAll('.field').forEach(function(elCharContainer) {
             
             // if clicked item is a combobox item...
             if (elClicked.matches(sComboboxOptionSelector)) {
-                let sItemSelected = elClicked.innerText.trim();
+                const sItemSelected = elClicked.innerText.trim();
 
                 // delete combobox list item
                 elComboboxOptions.removeChild(elClicked);
@@ -556,8 +556,8 @@ document.querySelectorAll('.field').forEach(function(elCharContainer) {
             
             // if clicked item is a chip delete button...
             if (elClicked.matches(sChipDeleteSelector)) {
-                let sChipText = elClicked.previousElementSibling.innerText.trim();
-                let elChipParentLI = elClicked.closest("li");
+                const sChipText = elClicked.previousElementSibling.innerText.trim();
+                const elChipParentLI = elClicked.closest("li");
 
                 // delete chip
                 elChipsItems.removeChild(elChipParentLI);
