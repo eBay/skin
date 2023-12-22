@@ -13,8 +13,8 @@
                         {% include symbol.html name="settings-24" %}
                     </svg>
                 </button>
-                <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="bottom: calc(100% + 8px); left: 4px">
-                    <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
+                <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: 48px; left: 4px">
+                    <span class="tooltip__pointer tooltip__pointer--top-left"></span>
                     <div class="tooltip__mask">
                         <div class="tooltip__cell">
                             <div class="tooltip__content">
@@ -33,8 +33,8 @@
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="bottom: calc(100% + 8px); left: 4px">
-        <span class="tooltip__pointer tooltip__pointer--bottom-left"></span>
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip" style="top: 48px; left: 4px">
+        <span class="tooltip__pointer tooltip__pointer--top-left"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
                 <div class="tooltip__content">
@@ -46,22 +46,23 @@
 </span>
     {% endhighlight %}
 
-    <h3 id="tooltip-position">Positioning the Tooltip</h3>
-    <p>The tooltip pointer modifier supports 8 different positions. In clockwise order, moving around the interactive element that is being pointed at, they are: bottom, bottom-left, left, top-left, top, top-right, right, bottom-right.</p>
+    <p>By default, the position of the overlay and its pointer will remain static. For these following examples, we are using <a target="_blank" href="https://floating-ui.com">floating-ui</a> to help position the tooltip and the pointer dynamically.</p>
+    <p>In order to get this to work with floating-ui, you need to remove pointer position <span class="highlight">tooltip__pointer--top-left</span> and remove any style positioning</p>
+
     <div class="demo">
         <div class="demo__inner">
-            <span class="tooltip">
-                <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="false" aria-label="Info">
+            <span class="tooltip tooltip--js">
+                <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="false" aria-label="Settings">
                     <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
                         {% include symbol.html name="settings-24" %}
                     </svg>
                 </button>
-                <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="bottom: 4px; left: calc(100% + 12px)">
-                    <span class="tooltip__pointer tooltip__pointer--left"></span>
+                <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
+                    <span class="tooltip__pointer"></span>
                     <div class="tooltip__mask">
                         <div class="tooltip__cell">
                             <div class="tooltip__content">
-                                <p>Pointer Left</p>
+                                <p>Use Access Key 'S' to display settings.</p>
                             </div>
                         </div>
                     </div>
@@ -71,22 +72,21 @@
     </div>
     {% highlight html %}
 <span class="tooltip">
-    <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="false" aria-label="Info">
+    <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="false" aria-label="Settings">
         <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
-    <div class="tooltip__overlay" id="tooltip-1" role="tooltip" style="bottom: 4px; left: calc(100% + 12px)">
-        <span class="tooltip__pointer tooltip__pointer--left"></span>
+    <div class="tooltip__overlay" id="tooltip-0" role="tooltip">
+        <span class="tooltip__pointer"></span>
         <div class="tooltip__mask">
             <div class="tooltip__cell">
                 <div class="tooltip__content">
-                    <p>Pointer Left</p>
+                    <p>Use Access Key 'S' to display settings.</p>
                 </div>
             </div>
         </div>
     </div>
 </span>
     {% endhighlight %}
-
 </div>

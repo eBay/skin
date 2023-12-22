@@ -32,7 +32,7 @@ export const expanded = () => `
             <use href="#icon-information-16"></use>
         </svg>
     </button>
-    <div class="infotip__overlay">
+    <div class="infotip__overlay" style="left: calc(50% - 16px); right: auto; top: calc(100% + 8px); bottom: auto;">
         <span class="infotip__pointer infotip__pointer--top-left"></span>
         <div class="infotip__mask">
             <div class="infotip__cell">
@@ -87,7 +87,7 @@ export const paragraphExpanded = () => `
                 <use href="#icon-information-16"></use>
             </svg>
         </button>
-        <span class="infotip__overlay">
+        <span class="infotip__overlay" style="left: calc(50% - 16px); right: auto; top: calc(100% + 8px); bottom: auto;">
             <span class="infotip__pointer infotip__pointer--top-left"></span>
             <span class="infotip__mask">
                 <span class="infotip__cell">
