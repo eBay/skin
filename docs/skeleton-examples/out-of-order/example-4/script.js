@@ -9,6 +9,8 @@ function setAsyncContent(elementId, content) {
     const element = document.getElementById(elementId);
     element.insertAdjacentHTML("beforeend", content);
     document.querySelector(".skeleton").setAttribute('style', "display: none;");
+    const body = document.querySelector('body');
+    body.insertAdjacentHTML('beforeend', `<footer>This pen is a "stretchy" CSS Grid recreation of the <a href="CSS Grid recreation of: https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>`);
   }, getTimeinMS());
 }
 
@@ -69,4 +71,4 @@ const content = `
     </section>
   </aside>`;
 
-  setAsyncContent('grid-wrapper', content);
+setAsyncContent('grid-wrapper', content);
