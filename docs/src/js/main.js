@@ -660,3 +660,70 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
 
     }
 });
+
+// CHIPS COMBOBOX
+(function(){
+    document.querySelectorAll('.chips-combobox').forEach(function(elChipsCombobox) {
+        const elChipsItems = elChipsCombobox.querySelector('.chips-combobox__items')
+            , elCombobox = elChipsCombobox.querySelector('.chips-combobox__combobox')
+            , elComboboxOptions = elCombobox.querySelector('.combobox__options')
+            , sComboboxOptionSelector = 'div.combobox__option'
+            , sChipDeleteSelector = 'button.chip__button'
+        ;
+
+        elChipsCombobox.addEventListener("click", function (event) {
+            const elClicked = event.target;
+
+            // if delegated event target is not the listbox item or the chip delete, early exit
+            if (!elClicked.matches(sComboboxOptionSelector) && !elClicked.matches(sChipDeleteSelector)) return;
+            
+            // if clicked item is a combobox item...
+            if (elClicked.matches(sComboboxOptionSelector)) {
+                const sItemSelected = elClicked.innerText.trim();
+
+                // delete combobox list item
+                elComboboxOptions.removeChild(elClicked);
+
+                addChipItem(sItemSelected);
+            };
+            
+            // if clicked item is a chip delete button...
+            if (elClicked.matches(sChipDeleteSelector)) {
+                const sChipText = elClicked.previousElementSibling.innerText.trim();
+                const elChipParentLI = elClicked.closest("li");
+
+                // delete chip
+                elChipsItems.removeChild(elChipParentLI);
+
+                addComboboxItem(sChipText);
+            };
+        });
+
+        function addChipItem(sChipName) {
+            const sChipItem = `
+            <li>
+                <span class="chip">
+                    <span id="chip-interactive-1-1-text" class="chip__text">
+                        ${sChipName}
+                    </span>
+                    <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-1-text">
+                        <svg class="icon icon--close-12" focusable="false" width="13" height="12" aria-hidden="true">
+                            <use href="#icon-close-12"></use>
+                        </svg>
+                    </button>
+                </span>
+            </li>
+            `;
+            elChipsItems.insertAdjacentHTML('beforeend', sChipItem);
+        }
+
+        function addComboboxItem(sComboboxItemText) {
+            const sComboboxItem = `
+            <div class="combobox__option" role="option">
+                <span>${sComboboxItemText}</span>
+            </div>
+            `;
+            elComboboxOptions.insertAdjacentHTML('beforeend', sComboboxItem);
+        }
+    });
+})();
