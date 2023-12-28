@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeleton examples</title>
+    <style>
+        iframe {
+            border: 1px solid var(--color-foreground-primary);
+            width: 320px;
+            height: 480px;
+            min-height: 480px;
+            resize: both;
+            overflow: auto;
+        }
+
+        .template--item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .template--item_head {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .template--item_head_actions {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="implementation-1">Implementation 1: Using single DOM element and CSS :empty selector</h2>
+    <p>In this progressive enhancement approach, <span class="highlight">:empty</span> pseudo-class in CSS is used for
+        showing a skeleton loader without the need for client-side JavaScript. This approach detects if the container
+        with the class skeleton is empty and displays the skeleton loader until the asynchronous content is available.
+        When the asynchronous content is ready, the skeleton loader will automatically disappear because the <span
+            class="highlight">:empty</span> pseudo-class no longer applies.
+    </p>
+    <p>This approach is highly performant and consumes less resources especially on devices with limited CPU resources.
+    </p>
+    <p>NOTE: The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty.
+        Therefore, it is important to ensure that the skeleton container doesn't contain any whitespace or comments
+        before
+        the asynchronous content is loaded.</p>
+
+    {% highlight html %}
+    <!-- Asynchronous content will load inside below div -->
+    <div class="demo-skeleton" role="img" aria-label="loading"></div>
+    {% endhighlight %}
+
+    {% highlight css %}
+    /* example css to demonstrate the approach */
+    .demo-skeleton:empty {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
+    }
+    {% endhighlight %}
+
+    <h2 id="implementation-2">Implementation 2: Using multiple DOM elements and JavaScript</h2>
+    <p>In this approach using JavaScript, we gain more flexibility and control over when and how the skeleton loader is
+        replaced with the actual content. Here we can completely hide or replace the skeleton loader and display the
+        asyncronous content instead. This could be done by toggling the <span class="highlight">hidden</span> attribute
+        on
+        the skeleton loader and the content container.</p>
+    <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
+    {% highlight html %}
+    <!-- Before -->
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+        <div class="skeleton__button"></div>
+    </div>
+    <!-- Asynchronous content will go here -->
+
+    <!-- After using hidden -->
+    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;" hidden>
+        <div class="skeleton__button"></div>
+    </div>
+    <p>asynchronous content</p>
+
+    <!-- After using skeleton swap -->
+    <p>asynchronous content</p>
+    {% endhighlight %}
+
+    {% highlight css %}
+    /* example css to demonstrate the approach */
+    .skeleton__button {
+        background: var(--color-loading-fill);
+        border-radius: 8px;
+        height: 300px;
+        width: 100%;
+    }
+    {% endhighlight %}
+
+    <h2>When to use one over the other?</h2>
+    <p>Usually, skeletons can be ingressed to four loading scenarios.</p>
+    <ol>
+        <li>Buffered rendering</li>
+        <li>Progressive rendering - In-order</li>
+        <li>Progressive rendering - Out of order</li>
+        <li>Client side rendering</li>
+    </ol>
+    <h3>Scenario 1: Buffered rendering</h3>
+    <p>In Buffered rendering, the content is loaded incrementally in chunks or buffers. As the content is not loaded all at once,
+        there is no fixed point where skeletons can be displayed.</p>
+    <div class="template--tiles">
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 1</h4>
+                <div class="template--item_head_actions">
+                    <a href="./buffered/example-1/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./buffered/example-1/" frameborder="0"></iframe>
+        </div>
+    </div>
+    <h3>Scenario 2: Progressive rendering - In-order</h3>
+    <p>In in-order rendering, the browser displays various chunks of the webpage in a predetermined sequence. The <b>CSS :empty</b> technique is highly efficient for this scenario, but requires the app team to build the custom skeleton layouts.</p>
+    <div class="template--tiles">
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 1</h4>
+                <div class="template--item_head_actions">
+                    <a href="./in-order/example-1/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./in-order/example-1/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 2</h4>
+                <div class="template--item_head_actions">
+                    <a href="./in-order/example-2/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./in-order/example-2/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 3</h4>
+                <div class="template--item_head_actions">
+                    <a href="./in-order/example-3/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./in-order/example-3/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 4</h4>
+                <div class="template--item_head_actions">
+                    <a href="./in-order/example-4/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./in-order/example-4/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 5</h4>
+                <div class="template--item_head_actions">
+                    <a href="./in-order/example-5/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./in-order/example-5/" frameborder="0"></iframe>
+        </div>
+    </div>
+    <h3>Scenario 3: Progressive rendering - Out of order</h3>
+    <p>In out of order rendering, browser renders different chunks of the webpage in non sequential manner. This approach requires JavaScript, making <a href="#implementation-2">implementation 2</a> the preferred choice. However, if not executed properly, this loading scenario can lead to layout shifts.</p>
+    <p>In this section, we'll explore three distinct examples of out-of-order streaming. The example 2 demonstrates asynchronous loading of different chunks using fixed height and width. However, this approach isn't ideal as it results in significant layout shifts, impacting the user experience.</p>
+    <p>To enhance the user experience, Example 3 utilizes a single skeleton to indicate that content is loading, and replaces specific DOM elements once the content is fully loaded. Example 4, while similar, employs multiple granular skeletons across the page to represent different loading sections. These examples, primarily depends on JavaScript framework techniques to ensure all asynchronous content is loaded before it is displayed.</p>
+    <div class="template--tiles">
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 1</h4>
+                <div class="template--item_head_actions">
+                    <a href="./out-of-order/example-1/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./out-of-order/example-1/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 2</h4>
+                <div class="template--item_head_actions">
+                    <a href="./out-of-order/example-2/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./out-of-order/example-2/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 3</h4>
+                <div class="template--item_head_actions">
+                    <a href="./out-of-order/example-3/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./out-of-order/example-3/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 4</h4>
+                <div class="template--item_head_actions">
+                    <a href="./out-of-order/example-4/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./out-of-order/example-4/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 5</h4>
+                <div class="template--item_head_actions">
+                    <a href="./out-of-order/example-5/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./out-of-order/example-5/" frameborder="0"></iframe>
+        </div>
+    </div>
+    <h3>Scenario 4: Client side rendering</h3>
+    <p>Client-side rendering is a widely used technique in which JavaScript on the client's side is responsible for rendering skeleton screens and making API calls to retrieve data from the server. This data then replaces the skeleton screens. This approach requires JavaScript, making <a href="#implementation-2">implementation 2</a> the preferred choice.</p> 
+    <p>The example 5 below illustrates a component that partially renders content from the server. It's linked with a "Load more Images" button that triggers a client-side request for additional data from the server. During this operation, skeletons are displayed. This example highlights how unpredictable content can lead to layout shifts, and how the example 6 uses ellipses to truncate content in an attempt to mitigate this issue.</p>
+    <div class="template--tiles">
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 1</h4>
+                <div class="template--item_head_actions">
+                    <a href="./csr/example-1/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./csr/example-1/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 2</h4>
+                <div class="template--item_head_actions">
+                    <a href="./csr/example-2/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./csr/example-2/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 3</h4>
+                <div class="template--item_head_actions">
+                    <a href="./csr/example-3/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./csr/example-3/" frameborder="0"></iframe>
+        </div>
+        <div class="template--item">
+            <div class="template--item_head">
+                <h4>Example 4</h4>
+                <div class="template--item_head_actions">
+                    <a href="./csr/example-4/" target="_blank">Open</a>
+                </div>
+            </div>
+            <iframe src="./csr/example-4/" frameborder="0"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
