@@ -181,8 +181,8 @@ export const RTL = () => `
 export const vault = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--the-ebay-vault-24-fit">
-            <use href="#icon-the-ebay-vault-24-fit"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--the-ebay-vault-24">
+            <use href="#icon-the-ebay-vault-24"></use>
         </svg>
     </div>
     <div class="section-notice__main">
@@ -229,8 +229,8 @@ export const selling = () => `
 export const warranty = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--free-warranty-24-fit">
-            <use href="#icon-free-warranty-24-fit"></use>
+        <svg aria-hidden="true" focusable="false" class="icon--free-warranty-24">
+            <use href="#icon-free-warranty-24"></use>
         </svg>
     </div>
     <div class="section-notice__main">
