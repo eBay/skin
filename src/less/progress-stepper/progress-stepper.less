@@ -122,6 +122,13 @@ hr.progress-stepper__separator {
     );
 }
 
+.progress-stepper__item--attention[aria-current]
+    ~ hr.progress-stepper__separator {
+    .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+    background-image: none;
+}
+
 .progress-stepper__text > * {
     margin: 0;
 }
@@ -158,6 +165,14 @@ hr.progress-stepper__separator {
         @_progress-stepper-active-gradient,
         @_progress-stepper-upcoming-gradient
     );
+}
+
+.progress-stepper--vertical
+    .progress-stepper__item--attention[aria-current]
+    ~ hr.progress-stepper__separator {
+    .background-color-token(progress-stepper-upcoming-color, color-background-disabled);
+
+    background-image: none;
 }
 
 .progress-stepper--vertical .progress-stepper__items {
