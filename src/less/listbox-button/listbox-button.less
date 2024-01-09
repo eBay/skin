@@ -42,7 +42,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
     .border-color-token(listbox-button-invalid-border-color, color-stroke-attention);
 }
 
-.listbox-button button.btn--form {
+.listbox-button:not(.listbox-button--error) button.btn--form {
     .border-color-token(listbox-button-border-color, color-stroke-default);
 
     &:hover,
@@ -72,12 +72,13 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button {
     .background-color-token(listbox-button-background-color, color-background-secondary);
     .border-color-token(listbox-button-border-color, color-stroke-default);
+    .color-token(listbox-button-foreground-color, color-foreground-primary);
 }
 
 .listbox-button.listbox-button--form button[disabled],
 .listbox-button.listbox-button--form button[aria-disabled="true"] {
     .border-color-token(listbox-button-disabled-border-color, color-background-disabled);
-    .color-token(listbox-button-disabled-foreground-color, color-foreground-disabled);
+    .color-token(listbox-button-disabled-foreground-color, color-foreground-primary);
 }
 
 .listbox-button.listbox-button--form button:focus {
@@ -88,6 +89,11 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
     .border-color-token(listbox-button-invalid-border-color, color-stroke-attention);
 }
 
+.listbox-button.listbox-button--error button:not(.btn--borderless) {
+    .background-color-token(listbox-button-background-color, color-background-secondary);
+    .border-color-token(listbox-button-border-color, color-stroke-attention);
+}
+
 .listbox-button .btn__label {
     .color-token(listbox-button-label-color, color-foreground-secondary);
     margin-right: 3px;
@@ -95,6 +101,11 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 
 .listbox-button--expanded .btn__label {
     .color-token(listbox-button-label-color, color-foreground-primary);
+}
+
+.listbox-button.listbox-button--error button .btn__label,
+.listbox-button.listbox-button--error button .btn__floating-label {
+    .color-token(listbox-button-label-color, color-foreground-attention);
 }
 
 .listbox-button .btn__text {
