@@ -71,6 +71,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button {
   background-color: var(--listbox-button-background-color, var(--color-background-secondary));
   border-color: var(--listbox-button-border-color, var(--color-stroke-default));
+  color: var(--listbox-button-foreground-color, var(--color-foreground-primary));
 }
 .listbox-button.listbox-button--form button[disabled],
 .listbox-button.listbox-button--form button[aria-disabled="true"] {
@@ -83,12 +84,20 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
+.listbox-button.listbox-button--error button:not(.btn--borderless) {
+  background-color: var(--listbox-button-background-color, var(--color-background-secondary));
+  border-color: var(--listbox-button-border-color, var(--color-stroke-attention));
+}
 .listbox-button .btn__label {
   color: var(--listbox-button-label-color, var(--color-foreground-secondary));
   margin-right: 3px;
 }
 .listbox-button--expanded .btn__label {
   color: var(--listbox-button-label-color, var(--color-foreground-primary));
+}
+.listbox-button.listbox-button--error button .btn__label,
+.listbox-button.listbox-button--error button .btn__floating-label {
+  color: var(--listbox-button-label-color, var(--color-foreground-attention));
 }
 .listbox-button .btn__text {
   font-weight: bold;
