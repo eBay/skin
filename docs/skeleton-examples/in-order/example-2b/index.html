@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buffered Rendering - The White Screen</title>
+    <title>In-Order Streaming - Two Columns with Skeleton</title>
     <link type="text/css" rel="stylesheet" href="../../../static/skin-full.min.css" />
     <link rel="stylesheet" href="../../../page-grid-templates/blog-stretchy-nested/blog-stretchy-nested.css">
     <script defer type="text/javaScript" src="./script.js"></script>
@@ -14,12 +14,17 @@
       .page-grid {
         outline: 0;
       }
-      @media (min-width: 512px) { 
-        main {
-          grid-area: 5 / 1 / span 1 / span 16;
-        }
+      .demo-skeleton:empty {
+        background: linear-gradient(to right, var(--color-loading-fill) 0%, var(--color-loading-fill) 60%, white 60%, white 64%, var(--color-loading-fill) 64%, var(--color-loading-fill) 100%);
+        border-radius: 8px;
+        grid-area: 5 / 1 / span 1 / span 16;
+        height: 400px;
       }
     </style>
   </head>
-  <body></body>
+  <body>
+    <div class="page-grid-container">
+      <div class="page-grid"></div>
+    </div>
+  </body>
 </html>

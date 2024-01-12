@@ -2,8 +2,8 @@ window.addEventListener('load', () => {
   const navDelay = 250;
   const heroDelay = 500;
   const articleDelay = 3500;
-  const asideDelay = 7000;
-  const footerDelay = 7250;
+  const asideDelay = 3750;
+  const footerDelay = 4000;
 
   setTimeout(() => {
     document.querySelector('.page-grid').innerHTML += `
@@ -58,13 +58,14 @@ window.addEventListener('load', () => {
       </article>
       <main>
         <h1>From the Firehose</h1>
+        <article class="demo-skeleton"></article>
       </main>
       <aside></aside>
     `;
   }, heroDelay);
 
   setTimeout(() => {
-    document.querySelector('main').innerHTML += `
+    document.querySelector('main > article').innerHTML = `
       <article>
         <h2>Sample blog post</h2>
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam.
@@ -97,6 +98,8 @@ window.addEventListener('load', () => {
           Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
       </article>
       `;
+
+      document.querySelector('aside').classList.add('demo-skeleton');
   }, articleDelay);
 
   setTimeout(() => {
