@@ -1,11 +1,10 @@
 window.addEventListener('load', () => {
   const navDelay = 250;
-  const heroDelay = 250;
-  const skeletonDelay = 500;
+  const heroDelay = 500;
+  const skeletonDelay = 550;
   const articleDelay = 3000;
-  const asideDelay1 = 9000;
-  const asideDelay2 = 6000;
-  const footerDelay = 250;
+  const asideDelay = 750;
+  const footerDelay = 750;
 
   setTimeout(() => {
     document.querySelector('.page-grid').innerHTML += `
@@ -68,12 +67,6 @@ window.addEventListener('load', () => {
         <div class="demo-skeleton"></div>
       </main>
       <aside>
-        <section id="section-1">
-          <div class="demo-skeleton"></div>
-        </section>
-        <section id="section-2">
-          <div class="demo-skeleton"></div>
-        </section>
       </aside>
     `;
   }, skeletonDelay);
@@ -117,22 +110,16 @@ window.addEventListener('load', () => {
   }, articleDelay);
 
   setTimeout(() => {
-    document.querySelector('#section-1 .demo-skeleton').hidden = true;
-
-    document.querySelector('#section-1').innerHTML = `
-      <h2>About</h2>
-      <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-    `;
-  }, asideDelay1);
-
-  setTimeout(() => {
-    document.querySelector('#section-2 .demo-skeleton').hidden = true;
-
-    document.querySelector('#section-2').innerHTML = `
-      <h2>Archives</h2>
-      <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-    `;
-  }, asideDelay2);
+    document.querySelector('aside').innerHTML += `
+      <section id="section-1">
+        <h2>About</h2>
+        <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </section>
+      <section id="section-2">
+        <h2>Archives</h2>
+        <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    </section>`;
+  }, asideDelay);
 
   setTimeout(() => {
     document.body.innerHTML += `

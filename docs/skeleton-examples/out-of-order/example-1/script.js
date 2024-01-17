@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
   const navDelay = 250;
   const heroDelay = 500;
-  const skeletonDelay = 550;
   const articleDelay = 3000;
   const asideDelay = 750;
   const footerDelay = 750;
@@ -57,23 +56,14 @@ window.addEventListener('load', () => {
           </div>
         </div>
       </article>
+      <main>
+        <h1>From the Firehose</h1>
+      </main>
+      <aside></aside>
     `;
   }, heroDelay);
 
   setTimeout(() => {
-    document.querySelector('.page-grid').innerHTML += `
-      <main>
-        <h1>From the Firehose</h1>
-        <div class="demo-skeleton"></div>
-      </main>
-      <aside>
-      </aside>
-    `;
-  }, skeletonDelay);
-
-  setTimeout(() => {
-    document.querySelector('main .demo-skeleton').hidden = true;
-
     document.querySelector('main').innerHTML += `
       <article>
         <h2>Sample blog post</h2>

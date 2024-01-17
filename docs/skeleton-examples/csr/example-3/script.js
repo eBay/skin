@@ -1,31 +1,34 @@
-setTimeout(() => {
-  const refreshButton = document.querySelector('#refreshButton');
-  refreshButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    document.querySelector('ul.example-tile-container').innerHTML = "";
-    refreshButton.setAttribute('style', "display: none;");
-    // load async content
-    document.querySelector('ul.example-tile-container').innerHTML = 
-    `<li>
+window.addEventListener('load', () => {
+  document.querySelector('button').addEventListener('click', function(e) {
+    // load some skeletons first
+    document.querySelector('main').innerHTML = `      
+      <div class="skeleton items" role="img" aria-label="loading">
         <div>
-          <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-square-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1; margin-top:12px;">
-          </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
+          <div class="skeleton__image" style="width: 150px; height: 150px"></div>
+          <div class="skeleton__text skeleton__text--multiline"></div>
         </div>
-      </li>
-      <li>
         <div>
-          <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1; margin-top:12px;">
-          </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
+          <div class="skeleton__image" style="width: 150px; height: 150px"></div>
+          <div class="skeleton__text skeleton__text--multiline"></div>
         </div>
-      </li>
-      <li>
+      </div>
+    `;
+
+    setTimeout(() => {
+      document.querySelector(".skeleton").hidden = true;
+      document.querySelector('button').disabled = true;
+      document.querySelector('main').innerHTML = ` 
+      <div class="items">
         <div>
-          <div style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover; aspect-ratio: 1 / 1; margin-top:12px;">
-          </div>
-          <div style="margin-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
+          <div class="image" style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg');"></div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor.</p>
         </div>
-      </li>`;
+        <div>
+          <div class="image" style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg');"></div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget leo et mi cursus rutrum vitae et tortor. Maecenas dictum diam consectetur, luctus elit nec, interdum turpis. Pellentesque ut finibus est. Maecenas ullamcorper bibendum quam.</p>
+        </div>
+      </div>
+      `;
+    }, 3000);
   });
-}, 500);
+});
