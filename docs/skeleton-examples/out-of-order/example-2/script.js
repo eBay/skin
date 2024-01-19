@@ -123,7 +123,7 @@ window.addEventListener('load', () => {
 
   setTimeout(() => {
     document.body.innerHTML += `
-      <footer>This pen is a "stretchy" CSS Grid recreation of the <a href="CSS Grid recreation of: https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>
+      <footer>This pen is a "stretchy" CSS Grid recreation of the <a href="https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>
     `;
   }, footerDelay);
 });
