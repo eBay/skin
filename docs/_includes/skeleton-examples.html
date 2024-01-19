@@ -5,260 +5,191 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skeleton examples</title>
+    <title>Skeleton Examples : eBay Skin</title>
     <style>
-        iframe {
-            border: 1px solid var(--color-foreground-primary);
-            width: 320px;
-            height: 480px;
-            min-height: 480px;
-            resize: both;
-            overflow: auto;
-        }
-
-        .template--item {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        .template--item_head {
-            display: flex;
-            align-items: baseline;
-        }
-
-        .template--item_head_actions {
-            margin-left: auto;
+        hr {
+            border: 1px solid #ccc;
+            margin: 1em 0;
         }
     </style>
 </head>
 
 <body>
-    <h2 id="implementation-1">Implementation 1: Using single DOM element and CSS :empty selector</h2>
-    <p>In this progressive enhancement approach, <span class="highlight">:empty</span> pseudo-class in CSS is used for
-        showing a skeleton loader without the need for client-side JavaScript. This approach detects if the container
-        with the class skeleton is empty and displays the skeleton loader until the asynchronous content is available.
-        When the asynchronous content is ready, the skeleton loader will automatically disappear because the <span
-            class="highlight">:empty</span> pseudo-class no longer applies.
-    </p>
-    <p>This approach is highly performant and consumes less resources especially on devices with limited CPU resources.
-    </p>
-    <p>NOTE: The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty.
-        Therefore, it is important to ensure that the skeleton container doesn't contain any whitespace or comments
-        before
-        the asynchronous content is loaded.</p>
+    <p>This page details <a href="#techniques">implementation techniques</a> and <a href="#scenarios">common loading scenarios</a> for eBay Skin's <a href="../index.html#skeleton">skeleton</a> module.</p>
+    <p><strong>NOTE:</strong> This page demonstrates both good and bad uses of skeletons; please be sure to read and understand carefully to avoid replicating an anti-pattern!</p>
 
-    {% highlight html %}
-    <!-- Asynchronous content will load inside below div -->
-    <div class="demo-skeleton" role="img" aria-label="loading"></div>
+    <hr />
+
+    <h2 id="techniques">Techniques</h2>
+    <p>Skeletons can be used as placeholders for content (i.e. reserving physical space in the page) using either a pure CSS approach, or a DOM manipulation approach with JavaScript.</p>
+
+    <h3 id="techniques-css">Technique 1: Pure CSS</h3>
+    <p>This technique leverages the CSS <span class="highlight">:empty</span> pseudo-class, as documented in the article, <a href="https://dev.to/tigt/skeleton-screens-but-fast-48f1">"Skeleton screens, but fast"</a> by Taylor Hunt. This approach is highly performant, especially on devices with limited CPU resources.</p>
+    <p>If an element is empty, then its <span class="highlight">:empty</span> selector matches, and the associated styles (i.e. the skeleton graphics) are applied. When the content is rendered, <span class="highlight">:empty</span> no longer matches, and the styles (our skeleton graphics) are removed. Marvellous!</p>
+    <p>The HTML would look like this:</p>
+    {% highlight html %}  
+<div class="search-results-skeleton">
+    <!-- this element will match :empty until content is inserted -->
+</div>
     {% endhighlight %}
+
+    <p>The CSS selector like so:</p>
 
     {% highlight css %}
-    /* example css to demonstrate the approach */
-    .demo-skeleton:empty {
-        background: var(--color-loading-fill);
-        border-radius: 8px;
-        height: 300px;
-        width: 100%;
-    }
+.search-results-skeleton:empty {
+    /* app developer must write CSS to create skeleton graphics */
+}
     {% endhighlight %}
 
-    <h2 id="implementation-2">Implementation 2: Using multiple DOM elements and JavaScript</h2>
-    <p>In this approach using JavaScript, we gain more flexibility and control over when and how the skeleton loader is
-        replaced with the actual content. Here we can completely hide or replace the skeleton loader and display the
-        asyncronous content instead. This could be done by toggling the <span class="highlight">hidden</span> attribute
-        on
-        the skeleton loader and the content container.</p>
-    <p>NOTE: JavaScript is required to toggle visbility of the skeletons and content container.</p>
+    <p><strong>NOTE:</strong> The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty!</p>
+    <p>The downside is that our <a href="../index.html#skeleton">skeleton classes</a> cannot be leveraged (in theory, LESS mixins could be provided) and <em>composite</em> skeletons (e.g. items tiles) may require some non-trivial use of CSS linear gradients for certain skeletons.</p>
+
+    <hr />
+
+    <h3 id="techniques-javascript">Technique 2: JavaScript</h3>
+    <p>With JavaScript, we gain more flexibility and control over when and how the skeleton placeholder is replaced with the actual content. We can either remove the skeleton node from the DOM, as shown below.</p>
+
     {% highlight html %}
-    <!-- Before -->
-    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
-        <div class="skeleton__button"></div>
-    </div>
-    <!-- Asynchronous content will go here -->
+<!-- Before -->
+<div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__button"></div>
+</div>
 
-    <!-- After using hidden -->
-    <div class="skeleton" role="img" aria-label="loading" style="width: 200px;" hidden>
-        <div class="skeleton__button"></div>
-    </div>
-    <p>asynchronous content</p>
+<!-- After -->
+<div>
+    <p>content</p>
+</div>
+{% endhighlight %}
 
-    <!-- After using skeleton swap -->
-    <p>asynchronous content</p>
-    {% endhighlight %}
+<p>Or we can simply hide the skeleton, using the <span class="highlight">hidden</span> property.</p>
 
-    {% highlight css %}
-    /* example css to demonstrate the approach */
-    .skeleton__button {
-        background: var(--color-loading-fill);
-        border-radius: 8px;
-        height: 300px;
-        width: 100%;
-    }
-    {% endhighlight %}
+{% highlight html %}
+<!-- Before -->
+<div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__button"></div>
+</div>
 
-    <h2>When to use one over the other?</h2>
-    <p>Usually, skeletons can be ingressed to four loading scenarios.</p>
+<!-- After -->
+<div class="skeleton" role="img" aria-label="loading" style="width: 200px;" hidden>
+    <div class="skeleton__button"></div>
+</div>
+<div>
+    <p>content</p>
+</div>
+{% endhighlight %}
+
+    <p>Notice that JavaScript also gives us the ability to add and remove ARIA roles, properties and states.</p>
+
+    <hr />
+
+    <h2 id="scenarios">Page Loading Scenarios</h2>
+    <p>For the purposes of keeping examples simple, we use a basic blog page template for conveying common loading techniques. In reality, blogs by their nature should be highly performant (i.e. fetching cached, static content) and would not require any kind of asyncronous rendering or skeleton placeholders. Please keep this in mind and think very carefully about whether your type of page and architecture actually requires the technical overhead of skeletons or not.</p>
+
+    <p>We consider 4 main scenarios for how a full page may be constructed:</p>
     <ol>
-        <li>Buffered rendering</li>
-        <li>Progressive rendering - In-order</li>
-        <li>Progressive rendering - Out of order</li>
-        <li>Client side rendering</li>
+        <li>Buffered (default)</li>
+        <li>Client-Side Rendered (SPA)</li>
+        <li>In-Order Streaming (Progressive Rendering)</li>
+        <li>Out of Order Streaming</li>
     </ol>
-    <h3>Scenario 1: Buffered rendering</h3>
-    <p>In Buffered rendering, the content is loaded incrementally in chunks or buffers. As the content is not loaded all at once,
-        there is no fixed point where skeletons can be displayed.</p>
-    <div class="template--tiles">
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 1</h4>
-                <div class="template--item_head_actions">
-                    <a href="./buffered/example-1/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./buffered/example-1/" frameborder="0"></iframe>
-        </div>
-    </div>
-    <h3>Scenario 2: Progressive rendering - In-order</h3>
-    <p>In in-order rendering, the browser displays various chunks of the webpage in a predetermined sequence. The <b>CSS :empty</b> technique is highly efficient for this scenario, but requires the app team to build the custom skeleton layouts.</p>
-    <div class="template--tiles">
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 1</h4>
-                <div class="template--item_head_actions">
-                    <a href="./in-order/example-1/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./in-order/example-1/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 2</h4>
-                <div class="template--item_head_actions">
-                    <a href="./in-order/example-2/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./in-order/example-2/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 3</h4>
-                <div class="template--item_head_actions">
-                    <a href="./in-order/example-3/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./in-order/example-3/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 4</h4>
-                <div class="template--item_head_actions">
-                    <a href="./in-order/example-4/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./in-order/example-4/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 5</h4>
-                <div class="template--item_head_actions">
-                    <a href="./in-order/example-5/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./in-order/example-5/" frameborder="0"></iframe>
-        </div>
-    </div>
-    <h3>Scenario 3: Progressive rendering - Out of order</h3>
-    <p>In out of order rendering, browser renders different chunks of the webpage in non sequential manner. This approach requires JavaScript, making <a href="#implementation-2">implementation 2</a> the preferred choice. However, if not executed properly, this loading scenario can lead to layout shifts.</p>
-    <p>In this section, we'll explore three distinct examples of out-of-order streaming. The example 2 demonstrates asynchronous loading of different chunks using fixed height and width. However, this approach isn't ideal as it results in significant layout shifts, impacting the user experience.</p>
-    <p>To enhance the user experience, Example 3 utilizes a single skeleton to indicate that content is loading, and replaces specific DOM elements once the content is fully loaded. Example 4, while similar, employs multiple granular skeletons across the page to represent different loading sections. These examples, primarily depends on JavaScript framework techniques to ensure all asynchronous content is loaded before it is displayed.</p>
-    <div class="template--tiles">
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 1</h4>
-                <div class="template--item_head_actions">
-                    <a href="./out-of-order/example-1/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./out-of-order/example-1/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 2</h4>
-                <div class="template--item_head_actions">
-                    <a href="./out-of-order/example-2/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./out-of-order/example-2/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 3</h4>
-                <div class="template--item_head_actions">
-                    <a href="./out-of-order/example-3/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./out-of-order/example-3/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 4</h4>
-                <div class="template--item_head_actions">
-                    <a href="./out-of-order/example-4/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./out-of-order/example-4/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 5</h4>
-                <div class="template--item_head_actions">
-                    <a href="./out-of-order/example-5/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./out-of-order/example-5/" frameborder="0"></iframe>
-        </div>
-    </div>
-    <h3>Scenario 4: Client side rendering</h3>
-    <p>Client-side rendering is a widely used technique in which JavaScript on the client's side is responsible for rendering skeleton screens and making API calls to retrieve data from the server. This data then replaces the skeleton screens. This approach requires JavaScript, making <a href="#implementation-2">implementation 2</a> the preferred choice.</p> 
-    <p>The example 5 below illustrates a component that partially renders content from the server. It's linked with a "Load more Images" button that triggers a client-side request for additional data from the server. During this operation, skeletons are displayed. This example highlights how unpredictable content can lead to layout shifts, and how the example 6 uses ellipses to truncate content in an attempt to mitigate this issue.</p>
-    <div class="template--tiles">
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 1</h4>
-                <div class="template--item_head_actions">
-                    <a href="./csr/example-1/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./csr/example-1/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 2</h4>
-                <div class="template--item_head_actions">
-                    <a href="./csr/example-2/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./csr/example-2/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 3</h4>
-                <div class="template--item_head_actions">
-                    <a href="./csr/example-3/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./csr/example-3/" frameborder="0"></iframe>
-        </div>
-        <div class="template--item">
-            <div class="template--item_head">
-                <h4>Example 4</h4>
-                <div class="template--item_head_actions">
-                    <a href="./csr/example-4/" target="_blank">Open</a>
-                </div>
-            </div>
-            <iframe src="./csr/example-4/" frameborder="0"></iframe>
-        </div>
-    </div>
+
+    <p>Of course this is not the whole story! After the page has been loaded, users may interact with components that trigger <a href="#scenario-5">partial page updates</a>, in which case skeleton placeholders may also be utilized.</p>
+
+    <h3 id="scenario-1">Scenario 1: Buffered Rendering</h3>
+    <p>With buffered rendering (the default manner in which web pages are loaded) the client waits for the entire HTML to be sent by the server before rendering. Therefore, in this scenario, there is no opportunity to display skeleton placeholders, because the content arrives all at once (one caveat would be a SPA, which we cover in the next section).</p>
+
+    <h4>The Empty Screen</h4>
+    <p>This example simulates the delay (set to 3 seconds) and empty screen while the client waits for the entire HTML payload from the server.</p>
+    <p><a href="./buffered/example-1/">View Example</a></p>
+    <p>For many types of web site, so long as the delay is not too long, this empty screen can be a perfectly acceptable user experience and no further optimizations or skeletons are necessary.</p>
+
+    <hr />
+
+    <h3 id="scenario-2">Scenario 2: Client Side Rendering (SPA)</h3>
+    <p>A buffered page load can however be the starting point for a non-isomorphic client-side app, i.e. if the server sends a single script tag as the app entry point. The JavaScript app could then leverage skeletons as content placeholders.</p>
+    <p>Fully client-side rendered JavaScript applications (i.e. SPAs) such as this are currently out of scope for this documentation. We may add updates in the future. In general though, many of the concepts of <a href="#scenario-4">out-of-order streaming</a> will apply.</p>
+
+    <hr />
+
+    <h3 id="scenario-3">Scenario 3: In-Order Streaming (Progressive Rendering)</h3>
+    <p>In contrast to buffered rendering, progressive rendering does not have to wait for the entire HTML to arrive from the server. The client receives the HTML in chunks, allowing critical above-the-fold content to be displayed first, meaning less time staring at an empty white screen. For the vast majority of pages using progressive rendering, skeleton placeholders will be unneccessary, as the nature and speed in which content is streamed is a sufficient UX improvement over the "white screen" encountered with buffered rendering.</p>
+    <p>The CSS <span class="highlight">:empty</span> technique is highly efficient for this scenario and basic skeleton orchestration. Any kind of complex skeleton orchestration would be better left to <a href="#scenario-4">out-of-order streaming</a>. Remember also, that our Skin skeleton classes cannot be leveraged with this technique; therefore the developer must construct skeletons with their own custom CSS.</p>
+    <p>In all examples below we utilize client-side JavaScript to simulate how a server might stream the HTML in chunks to the client.</p>
+
+    <h4>One Column with Empty Space</h4>
+    <p>Our first progressive rendering example shows how the main article content might be streamed in after the main navigation and featured articles.</p>
+    <p><a href="./in-order/example-1a/">View Example</a></p>
+    <p>We have added a 3 second delay in order to simulate a service that is slow to fetch the main content. Remember, this is a highly contrived use case! No web site should be taking that long to retrieve static content and therefore would never require a skeleton!</p>
+
+    <h4>One Column with Skeleton</h4>
+    <p>Now let's add a skeleton placeholder for the main content. Using progressive rendering we stream an opening div tag to the client, and while the server works on getting the next chunk ready, the element will match the CSS :empty rule.</p>
+    <p><a href="./in-order/example-1b/">View Example</a></p>
+    <p>Okay, that was easy, our white space has been replaced with a skeleton while we wait for the next chunk to arrive. But what about when we have two columns?</p>
+
+    <h4>Two Columns with Empty Space</h4>
+    <p>To keep things simple lets assume the second column is also static content that will be quickly flushed from the server.</p>
+    <p><a href="./in-order/example-2a/">View Example</a></p>
+    <p>The goal of a skeleton is to replace empty space with a placeholder graphic giving a rough approximation of the content and layout to come. Lets see if we can update our skeleton to show two columns instead of just one.</p>
+    
+    <h4>Two Columns with Skeleton</h4>
+    <p>Our main column and side column are siblings elements, so we cannot start the side column element without flushing and closing the main column element that precedes it. This means we cannot have an :empty main column and an :empty side column simultaneously.</p>
+    <p>With some clever CSS we can create a single background image graphic representing a two column layout on the :empty main column.</p>
+    <p><a href="./in-order/example-2b/">View Example</a></p>
+    <p>This might be satisfactory in some cases, but what if we want to show the main content without waiting for the side column to be flushed (the side content may be a slow service also)? What about responsive design? How will our two column skeleton respond at various breakpoints?</p>
+    <p>At this point we start to see that choreographing more than one skeleton placeholder with in-order streaming can become quite tricky. When we have more than one slow service, and a need for multiple skeleton placeholders, it is time to think about out-of-order streaming, which can eliminate these choreography concerns, but on the flipside has the potential to introduce the dreaded layout shift. Read on to find out more.</p>
+    
+    <hr />
+
+    <h3 id="scenario-4">Scenario 4: Out-of-Order Streaming</h3>
+    <p>Out-of-order streaming allows chunks of page content to arrive in any order, e.g. the server could send the chunk for the side column before the chunk for the main column. This technique does require some client-side JavaScript to re-assemble the DOM in the correct order as pieces arrive.</p>
+    <p>Out-of-order streaming also has parallels with client-side rendered SPAs, as those apps might typically render content based on the order in which their fetch requests come in.</p>
+    <p>In all examples below we utilize client-side JavaScript to simulate an out-of-order streaming experience.</p>
+
+    <h4>Layout Shift</h4>
+    <p>With our in-order streaming examples, the appereance of new content was always <em>appended</em>, therefore never caused existing content or layout to move. Let's see what happens when we stream in our main content, side column and footer out of order.</p>
+    <p><a href="./out-of-order/example-1/">View Example</a></p>
+    <p>As the content is loading, try clicking on the link in the footer. Now imagine if it were an "Add to Cart" or "Buy Now" button and how infuriating that would be. Imagine being a keyboard user, and the element with keyboard focus being pushed down the page out of view</p>
+    <p>So, while getting content to the user faster always sounds like a good idea in theory, this example showcases how it can cause some unintended consequences and a poor UX.</p>
+    <p>The good news is that skeletons, under certain conditions, have the ability to mitigate or mask entirely the problems associated with content arriving out-of-order.</p>
+  
+    <h4>Reserving Space</h4>
+    <p>Skeletons can prevent the layout shift associated with out-of-order streaming by reserving the physical space for that content.</p>
+    <p><a href="./out-of-order/example-2/">View Example</a></p>
+    <p>The physical dimensions of the reserved space must be known ahead of time. When skeletons reserve the right amount of space, they will prevent layout from shifting. When they reserve too much or too little, layout will shift.</p>
+    <p>For some kinds of content, we can be sure of the physical dimensions ahead of time, images, videos, carousels, for example. For text however, we can only approximate in most cases, and therefore blocks of text make poor candidates for skeletons.</p>
+
+    <h4>Skeleton-itis</h4>
+    <p>With in order streaming and the :empty technique, it is not possible to display more than one skeleton concurrently. With out-of-order streaming, this restriction is lifted. This is both a good and a bad thing.</p>
+    <p>Let's see what happens when we create skeletons for all main page sections.</p>
+    <p><a href="./out-of-order/example-3/">View Example</a></p>
+    <p>Compare this with our <a href="./out-of-order/example-2/">previous example</a> or <a href="./in-order/example-2b/">In-Order streaming</a>. The wait time for the main content is the same, but without any shift or flashing in-and-out of skeletons. Most web pages should not have a 1:1 mapping of page sections to skeletons!</p>
+
+    <h4>Out-of-order Placeholders Only</h4>
+    <p>Perhaps there is a compromise? We have established that to avoid unexpected layout shift, skeletons must reserve exactly the same amount of space as the content. The exception to this rule is if the skeleton and its content is appended to the page.</p>
+    <p>Out-of-order streaming allows us to lay down our placeholders all at the same time and reserve space <em>without</em> waiting for the rest of the page. We can then sequence the streaming in a way that only ever appends the content.</p>
+    <p><a href="./out-of-order/example-4/">View Example</a></p>
+    <p>While this might seem to defeat the purpose of out-of-order streaming (i.e. getting content onscreen quicker, regardless of its position) this does provide us with one method of tackling undesired layout shift and gaining some of the perceived performance increase of skeletons.</p>
+
+    <hr />
+
+    <h3 id="scenario-5">Scenario 5: Partial Page Updates</h3>
+    <p>So far, our emphasis has been on the initial page load, but skeletons are also useful (perhaps even more so) for partial page updates, i.e. when a user interface component triggers a request for additional content from the server.</p>
+    <p>Two common examples are loading in more content to any section of the page (e.g. a "see more" button) and refreshing the content of a section (e.g. by changing a search filter).</p>
+    <p>It is important to note that any layout shift that happens <strong>immediately</strong> upon click of a button would not be classed as unexpected. However, if the layout shifts again, after some amount of time (i.e. after a wait for data to be fetched), then this would be classed as unexpected (because the user triggered that action). Again, skeletons can help in this scenario by reserving physical space until the actual content is ready.</p>
+    
+    <h4>Load More - Unpredictable Size</h4>
+    <p>This example shows an initial expected layout shift upon clicking the load more button. After a 3 second wait we experience an unexpected layout shift (i.e. the button is shunted down the page) due to the skeletons not reserving the same amount of physical space as the content that is fetched.</p>
+    <p><a href="./csr/example-1/">View Example</a></p>
+    <p>Each item that is loaded has an arbitrary amount of text. How could we make it less arbitrary and more predictable?</p>
+
+    <h4>Load More - Predictable Size</h4>
+    <p>One way to make content length less arbitrary is via text truncation. In this example the content has been truncated to two lines, meaning we can be more sure about the physical space that needs to be reserved by the skeleton.</p>
+    <p><a href="./csr/example-2/">View Example</a></p>
+    <p>Again though it is worth remembering, working with text is far less predictable than with images, video and the like. The more predictable the type of content and its size and shape, the better skeletons will work to mitigate layout shift.</p>
+
+    <h4>Refreshing Content</h4>
+    <p>In addition to adding more content to any section of the page, another common scenario is to refresh the content of an existing area of the page. For example, paginating to the next set of results, or refreshing a set of thumbnail images.</p>
+    <p>Just as with loading more content, refreshing a section of content can fall afoul of layout shift if the content size is <a href="./csr/example-3/">unpredictable</a>. Again the situation can be avoided with <a href="./csr/example-4/">predictable</a> content size.</p>
 </body>
 
 </html>

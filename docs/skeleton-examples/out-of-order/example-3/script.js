@@ -1,72 +1,152 @@
-// Function to generate random time in milliseconds
-function getTimeinMS() {
-  return Math.floor(Math.random() * 4000) + 1000;
-}
+window.addEventListener('load', () => {
+  const skeletonDelay = 250;
+  const navDelay = 500;
+  const heroDelay = 500;
+  const featured1Delay = 600;
+  const featured2Delay = 700;
+  const articleDelay = 3000;
+  const asideDelay1 = 750;
+  const asideDelay2 = 500;
+  const footerDelay = 500;
 
-// Function to set content for a given element
-function setAsyncContent(elementId, content, time = getTimeinMS()) {
   setTimeout(() => {
-    const element = document.getElementById(elementId);
-    element.innerHTML = content;
-    element.previousElementSibling.setAttribute('hidden', true);
-  }, time);
-}
+    document.querySelector('.page-grid').innerHTML += `
+      <nav>
+        <div class="demo-skeleton"></div>
+      </nav>
+      <article id="hero">
+        <div class="demo-skeleton"></div>
+      </article>
+      <article id="featured-1" class="featured nested-grid-container">
+          <div class="demo-skeleton"></div>
+      </article>
+      <article id="featured-2" class="featured nested-grid-container">
+          <div class="demo-skeleton"></div>
+      </article>
+      <main>
+        <div class="demo-skeleton"></div>
+      </main>
+      <aside>
+        <section id="section-1">
+          <div class="demo-skeleton"></div>
+        </section>
+        <section id="section-2">
+          <div class="demo-skeleton"></div>
+        </section>
+      </aside>
+    `;
+  }, skeletonDelay);
 
-// Set content for featured-3 section
-const content = `
-<h2>Sample blog post</h2>
-<p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic
-  typography, images, and code are all supported.</p>
+  setTimeout(() => {
+    document.querySelector('nav').innerHTML = `
+      <ul>
+        <li><a href="#">World</a>
+        <li><a href="#">U.S.</a>
+        <li><a href="#">Technology</a>
+        <li><a href="#">Design</a>
+        <li><a href="#">Culture</a>
+        <li><a href="#">Business</a>
+        <li><a href="#">Politics</a>
+        <li><a href="#">Opinion</a>
+        <li><a href="#">Science</a>
+        <li><a href="#">Health</a>
+        <li><a href="#">Style</a>
+        <li><a href="#">Travel</a>
+      </ul>
+    `;
+  }, navDelay);
 
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam.
-  Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras
-  mattis consectetur purus sit amet fermentum.</p>
+  setTimeout(() => {
+    document.querySelector('#hero').innerHTML = `
+      <h2>Title of a longer featured blog post</h2>
+      <p>Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most
+        interesting in this post's contents.</p>
+      <p><a>Continue reading...</a></p>
+    `;
+  }, heroDelay);
 
-<p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor
-  id nibh ultricies vehicula ut id elit.
+  setTimeout(() => {
+    document.querySelector('#featured-1').innerHTML = `
+      <div class="page-grid">
+        <div class="featured__article">
+          <h2>Featured Post 1</h2>
+          <p>This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="featured__thumbnail">
+          Thumbnail
+        </div>
+      </div>;
+    `;
+  }, featured1Delay);
 
-  Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
-  lacinia bibendum nulla sed consectetur.</p>
+  setTimeout(() => {
+    document.querySelector('#featured-2').innerHTML = `
+      <div class="page-grid">
+        <div class="featured__article">
+          <h2>Featured Post 2</h2>
+          <p>This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="featured__thumbnail">
+          Thumbnail
+        </div>
+      </div>;
+    `;
+  }, featured2Delay);
 
-<h3>Heading</h3>
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-  vestibulum at eros.</p>
+  setTimeout(() => {
+    document.querySelector('main').innerHTML = `
+      <article>
+        <h1>From the Firehose</h1>
+        <h2>Sample blog post</h2>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam.
+          Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras
+          mattis consectetur purus sit amet fermentum.</p>
+        <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor
+          id nibh ultricies vehicula ut id elit.
+          Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean
+          lacinia bibendum nulla sed consectetur.</p>
+        <h3>Heading</h3>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
+          nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
+          vestibulum at eros.</p>
+        <h4>Sub-heading</h4>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <pre><code>Example code block</code></pre>
+        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
+          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+        <h4>Sub-heading</h4>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia
+          bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac
+          cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Donec id elit non mi porta gravida at eget metus.
+          Nulla vitae elit libero, a pharetra augue.
+          Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+        <p>Vestibulum id ligula porta felis euismod semper.
+          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          Maecenas sed diam eget risus varius blandit sit amet non magna.
+          Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+      </article>
+      `;
+  }, articleDelay);
 
-<h4>Sub-heading</h4>
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+  setTimeout(() => {
+    document.querySelector('#section-1').innerHTML = `
+      <h2>About</h2>
+      <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    `;
+  }, asideDelay1);
 
-<pre><code>Example code block</code></pre>
-<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
-  dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+  setTimeout(() => {
+    document.querySelector('#section-2').innerHTML = `
+      <h2>Archives</h2>
+      <p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    `;
+  }, asideDelay2);
 
-<h4>Sub-heading</h4>
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia
-  bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac
-  cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-
-<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-  Donec id elit non mi porta gravida at eget metus.
-  Nulla vitae elit libero, a pharetra augue.
-  Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-
-<p>Vestibulum id ligula porta felis euismod semper.
-  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  Maecenas sed diam eget risus varius blandit sit amet non magna.
-  Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-`;
-setAsyncContent('featured-3', content, 3000);
-
-// Set content for section-1
-const content2 = `
-<h2>About</h2>
-<p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-`;
-setAsyncContent('section-1', content2, 4000);
-
-
-const content3 = `
-<h2>Archives</h2>
-<p>Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-`;
-setAsyncContent('section-2', content3, 5000);
+  setTimeout(() => {
+    document.body.innerHTML += `
+      <footer>This pen is a "stretchy" CSS Grid recreation of the <a href="https://getbootstrap.com/docs/4.0/examples/blog/">Bootstrap Blog Example</a>.</footer>
+    `;
+  }, footerDelay);
+});
