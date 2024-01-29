@@ -4,8 +4,6 @@ const log = require("../../log");
 const writeLine = require("../util/line-writer");
 const BaseGenerator = require("./base-generator");
 
-const DS_VERSION = "DS6.5.v1.01";
-
 const getModuleDocContent = (
     moduleName,
     moduleId,
@@ -111,13 +109,17 @@ class DocumentationGenerator extends BaseGenerator {
 
     _addDocsIndex() {
         const filePathFromRoot = path.join("docs", "index.html");
-        const newLineContent = `    ${this.moduleId}: ${DS_VERSION}`;
+        const newIndentedLine = `\n        `;
+        const name = `${newIndentedLine}name: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-NAME`;
+        const status = `${newIndentedLine}status: CHANGE-THIS-OR-REMOVE-THIS-LINE`;
+        const version = `${newIndentedLine}version: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-VERSION`;
+        const newLineContent = `    ${this.moduleId}:${name}${status}${version}`;
         writeLine({
             filePathFromRoot,
-            sectionPredicate: (line) => line.match(/versions\s*:/),
+            sectionPredicate: (line) => line.match(/ds_map\s*:/),
             newLineContent,
             duplicateCheckText: `\s*\t*${this.moduleId}:\s*\t*.+`,
-            getLineMeta: (prevLine, currentLine, nextLine) => ({
+            getLineMeta: (_prevLine, currentLine, nextLine) => ({
                 shouldAppend: !nextLine || currentLine > newLineContent,
             }),
         });
