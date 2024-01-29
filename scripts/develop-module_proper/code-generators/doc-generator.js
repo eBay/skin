@@ -110,10 +110,11 @@ class DocumentationGenerator extends BaseGenerator {
     _addDocsIndex() {
         const filePathFromRoot = path.join("docs", "index.html");
         const newIndentedLine = `\n        `;
+        const group = `${newIndentedLine}group: CHANGE-OR-REMOVE-THIS-LINE`;
         const name = `${newIndentedLine}name: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-NAME`;
-        const status = `${newIndentedLine}status: CHANGE-THIS-OR-REMOVE-THIS-LINE`;
+        const status = `${newIndentedLine}status: CHANGE-OR-REMOVE-THIS-LINE`;
         const version = `${newIndentedLine}version: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-VERSION`;
-        const newLineContent = `    ${this.moduleId}:${name}${status}${version}`;
+        const newLineContent = `    ${this.moduleId}:${group}${name}${status}${version}`;
         writeLine({
             filePathFromRoot,
             sectionPredicate: (line) => line.match(/ds_map\s*:/),
