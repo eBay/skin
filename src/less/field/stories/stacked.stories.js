@@ -95,7 +95,7 @@ export const group = () => `
 
 export const descriptions = () => `
 <div class="field">
-    <label class="field__label field__label--stacked" for="field-descriptions-1">Field 1</label>
+    <label class="field__label field__label--stacked" for="field-descriptions-1">Textbox Field - Default</label>
     <div class="field__control textbox">
         <input aria-describedby="field-descriptions-1-description" class="textbox__control textbox__control--fluid" id="field-descriptions-1" type="text" />
     </div>
@@ -104,7 +104,7 @@ export const descriptions = () => `
     </div>
 </div>
 <div class="field">
-    <label class="field__label field__label--stacked" for="field-descriptions-2">Field 2</label>
+    <label class="field__label field__label--stacked" for="field-descriptions-2">Textbox Field - Confirmation</label>
     <div class="field__control textbox">
         <input aria-describedby="field-descriptions-2-description" class="textbox__control textbox__control--fluid" id="field-descriptions-2" type="text" />
     </div>
@@ -113,7 +113,7 @@ export const descriptions = () => `
     </div>
 </div>
 <div class="field">
-    <label class="field__label field__label--stacked" for="field-descriptions-3">Field 3</label>
+    <label class="field__label field__label--stacked" for="field-descriptions-3">Textbox Field - Information</label>
     <div class="field__control textbox">
         <input aria-describedby="field-descriptions-3-description" class="textbox__control textbox__control--fluid" id="field-descriptions-3" type="text" />
     </div>
@@ -122,12 +122,72 @@ export const descriptions = () => `
     </div>
 </div>
 <div class="field">
-    <label class="field__label field__label--stacked" for="field-descriptions-4">Field 4</label>
+    <label class="field__label field__label--stacked" for="field-descriptions-4">Textbox Field - Error</label>
     <div class="field__control textbox">
-        <input aria-describedby="field-descriptions-4-description" class="textbox__control textbox__control--fluid" id="field-descriptions-4" type="text" />
+        <input aria-describedby="field-descriptions-4-description" class="textbox__control textbox__control--fluid" id="field-descriptions-4" type="text" aria-invalid="true" />
     </div>
     <div class="field__description field__description--attention" id="field-descriptions-4-description">
+        <svg class="icon icon--attention-filled-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <use href="#icon-attention-filled-16"></use>
+        </svg>
         <span>Field description - error</span>
     </div>
 </div>
+
+<span class="field">
+    <label class="field__label field__label--stacked" for="field-listbox-button-1">Listbox Button Field - Error</label>
+    <div class="field__control textbox">
+        <span class="listbox-button listbox-button--form listbox-button--error" data-makeup-auto-select="false">
+            <button class="btn btn--form" style="min-width: 150px" aria-expanded="false" aria-haspopup="listbox" aria-describedby="field-listbox-button-1-description">
+                <span class="btn__cell">
+                    <span class="btn__label">Color: </span>
+                    <span class="btn__text">-</span>
+                    <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                        <use href="#icon-chevron-down-12"></use>
+                    </svg>
+                </span>
+            </button>
+            <div class="listbox-button__listbox">
+                <div class="listbox-button__options" role="listbox">
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Red</span>
+                        <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                            <use href="#icon-tick-16"></use>
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Blue</span>
+                        <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                            <use href="#icon-tick-16"></use>
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option" aria-disabled="true">
+                        <span class="listbox-button__value">Yellow</span>
+                        <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                            <use href="#icon-tick-16"></use>
+                        </svg>
+                    </div>
+                    <div class="listbox-button__option" role="option">
+                        <span class="listbox-button__value">Green</span>
+                        <svg class="icon icon--tick-16" focusable="false" height="10" width="14">
+                            <use href="#icon-tick-16"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <select id="field-listbox-button-1" hidden="" class="listbox__native">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+            </select>
+        </span>
+    </div>
+    <div class="field__description field__description--attention" id="field-listbox-button-1-description">
+        <svg class="icon icon--attention-filled-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <use href="#icon-attention-filled-16"></use>
+        </svg>
+        <span>There was an error</span>
+    </div>
+</span>
 `;

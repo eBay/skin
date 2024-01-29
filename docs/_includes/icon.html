@@ -81,6 +81,9 @@
     <p>Most icons can be given a disabled appearance by adding the <span class="highlight">icon--disabled</span>
         modifier.</p>
 
+    <h4>Simple Icons</h4>
+    <p>Icons that are simple and have only a stroke/fill of a single color simply inherit <span class="highlight">color</span> and are disabled by inheriting that color as the stroke/fill.</p>
+
     <div class="demo">
         <div class="demo__inner">
             <svg aria-label="Disabled icon example" class="icon icon--chevron-right-24 icon--disabled" focusable="false"
@@ -91,9 +94,26 @@
     </div>
 
     {% highlight html %}
-    <svg class="icon icon--chevron-right-24 icon--disabled" focusable="false" height="24" width="24">
-        <use href="#icon-chevron-right-24"></use>
-    </svg>
+<svg class="icon icon--chevron-right-24 icon--disabled" focusable="false" height="24" width="24">
+    <use href="#icon-chevron-right-24"></use>
+</svg>
+    {% endhighlight %}
+
+    <h4>Complex Icons</h4>
+    <p>Icons that are more complex and have multiple colors with a suffix of <span class="highlight">-colored</span> are grayscaled with an opacity.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Disabled icon example" class="icon icon--mastercard-24-colored icon--disabled" focusable="false" height="24" width="24" role="img">
+                {% include symbol.html name="mastercard-24-colored" %}
+            </svg>
+        </div>
+    </div>
+
+    {% highlight html %}
+<svg class="icon icon--mastercard-24-colored icon--disabled" focusable="false" height="24" width="24">
+    <use href="#icon-mastercard-24-colored"></use>
+</svg>
     {% endhighlight %}
 
     {% if site.data.icons.deprecated.size > 0 %}
