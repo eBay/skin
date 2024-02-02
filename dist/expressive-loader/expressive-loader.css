@@ -73,14 +73,40 @@
   --line-gap: 4px;
   --line-border-radius: 2px;
 }
+.expressive-line-animation .expressive-line-animation__line {
+  border-radius: var(--line-border-radius);
+  display: inline-block;
+  height: var(--height);
+  line-height: 0px;
+}
+.expressive-line-animation .expressive-line-animation__line--red {
+  background-color: var(--color-expressive-loader-red);
+}
+.expressive-line-animation .expressive-line-animation__line--blue {
+  background-color: var(--color-expressive-loader-blue);
+}
+.expressive-line-animation .expressive-line-animation__line--yellow {
+  background-color: var(--color-expressive-loader-yellow);
+}
+.expressive-line-animation .expressive-line-animation__line--green {
+  background-color: var(--color-expressive-loader-green);
+}
 .expressive-line-animation .expressive-line-animation__standard {
   border-radius: var(--line-border-radius);
   display: block;
+  font-size: 0;
   height: var(--height);
   line-height: 0;
   margin: 0 var(--spacing-200);
   overflow: hidden;
   white-space: nowrap;
+}
+.expressive-line-animation .expressive-line-animation__standard .expressive-line-animation__line {
+  margin-right: var(--line-gap);
+  transform-origin: 0;
+}
+.expressive-line-animation .expressive-line-animation__standard .expressive-line-animation__line--animated {
+  animation: expressive-loader-scale-line-width var(--expressive-loader-scale-line-duration) linear;
 }
 .expressive-line-animation .expressive-line-animation__reduced-motion {
   border-radius: var(--line-border-radius);
@@ -95,33 +121,6 @@
   gap: var(--line-gap);
   justify-content: space-around;
   min-width: 100%;
-}
-.expressive-line-animation .expressive-line-animation__line {
-  border-radius: var(--line-border-radius);
-  display: inline-block;
-  height: var(--height);
-  line-height: 0px;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .expressive-line-animation .expressive-line-animation__line {
-    margin-right: var(--line-gap);
-    transform-origin: 0;
-  }
-  .expressive-line-animation .expressive-line-animation__line--animated {
-    animation: expressive-loader-scale-line-width var(--expressive-loader-scale-line-duration) linear;
-  }
-}
-.expressive-line-animation .expressive-line-animation__line--red {
-  background-color: var(--color-expressive-loader-red);
-}
-.expressive-line-animation .expressive-line-animation__line--blue {
-  background-color: var(--color-expressive-loader-blue);
-}
-.expressive-line-animation .expressive-line-animation__line--yellow {
-  background-color: var(--color-expressive-loader-yellow);
-}
-.expressive-line-animation .expressive-line-animation__line--green {
-  background-color: var(--color-expressive-loader-green);
 }
 @keyframes expressive-loader-message-fadeout {
   0% {

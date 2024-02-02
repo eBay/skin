@@ -93,14 +93,48 @@
     --line-gap: 4px;
     --line-border-radius: 2px;
 
+    .expressive-line-animation__line {
+        border-radius: var(--line-border-radius);
+        display: inline-block;
+        height: var(--height);
+        line-height: 0px;
+
+        &--red {
+            background-color: var(--color-expressive-loader-red);
+        }
+
+        &--blue {
+            background-color: var(--color-expressive-loader-blue);
+        }
+
+        &--yellow {
+            background-color: var(--color-expressive-loader-yellow);
+        }
+
+        &--green {
+            background-color: var(--color-expressive-loader-green);
+        }
+    }
+
     .expressive-line-animation__standard {
         border-radius: var(--line-border-radius);
         display: block;
+        font-size: 0;
         height: var(--height);
         line-height: 0;
         margin: 0 var(--spacing-200);
         overflow: hidden;
         white-space: nowrap;
+
+        .expressive-line-animation__line {
+            margin-right: var(--line-gap);
+            transform-origin: 0;
+
+            &--animated {
+                animation: expressive-loader-scale-line-width
+                    var(--expressive-loader-scale-line-duration) linear;
+            }
+        }
     }
 
     .expressive-line-animation__reduced-motion {
@@ -118,39 +152,6 @@
         gap: var(--line-gap);
         justify-content: space-around;
         min-width: 100%;
-    }
-
-    .expressive-line-animation__line {
-        border-radius: var(--line-border-radius);
-        display: inline-block;
-        height: var(--height);
-        line-height: 0px;
-
-        @media (prefers-reduced-motion: no-preference) {
-            margin-right: var(--line-gap);
-            transform-origin: 0;
-
-            &--animated {
-                animation: expressive-loader-scale-line-width
-                    var(--expressive-loader-scale-line-duration) linear;
-            }
-        }
-
-        &--red {
-            background-color: var(--color-expressive-loader-red);
-        }
-
-        &--blue {
-            background-color: var(--color-expressive-loader-blue);
-        }
-
-        &--yellow {
-            background-color: var(--color-expressive-loader-yellow);
-        }
-
-        &--green {
-            background-color: var(--color-expressive-loader-green);
-        }
     }
 }
 
