@@ -3,8 +3,8 @@
 :root {
     --expressive-loader-message-fadein-duration: 833ms;
     --expressive-loader-message-fadeout-duration: 400ms;
-    --expressive-loader-scroll-lines-duration: 20s;
-    --expressive-loader-scale-line-duration: 0.7s;
+    --expressive-loader-line-scroll-duration: 20s;
+    --expressive-loader-line-scale-duration: 0.7s;
 }
 
 .expressive-loader {
@@ -45,7 +45,8 @@
     position: absolute;
     right: 0;
 
-    &--current {
+    // current message
+    &[role="status"] {
         opacity: 1;
 
         &.expressive-loader__message--out {
@@ -67,7 +68,8 @@
         }
     }
 
-    &--next {
+    // next message
+    &[aria-hidden="true"] {
         opacity: 0;
 
         &.expressive-loader__message--in {
@@ -110,7 +112,7 @@
 
     .expressive-line-animation__line-group {
         animation: expressive-loader-scroll-lines
-            var(--expressive-loader-scroll-lines-duration) linear infinite;
+            var(--expressive-loader-line-scroll-duration) linear infinite;
         display: flex;
         flex-shrink: 0;
         gap: var(--line-gap);
@@ -129,8 +131,7 @@
             transform-origin: 0;
 
             &--animated {
-                animation: expressive-loader-scale-line-width
-                    var(--expressive-loader-scale-line-duration) linear;
+                animation: expressive-loader-scale-line-width var linear;
             }
         }
 

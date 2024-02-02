@@ -36,7 +36,7 @@ export const base = () => `
 export const withMessages = () => `
 <div class="expressive-loader">
   <div class="expressive-loader__message-container">
-    <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+    <div role="status" id="c2-message" class="expressive-loader__message">
       We're finishing your order.
     </div>
   </div>
@@ -74,7 +74,7 @@ export const withMessages = () => `
 export const mediumText = () => `
 <div class="expressive-loader expressive-loader--medium">
   <div class="expressive-loader__message-container">
-    <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+    <div role="status" id="c2-message" class="expressive-loader__message">
       We're finishing your order.
     </div>
   </div>

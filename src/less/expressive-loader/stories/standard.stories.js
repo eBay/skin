@@ -55,7 +55,7 @@ export const withMessages = () => `
     <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
         Just a moment longer.
     </div>
-    <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+    <div role="status" id="c3-message" class="expressive-loader__message">
         We're finishing your order.
     </div>
     </div>
@@ -96,7 +96,7 @@ export const withMessagesInInitialState = () => `
         Hang tight.
       </div>
       <div role="status" id="c1-message"
-        class="expressive-loader__message expressive-loader__message--current message--first">
+        class="expressive-loader__message message--first">
       </div>
     </div>
     <div role="progressbar" aria-label="Loading..." aria-describedby="c1-message" class="expressive-line-animation">
@@ -114,7 +114,7 @@ export const withMessagesInInitialState = () => `
 export const withSingleMessage = () => `
     <div class="expressive-loader">
       <div class="expressive-loader__message-container">
-        <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+        <div role="status" id="c2-message" class="expressive-loader__message">
           We're processing your order
         </div>
       </div>
@@ -154,7 +154,7 @@ export const withMediumText = () => `
     <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
         Just a moment longer.
     </div>
-    <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+    <div role="status" id="c3-message" class="expressive-loader__message">
         We're finishing your order.
     </div>
     </div>
@@ -194,7 +194,7 @@ export const withLongMessages = () => `
     <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
       Work with a content designer to simplify your messages.
     </div>
-    <div role="status" id="c1-message" class="expressive-loader__message expressive-loader__message--current">
+    <div role="status" id="c1-message" class="expressive-loader__message">
       Messages should be one line, but sometimes that's hard to achieve.
     </div>
   </div>
