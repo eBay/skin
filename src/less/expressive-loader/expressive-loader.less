@@ -3,8 +3,8 @@
 :root {
     --expressive-loader-message-fadein-duration: 833ms;
     --expressive-loader-message-fadeout-duration: 400ms;
-    --expressive-loader-line-scroll-duration: 20s;
-    --expressive-loader-line-scale-duration: 0.7s;
+    --expressive-loader-scroll-lines-duration: 20s;
+    --expressive-loader-scale-line-duration: 0.7s;
 }
 
 .expressive-loader {
@@ -112,7 +112,7 @@
 
     .expressive-line-animation__line-group {
         animation: expressive-loader-scroll-lines
-            var(--expressive-loader-line-scroll-duration) linear infinite;
+            var(--expressive-loader-scroll-lines-duration) linear infinite;
         display: flex;
         flex-shrink: 0;
         gap: var(--line-gap);
@@ -131,7 +131,8 @@
             transform-origin: 0;
 
             &--animated {
-                animation: expressive-loader-scale-line-width var linear;
+                animation: expressive-loader-scale-line-width
+                    var(--expressive-loader-scale-line-duration) linear;
             }
         }
 

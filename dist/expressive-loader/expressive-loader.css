@@ -1,6 +1,8 @@
 :root {
   --expressive-loader-message-fadein-duration: 833ms;
   --expressive-loader-message-fadeout-duration: 400ms;
+  --expressive-loader-scroll-lines-duration: 20s;
+  --expressive-loader-scale-line-duration: 0.7s;
 }
 .expressive-loader {
   align-items: stretch;
@@ -36,44 +38,43 @@
   position: absolute;
   right: 0;
 }
-.expressive-loader__message--current {
+.expressive-loader__message[role="status"] {
   opacity: 1;
 }
-.expressive-loader__message--current.expressive-loader__message--out {
+.expressive-loader__message[role="status"].expressive-loader__message--out {
   animation: expressive-loader-message-fadeout var(--expressive-loader-message-fadeout-duration) cubic-bezier(0.3, 0, 0, 1) both;
 }
 @media (prefers-reduced-motion) {
-  .expressive-loader__message--current.expressive-loader__message--out {
+  .expressive-loader__message[role="status"].expressive-loader__message--out {
     animation: none;
   }
 }
 @media (prefers-reduced-motion) {
-  .expressive-loader__message--current.expressive-loader__message--first {
+  .expressive-loader__message[role="status"].expressive-loader__message--first {
     animation: expressive-loader-message-fadein-rm var(--expressive-loader-message-fadein-duration) cubic-bezier(0.3, 0, 0, 1) both;
   }
 }
-.expressive-loader__message--next {
+.expressive-loader__message[aria-hidden="true"] {
   opacity: 0;
 }
-.expressive-loader__message--next.expressive-loader__message--in {
+.expressive-loader__message[aria-hidden="true"].expressive-loader__message--in {
   animation: expressive-loader-message-fadein var(--expressive-loader-message-fadein-duration) cubic-bezier(0.3, 0, 0, 1) both;
 }
 @media (prefers-reduced-motion) {
-  .expressive-loader__message--next {
+  .expressive-loader__message[aria-hidden="true"] {
     display: none;
   }
-  .expressive-loader__message--next.expressive-loader__message-in {
+  .expressive-loader__message[aria-hidden="true"].expressive-loader__message-in {
     animation: none;
   }
 }
 .expressive-line-animation {
   --height: 6px;
-  --expressive-line-animation-gap: 4px;
-  --border-radius: 2px;
-  --scale-in-duration: 0.7s;
+  --line-gap: 4px;
+  --line-border-radius: 2px;
 }
 .expressive-line-animation .expressive-line-animation__standard {
-  border-radius: var(--border-radius);
+  border-radius: var(--line-border-radius);
   display: block;
   height: var(--height);
   line-height: 0;
@@ -82,32 +83,32 @@
   white-space: nowrap;
 }
 .expressive-line-animation .expressive-line-animation__reduced-motion {
-  border-radius: var(--border-radius);
+  border-radius: var(--line-border-radius);
   display: flex;
-  gap: var(--expressive-line-animation-gap);
+  gap: var(--line-gap);
   overflow: hidden;
 }
 .expressive-line-animation .expressive-line-animation__line-group {
-  animation: expressive-loader-scroll-lines 20s linear infinite;
+  animation: expressive-loader-scroll-lines var(--expressive-loader-scroll-lines-duration) linear infinite;
   display: flex;
   flex-shrink: 0;
-  gap: var(--expressive-line-animation-gap);
+  gap: var(--line-gap);
   justify-content: space-around;
   min-width: 100%;
 }
 .expressive-line-animation .expressive-line-animation__line {
-  border-radius: var(--border-radius);
+  border-radius: var(--line-border-radius);
   display: inline-block;
   height: var(--height);
   line-height: 0px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .expressive-line-animation .expressive-line-animation__line {
-    margin-right: var(--expressive-line-animation-gap);
+    margin-right: var(--line-gap);
     transform-origin: 0;
   }
   .expressive-line-animation .expressive-line-animation__line--animated {
-    animation: expressive-loader-scale-line-width 0.7s linear;
+    animation: expressive-loader-scale-line-width var(--expressive-loader-scale-line-duration) linear;
   }
 }
 .expressive-line-animation .expressive-line-animation__line--red {
@@ -160,7 +161,7 @@
 }
 @keyframes expressive-loader-scroll-lines {
   from {
-    transform: translateX(calc(-200% - var(--expressive-line-animation-gap) - var(--expressive-line-animation-gap)));
+    transform: translateX(calc(-200% - var(--line-gap) - var(--line-gap)));
   }
   to {
     transform: translateX(0);
