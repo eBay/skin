@@ -1,0 +1,632 @@
+<div id="expressive-loader">
+  {% include section-header.html name="expressive-loader" version=page.versions.expressive-loader %}
+
+  <p>
+    The expressive loader can replace our traditional spinner to feel faster during periods of longer loading.
+    To portray responsive and quicker loads, the expressive loader's design uses visual momentum to
+    indicate progression across refreshing, page loading and user actions
+    It consists of an animated progress bar in eBay brand colors and an optional set of messages that are cycled into
+        view. It also supports a reduced motion mode.
+  </p>
+  <p>
+    The expressive loader uses Javascript to cycle through messages and dynamically add new progress bar pieces
+    with random widths. The following code examples represent snapshots of the expressive loader at any given time.
+  </p>
+
+  <h3 id="expressive-loader-base-initial">
+    Base Expressive Loader - Initial State
+  </h3>
+  <p>
+    The expressive loader progress bar starts out with 4 lines in eBay brand colors.
+    Their widths are random numbers between 10% and 40%.
+  </p>
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+          <div class="expressive-line-animation__standard">
+            <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 34%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 16%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 18%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+    <div class="expressive-loader">
+      <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+        <div class="expressive-line-animation__standard">
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 34%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 16%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 18%;"></div>
+        </div>
+      </div>
+    </div>
+  {% endhighlight %}
+  
+  <h3 id="expressive-loader-base-animating">
+    Base Expressive Loader - Animating
+  </h3>
+  <p>
+    Lines start out at 0 width and scale up to 10% - 40% the width of their container. When a line is finished scaling in,
+    another line is added to the line group. Using Javascript, add animated lines:
+    <ol>
+      <li>
+        Create a new element with classes <code>expressive-line-animation__line</code>, <code>expressive_line_animation__line--animated</code>,
+        and <code>expressive-line_animation__line--${color}</code> where <code>${color}</code> is the next logical brand color.
+      </li>
+      <li>
+        Randomly assign it a width between 10% and 40%.
+      </li>
+      <li>
+        Listen for the element's <code>animationend</code>, then add another line and removes the oldest line.
+      </li>
+      <li>Prepend the line to the line container.</li>
+    </ol>
+  </p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+          <div class="expressive-line-animation__standard">
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 12%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 35%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+              style="width: 35%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 12%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 14%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 16%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+              style="width: 13%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 21%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 24%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+    <div class="expressive-loader">
+      <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+        <div class="expressive-line-animation__standard">
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 12%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 35%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+            style="width: 35%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 12%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 14%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 16%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+            style="width: 13%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 21%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 24%;"></div>
+        </div>
+      </div>
+    </div>
+  {% endhighlight %}
+
+  <h3 id="expressive-loader-messgaes-initial">
+    Expressive Loader with Messages - Initial State
+  </h3>
+  <p>
+    Message content isn't initially visible, but is queued up in the DOM so that it can fade in.
+  </p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div class="expressive-loader__message-container">
+          <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+            Hang tight.
+          </div>
+          <div role="status" id="c1-message"
+            class="expressive-loader__message expressive-loader__message--current message--first">
+          </div>
+        </div>
+        <div role="progressbar" aria-label="Loading..." aria-describedby="c1-message" class="expressive-line-animation">
+          <div class="expressive-line-animation__standard">
+            <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 12%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 34%;">
+            </div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 19%;">
+            </div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 27%;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+  <div class="expressive-loader">
+    <div class="expressive-loader__message-container">
+      <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+        Hang tight.
+      </div>
+      <div role="status" id="c1-message"
+        class="expressive-loader__message expressive-loader__message--current message--first">
+      </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="c1-message" class="expressive-line-animation">
+      <div class="expressive-line-animation__standard">
+        <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 12%;"></div>
+        <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 34%;"></div>
+        <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 19%;">
+        </div>
+        <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 27%;"></div>
+      </div>
+    </div>
+  </div>
+  {% endhighlight %}
+
+  <h3 id="expressive-loader-messages-animating">
+    Expressive Loader with Messages
+  </h3>
+  <p>
+    If there are multiple messages to display, cycle them in and out of view using Javascript.
+    To cycle a message into view:
+    <ol>
+      <li>Put the message content in the  element with class <code>expressive_loader__message--next</code>.</li>
+      <li>Add the <code>expressive-loader__message-in</code> class to animate that message into view.</li>
+      <li>
+        After the message animates in, duplicate its content into the element 
+        with <code>expressive_loader__message--current</code>.
+      </li>
+      <li>
+        After a fixed amounto of time, add the <code>expressive_loader__message--out</code> class 
+        to the current message to animate it out of view. This can happen concurrently with the next message animating in.
+      </li>
+    </ol>
+  </p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div class="expressive-loader__message-container">
+          <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+            Just a moment longer.
+          </div>
+          <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+            We're finishing your order.
+          </div>
+        </div>
+        <div role="progressbar" aria-label="Loading..." aria-describedby="c3-message" class="expressive-line-animation">
+          <div class="expressive-line-animation__standard">
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 14%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 19%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 37%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+              style="width: 26%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 24%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 34%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 13%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 15%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 28%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+    <div class="expressive-loader">
+      <div class="expressive-loader__message-container">
+        <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+          Just a moment longer.
+        </div>
+        <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+          We're finishing your order.
+        </div>
+      </div>
+      <div role="progressbar" aria-label="Loading..." aria-describedby="c3-message" class="expressive-line-animation">
+        <div class="expressive-line-animation__standard">
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 14%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 19%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 37%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+            style="width: 26%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 24%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 34%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 13%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 15%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 28%;"></div>
+        </div>
+      </div>
+    </div>
+  {% endhighlight %}
+
+  <h3 id="expressive-loader-single-message">
+    Expressive Loader with Single Message
+  </h3>
+  
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div class="expressive-loader__message-container">
+          <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+            We're processing your order
+          </div>
+        </div>
+        <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
+          <div class="expressive-line-animation__standard">
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 31%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 11%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 28%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+              style="width: 14%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+              style="width: 18%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+              style="width: 16%;"></div>
+            <div
+              class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+              style="width: 25%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 24%;"></div>
+            <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 29%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% highlight html %}
+    <div class="expressive-loader">
+      <div class="expressive-loader__message-container">
+        <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+          We're processing your order
+        </div>
+      </div>
+      <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
+        <div class="expressive-line-animation__standard">
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 31%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 11%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 28%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+            style="width: 14%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 18%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 16%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 25%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 24%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 29%;"></div>
+        </div>
+      </div>
+    </div>
+  {% endhighlight %}
+
+  <h3 id="expressive-loader-medium">
+    Expressive Loader with Medium Text
+  </h3>
+  <p>
+    By default, the expressive loader displays with large text. For smaller text, apply
+    the <code>expressive-loader--medium</code> class to the container.
+  </p>
+  
+  <div class="demo">
+    <div class="demo__inner">
+    <div class="expressive-loader expressive-loader--medium">
+      <div class="expressive-loader__message-container">
+        <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+          Just a moment longer.
+        </div>
+        <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+          We're finishing your order.
+        </div>
+      </div>
+      <div role="progressbar" aria-label="Loading..." aria-describedby="c3-message" class="expressive-line-animation">
+        <div class="expressive-line-animation__standard">
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 14%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 19%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 37%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+            style="width: 26%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+            style="width: 24%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+            style="width: 34%;"></div>
+          <div
+            class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+            style="width: 13%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 15%;"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 28%;"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+  <div class="expressive-loader expressive-loader--medium">
+    <div class="expressive-loader__message-container">
+      <div aria-hidden="true" class="expressive-loader__message expressive-loader__message--next">
+        Just a moment longer.
+      </div>
+      <div role="status" id="c3-message" class="expressive-loader__message expressive-loader__message--current">
+        We're finishing your order.
+      </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="c3-message" class="expressive-line-animation">
+      <div class="expressive-line-animation__standard">
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+          style="width: 14%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+          style="width: 19%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+          style="width: 37%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--red expressive-line-animation__line--animated"
+          style="width: 26%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--blue expressive-line-animation__line--animated"
+          style="width: 24%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--yellow expressive-line-animation__line--animated"
+          style="width: 34%;"></div>
+        <div
+          class="expressive-line-animation__line expressive-line-animation__line--green expressive-line-animation__line--animated"
+          style="width: 13%;"></div>
+        <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 15%;"></div>
+        <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 28%;"></div>
+      </div>
+    </div>
+  </div>
+  {% endhighlight %}
+
+
+  <h3 id="expressive-loader-reduced-motion-base">Base Expressive Loader with Reduced Motion</h3>
+  <p>
+    When the user prefers reduced motion, the lines still animate. Instead of growing from 0% to a random size,
+    they stay a fixed size and scroll slowly across the screen. No Javascript is needed to achieve this effect.
+  </p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+          <div class="expressive-line-animation__reduced-motion">
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+  <div class="expressive-loader">
+    <div role="progressbar" aria-label="Loading..." class="expressive-line-animation">
+      <div class="expressive-line-animation__reduced-motion">
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endhighlight %}
+
+  <h3 id="expressive-loader-reduced-motion-messages">Expressive Loader with Reduced Motion and Messages</h3>
+  <p>
+    Like the Standard Expressive Loader with a Single Message, there is only one message container in reduced motion mode.
+    There is no transition state between messages; with Javascript, simply change the content in the message container.
+  </p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <div class="expressive-loader">
+        <div class="expressive-loader__message-container">
+          <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+            We're finishing your order.
+          </div>
+        </div>
+        <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
+          <div class="expressive-line-animation__reduced-motion">
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+            </div>
+            <div class="expressive-line-animation__line-group">
+              <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+              <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% highlight html %}
+  <div class="expressive-loader">
+    <div class="expressive-loader__message-container">
+      <div role="status" id="c2-message" class="expressive-loader__message expressive-loader__message--current">
+        We're finishing your order.
+      </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
+      <div class="expressive-line-animation__reduced-motion">
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
+        </div>
+        <div class="expressive-line-animation__line-group">
+          <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
+          <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endhighlight %}
+
+</div>
