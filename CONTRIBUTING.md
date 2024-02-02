@@ -92,6 +92,28 @@ _Example_
 ./scripts/develop-module -m toast-dialog
 ```
 
+When adding a new module that implements an eBay Design System pattern or component, document its Design System relationship in the `ds_map` in [docs/index.html](https://github.com/eBay/skin/blob/master/docs/index.html):
+
+```yaml
+your-module-name: # the Skin module name
+    group: # if applicable, eBay Design System component group
+    name: # eBay Design System component name
+    version: # the version of the eBay Design System component implemented in Skin
+    status: # optional status, e.g. "beta", "deprecated", "in-progress"
+```
+
+If the Skin component is used for multiple Design System components, include those as an array. For example:
+
+```yaml
+lightbox-dialog:
+    - name: modal
+      version: 2.1
+    - name: bottom-sheet
+      version: 2.1
+```
+
+When updating a Skin module to match an updated Design System design, make sure to update its version in the `ds_map`.
+
 ## Versioning
 
 Skin follows [Semantic Versioning](http://semver.org):
