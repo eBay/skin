@@ -9,7 +9,7 @@ const getModuleDocContent = (
     moduleId,
 ) => `<!-- Auto generated code -->
 <div id="${moduleId}">
-    {% include section-header.html name="${moduleId}" version=page.ds_map.${moduleId}.version %}
+    {% include section-header.html name="${moduleId}" version=page.ds_map.${moduleId}.ds-version %}
 
     <p>This is generated documentation for ${moduleName}. Update it!</p>
 
@@ -110,10 +110,10 @@ class DocumentationGenerator extends BaseGenerator {
     _addDocsIndex() {
         const filePathFromRoot = path.join("docs", "index.html");
         const newIndentedLine = `\n        `;
-        const group = `${newIndentedLine}group: CHANGE-OR-REMOVE-THIS-LINE`;
-        const name = `${newIndentedLine}name: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-NAME`;
+        const group = `${newIndentedLine}ds-group: CHANGE-OR-REMOVE-THIS-LINE`;
+        const name = `${newIndentedLine}ds-name: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-NAME`;
+        const version = `${newIndentedLine}ds-version: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-VERSION`;
         const status = `${newIndentedLine}status: CHANGE-OR-REMOVE-THIS-LINE`;
-        const version = `${newIndentedLine}version: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-VERSION`;
         const newLineContent = `    ${this.moduleId}:${group}${name}${status}${version}`;
         writeLine({
             filePathFromRoot,

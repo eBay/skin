@@ -96,9 +96,9 @@ When adding a new module that implements an eBay Design System pattern or compon
 
 ```yaml
 your-module-name: # the Skin module name
-    group: # if applicable, eBay Design System component group
-    name: # eBay Design System component name
-    version: # the version of the eBay Design System component implemented in Skin
+    ds-group: # if applicable, eBay Design System component group
+    ds-name: # eBay Design System component name
+    ds-version: # the version of the eBay Design System component implemented in Skin
     status: # optional status, e.g. "beta", "deprecated", "in-progress"
 ```
 
@@ -106,10 +106,10 @@ If the Skin component is used for multiple Design System components, include tho
 
 ```yaml
 lightbox-dialog:
-    - name: modal
-      version: 2.1
-    - name: bottom-sheet
-      version: 2.1
+    - ds-name: modal
+      ds-version: 2.1
+    - ds-name: bottom-sheet
+      ds-version: 2.1
 ```
 
 When updating a Skin module to match an updated Design System design, make sure to update its version in the `ds_map`.
