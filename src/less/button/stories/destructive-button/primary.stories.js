@@ -28,7 +28,7 @@ export const disabledWithIcon = () => `
 export const busy = () => `
 <button class="btn btn--primary btn--destructive" aria-label="Busy">
     <span class="progress-spinner">
-        <svg aria-hidden="true" class="icon icon--spinner-24" focusable="false">
+        <svg aria-hidden="true" class="icon icon--spinner-24">
             <use href="#icon-spinner-24"></use>
         </svg>
     </span>

@@ -3,7 +3,7 @@ export default { title: "Skin/Section Notice/Icon 24" };
 export const body = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -16,7 +16,7 @@ export const body = () => `
 export const title = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -31,7 +31,7 @@ export const title = () => `
 export const linkCTA = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -49,7 +49,7 @@ export const linkCTA = () => `
 export const fakeLinkCTA = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -66,7 +66,7 @@ export const fakeLinkCTA = () => `
 export const dismiss = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -76,7 +76,7 @@ export const dismiss = () => `
     </div>
     <div class="section-notice__footer">
     <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-        <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
             <use href="#icon-close-16"></use>
         </svg>
     </button>
@@ -87,7 +87,7 @@ export const dismiss = () => `
 export const dismissAndLinkCTA = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -98,7 +98,7 @@ export const dismissAndLinkCTA = () => `
     <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -109,7 +109,7 @@ export const dismissAndLinkCTA = () => `
 export const dismissAndFakeLinkCTA = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -122,7 +122,7 @@ export const dismissAndFakeLinkCTA = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -133,7 +133,7 @@ export const dismissAndFakeLinkCTA = () => `
 export const education = () => `
 <div class="section-notice section-notice--education" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+        <svg aria-hidden="true" class="icon icon--lightbulb-24">
             <use href="#icon-lightbulb-24"></use>
         </svg>
     </div>
@@ -146,7 +146,7 @@ export const education = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -158,7 +158,7 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
-            <svg aria-hidden="true" focusable="false" class="icon icon--lightbulb-24">
+            <svg aria-hidden="true" class="icon icon--lightbulb-24">
                 <use href="#icon-lightbulb-24"></use>
             </svg>
         </div>
@@ -169,7 +169,7 @@ export const RTL = () => `
         <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
         <div class="section-notice__footer">
             <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -181,7 +181,7 @@ export const RTL = () => `
 export const vault = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--the-ebay-vault-24">
+        <svg aria-hidden="true" class="icon--the-ebay-vault-24">
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
     </div>
@@ -194,7 +194,7 @@ export const vault = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -205,7 +205,7 @@ export const vault = () => `
 export const selling = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--selling-24">
+        <svg aria-hidden="true" class="icon--selling-24">
             <use href="#icon-selling-24"></use>
         </svg>
     </div>
@@ -218,7 +218,7 @@ export const selling = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -229,7 +229,7 @@ export const selling = () => `
 export const warranty = () => `
 <div class="section-notice" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" focusable="false" class="icon--free-warranty-24">
+        <svg aria-hidden="true" class="icon--free-warranty-24">
             <use href="#icon-free-warranty-24"></use>
         </svg>
     </div>
@@ -242,7 +242,7 @@ export const warranty = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>

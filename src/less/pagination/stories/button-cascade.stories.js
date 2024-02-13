@@ -6,7 +6,7 @@ export const fontSize = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <button aria-disabled="true" aria-label="Previous Page" class="icon-btn pagination__previous">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </button>
@@ -34,7 +34,7 @@ export const fontSize = () => `
         </li>
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </button>
@@ -47,7 +47,7 @@ export const color = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <button aria-disabled="true" aria-label="Previous Page" class="icon-btn pagination__previous">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </button>
@@ -75,7 +75,7 @@ export const color = () => `
         </li>
     </ol>
     <button aria-label="Next Page" class="icon-btn pagination__next">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </button>
@@ -89,7 +89,7 @@ export const RTL = () => `
             <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
         </span>
         <button aria-disabled="true" aria-label="Previous Page" class="icon-btn pagination__previous">
-            <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
                 <use href="#icon-arrow-left-16"></use>
             </svg>
         </button>
@@ -117,7 +117,7 @@ export const RTL = () => `
             </li>
         </ol>
         <button aria-label="Next Page" class="icon-btn pagination__next">
-            <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+            <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
                 <use href="#icon-arrow-right-16"></use>
             </svg>
         </button>

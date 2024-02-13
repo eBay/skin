@@ -102,7 +102,7 @@ export const select = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -119,7 +119,7 @@ export const selectInline = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -136,7 +136,7 @@ export const selectInlineDoubled = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -150,7 +150,7 @@ export const selectInlineDoubled = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -169,7 +169,7 @@ export const RTLSelectInline = () => `
                 <option value="item2">Pick Option 2</option>
                 <option value="item3">Pick Option 3</option>
             </select>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>

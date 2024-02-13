@@ -3,7 +3,7 @@ export default { title: "Skin/Infotip" };
 export const collapsed = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
-        <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+        <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
             <use href="#icon-information-16"></use>
         </svg>
     </button>
@@ -16,7 +16,7 @@ export const collapsed = () => `
                     <p>Here's a tip to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                    <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                         <use href="#icon-close-16"></use>
                     </svg>
                 </button>
@@ -28,7 +28,7 @@ export const collapsed = () => `
 export const expanded = () => `
 <span class="infotip">
     <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
-        <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+        <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
             <use href="#icon-information-16"></use>
         </svg>
     </button>
@@ -41,7 +41,7 @@ export const expanded = () => `
                     <p>Here's a tip to help you be successful at your task.</p>
                 </span>
                 <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                    <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                    <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                         <use href="#icon-close-16"></use>
                     </svg>
                 </button>
@@ -55,7 +55,7 @@ export const paragraphCollapsed = () => `
     Inside paragraph
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="false" aria-label="Help">
-            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+            <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
                 <use href="#icon-information-16"></use>
             </svg>
         </button>
@@ -68,7 +68,7 @@ export const paragraphCollapsed = () => `
                         <span>Here's a tip to help you be successful at your task.</span>
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                        <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                             <use href="#icon-close-16"></use>
                         </svg>
                     </button>
@@ -83,7 +83,7 @@ export const paragraphExpanded = () => `
     Inside paragraph
     <span class="infotip">
         <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
-            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+            <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
                 <use href="#icon-information-16"></use>
             </svg>
         </button>
@@ -96,7 +96,7 @@ export const paragraphExpanded = () => `
                         <span>Here's a tip to help you be successful at your task.</span>
                     </span>
                     <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
-                        <svg class="icon icon--close-16" focusable="false" height="24" width="24" aria-hidden="true">
+                        <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                             <use href="#icon-close-16"></use>
                         </svg>
                     </button>
@@ -109,7 +109,7 @@ export const paragraphExpanded = () => `
 export const infotipModal = () => `
     <span class="infotip infotip--modal">
         <button class="icon-btn icon-btn--transparent dialog-button" type="button" data-makeup-for="lightbox-dialog-mini-infotip-0" aria-expanded="true" aria-label="Help">
-            <svg class="icon icon--information-16" focusable="false" width="16" height="16" aria-hidden="true">
+            <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
                 <use href="#icon-information-16"></use>
             </svg>
         </button>
@@ -120,7 +120,7 @@ export const infotipModal = () => `
             <div class="lightbox-dialog__header">
                 <h2>Info</h2>
                 <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
-                    <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                    <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                         <use href="#icon-close-16"></use>
                     </svg>
                 </button>
