@@ -1,33 +1,62 @@
-export default { title: "Skin/Expressive Loader/Reduced Motion" };
+export default { title: "Skin/Expressive Loader/With Reduced Motion" };
 
 export const base = () => `
 <div class="expressive-loader">
-    <div role="progressbar" aria-label="Loading..." aria-describedby="c1-message" class="expressive-line-animation">
-        <div class="expressive-line-animation__reduced-motion">
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
+    <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+    </div>
+</div>
+`;
+
+export const baseInInitialState = () => `
+<div class="expressive-loader">
+    <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
         </div>
     </div>
 </div>
@@ -36,74 +65,176 @@ export const base = () => `
 export const withMessages = () => `
 <div class="expressive-loader">
     <div class="expressive-loader__message-container">
-        <div role="status" id="c2-message" class="expressive-loader__message">
-            We're finishing your order.
+        <div role="status" id="unique-id" class="expressive-loader__message">
+            Hang tight.
         </div>
     </div>
-    <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
-        <div class="expressive-line-animation__reduced-motion">
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
         </div>
     </div>
 </div>
 `;
 
-export const mediumText = () => `
-<div class="expressive-loader expressive-loader--medium">
+export const withMessagesInInitialState = () => `
+<div class="expressive-loader">
     <div class="expressive-loader__message-container">
-        <div role="status" id="c2-message" class="expressive-loader__message">
-            We're finishing your order.
+        <div role="status" id="unique-id" class="expressive-loader__message expressive-loader__message--initial"></div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
         </div>
     </div>
-    <div role="progressbar" aria-label="Loading..." aria-describedby="c2-message" class="expressive-line-animation">
-        <div class="expressive-line-animation__reduced-motion">
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 15%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 35%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 25%"></div>
-            </div>
-            <div class="expressive-line-animation__line-group">
-                <div class="expressive-line-animation__line expressive-line-animation__line--green" style="width: 10%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--yellow" style="width: 30%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--blue" style="width: 25%"></div>
-                <div class="expressive-line-animation__line expressive-line-animation__line--red" style="width: 35%"></div>
-            </div>
+</div>
+`;
+
+export const withSingleMessage = () => `
+<div class="expressive-loader">
+    <div class="expressive-loader__message-container">
+        <div role="status" id="unique-id" class="expressive-loader__message">
+            Hang tight.
+        </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+    </div>
+</div>
+`;
+
+export const withMediumText = () => `
+<div class="expressive-loader expressive-loader--medium">
+    <div class="expressive-loader__message-container">
+        <div role="status" id="unique-id" class="expressive-loader__message">
+            Hang tight.
+        </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+    </div>
+</div>
+`;
+
+export const withLongMessages = () => `
+<div class="expressive-loader">
+    <div class="expressive-loader__message-container">
+        <div role="status" id="unique-id" class="expressive-loader__message">
+            Messages should be one line, but sometimes that's hard to achieve.
+        </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="expressive-loader__progress">
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 15%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 35%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
+        </div>
+        <div class="expressive-loader__lines">
+            <div class="expressive-loader__line expressive-loader__line-4" style="width: 10%"></div>
+            <div class="expressive-loader__line expressive-loader__line-3" style="width: 30%"></div>
+            <div class="expressive-loader__line expressive-loader__line-2" style="width: 25%"></div>
+            <div class="expressive-loader__line expressive-loader__line-1" style="width: 35%"></div>
         </div>
     </div>
 </div>
