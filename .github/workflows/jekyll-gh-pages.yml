@@ -9,12 +9,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: "${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}"
   cancel-in-progress: true
@@ -43,6 +37,11 @@ jobs:
 
   # Deployment job
   deploy:
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -66,13 +65,21 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Setup rubby
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: '3.1'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install ruby dependencies
+        run: bundle install
       - name: Release
         id: changesets
         uses: changesets/action@v1
         with:
           version: npm run version
           publish: npm run release
-          commit: "ci:release"
+          commit: "ci: release"
           title: "ci: release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
