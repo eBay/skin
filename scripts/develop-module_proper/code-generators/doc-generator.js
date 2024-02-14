@@ -9,7 +9,7 @@ const getModuleDocContent = (
     moduleId,
 ) => `<!-- Auto generated code -->
 <div id="${moduleId}">
-    {% include section-header.html name="${moduleId}" version=page.ds_map.${moduleId}.ds-version %}
+    {% include section-header.html name="${moduleId}" version=page.module_metadata.${moduleId}.ds-component.version %}
 
     <p>This is generated documentation for ${moduleName}. Update it!</p>
 
@@ -33,6 +33,14 @@ const getMainContent = (moduleId) => `
 {% include ${moduleId}.html %}
 <img class="skin-graphic" src="{{ page.static_dir }}/skin-graphic.png" alt="" />
 `;
+
+const getMetadataContent = (moduleId) => `  ${moduleId}:
+    ds-component: # module's relationship with the eBay Design System
+      group: # eBay Design System component group
+      name: # eBay Design System component name
+      version: # version of the eBay Design System component implemented in Skin
+    status: # status, e.g. "beta", "deprecated", "in-progress"
+    submodules: # array of Skin modules used in this module`;
 
 /**
  * Code generation for docs
@@ -109,19 +117,14 @@ class DocumentationGenerator extends BaseGenerator {
 
     _addDocsIndex() {
         const filePathFromRoot = path.join("docs", "index.html");
-        const newIndentedLine = `\n        `;
-        const group = `${newIndentedLine}ds-group: CHANGE-OR-REMOVE-THIS-LINE`;
-        const name = `${newIndentedLine}ds-name: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-NAME`;
-        const version = `${newIndentedLine}ds-version: CHANGE-THIS-TO-DESIGN-SYSTEM-COMPONENT-VERSION`;
-        const status = `${newIndentedLine}status: CHANGE-OR-REMOVE-THIS-LINE`;
-        const newLineContent = `    ${this.moduleId}:${group}${name}${status}${version}`;
+        const newMetadataContent = getMetadataContent(this.moduleId);
         writeLine({
             filePathFromRoot,
-            sectionPredicate: (line) => line.match(/ds_map\s*:/),
-            newLineContent,
+            sectionPredicate: (line) => line.match(/module_metadata\s*:/),
+            newLineContent: newMetadataContent,
             duplicateCheckText: `\s*\t*${this.moduleId}:\s*\t*.+`,
             getLineMeta: (_prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent,
+                shouldAppend: !nextLine || currentLine > newMetadataContent,
             }),
         });
     }
