@@ -5,7 +5,7 @@ export const links = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -35,7 +35,7 @@ export const linksSelected = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -44,7 +44,7 @@ export const linksSelected = () => `
         <li>
         <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
             <span>Link 1</span>
-            <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
             </svg>
         </a>
@@ -68,7 +68,7 @@ export const linksDisabled = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -77,7 +77,7 @@ export const linksDisabled = () => `
         <li>
         <a aria-current="page" class="fake-menu-button__item">
             <span>Link 1</span>
-            <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
             </svg>
         </a>
@@ -101,7 +101,7 @@ export const linksFixedWidth = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>

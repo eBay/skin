@@ -3,7 +3,7 @@ export default { title: "Skin/Inline Notice" };
 export const confirmation = () => `
 <div class="inline-notice inline-notice--confirmation">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--confirmation-filled-16" role="img">
+        <svg class="icon icon--confirmation-filled-16" role="img">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </span>
@@ -17,7 +17,7 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="inline-notice inline-notice--confirmation">
         <span class="inline-notice__header">
-            <svg focusable="false" class="icon icon--confirmation-filled-16" role="img">
+            <svg class="icon icon--confirmation-filled-16" role="img">
                 <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </span>
@@ -31,7 +31,7 @@ export const RTL = () => `
 export const attention = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled-16" role="img">
+        <svg class="icon icon--attention-filled-16" role="img">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -44,7 +44,7 @@ export const attention = () => `
 export const information = () => `
 <div class="inline-notice inline-notice--information">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--information-filled-16" role="img">
+        <svg class="icon icon--information-filled-16" role="img">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </span>
@@ -65,7 +65,7 @@ export const general = () => `
 export const paragraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled-16" role="img">
+        <svg class="icon icon--attention-filled-16" role="img">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -79,7 +79,7 @@ export const paragraphAndLink = () => `
 export const longParagraph = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled-16" role="img">
+        <svg class="icon icon--attention-filled-16" role="img">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -92,7 +92,7 @@ export const longParagraph = () => `
 export const longParagraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header" role="img">
-        <svg focusable="false" class="icon icon--attention-filled-16">
+        <svg class="icon icon--attention-filled-16">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -106,7 +106,7 @@ export const longParagraphAndLink = () => `
 export const multiParagraph = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled-16" role="img">
+        <svg class="icon icon--attention-filled-16" role="img">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -120,7 +120,7 @@ export const multiParagraph = () => `
 export const multiParagraphAndLink = () => `
 <div class="inline-notice inline-notice--attention">
     <span class="inline-notice__header">
-        <svg focusable="false" class="icon icon--attention-filled-16" role="img">
+        <svg class="icon icon--attention-filled-16" role="img">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </span>
@@ -136,7 +136,7 @@ export const longWordInConstrainedWidth = () => `
 <div style="width:300px;">
     <div class="inline-notice inline-notice--confirmation">
         <span class="inline-notice__header">
-            <svg focusable="false" class="icon icon--confirmation-filled-16" role="img">
+            <svg class="icon icon--confirmation-filled-16" role="img">
                 <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </span>

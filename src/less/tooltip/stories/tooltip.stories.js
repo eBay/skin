@@ -3,7 +3,7 @@ export default { title: "Skin/Tooltip" };
 export const collapsed = () => `
 <span class="tooltip">
     <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="false" aria-label="Settings">
-        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -22,7 +22,7 @@ export const collapsed = () => `
 export const expanded = () => `
 <span class="tooltip">
     <button accesskey="s" class="icon-btn tooltip__host" aria-describedby="tooltip-0" aria-expanded="true" aria-label="Settings">
-        <svg class="icon icon--settings-24" focusable="false" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>

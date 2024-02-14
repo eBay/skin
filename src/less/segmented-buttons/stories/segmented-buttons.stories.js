@@ -36,7 +36,7 @@ export const withIcons = () => `
             <li>
                 <button type="button" aria-current="true" class="segmented-buttons__button">
                 <span class="segmented-buttons__button-cell">
-                        <svg aria-hidden="true" class="icon icon--full-view-24" focusable="false" height="16" width="16">
+                        <svg aria-hidden="true" class="icon icon--full-view-24" height="16" width="16">
                             <use href="#icon-full-view-24"></use>
                         </svg>
                         <span>Desktop</span>
@@ -46,7 +46,7 @@ export const withIcons = () => `
             <li>
                 <button type="button" class="segmented-buttons__button">
                     <span class="segmented-buttons__button-cell">
-                        <svg aria-hidden="true" class="icon icon--mobile-24" focusable="false" height="16" width="16">
+                        <svg aria-hidden="true" class="icon icon--mobile-24" height="16" width="16">
                             <use href="#icon-mobile-24"></use>
                         </svg>
                         <span>Mobile</span>

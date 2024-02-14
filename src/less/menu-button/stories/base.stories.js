@@ -5,7 +5,7 @@ export const collapsed = () => `
     <button class="btn btn--secondary" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -31,7 +31,7 @@ export const disabled = () => `
     <button class="btn btn--secondary" aria-haspopup="true" type="button" disabled>
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -57,7 +57,7 @@ export const expanded = () => `
     <button class="btn btn--secondary" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -83,7 +83,7 @@ export const collapsedForm = () => `
     <button class="btn btn--form" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -109,7 +109,7 @@ export const expandedForm = () => `
     <button class="btn btn--form" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -135,7 +135,7 @@ export const badged = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -161,7 +161,7 @@ export const expandedDisabledItem = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -187,7 +187,7 @@ export const radioItems = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -196,19 +196,19 @@ export const radioItems = () => `
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" tabindex="0" aria-checked="true">
                 <span>Item 10000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio">
                 <span>Item 20000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio">
                 <span>Item 30000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -222,7 +222,7 @@ export const radioItemsDisabledItem = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -231,19 +231,19 @@ export const radioItemsDisabledItem = () => `
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" aria-checked="true" aria-disabled="true">
                 <span>Item 10000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio" tabindex="0">
                 <span>Item 20000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemradio">
                 <span>Item 30000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -257,7 +257,7 @@ export const checkboxItems = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -266,19 +266,19 @@ export const checkboxItems = () => `
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="true">
                 <span>Item 10000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox">
                 <span>Item 20000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
                 <span>Item 30000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -292,7 +292,7 @@ export const checkboxItemsDisabledItem = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -301,19 +301,19 @@ export const checkboxItemsDisabledItem = () => `
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true" aria-disabled="true">
                 <span>Item 10000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox" tabindex="0">
                 <span>Item 20000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true">
                 <span>Item 30000</span>
-                <svg class="icon icon--tick-16" focusable="false" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -327,7 +327,7 @@ export const longOptionText = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -353,7 +353,7 @@ export const menuIcons = () => `
     <button class="btn" aria-expanded="true" aria-haspopup="true" type="button">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -361,7 +361,7 @@ export const menuIcons = () => `
     <div class="menu-button__menu">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
-                <svg class="icon icon--settings-24" focusable="false" aria-label="Settings" role="icon">
+                <svg class="icon icon--settings-24" aria-label="Settings" role="icon">
                     <use href="#icon-settings-24"></use>
                 </svg>
                 <span style="margin: auto 5px;">
@@ -369,7 +369,7 @@ export const menuIcons = () => `
                 </span>
             </div>
             <div class="menu-button__item" role="menuitem">
-                <svg class="icon icon--calendar-24" focusable="false" aria-label="Calendar" role="icon">
+                <svg class="icon icon--calendar-24" aria-label="Calendar" role="icon">
                     <use href="#icon-calendar-24"></use>
                 </svg>
                 <span style="margin: auto 5px;">
@@ -377,7 +377,7 @@ export const menuIcons = () => `
                 </span>
             </div>
             <div class="menu-button__item" role="menuitem">
-                <svg class="icon icon--profile-24" focusable="false" aria-label="Profile" role="icon">
+                <svg class="icon icon--profile-24" aria-label="Profile" role="icon">
                     <use href="#icon-profile-24"></use>
                 </svg>
                 <span style="margin: auto 5px;">
@@ -394,7 +394,7 @@ export const separator = () => `
     <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
         <span class="btn__cell">
             <span class="btn__text">Button</span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
