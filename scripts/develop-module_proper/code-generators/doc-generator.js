@@ -4,14 +4,12 @@ const log = require("../../log");
 const writeLine = require("../util/line-writer");
 const BaseGenerator = require("./base-generator");
 
-const DS_VERSION = "DS6.5.v1.01";
-
 const getModuleDocContent = (
     moduleName,
-    moduleId
+    moduleId,
 ) => `<!-- Auto generated code -->
 <div id="${moduleId}">
-    {% include section-header.html name="${moduleId}" version=page.versions.${moduleId} %}
+    {% include section-header.html name="${moduleId}" version=page.module_metadata.${moduleId}.ds-component.version %}
 
     <p>This is generated documentation for ${moduleName}. Update it!</p>
 
@@ -36,6 +34,14 @@ const getMainContent = (moduleId) => `
 <img class="skin-graphic" src="{{ page.static_dir }}/skin-graphic.png" alt="" />
 `;
 
+const getMetadataContent = (moduleId) => `  ${moduleId}:
+    ds-component: # module's relationship with the eBay Design System
+      group: # eBay Design System component group
+      name: # eBay Design System component name
+      version: # version of the eBay Design System component implemented in Skin
+    status: # status, e.g. "beta", "deprecated", "in-progress"
+    submodules: # array of Skin modules used in this module`;
+
 /**
  * Code generation for docs
  */
@@ -59,14 +65,14 @@ class DocumentationGenerator extends BaseGenerator {
 
         log.info(
             "Docs added! Make changes in %s file.",
-            path.join(this.moduleDocFilePath)
+            path.join(this.moduleDocFilePath),
         );
     }
 
     _addDocsModuleDoc() {
         const moduleDocFilePath = path.join(
             this.docsCommonFolder,
-            `${this.moduleId}.html`
+            `${this.moduleId}.html`,
         );
         if (fs.existsSync(moduleDocFilePath)) {
             log.warn("[DOC][%s] Module doc already exists!", moduleDocFilePath);
@@ -74,7 +80,7 @@ class DocumentationGenerator extends BaseGenerator {
         }
         fs.writeFileSync(
             moduleDocFilePath,
-            getModuleDocContent(this.moduleName, this.moduleId)
+            getModuleDocContent(this.moduleName, this.moduleId),
         );
 
         this.moduleDocFilePath = moduleDocFilePath;
@@ -84,7 +90,7 @@ class DocumentationGenerator extends BaseGenerator {
         const filePathFromRoot = path.join(
             "docs",
             "_includes",
-            "module-list.html"
+            "module-list.html",
         );
         const newLineContent = `<li><a href="#${this.moduleId}">${this.moduleName}</a></li>`;
         writeLine({
@@ -111,14 +117,14 @@ class DocumentationGenerator extends BaseGenerator {
 
     _addDocsIndex() {
         const filePathFromRoot = path.join("docs", "index.html");
-        const newLineContent = `    ${this.moduleId}: ${DS_VERSION}`;
+        const newMetadataContent = getMetadataContent(this.moduleId);
         writeLine({
             filePathFromRoot,
-            sectionPredicate: (line) => line.match(/versions\s*:/),
-            newLineContent,
+            sectionPredicate: (line) => line.match(/module_metadata\s*:/),
+            newLineContent: newMetadataContent,
             duplicateCheckText: `\s*\t*${this.moduleId}:\s*\t*.+`,
-            getLineMeta: (prevLine, currentLine, nextLine) => ({
-                shouldAppend: !nextLine || currentLine > newLineContent,
+            getLineMeta: (_prevLine, currentLine, nextLine) => ({
+                shouldAppend: !nextLine || currentLine > newMetadataContent,
             }),
         });
     }
