@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "17.1.0",
+    "version": "17.1.1",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -45,7 +45,8 @@
         "copy:tokensToDocs": "ncp src/tokens docs/static",
         "copy:tokensToDist": "ncp src/tokens dist/tokens",
         "verify": "node scripts verify",
-        "version": "node scripts/jekyll-config && npm run build:storybook && npm run build && git add -A dist docs",
+        "version": "node scripts/jekyll-config && npm run build:storybook && npm run build && git add -A dist docs && changeset version",
+        "release": "npm run build && changeset publish",
         "transpile": "babel docs/src/js --out-dir docs/_babel",
         "build:snapshots": "npm run copy:assetsToStorybook && storybook build -o ./.storybook-percy",
         "snapshots": "npm run build:snapshots && npx gulp runSnapshots --stories $STORIES",
@@ -54,12 +55,15 @@
         "snapshots:execute:dry": "percy storybook ./.storybook-percy --dry-run --include",
         "snapshots:all": "npm run build:snapshots && percy storybook ./.storybook-percy --include '.*'",
         "snapshots:all:dry": "npm run build:snapshots && percy storybook --dry-run ./.storybook-percy --include '.*'",
-        "storybook": "npm run copy:assetsToStorybook && storybook dev -c .storybook"
+        "storybook": "npm run copy:assetsToStorybook && storybook dev -c .storybook",
+        "change": "changeset add"
     },
     "devDependencies": {
         "@babel/cli": "^7.23.4",
         "@babel/core": "^7.23.3",
         "@babel/preset-env": "^7.23.3",
+        "@changesets/changelog-github": "^0.5.0",
+        "@changesets/cli": "^2.27.1",
         "@commitlint/cli": "^18.4.3",
         "@commitlint/config-conventional": "^18.4.3",
         "@ebay/browserslist-config": "^2.6.0",
