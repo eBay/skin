@@ -56,7 +56,10 @@
         "snapshots:all": "npm run build:snapshots && percy storybook ./.storybook-percy --include '.*'",
         "snapshots:all:dry": "npm run build:snapshots && percy storybook --dry-run ./.storybook-percy --include '.*'",
         "storybook": "npm run copy:assetsToStorybook && storybook dev -c .storybook",
-        "change": "changeset add"
+        "change": "changeset add",
+        "prerelease:start": "changeset pre enter next",
+        "prerelease:end": "changeset pre exit",
+        "release:manual": "npm run version && git commit -am '`npm pkg get version | tr -d \"`'"
     },
     "devDependencies": {
         "@babel/cli": "^7.23.4",
