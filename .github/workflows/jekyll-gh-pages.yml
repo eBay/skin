@@ -9,6 +9,20 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  discussions: write
+  issues: write
+  packages: write
+  id-token: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+
 concurrency:
   group: "${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}"
   cancel-in-progress: true
