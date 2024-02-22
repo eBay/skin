@@ -7,26 +7,43 @@
     indicate progression across refreshing, page loading and user actions. It consists of an animated progress bar in various colors and an optional set of messages that are cycled into view.
   </p>
   <p>
-    The expressive loader uses Javascript to cycle through messages and dynamically add new progress bar pieces
-    with random widths. It also renders different experiences depending on the <code>prefers-reduced-motion</code> media query. The following code examples represent snapshots of the expressive loader at any given time. You may want to toggle your reduced motion settings to view all the examples.
+    The expressive loader also renders different experiences depending on the <span class="highlight">prefers-reduced-motion</span> media query. Toggle your reduced motion settings to view examples with the default behavior and reduced motion behavior.
   </p>
 
   <h3 id="expressive-loader-base-no-reduced-motion">
-    Base Expressive Loader without Reduced Motion
+    Base Expressive Loader
   </h3>
 
-  <h4>Initial state</h4>
-  <p>When <code>@media (prefers-reduced-motion: no-preference)</code>, e.g. the user doesn't prefer reduced motion, the progress bar starts out with a four lines already at their full width.</p>
+  <p>
+    The base expressive loader consists of a progressbar with 12 lines of varying widths. Each line has a width of 10% - 40% of its container, with each set of four lines adding up to 100% width. You can use Javascript to randomly generate the line widths, though it's not required.
+  </p>
+
+  <p>In the default behavior, lines scale up from 0% to their defined width and move horizontally across the screen.</p>
+
+  <p>
+    When <span class="highlight">@media (prefers-reduced-motion: reduce)</span>, e.g. the user prefers reduced motion, the lines still
+    animate. However, instead of growing from 0% to their defined width, they stay a fixed size and scroll more slowly across the screen.
+  </p>
 
   <div class="demo">
     <div class="demo__inner">
       <div class="expressive-loader">
         <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
           <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 16%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 29%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 18%;"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+          
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+          
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
           </div>
         </div>
       </div>
@@ -37,174 +54,36 @@
     <div class="expressive-loader">
       <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
         <div class="expressive-loader__lines">
-          <div class="expressive-loader__line expressive-loader__line-1" style="width: 16%;"></div>
-          <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%;"></div>
-          <div class="expressive-loader__line expressive-loader__line-3" style="width: 29%;"></div>
-          <div class="expressive-loader__line expressive-loader__line-4" style="width: 18%;"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
         </div>
       </div>
     </div>
   {% endhighlight %}
 
-  <h4>Progress bar animation</h4>
-  <p>
-    Use Javascript to add lines that scale up from 0% to 10 - 40% of the width of the container. When a line is finished scaling in, add a new line.
-  <ol>
-    <li>
-      Create a new element with these classes:
-      <ul>
-        <li><code>expressive-loader__line</code>, base class for lines</li>
-        <li><code>expressive-loader__line-${colorIndex}</code>, where <code>${colorIndex}</code> is a number 1
-        <li><code>expressive-loader__line--scaling</code>, which will scale the line's width up</li>
-        through 4. This sets the line's color.</li>
-      </ul>
-    </li>
-    <li>
-      Randomly assign the element a width between 10% and 40%.
-    </li>
-    <li>
-      Add an event listener for the element's <code>animationend</code>, which triggers the creation of another line and
-      removal of the oldest line.
-    </li>
-    <li>Prepend the line to the <code>.expressive-loader__lines` container.</code></li>
-  </ol>
-  </p>
-
-  <div class="demo">
-    <div class="demo__inner">
-      <div class="expressive-loader">
-        <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 35%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 30%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 19%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 22%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 24%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 28%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 29%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 37%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 35%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  {% highlight html %}
-  <div class="expressive-loader">
-    <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 35%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 30%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 19%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 22%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 24%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 28%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 29%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 37%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 35%;"></div>
-      </div>
-    </div>
-  </div>
-  {% endhighlight %}
-
-  <h3 id="expressive-loader-base-reduced-motion">Base Expressive Loader with Reduced Motion</h3>
-  <p>
-    When <code>@media (prefers-reduced-motion: reduce)</code>, e.g. the user prefers reduced motion, the lines still animate. Instead of growing from 0% to a random size,
-    they stay a fixed size and scroll slowly across the screen. The initial markup is similar to the non-reduced motion implementation, but includes 4 sets of lines instead of one.
-    The first two sets contain lines of varying widths, and the last two sets duplicate the first ones to achieve a smooth marquee effect. No Javascript is needed to animate the reduced motion expressive loader.
-  </p>
-  
-  <div class="demo">
-    <div class="demo__inner">
-      <div class="expressive-loader">
-        <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  {% highlight html %}
-  <div class="expressive-loader">
-    <div role="progressbar" aria-label="Loading..." class="expressive-loader__progress">
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-      </div>
-    </div>
-  </div>
-  {% endhighlight %}
 
   <h3 id="expressive-loader-messages-no-reduced-motion">
-    Expressive Loader with Messages and without Reduced Motion
+    Expressive Loader with Messages
   </h3>
-
-  <h4>Initial state</h4>
   <p>
-    Message content isn't initially visible, but is queued up in the DOM so that it can fade in.
+    The expressive loader uses Javascript to cycle through messages, so the following code examples represent snapshots of
+    the expressive loader at any given time.
+  </p>
+
+  <p>
+    In its initial state, message content isn't visible. In the default behavior, the message is queued up in the DOM so that it can animate in.
   </p>
 
   <div class="demo">
@@ -216,10 +95,20 @@
         </div>
         <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-1" class="expressive-loader__progress">
           <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 13%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 33%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 18%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 26%;"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
           </div>
         </div>
       </div>
@@ -234,46 +123,63 @@
     </div>
     <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-1" class="expressive-loader__progress">
       <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 13%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 33%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 18%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 26%;"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
       </div>
     </div>
   </div>
   {% endhighlight %}
 
   <h4>
-    Message animation
-  </h3>
+    Multiple messages (default behavior)
+  </h4>
   <p>
-    If there are multiple messages to display, cycle them in and out of view using Javascript.
-    To cycle a message into view:
+    If there are multiple messages to display, cycle them in and out of view using Javascript. 
+    To cycle a message into view in the default mode:
     <ol>
       <li>Animate in the message:
         <ol>
-          <li>Put the message content in the aria-hidden element with class <code>expressive-loader__message</code>. This element is used just for the visual message animation; it is not read to screen readers.</li>
-          <li>Add the <code>expressive-loader__message--in</code> class to animate that message into view.</li>
+          <li>Put the message content in the aria-hidden element with class <span class="highlight">expressive-loader__message</span>. This element is used just for the visual message animation; it is not read to screen readers.</li>
+          <li>Add the <span class="highlight">expressive-loader__message--in</span> class to animate that message into view.</li>
         </ol>
       </li>
       <li>
         After the message animates in:
         <ol>
           <li>
-            Put the message content in the status element with class <code>expressive-loader__message</code>. This will read the message aloud to screen reader users.
+            Put the message content in the status element with class <span class="highlight">expressive-loader__message</span>. This will read the message aloud to screen reader users.
           </li>
           <li>
-            Remove the <code>expressive-loader__message--in</code> class from the aria-hidden element.
+            Remove the <span class="highlight">expressive-loader__message--in</span> class from the aria-hidden element.
           </li>
         </ol>
       </li>
       <li>
-        After a fixed amount of time, add the <code>expressive_loader__message--out</code> class
+        After a fixed amount of time, add the <span class="highlight">expressive_loader__message--out</span> class
         to the current message to animate it out of view. This can happen concurrently with the next message animating in.
       </li>
     </ol>
   </p>
 
+  <h4>
+    Multiple messages (reduced motion behavior)
+  </h4>
+  <p>
+    When <span class="highlight">@media (prefers-reduced-motion: reduce)</span>, there is no transition state between messages, so the aria-hidden message is not needed.
+    To fade in the first message, add the <span class="highlight">expressive-loader__message--initial</span> class to the status element. For all subsequent messages, remove the <span class="highlight">expressive-loader__message--initial</span> class and simply update the content in the status element.
+  </p>
   <div class="demo">
     <div class="demo__inner">
       <div class="expressive-loader">
@@ -287,25 +193,21 @@
         </div>
         <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-2" class="expressive-loader__progress">
           <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 22%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 34%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 13%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 33%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 31%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 21%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 26%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 17%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 19%;"></div>
-          </div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -323,33 +225,30 @@
     </div>
     <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-2" class="expressive-loader__progress">
       <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 22%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 34%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 13%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 33%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 31%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 21%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 26%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 17%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 19%;"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
       </div>
     </div>
   </div>
   {% endhighlight %}
 
 
+  <h4>Single message</h4>
   <p>
     If there is only one message, the aria-hidden element is not needed. Add the
-    <code>expressive-loader__message--in</code> class to the status element to animate it in.
+    <span class="highlight">expressive-loader__message--in</span> class to the status element to animate it in.
   </p>
 
   <div class="demo">
@@ -362,24 +261,20 @@
         </div>
         <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3" class="expressive-loader__progress">
           <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 22%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 34%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 13%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 33%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 31%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 21%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 26%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 17%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 19%;"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
           </div>
         </div>
       </div>
@@ -395,106 +290,20 @@
     </div>
     <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3" class="expressive-loader__progress">
       <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 22%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 34%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 13%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 33%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 31%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 21%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 26%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 17%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 19%;"></div>
-      </div>
-    </div>
-  </div>
-  {% endhighlight %}
-
-  <h3 id="expressive-loader-messages-reduced-motion">
-    Expressive Loader with Messages and Reduced Motion
-  </h3>
-  <p>
-    When the user prefers reduced motion, there is no transition state between messages, so the aria-hidden message is not needed.
-    With Javascript, simply change the content in status element.
-  </p>
-
-  <div class="demo">
-    <div class="demo__inner">
-      <div class="expressive-loader">
-        <div class="expressive-loader__message-container">
-          <div role="status" id="expressive-loader-message-4" class="expressive-loader__message">
-            We're processing your order.
-          </div>
-        </div>
-        <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-4" class="expressive-loader__progress">
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-          </div>
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-            <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-            <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-            <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    
-  {% highlight html %}
-  <div class="expressive-loader">
-    <div class="expressive-loader__message-container">
-      <div role="status" id="expressive-loader-message-4" class="expressive-loader__message">
-        We're processing your order.
-      </div>
-    </div>
-    <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-4" class="expressive-loader__progress">
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 15%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 35%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 25%"></div>
-      </div>
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-1" style="width: 10%"></div>
-        <div class="expressive-loader__line expressive-loader__line-2" style="width: 30%"></div>
-        <div class="expressive-loader__line expressive-loader__line-3" style="width: 25%"></div>
-        <div class="expressive-loader__line expressive-loader__line-4" style="width: 35%"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
+        <div class="expressive-loader__line"></div>
       </div>
     </div>
   </div>
@@ -505,7 +314,7 @@
   </h3>
   <p>
     By default, the expressive loader displays with large text. For smaller text, apply
-    the <code>expressive-loader--medium</code> class to the container.
+    the <span class="highlight">expressive-loader--medium</span> class to the container.
   </p>
   
   <div class="demo">
@@ -521,24 +330,20 @@
         </div>
         <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-5" class="expressive-loader__progress">
           <div class="expressive-loader__lines">
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 22%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 34%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 13%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 33%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 31%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-              style="width: 21%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-              style="width: 26%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-              style="width: 17%;"></div>
-            <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-              style="width: 19%;"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
+            <div class="expressive-loader__line"></div>
           </div>
         </div>
       </div>
@@ -557,24 +362,20 @@
     </div>
     <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-5" class="expressive-loader__progress">
       <div class="expressive-loader__lines">
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 22%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 34%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 13%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 33%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 31%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-4 expressive-loader__line--scaling"
-          style="width: 21%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-1 expressive-loader__line--scaling"
-          style="width: 26%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-2 expressive-loader__line--scaling"
-          style="width: 17%;"></div>
-        <div class="expressive-loader__line expressive-loader__line-3 expressive-loader__line--scaling"
-          style="width: 19%;"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
+          <div class="expressive-loader__line"></div>
       </div>
     </div>
   </div>
