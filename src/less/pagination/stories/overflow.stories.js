@@ -16,8 +16,8 @@ export const start = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -61,8 +61,8 @@ export const middle = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -77,8 +77,8 @@ export const middle = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -122,8 +122,8 @@ export const end = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -169,8 +169,8 @@ export const endMenuCollapsed = () => `
             <span class="pagination__item">
                 <span class="fake-menu-button">
                     <button class="icon-btn icon-btn--transparent fake-menu-button__button" type="button" aria-label="Menu">
-                        <svg class="icon icon--overflow" width="8" height="8" aria-hidden="true">
-                            <use href="#icon-overflow"></use>
+                        <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                            <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
                     <ul class="fake-menu-button__menu">
@@ -240,8 +240,8 @@ export const endMenuExpanded = () => `
             <span class="pagination__item">
                 <span class="fake-menu-button">
                     <button class="icon-btn icon-btn--transparent fake-menu-button__button" type="button" aria-expanded="true" aria-label="Menu">
-                        <svg class="icon icon--overflow" width="8" height="8" aria-hidden="true">
-                            <use href="#icon-overflow"></use>
+                        <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                            <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
                     <ul class="fake-menu-button__menu">
