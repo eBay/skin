@@ -1,5 +1,25 @@
 # Skin Changelog
 
+## 17.2.0
+
+### Minor Changes
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - icon updates
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - ebay-signal has incorrect type size and internal padding
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - Venmo icon: Missing borders
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - flyout: update styling
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - component status alignment
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - Docs: remove focusable attribute from examples and stories
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - ebay-button: reduce width of stroke for priority=tertiary
+
+-   [#2260](https://github.com/eBay/skin/pull/2260) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - feat: automatically publish skin
+
 ## 17.2.0-next.0
 
 ### Minor Changes
