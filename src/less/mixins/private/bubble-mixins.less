@@ -1,15 +1,19 @@
 // this mixin is used by infotip, tooltip, tourtip, date-textbox
 
 :root {
-    --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15))
-        drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
+    // Do NOT use filter: drop-shadow() as Safari cannot do
+    //   drop-shadows outside an element with overflow.
+    //   Since box-shadow more widely supports various use cases,
+    //   it's a more robust solution.
+    --bubble-shadow: 0 2px 7px rgba(0, 0, 0, 0.15),
+        0 5px 17px rgba(0, 0, 0, 0.2);
 }
 
 .bubble(@border-radius-value: border-radius-50) {
     .border-radius-token(bubble-border-radius, @border-radius-value);
 
+    box-shadow: var(--bubble-shadow);
     display: none;
-    filter: var(--bubble-filter);
     font-size: 14px;
     left: 0;
     max-width: 344px;
