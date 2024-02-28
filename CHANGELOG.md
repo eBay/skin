@@ -1,5 +1,25 @@
 # Skin Changelog
 
+## 17.2.0
+
+### Minor Changes
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - icon updates
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - ebay-signal has incorrect type size and internal padding
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - Venmo icon: Missing borders
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - flyout: update styling
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - component status alignment
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - Docs: remove focusable attribute from examples and stories
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - ebay-button: reduce width of stroke for priority=tertiary
+
+-   [#2278](https://github.com/eBay/skin/pull/2278) [`c4af2b9`](https://github.com/eBay/skin/commit/c4af2b9552dd35986bbf9c24036b0b6c67581aa5) Thanks [@agliga](https://github.com/agliga)! - feat: automatically publish skin
+
 ## 17.2.0-next.0
 
 ### Minor Changes
