@@ -51,7 +51,7 @@ export const dismiss = () => `
     </div>
     <div class="section-notice__footer">
     <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-        <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
             <use href="#icon-close-16"></use>
         </svg>
     </button>
@@ -68,7 +68,7 @@ export const dismissAndLinkCTA = () => `
     <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -87,7 +87,7 @@ export const dismissAndFakeLinkCTA = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -106,7 +106,7 @@ export const RTL = () => `
         <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
         <div class="section-notice__footer">
             <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-                <svg aria-hidden="true" class="icon icon--close-16" focusable="false" height="16" width="16">
+                <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>

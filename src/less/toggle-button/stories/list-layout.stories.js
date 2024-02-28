@@ -32,7 +32,7 @@ export const titleMultilineSubtitle = () => `
 export const iconTitleSubtitle = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false">
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--on-the-way-16" height="16" width="16">
             <use href="#icon-on-the-way-16"></use>
         </svg>
     </span>
@@ -116,7 +116,7 @@ export const disabledImage = () => `
 export const disabledIcon = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false" disabled>
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--on-the-way-16" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--on-the-way-16" height="16" width="16">
             <use href="#icon-on-the-way-16"></use>
         </svg>
     </span>
@@ -130,7 +130,7 @@ export const disabledIcon = () => `
 export const disabledIconColored = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false" disabled>
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--mastercard-32-colored" focusable="false" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--mastercard-32-colored" height="16" width="16">
             <use href="#icon-mastercard-32-colored"></use>
         </svg>
     </span>

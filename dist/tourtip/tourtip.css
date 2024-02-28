@@ -1,5 +1,6 @@
 :root {
-  --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15)) drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
+  --bubble-shadow: 0 2px 7px rgba(0, 0, 0, 0.15),
+        0 5px 17px rgba(0, 0, 0, 0.2);
 }
 .tourtip {
   position: relative;
@@ -9,8 +10,8 @@ span.tourtip {
 }
 .tourtip__overlay {
   border-radius: var(--bubble-border-radius, var(--border-radius-100));
+  box-shadow: var(--bubble-shadow);
   display: none;
-  filter: var(--bubble-filter);
   font-size: 14px;
   left: 0;
   max-width: 344px;
@@ -25,7 +26,7 @@ span.tourtip {
   border-radius: var(--bubble-border-radius, var(--border-radius-100));
   position: relative;
   z-index: 1;
-  background-color: var(--tourtip-background-color, var(--color-background-primary));
+  background-color: var(--tourtip-background-color, var(--color-background-elevated));
   color: var(--tourtip-foreground-color, var(--color-foreground-primary));
 }
 span.tourtip__mask {
@@ -65,17 +66,13 @@ button.tourtip__close {
   width: 32px;
   outline-offset: -2px;
 }
-button.tourtip__close > svg {
-  fill: currentColor;
-  width: 14px;
-}
 .tourtip__pointer {
   height: 8px;
   position: absolute;
   transform: rotate(45deg);
   width: 8px;
   z-index: 0;
-  background-color: var(--tourtip-background-color, var(--color-background-primary));
+  background-color: var(--tourtip-background-color, var(--color-background-elevated));
 }
 .tourtip__pointer--top-left {
   top: -4px;

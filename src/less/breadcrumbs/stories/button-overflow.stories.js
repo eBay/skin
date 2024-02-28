@@ -6,14 +6,14 @@ export const minimum = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -31,7 +31,7 @@ export const minimum = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -48,14 +48,14 @@ export const collapsed = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -73,13 +73,13 @@ export const collapsed = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Band Long Band Text Type 2</button>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -96,14 +96,14 @@ export const expanded = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="true" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16" focusable="false">
+                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -120,13 +120,13 @@ export const expanded = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Band Long Band Text Type 2</button>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>

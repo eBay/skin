@@ -35,7 +35,7 @@ export const busy = () => `
 <button class="btn btn--tertiary" aria-label="Busy">
     <span class="btn__cell">
         <span class="progress-spinner">
-            <svg class="icon icon--spinner-24" focusable="false" aria-hidden="true">
+            <svg class="icon icon--spinner-24" aria-hidden="true">
                 <use href="#icon-spinner-24"></use>
             </svg>
         </span>

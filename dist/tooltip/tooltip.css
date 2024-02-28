@@ -1,5 +1,6 @@
 :root {
-  --bubble-filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.15)) drop-shadow(0 5px 17px rgba(0, 0, 0, 0.2));
+  --bubble-shadow: 0 2px 7px rgba(0, 0, 0, 0.15),
+        0 5px 17px rgba(0, 0, 0, 0.2);
 }
 .tooltip {
   position: relative;
@@ -9,8 +10,8 @@ span.tooltip {
 }
 .tooltip__overlay {
   border-radius: var(--bubble-border-radius, var(--border-radius-50));
+  box-shadow: var(--bubble-shadow);
   display: none;
-  filter: var(--bubble-filter);
   font-size: 14px;
   left: 0;
   max-width: 344px;
@@ -25,7 +26,7 @@ span.tooltip {
   border-radius: var(--bubble-border-radius, var(--border-radius-50));
   position: relative;
   z-index: 1;
-  background-color: var(--tooltip-background-color, var(--color-background-primary));
+  background-color: var(--tooltip-background-color, var(--color-background-elevated));
   color: var(--tooltip-foreground-color, var(--color-foreground-primary));
 }
 span.tooltip__mask {
@@ -68,7 +69,7 @@ button.tooltip__close {
   transform: rotate(45deg);
   width: 8px;
   z-index: 0;
-  background-color: var(--tooltip-background-color, var(--color-background-primary));
+  background-color: var(--tooltip-background-color, var(--color-background-elevated));
 }
 .tooltip__pointer--top-left {
   top: -4px;

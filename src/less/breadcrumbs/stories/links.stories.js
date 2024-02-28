@@ -6,19 +6,19 @@ export const currentLocation = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -35,13 +35,13 @@ export const noCurrentLocation = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
-            <svg class="icon icon--chevron-right-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>

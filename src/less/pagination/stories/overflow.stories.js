@@ -6,7 +6,7 @@ export const start = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
@@ -16,8 +16,8 @@ export const start = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" focusable="false" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -38,7 +38,7 @@ export const start = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
@@ -51,7 +51,7 @@ export const middle = () => `
         <h2 class="clipped" id="pagination-heading-3">Results Pagination - Page 10</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page - Results Pagination" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
@@ -61,8 +61,8 @@ export const middle = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" focusable="false" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -77,8 +77,8 @@ export const middle = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" focusable="false" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -87,7 +87,7 @@ export const middle = () => `
         </li>
     </ol>
     <a aria-label="Next Page - Results Pagination" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
@@ -100,7 +100,7 @@ export const end = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
@@ -122,8 +122,8 @@ export const end = () => `
         </li>
         <li>
             <span class="pagination__item">
-                <svg class="icon icon--overflow" focusable="false" width="8" height="8" role="separator">
-                    <use href="#icon-overflow"></use>
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
                 </svg>
             </span>
         </li>
@@ -132,7 +132,7 @@ export const end = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
@@ -145,7 +145,7 @@ export const endMenuCollapsed = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
@@ -169,8 +169,8 @@ export const endMenuCollapsed = () => `
             <span class="pagination__item">
                 <span class="fake-menu-button">
                     <button class="icon-btn icon-btn--transparent fake-menu-button__button" type="button" aria-label="Menu">
-                        <svg class="icon icon--overflow" focusable="false" width="8" height="8" aria-hidden="true">
-                            <use href="#icon-overflow"></use>
+                        <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                            <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
                     <ul class="fake-menu-button__menu">
@@ -203,7 +203,7 @@ export const endMenuCollapsed = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>
@@ -216,7 +216,7 @@ export const endMenuExpanded = () => `
         <h2 class="clipped" id="pagination-heading">Results Pagination - Page 1</h2>
     </span>
     <a aria-disabled="true" aria-label="Previous Page" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
-        <svg class="icon icon--arrow-left-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-left-16"></use>
         </svg>
     </a>
@@ -240,8 +240,8 @@ export const endMenuExpanded = () => `
             <span class="pagination__item">
                 <span class="fake-menu-button">
                     <button class="icon-btn icon-btn--transparent fake-menu-button__button" type="button" aria-expanded="true" aria-label="Menu">
-                        <svg class="icon icon--overflow" focusable="false" width="8" height="8" aria-hidden="true">
-                            <use href="#icon-overflow"></use>
+                        <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                            <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
                     <ul class="fake-menu-button__menu">
@@ -274,7 +274,7 @@ export const endMenuExpanded = () => `
         </li>
     </ol>
     <a aria-label="Next Page" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
-        <svg class="icon icon--arrow-right-16" focusable="false" height="24" width="24" aria-hidden="true">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
             <use href="#icon-arrow-right-16"></use>
         </svg>
     </a>

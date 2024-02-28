@@ -15,7 +15,7 @@ export const inlineLevel = () => `
             <option value="item2">Option 2</option>
             <option value="item3">Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -51,7 +51,7 @@ export const RTL = () => `
                 <option value="item2">Option 2</option>
                 <option value="item3">Option 3</option>
             </select>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -87,7 +87,7 @@ export const blockLevel = () => `
             <option value="item2">Option 2</option>
             <option value="item3">Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -122,7 +122,7 @@ export const disabled = () => `
             <option value="item2">Option 2</option>
             <option value="item3">Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
