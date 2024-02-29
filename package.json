@@ -24,7 +24,7 @@
         "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy",
         "build:css": "npm run lint:less && rimraf dist && gulp && npm run lint:css",
         "build:ci": "npm run build:css && npm run lint:js && npm run bundle && npm run copy",
-        "build:jekyll": "bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
+        "build:jekyll": "node scripts/jekyll-config && bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
         "build:site": "npm run copy:svgToDocs && npm run build:jekyll",
         "build:storybook": "npm run copy:assetsToStorybook && storybook build -o ./docs/storybook",
         "clean": "rimraf _cdn _site .cache .tmp .jekyll npm-debug.log.* .DS_Store",
