@@ -1,5 +1,96 @@
 export default { title: "Skin/Toggle Button Group/Gallery Layout" };
 
+export const usingIMGTag = () => `
+<ul aria-label="Toggle buttons" class="toggle-button-group toggle-button-group--gallery-layout" data-columns="3">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">
+                        <span>HTML Profile Image</span>
+                    </span>
+                    <span class="toggle-button__subtitle">Using Cover</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">
+                        <span>HTML Landscape Image</span>
+                    </span>
+                    <span class="toggle-button__subtitle">Using Cover</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__image-container">
+                    <span class="toggle-button__image">
+                        <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-square-pic.jpg" alt="">
+                    </span>
+                </span>
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">
+                        <span>HTML Square Image</span>
+                    </span>
+                    <span class="toggle-button__subtitle">Using Cover</span>
+                </span>
+            </button>
+        </li>
+    </ul>
+`;
+
+export const usingCSSImage = () => `
+<ul aria-label="Toggle buttons" class="toggle-button-group toggle-button-group--gallery-layout" data-columns="3">
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__image-container">
+                <span class="toggle-button__image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg); background-repeat: no-repeat; background-position: center; background-size: contain; background-position: center 15%;">
+                </span>
+            </span>
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">CSS Profile Image</span>
+                <span class="toggle-button__subtitle">Using Contain</span>
+            </span>
+        </button>
+    </li>
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__image-container">
+                <span class="toggle-button__image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; background-position: center 15%;">
+                </span>
+            </span>
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">CSS Profile Image</span>
+                <span class="toggle-button__subtitle">Using Cover</span>
+            </span>
+        </button>
+    </li>
+    <li>
+        <button type="button" class="toggle-button" aria-pressed="false">
+            <span class="toggle-button__image-container">
+                <span class="toggle-button__image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-square-pic.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; background-position: center 30%;">
+                </span>
+            </span>
+            <span class="toggle-button__content">
+                <span class="toggle-button__title">CSS Square Image</span>
+                <span class="toggle-button__subtitle">Using Cover</span>
+            </span>
+        </button>
+    </li>
+</ul>
+`;
+
 export const _2Column = () => `
 <ul aria-label="Buttons" class="toggle-button-group toggle-button-group--gallery-layout" data-columns="2">
     <li>
