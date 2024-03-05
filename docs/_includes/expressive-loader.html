@@ -10,19 +10,18 @@
     The expressive loader also renders different experiences depending on the <span class="highlight">prefers-reduced-motion</span> media query. Toggle your reduced motion settings to view examples with the default behavior and reduced motion behavior.
   </p>
 
-  <h3 id="expressive-loader-base-no-reduced-motion">
-    Base Expressive Loader
+  <h3 id="expressive-loader-default">
+    Default Expressive Loader
   </h3>
 
   <p>
     The base expressive loader consists of a progressbar with 12 lines of varying widths. Each line has a width of 10% - 40% of its container, with each set of four lines adding up to 100% width. You can use Javascript to randomly generate the line widths, though it's not required.
   </p>
 
-  <p>In the default behavior, lines scale up from 0% to their defined width and move horizontally across the screen.</p>
-
   <p>
-    When <span class="highlight">@media (prefers-reduced-motion: reduce)</span>, e.g. the user prefers reduced motion, the lines still
-    animate. However, instead of growing from 0% to their defined width, they stay a fixed size and scroll more slowly across the screen.
+    In the default behavior, lines scale up from 0% to their defined width and move horizontally across the screen.
+    When the user prefers reduced motion, the lines still animate. However, instead of growing from 0% to their defined width,
+    they stay a fixed size and scroll more slowly across the screen.
   </p>
 
   <div class="demo">
@@ -73,38 +72,36 @@
     </div>
   {% endhighlight %}
 
-
-  <h3 id="expressive-loader-messages-no-reduced-motion">
-    Expressive Loader with Messages
+  <h3 id="expressive-loader-single-message">
+   Expressive Loader with Single Message
   </h3>
   <p>
-    The expressive loader uses Javascript to cycle through messages, so the following code examples represent snapshots of
-    the expressive loader at any given time.
-  </p>
-
-  <p>
-    In its initial state, message content isn't visible. In the default behavior, the message is queued up in the DOM so that it can animate in.
+    If there is only one message, add the
+    <span class="highlight">expressive-loader__message--in</span> class to its status element to animate it in.
   </p>
 
   <div class="demo">
     <div class="demo__inner">
       <div class="expressive-loader">
-        <div class="expressive-loader__message-container">
-          <div aria-hidden="true" class="expressive-loader__message">Hang tight.</div>
-          <div role="status" id="expressive-loader-message-1" class="expressive-loader__message expressive-loader__message--initial"></div>
+        <div class="expressive-loader__messages">
+          <div role="status" id="expressive-loader-message-3"
+            class="expressive-loader__message expressive-loader__message--in">
+            Hang tight.
+          </div>
         </div>
-        <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-1" class="expressive-loader__progress">
+        <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3"
+          class="expressive-loader__progress">
           <div class="expressive-loader__lines">
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
-            
+
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
-            
+
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
             <div class="expressive-loader__line"></div>
@@ -117,22 +114,25 @@
 
   {% highlight html %}
   <div class="expressive-loader">
-    <div class="expressive-loader__message-container">
-      <div aria-hidden="true" class="expressive-loader__message">Hang tight.</div>
-      <div role="status" id="expressive-loader-message-1" class="expressive-loader__message expressive-loader__message--initial"></div>
+    <div class="expressive-loader__messages">
+      <div role="status" id="expressive-loader-message-3"
+        class="expressive-loader__message expressive-loader__message--in">
+        Hang tight.
+      </div>
     </div>
-    <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-1" class="expressive-loader__progress">
+    <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3"
+      class="expressive-loader__progress">
       <div class="expressive-loader__lines">
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
-        
+
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
-        
+
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
         <div class="expressive-loader__line"></div>
@@ -142,11 +142,15 @@
   </div>
   {% endhighlight %}
 
-  <h4>
-    Multiple messages (default behavior)
-  </h4>
+  <h3 id="expressive-loader-multiple-messages">
+    Expressive Loader with Multiple Messages
+  </h3>
   <p>
-    If there are multiple messages to display, cycle them in and out of view using Javascript. 
+    For the following examples, we're using Javascript to rotate through messages.
+  </p>
+
+  <h4>Default behavior</h4>
+  <p>
     To cycle a message into view in the default mode:
     <ol>
       <li>Animate in the message:
@@ -174,16 +178,17 @@
   </p>
 
   <h4>
-    Multiple messages (reduced motion behavior)
+    Reduced motion behavior
   </h4>
   <p>
     When <span class="highlight">@media (prefers-reduced-motion: reduce)</span>, there is no transition state between messages, so the aria-hidden message is not needed.
     To fade in the first message, add the <span class="highlight">expressive-loader__message--initial</span> class to the status element. For all subsequent messages, remove the <span class="highlight">expressive-loader__message--initial</span> class and simply update the content in the status element.
   </p>
+
   <div class="demo">
     <div class="demo__inner">
-      <div class="expressive-loader">
-        <div class="expressive-loader__message-container">
+      <div class="expressive-loader expressive-loader-messages-example">
+        <div class="expressive-loader__messages">
           <div aria-hidden="true" class="expressive-loader__message">
             We're finishing your order.
           </div>
@@ -215,7 +220,7 @@
 
   {% highlight html %}
   <div class="expressive-loader">
-    <div class="expressive-loader__message-container">
+    <div class="expressive-loader__messages">
       <div aria-hidden="true" class="expressive-loader__message">
         We're finishing your order.
       </div>
@@ -245,82 +250,18 @@
   {% endhighlight %}
 
 
-  <h4>Single message</h4>
-  <p>
-    If there is only one message, the aria-hidden element is not needed. Add the
-    <span class="highlight">expressive-loader__message--in</span> class to the status element to animate it in.
-  </p>
-
-  <div class="demo">
-    <div class="demo__inner">
-      <div class="expressive-loader">
-        <div class="expressive-loader__message-container">
-          <div role="status" id="expressive-loader-message-3" class="expressive-loader__message expressive-loader__message--in">
-            Hang tight.
-          </div>
-        </div>
-        <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3" class="expressive-loader__progress">
-          <div class="expressive-loader__lines">
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-            <div class="expressive-loader__line"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  {% highlight html %}
-  <div class="expressive-loader">
-    <div class="expressive-loader__message-container">
-      <div role="status" id="expressive-loader-message-3" class="expressive-loader__message expressive-loader__message--in">
-        Hang tight.
-      </div>
-    </div>
-    <div role="progressbar" aria-label="Loading..." aria-describedby="expressive-loader-message-3" class="expressive-loader__progress">
-      <div class="expressive-loader__lines">
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-        <div class="expressive-loader__line"></div>
-      </div>
-    </div>
-  </div>
-  {% endhighlight %}
-
   <h3 id="expressive-loader-medium">
     Medium text
   </h3>
   <p>
     By default, the expressive loader displays with large text. For smaller text, apply
-    the <span class="highlight">expressive-loader--medium</span> class to the container.
+    the <span class="highlight">expressive-loader--medium</span> class to the message container.
   </p>
   
   <div class="demo">
     <div class="demo__inner">
-      <div class="expressive-loader expressive-loader--medium">
-        <div class="expressive-loader__message-container">
+      <div class="expressive-loader expressive-loader-messages-example">
+        <div class="expressive-loader__messages expressive-loader__messages--medium">
           <div aria-hidden="true" class="expressive-loader__message">
             We're finishing your order.
           </div>
@@ -351,9 +292,9 @@
   </div>
 
   {% highlight html %}
-  <div class="expressive-loader expressive-loader--medium">
-    <div class="expressive-loader__message-container">
-      <div aria-hidden="true" class="expressive-loader__message">
+  <div class="expressive-loader expressive-loader-messages-example">
+    <div class="expressive-loader__messages expressive-loader__messages--medium">
+      <div aria-hidden="true" class="expressive-loader__message ">
         We're finishing your order.
       </div>
       <div role="status" id="expressive-loader-message-5" class="expressive-loader__message">

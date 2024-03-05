@@ -193,6 +193,55 @@ document.querySelectorAll('.dialog-button').forEach(function (el) {
     dialogWidget._el.addEventListener('dialog-cta', logEvent);
 });
 
+// EXPRESSIVE-LOADER
+// Simple expressive loader implementation that handles rotating messages.
+class ExpressiveLoader {
+    constructor(widgetEl, messages) {
+        this.messageContainerEl = widgetEl.querySelector('.expressive-loader__messages');
+        this.messages = messages;
+
+        if (this.messageContainerEl && this.messages) {
+            this.isInitialized = true;
+            this.nextMessageEl = widgetEl.querySelector('[aria-hidden="true"]');
+            this.currentMessageEl = widgetEl.querySelector('[role="status"]');
+            this.messageIndex = 0;
+            this.message = this.messages[this.messageIndex];
+        }
+    }
+
+    queueNextMessage() {
+        if(this.isInitialized && this.messages.length > 1) {
+            this.messageIndex = (this.messageIndex + 1) % this.messages.length;
+            this.message = this.messages[this.messageIndex];
+
+            this.nextMessageEl.innerText = this.messages[this.messageIndex];
+            this.nextMessageEl.classList.add('expressive-loader__message--in');
+            this.currentMessageEl.classList.add('expressive-loader__message--out');
+
+            setTimeout(this.showMessage.bind(this), 833); // --expressive-loader-message-animatein-duration
+        }
+    }
+
+    showMessage() {
+        if (this.isInitialized) {
+            this.currentMessageEl.innerText = this.message;
+            this.currentMessageEl.classList.remove('expressive-loader__message--out');
+            this.nextMessageEl.classList.remove('expressive-loader__message--in');
+
+            setTimeout(this.queueNextMessage.bind(this), 2000);
+        }
+    }
+}
+
+document.querySelectorAll('.expressive-loader-messages-example').forEach(function (widgetEl) {
+    const expressiveLoader = new ExpressiveLoader(widgetEl, ['Hang tight.', "We're finishing your order.", "Just another moment."]);
+
+    if(expressiveLoader.isInitialized) {
+        expressiveLoader.queueNextMessage()
+    }
+});
+
+
 class PopperTooltip {
     constructor(widgetEl, prefix) {
         this.host = widgetEl.querySelector(`.${prefix}__host`);
