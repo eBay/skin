@@ -3,33 +3,77 @@
 
 .phone-input {
     display: inline-flex;
-    padding: var(--spacing-50) 0 var(--spacing-100) 0;
 }
+
 .phone-input button.btn {
     min-width: 64px;
-    padding-inline-end: var(--spacing-100);
+    outline: none;
+    padding-inline: var(--spacing-200) var(--spacing-100);
 }
 
 .phone-input button.btn svg.icon:last-child {
     margin-inline-start: var(--spacing-50);
 }
 
-.phone-input .listbox-button__option {
-    display: flex;
-    justify-content: space-between;
+.phone-input .listbox-button__value {
+    & svg {
+        margin-inline-end: var(--spacing-200);
+    }
+
+    & span {
+        margin-inline-end: var(--spacing-100);
+    }
+
+    & span:last-child {
+        color: var(--color-foreground-secondary);
+    }
 }
 
-.phone-input span.listbox-button__value {
-    display: flex;
-    justify-content: flex-start;
+.phone-input .textbox {
+    align-items: center;
+    .background-color-token(textbox-background-color, color-background-secondary);
+    .border-color-token(textbox-border-color, color-stroke-default);
+    border-radius: 0 var(--border-radius-50) var(--border-radius-50) 0;
+    border-style: solid;
+    border-width: 1px;
+    color: var(--textbox-prefix-color, var(--color-foreground-primary));
+    display: inline-flex;
+    margin-left: -1px;
+    padding-inline-start: var(--spacing-100);
 }
 
-.phone-input span.listbox-button__value svg {
-    margin-inline-end: var(--spacing-200);
+.phone-input .textbox > input.textbox__control {
+    border: none;
+    height: 36px;
+    padding-inline: var(--spacing-50);
 }
 
-.phone-input span.listbox-button__value span {
-    margin-inline-end: var(--spacing-100);
+.phone-input .textbox > input.textbox__control:focus {
+    .background-color-token(textbox-focus-background-color, color-background-secondary);
+    outline: none;
+}
+
+// stylelint-disable no-descending-specificity
+.phone-input button.btn:focus,
+.phone-input:not(.phone-input--readonly) .textbox:focus-within {
+    .border-color-token(textbox-focus-border-color, color-stroke-strong);
+    border-width: 2px;
+    height: 36px;
+}
+
+.phone-input--large {
+    height: 48px;
+}
+
+.phone-input--large .textbox > input.textbox__control,
+.phone-input--large:not(.phone-input--readonly) .textbox:focus-within {
+    height: 44px;
+}
+
+.phone-input--fluid,
+.phone-input--fluid .textbox,
+.phone-input--fluid .textbox > input.textbox__control {
+    width: 100%;
 }
 
 .phone-input--readonly .listbox-button button[aria-disabled="true"],
@@ -37,35 +81,36 @@
     .border-color-token(textbox-border-color, color-stroke-default);
 }
 
-.phone-input input.textbox__control,
-.phone-input--readonly input.textbox__control[readonly] {
-    border-radius: 0 var(--border-radius-50) var(--border-radius-50) 0;
-    margin-left: -1px;
-    padding-inline: var(--spacing-600) var(--spacing-100);
+.phone-input--readonly .textbox span:first-child {
+    .color-token(textbox-disabled-foreground-color, color-foreground-secondary);
 }
 
 .phone-input--readonly input.textbox__control[readonly] {
     .background-color-token(textbox-background-color, color-background-secondary);
-    .border-color-token(textbox-border-color, color-stroke-default);
-    border-style: solid;
-    border-width: 1px;
     .color-token(textbox-foreground-color, color-foreground-secondary);
 }
 
-.phone-input--readonly .textbox span:first-child {
-    .color-token(textbox-disabled-foreground-color, color-foreground-secondary);
+.phone-input--disabled .textbox {
+    .border-color-token(textbox-disabled-border-color, color-background-disabled);
 }
 
 .phone-input--disabled .textbox span:first-child {
     .color-token(textbox-disabled-foreground-color, color-foreground-disabled);
 }
 
-.phone-input span.listbox-button__value span:last-child {
-    color: var(--color-foreground-secondary);
+.phone-input--error .textbox {
+    .border-color-token(textbox-invalid-foreground-color, color-stroke-attention);
+    .border-left-color-token(textbox-border-color, color-stroke-default);
 }
 
-.phone-input input.textbox__control[aria-invalid="true"] {
-    border-left-color: var(--textbox-border-color, var(--color-stroke-default));
+.phone-input .floating-label .textbox > span:first-child {
+    padding-bottom: 2px;
+    padding-top: 18px;
+}
+
+.phone-input .floating-label--large .textbox > span:first-child {
+    padding-bottom: 5px;
+    padding-top: 23px;
 }
 
 @media screen and (max-width: @_screen-size-XS) {
@@ -74,5 +119,23 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    .phone-input .textbox > input.textbox__control {
+        max-width: 180px;
+    }
+}
+
+[dir="rtl"] {
+    .phone-input .textbox {
+        border-radius: var(--border-radius-50) 0 0 var(--border-radius-50);
+        /* input type='tel | number' by default starts from left to right in RTL mode */
+        direction: ltr;
+        margin-left: 0;
+        margin-right: -1px;
+    }
+
+    .phone-input .listbox-button__value span:last-child {
+        direction: ltr;
     }
 }

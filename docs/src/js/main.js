@@ -416,7 +416,11 @@ document.querySelectorAll('.tourtip--js').forEach(function (widgetEl) {
 
 // FLOATING LABEL
 document.querySelectorAll('.floating-label').forEach(function (el) {
-    pageWidgets.push(new FloatingLabel(el));
+    const isPhoneInput = el.parentElement.classList.contains('phone-input');
+    // phone input always has floating label fixed to the input
+    if(!isPhoneInput){
+        pageWidgets.push(new FloatingLabel(el));
+    }
 });
 
 // PROGRESS BAR PLAY
@@ -516,7 +520,7 @@ document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
         console.log(e.type, e.detail);
         if (isPhoneInput) {
             const selectedOption = widgetEl.querySelector('.listbox-button__option[aria-selected="true"]');
-            widgetEl.nextElementSibling.querySelector('span').textContent = `+${selectedOption.querySelector('svg.flag')?.dataset.countryCode}`;
+            widgetEl.nextElementSibling.querySelector('.textbox > span').textContent = `+${selectedOption.querySelector('svg.flag')?.dataset.countryCode}`;
         }
     }
     );
