@@ -5,6 +5,16 @@
 @import "demo-colors.less";
 @import "page-grid.less";
 
+:root {
+    --color-menu-background: #f2f2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-menu-background: #222;
+    }
+}
+
 /* stylelint-disable no-descending-specificity */
 
 body {
@@ -78,7 +88,7 @@ figure.highlight {
 }
 
 .modules-expander {
-    background: var(--color-loading-fill-elevated);
+    background: var(--color-menu-background);
     font-size: var(--font-size-medium);
     padding: 4px var(--spacing-200);
 }
@@ -106,6 +116,8 @@ figure.highlight {
 
 .modules-expander[open] {
     padding-bottom: var(--spacing-100);
+    position: absolute;
+    z-index: 1;
 
     .modules-expander__tip {
         display: inline-block;
@@ -117,6 +129,7 @@ figure.highlight {
 }
 
 .modules-expander .details__summary {
+    cursor: default;
     padding: var(--spacing-100) 0;
 }
 
