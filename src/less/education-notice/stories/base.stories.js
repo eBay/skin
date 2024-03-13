@@ -128,3 +128,25 @@ export const RTL = () => `
     </section>
 </div>
 `;
+
+export const textSpacing = () => `
+<section class="education-notice demo-a11y-text-spacing" role="region" aria-label="Education" aria-roledescription="Notice">
+    <div class="education-notice__header">
+        <svg class="icon icon--the-ebay-vault-24" height="24" width="24" aria-label="Education">
+            <use href="#icon-the-ebay-vault-24"></use>
+        </svg>
+        <h3 class="education-notice__title">The Vault</h3>
+        <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+                <use href="#icon-close-16"></use>
+            </svg>
+        </button>
+    </div>
+    <div class="education-notice__main">
+        <p>You can now use the Vault to store items like this securely.</p>
+    </div>
+    <div class="education-notice__footer">
+        <button class="fake-link">Learn more button</button>
+    </div>
+</section>
+`;
