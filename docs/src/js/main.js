@@ -193,11 +193,11 @@ document.querySelectorAll('.dialog-button').forEach(function (el) {
     dialogWidget._el.addEventListener('dialog-cta', logEvent);
 });
 
-// EXPRESSIVE-LOADER
-// Simple expressive loader implementation that handles rotating messages.
-class ExpressiveLoader {
+// progress-bar-expressive
+// Simple expressive progress bar implementation that handles rotating messages.
+class ProgressBarExpressive {
     constructor(widgetEl, messages) {
-        this.messageContainerEl = widgetEl.querySelector('.expressive-loader__messages');
+        this.messageContainerEl = widgetEl.querySelector('.progress-bar-expressive__messages');
         this.messages = messages;
 
         if (this.messageContainerEl && this.messages) {
@@ -215,29 +215,29 @@ class ExpressiveLoader {
             this.message = this.messages[this.messageIndex];
 
             this.nextMessageEl.innerText = this.messages[this.messageIndex];
-            this.nextMessageEl.classList.add('expressive-loader__message--in');
-            this.currentMessageEl.classList.add('expressive-loader__message--out');
+            this.nextMessageEl.classList.add('progress-bar-expressive__message--in');
+            this.currentMessageEl.classList.add('progress-bar-expressive__message--out');
 
-            setTimeout(this.showMessage.bind(this), 833); // --expressive-loader-message-animatein-duration
+            setTimeout(this.showMessage.bind(this), 833); // --progress-bar-expressive-message-animatein-duration
         }
     }
 
     showMessage() {
         if (this.isInitialized) {
             this.currentMessageEl.innerText = this.message;
-            this.currentMessageEl.classList.remove('expressive-loader__message--out');
-            this.nextMessageEl.classList.remove('expressive-loader__message--in');
+            this.currentMessageEl.classList.remove('progress-bar-expressive__message--out');
+            this.nextMessageEl.classList.remove('progress-bar-expressive__message--in');
 
             setTimeout(this.queueNextMessage.bind(this), 2000);
         }
     }
 }
 
-document.querySelectorAll('.expressive-loader-messages-example').forEach(function (widgetEl) {
-    const expressiveLoader = new ExpressiveLoader(widgetEl, ['Hang tight.', "We're finishing your order.", "Just another moment."]);
+document.querySelectorAll('.progress-bar-expressive-messages-example').forEach(function (widgetEl) {
+    const expressiveProgressBar = new ProgressBarExpressive(widgetEl, ['Hang tight.', "We're finishing your order.", "Just another moment."]);
 
-    if(expressiveLoader.isInitialized) {
-        expressiveLoader.queueNextMessage()
+    if(expressiveProgressBar.isInitialized) {
+        expressiveProgressBar.queueNextMessage()
     }
 });
 
