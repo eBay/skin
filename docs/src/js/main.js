@@ -511,7 +511,7 @@ document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
         floatingLabelSelector: '.btn__floating-label',
         floatingLabelInline: 'btn__floating-label--inline',
         floatingLabelAnimate: 'btn__floating-label--animate',
-        ...(isPhoneInput && { autoSelect: true,  buttonValueType: 'icon', iconSelector: '.flag' })
+        ...(isPhoneInput && { autoSelect: true,  buttonValueType: 'icon', listboxOptionIconSelector: '.flag', listboxOptionAriaLabelSelector : '.listbox-button__value span' })
     };
 
     pageWidgets.push(new ListboxButton(widgetEl, options));

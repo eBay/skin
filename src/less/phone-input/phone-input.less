@@ -15,7 +15,13 @@
     margin-inline-start: var(--spacing-50);
 }
 
-.phone-input .listbox-button__value {
+.phone-input .listbox-button svg.flag {
+    height: 18px;
+    width: 24px;
+}
+
+.phone-input .listbox-button__value,
+.phone-input .listbox__value {
     & svg {
         margin-inline-end: var(--spacing-200);
     }
@@ -57,17 +63,11 @@
 .phone-input button.btn:focus,
 .phone-input:not(.phone-input--readonly) .textbox:focus-within {
     .border-color-token(textbox-focus-border-color, color-stroke-strong);
-    border-width: 2px;
-    height: 36px;
+    box-shadow: 0 0 0 0.5pt var(--color-stroke-default);
 }
 
 .phone-input--large {
     height: 48px;
-}
-
-.phone-input--large .textbox > input.textbox__control,
-.phone-input--large:not(.phone-input--readonly) .textbox:focus-within {
-    height: 44px;
 }
 
 .phone-input--fluid,
@@ -114,7 +114,8 @@
 }
 
 @media screen and (max-width: @_screen-size-XS) {
-    .phone-input span.listbox-button__value span:nth-of-type(1) {
+    .phone-input span.listbox-button__value span:nth-of-type(1),
+    .phone-input span.listbox__value span:nth-of-type(1) {
         max-width: 120px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -135,7 +136,8 @@
         margin-right: -1px;
     }
 
-    .phone-input .listbox-button__value span:last-child {
+    .phone-input .listbox-button__value span:last-child,
+    .phone-input .listbox__value span:last-child {
         direction: ltr;
     }
 }

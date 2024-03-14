@@ -322,17 +322,17 @@
 </span>
     {% endhighlight %}
 
-    <h3>Phone input with Floating Label</h3>
+    <h3>Floating Label with Phone input</h3>
+    <p>For phone input, the label always remains in floating state above the input. This state ensures that the label does not obscure the phone number.</p>    
     <div class="demo">
       <div class="demo__inner">
         <span class="phone-input">
           <span class="listbox-button listbox-button--form">
             <button class="btn btn--form btn--split-start" aria-expanded="false" aria-haspopup="listbox" type="button"
-              data-listbox-button-prefix="Country: ">
+              data-listbox-button-prefix="Country: " aria-label="Country: United States of America (+1)">
               <span class="btn__cell">
                 <span class="btn__text">
-                  <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
-                    aria-label="Country: United States of America (+1)">
+                  <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="1">
                     <use href="#flag-us"></use>
                   </svg>
                 </span>
@@ -345,7 +345,7 @@
               <div class="listbox-button__options" role="listbox">
                 <div class="listbox-button__option" role="option">
                   <span class="listbox-button__value">
-                    <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
+                    <svg class="flag flag--al" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="355">
                       <use href="#flag-al"></use>
                     </svg>
                     <span>Albania</span>
@@ -357,7 +357,7 @@
                 </div>
                 <div class="listbox-button__option" role="option">
                   <span class="listbox-button__value">
-                    <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
+                    <svg class="flag flag--in" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="91">
                       <use href="#flag-in"></use>
                     </svg>
                     <span>India</span>
@@ -369,7 +369,7 @@
                 </div>
                 <div class="listbox-button__option" role="option">
                   <span class="listbox-button__value">
-                    <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
+                    <svg class="flag flag--sh" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="290">
                       <use href="#flag-sh"></use>
                     </svg>
                     <span>Saint Helena, Ascension and Tristan da Cunha</span>
@@ -381,7 +381,7 @@
                 </div>
                 <div class="listbox-button__option" role="option">
                   <span class="listbox-button__value">
-                    <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
+                    <svg class="flag flag--gb" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="44">
                       <use href="#flag-gb"></use>
                     </svg>
                     <span>United Kingdom</span>
@@ -393,7 +393,7 @@
                 </div>
                 <div class="listbox-button__option" role="option" aria-selected="true">
                   <span class="listbox-button__value">
-                    <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
+                    <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="1">
                       <use href="#flag-us"></use>
                     </svg>
                     <span>United States of America</span>
@@ -409,15 +409,71 @@
           <span class="field floating-label">
             <label class="floating-label__label" for="field1"><span class="clipped">Area code + </span>Phone
               Number</label>
-            <span class="field__control textbox">
-              <span aria-hidden="true">+1</span>
-              <input class="textbox__control" type="tel" id="field1" autocomplete="tel-national" value="" />
-            </span>
+              <span class="textbox">
+                <span id="floating-phone-prefix-0">+1</span>
+                <input class="textbox__control" type="tel" aria-label="area code + phone number"
+                  autocomplete="tel-national" aria-describedby="floating-phone-prefix-0"/>
+              </span>
           </span>
         </span>
       </div>
     </div>
     {% highlight html %}
+    <span class="phone-input">
+        <span class="listbox-button listbox-button--form">
+          <button class="btn btn--form btn--split-start" aria-expanded="false" aria-haspopup="listbox" type="button"
+            data-listbox-button-prefix="Country: ">
+            <span class="btn__cell">
+              <span class="btn__text">
+                <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="1">
+                  <use href="#flag-us"></use>
+                </svg>
+              </span>
+              <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
+              </svg>
+            </span>
+          </button>
+          <div class="listbox-button__listbox">
+            <div class="listbox-button__options" role="listbox">
+              <div class="listbox-button__option" role="option">
+                <span class="listbox-button__value">
+                  <svg class="flag flag--al" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="355">
+                    <use href="#flag-al"></use>
+                  </svg>
+                  <span>Albania</span>
+                  <span>(+355)</span>
+                </span>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                  <use href="#icon-tick-16"></use>
+                </svg>
+              </div>
+              ...
+              <div class="listbox-button__option" role="option" aria-selected="true">
+                <span class="listbox-button__value">
+                  <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true" data-country-code="1">
+                    <use href="#flag-us"></use>
+                  </svg>
+                  <span>United States of America</span>
+                  <span>(+1)</span>
+                </span>
+                <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+                  <use href="#icon-tick-16"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span class="field floating-label">
+          <label class="floating-label__label" for="field1"><span class="clipped">Area code + </span>Phone
+            Number</label>
+            <span class="textbox">
+              <span id="floating-phone-prefix-0">+1</span>
+              <input class="textbox__control" type="tel" aria-label="area code + phone number"
+                autocomplete="tel-national" aria-describedby="floating-phone-prefix-0"/>
+            </span>
+        </span>
+      </span>
     {% endhighlight %}
 
     <h3 id="floating-label-transitions">Floating Label Transitions</h3>
