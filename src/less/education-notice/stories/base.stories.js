@@ -49,7 +49,7 @@ export const dismissable = () => `
             <use href="#icon-lightbulb-24"></use>
         </svg>
         <h3 class="education-notice__title">Did you know?</h3>
-        <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+        <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
@@ -68,7 +68,7 @@ export const actionableLink = () => `
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
-        <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+        <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
@@ -90,7 +90,7 @@ export const actionableButton = () => `
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
-        <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+        <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
@@ -113,7 +113,7 @@ export const RTL = () => `
                 <use href="#icon-the-ebay-vault-24"></use>
             </svg>
             <h3 class="education-notice__title">The Vault</h3>
-            <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+            <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
                 <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                     <use href="#icon-close-16"></use>
                 </svg>
@@ -136,7 +136,7 @@ export const textSpacing = () => `
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
-        <button aria-label="Close notice" class="fake-link education-notice__dismiss">
+        <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
             <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
