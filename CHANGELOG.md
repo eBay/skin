@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 17.3.0-next.1
+
+### Patch Changes
+
+-   [#2299](https://github.com/eBay/skin/pull/2299) [`27535a9`](https://github.com/eBay/skin/commit/27535a99842079f4e429a3463b5cee73f81fd4d2) Thanks [@agliga](https://github.com/agliga)! - listbox-button: added border radius to container
+
 ## 17.3.0-next.0
 
 ### Minor Changes
