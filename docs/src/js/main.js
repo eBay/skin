@@ -193,6 +193,55 @@ document.querySelectorAll('.dialog-button').forEach(function (el) {
     dialogWidget._el.addEventListener('dialog-cta', logEvent);
 });
 
+// progress-bar-expressive
+// Simple expressive progress bar implementation that handles rotating messages.
+class ProgressBarExpressive {
+    constructor(widgetEl, messages) {
+        this.messageContainerEl = widgetEl.querySelector('.progress-bar-expressive__messages');
+        this.messages = messages;
+
+        if (this.messageContainerEl && this.messages) {
+            this.isInitialized = true;
+            this.nextMessageEl = widgetEl.querySelector('[aria-hidden="true"]');
+            this.currentMessageEl = widgetEl.querySelector('[role="status"]');
+            this.messageIndex = 0;
+            this.message = this.messages[this.messageIndex];
+        }
+    }
+
+    queueNextMessage() {
+        if(this.isInitialized && this.messages.length > 1) {
+            this.messageIndex = (this.messageIndex + 1) % this.messages.length;
+            this.message = this.messages[this.messageIndex];
+
+            this.nextMessageEl.innerText = this.messages[this.messageIndex];
+            this.nextMessageEl.classList.add('progress-bar-expressive__message--in');
+            this.currentMessageEl.classList.add('progress-bar-expressive__message--out');
+
+            setTimeout(this.showMessage.bind(this), 833); // --progress-bar-expressive-message-animatein-duration
+        }
+    }
+
+    showMessage() {
+        if (this.isInitialized) {
+            this.currentMessageEl.innerText = this.message;
+            this.currentMessageEl.classList.remove('progress-bar-expressive__message--out');
+            this.nextMessageEl.classList.remove('progress-bar-expressive__message--in');
+
+            setTimeout(this.queueNextMessage.bind(this), 2000);
+        }
+    }
+}
+
+document.querySelectorAll('.progress-bar-expressive-messages-example').forEach(function (widgetEl) {
+    const expressiveProgressBar = new ProgressBarExpressive(widgetEl, ['Hang tight.', "We're finishing your order.", "Just another moment."]);
+
+    if(expressiveProgressBar.isInitialized) {
+        expressiveProgressBar.queueNextMessage()
+    }
+});
+
+
 class PopperTooltip {
     constructor(widgetEl, prefix) {
         this.host = widgetEl.querySelector(`.${prefix}__host`);

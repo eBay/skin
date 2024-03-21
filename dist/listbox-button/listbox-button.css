@@ -45,12 +45,28 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button button[aria-invalid="true"] {
   border-color: var(--listbox-button-invalid-border-color, var(--color-stroke-attention));
 }
-.listbox-button:not(.listbox-button--error) button.btn--form {
+.listbox-button:not(.listbox-button--error) button:not(
+        [disabled],
+        [aria-disabled="true"],
+        [aria-invalid="true"]
+    ).btn--form {
   border-color: var(--listbox-button-border-color, var(--color-stroke-default));
 }
-.listbox-button:not(.listbox-button--error) button.btn--form:hover,
-.listbox-button:not(.listbox-button--error) button.btn--form:focus,
-.listbox-button:not(.listbox-button--error) button.btn--form:active {
+.listbox-button:not(.listbox-button--error) button:not(
+        [disabled],
+        [aria-disabled="true"],
+        [aria-invalid="true"]
+    ).btn--form:hover,
+.listbox-button:not(.listbox-button--error) button:not(
+        [disabled],
+        [aria-disabled="true"],
+        [aria-invalid="true"]
+    ).btn--form:focus,
+.listbox-button:not(.listbox-button--error) button:not(
+        [disabled],
+        [aria-disabled="true"],
+        [aria-invalid="true"]
+    ).btn--form:active {
   border-color: inherit;
 }
 .listbox-button button.expand-btn--borderless,
@@ -77,7 +93,7 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button.listbox-button--form button[disabled],
 .listbox-button.listbox-button--form button[aria-disabled="true"] {
   border-color: var(--listbox-button-disabled-border-color, var(--color-background-disabled));
-  color: var(--listbox-button-disabled-foreground-color, var(--color-foreground-primary));
+  color: var(--listbox-button-disabled-foreground-color, var(--color-foreground-disabled));
 }
 .listbox-button.listbox-button--form button:focus {
   background-color: var(--combobox-textbox-focus-background-color, var(--color-background-primary));
@@ -103,6 +119,9 @@ button.expand-btn[aria-expanded="true"] ~ div.listbox-button__listbox,
 .listbox-button .btn__text {
   font-weight: bold;
   margin-right: auto;
+}
+.listbox-button__options {
+  border-radius: var(--listbox-button-border-radius, var(--border-radius-50));
 }
 .listbox-button__options[role="listbox"]:focus .listbox-button__option--active[role="option"] {
   background-color: var(--color-state-primary-hover);
