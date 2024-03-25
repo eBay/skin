@@ -418,9 +418,10 @@ document.querySelectorAll('.tourtip--js').forEach(function (widgetEl) {
 document.querySelectorAll('.floating-label').forEach(function (el) {
     const isPhoneInput = el.parentElement.classList.contains('phone-input');
     // phone input always has floating label fixed to the input
-    if(!isPhoneInput){
-        pageWidgets.push(new FloatingLabel(el));
+    if(isPhoneInput){
+       return; 
     }
+    pageWidgets.push(new FloatingLabel(el));
 });
 
 // PROGRESS BAR PLAY
@@ -505,23 +506,41 @@ document.querySelectorAll('.listbox').forEach(function (widgetEl) {
 
 document.querySelectorAll('.listbox-button').forEach(function (widgetEl) {
     const isPhoneInput = widgetEl.parentElement.classList.contains('phone-input');
+    if(isPhoneInput) {
+        return;
+    }
+
     const options = {
         autoSelect: widgetEl.dataset.makeupAutoSelect === 'true',
         buttonLabelSelector: '.btn__text',
         floatingLabelSelector: '.btn__floating-label',
         floatingLabelInline: 'btn__floating-label--inline',
         floatingLabelAnimate: 'btn__floating-label--animate',
-        ...(isPhoneInput && { autoSelect: true,  buttonValueType: 'icon', listboxOptionIconSelector: '.flag', listboxOptionAriaLabelSelector : '.listbox-button__value span' })
     };
 
     pageWidgets.push(new ListboxButton(widgetEl, options));
 
     widgetEl.addEventListener('makeup-listbox-button-change', (e) => {
         console.log(e.type, e.detail);
-        if (isPhoneInput) {
-            const selectedOption = widgetEl.querySelector('.listbox-button__option[aria-selected="true"]');
+    }
+    );
+});
+
+document.querySelectorAll('.phone-input .listbox-button').forEach(function (widgetEl) {
+    const options = {
+        autoSelect: widgetEl.dataset.makeupAutoSelect === 'true',
+        buttonLabelSelector: '.btn__text',
+        buttonValueType: 'icon', 
+        listboxOptionIconSelector: '.flag', 
+        listboxOptionAriaLabelSelector : '.listbox-button__value span'
+    };
+
+    pageWidgets.push(new ListboxButton(widgetEl, options));
+
+    widgetEl.addEventListener('makeup-listbox-button-change', (e) => {
+        console.log(e.type, e.detail);
+        const selectedOption = widgetEl.querySelector('.listbox-button__option[aria-selected="true"]');
             widgetEl.nextElementSibling.querySelector('.textbox > span').textContent = `+${selectedOption.querySelector('svg.flag')?.dataset.countryCode}`;
-        }
     }
     );
 });

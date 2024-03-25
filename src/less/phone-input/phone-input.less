@@ -22,6 +22,8 @@
 
 .phone-input .listbox-button__value,
 .phone-input .listbox__value {
+    display: inline-flex;
+
     & svg {
         margin-inline-end: var(--spacing-200);
     }
@@ -33,6 +35,13 @@
     & span:last-child {
         color: var(--color-foreground-secondary);
     }
+}
+
+.phone-input .listbox-button__value span:nth-of-type(1),
+.phone-input .listbox__value span:nth-of-type(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .phone-input .textbox {
@@ -63,7 +72,9 @@
 .phone-input button.btn:focus,
 .phone-input:not(.phone-input--readonly) .textbox:focus-within {
     .border-color-token(textbox-focus-border-color, color-stroke-strong);
-    box-shadow: 0 0 0 0.5pt var(--color-stroke-default);
+    box-shadow: 0 0 0 0.5pt var(--color-stroke-strong);
+    position: relative;
+    z-index: 1;
 }
 
 .phone-input--large {
@@ -113,17 +124,46 @@
     padding-top: 23px;
 }
 
-@media screen and (max-width: @_screen-size-XS) {
-    .phone-input span.listbox-button__value span:nth-of-type(1),
-    .phone-input span.listbox__value span:nth-of-type(1) {
+@media screen and (min-width: @_screen-size-XS) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
         max-width: 120px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
     }
 
     .phone-input .textbox > input.textbox__control {
         max-width: 180px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
+        max-width: 180px;
+    }
+
+    .phone-input .textbox > input.textbox__control {
+        max-width: 200px;
+    }
+}
+
+@media screen and (min-width: 410px) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
+        max-width: 210px;
+    }
+}
+
+@media screen and (min-width: @_screen-size-SM) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
+        max-width: 280px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
+        max-width: 100%;
     }
 }
 
