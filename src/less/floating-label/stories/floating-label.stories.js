@@ -185,3 +185,12 @@ export const TextArea = () => `
     </span>
 </span>
 `;
+
+export const textSpacing = () => `
+<span class="floating-label demo-a11y-text-spacing">
+    <label class="floating-label__label" for="firstName">First Name</label>
+    <span class="textbox">
+        <input class="textbox__control" id="firstName" type="text" />
+    </span>
+</span>
+`;

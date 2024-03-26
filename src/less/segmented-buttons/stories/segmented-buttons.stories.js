@@ -108,3 +108,13 @@ export const rtl = () => `
     </div>
 </div>
 `;
+
+export const textSpacing = () => `
+    <div class="segmented-buttons demo-a11y-text-spacing">
+        <ul>
+            <li><button type="button" class="segmented-buttons__button" aria-current="true">Day</button></li>
+            <li><button type="button" class="segmented-buttons__button">Month</button></li>
+            <li><button type="button" class="segmented-buttons__button">Year</button></li>
+        </ul>
+    </div>
+`;
