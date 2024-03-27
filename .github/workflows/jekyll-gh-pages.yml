@@ -31,6 +31,7 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    needs: release
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -68,7 +69,6 @@ jobs:
         uses: actions/deploy-pages@v2
   release:
     runs-on: ubuntu-latest
-    needs: build
     if: "${{ github.repository_owner == 'ebay' && github.event_name == 'push' }}"
     steps:
       - name: Checkout code
