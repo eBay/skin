@@ -40,7 +40,7 @@ If you do not want an icon to show up in the skin docs, add the name of the icon
 In order to skip an icon to have it's CSS be generated add the name of the icon in `docs/_data/icons.yaml` under `skip` key. Then rerun `step 2` scripts.
 This can be done for certain icons which might want to have different sizes than those specified in the `viewbox`
 
-## Depcrating Icons
+## Deprecating Icons
 
 When an icon is removed or renamed, it will need to get deprecated. If you want to deprecate an icon, add the name of the icon in `docs/_data/icons.yaml` under `deprecated` key. Then rerun `step 2` scripts. This will show (if none existed yet) a `Deprecated` section in the docs and include the icon. This will also remove the icon from the `icon.svg` bundle and remove the CSS for the icon.
 
