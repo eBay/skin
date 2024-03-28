@@ -42,6 +42,27 @@ export const expanded = () => `
 </span>
 `;
 
+export const textSpacing = () => `
+<span class="combobox combobox--expanded demo-a11y-text-spacing">
+    <span class="combobox__control">
+        <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
+        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <use href="#icon-chevron-down-12"></use>
+        </svg>
+    </span>
+    <div class="combobox__listbox">
+        <div id="listbox1" class="combobox__options" role="listbox">
+            <div class="combobox__option" role="option">
+                <span>Option 1</span>
+            </div>
+            <div class="combobox__option" role="option">
+                <span>Option 2</span>
+            </div>
+        </div>
+    </div>
+</span>
+`;
+
 export const disabled = () => `
 <span class="combobox">
     <span class="combobox__control">

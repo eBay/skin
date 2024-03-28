@@ -118,3 +118,23 @@ export const multiLineLabel = () => `
     </div>
 </div>
 `;
+
+export const textSpacing = () => `
+<div class="demo-a11y-text-spacing">
+    <legend>Choose an Option</legend>
+    <div style="display: flex;" class="field">
+        <span class="checkbox field__control">
+            <input aria-label="Multiline checkbox 2" class="checkbox__control" id="group-checkbox-2" type="checkbox" value="2" name="checkbox-group" />
+            <span class="checkbox__icon" hidden>
+                <svg class="checkbox__unchecked" height="18" width="18">
+                    <use href="#icon-checkbox-unchecked-18"></use>
+                </svg>
+                <svg class="checkbox__checked" height="18" width="18">
+                    <use href="#icon-checkbox-checked-18"></use>
+                </svg>
+            </span>
+        </span>
+        <label class="field__label field__label--end" for="group-checkbox-2">Option 2</label>
+    </div>
+</div>
+`;

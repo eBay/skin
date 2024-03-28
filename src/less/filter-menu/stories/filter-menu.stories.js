@@ -121,6 +121,47 @@ export const withFooterButton = () => `
 </span>
 `;
 
+export const textSpacing = () => `
+<span class="filter-menu demo-a11y-text-spacing">
+    <div class="filter-menu__items" role="menu">
+        <div class="filter-menu__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
+            <span class="filter-menu__checkbox">
+                <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <use href="#icon-checkbox-unchecked-18"></use>
+                </svg>
+                <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <use href="#icon-checkbox-checked-18"></use>
+                </svg>
+            </span>
+            <span class="filter-menu__text">Item 1 with a long string that will wrap to another line</span>
+        </div>
+        <div class="filter-menu__item" role="menuitemcheckbox" aria-checked="false">
+            <span class="filter-menu__checkbox">
+                <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <use href="#icon-checkbox-unchecked-18"></use>
+                </svg>
+                <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <use href="#icon-checkbox-checked-18"></use>
+                </svg>
+            </span>
+            <span class="filter-menu__text">Item 2</span>
+        </div>
+        <div class="filter-menu__item" role="menuitemcheckbox" aria-checked="false">
+            <span class="filter-menu__checkbox">
+                <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <use href="#icon-checkbox-unchecked-18"></use>
+                </svg>
+                <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <use href="#icon-checkbox-checked-18"></use>
+                </svg>
+            </span>
+            <span class="filter-menu__text">Item 3</span>
+        </div>
+    </div>
+    <button type="button" class="filter-menu__footer">Apply</button>
+</span>
+`;
+
 export const formVersion = () => `
 <span class="filter-menu-form">
     <form name="filter-menu-form-1">

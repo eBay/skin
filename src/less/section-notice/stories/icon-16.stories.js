@@ -1,4 +1,4 @@
-export default { title: "Skin/Section Notice/Icon 16" };
+export default { title: "Skin/Section Notice/Base" };
 
 export const body = () => `
 <div class="section-notice section-notice--confirmation" role="region">
@@ -151,6 +151,30 @@ export const RTL = () => `
                 </svg>
             </button>
         </div>
+    </div>
+</div>
+`;
+
+export const textSpacing = () => `
+<div class="section-notice section-notice--confirmation demo-a11y-text-spacing" role="region">
+    <div class="section-notice__header" role="region" aria-roledescription="Notice">
+        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+            <use href="#icon-confirmation-filled-16"></use>
+        </svg>
+    </div>
+    <div class="section-notice__main">
+        <h3 class="section-notice__title">Notification Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <p class="section-notice__cta">
+        <button class="fake-link" type="button">Action</button>
+    </p>
+    <div class="section-notice__footer">
+        <button aria-label="Close notice" class="fake-link section-notice__dismiss">
+            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+                <use href="#icon-close-16"></use>
+            </svg>
+        </button>
     </div>
 </div>
 `;

@@ -25,3 +25,11 @@ export const disabled = () => `
     <span class="filter-button__cell">Button</span>
 </button>
 `;
+
+export const textSpacing = () => `
+<button type="button" class="filter-button demo-a11y-text-spacing">
+    <span class="filter-button__cell">
+        <span class="filter-button__text">Button</span>
+    </span>
+</button>
+`;

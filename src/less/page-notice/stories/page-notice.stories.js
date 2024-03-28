@@ -198,3 +198,25 @@ export const formErrors = () => `
     </div>
 </section>
 `;
+
+export const textSpacing = () => `
+<section class="page-notice page-notice--information demo-a11y-text-spacing" role="region" aria-label="Information">
+    <div class="page-notice__header">
+        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+            <use href="#icon-information-filled-16"></use>
+        </svg>
+    </div>
+    <div class="page-notice__main">
+        <h3 class="page-notice__title">Notice Title</h3>
+        <p>Opt into eBay payments before Jan 12th to pay no selling fees.</p>
+    </div>
+    <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
+    <div class="page-notice__footer">
+        <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
+            <svg aria-hidden="true" class="icon icon--close-16" height="14" width="14">
+                <use href="#icon-close-16"></use>
+            </svg>
+        </a>
+    </div>
+</section>
+`;

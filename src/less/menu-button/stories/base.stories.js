@@ -415,3 +415,29 @@ export const separator = () => `
     </div>
 </span>
 `;
+
+export const textSpacing = () => `
+<span class="menu-button demo-a11y-text-spacing">
+    <button class="btn" type="button" aria-expanded="true" aria-haspopup="true">
+        <span class="btn__cell">
+            <span class="btn__text">Button</span>
+            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-down-12"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="menu-button__menu">
+        <div class="menu-button__items" role="menu">
+            <div class="menu-button__item" role="menuitem" tabindex="0">
+                <span>Item 1 with a very very very long string</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 20000</span>
+            </div>
+            <div class="menu-button__item" role="menuitem">
+                <span>Item 30000</span>
+            </div>
+        </div>
+    </div>
+</span>
+`;

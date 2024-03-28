@@ -6,14 +6,14 @@ export const base = () => `
 
 export const action = () => `
 <a class="action-link" href="https://www.ebay.com/?r=${Math.floor(
-    Math.random() * Math.floor(1000)
+    Math.random() * Math.floor(1000),
 )}">See all 17 Reviews</a>
 `;
 
 export const RTL = () => `
 <div dir="rtl">
     <a class="action-link" href="https://www.ebay.com/?r=${Math.floor(
-        Math.random() * Math.floor(1000)
+        Math.random() * Math.floor(1000),
     )}">See all 17 Reviews</a>
 <div>
 `;
@@ -23,5 +23,11 @@ export const fake = () =>
 
 export const nav = () =>
     `<a class="nav-link" href="https://www.ebay.com/?r=${Math.floor(
-        Math.random() * Math.floor(1000)
+        Math.random() * Math.floor(1000),
     )}">Link 1</a></li>`;
+
+export const textSpacing = () => `
+<a class="action-link demo-a11y-text-spacing" href="https://www.ebay.com/?r=${Math.floor(
+    Math.random() * Math.floor(1000),
+)}">Text Spacing</a>
+`;

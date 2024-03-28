@@ -23,3 +23,9 @@ export const neutral = () => `
     Neutral
 </span>
 `;
+
+export const textSpacing = () => `
+<span class="signal signal--trustworthy demo-a11y-text-spacing">
+    Trustworthy
+</span>
+`;

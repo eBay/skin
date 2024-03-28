@@ -140,3 +140,17 @@ export const disabledIconColored = () => `
     </span>
 </button>
 `;
+
+export const textSpacing = () => `
+<button type="button" class="toggle-button toggle-button--list-layout demo-a11y-text-spacing" aria-pressed="false">
+    <span class="toggle-button__image-container">
+        <span class="toggle-button__image">
+            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-square-pic.jpg" alt="">
+        </span>
+    </span>
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">Image Button Title</span>
+        <span class="toggle-button__subtitle">Image Button Subtitle</span>
+    </span>
+</button>
+`;
