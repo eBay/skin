@@ -105,3 +105,16 @@ export const invalid = () => `
     </svg>
 </span>
 `;
+
+export const textSpacing = () => `
+<span class="select demo-a11y-text-spacing">
+    <select>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <use href="#icon-chevron-down-12"></use>
+    </svg>
+</span>
+`;

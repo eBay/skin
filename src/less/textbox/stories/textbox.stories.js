@@ -63,3 +63,9 @@ export const fluid = () => `
     <input class="textbox__control textbox__control--fluid" type="text" placeholder="placeholder text" />
 </div>
 `;
+
+export const textSpacing = () => `
+<span class="textbox demo-a11y-text-spacing">
+    <input aria-label="Email Address" class="textbox__control" type="text" placeholder="placeholder text" />
+</span>
+`;

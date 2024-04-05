@@ -17,3 +17,7 @@ export const RTL = () => `
     <span class="badge">+99</span>
 </div>
 `;
+
+export const textSpacing = () => `
+<span class="badge demo-a11y-text-spacing">99+</span>
+`;
