@@ -30,7 +30,7 @@ export const inlineSkeletons = () =>
     </div>`;
 
 export const blockSkeletons = () =>
-    `<div class="skeleton skeleton--elevated" role="img" aria-label="loading">
+    `<div class="skeleton skeleton--on-secondary" role="img" aria-label="loading">
         <div class="skeleton__button"></div>
         <div class="skeleton__button"></div>
     </div>`;
