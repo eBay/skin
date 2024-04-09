@@ -1,17 +1,17 @@
 export default { title: "Skin/Icon Button/Links" };
 
 export const base = () => `
-<a aria-label="settings" class="icon-link icon-link--large" href="http://www.ebay.com">
+<a aria-label="settings" class="icon-link icon-link--large" href="https://www.ebay.com">
     <svg class="icon icon--save-24" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-24"></use>
     </svg>
 </a>
-<a aria-label="settings" class="icon-link" href="http://www.ebay.com">
+<a aria-label="settings" class="icon-link" href="https://www.ebay.com">
     <svg class="icon icon--save-20" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-20"></use>
     </svg>
 </a>
-<a aria-label="settings" class="icon-link icon-link--small" href="http://www.ebay.com">
+<a aria-label="settings" class="icon-link icon-link--small" href="https://www.ebay.com">
     <svg class="icon icon--save-16" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-16"></use>
     </svg>
@@ -19,21 +19,21 @@ export const base = () => `
 `;
 
 export const baseSpinner = () => `
-<a aria-label="loading" class="icon-link icon-link--large" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--large">
         <svg aria-hidden="true" class="icon icon--spinner-24" height="24" width="24">
             <use href="#icon-spinner-24"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link" href="https://www.ebay.com">
     <span class="progress-spinner">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--small">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
@@ -61,17 +61,17 @@ export const baseDisabled = () => `
 `;
 
 export const primary = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--primary" href="https://www.ebay.com">
     <svg class="icon icon--save-24" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-24"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--primary" href="https://www.ebay.com">
     <svg class="icon icon--save-20" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-20"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--primary" href="https://www.ebay.com">
     <svg class="icon icon--save-16" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-16"></use>
     </svg>
@@ -79,21 +79,21 @@ export const primary = () => `
 `;
 
 export const primarySpinner = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--primary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--large">
         <svg aria-hidden="true" class="icon icon--spinner-24" height="24" width="24">
             <use href="#icon-spinner-24"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--primary" href="https://www.ebay.com">
     <span class="progress-spinner">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--primary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--primary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--small">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
@@ -121,17 +121,17 @@ export const primaryDisabled = () => `
 `;
 
 export const secondary = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--secondary" href="https://www.ebay.com">
     <svg class="icon icon--save-24" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-24"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--secondary" href="https://www.ebay.com">
     <svg class="icon icon--save-20" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-20"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--secondary" href="https://www.ebay.com">
     <svg class="icon icon--save-16" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-16"></use>
     </svg>
@@ -139,21 +139,21 @@ export const secondary = () => `
 `;
 
 export const secondarySpinner = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--secondary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--large">
         <svg aria-hidden="true" class="icon icon--spinner-24" height="24" width="24">
             <use href="#icon-spinner-24"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--secondary" href="https://www.ebay.com">
     <span class="progress-spinner">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--secondary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--secondary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--small">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
@@ -181,17 +181,17 @@ export const secondaryDisabled = () => `
 `;
 
 export const tertiary = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--tertiary" href="https://www.ebay.com">
     <svg class="icon icon--save-24" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-24"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--tertiary" href="https://www.ebay.com">
     <svg class="icon icon--save-20" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-20"></use>
     </svg>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--tertiary" href="https://www.ebay.com">
     <svg class="icon icon--save-16" width="16" height="16" aria-hidden="true">
         <use href="#icon-save-16"></use>
     </svg>
@@ -199,21 +199,21 @@ export const tertiary = () => `
 `;
 
 export const tertiarySpinner = () => `
-<a aria-label="loading" class="icon-link icon-link--large icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--large icon-link--tertiary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--large">
         <svg aria-hidden="true" class="icon icon--spinner-24" height="24" width="24">
             <use href="#icon-spinner-24"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--tertiary" href="https://www.ebay.com">
     <span class="progress-spinner">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
         </svg>
     </span>
 </a>
-<a aria-label="loading" class="icon-link icon-link--small icon-link--tertiary" href="http://www.ebay.com">
+<a aria-label="loading" class="icon-link icon-link--small icon-link--tertiary" href="https://www.ebay.com">
     <span class="progress-spinner progress-spinner--small">
         <svg aria-hidden="true" class="icon icon--spinner-20" height="24" width="24">
             <use href="#icon-spinner-20"></use>
