@@ -274,7 +274,7 @@ export const Disabled = () => `
         data-listbox-button-prefix="Country: " disabled>
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us flag--disabled" focusable="false" height="18" width="24"
+            <svg class="flag flag--us" focusable="false" height="18" width="24"
               data-country-code="1" aria-label="Country: United States of America (+1)">
               <use href="#flag-us"></use>
             </svg>
@@ -724,12 +724,12 @@ export const TextSpacing = () => `
   </span>
 </div>`;
 
-export const inheritFontSize = () => `
-<div style="font-size: 200%;">
+export const overrideFontSize = () => `
+<div>
   <span class="field" role="group" aria-labelledby="phone-number-label-0">
-    <label class="field__label field__label--stacked" id="phone-number-label-0">Phone number</label>
+    <label style="font-size: 200%;" class="field__label field__label--stacked" id="phone-number-label-0">Phone number</label>
     <span class="phone-input">
-      <span class="listbox-button listbox-button--form">
+      <span class="listbox-button listbox-button--form" style="font-size: 200%;">
         <button class="btn btn--form btn--split-start" aria-expanded="false" aria-haspopup="listbox" type="button"
           data-listbox-button-prefix="Country: " aria-label="Country: United States of America">
           <span class="btn__cell">
@@ -814,7 +814,7 @@ export const inheritFontSize = () => `
           </div>
         </div>
       </span>
-      <span class="textbox">
+      <span class="textbox" style="font-size: 200%;">
         <span id="phone-prefix-1">+1</span>
         <input class="textbox__control" type="tel" aria-label="area code + phone number" autocomplete="tel-national"
           aria-describedby="phone-prefix-1" value="123456789" />
