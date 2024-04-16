@@ -86,6 +86,12 @@ jobs:
         run: npm i
       - name: Install ruby dependencies
         run: bundle install
+      - name: Enter prerelease mode
+        if: ${{ github.ref != 'refs/heads/master' }}
+        run: npm run prerelease:start
+      - name: Exit prerelease mode
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: npm run prerelease:end
       - name: Release
         id: changesets
         uses: changesets/action@v1
