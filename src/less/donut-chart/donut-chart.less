@@ -1,0 +1,80 @@
+:root {
+    --donut-chart-max-width: 600px;
+    --donut-chart-graph-size-sm: 140px;
+    --donut-chart-graph-size-lg: 210px;
+}
+
+.donut-chart {
+    column-gap: var(--spacing-400);
+    display: grid;
+    grid-template-areas:
+        "title graph"
+        "metric graph"
+        "legend legend";
+    grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-sm), 1fr);
+    grid-template-rows: auto 1fr auto;
+    max-width: var(--donut-chart-max-width);
+    row-gap: var(--spacing-200);
+    width: 100%;
+}
+
+.donut-chart-container {
+    container-name: donut-chart-container;
+    container-type: inline-size;
+    width: 100%;
+}
+
+.donut-chart__title-container {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+    grid-area: title;
+}
+
+.donut-chart__graph-container {
+    align-self: flex-end;
+    grid-area: graph;
+    min-height: var(--donut-chart-graph-size-sm);
+    position: relative;
+    width: 100%;
+}
+
+.donut-chart__metric-container {
+    grid-area: metric;
+}
+
+.donut-chart__metric-container .donut-chart__metric-value {
+    font-size: var(--font-size-giant-1);
+    font-weight: var(--font-weight-bold);
+}
+
+.donut-chart__metric-container .donut-chart__metric-label {
+    font-size: var(--font-size-regular);
+}
+
+.donut-chart__legend {
+    align-self: flex-end;
+    grid-area: legend;
+}
+
+@container (width > 450px) {
+    .donut-chart {
+        column-gap: var(--spacing-800);
+        grid-template-areas:
+            "title graph"
+            "metric graph"
+            "legend graph";
+        grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-lg), 1fr);
+        grid-template-rows: auto 1fr auto;
+        row-gap: var(--spacing-250);
+
+        width: 100%;
+    }
+
+    .donut-chart__graph-container {
+        min-height: var(--donut-chart-graph-size-lg);
+    }
+
+    .donut-chart__legend-container {
+        margin-top: var(--spacing-100);
+    }
+}
