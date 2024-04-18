@@ -36,5 +36,4 @@ export const base = () => `
             <div>
         </div>
     </div>
-</div>
-`;
+</div>`;

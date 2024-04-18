@@ -17,7 +17,7 @@ export const base = () => `
                 <dd class="chart-legend__value">30%</dd>
             </div>
         </dl>
-    <div>
+    </div>
 </div>`;
 
 export const twoValues = () => `
@@ -33,7 +33,7 @@ export const twoValues = () => `
                 <dd class="chart-legend__value">70%</dd>
             </div>
         </dl>
-    <div>
+    </div>
 </div>`;
 
 export const fiveValues = () => `
@@ -61,7 +61,7 @@ export const fiveValues = () => `
                 <dd class="chart-legend__value">10%</dd>
             </div>
         </dl>
-    <div>
+    </div>
 </div>`;
 
 export const activeValue = () => `
@@ -81,5 +81,5 @@ export const activeValue = () => `
                 <dd class="chart-legend__value">30%</dd>
             </div>
         </dl>
-    <div>
+    </div>
 </div>`;
