@@ -60,3 +60,21 @@
     margin-top: var(--spacing-100);
   }
 }
+@supports not (container-type: inline-size) {
+  @media (min-width: 1024px) {
+    .donut-chart__grid {
+      column-gap: var(--spacing-800);
+      grid-template-areas: "title graph" "metric graph" "legend graph";
+      grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-lg), 1fr);
+      grid-template-rows: auto 1fr auto;
+      row-gap: var(--spacing-250);
+      width: 100%;
+    }
+    .donut-chart__graph {
+      min-height: var(--donut-chart-graph-size-lg);
+    }
+    .donut-chart__legend-container {
+      margin-top: var(--spacing-100);
+    }
+  }
+}
