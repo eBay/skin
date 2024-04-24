@@ -419,7 +419,7 @@ document.querySelectorAll('.floating-label').forEach(function (el) {
     const isPhoneInput = el.parentElement.classList.contains('phone-input');
     // phone input always has floating label fixed to the input
     if(isPhoneInput){
-       return; 
+       return;
     }
     pageWidgets.push(new FloatingLabel(el));
 });
@@ -530,8 +530,8 @@ document.querySelectorAll('.phone-input .listbox-button').forEach(function (widg
     const options = {
         autoSelect: widgetEl.dataset.makeupAutoSelect === 'true',
         buttonLabelSelector: '.btn__text',
-        buttonValueType: 'icon', 
-        listboxOptionIconSelector: '.flag', 
+        buttonValueType: 'icon',
+        listboxOptionIconSelector: '.fflag',
         listboxOptionAriaLabelSelector : '.listbox-button__value span'
     };
 
@@ -540,7 +540,7 @@ document.querySelectorAll('.phone-input .listbox-button').forEach(function (widg
     widgetEl.addEventListener('makeup-listbox-button-change', (e) => {
         console.log(e.type, e.detail);
         const selectedOption = widgetEl.querySelector('.listbox-button__option[aria-selected="true"]');
-            widgetEl.nextElementSibling.querySelector('.textbox > span').textContent = `+${selectedOption.querySelector('svg.flag')?.dataset.countryCode}`;
+            widgetEl.nextElementSibling.querySelector('.textbox > span').textContent = `+${selectedOption.querySelector('span.fflag')?.dataset.countryCode}`;
     }
     );
 });
@@ -759,7 +759,7 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
 
             // if delegated event target is not the listbox item or the chip delete, early exit
             if (!elClicked.matches(sComboboxOptionSelector) && !elClicked.matches(sChipDeleteSelector)) return;
-            
+
             // if clicked item is a combobox item...
             if (elClicked.matches(sComboboxOptionSelector)) {
                 const sItemSelected = elClicked.innerText.trim();
@@ -769,7 +769,7 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
 
                 addChipItem(sItemSelected);
             };
-            
+
             // if clicked item is a chip delete button...
             if (elClicked.matches(sChipDeleteSelector)) {
                 const sChipText = elClicked.previousElementSibling.innerText.trim();

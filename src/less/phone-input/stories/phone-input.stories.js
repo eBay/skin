@@ -7,10 +7,9 @@ export const Default = () => `
         data-listbox-button-prefix="Country: ">
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+            <span class="fflag fflag--us" data-country-code="1"
               aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -21,9 +20,8 @@ export const Default = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -33,9 +31,8 @@ export const Default = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -45,9 +42,8 @@ export const Default = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -57,9 +53,8 @@ export const Default = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -69,9 +64,8 @@ export const Default = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -96,10 +90,9 @@ export const Large = () => `
         data-listbox-button-prefix="Country: ">
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+            <span class="fflag fflag--us" data-country-code="1"
               aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -110,9 +103,8 @@ export const Large = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -122,9 +114,8 @@ export const Large = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -134,9 +125,8 @@ export const Large = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -146,9 +136,8 @@ export const Large = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -158,9 +147,8 @@ export const Large = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -185,10 +173,9 @@ export const ReadOnly = () => `
         data-listbox-button-prefix="Country: " disabled>
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+            <span class="fflag fflag--us" data-country-code="1"
               aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -199,9 +186,8 @@ export const ReadOnly = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -211,9 +197,8 @@ export const ReadOnly = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -223,9 +208,8 @@ export const ReadOnly = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -235,9 +219,8 @@ export const ReadOnly = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -247,9 +230,8 @@ export const ReadOnly = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -274,10 +256,9 @@ export const Disabled = () => `
         data-listbox-button-prefix="Country: " disabled>
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24"
+            <span class="fflag fflag--us"
               data-country-code="1" aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -288,9 +269,8 @@ export const Disabled = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -300,9 +280,8 @@ export const Disabled = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -312,9 +291,8 @@ export const Disabled = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -324,9 +302,8 @@ export const Disabled = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -336,9 +313,8 @@ export const Disabled = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -363,10 +339,9 @@ export const Error = () => `
         data-listbox-button-prefix="Country: ">
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+            <span class="fflag fflag--us" data-country-code="1"
               aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -377,9 +352,8 @@ export const Error = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -389,9 +363,8 @@ export const Error = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -401,9 +374,8 @@ export const Error = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -413,9 +385,8 @@ export const Error = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -425,9 +396,8 @@ export const Error = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -452,10 +422,9 @@ export const Fluid = () => `
         data-listbox-button-prefix="Country: ">
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+            <span class="fflag fflag--us" data-country-code="1"
               aria-label="Country: United States of America (+1)">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -466,9 +435,8 @@ export const Fluid = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              <span class="fflag fflag--al" data-country-code="355">
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -478,9 +446,8 @@ export const Fluid = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              <span class="fflag fflag--in" data-country-code="91">
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -490,9 +457,8 @@ export const Fluid = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              <span class="fflag fflag--sh" data-country-code="290">
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -502,9 +468,8 @@ export const Fluid = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              <span class="fflag fflag--gb" data-country-code="44">
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -514,9 +479,8 @@ export const Fluid = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              <span class="fflag fflag--us" data-country-code="1">
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -542,10 +506,9 @@ export const RTL = () => `
           data-listbox-button-prefix="Country: ">
           <span class="btn__cell">
             <span class="btn__text">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1"
+              <span class="fflag fflag--us" data-country-code="1"
                 aria-label="Country: United States of America (+1)">
-                <use href="#flag-us"></use>
-              </svg>
+              </span>
             </span>
             <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-chevron-down-12"></use>
@@ -556,9 +519,8 @@ export const RTL = () => `
           <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--al" focusable="false" height="18" width="24" data-country-code="355">
-                  <use href="#flag-al"></use>
-                </svg>
+                <span class="fflag fflag--al" data-country-code="355">
+                </span>
                 <span>Albania</span>
                 <span>(+355)</span>
               </span>
@@ -568,9 +530,8 @@ export const RTL = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--in" focusable="false" height="18" width="24" data-country-code="91">
-                  <use href="#flag-in"></use>
-                </svg>
+                <span class="fflag fflag--in" data-country-code="91">
+                </span>
                 <span>India</span>
                 <span>(+91)</span>
               </span>
@@ -580,9 +541,8 @@ export const RTL = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--sh" focusable="false" height="18" width="24" data-country-code="290">
-                  <use href="#flag-sh"></use>
-                </svg>
+                <span class="fflag fflag--sh" data-country-code="290">
+                </span>
                 <span>Saint Helena, Ascension and Tristan da Cunha</span>
                 <span>(+290)</span>
               </span>
@@ -592,9 +552,8 @@ export const RTL = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--gb" focusable="false" height="18" width="24" data-country-code="44">
-                  <use href="#flag-gb"></use>
-                </svg>
+                <span class="fflag fflag--gb" data-country-code="44">
+                </span>
                 <span>United Kingdom</span>
                 <span>(+44)</span>
               </span>
@@ -604,9 +563,8 @@ export const RTL = () => `
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
               <span class="listbox-button__value">
-                <svg class="flag flag--us" focusable="false" height="18" width="24" data-country-code="1">
-                  <use href="#flag-us"></use>
-                </svg>
+                <span class="fflag fflag--us" data-country-code="1">
+                </span>
                 <span>United States of America</span>
                 <span>(+1)</span>
               </span>
@@ -635,10 +593,9 @@ export const TextSpacing = () => `
         data-listbox-button-prefix="Country: " aria-label="Country: United States of America">
         <span class="btn__cell">
           <span class="btn__text">
-            <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true"
+            <span class="fflag fflag--us" aria-hidden="true"
               data-country-code="1">
-              <use href="#flag-us"></use>
-            </svg>
+            </span>
           </span>
           <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
@@ -649,10 +606,9 @@ export const TextSpacing = () => `
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--al" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--al" aria-hidden="true"
                 data-country-code="355">
-                <use href="#flag-al"></use>
-              </svg>
+              </span>
               <span>Albania</span>
               <span>(+355)</span>
             </span>
@@ -662,10 +618,9 @@ export const TextSpacing = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--in" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--in" aria-hidden="true"
                 data-country-code="91">
-                <use href="#flag-in"></use>
-              </svg>
+              </span>
               <span>India</span>
               <span>(+91)</span>
             </span>
@@ -675,10 +630,9 @@ export const TextSpacing = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--sh" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--sh" aria-hidden="true"
                 data-country-code="290">
-                <use href="#flag-sh"></use>
-              </svg>
+              </span>
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
@@ -688,10 +642,9 @@ export const TextSpacing = () => `
           </div>
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
-              <svg class="flag flag--gb" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--gb" aria-hidden="true"
                 data-country-code="44">
-                <use href="#flag-gb"></use>
-              </svg>
+              </span>
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
@@ -701,10 +654,9 @@ export const TextSpacing = () => `
           </div>
           <div class="listbox-button__option" role="option" aria-selected="true">
             <span class="listbox-button__value">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--us" aria-hidden="true"
                 data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              </span>
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
@@ -734,10 +686,9 @@ export const overrideFontSize = () => `
           data-listbox-button-prefix="Country: " aria-label="Country: United States of America">
           <span class="btn__cell">
             <span class="btn__text">
-              <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true"
+              <span class="fflag fflag--us" aria-hidden="true"
                 data-country-code="1">
-                <use href="#flag-us"></use>
-              </svg>
+              </span>
             </span>
             <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-chevron-down-12"></use>
@@ -748,10 +699,9 @@ export const overrideFontSize = () => `
           <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--al" focusable="false" height="18" width="24" aria-hidden="true"
+                <span class="fflag fflag--al" aria-hidden="true"
                   data-country-code="355">
-                  <use href="#flag-al"></use>
-                </svg>
+                </span>
                 <span>Albania</span>
                 <span>(+355)</span>
               </span>
@@ -761,10 +711,9 @@ export const overrideFontSize = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--in" focusable="false" height="18" width="24" aria-hidden="true"
+                <span class="fflag fflag--in" aria-hidden="true"
                   data-country-code="91">
-                  <use href="#flag-in"></use>
-                </svg>
+                </span>
                 <span>India</span>
                 <span>(+91)</span>
               </span>
@@ -774,10 +723,9 @@ export const overrideFontSize = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--sh" focusable="false" height="18" width="24" aria-hidden="true"
+                <span class="fflag fflag--sh" aria-hidden="true"
                   data-country-code="290">
-                  <use href="#flag-sh"></use>
-                </svg>
+                </span>
                 <span>Saint Helena, Ascension and Tristan da Cunha</span>
                 <span>(+290)</span>
               </span>
@@ -787,10 +735,9 @@ export const overrideFontSize = () => `
             </div>
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
-                <svg class="flag flag--gb" focusable="false" height="18" width="24" aria-hidden="true"
+                <span class="fflag fflag--gb" aria-hidden="true"
                   data-country-code="44">
-                  <use href="#flag-gb"></use>
-                </svg>
+                </span>
                 <span>United Kingdom</span>
                 <span>(+44)</span>
               </span>
@@ -800,10 +747,9 @@ export const overrideFontSize = () => `
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
               <span class="listbox-button__value">
-                <svg class="flag flag--us" focusable="false" height="18" width="24" aria-hidden="true"
+                <span class="fflag fflag--us" aria-hidden="true"
                   data-country-code="1">
-                  <use href="#flag-us"></use>
-                </svg>
+                </span>
                 <span>United States of America</span>
                 <span>(+1)</span>
               </span>
