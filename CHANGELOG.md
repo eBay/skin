@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 17.4.0-next.1
+
+### Minor Changes
+
+-   [#2316](https://github.com/eBay/skin/pull/2316) [`a8c1352`](https://github.com/eBay/skin/commit/a8c1352920bc10213b020c4d7fd0969bb96dd019) Thanks [@agliga](https://github.com/agliga)! - flags: updated to use sprites
+
 ## 17.4.0-next.0
 
 ### Minor Changes
