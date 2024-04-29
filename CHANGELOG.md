@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 17.4.1-next.0
+
+### Patch Changes
+
+-   [#2322](https://github.com/eBay/skin/pull/2322) [`a8c2dc2`](https://github.com/eBay/skin/commit/a8c2dc212a2f287558d9b286f76c491348ef01e8) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(icon-button): fixed primary visited link icon color
+
 ## 17.4.0
 
 ### Minor Changes
