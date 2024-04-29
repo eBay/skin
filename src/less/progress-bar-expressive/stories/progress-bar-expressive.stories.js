@@ -115,3 +115,34 @@ export const withLongMessages = () => `
     </div>
 </div>
 `;
+
+export const textSpacing = () => `
+<div class="progress-bar-expressive demo-a11y-text-spacing">
+    <div class="progress-bar-expressive__messages">
+        <div aria-hidden="true" class="progress-bar-expressive__message">
+            Work with a content designer to simplify your messages.
+        </div>
+        <div role="status" id="unique-id" class="progress-bar-expressive__message">
+            Ideally, on one line, but not always possible.
+        </div>
+    </div>
+    <div role="progressbar" aria-label="Loading..." aria-describedby="unique-id" class="progress-bar-expressive__progress">
+        <div class="progress-bar-expressive__lines">
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+            <div class="progress-bar-expressive__line"></div>
+        </div>
+    </div>
+</div>
+`;

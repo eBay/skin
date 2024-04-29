@@ -148,3 +148,40 @@ export const subtitleSelected = () => `
     </div>
 </span>
 `;
+
+export const textSpacing = () => `
+<span class="listbox demo-a11y-text-spacing">
+    <div class="listbox__options" role="listbox" tabindex="0">
+        <div class="listbox__option" role="option" aria-selected="true">
+            <span class="listbox__value">Option 1</span>
+            <span class="listbox__description">
+                <span class="clipped">.</span>
+                More info about option 1
+            </span>
+            <svg class="icon icon--tick-16" height="8" width="8">
+                <use href="#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Option 2</span>
+            <span class="listbox__description">
+                <span class="clipped">.</span>
+                More info about option 2
+            </span>
+             <svg class="icon icon--tick-16" height="8" width="8">
+                <use href="#icon-tick-16"></use>
+            </svg>
+        </div>
+        <div class="listbox__option" role="option" aria-selected="false">
+            <span class="listbox__value">Option 3</span>
+            <span class="listbox__description">
+                <span class="clipped">.</span>
+                More info about option 3
+            </span>
+            <svg class="icon icon--tick-16" height="8" width="8">
+                <use href="#icon-tick-16"></use>
+            </svg>
+        </div>
+    </div>
+</span>
+`;

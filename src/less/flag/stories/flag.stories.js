@@ -46,3 +46,12 @@ export const beforeLink = () => `
     <span style="vertical-align: middle;">United States of America</span>
 </a>
 `;
+
+export const textSpacing = () => `
+<p class="demo-a11y-text-spacing">
+    <svg class="flag flag--us">
+        <use href="#flag-us"></use>
+    </svg>
+    <span style="vertical-align: middle;">United States of America</span>
+</p>
+`;
