@@ -47,3 +47,11 @@ export const toggledOnAriaDisabled = () => `
     </span>
 </button>
 `;
+
+export const textSpacing = () => `
+<button type="button" class="toggle-button demo-a11y-text-spacing" aria-pressed="false">
+    <span class="toggle-button__content">
+        <span class="toggle-button__title">4.5</span>
+    </span>
+</button>
+`;

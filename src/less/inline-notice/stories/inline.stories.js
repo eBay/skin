@@ -146,3 +146,16 @@ export const longWordInConstrainedWidth = () => `
     </div>
 </div>
 `;
+
+export const textSpacing = () => `
+<div class="inline-notice inline-notice--information demo-a11y-text-spacing">
+    <span class="inline-notice__header">
+        <svg class="icon icon--information-filled-16" role="img">
+            <use href="#icon-information-filled-16"></use>
+        </svg>
+    </span>
+    <span class="inline-notice__main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </span>
+</div>
+`;

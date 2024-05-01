@@ -280,3 +280,52 @@ export const endMenuExpanded = () => `
     </a>
 </nav>
 `;
+
+export const textSpacing = () => `
+<nav class="pagination demo-a11y-text-spacing" aria-labelledby="pagination-heading-4" role="navigation">
+    <span aria-live="polite" role="status">
+        <h2 class="clipped" id="pagination-heading-3">Results Pagination - Page 10</h2>
+    </span>
+    <a aria-disabled="true" aria-label="Previous Page - Results Pagination" class="icon-link pagination__previous" href="http://www.ebay.com/sch/i.html?_nkw=guitars">
+        <svg class="icon icon--arrow-left-16" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-left-16"></use>
+        </svg>
+    </a>
+    <ol class="pagination__items">
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=1" class="pagination__item">1</a>
+        </li>
+        <li>
+            <span class="pagination__item">
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
+                </svg>
+            </span>
+        </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=43" class="pagination__item">43</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=44" class="pagination__item" aria-current="page">44</a>
+        </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=45" class="pagination__item">45</a>
+        </li>
+        <li>
+            <span class="pagination__item">
+                <svg class="icon icon--overflow-horizontal-24" width="8" height="8" role="separator">
+                    <use href="#icon-overflow-horizontal-24"></use>
+                </svg>
+            </span>
+        </li>
+        <li>
+            <a href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=80" class="pagination__item">80</a>
+        </li>
+    </ol>
+    <a aria-label="Next Page - Results Pagination" class="icon-link pagination__next" href="http://www.ebay.com/sch/i.html?_nkw=guitars&_pgn=2">
+        <svg class="icon icon--arrow-right-16" height="24" width="24" aria-hidden="true">
+            <use href="#icon-arrow-right-16"></use>
+        </svg>
+    </a>
+</nav>
+`;

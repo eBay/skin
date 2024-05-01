@@ -265,7 +265,59 @@ export const RTL = () => `
         </div>
     </div>
 </div>
+`;
 
+export const textSpacing = () => `
+<div class="progress-stepper demo-a11y-text-spacing">
+    <div class="progress-stepper__items" role="list">
+        <div aria-current="step" class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" height="24" width="24">
+                    <use href="#icon-stepper-confirmation-24"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Started</h4>
+                <p>July 3rd</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" height="24" width="24">
+                    <use href="#icon-stepper-upcoming-24"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Shipped</h4>
+                <p>July 4th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <span class="progress-stepper__icon">
+                <svg role="img" aria-hidden="true" class="icon" height="24" width="24">
+                    <use href="#icon-stepper-upcoming-24"></use>
+                </svg>
+            </span>
+            <span class="progress-stepper__text">
+                <h4>Transit</h4>
+                <p>July 5th</p>
+            </span>
+        </div>
+        <hr class="progress-stepper__separator" role="presentation" />
+        <div class="progress-stepper__item" role="listitem">
+            <svg role="img" aria-label="upcoming" class="icon" height="24" width="24">
+                <use href="#icon-stepper-upcoming-24"></use>
+            </svg>
+            <span class="progress-stepper__text">
+                <h4>Delivered</h4>
+                <p>July 6th</p>
+            </span>
+        </div>
+
+    </div>
+</div>
 `;
 
 export const vertical = () => `

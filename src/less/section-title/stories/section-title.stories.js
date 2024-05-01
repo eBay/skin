@@ -92,3 +92,20 @@ export const withFavoriteAndLink = () => `
     <a class="section-title__cta" href="https://www.ebay.com">See all</a>
 </div>
 `;
+
+export const textSpacing = () => `
+<div class="section-title demo-a11y-text-spacing">
+    <div class="section-title__title-container">
+        <h2 class="section-title__title">Marketing Type Content Title</h2>
+        <span class="section-title__subtitle">Recommended for you</span>
+    </div>
+    <div class="section-title__info">
+        <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
+            <svg aria-hidden="true" class="icon icon--save-16" width="16" height="14">
+                <use href="#icon-save-16"></use>
+            </svg>
+        </button>
+    </div>
+    <a class="section-title__cta" href="https://www.ebay.com">See all</a>
+</div>
+`;
