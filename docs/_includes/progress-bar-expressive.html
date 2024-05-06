@@ -4,8 +4,18 @@
   <p>
     The expressive progress bar can replace our traditional spinner to feel faster during periods of longer loading.
     To portray responsive and quicker loads, the expressive loader's design uses visual momentum to
-    indicate progression across refreshing, page loading and user actions. It consists of an animated progress bar in various colors and an optional set of messages that are cycled into view.
+    indicate progression across refreshing, page loading and user actions.
   </p>
+  
+  <p>
+    This pattern consists of an animated progress bar in various colors and an optional set of messages that are cycled into view.
+    These messages render in an element with <span class="highlight">role="status"</span>, which announces new content to
+    assistive technology. The live examples that follow use <span class="highlight">aria-live="off"</span> to prevent the
+    status element from proactively announcing new content. This is only for demo purposes, so that this documentation page
+    does not overwhelm the viewer with example status updates. The <span class="highlight">aria-live</span> override should
+    not be included in implementations of this pattern.
+  </p>
+
   <p>
     The expressive progress bar also renders different experiences depending on the <span class="highlight">prefers-reduced-motion</span> media query. Toggle your reduced motion settings to view examples with the default behavior and reduced motion behavior.
   </p>
@@ -84,7 +94,7 @@
     <div class="demo__inner">
       <div class="progress-bar-expressive">
         <div class="progress-bar-expressive__messages">
-          <div role="status" id="progress-bar-expressive-message-3"
+          <div role="status" aria-live="off" id="progress-bar-expressive-message-3"
             class="progress-bar-expressive__message progress-bar-expressive__message--in">
             Hang tight.
           </div>
@@ -194,7 +204,7 @@
           <div aria-hidden="true" class="progress-bar-expressive__message">
             We're finishing your order.
           </div>
-          <div role="status" id="progress-bar-expressive-message-2" class="progress-bar-expressive__message">
+          <div role="status" aria-live="off" id="progress-bar-expressive-message-2" class="progress-bar-expressive__message">
             Hang tight.
           </div>
         </div>
@@ -267,7 +277,7 @@
           <div aria-hidden="true" class="progress-bar-expressive__message">
             We're finishing your order.
           </div>
-          <div role="status" id="progress-bar-expressive-message-5" class="progress-bar-expressive__message">
+          <div role="status" aria-live="off" id="progress-bar-expressive-message-5" class="progress-bar-expressive__message">
             Hang tight.
           </div>
         </div>

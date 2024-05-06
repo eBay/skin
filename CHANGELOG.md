@@ -1,5 +1,51 @@
 # Skin Changelog
 
+## 17.4.1
+
+### Patch Changes
+
+-   [#2322](https://github.com/eBay/skin/pull/2322) [`292c8eb`](https://github.com/eBay/skin/commit/292c8eb17db1d747c972ae9587c450ed2d6a122c) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(icon-button): fixed primary visited link icon color
+
+## 17.4.0
+
+### Minor Changes
+
+-   [#2302](https://github.com/eBay/skin/pull/2302) [`a8f2c6b`](https://github.com/eBay/skin/commit/a8f2c6b3ec4db4144b7b8b19d5d585417c57830e) Thanks [@ArtBlue](https://github.com/ArtBlue)! - docs(storybook): added text spacing stories
+
+-   [#2259](https://github.com/eBay/skin/pull/2259) [`fff8608`](https://github.com/eBay/skin/commit/fff8608ccae86341b9b4115c581626d5f9cc9add) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(phone-input): new module
+
+-   [#2303](https://github.com/eBay/skin/pull/2303) [`b80a893`](https://github.com/eBay/skin/commit/b80a89395f314c3728301fffe2d81cd21abb96c0) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): icon additions and modifications
+
+-   [#2306](https://github.com/eBay/skin/pull/2306) [`8cdc782`](https://github.com/eBay/skin/commit/8cdc782e52383703d3c464ab93d0ed01078483f3) Thanks [@agliga](https://github.com/agliga)! - skeleton: added on-secondary color and changed elevated to use on-secondary
+
+-   [#2312](https://github.com/eBay/skin/pull/2312) [`913f85b`](https://github.com/eBay/skin/commit/913f85be42795a7f1895c8f0a822e1148d0f87da) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - docs(progress-bar-expressive): fix noisy status updates on docs page
+
+-   [#2309](https://github.com/eBay/skin/pull/2309) [`f778dbd`](https://github.com/eBay/skin/commit/f778dbd890892a9ed2d4a36416d92ccacaebd34e) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icon-button): added priorities
+
+-   [#2316](https://github.com/eBay/skin/pull/2316) [`a8c1352`](https://github.com/eBay/skin/commit/a8c1352920bc10213b020c4d7fd0969bb96dd019) Thanks [@agliga](https://github.com/agliga)! - flags: updated to use sprites
+
+## 17.4.0-next.1
+
+### Minor Changes
+
+-   [#2316](https://github.com/eBay/skin/pull/2316) [`a8c1352`](https://github.com/eBay/skin/commit/a8c1352920bc10213b020c4d7fd0969bb96dd019) Thanks [@agliga](https://github.com/agliga)! - flags: updated to use sprites
+
+## 17.4.0-next.0
+
+### Minor Changes
+
+-   [#2302](https://github.com/eBay/skin/pull/2302) [`a8f2c6b`](https://github.com/eBay/skin/commit/a8f2c6b3ec4db4144b7b8b19d5d585417c57830e) Thanks [@ArtBlue](https://github.com/ArtBlue)! - docs(storybook): added text spacing stories
+
+-   [#2259](https://github.com/eBay/skin/pull/2259) [`fff8608`](https://github.com/eBay/skin/commit/fff8608ccae86341b9b4115c581626d5f9cc9add) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(phone-input): new module
+
+-   [#2303](https://github.com/eBay/skin/pull/2303) [`b80a893`](https://github.com/eBay/skin/commit/b80a89395f314c3728301fffe2d81cd21abb96c0) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): icon additions and modifications
+
+-   [#2306](https://github.com/eBay/skin/pull/2306) [`8cdc782`](https://github.com/eBay/skin/commit/8cdc782e52383703d3c464ab93d0ed01078483f3) Thanks [@agliga](https://github.com/agliga)! - skeleton: added on-secondary color and changed elevated to use on-secondary
+
+-   [#2312](https://github.com/eBay/skin/pull/2312) [`913f85b`](https://github.com/eBay/skin/commit/913f85be42795a7f1895c8f0a822e1148d0f87da) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - docs(progress-bar-expressive): fix noisy status updates on docs page
+
+-   [#2309](https://github.com/eBay/skin/pull/2309) [`f778dbd`](https://github.com/eBay/skin/commit/f778dbd890892a9ed2d4a36416d92ccacaebd34e) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icon-button): added priorities
+
 ## 17.3.0
 
 ### Minor Changes

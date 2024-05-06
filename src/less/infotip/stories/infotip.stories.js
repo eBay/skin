@@ -40,7 +40,7 @@ export const expanded = () => `
                     <h3 class="infotip__heading">Infotip</h3>
                     <p>Here's a tip to help you be successful at your task.</p>
                 </span>
-                <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
+                <button class="icon-btn icon-btn--transparent infotip__close" type="button" aria-label="Dismiss infotip">
                     <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                         <use href="#icon-close-16"></use>
                     </svg>
@@ -95,7 +95,7 @@ export const paragraphExpanded = () => `
                         <span class="infotip__heading" role="heading" aria-level=5>Infotip</span>
                         <span>Here's a tip to help you be successful at your task.</span>
                     </span>
-                    <button class="icon-btn infotip__close" type="button" aria-label="Dismiss infotip">
+                    <button class="icon-btn icon-btn--transparent infotip__close" type="button" aria-label="Dismiss infotip">
                         <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
                             <use href="#icon-close-16"></use>
                         </svg>
@@ -131,3 +131,28 @@ export const infotipModal = () => `
         </div>
     </div>
  `;
+
+export const textSpacing = () => `
+<span class="infotip demo-a11y-text-spacing">
+    <button class="icon-btn icon-btn--transparent infotip__host" type="button" aria-expanded="true" aria-label="Help">
+        <svg class="icon icon--information-16" width="16" height="16" aria-hidden="true">
+            <use href="#icon-information-16"></use>
+        </svg>
+    </button>
+    <div class="infotip__overlay" style="left: calc(50% - 16px); right: auto; top: calc(100% + 8px); bottom: auto;">
+        <span class="infotip__pointer infotip__pointer--top-left"></span>
+        <div class="infotip__mask">
+            <div class="infotip__cell">
+                <span class="infotip__content">
+                    <h3 class="infotip__heading">Infotip</h3>
+                    <p>Here's a tip to help you be successful at your task.</p>
+                </span>
+                <button class="icon-btn icon-btn--transparent infotip__close" type="button" aria-label="Dismiss infotip">
+                    <svg class="icon icon--close-16" height="24" width="24" aria-hidden="true">
+                        <use href="#icon-close-16"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</span>`;
