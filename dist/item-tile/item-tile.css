@@ -1,0 +1,80 @@
+.item-tile {
+  display: grid;
+  font-size: 14px;
+  grid-template-areas: "image" "signal" "title" "highlight";
+  grid-template-rows: auto 29px 60px 1fr;
+}
+.item-tile__image {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.055);
+  border-radius: 12px;
+  display: flex;
+  grid-area: image;
+  justify-content: center;
+  margin-bottom: 4px;
+  max-height: 200px;
+  overflow: hidden;
+  text-align: center;
+}
+.item-tile__image > img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.item-tile__signal {
+  grid-area: signal;
+}
+.item-tile__signal .signal {
+  margin-bottom: 4px;
+}
+.item-tile__titles {
+  grid-area: title;
+}
+/* 
+    multi-line truncation requires a few vendor-specific 
+    properties and values, so avoid stripping them out...
+*/
+/* autoprefixer: off */
+.item-tile__title {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* autoprefixer: on */
+.item-tile__pricing {
+  grid-area: highlight;
+}
+.item-tile__subtitle {
+  color: #707070;
+  line-height: 20px;
+}
+.item-tile__price {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 6px;
+  margin-top: 3px;
+}
+.item-tile__list-price {
+  color: #707070;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+  text-decoration: line-through;
+}
+.item-tile__buy-links {
+  line-height: 20px;
+}
+.item-tile__buy-links a {
+  color: #000;
+  text-decoration: none;
+}
+.item-tile__sponsored {
+  color: #707070;
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -1,0 +1,57 @@
+.item-tile-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*  
+    Once the final specs are available, we can make these less abstract
+    and more specific to the actual design. This specific pattern is
+    more of a generic responsive layout pattern that can be used in
+    various use cases, possible as an abstract responsive layout module
+*/
+.item-tile-group[data-tiles-per-row-xs="1"] {
+  --item-tile-group-tiles-per-row-xs: 1;
+}
+.item-tile-group[data-tiles-per-row-xs="2"] {
+  --item-tile-group-tiles-per-row-xs: 2;
+}
+.item-tile-group[data-tiles-per-row-sm="1"] {
+  --item-tile-group-tiles-per-row-sm: 1;
+}
+.item-tile-group[data-tiles-per-row-sm="2"] {
+  --item-tile-group-tiles-per-row-sm: 2;
+}
+.item-tile-group[data-tiles-per-row-sm="3"] {
+  --item-tile-group-tiles-per-row-sm: 3;
+}
+.item-tile-group[data-tiles-per-row-md="1"] {
+  --item-tile-group-tiles-per-row-sm: 1;
+}
+.item-tile-group[data-tiles-per-row-md="2"] {
+  --item-tile-group-tiles-per-row-sm: 2;
+}
+.item-tile-group[data-tiles-per-row-md="3"] {
+  --item-tile-group-tiles-per-row-sm: 3;
+}
+.item-tile-group[data-tiles-per-row-md="4"] {
+  --item-tile-group-tiles-per-row-sm: 4;
+}
+.item-tile-group[data-tiles-per-row-md="5"] {
+  --item-tile-group-tiles-per-row-sm: 5;
+}
+.item-tile-group li {
+  width: calc(100% / var(--item-tile-group-tiles-per-row-xs));
+}
+@media screen and (min-width: 512px) {
+  .item-tile-group li {
+    width: calc(100% / var(--item-tile-group-tiles-per-row-sm));
+  }
+}
+@media screen and (min-width: 768px) {
+  .item-tile-group li {
+    width: calc(100% / var(--item-tile-group-tiles-per-row-md));
+  }
+}
