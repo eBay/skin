@@ -11,7 +11,6 @@
 .donut-chart__grid {
   column-gap: var(--spacing-400);
   display: grid;
-  grid-template-areas: "title graph" "metric graph" "legend legend";
   grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-sm), 1fr);
   grid-template-rows: auto 1fr auto;
   max-width: var(--donut-chart-max-width);
@@ -21,17 +20,14 @@
 .donut-chart__title {
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-bold);
-  grid-area: title;
 }
 .donut-chart__graph {
   align-self: flex-end;
-  grid-area: graph;
+  grid-column: 2;
+  grid-row: 1 / -1;
   min-height: var(--donut-chart-graph-size-sm);
   position: relative;
   width: 100%;
-}
-.donut-chart__metric {
-  grid-area: metric;
 }
 .donut-chart__metric-value {
   font-size: var(--font-size-giant-1);
@@ -42,16 +38,17 @@
 }
 .donut-chart__legend {
   align-self: flex-end;
-  grid-area: legend;
+  grid-column: 1 / -1;
 }
 @container (width > 450px) {
   .donut-chart__grid {
     column-gap: var(--spacing-800);
-    grid-template-areas: "title graph" "metric graph" "legend graph";
     grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-lg), 1fr);
-    grid-template-rows: auto 1fr auto;
     row-gap: var(--spacing-250);
-    width: 100%;
+  }
+  .donut-chart__legend {
+    grid-column: 1;
+    grid-row-end: -1;
   }
   .donut-chart__graph {
     min-height: var(--donut-chart-graph-size-lg);
@@ -64,11 +61,12 @@
   @media (min-width: 1024px) {
     .donut-chart__grid {
       column-gap: var(--spacing-800);
-      grid-template-areas: "title graph" "metric graph" "legend graph";
       grid-template-columns: 1fr minmax(var(--donut-chart-graph-size-lg), 1fr);
-      grid-template-rows: auto 1fr auto;
       row-gap: var(--spacing-250);
-      width: 100%;
+    }
+    .donut-chart__legend {
+      grid-column: 1;
+      grid-row-end: -1;
     }
     .donut-chart__graph {
       min-height: var(--donut-chart-graph-size-lg);
