@@ -97,3 +97,13 @@ export const buttonsDisabled = () => `
     </ul>
 </div>
 `;
+
+export const badged = () => `
+<span class="fake-menu">
+    <span class="fake-menu__items" role="menu">
+        <a class="fake-menu__item fake-menu__item--badged" role="menuitem" href="https://www.ebay.com"><span>Button 1<span class="badge">1</span></span></a>
+        <a class="fake-menu__item fake-menu__item--badged" role="menuitem" href="https://www.ebay.com"><span>Button 2<span class="badge">10</span></span></a>
+        <a class="fake-menu__item fake-menu__item--badged" role="menuitem" href="https://www.ebay.com"><span>Button 3<span class="badge">99+</span></span></a>
+    </span>
+</span>
+`;
