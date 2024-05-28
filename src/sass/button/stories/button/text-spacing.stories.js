@@ -9,7 +9,7 @@ export const form = () =>
 export const iconAndText = () => `
 <button type="button" class="btn demo-a11y-text-spacing">
     <span class="btn__cell">
-        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
+        <svg class="icon icon--16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Button</span>
     </span>
 </button>

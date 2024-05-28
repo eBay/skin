@@ -3,7 +3,7 @@ export default { title: "Skin/Education Notice" };
 export const base = () => `
 <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--lightbulb-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-lightbulb-24"></use>
         </svg>
         <h3 class="education-notice__title">Did you know?</h3>
@@ -17,7 +17,7 @@ export const base = () => `
 export const prominentIcon = () => `
 <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--lightbulb-24 icon--prominent" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24 icon--prominent" height="24" width="24" aria-label="Education">
             <use href="#icon-lightbulb-24"></use>
         </svg>
         <h3 class="education-notice__title">Did you know?</h3>
@@ -31,7 +31,7 @@ export const prominentIcon = () => `
 export const prominentNotice = () => `
 <section class="education-notice education-notice--prominent" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--authenticity-guarantee-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-authenticity-guarantee-24"></use>
         </svg>
         <h3 class="education-notice__title">Authenticity Guaranteed</h3>
@@ -45,12 +45,12 @@ export const prominentNotice = () => `
 export const dismissable = () => `
 <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--lightbulb-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-lightbulb-24"></use>
         </svg>
         <h3 class="education-notice__title">Did you know?</h3>
         <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -64,12 +64,12 @@ export const dismissable = () => `
 export const actionableLink = () => `
 <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--the-ebay-vault-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
         <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -86,12 +86,12 @@ export const actionableLink = () => `
 export const actionableButton = () => `
 <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--the-ebay-vault-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
         <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -109,12 +109,12 @@ export const RTL = () => `
 <div dir="rtl">
     <section class="education-notice" role="region" aria-label="Education" aria-roledescription="Notice">
         <div class="education-notice__header">
-            <svg class="icon icon--the-ebay-vault-24" height="24" width="24" aria-label="Education">
+            <svg class="icon icon--24" height="24" width="24" aria-label="Education">
                 <use href="#icon-the-ebay-vault-24"></use>
             </svg>
             <h3 class="education-notice__title">The Vault</h3>
             <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
-                <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -132,12 +132,12 @@ export const RTL = () => `
 export const textSpacing = () => `
 <section class="education-notice demo-a11y-text-spacing" role="region" aria-label="Education" aria-roledescription="Notice">
     <div class="education-notice__header">
-        <svg class="icon icon--the-ebay-vault-24" height="24" width="24" aria-label="Education">
+        <svg class="icon icon--24" height="24" width="24" aria-label="Education">
             <use href="#icon-the-ebay-vault-24"></use>
         </svg>
         <h3 class="education-notice__title">The Vault</h3>
         <button aria-label="Close notice" type="button" class="icon-btn icon-btn--small education-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>

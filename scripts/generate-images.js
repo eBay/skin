@@ -14,7 +14,10 @@ const YAML = require("yaml");
 const config = YAML.parse(file);
 const { html2xhtml } = require("./util");
 const { query } = require("winston");
+const { size } = require("@floating-ui/dom");
 const genText = "This is a generated file, DO NOT EDIT";
+const supportedSizes = ["12", "16", "18", "20", "24", "32", "48", "64"];
+
 const defsList = [];
 
 async function getFiles(dir) {
@@ -100,6 +103,19 @@ function sortMethod({ id: a }, { id: b }) {
     return 0;
 }
 
+function sortMethodObj({ id: a }, { id: b }) {
+    const aName = a && a.name;
+    const bName = b && b.name;
+
+    if (aName < bName) {
+        return -1;
+    }
+    if (aName > bName) {
+        return 1;
+    }
+    return 0;
+}
+
 class GenerateImages {
     constructor(files, masterIconFile) {
         this.imageList = [];
@@ -142,7 +158,10 @@ class GenerateImages {
                 config.deprecated.indexOf(nameObj.simpleName) === -1);
 
         if (isAllowedInDocs) {
-            this.imageList.push(nameObj.fullName);
+            this.imageList.push({
+                name: nameObj.fullName,
+                size: nameObj.size,
+            });
         }
         console.log("Processing SVG:", symbol, filename);
         // Need to parse it before pushing
@@ -207,7 +226,7 @@ class GenerateImages {
             prettierFormat,
         );
 
-        this.imageList.sort();
+        this.imageList.sort(sortMethodObj);
         config.icons.list = this.imageList;
 
         await fs.promises.writeFile(configFilePath, YAML.stringify(config));
@@ -226,14 +245,25 @@ function stripName(name, mappedPrefix, mappedPostfix) {
     const matcher = new RegExp(
         `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`,
     );
+    const sizeMatcher = new RegExp(
+        `(?:${supportedSizes.join("|")})(?:-\\w+)?$`,
+    );
+
     const nameMatch = name.match(matcher);
     if (nameMatch) {
         const [, prefix, newName, postfix] = nameMatch;
+        const sizeMatch = name.match(sizeMatcher);
+        let size;
+        if (sizeMatch) {
+            size = sizeMatch[0];
+        }
+
         const fullName = `${newName}${postfix}`;
         return {
             prefix,
             name: newName,
             postfix,
+            size,
             simpleName: prefix === "icon-" ? fullName : `${prefix}${fullName}`,
             fullName,
         };

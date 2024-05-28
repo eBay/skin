@@ -3,7 +3,7 @@ export default { title: "Skin/Section Notice/Base" };
 export const body = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -16,7 +16,7 @@ export const body = () => `
 export const title = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -31,7 +31,7 @@ export const title = () => `
 export const linkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -49,7 +49,7 @@ export const linkCTA = () => `
 export const fakeLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -66,7 +66,7 @@ export const fakeLinkCTA = () => `
 export const dismiss = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -76,7 +76,7 @@ export const dismiss = () => `
     </div>
     <div class="section-notice__footer">
     <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-        <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+        <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
             <use href="#icon-close-16"></use>
         </svg>
     </button>
@@ -87,7 +87,7 @@ export const dismiss = () => `
 export const dismissAndLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -98,7 +98,7 @@ export const dismissAndLinkCTA = () => `
     <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -109,7 +109,7 @@ export const dismissAndLinkCTA = () => `
 export const dismissAndFakeLinkCTA = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -122,7 +122,7 @@ export const dismissAndFakeLinkCTA = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -135,7 +135,7 @@ export const RTL = () => `
 <div dir="rtl">
     <div class="section-notice section-notice--confirmation" role="region">
         <div class="section-notice__header" role="region" aria-roledescription="Notice">
-            <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+            <svg aria-hidden="true" class="icon icon--16">
                 <use href="#icon-confirmation-filled-16"></use>
             </svg>
         </div>
@@ -146,7 +146,7 @@ export const RTL = () => `
         <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
         <div class="section-notice__footer">
             <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-                <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -158,7 +158,7 @@ export const RTL = () => `
 export const textSpacing = () => `
 <div class="section-notice section-notice--confirmation demo-a11y-text-spacing" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -171,7 +171,7 @@ export const textSpacing = () => `
     </p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
