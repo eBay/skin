@@ -143,3 +143,26 @@ export const textSpacing = () => `
     </div>
 </div>
 `;
+
+export const closeButtonWithHeaderOverflow = () => `
+<div aria-labelledby="fullscreen-dialog-title" aria-modal="true" class="fullscreen-dialog" role="dialog">
+    <div class="fullscreen-dialog__window">
+        <div class="fullscreen-dialog__header">
+            <h2 id="fullscreen-dialog-title">Dialog Full screen with title so long that it needs to wrap into multiple lines. This is a fullscreen dialog so it needs to be even longer than in others before it overflows. No dialog header should ever be this long.</h2>
+            <button class="icon-btn fullscreen-dialog__close" type="button" aria-label="Close Dialog">
+                <svg class="icon icon--close-16" aria-hidden="true">
+                    <use href="#icon-close-16"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="fullscreen-dialog__main">
+            <h3>Heading</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis molestie erat, ut adipiscing risus blandit vel. Vivamus luctus elementum lorem, eu sodales velit sagittis id.</p>
+            <p><a href="http://www.ebay.com">www.ebay.com</a></p>
+            <h3>Heading</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis molestie erat, ut adipiscing risus blandit vel. Vivamus luctus elementum lorem, eu sodales velit sagittis id.</p>
+            <p><a href="http://www.ebay.com">www.ebay.com</a></p>
+        </div>
+    </div>
+</div>
+`;

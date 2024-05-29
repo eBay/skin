@@ -1,5 +1,29 @@
 # Skin Changelog
 
+## 17.5.0
+
+### Minor Changes
+
+-   [#2328](https://github.com/eBay/skin/pull/2328) [`4604f45`](https://github.com/eBay/skin/commit/4604f4516923175a5088f3876d25d2a11ccddba4) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): added and modified icons
+
+-   [#2336](https://github.com/eBay/skin/pull/2336) [`800681a`](https://github.com/eBay/skin/commit/800681a98b84a78a5780ba19b8c388ac153e5359) Thanks [@agliga](https://github.com/agliga)! - fake-menu: added badge suport
+
+-   [#2329](https://github.com/eBay/skin/pull/2329) [`2ee09df`](https://github.com/eBay/skin/commit/2ee09df5676577d8f6f4530a60f07bd9e6bff49a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - docs(date-textbox): added docs and story for disabled state
+
+-   [#2332](https://github.com/eBay/skin/pull/2332) [`186bd9a`](https://github.com/eBay/skin/commit/186bd9a563c99b3fde0d2aecf4e45bc1f7b79b0a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(toggle-button): added hover and pressed states
+
+## 17.5.0-next.0
+
+### Minor Changes
+
+-   [#2328](https://github.com/eBay/skin/pull/2328) [`4604f45`](https://github.com/eBay/skin/commit/4604f4516923175a5088f3876d25d2a11ccddba4) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): added and modified icons
+
+-   [#2336](https://github.com/eBay/skin/pull/2336) [`800681a`](https://github.com/eBay/skin/commit/800681a98b84a78a5780ba19b8c388ac153e5359) Thanks [@agliga](https://github.com/agliga)! - fake-menu: added badge suport
+
+-   [#2329](https://github.com/eBay/skin/pull/2329) [`2ee09df`](https://github.com/eBay/skin/commit/2ee09df5676577d8f6f4530a60f07bd9e6bff49a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - docs(date-textbox): added docs and story for disabled state
+
+-   [#2332](https://github.com/eBay/skin/pull/2332) [`186bd9a`](https://github.com/eBay/skin/commit/186bd9a563c99b3fde0d2aecf4e45bc1f7b79b0a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(toggle-button): added hover and pressed states
+
 ## 17.4.1
 
 ### Patch Changes
