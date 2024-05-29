@@ -1,8 +1,10 @@
-export default { title: "Skin/Toggle Button Group/List Layout" };
+export default {
+    title: "Skin/Toggle Button Group/List Layout/Layouts Exceptions",
+};
 
-export const _320container = () => `
+export const _320container2buttons = () => `
 <div style="width: 320px; border: 1px dashed orange;">
-    <div class="toggle-button-group toggle-button-group--list-layout">
+    <div class="toggle-button-group toggle-button-group--list-layout" data-columns-xs="2">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -126,9 +128,9 @@ export const _320container = () => `
 </div>
 `;
 
-export const _512container = () => `
+export const _512container3buttons = () => `
 <div style="width: 512px; border: 1px dashed orange;">
-    <div class="toggle-button-group toggle-button-group--list-layout">
+    <div class="toggle-button-group toggle-button-group--list-layout" data-columns-sm="3">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -139,7 +141,7 @@ export const _512container = () => `
                     </span>
                     <span class="toggle-button__content">
                         <span class="toggle-button__title">List Layout Title</span>
-                        <span class="toggle-button__subtitle">A very long subtitle to demo equal height buttons.</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
                     </span>
                 </button>
             </li>
@@ -252,9 +254,9 @@ export const _512container = () => `
 </div>
 `;
 
-export const _768container = () => `
+export const _768container4buttons = () => `
 <div style="width: 768px; border: 1px dashed orange;">
-    <div class="toggle-button-group toggle-button-group--list-layout">
+    <div class="toggle-button-group toggle-button-group--list-layout" data-columns-md="4">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -278,7 +280,7 @@ export const _768container = () => `
                     </span>
                     <span class="toggle-button__content">
                         <span class="toggle-button__title">List Layout Title</span>
-                        <span class="toggle-button__subtitle">A very long subtitle to demo equal height buttons.</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
                     </span>
                 </button>
             </li>
@@ -378,9 +380,9 @@ export const _768container = () => `
 </div>
 `;
 
-export const _1280container = () => `
+export const _1280container6buttons = () => `
 <div style="width: 1280px; border: 1px dashed orange;">
-    <div class="toggle-button-group toggle-button-group--list-layout">
+    <div class="toggle-button-group toggle-button-group--list-layout" data-columns-xl="6">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">

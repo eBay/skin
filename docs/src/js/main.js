@@ -376,7 +376,6 @@ document.querySelectorAll('.infotip').forEach(function(widgetEl) {
 document.querySelectorAll('.infotip--js').forEach(function (widgetEl) {
     const popperTooltip = new PopperTooltip(widgetEl, 'infotip');
     if (!popperTooltip.isInitialized) { return; }
-    console.log('init', widgetEl)
 
     popperTooltip.host.addEventListener('click', () => {
         if (popperTooltip.isExpanded()) {
@@ -710,6 +709,25 @@ document.querySelectorAll('.toggle-button').forEach(function (elToggleButton) {
 
             toggleButton(elButton);
         }
+    });
+
+    // Toggle Button Group Responsive Demos
+    const sToggleButtonGroupDemosSelector = '.toggle-button-group-responsive-demo'
+        , sRangeSelector = '.toggle-button-group-breakpoints-range'
+        , sRangeOutputSelector = '.toggle-button-group-breakpoints-output'
+        , sDemoContainerSelector = '.toggle-button-group-breakpoints-container'
+    ;
+    
+    document.querySelectorAll(sToggleButtonGroupDemosSelector).forEach(function (elToggleButtonGroupDemo) {
+        const elRange = elToggleButtonGroupDemo.querySelector(sRangeSelector)
+            , elOutput = elToggleButtonGroupDemo.querySelector(sRangeOutputSelector)
+            , elDemoBox = elToggleButtonGroupDemo.querySelector(sDemoContainerSelector)
+        ;
+
+        elRange.addEventListener('input', function (e) {
+            elOutput.textContent = e.target.value;
+            elDemoBox.style.width = `${e.target.value}px`;
+        });
     });
 })();
 // CHARACTER-METER-COUNTER

@@ -7,7 +7,7 @@ var banner = require("gulp-banner");
 var pkg = require("./package.json");
 var rename = require("gulp-rename");
 var browserSync = require("browser-sync").create();
-var cleanCSS = require("gulp-clean-css");
+var cleanCSS = require("@aptuitiv/gulp-clean-css");
 var LessPluginAutoPrefix = require("less-plugin-autoprefix");
 var autoprefixPlugin = new LessPluginAutoPrefix();
 var distTarget = "./dist";
@@ -72,7 +72,7 @@ async function compileAllModules() {
             files.filter(filterSrc).forEach((dirent) => {
                 compileModule(dirent.name);
             });
-        }
+        },
     );
     // Treat icons differently since it is a nested module
     compileNestedModule("icon");
@@ -123,7 +123,7 @@ function server() {
     // Watch html & svg files under _site. Resync browser on change.
     gulp.watch(["_site/**/*.html", "_site/**/*.svg"]).on(
         "change",
-        browserSync.reload
+        browserSync.reload,
     );
 }
 
@@ -164,7 +164,7 @@ function syncDocsJs() {
         .spawn("npm", ["run", "bundle:js"], { stdio: "inherit" })
         .on("close", function () {
             gulp.src(["./docs/static/docs.min.js"]).pipe(
-                gulp.dest(siteStaticTarget)
+                gulp.dest(siteStaticTarget),
             );
 
             browserSync.reload();
@@ -190,7 +190,7 @@ function syncDocsHtml(cb) {
                 "--config",
                 "docs/_config.yml,docs/_config.localhost.yml",
             ],
-            { stdio: "inherit" }
+            { stdio: "inherit" },
         )
         .on("close", cb);
 }
@@ -231,5 +231,5 @@ exports.compileAllBundles = compileAllBundles;
 exports.server = server;
 exports.runSnapshots = runSnapshots;
 exports.default = gulp.series(
-    gulp.parallel(compileAllModules, compileAllBundles)
+    gulp.parallel(compileAllModules, compileAllBundles),
 );
