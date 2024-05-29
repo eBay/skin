@@ -1,7 +1,7 @@
 @import "../variables/variables.less";
 
-// Mixin to build repetative class delcarations for dev explicit dev overrides for various breakpoints
-/* stylelint-disable */
+// Recursive Mixin to build repetative class delcarations for explicit dev overrides for various breakpoints
+// stylelint-disable
 .toggle-button-grid-templates(@breakpoint, @n, @i: 1) when (@i =< @n) {
     @selector: .toggle-button-group[data-columns- @breakpoint= "@{i}"] ul;
     @{selector} {
@@ -9,10 +9,10 @@
     }
     .toggle-button-grid-templates(@breakpoint, @n, (@i + 1));
 }
-/* stylelint-enable */
+// stylelint-enable
 
 :root {
-    // Respsonsive Toggle Button Settings
+    // Respsonsive Toggle Button Prop Naming Convention:
     // prefixes (--row-[prefix]):
     //    min = minimal variation
     //    list: list variation

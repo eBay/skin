@@ -137,11 +137,11 @@
     The following examples use an HTML attribute to disitnguish the interaction variations. Using <span class="highlight">data-selection-type</span>. For the associated <span class="highlight">js</span> please see <span class="highlight">/docs/src/js/main.js</span> (TOGGLE-BUTTON-GROUP section) for an example on how the implementation may be accomplished.
 
     <h4>Multi-select</h4>
-    <p>The Multi-select variation is the default so nothing is specified in the markup.</p>
+    <p>The Multi-select variation is the default so nothing additional needs to be  specified in the markup.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <h5 id="toggle-button-group-x1">Select Sizes</h5>
+            <h5 id="toggle-button-group-x1">Select Multiple Sizes</h5>
             <div class="toggle-button-group">
                 <ul aria-labelledby="toggle-button-group-x1">
                     <li>
@@ -170,8 +170,37 @@
         </div>
     </div>
 
+{% highlight html %}
+<h5 id="toggle-button-group-x1">Select Multiple Sizes</h5>
+<div class="toggle-button-group">
+    <ul aria-labelledby="toggle-button-group-x1">
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">4.5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">5</span>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="toggle-button" aria-pressed="false">
+                <span class="toggle-button__content">
+                    <span class="toggle-button__title">5.5</span>
+                </span>
+            </button>
+        </li>
+    </ul>
+</div>
+{% endhighlight %}
+
     <h4>Single-select Optional</h4>
-    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-optional"</span> is used to split off the variation interactivity.</p>
+    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-optional"</span> is used to split off the variation interactivity. This option allows for only one selection, so toggling additional buttons will simply switch the toggled button and retain only one toggled button.</p>
     <div class="demo">
         <div class="demo__inner">
             <h5 id="toggle-button-group-x2">Select Sizes</h5>
@@ -203,14 +232,43 @@
         </div>
     </div>
 
+    {% highlight html %}
+    <h5 id="toggle-button-group-x2">Select Sizes</h5>
+    <div class="toggle-button-group" data-selection-type="single-optional">
+        <ul aria-labelledby="toggle-button-group-x2">
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">4.5</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">5</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">5.5</span>
+                    </span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    {% endhighlight %}
+
     <h4>Single-select Required</h4>
-    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-required"</span> is used to split off the variation interactivity.
+    <p>In this example of the Single-select Optional variation, <span class="highlight">data-selection-type="single-required"</span> is used to split off the variation interactivity. This option allows for only one selection. However, unlike the single-select optional variation, this variation enforces the required single selection so the toggled button cannot be untoggled.
 
     <div class="demo">
         <div class="demo__inner">
-            <h5 id="toggle-button-group-x2">Select Sizes</h5>
-            <div class="toggle-button-group">
-                <ul aria-labelledby="toggle-button-group-x2" data-selection-type="single-required">
+            <h5 id="toggle-button-group-x3">Select Sizes</h5>
+            <div class="toggle-button-group" data-selection-type="single-required">
+                <ul aria-labelledby="toggle-button-group-x3">
                     <li>
                         <button type="button" class="toggle-button" aria-pressed="false">
                             <span class="toggle-button__content">
@@ -236,6 +294,35 @@
             </div>
         </div>
     </div>
+
+    {% highlight html %}
+    <h5 id="toggle-button-group-x3">Select a size</h5>
+    <div class="toggle-button-group" data-selection-type="single-required">
+        <ul aria-labelledby="toggle-button-group-x3">
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">4.5</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">5</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">5.5</span>
+                    </span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    {% endhighlight %}
 
     <h3>Responsive Out of the Box</h3>
 
