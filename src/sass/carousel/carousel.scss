@@ -1,0 +1,349 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+@import "../mixins/public/utility-mixins";
+
+$ebay-carousel-transition-time: 0.45s;
+$ebay-carousel-transition-function: ease-in-out;
+
+@mixin show-control() {
+    opacity: 0.92;
+
+    &[aria-disabled="true"] {
+        opacity: 0.3;
+    }
+}
+
+@mixin carousel-paddle-mixin-base() {
+    @include background-color-token(
+        carousel-paddle-background-color,
+        color-background-primary
+    );
+
+    &--prev {
+        left: calc(var(--spacing-200) * -1);
+    }
+
+    &--next {
+        right: calc(var(--spacing-200) * -1);
+    }
+
+    .icon--chevron-right-12 {
+        margin-inline-start: 1px;
+    }
+
+    .icon--chevron-left-12 {
+        margin-inline-end: 1px;
+    }
+
+    align-items: center;
+    border: 1px solid;
+    @include border-color-token(
+        carousel-paddle-border-color,
+        color-stroke-subtle
+    );
+
+    border-radius: 16px;
+    box-shadow:
+        0 2px 2px 0 rgba(0, 0, 0, 0.24),
+        0 0 2px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    font-size: 18px;
+    height: 32px;
+    justify-content: center;
+    opacity: 0;
+    padding: 0; /* override browser default */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity $ebay-carousel-transition-time
+        $ebay-carousel-transition-function;
+    width: 32px;
+    z-index: 1;
+
+    svg {
+        @include color-token(
+            carousel-paddle-foreground-color,
+            color-foreground-primary
+        );
+    }
+
+    /* https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/ */
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    /* progressive enhancement for browsers with support */
+    /* :focus-within and :hover cannot be combined as */
+    /* IE/Edge will discard the entire rule */
+    @media (min-width: $_screen-size-SM) {
+        .carousel:focus-within & {
+            @include show-control();
+        }
+
+        /* This is needed for some touch devices like Ipad */
+        /* When clicking a link in the carousel it forces a focus on :hover elements */
+        /* This removes hover elements on Ipad */
+        @media (hover: hover) {
+            .carousel:hover & {
+                @include show-control();
+            }
+        }
+    }
+
+    &--show,
+    &:focus {
+        @include show-control();
+    }
+
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+        border-color: var(--color-state-primary-hover);
+
+        svg {
+            @include color-token(
+                carousel-paddle-hover-foreground-color,
+                color-foreground-primary
+            );
+        }
+    }
+
+    &:active {
+        background-color: var(--color-state-primary-active);
+    }
+}
+
+.carousel {
+    position: relative;
+
+    &__container {
+        position: relative;
+        white-space: nowrap;
+        width: 100%;
+
+        &--controls-disabled .carousel__control.carousel__control {
+            /* When controls are disabled, should hide them */
+            /* If we set opacity to 0, this is removed when we :hover */
+
+            display: none;
+        }
+    }
+
+    &__list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        transition: transform $ebay-carousel-transition-time
+            $ebay-carousel-transition-function;
+        width: 100%;
+
+        > li {
+            display: inline-block;
+            flex-shrink: 0;
+            list-style: none;
+        }
+    }
+
+    &__playback {
+        background-color: rgba(0, 0, 0, 0.45);
+        border: 0;
+        border-radius: 50%;
+        bottom: 16px; /* accounts for padding. */
+        box-sizing: border-box;
+        @include color-token(
+            carousel-playback-foreground-color,
+            color-foreground-on-inverse
+        );
+
+        height: 40px;
+        margin-bottom: 19px;
+        margin-right: 19px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 40px;
+        z-index: 2;
+
+        svg {
+            opacity: 0.75;
+        }
+    }
+
+    /* slight adjustment needed for play icon */
+    &__playback .icon--play {
+        padding-left: 1px;
+    }
+}
+
+.carousel__list--image-treatment > li {
+    @include image-treatment();
+}
+
+.carousel__list--image-treatment-large > li {
+    @include image-treatment(16px);
+}
+
+div.carousel {
+    margin: 16px 0;
+}
+
+.carousel__control {
+    @include carousel-paddle-mixin-base();
+}
+
+.carousel__playback:focus:not(:focus-visible) {
+    outline: none;
+}
+
+span.carousel,
+span.carousel__container {
+    display: inline-block;
+}
+
+.carousel__viewport--mask {
+    mask-image: linear-gradient(
+        to right,
+        var(--color-background-primary) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+[dir="rtl"] {
+    .carousel__control--prev {
+        left: unset;
+        right: calc(var(--spacing-200) * -1);
+    }
+
+    .carousel__control--next {
+        left: calc(var(--spacing-200) * -1);
+        right: unset;
+    }
+
+    .carousel__control .icon--chevron-left-12,
+    .carousel__control .icon--chevron-right-12 {
+        transform: rotate(180deg);
+    }
+}
+
+/* autoprefixer: ignore next */
+@supports not /*!Y */
+    (
+        /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */
+            (-ms-scroll-snap-coordinate: 0 0) or /*!Y */
+            (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
+    ) {
+    /* always show paddles when scroll snapping and hover is not supported. */
+    /* todo: rename to .carousel--autoplay */
+    .carousel:not(.carousel__autoplay) .carousel__control {
+        @include show-control();
+    }
+}
+
+/**
+ * In browsers that support a compatible version of the css scroll snap api we use native scrolling.
+ * Otherwise we fall back to using css transforms.
+ *
+ * Not all browsers that have implemented scroll snapping have done so in a way that we can leverage.
+ * Currently the below media query ensures that the browser supports exactly what we need.
+ *
+ */
+
+/* autoprefixer: ignore next */
+@supports (
+    /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */
+        (-ms-scroll-snap-coordinate: 0 0) or /*!Y */
+        (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
+) {
+    /* autoprefixer: off */
+    /* todo: rename to .carousel--autoplay */
+    .carousel:not(.carousel__autoplay) {
+        overflow: visible;
+
+        .carousel__control {
+            margin-top: -5px;
+        }
+
+        .carousel__list {
+            /* Add transition on border-color in order to support fade in/out of scrollbar */
+            border-color: rgba(0, 0, 0, 0);
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto; /* also used in js to determine scroll behavior */
+            overflow-y: hidden;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+            /* stylelint-disable declaration-block-no-duplicate-properties */
+            -webkit-scroll-snap-type: mandatory;
+            -webkit-scroll-snap-type: x mandatory;
+            -ms-scroll-snap-type: mandatory;
+            -ms-scroll-snap-type: x mandatory;
+            scroll-snap-type: proximity;
+            scroll-snap-type: x proximity;
+            /* stylelint-enable declaration-block-no-duplicate-properties */
+            scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+            scrollbar-width: thin; /* Firefox scrollbar */
+            transition:
+                border-color 0.5s,
+                scrollbar-color 0.5s,
+                transform $ebay-carousel-transition-time
+                    $ebay-carousel-transition-function;
+
+            &:hover {
+                border-color: rgba(0, 0, 0, 0.4);
+                scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0);
+            }
+
+            &::-webkit-scrollbar {
+                height: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                /* This creates a scrollbar to be colored by border */
+                border-color: inherit;
+                border-radius: 4px;
+                border-right-style: inset;
+                border-right-width: calc(100vw + 100vh);
+            }
+        }
+    }
+
+    .carousel__snap-point {
+        scroll-snap-align: flex-start;
+        -webkit-scroll-snap-coordinate: 0 0;
+        -ms-scroll-snap-coordinate: 0 0;
+        scroll-snap-coordinate: 0 0;
+    }
+    /* autoprefixer: on */
+    @media (min-width: $_screen-size-SM) {
+        div.carousel {
+            margin: 16px 0;
+        }
+    }
+}
+
+/* todo: rename to .carousel--autoplay */
+.carousel.carousel--hidden-scrollbar:not(.carousel__autoplay) {
+    overflow: hidden;
+}
+
+.carousel--hidden-scrollbar .carousel__container {
+    margin-bottom: -80px;
+}
+
+.carousel--hidden-scrollbar .carousel__container .carousel__control {
+    margin-top: -40px;
+}
+
+.carousel--hidden-scrollbar .carousel__container .carousel__list {
+    padding-bottom: 80px;
+}
+
+/* hidden-scrollbar must have inner paddle position due to overflow: hidden */
+.carousel--hidden-scrollbar .carousel__control--prev {
+    left: 0;
+}
+
+/* hidden-scrollbar must have inner paddle position due to overflow: hidden */
+.carousel--hidden-scrollbar .carousel__control--next {
+    right: 0;
+}

@@ -1,63 +1,74 @@
 :root {
-  --page-grid-number-cols: 8;
-  --page-grid-outside-margins: 16px;
-  --page-grid-column-gaps: var(--spacing-100);
-  --page-grid-row-gaps: var(--spacing-200);
-  --page-grid-column-widths: calc((100% / 8) - var(--spacing-100) + 1px);
-  --page-grid-max-width: 1584px;
-  --page-grid-total-max-width: calc(var(--page-grid-max-width) + (var(--page-grid-outside-margins) * 2));
+    --page-grid-number-cols: 8;
+    --page-grid-outside-margins: 16px;
+    --page-grid-column-gaps: var(--spacing-100);
+    --page-grid-row-gaps: var(--spacing-200);
+    --page-grid-column-widths: calc(12.5% - var(--spacing-100) + 1px);
+    --page-grid-max-width: 1584px;
+    --page-grid-total-max-width: calc(
+        var(--page-grid-max-width) + var(--page-grid-outside-margins) * 2
+    );
 }
 @media screen and (min-width: 512px) {
-  :root {
-    --page-grid-number-cols: 16;
-    --page-grid-column-gaps: var(--spacing-200);
-    --page-grid-column-widths: calc((100% / 16) - var(--spacing-200) + 1px);
-    --page-grid-outside-margins: 32px;
-  }
+    :root {
+        --page-grid-number-cols: 16;
+        --page-grid-column-gaps: var(--spacing-200);
+        --page-grid-column-widths: calc(6.25% - var(--spacing-200) + 1px);
+        --page-grid-outside-margins: 32px;
+    }
 }
 @media screen and (min-width: 1280px) {
-  :root {
-    --page-grid-outside-margins: 48px;
-  }
+    :root {
+        --page-grid-outside-margins: 48px;
+    }
 }
-/* Mobile-first implies defaults, there is no "first" breakpoint,
-   and we don't need a minimum viewport width to support. */
 .page-grid-container {
-  box-sizing: border-box;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--page-grid-max-width);
-  padding-left: var(--page-grid-outside-margins);
-  padding-right: var(--page-grid-outside-margins);
-  position: relative;
-  width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--page-grid-max-width);
+    padding-left: var(--page-grid-outside-margins);
+    padding-right: var(--page-grid-outside-margins);
+    position: relative;
+    width: 100%;
 }
+
 .page-grid {
-  column-gap: var(--page-grid-column-gaps);
-  display: grid;
-  grid-template-columns: repeat(var(--page-grid-number-cols), var(--page-grid-column-widths));
-  row-gap: var(--page-grid-row-gaps);
+    column-gap: var(--page-grid-column-gaps);
+    grid-template-columns: repeat(
+        var(--page-grid-number-cols),
+        var(--page-grid-column-widths)
+    );
+    row-gap: var(--page-grid-row-gaps);
 }
-.subgrid,
-.page-grid__subgrid {
-  display: grid;
+.page-grid,
+.page-grid__subgrid,
+.subgrid {
+    display: grid;
 }
 @supports (grid-template-columns: subgrid) {
-  .subgrid,
-  .page-grid__subgrid {
-    grid-template-columns: subgrid;
-  }
+    .page-grid__subgrid,
+    .subgrid {
+        grid-template-columns: subgrid;
+    }
 }
 .page-grid-container .nested-grid-container {
-  max-width: 100%;
-  padding: 0;
-  width: 100%;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
 }
-/* prettier-ignore */
 .page-grid--debug {
-  --debug-grid-col-color: pink;
-  --debug-grid-gutter-color: transparent;
-  /* stylelint-disable-next-line */
-  background: repeating-linear-gradient(90deg, var(--debug-grid-col-color) 0, var(--debug-grid-col-color) var(--page-grid-column-widths), var(--debug-grid-gutter-color) var(--page-grid-column-widths), var(--debug-grid-gutter-color) calc(var(--page-grid-column-widths) + var(--page-grid-column-gaps)));
+    --debug-grid-col-color: pink;
+    --debug-grid-gutter-color: #0000;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--debug-grid-col-color) 0,
+        var(--debug-grid-col-color) var(--page-grid-column-widths),
+        var(--debug-grid-gutter-color) var(--page-grid-column-widths),
+        var(--debug-grid-gutter-color)
+            calc(var(--page-grid-column-widths) + var(--page-grid-column-gaps))
+    );
 }
+
+/*# sourceMappingURL=page-grid.css.map */

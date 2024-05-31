@@ -203,7 +203,7 @@ class GenerateImages {
             { parser: "less", tabWidth: 4 },
         );
         await fs.promises.writeFile(
-            `src/less/icon/generated/icon.less`,
+            `src/sass/icon/generated/icon.less`,
             prettierFormat,
         );
 

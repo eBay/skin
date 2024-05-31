@@ -1,0 +1,60 @@
+@import "./bubble-mixins";
+
+@mixin dropdown-base($component) {
+    @include background-color-token(
+        #{$component}-background-color,
+        color-background-elevated
+    );
+    @include border-radius-token(#{$component}-border-radius, border-radius-50);
+
+    box-shadow: var(--bubble-shadow);
+    box-sizing: border-box;
+    display: none;
+    left: 0;
+    max-height: 400px;
+    min-width: 100%;
+    overflow-y: auto;
+    position: absolute;
+    top: calc(100% + 4px);
+    width: auto;
+    z-index: 2;
+
+    [dir="rtl"] & {
+        left: unset;
+        right: 0;
+    }
+}
+
+@mixin dropdown-reverse() {
+    left: unset;
+    right: 0;
+
+    [dir="rtl"] & {
+        left: 0;
+        right: unset;
+    }
+}
+
+@mixin dropdown-item-border-radius($component) {
+    &:first-child {
+        @include border-top-left-radius-token(
+            #{$component}-border-radius,
+            border-radius-50
+        );
+        @include border-top-right-radius-token(
+            #{$component}-border-radius,
+            border-radius-50
+        );
+    }
+
+    &:last-child {
+        @include border-bottom-left-radius-token(
+            #{$component}-border-radius,
+            border-radius-50
+        );
+        @include border-bottom-right-radius-token(
+            #{$component}-border-radius,
+            border-radius-50
+        );
+    }
+}

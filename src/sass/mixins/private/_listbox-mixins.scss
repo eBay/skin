@@ -1,0 +1,48 @@
+@import "./selection-list-mixins";
+
+@mixin listbox-option-base() {
+    @include selection-list-item-base();
+    @include border-color-token(
+        listbox-option-border-color,
+        color-background-primary
+    );
+    @include color-token(
+        listbox-option-foreground-color,
+        color-foreground-primary
+    );
+
+    &[hidden] {
+        display: none; /* https://css-tricks.com/the-hidden-attribute-is-visibly-weak/ */
+    }
+
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+        @include color-token(
+            listbox-option-hover-foreground-color,
+            color-foreground-primary
+        );
+    }
+
+    &:active {
+        font-weight: bold;
+    }
+
+    &:disabled,
+    &[aria-disabled="true"] {
+        @include listbox-disabled();
+    }
+}
+
+@mixin listbox-disabled() {
+    @include color-token(
+        listbox-option-disabled-foreground-color,
+        color-foreground-disabled
+    );
+
+    background-color: unset;
+    font-weight: unset;
+}
+
+@mixin listbox-option-status() {
+    @include selection-list-item-status();
+}
