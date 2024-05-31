@@ -3,7 +3,9 @@
 // Recursive Mixin to build repetative class delcarations for explicit dev overrides for various breakpoints
 // stylelint-disable
 .toggle-button-grid-templates(@breakpoint, @n, @i: 1) when (@i =< @n) {
-    @selector: .toggle-button-group[data-columns- @breakpoint= "@{i}"] ul;
+    @attr: ~'data-columns-@{breakpoint}="@{i}"';
+    @selector: ~".toggle-button-group[@{attr}] ul";
+
     @{selector} {
         grid-template-columns: repeat(@i, 1fr);
     }
