@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 const glob = require("glob");
 const path = require("path");
-const less = require("less");
+const sass = require("sass");
 const fs = require("fs");
 const pkg = require("../package.json");
 const rimraf = require("rimraf");
@@ -46,8 +46,8 @@ class CssProcesser {
     }
 
     run() {
-        return this.generateLESS()
-            .then((raw) => this.compileLess(raw))
+        return this.generateSASS()
+            .then((raw) => this.compileSASS(raw))
             .then((raw) =>
                 this.minify ? cleanCSSInstance.minify(raw) : { styles: raw },
             )
@@ -99,10 +99,10 @@ class CssProcesser {
     }
 
     /**
-     * Generates a raw less file for given css file
+     * Generates a raw sass file for given css file
      * @param {*} file
      */
-    generateRawLess(file) {
+    generateRawSASS(file) {
         const fileName = path.basename(file, ".css");
         if (
             this.args.modules.length > 0 &&
@@ -133,7 +133,7 @@ class CssProcesser {
     processFiles(files) {
         return new Promise((resolve) => {
             const compiled = files
-                .map((file) => this.generateRawLess(file))
+                .map((file) => this.generateRawSASS(file))
                 .join("\n");
             const processed = this.processed;
             const skipped = this.skipped;
@@ -162,14 +162,15 @@ class CssProcesser {
         });
     }
 
-    generateLESS() {
+    generateSASS() {
         return this.getDistCss(this.tokensFile).then((files) =>
             this.processFiles(files),
         );
     }
 
-    compileLess(raw) {
-        return less.render(raw).then((render) => render.css);
+    compileSASS(raw) {
+        const compilation = sass.compile(raw)
+        return compilation.css;
     }
 
     writeAllFiles(raw) {
@@ -191,8 +192,8 @@ function getCDNPath(bundle) {
 }
 
 /**
- * Runs the compilation of less
- * @param {*} res The response with tokensFile and raw css/less
+ * Runs the compilation ofsass
+ * @param {*} res The response with tokensFile and raw csssass/
  * @param {*} plugin The given plugin to run the render with
  */
 /**
@@ -234,7 +235,7 @@ function writeFile(file, data) {
 }
 
 /**
- * Main function to start, generates less files and compiles and writes them
+ * Main function to start, generates sass files and compiles and writes them
  * @param {*} name
  * @param {*} args
  */
