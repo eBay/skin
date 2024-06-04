@@ -9,6 +9,7 @@ module.exports = (ctx) => ({
                 {
                     normalizeWhitespace: ctx.env === "production",
                     rawCache: ctx.env === "production",
+                    colormin: ctx.env === "production",
                 },
             ],
         }),
