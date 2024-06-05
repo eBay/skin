@@ -1,0 +1,132 @@
+@import "../variables/variables";
+@import "../mixins/private/filter-menu-mixins";
+@import "../mixins/private/token-mixins";
+
+.filter-menu,
+.filter-menu-form {
+    @include background-color-token(
+        filter-menu-item-background-color,
+        color-background-primary
+    );
+
+    min-width: 144px;
+}
+
+span.filter-menu,
+span.filter-menu-form {
+    display: inline-block;
+}
+
+.filter-menu__items,
+.filter-menu-form__items {
+    margin-top: 8px;
+    min-width: 100%;
+    position: relative;
+}
+
+span.filter-menu__items[role="menu"],
+span.filter-menu-form__items {
+    display: inline-block;
+}
+
+span.filter-menu__checkbox,
+span.filter-menu__radio {
+    display: block;
+    flex-shrink: 1;
+    height: 18px;
+    min-width: 18px;
+    width: 18px;
+
+    svg {
+        @include color-token(
+            filter-menu-item-icon-color,
+            color-foreground-primary
+        );
+
+        height: 18px;
+        width: 18px;
+    }
+}
+
+.filter-menu-form__item span.checkbox,
+.filter-menu-form__item span.radio {
+    align-items: flex-start;
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+
+    .checkbox__icon > svg {
+        @include color-token(
+            filter-menu-item-checked-color,
+            color-foreground-primary
+        );
+    }
+}
+
+span.filter-menu__item[role^="menuitem"],
+span.filter-menu-form__item {
+    display: block;
+}
+
+.filter-menu__item[role^="menuitem"],
+.filter-menu-form__item {
+    @include filter-menu-item-base();
+
+    padding: 8px 16px;
+
+    &:last-child {
+        margin-bottom: 8px;
+    }
+}
+
+button.filter-menu__footer,
+button.filter-menu-form__footer[type="submit"] {
+    @include filter-menu-item-base();
+
+    border: none;
+    @include border-color-token(filter-menu-border-color, color-stroke-subtle);
+
+    border-top-style: solid;
+    border-top-width: 1px;
+    bottom: 0;
+    padding: 16px;
+
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+    }
+}
+
+.filter-menu__text,
+.filter-menu-form__text {
+    flex-grow: 1;
+    margin-left: 8px;
+}
+
+.filter-menu__item[role="menuitemcheckbox"] svg.icon--checkbox-checked-18,
+.filter-menu__item[role="menuitemradio"] svg.icon--radio-checked-18 {
+    display: none;
+}
+
+.filter-menu__item[role="menuitemcheckbox"] svg.icon--checkbox-unchecked-18,
+.filter-menu__item[role="menuitemradio"] svg.icon--radio-unchecked-18 {
+    display: block;
+}
+
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"]
+    svg.icon--checkbox-unchecked-18,
+.filter-menu__item[role="menuitemradio"][aria-checked="true"]
+    svg.icon--radio-unchecked-18 {
+    display: none;
+}
+
+.filter-menu__item[role="menuitemcheckbox"][aria-checked="true"]
+    svg.icon--checkbox-checked-18,
+.filter-menu__item[role="menuitemradio"][aria-checked="true"]
+    svg.icon--radio-checked-18 {
+    display: block;
+}
+
+/* https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/ */
+div.filter-menu__item[role^="menuitem"]:focus:not(:focus-visible) {
+    outline: none;
+}

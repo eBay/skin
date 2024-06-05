@@ -1,0 +1,118 @@
+@import "../variables/variables";
+@import "../mixins/private/bubble-mixins";
+@import "../mixins/private/token-mixins";
+
+.tooltip {
+    position: relative;
+}
+
+span.tooltip {
+    display: inline-block;
+}
+
+.tooltip__overlay {
+    @include bubble();
+}
+
+.tooltip__mask {
+    @include bubble-mask();
+    @include background-color-token(
+        tooltip-background-color,
+        color-background-elevated
+    );
+    @include color-token(tooltip-foreground-color, color-foreground-primary);
+}
+
+span.tooltip__mask {
+    display: block;
+}
+
+.tooltip__cell {
+    @include bubble-cell();
+
+    a {
+        @include color-token(
+            tooltip-foreground-color,
+            color-foreground-primary
+        );
+
+        &:focus {
+            outline: 1px dashed currentColor;
+        }
+    }
+}
+
+.tooltip__content {
+    @include bubble-content();
+}
+
+button.tooltip__close {
+    @include bubble-close();
+}
+
+.tooltip__pointer {
+    @include pointer-base();
+    @include background-color-token(
+        tooltip-background-color,
+        color-background-elevated
+    );
+}
+
+.tooltip__pointer--top-left {
+    @include pointer-top-left();
+}
+
+.tooltip__pointer--top {
+    @include pointer-top-center();
+}
+
+.tooltip__pointer--top-right {
+    @include pointer-top-right();
+}
+
+.tooltip__pointer--bottom-left {
+    @include pointer-bottom-left();
+}
+
+.tooltip__pointer--bottom {
+    @include pointer-bottom-center();
+}
+
+.tooltip__pointer--bottom-right {
+    @include pointer-bottom-right();
+}
+
+.tooltip__pointer--left {
+    @include pointer-left();
+}
+
+.tooltip__pointer--left-bottom {
+    @include pointer-left-bottom();
+}
+
+.tooltip__pointer--left-top {
+    @include pointer-left-top();
+}
+
+.tooltip__pointer--right {
+    @include pointer-right();
+}
+
+.tooltip__pointer--right-bottom {
+    @include pointer-right-bottom();
+}
+
+.tooltip__pointer--right-top {
+    @include pointer-right-top();
+}
+
+.tooltip--expanded .tooltip__overlay,
+.tooltip__host[aria-expanded="true"] ~ .tooltip__overlay {
+    display: block;
+}
+
+@media (min-width: $_screen-size-SM) {
+    .tooltip__overlay {
+        @include bubble-large-screen();
+    }
+}
