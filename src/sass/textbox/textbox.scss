@@ -1,0 +1,232 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+
+.textbox {
+    @include color-token(textbox-foreground-color, color-background-secondary);
+
+    font-size: var(--font-size-default);
+    /* to align with buttons and select, it needs same font-size */
+    position: relative;
+
+    button.icon-btn {
+        background-color: transparent;
+        display: inline-flex;
+        height: 100%;
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+span.textbox {
+    display: inline-block;
+}
+
+textarea.textbox__control {
+    font-family: inherit;
+    min-height: 200px;
+    overflow: auto;
+    padding: var(--spacing-200);
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    resize: vertical;
+    vertical-align: middle;
+}
+
+input.textbox__control {
+    font-family: inherit;
+    padding: 0 var(--spacing-200);
+    vertical-align: middle;
+}
+
+input.textbox__control,
+textarea.textbox__control {
+    appearance: none;
+    @include background-color-token(
+        textbox-background-color,
+        color-background-secondary
+    );
+    @include border-color-token(textbox-border-color, color-stroke-default);
+    @include border-radius-token(textbox-border-radius, border-radius-50);
+
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    @include color-token(
+        textbox-foreground-color,
+        color-foreground-on-secondary
+    );
+
+    font-size: 1em;
+    height: 40px;
+    margin: 0; /* Remove the margin in Firefox and Safari. */
+
+    &[disabled] {
+        @include border-color-token(
+            textbox-disabled-border-color,
+            color-background-disabled
+        );
+        @include color-token(
+            textbox-disabled-foreground-color,
+            color-foreground-disabled
+        );
+
+        &::-webkit-input-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+
+        &::-moz-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+
+        &:-ms-input-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+    }
+
+    &[readonly] {
+        background-color: transparent;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &[aria-invalid="true"] {
+        @include border-color-token(
+            textbox-invalid-foreground-color,
+            color-stroke-attention
+        );
+    }
+
+    &::-webkit-input-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &::placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-secondary
+        );
+
+        font-weight: 200;
+        opacity: 1;
+    }
+}
+
+input.textbox__control--large {
+    height: 48px;
+}
+
+.textbox > svg,
+.textbox .icon-btn > svg {
+    @include color-token(textbox-icon-color, color-foreground-secondary);
+
+    display: inline-flex;
+    @include fill-token(textbox-icon-color, color-foreground-secondary);
+
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 14px;
+}
+
+.textbox--icon-end {
+    input.textbox__control,
+    textarea.textbox__control {
+        padding-inline-end: 40px;
+    }
+
+    > svg:last-child {
+        right: var(--spacing-200);
+    }
+}
+
+input.textbox__control:not(:read-only):focus,
+textarea.textbox__control:not(:read-only):focus {
+    @include border-color-token(
+        textbox-focus-border-color,
+        color-stroke-strong
+    );
+    @include background-color-token(
+        textbox-focus-background-color,
+        color-background-primary
+    );
+}
+
+input.textbox__control[readonly]:focus,
+textarea.textbox__control[readonly]:focus {
+    outline: 0;
+    text-decoration: underline;
+}
+
+.textbox > svg:first-child {
+    left: var(--spacing-200);
+
+    + input.textbox__control,
+    + textarea.textbox__control {
+        padding-inline-start: 40px;
+    }
+}
+
+.textbox__control--fluid {
+    width: 100%;
+}
+
+/* stylelint-disable no-descending-specificity */
+[dir="rtl"] {
+    .textbox > svg:first-child {
+        right: var(--spacing-200);
+
+        /* & + input.textbox__control, */
+        /* & + textarea.textbox__control { */
+        /*     padding-right: 40px; */
+        /* } */
+    }
+
+    .textbox--icon-end {
+        button.icon-btn {
+            left: 0;
+            right: auto;
+        }
+
+        > svg:last-child {
+            left: var(--spacing-200);
+            right: auto;
+        }
+    }
+}
+/* stylelint-enable no-descending-specificity */

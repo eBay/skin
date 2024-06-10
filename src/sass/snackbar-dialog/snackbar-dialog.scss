@@ -1,0 +1,113 @@
+@import "../variables/variables";
+@import "../mixins/private/dialog-mixins";
+@import "../mixins/private/token-mixins";
+
+.snackbar-dialog {
+    @include background-color-token(
+        snackbar-dialog-background-color,
+        color-background-inverse
+    );
+    @include border-radius-token(
+        snackbar-dialog-border-radius,
+        border-radius-100
+    );
+
+    bottom: 40px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
+    @include color-token(
+        snackbar-dialog-foreground-color,
+        color-foreground-on-inverse
+    );
+
+    left: var(--spacing-100);
+    margin: auto;
+    max-height: 40vh;
+    max-width: 448px;
+    position: fixed;
+    right: var(--spacing-100);
+    /* Setting translateY to 0 to fix a bug in safari which does a double transform */
+    transform: translateY(0);
+    will-change: opacity, transform;
+    z-index: 2;
+}
+
+.snackbar-dialog--transition {
+    transition:
+        opacity 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s,
+        transform 0.2s cubic-bezier(0.21, 0.31, 1, 1.22) 0s;
+}
+
+.snackbar-dialog--show,
+.snackbar-dialog--hide-init {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.snackbar-dialog--show-init,
+.snackbar-dialog--hide {
+    display: block;
+    opacity: 0;
+    transform: translateY(110%);
+}
+
+.snackbar-dialog__window {
+    display: flex;
+    margin: var(--spacing-200) var(--spacing-300);
+}
+
+.snackbar-dialog__window--column {
+    flex-direction: column;
+}
+
+.snackbar-dialog__main {
+    margin-inline-end: var(--spacing-400);
+}
+
+.snackbar-dialog__main p {
+    margin: 0;
+}
+
+.snackbar-dialog__actions {
+    margin-inline-start: auto;
+}
+
+.snackbar-dialog__window--column .snackbar-dialog__actions {
+    margin-top: var(--spacing-200);
+}
+
+.snackbar-dialog__actions .fake-link {
+    @include color-token(
+        snackbar-dialog-foreground-color,
+        color-foreground-on-inverse
+    );
+
+    text-decoration: none;
+
+    &::first-letter {
+        text-decoration: underline;
+    }
+}
+
+/* this needs to be super specific to override base fake-link */
+.snackbar-dialog__actions button.fake-link:hover:not(:disabled) {
+    @include color-token(
+        snackbar-dialog-foreground-color,
+        color-foreground-on-inverse
+    );
+
+    text-decoration: underline;
+}
+
+@media (min-width: $_screen-size-SM) {
+    .snackbar-dialog {
+        bottom: 20px;
+    }
+}
+
+[dir="rtl"] {
+    .snackbar-dialog {
+        left: auto;
+        right: 0;
+    }
+}

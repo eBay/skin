@@ -1,0 +1,70 @@
+@import "../variables/variables";
+@import "../mixins/private/button-mixins";
+
+.segmented-buttons {
+    border: 1px solid var(--color-stroke-default);
+    border-radius: var(
+        --segmented-button-border-radius,
+        calc($button-height-large / 2)
+    );
+    max-width: 720px;
+    min-width: 215px;
+    padding: var(--spacing-50);
+}
+
+.segmented-buttons > ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.segmented-buttons > ul > li {
+    display: flex;
+    flex: 1;
+}
+
+.segmented-buttons > ul > li:not(:first-child) {
+    margin-inline-start: var(--spacing-100);
+}
+
+.segmented-buttons__button {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--btn-border-radius, calc($button-height-regular / 2));
+    color: var(--color-foreground-on-primary);
+    font-size: var(--font-size-default);
+    min-height: calc($button-height-regular - (var(--spacing-50) * 2));
+    padding: var(--spacing-100) var(--spacing-200);
+    width: 100%;
+}
+
+.segmented-buttons--large .segmented-buttons__button {
+    min-height: calc($button-height-large - (var(--spacing-50) * 2));
+}
+
+.segmented-buttons__button-cell {
+    @include btn-cell-base();
+
+    justify-content: center;
+}
+
+.segmented-buttons__button svg.icon {
+    @include btn-icon-base();
+}
+
+.segmented-buttons__button[aria-current] {
+    background-color: var(--color-foreground-primary);
+    color: var(--color-foreground-on-inverse);
+}
+
+.segmented-buttons__button:not([aria-current]) {
+    &:active {
+        background-color: var(--color-state-primary-active);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-state-primary-hover);
+    }
+}

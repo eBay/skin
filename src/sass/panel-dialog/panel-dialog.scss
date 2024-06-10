@@ -1,0 +1,140 @@
+@import "../variables/variables";
+@import "../mixins/private/dialog-mixins";
+@import "../mixins/private/token-mixins";
+
+.panel-dialog[role="dialog"] {
+    @include dialog-base();
+
+    flex-direction: column;
+
+    /* need to override base as panel dialog is the only one to scroll the content only */
+    /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+    overflow-y: hidden;
+}
+
+.panel-dialog__window {
+    @include dialog-window();
+
+    border-right: 1px solid rgba(153, 153, 153, 0.18);
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.panel-dialog__window--end {
+    align-self: flex-end;
+    border-left: 1px solid rgba(153, 153, 153, 0.18);
+}
+
+.panel-dialog__header {
+    @include dialog-header-content();
+}
+
+.panel-dialog__header .fake-link {
+    align-self: flex-start;
+    outline-offset: 4px;
+    text-decoration: none;
+}
+
+.panel-dialog__main {
+    @include dialog-body-content();
+
+    height: 1px;
+    overflow-y: auto;
+}
+
+.panel-dialog__footer {
+    @include dialog-footer-content();
+}
+
+/* inherits from .icon-btn */
+/* Might need to see to add a small icon btn */
+button.icon-btn.panel-dialog__close {
+    align-self: flex-start;
+    border: 0;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+    position: relative;
+    width: 32px;
+    z-index: 1;
+}
+
+.panel-dialog__title {
+    &:not(:first-child) {
+        margin-left: var(--spacing-200);
+    }
+}
+
+.panel-dialog--show,
+.panel-dialog--hide {
+    &.panel-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.panel-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    .panel-dialog__window--slide {
+        transition: transform 0.32s ease-out;
+    }
+}
+
+.panel-dialog--hide,
+.panel-dialog--show-init {
+    &.panel-dialog--hide,
+    &.panel-dialog--show-init {
+        display: flex;
+    }
+
+    &.panel-dialog--mask-fade,
+    &.panel-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-hide);
+    }
+
+    .panel-dialog__window--slide-left {
+        transform: translateX(-100%);
+    }
+
+    .panel-dialog__window--slide-right {
+        transform: translateX(100%);
+    }
+}
+
+.panel-dialog--hide .panel-dialog__window--slide,
+.panel-dialog--show-init .panel-dialog__window--slide {
+    transform: translateX(-100%);
+}
+
+.panel-dialog--hide .panel-dialog__window--end.panel-dialog__window--slide,
+.panel-dialog--show-init
+    .panel-dialog__window--end.panel-dialog__window--slide {
+    transform: translateX(100%);
+}
+
+.panel-dialog--show,
+.panel-dialog--hide-init {
+    &.panel-dialog--show,
+    &.panel-dialog--hide-init {
+        display: flex;
+    }
+
+    &.panel-dialog--mask-fade,
+    &.panel-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-show);
+    }
+
+    .panel-dialog__window--slide {
+        transform: translateX(0);
+    }
+}
+
+/* MEDIA QUERIES */
+/* ----------------------------- */
+
+@media (min-width: $_screen-size-SM) {
+    .panel-dialog__window {
+        width: 384px;
+    }
+}

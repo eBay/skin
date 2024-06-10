@@ -1,0 +1,45 @@
+@mixin filter-menu-item-base() {
+    @include background-color-token(
+        filter-menu-item-background-color,
+        color-background-elevated
+    );
+
+    box-sizing: border-box;
+    @include color-token(
+        filter-menu-item-foreground-color,
+        color-foreground-primary
+    );
+
+    display: flex;
+    font-size: var(--font-size-default);
+    justify-content: space-between;
+    line-height: 1.4em;
+    margin: 0;
+    width: 100%;
+
+    &:hover {
+        background-color: var(
+            --color-state-primary-hover,
+            color-state-primary-hover
+        );
+    }
+
+    &:disabled,
+    &[aria-disabled="true"] {
+        @include color-token(
+            filter-menu-item-foreground-color-disabled,
+            color-foreground-disabled
+        );
+
+        span > svg {
+            @include color-token(
+                filter-menu-item-icon-color-disabled,
+                color-foreground-disabled
+            );
+        }
+
+        &:hover {
+            background-color: inherit;
+        }
+    }
+}

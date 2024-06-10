@@ -399,7 +399,7 @@ Once Jekyll is setup successfully, running a build should create the following f
 -   `./_site/static/common/docs.min.js`
     -   this is the Babel & Webpack output of `./docs/src/js/main.js`
 -   `./_site/static/dsx/docs.min.css`
-    -   this is the LESS compiler output of `./docs/src/less/dsx.less`
+    -   this is the SASS compiler output of `./docs/src/sass/dsx.less`
 -   `./_site/static/dsx/skin.min.css`
     -   the full, minified skin css bundle (only used in development environment)
 -   `./_site/index.html`

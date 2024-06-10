@@ -1,12 +1,11 @@
 const path = require("path");
-console.log(`STORYBOOK_DS: ${process.env.STORYBOOK_DS}`);
 module.exports = {
-  stories: ["../src/less/**/*.stories.js", "../src/less/**/stories/**/*.stories.js"],
+  stories: ["../src/sass/**/*.stories.js", "../src/sass/**/stories/**/*.stories.js"],
   webpackFinal: async (config, {
     configType
   }) => {
     config.module.rules.push({
-      test: /\.less/,
+      test: /\.scss/,
       use: ["style-loader", "css-loader", {
         loader: "postcss-loader",
         options: {
@@ -17,14 +16,8 @@ module.exports = {
           }
         }
       }, {
-        loader: "less-loader",
-        options: {
-          lessOptions: {
-            globalVars: {
-              ds: `ds${process.env.STORYBOOK_DS}`
-            }
-          }
-        }
+        loader: "sass-loader",
+        options: {}
       }]
     });
     return config;
