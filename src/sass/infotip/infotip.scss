@@ -1,0 +1,136 @@
+@import "../variables/variables";
+@import "../mixins/private/bubble-mixins";
+@import "../mixins/private/token-mixins";
+
+.infotip {
+    position: relative;
+}
+
+span.infotip {
+    display: inline-block;
+}
+
+.infotip__overlay {
+    @include bubble();
+    @include background-color-token(
+        infotip-background-color,
+        color-background-elevated
+    );
+    @include color-token(infotip-foreground-color, color-foreground-primary);
+
+    display: none;
+}
+
+.infotip__mask {
+    @include bubble-mask();
+    @include background-color-token(
+        infotip-background-color,
+        color-background-elevated
+    );
+    @include color-token(infotip-foreground-color, color-foreground-primary);
+}
+
+span.infotip__mask {
+    display: block;
+}
+
+.infotip__cell {
+    @include bubble-cell();
+}
+
+.infotip__content {
+    @include bubble-content();
+}
+
+.infotip__pointer {
+    @include background-color-token(
+        infotip-background-color,
+        color-background-elevated
+    );
+
+    @include pointer-base();
+}
+
+.infotip__pointer--top-left {
+    @include pointer-top-left();
+}
+
+.infotip__pointer--top {
+    @include pointer-top-center();
+}
+
+.infotip__pointer--top-right {
+    @include pointer-top-right();
+}
+
+.infotip__pointer--bottom-left {
+    @include pointer-bottom-left();
+}
+
+.infotip__pointer--bottom {
+    @include pointer-bottom-center();
+}
+
+.infotip__pointer--bottom-right {
+    @include pointer-bottom-right();
+}
+
+.infotip__pointer--left {
+    @include pointer-left();
+}
+
+.infotip__pointer--left-bottom {
+    @include pointer-left-bottom();
+}
+
+.infotip__pointer--left-top {
+    @include pointer-left-top();
+}
+
+.infotip__pointer--right {
+    @include pointer-right();
+}
+
+.infotip__pointer--right-bottom {
+    @include pointer-right-bottom();
+}
+
+.infotip__pointer--right-top {
+    @include pointer-right-top();
+}
+
+.infotip__heading {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 var(--spacing-50);
+}
+
+span.infotip__heading {
+    display: block;
+}
+
+.infotip__host[aria-expanded="true"] ~ .infotip__overlay {
+    display: block;
+}
+
+/* todo: refactor out this dependency. Use a mixin instead */
+.infotip .icon-btn {
+    display: inline-flex;
+    flex-shrink: 0; /* todo: Should move to icon-btn in next major */
+    height: 20px;
+    min-width: 20px;
+    outline-offset: 2px;
+    overflow: visible;
+    width: 20px;
+}
+
+button.infotip__close,
+.infotip__close {
+    margin-left: var(--spacing-200);
+}
+
+@media (min-width: $_screen-size-SM) {
+    .infotip__overlay {
+        @include bubble-large-screen();
+    }
+}

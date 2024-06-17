@@ -1,0 +1,111 @@
+@import "../variables/variables";
+@import "../mixins/public/typography-mixins";
+@import "../mixins/private/token-mixins";
+
+.giant-text-3 {
+    @include typography-giant-3();
+}
+
+.giant-text-2 {
+    @include typography-giant-2();
+}
+
+.giant-text-1 {
+    @include typography-giant-1();
+}
+
+.large-text-2 {
+    @include typography-large-2();
+}
+
+.large-text-1 {
+    @include typography-large-1();
+}
+
+.medium-text {
+    @include typography-medium();
+}
+
+.regular-text {
+    @include typography-regular();
+}
+
+.small-text {
+    @include typography-small();
+}
+
+.bold-text {
+    font-weight: var(--font-weight-bold);
+}
+
+.secondary-text {
+    @include color-token(
+        typography-secondary-text-color,
+        color-foreground-secondary
+    );
+}
+
+.emphasis-text {
+    color: var(--color-foreground-attention);
+}
+
+.negative-text {
+    color: var(--color-foreground-attention);
+}
+
+.positive-text {
+    color: var(--color-foreground-confirmation);
+}
+
+.disabled-text {
+    color: var(--color-foreground-disabled);
+}
+
+.giant-product-title,
+.giant-section-title {
+    @include title-giant-screen-small();
+}
+
+.large-product-title,
+.large-section-title {
+    @include title-large-screen-small();
+}
+
+.medium-product-title,
+.medium-section-title {
+    @include title-medium-screen-small();
+}
+
+.small-product-title,
+.small-section-title {
+    @include title-small-screen-small();
+}
+
+.giant-section-title,
+.large-section-title,
+.medium-section-title,
+.small-section-title {
+    font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: $_screen-size-SM) {
+    .giant-product-title,
+    .giant-section-title {
+        @include title-giant-screen-large();
+    }
+
+    .large-product-title,
+    .large-section-title {
+        @include title-large-screen-large();
+    }
+
+    .medium-product-title,
+    .medium-section-title {
+        @include title-medium-screen-large();
+    }
+
+    .small-product-title,
+    .small-section-title {
+        @include title-small-screen-large();
+    }
+}

@@ -38,14 +38,14 @@ const excludedFolders = [
 // use for debug purposes only
 const includedFolders = ["badge", "switch", "tabs"];
 
-// filter for removing files and folders under src/less that should not be compiled by lessc
+// filter for removing files and folders under src/sass that should not be compiled by lessc
 const filterSrc = (dirent) =>
     dirent.isDirectory() && !excludedFolders.includes(dirent.name);
 
 async function compileNestedModule(moduleName) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
 
-    gulp.src([`./src/less/${name}/*.less`])
+    gulp.src([`./src/sass/${name}/*.less`])
         .pipe(less({ plugins: [autoprefixPlugin] }))
         .on("error", console.log)
         .pipe(gulp.dest(`${distTarget}/${name}`));
@@ -56,7 +56,7 @@ async function compileNestedModule(moduleName) {
 async function compileModule(moduleName) {
     const name = yargs.argv.name === undefined ? moduleName : yargs.argv.name;
 
-    gulp.src([`./src/less/${name}/${name}.less`])
+    gulp.src([`./src/sass/${name}/${name}.less`])
         .pipe(less({ plugins: [autoprefixPlugin] }))
         .on("error", console.log)
         .pipe(gulp.dest(`${distTarget}/${name}`));
@@ -66,7 +66,7 @@ async function compileModule(moduleName) {
 
 async function compileAllModules() {
     fs.readdir(
-        path.join(__dirname, "src/less"),
+        path.join(__dirname, "src/sass"),
         { withFileTypes: true },
         (err, files) => {
             files.filter(filterSrc).forEach((dirent) => {
@@ -82,7 +82,7 @@ async function compileAllModules() {
 
 // Compile and minify given bundle to docs/static, _site/static and cdn
 async function compileBundle(filename) {
-    gulp.src(`./src/less/bundles/${filename}`)
+    gulp.src(`./src/sass/bundles/${filename}`)
         .pipe(banner(comment, { pkg: pkg }))
         .pipe(rename((path) => (path.extname = minifiedFileExtensionName)))
         .pipe(less({ plugins: [autoprefixPlugin] }))
@@ -96,7 +96,7 @@ async function compileBundle(filename) {
 }
 
 async function compileAllBundles() {
-    fs.readdir(path.join(__dirname, "src/less/bundles"), (err, files) => {
+    fs.readdir(path.join(__dirname, "src/sass/bundles"), (err, files) => {
         files.forEach((dirent) => compileBundle(dirent));
     });
 
@@ -107,13 +107,13 @@ async function compileAllBundles() {
 function server() {
     // Start the server.
     browserSync.init({ server: "_site" });
-    // Watch less files under src/less. Resync CSS on change.
+    // Watch less files under src/sass. Resync CSS on change.
     // TODO: only re-compile modules that changed
-    gulp.watch("src/less/**/*.less", gulp.series("default", injectSkinCSS));
+    gulp.watch("src/sass/**/*.less", gulp.series("default", injectSkinCSS));
     // Watch css files under src/tokens. Resync CSS on change.
     // gulp.watch('src/tokens/*.css', syncTokensCss);
     // Watch less files under docs. Resync CSS on change.
-    gulp.watch("docs/src/less/**/*.less", syncDocsCss);
+    gulp.watch("docs/src/sass/**/*.less", syncDocsCss);
     // Watch js files under docs. Resync JS on change.
     gulp.watch("docs/src/js/**/*.js", syncDocsJs);
     // Watch svg files under src. Copy to docs on change.

@@ -1,1 +1,1 @@
-import "../src/less/bundles/skin-full.less";
+import "../src/sass/bundles/skin-full.scss";

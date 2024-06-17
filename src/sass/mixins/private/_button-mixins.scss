@@ -1,0 +1,95 @@
+$button-height-small: 32px; /* Rename to small after next major version */
+$button-height-regular: 40px;
+$button-height-large: 48px;
+$button-padding-vertical-small: 6px;
+$button-padding-horizontal-small: 16px;
+$button-padding-vertical: 9.5px;
+$button-padding-horizontal: 20px;
+$button-padding-vertical-large: 13px;
+$button-padding-horizontal-large: 20px;
+$button-border-radius-large: 24px;
+
+@mixin btn-base() {
+    border: 1px solid;
+    box-sizing: border-box;
+    font-family: inherit;
+    margin: 0; /* Remove the button margin in Firefox and Safari */
+    text-align: center;
+    text-decoration: none;
+    vertical-align: bottom;
+
+    &--fixed-height {
+        height: 40px;
+    }
+
+    &--truncated {
+        @include btn-truncate();
+
+        height: 40px;
+    }
+
+    /* https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/ */
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+@mixin btn-large() {
+    border-radius: var(--btn-border-radius, calc($button-height-large / 2));
+    font-size: var(--font-size-medium);
+    min-height: $button-height-large;
+    padding: $button-padding-vertical-large $button-padding-horizontal;
+}
+
+@mixin btn-icon-base() {
+    align-self: center;
+
+    &:first-child {
+        margin-inline-end: 8px; /* when icon is placed before button text */
+    }
+
+    &:last-child {
+        margin-inline-start: 8px; /* when icon is placed after button text */
+    }
+
+    &:only-child {
+        margin: 0;
+    }
+}
+
+@mixin btn-fixed-height() {
+    display: inline-flex;
+
+    > svg {
+        align-self: baseline;
+        max-width: calc(100% - 32px);
+    }
+}
+
+@mixin btn-truncate() {
+    &,
+    & span {
+        line-height: 1.4em; /* fixes fake and cta buttons */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@mixin btn-cell-base() {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+@mixin btn-cell-fixed-height() {
+    &--fixed-height {
+        @include btn-fixed-height();
+    }
+}
+
+@mixin btn-cell-truncated() {
+    &--truncated {
+        @include btn-fixed-height();
+    }
+}

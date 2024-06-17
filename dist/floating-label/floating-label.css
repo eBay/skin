@@ -1,90 +1,139 @@
 .floating-label {
-  position: relative;
+    position: relative;
 }
+
 span.floating-label {
-  display: inline-block;
+    display: inline-block;
 }
+
 div.floating-label {
-  display: block;
+    display: block;
 }
+
 label.floating-label__label {
-  color: var(--floating-label-color, var(--color-foreground-primary));
-  background-color: transparent;
-  display: inline-block;
-  left: 16px;
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  text-overflow: ellipsis;
-  top: 0;
-  transform: scale(0.75, 0.75) translate(0, 2px);
-  transform-origin: left;
-  white-space: nowrap;
-  width: calc(100% - 40px);
-  z-index: 1;
+    background-color: initial;
+    color: var(--floating-label-color, var(--color-foreground-primary));
+    display: inline-block;
+    left: 16px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 0;
+    transform: scale(0.75) translateY(2px);
+    transform-origin: left;
+    white-space: nowrap;
+    width: calc(100% - 40px);
+    z-index: 1;
 }
+
 .floating-label--opaque label.floating-label__label {
-  background-color: var(--floating-label-background-color, var(--color-background-secondary));
-  padding-top: 3px;
-  top: -3px;
-  width: calc(100% - 40px);
+    background-color: var(
+        --floating-label-background-color,
+        var(--color-background-secondary)
+    );
+    padding-top: 3px;
+    top: -3px;
+    width: calc(100% - 40px);
 }
+
 label.floating-label__label--focus {
-  color: var(--color-background-inverse);
+    color: var(--color-background-inverse);
 }
+
 .floating-label--opaque label.floating-label__label--focus {
-  background-color: var(--floating-label-focus-background-color, var(--color-background-primary));
+    background-color: var(
+        --floating-label-focus-background-color,
+        var(--color-background-primary)
+    );
 }
+
 .floating-label--large label.floating-label__label {
-  transform: scale(0.75, 0.75) translate(0, 3px);
+    transform: scale(0.75) translateY(3px);
 }
+
 label.floating-label__label--inline {
-  font-size: var(--font-size-default);
-  transform: translate(0, 12px);
+    font-size: var(--font-size-default);
+    transform: translateY(12px);
 }
+
 .floating-label--large label.floating-label__label--inline {
-  transform: translate(0, 16px);
+    transform: translateY(16px);
 }
+
 label.floating-label__label--animate {
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition:
+        transform 0.3s ease,
+        bottom 0.3s ease;
 }
+
 label.floating-label__label--disabled {
-  color: var(--floating-label-disabled-color, var(--color-foreground-disabled));
+    color: var(
+        --floating-label-disabled-color,
+        var(--color-foreground-disabled)
+    );
 }
+
 .floating-label--opaque label.floating-label__label--disabled {
-  background-color: var(--floating-label-disabled-background-color, var(--color-background-secondary));
+    background-color: var(
+        --floating-label-disabled-background-color,
+        var(--color-background-secondary)
+    );
 }
+
 label.floating-label__label--invalid {
-  color: var(--floating-label-invalid-color, var(--color-foreground-attention));
+    color: var(
+        --floating-label-invalid-color,
+        var(--color-foreground-attention)
+    );
 }
-.floating-label .textbox__control,
-.floating-label .combobox__control > input {
-  padding-bottom: 2px;
-  padding-top: 18px;
+
+.floating-label .combobox__control > input,
+.floating-label .textbox__control {
+    padding-bottom: 2px;
+    padding-top: 18px;
 }
-.floating-label--large .textbox__control,
-.floating-label--large .combobox__control > input {
-  padding-bottom: 5px;
-  padding-top: 23px;
+
+.floating-label--large .combobox__control > input,
+.floating-label--large .textbox__control {
+    padding-bottom: 5px;
+    padding-top: 23px;
 }
 .floating-label .select select {
-  line-height: 52px !important;
+    line-height: 52px !important;
 }
+
 .floating-label .select--large select {
-  line-height: 60px !important;
+    line-height: 60px !important;
 }
 [dir="rtl"] label.floating-label__label {
-  left: initial;
-  right: 16px;
-  transform-origin: right;
+    left: auto;
+    right: 16px;
+    transform-origin: right;
+}
+label.floating-label__label.floating-label__label--inline:has(
+        + .textbox > :-webkit-autofill
+    ) {
+    transform: scale(0.75) translateY(2px);
 }
 label.floating-label__label.floating-label__label--inline:has(
         + .textbox > :autofill
     ) {
-  transform: scale(0.75, 0.75) translate(0, 2px);
+    transform: scale(0.75) translateY(2px);
 }
-.floating-label--large label.floating-label__label.floating-label__label--inline:has(
+
+.floating-label--large
+    label.floating-label__label.floating-label__label--inline:has(
+        + .textbox > :-webkit-autofill
+    ) {
+    transform: scale(0.75) translateY(3px);
+}
+
+.floating-label--large
+    label.floating-label__label.floating-label__label--inline:has(
         + .textbox > :autofill
     ) {
-  transform: scale(0.75, 0.75) translate(0, 3px);
+    transform: scale(0.75) translateY(3px);
 }
+
+/*# sourceMappingURL=floating-label.css.map */

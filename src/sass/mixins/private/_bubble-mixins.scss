@@ -1,0 +1,168 @@
+/* this mixin is used by infotip, tooltip, tourtip, date-textbox */
+
+:root {
+    /* Do NOT use filter: drop-shadow() as Safari cannot do */
+    /*   drop-shadows outside an element with overflow. */
+    /*   Since box-shadow more widely supports various use cases, */
+    /*   it's a more robust solution. */
+    --bubble-shadow: 0 2px 7px rgba(0, 0, 0, 0.15),
+        0 5px 17px rgba(0, 0, 0, 0.2);
+}
+
+@mixin bubble($border-radius-value: border-radius-50) {
+    @include border-radius-token(bubble-border-radius, $border-radius-value);
+
+    box-shadow: var(--bubble-shadow);
+    display: none;
+    font-size: 14px;
+    left: 0;
+    max-width: 344px;
+    position: absolute;
+    top: 0;
+    /* kick in hardware acceleration for GPU processing - fixes issues with filter/display reflow/repaint */
+    transform: scale3d(1, 1, 1);
+    width: max-content;
+    z-index: 1;
+}
+
+@mixin bubble-mask($border-radius-value: border-radius-50) {
+    @include border-radius-token(bubble-border-radius, $border-radius-value);
+
+    position: relative;
+    z-index: 1;
+}
+
+@mixin bubble-large-screen() {
+    max-width: 400px;
+}
+
+/* creates basic layout */
+@mixin bubble-cell($tourtip-spacing: var(--spacing-100) var(--spacing-200)) {
+    display: flex;
+    padding: $tourtip-spacing;
+    word-break: break-word;
+}
+
+@mixin bubble-content() {
+    flex-grow: 1;
+
+    p {
+        margin: 0;
+    }
+
+    p:not(:first-of-type) {
+        margin-top: var(--spacing-50);
+    }
+}
+
+@mixin bubble-close() {
+    align-self: flex-start;
+    background: none;
+    border: 0;
+    flex-shrink: 0;
+    height: var(--spacing-400);
+    margin: calc(var(--spacing-100) * -1) calc(var(--spacing-100) * -1) 0
+        var(--spacing-100);
+    padding: 0;
+    white-space: nowrap;
+    width: 32px;
+}
+
+/* styles common to all pointers */
+@mixin pointer-base() {
+    height: 8px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 8px;
+    z-index: 0;
+}
+
+@mixin pointer-bottom() {
+    bottom: -4px;
+    top: auto;
+}
+
+@mixin pointer-side-middle() {
+    top: calc(50% - 4px);
+}
+
+@mixin pointer-top() {
+    top: -4px;
+}
+
+@mixin pointer-center() {
+    left: calc(50% - 4px);
+}
+
+@mixin pointer-top-center() {
+    @include pointer-top();
+    @include pointer-center();
+}
+
+@mixin pointer-top-left() {
+    @include pointer-top();
+
+    left: 12px;
+}
+
+@mixin pointer-top-right() {
+    @include pointer-top();
+
+    left: auto;
+    right: 12px;
+}
+
+@mixin pointer-bottom-center() {
+    @include pointer-bottom();
+    @include pointer-center();
+}
+
+@mixin pointer-bottom-left() {
+    @include pointer-bottom();
+
+    left: 12px;
+}
+
+@mixin pointer-bottom-right() {
+    @include pointer-bottom();
+
+    left: auto;
+    right: 12px;
+}
+
+@mixin pointer-left() {
+    @include pointer-side-middle();
+
+    left: -4px;
+}
+
+@mixin pointer-left-top() {
+    left: -4px;
+    top: 12px;
+}
+
+@mixin pointer-left-bottom() {
+    bottom: 12px;
+    left: -4px;
+    top: auto;
+}
+
+@mixin pointer-right() {
+    @include pointer-side-middle();
+
+    left: auto;
+    right: -4px;
+}
+
+@mixin pointer-right-top() {
+    left: auto;
+    right: -4px;
+    top: 12px;
+}
+
+@mixin pointer-right-bottom() {
+    bottom: 12px;
+    left: auto;
+    right: -4px;
+    top: auto;
+}
