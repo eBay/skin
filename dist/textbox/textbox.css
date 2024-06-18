@@ -1,4 +1,5 @@
 .textbox {
+    align-items: center;
     background-color: var(
         --textbox-background-color,
         var(--color-background-secondary)
@@ -13,21 +14,19 @@
         --textbox-foreground-color,
         var(--color-foreground-on-secondary)
     );
+    display: flex;
     font-size: var(--font-size-default);
+    gap: var(--spacing-100);
     position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 .textbox button.icon-btn {
     background-color: initial;
-    display: inline-flex;
-    height: 100%;
-    justify-content: center;
     padding: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
-
-.textbox:focus-within:not(
+.textbox--focus,
+.textbox:has(> .textbox__control:focus):not(
         .textbox--readonly,
         :has(> .textbox__control[readonly])
     ) {
@@ -62,10 +61,6 @@
     );
 }
 
-span.textbox {
-    display: inline-block;
-}
-
 .textbox__control {
     background-color: initial;
     border: none;
@@ -83,8 +78,18 @@ textarea.textbox__control {
 
 input.textbox__control {
     font-family: inherit;
-    padding: 0 var(--spacing-200);
+    padding: 0;
     vertical-align: middle;
+}
+
+input.textbox__control:first-child:not([readonly]) {
+    -webkit-padding-start: var(--spacing-200);
+    padding-inline-start: var(--spacing-200);
+}
+
+input.textbox__control:last-child:not([readonly]) {
+    -webkit-padding-end: var(--spacing-200);
+    padding-inline-end: var(--spacing-200);
 }
 
 input.textbox__control,
@@ -92,6 +97,7 @@ textarea.textbox__control {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    flex-grow: 1;
     font-size: 1em;
     height: 40px;
     margin: 0;
@@ -129,13 +135,6 @@ textarea.textbox__control[disabled]:-ms-input-placeholder {
         var(--color-foreground-ghost)
     );
 }
-input.textbox__control[readonly],
-textarea.textbox__control[readonly] {
-    background-color: initial;
-    border: none;
-    padding-left: 0;
-    padding-right: 0;
-}
 input.textbox__control[aria-invalid="true"],
 textarea.textbox__control[aria-invalid="true"] {
     border-color: var(
@@ -159,20 +158,30 @@ input.textbox__control--large {
     color: var(--textbox-icon-color, var(--color-foreground-secondary));
     display: inline-flex;
     fill: var(--textbox-icon-color, var(--color-foreground-secondary));
-    height: 100%;
     pointer-events: none;
-    position: absolute;
-    top: 0;
     width: 14px;
 }
 
-.textbox--icon-end input.textbox__control,
-.textbox--icon-end textarea.textbox__control {
-    -webkit-padding-end: 40px;
-    padding-inline-end: 40px;
+.textbox > span:first-child,
+.textbox > svg:first-child {
+    -webkit-margin-start: var(--spacing-200);
+    margin-inline-start: var(--spacing-200);
 }
-.textbox--icon-end > svg:last-child {
-    right: var(--spacing-200);
+
+.textbox > span:last-child,
+.textbox > svg:last-child {
+    -webkit-margin-end: var(--spacing-200);
+    margin-inline-end: var(--spacing-200);
+}
+
+.textbox .icon-btn:last-child {
+    -webkit-margin-start: calc(var(--spacing-100) * -1);
+    margin-inline-start: calc(var(--spacing-100) * -1);
+}
+
+.textbox .icon-btn:first-child {
+    -webkit-margin-end: calc(var(--spacing-100) * -1);
+    margin-inline-end: calc(var(--spacing-100) * -1);
 }
 
 input.textbox__control[readonly]:focus,
@@ -180,29 +189,8 @@ textarea.textbox__control[readonly]:focus {
     text-decoration: underline;
 }
 
-.textbox > svg:first-child {
-    left: var(--spacing-200);
-}
-.textbox > svg:first-child + input.textbox__control,
-.textbox > svg:first-child + textarea.textbox__control {
-    -webkit-padding-start: 40px;
-    padding-inline-start: 40px;
-}
-
-.textbox__control--fluid {
-    box-sizing: border-box;
+.textbox--fluid {
     width: 100%;
-}
-[dir="rtl"] .textbox > svg:first-child {
-    right: var(--spacing-200);
-}
-[dir="rtl"] .textbox--icon-end button.icon-btn {
-    left: 0;
-    right: auto;
-}
-[dir="rtl"] .textbox--icon-end > svg:last-child {
-    left: var(--spacing-200);
-    right: auto;
 }
 
 /*# sourceMappingURL=textbox.css.map */

@@ -10,6 +10,7 @@
     @include border-color-token(textbox-border-color, color-stroke-default);
     @include border-radius-token(textbox-border-radius, border-radius-50);
 
+    align-items: center;
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
@@ -18,23 +19,23 @@
         color-foreground-on-secondary
     );
 
-    font-size: var(--font-size-default);
+    display: flex;
+
     /* to align with buttons and select, it needs same font-size */
+    font-size: var(--font-size-default);
     position: relative;
+    width: fit-content;
+    gap: var(--spacing-100);
 
     button.icon-btn {
         background-color: transparent;
-        display: inline-flex;
-        height: 100%;
-        justify-content: center;
         padding: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
     }
 }
 
-.textbox:focus-within:not(
+/* `.textbox--focus` should be removed after full browser support for `:has` */
+.textbox--focus,
+.textbox:has(> .textbox__control:focus):not(
         .textbox--readonly,
         :has(> .textbox__control[readonly])
     ) {
@@ -78,10 +79,6 @@
     );
 }
 
-span.textbox {
-    display: inline-block;
-}
-
 .textbox__control {
     background-color: transparent;
     border: none;
@@ -100,13 +97,22 @@ textarea.textbox__control {
 
 input.textbox__control {
     font-family: inherit;
-    padding: 0 var(--spacing-200);
     vertical-align: middle;
+    padding: 0;
+}
+
+input.textbox__control:first-child:not([readonly]) {
+    padding-inline-start: var(--spacing-200);
+}
+
+input.textbox__control:last-child:not([readonly]) {
+    padding-inline-end: var(--spacing-200);
 }
 
 input.textbox__control,
 textarea.textbox__control {
     appearance: none;
+    flex-grow: 1;
     font-size: 1em;
     outline: none;
     height: 40px;
@@ -142,13 +148,6 @@ textarea.textbox__control {
                 color-foreground-ghost
             );
         }
-    }
-
-    &[readonly] {
-        background-color: transparent;
-        border: none;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     &[aria-invalid="true"] {
@@ -207,22 +206,26 @@ input.textbox__control--large {
     display: inline-flex;
     @include fill-token(textbox-icon-color, color-foreground-secondary);
 
-    height: 100%;
     pointer-events: none;
-    position: absolute;
-    top: 0;
     width: 14px;
 }
 
-.textbox--icon-end {
-    input.textbox__control,
-    textarea.textbox__control {
-        padding-inline-end: 40px;
-    }
+.textbox > svg:first-child,
+.textbox > span:first-child {
+    margin-inline-start: var(--spacing-200);
+}
 
-    > svg:last-child {
-        right: var(--spacing-200);
-    }
+.textbox > svg:last-child,
+.textbox > span:last-child {
+    margin-inline-end: var(--spacing-200);
+}
+
+.textbox .icon-btn:last-child {
+    margin-inline-start: calc(var(--spacing-100) * -1);
+}
+
+.textbox .icon-btn:first-child {
+    margin-inline-end: calc(var(--spacing-100) * -1);
 }
 
 input.textbox__control[readonly]:focus,
@@ -230,41 +233,6 @@ textarea.textbox__control[readonly]:focus {
     text-decoration: underline;
 }
 
-.textbox > svg:first-child {
-    left: var(--spacing-200);
-
-    + input.textbox__control,
-    + textarea.textbox__control {
-        padding-inline-start: 40px;
-    }
-}
-
-.textbox__control--fluid {
+.textbox--fluid {
     width: 100%;
-    box-sizing: border-box;
 }
-
-/* stylelint-disable no-descending-specificity */
-[dir="rtl"] {
-    .textbox > svg:first-child {
-        right: var(--spacing-200);
-
-        /* & + input.textbox__control, */
-        /* & + textarea.textbox__control { */
-        /*     padding-right: 40px; */
-        /* } */
-    }
-
-    .textbox--icon-end {
-        button.icon-btn {
-            left: 0;
-            right: auto;
-        }
-
-        > svg:last-child {
-            left: var(--spacing-200);
-            right: auto;
-        }
-    }
-}
-/* stylelint-enable no-descending-specificity */

@@ -69,3 +69,25 @@ export const textSpacing = () => `
     <input aria-label="Email Address" class="textbox__control" type="text" placeholder="placeholder text" />
 </span>
 `;
+
+export const prefix = () => `
+<span class="textbox">
+    <span class="textbox__prefix">$</span>
+    <input class="textbox__control" type="text" placeholder"0.00" />
+</span>
+`;
+
+export const suffix = () => `
+<span class="textbox">
+    <input class="textbox__control" type="text" placeholder="percentage" />
+    <span class="textbox">%</span>
+</span>
+`;
+
+export const prefixAndSuffix = () => `
+<span class="textbox">
+    <span>$</span>
+    <input class="textbox__control" type="text" placeholder="0.00" />
+    <span>/lb</span>
+</span>
+`;

@@ -28,7 +28,7 @@
     <p>Use the <span class="highlight">readonly</span> attribute to prevent any modification of the value.</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="textbox">
+            <span class="textbox textbox--readonly">
                 <input aria-label="Textbox demo" class="textbox__control" type="text" value="Readonly textbox" readonly />
             </span>
         </div>
@@ -44,7 +44,7 @@
     <p>Use the <span class="highlight">disabled</span> attribute to completely disable the input and any value.</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="textbox textbox--readonly">
+            <span class="textbox textbox--disabled">
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" disabled />
             </span>
         </div>
@@ -60,7 +60,7 @@
     <p>Use the <span class="highlight">aria-invalid</span> attribute to highlight any input with error.</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="textbox textbox--disabled">
+            <span class="textbox textbox--invalid">
                 <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" aria-invalid="true" />
             </span>
         </div>
@@ -77,7 +77,7 @@
     <p>A multi-line textbox allows line breaks and has a minimum height of 200px.</p>
     <div class="demo">
         <div class="demo__inner">
-            <span class="textbox textbox--invalid">
+            <span class="textbox">
                 <textarea aria-label="Textbox demo" class="textbox__control" placeholder="placeholder text"></textarea>
             </span>
         </div>
@@ -90,18 +90,18 @@
     {% endhighlight %}
 
     <h3 id="textbox-fluid">Fluid Textbox</h3>
-    <p>Apply the <span class="highlight">textbox__control--fluid</span> modifier (or <span class="highlight">fluid</span> utility class) to fill the width of the parent element.</p>
+    <p>Apply the <span class="highlight">textbox--fluid</span> modifier (or <span class="highlight">fluid</span> utility class) to fill the width of the parent element.</p>
     <div class="demo">
         <div class="demo__inner">
-            <div class="textbox">
-                <input aria-label="Textbox demo" class="textbox__control textbox__control--fluid" type="text" placeholder="placeholder text" />
+            <div class="textbox textbox--fluid">
+                <input aria-label="Textbox demo" class="textbox__control" type="text" placeholder="placeholder text" />
             </div>
         </div>
     </div>
 
     {% highlight html %}
-<div class="textbox">
-    <input class="textbox__control textbox__control--fluid" type="text" placeholder="placeholder text" />
+<div class="textbox textbox--fluid">
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
 </div>
     {% endhighlight %}
 
@@ -225,6 +225,59 @@
     {% highlight html %}
 <span class="textbox">
     <input class="textbox__control" type="text" />
+</span>
+    {% endhighlight %}
+
+
+    <h3 id="textbox-prefix-suffix">Prefix and Postfix</h3>
+    <p>Add a <span class="highlight">span</span> containing text before or after the input to add a prefix or suffix</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="textbox">
+                <span>$</span>
+                <input class="textbox__control" type="text" />
+            </span>
+            <span class="textbox">
+                <input class="textbox__control" type="text" />
+                <span>in.</span>
+            </span>
+            <span class="textbox">
+                <svg class="icon icon--package-24" width="16" height="16" aria-hidden="true">
+                    {% include symbol.html name="package-24" %}
+                </svg>
+                <span>$</span>
+                <input class="textbox__control" type="text" placeholder="0.00"/>
+                <span>/lb</span>
+                <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text">
+                    <svg aria-hidden="true" class="icon icon--information-24" width="16" height="16">
+                        {% include symbol.html name="information-24" %}
+                    </svg>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    {% highlight html %}
+<span class="textbox">
+    <span>$</span>
+    <input class="textbox__control" type="text" />
+</span>
+<span class="textbox">
+    <input class="textbox__control" type="text" />
+    <span>in.</span>
+</span>
+<span class="textbox">
+    <svg class="icon icon--package-24" width="16" height="16" aria-hidden="true">
+        <use href="#icon-package-24"></use>
+    </svg>
+    <span>$</span>
+    <input class="textbox__control" type="text" placeholder="0.00"/>
+    <span>/lb</span>
+    <button class="icon-btn icon-btn--transparent" type="button" aria-label="Clear text">
+        <svg aria-hidden="true" class="icon icon--information-24" width="16" height="16">
+            <use href="#icon-information-24"></use>
+        </svg>
+    </button>
 </span>
     {% endhighlight %}
 </div>

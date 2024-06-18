@@ -79,3 +79,17 @@ export const dualActionableLarge = () => `
     </button>
 </span>
 `;
+
+export const fullyDecorated = () => `
+<span class="textbox textbox--icon-end">
+    <svg class="icon icon--search-24" width="16" height="16" aria-hidden="true">
+        <use href="#icon-search-24"></use>
+    </svg>
+    <span>$</span>
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
+    <span>%</span>
+    <svg class="icon icon--mail-24" width="16" height="16" aria-hidden="true">
+        <use href="#icon-mail-24"></use>
+    </svg>
+</span>
+`;
