@@ -1,5 +1,18 @@
 .textbox {
+    background-color: var(
+        --textbox-background-color,
+        var(--color-background-secondary)
+    );
+    border-color: var(--textbox-border-color, var(--color-stroke-default));
+    border-radius: var(--textbox-border-radius, var(--border-radius-50));
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
     color: var(--textbox-foreground-color, var(--color-background-secondary));
+    color: var(
+        --textbox-foreground-color,
+        var(--color-foreground-on-secondary)
+    );
     font-size: var(--font-size-default);
     position: relative;
 }
@@ -14,8 +27,49 @@
     top: 0;
 }
 
+.textbox:focus-within:not(
+        .textbox--readonly,
+        :has(> .textbox__control[readonly])
+    ) {
+    background-color: var(
+        --textbox-focus-background-color,
+        var(--color-background-primary)
+    );
+    border-color: var(--textbox-focus-border-color, var(--color-stroke-strong));
+    outline: auto;
+}
+.textbox--readonly,
+.textbox:has(> .textbox__control[readonly]) {
+    background-color: initial;
+    border: none;
+}
+.textbox--disabled,
+.textbox:has(> .textbox__control[disabled]) {
+    border-color: var(
+        --textbox-disabled-border-color,
+        var(--color-background-disabled)
+    );
+    color: var(
+        --textbox-disabled-foreground-color,
+        var(--color-foreground-disabled)
+    );
+}
+.textbox--invalid,
+.textbox:has(> .textbox__control[aria-invalid="true"]) {
+    border-color: var(
+        --textbox-invalid-border-color,
+        var(--color-stroke-attention)
+    );
+}
+
 span.textbox {
     display: inline-block;
+}
+
+.textbox__control {
+    background-color: initial;
+    border: none;
+    color: inherit;
 }
 
 textarea.textbox__control {
@@ -38,22 +92,10 @@ textarea.textbox__control {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: var(
-        --textbox-background-color,
-        var(--color-background-secondary)
-    );
-    border-color: var(--textbox-border-color, var(--color-stroke-default));
-    border-radius: var(--textbox-border-radius, var(--border-radius-50));
-    border-style: solid;
-    border-width: 1px;
-    box-sizing: border-box;
-    color: var(
-        --textbox-foreground-color,
-        var(--color-foreground-on-secondary)
-    );
     font-size: 1em;
     height: 40px;
     margin: 0;
+    outline: none;
 }
 input.textbox__control[disabled],
 textarea.textbox__control[disabled] {
@@ -133,18 +175,8 @@ input.textbox__control--large {
     right: var(--spacing-200);
 }
 
-input.textbox__control:not(:read-only):focus,
-textarea.textbox__control:not(:read-only):focus {
-    background-color: var(
-        --textbox-focus-background-color,
-        var(--color-background-primary)
-    );
-    border-color: var(--textbox-focus-border-color, var(--color-stroke-strong));
-}
-
 input.textbox__control[readonly]:focus,
 textarea.textbox__control[readonly]:focus {
-    outline: 0;
     text-decoration: underline;
 }
 
@@ -158,6 +190,7 @@ textarea.textbox__control[readonly]:focus {
 }
 
 .textbox__control--fluid {
+    box-sizing: border-box;
     width: 100%;
 }
 [dir="rtl"] .textbox > svg:first-child {

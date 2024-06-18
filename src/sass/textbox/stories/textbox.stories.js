@@ -47,13 +47,13 @@ export const inheritColor = () => `
 `;
 
 export const error = () => `
-<span class="textbox">
+<span class="textbox textbox--invalid">
     <input class="textbox__control" type="text"  aria-invalid="true" placeholder="placeholder text" />
 </span>
 `;
 
 export const errorWithValue = () => `
-<span class="textbox">
+<span class="textbox textbox--invalid">
     <input class="textbox__control" type="text" placeholder="placeholder text" aria-invalid="true" value="value" />
 </span>
 `;
