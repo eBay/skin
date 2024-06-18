@@ -41,7 +41,7 @@ export const placeholder = () => `
 export const disabledTextbox = () => `
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--disabled" for="firstName">First Name</label>
-    <span class="textbox">
+    <span class="textbox textbox--disabled">
         <input class="textbox__control" id="firstName02" type="text" disabled />
     </span>
 </span>
@@ -50,7 +50,7 @@ export const disabledTextbox = () => `
 export const invalidTextbox = () => `
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--inline floating-label__label--invalid" for="firstName">First Name</label>
-    <span class="textbox">
+    <span class="textbox textbox--invalid">
         <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" />
     </span>
 </span>
@@ -59,7 +59,7 @@ export const invalidTextbox = () => `
 export const invalidTextboxWithValue = () => `
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--invalid" for="firstName">First Name</label>
-    <span class="textbox">
+    <span class="textbox textbox--invalid">
         <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" value="value" />
     </span>
 </span>
@@ -68,7 +68,7 @@ export const invalidTextboxWithValue = () => `
 export const invalidTextboxWithPlaceholder = () => `
 <span class="floating-label">
     <label class="floating-label__label floating-label__label--invalid" for="firstName">First Name</label>
-    <span class="textbox">
+    <span class="textbox textbox--invalid">
         <input class="textbox__control" id="firstName03" type="text" aria-invalid="true" placeholder="placeholder" />
     </span>
 </span>

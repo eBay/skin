@@ -13,7 +13,7 @@ export const base = () => `
 
 export const end = () => `
 <div dir="rtl">
-    <span class="textbox textbox--icon-end">
+    <span class="textbox">
         <input class="textbox__control" type="text" placeholder="placeholder text" />
         <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
             <use href="#icon-mail-24"></use>
@@ -24,7 +24,7 @@ export const end = () => `
 
 export const dual = () => `
 <div dir="rtl">
-    <span class="textbox textbox--icon-end">
+    <span class="textbox">
         <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
             <use href="#icon-search-24"></use>
         </svg>
@@ -39,7 +39,7 @@ export const dual = () => `
 
 export const actionable = () => `
 <div dir="rtl">
-    <span class="textbox textbox--icon-end">
+    <span class="textbox">
         <input class="textbox__control" type="text" placeholder="placeholder text" />
         <button class="icon-btn" type="button" aria-label="Choose Contact">
             <svg aria-hidden="true" class="icon icon--24" width="16" height="16">
@@ -52,7 +52,7 @@ export const actionable = () => `
 
 export const dualActionable = () => `
 <div dir="rtl">
-    <span class="textbox textbox--icon-end">
+    <span class="textbox">
         <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
             <use href="#icon-search-24"></use>
         </svg>
@@ -69,7 +69,7 @@ export const dualActionable = () => `
 
 export const fullyDecorated = () => `
 <div dir="rtl">
-    <span class="textbox textbox--icon-end">
+    <span class="textbox">
         <svg class="icon icon--search-24" width="16" height="16" aria-hidden="true">
             <use href="#icon-search-24"></use>
         </svg>
