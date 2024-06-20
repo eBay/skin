@@ -194,11 +194,22 @@ button.icon-btn.lightbox-dialog__prev {
     }
 }
 
+.lightbox-dialog--fullscreen .lightbox-dialog__window,
+.lightbox-dialog--large .lightbox-dialog__window {
+    align-self: center;
+    margin: var(--spacing-100);
+    height: 70%;
+
+    // This is needed like this becuase max-height 100% would cause a scroll overflow
+    max-height: 98%;
+}
+
 @media (max-width: $_screen-size-SM) {
-    .lightbox-dialog--wide .lightbox-dialog__window {
-        margin: 8px;
+    .lightbox-dialog--large .lightbox-dialog__window {
         width: 100%;
         height: 100%;
+
+        // This is needed like this becuase max-height 100% would cause a scroll overflow
         max-height: 98%;
     }
 
@@ -212,7 +223,8 @@ button.icon-btn.lightbox-dialog__prev {
     }
 
     // Deprecated
-    .lightbox-dialog--wide .lightbox-dialog__handle {
+    .lightbox-dialog--fullscreen .lightbox-dialog__handle,
+    .lightbox-dialog--large .lightbox-dialog__handle {
         display: none;
     }
 }
