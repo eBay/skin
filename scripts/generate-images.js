@@ -147,7 +147,7 @@ class GenerateImages {
         return svgFragment;
     }
 
-    async processSvg(filePath, filename, lessFile) {
+    async processSvg(filePath, filename) {
         const data = await fs.promises.readFile(filePath, "utf8");
         const symbols = JSDOM.fragment(data);
         const symbol = symbols.querySelector("svg");
@@ -179,10 +179,6 @@ class GenerateImages {
 
         const [, , width, height] = sizes.split(" ");
         const id = `${nameObj.prefix}-${nameObj.fullName}`;
-        lessFile.push({
-            id,
-            data: `svg.${id} { height: ${height}px; width: ${width}px; }`,
-        });
     }
 
     async run() {
@@ -192,13 +188,11 @@ class GenerateImages {
             masterSvg.removeChild(masterSvg.lastChild);
         }
 
-        const lessFile = [];
-
         await Promise.all(
             this.svgs.map(async (filePath) => {
                 const filename = path.parse(filePath).name;
                 // console.log(filename);
-                await this.processSvg(filePath, filename, lessFile);
+                await this.processSvg(filePath, filename);
             }),
         );
         if (defsList.length) {
@@ -212,19 +206,6 @@ class GenerateImages {
             defsEl.appendChild(fragment);
             masterSvg.appendChild(defsEl);
         }
-
-        lessFile.sort(sortMethod);
-
-        const prettierFormat = await prettier.format(
-            [`/* ${genText} */`]
-                .concat(lessFile.map(({ data }) => data))
-                .join("\n"),
-            { parser: "less", tabWidth: 4 },
-        );
-        await fs.promises.writeFile(
-            `src/sass/icon/generated/icon.less`,
-            prettierFormat,
-        );
 
         this.imageList.sort(sortMethodObj);
         config.icons.list = this.imageList;
