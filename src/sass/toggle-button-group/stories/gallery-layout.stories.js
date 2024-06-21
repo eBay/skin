@@ -224,7 +224,7 @@ export const _512container = () => `
                     </span>
                     <span class="toggle-button__content">
                         <span class="toggle-button__title">Gallery Layout Title</span>
-                        <span class="toggle-button__subtitle">Subtitle</span>
+                        <span class="toggle-button__subtitle">A very long subtitle to demo equal height buttons.</span>
                     </span>
                 </button>
             </li>
@@ -353,7 +353,7 @@ export const _768container = () => `
                     </span>
                     <span class="toggle-button__content">
                         <span class="toggle-button__title">Gallery Layout Title</span>
-                        <span class="toggle-button__subtitle">Subtitle</span>
+                        <span class="toggle-button__subtitle">A very long subtitle to demo equal height buttons.</span>
                     </span>
                 </button>
             </li>
@@ -470,7 +470,7 @@ export const _1280container = () => `
                     </span>
                     <span class="toggle-button__content">
                         <span class="toggle-button__title">Gallery Layout Title</span>
-                        <span class="toggle-button__subtitle">Subtitle</span>
+                        <span class="toggle-button__subtitle">A very long subtitle to demo equal height buttons.</span>
                     </span>
                 </button>
             </li>
