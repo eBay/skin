@@ -1,15 +1,15 @@
 <ul class="demo-icon-boxes demo-icon-boxes--deprecated">
-    {% for iconName in include.icon.deprecated %}
-        {% if include.icon.largeDocs contains iconName %}
+    {% for iconItem in include.icon.deprecated %}
+        {% if include.icon.largeDocs contains iconItem.name %}
             {% assign containerClass = "demo-icon-box demo-icon-box--large" %}
         {% else %}
             {% assign containerClass = "demo-icon-box" %}
         {% endif %}
 
         <li class="{{ containerClass }}">
-            <span>{{ iconName }}</span>
-            <svg aria-hidden="true" class="icon icon--{{ iconName }}">
-                {% include symbol.html name=iconName file="icons" prefix="icon" %}
+            <span>{{ iconItem.name }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconItem.size }}">
+                {% include symbol.html name=iconItem.name file="icons" prefix="icon" %}
             </svg>
         </li>
     {% endfor %}

@@ -3,7 +3,7 @@ export default { title: "Skin/Section Notice/Tests" };
 export const longBody = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -13,7 +13,7 @@ export const longBody = () => `
     <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>
@@ -24,7 +24,7 @@ export const longBody = () => `
 export const longTitle = () => `
 <div class="section-notice section-notice--confirmation" role="region">
     <div class="section-notice__header" role="region" aria-roledescription="Notice">
-        <svg aria-hidden="true" class="icon icon--confirmation-filled-16">
+        <svg aria-hidden="true" class="icon icon--16">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -35,7 +35,7 @@ export const longTitle = () => `
     <p class="section-notice__cta"><a href="https://www.ebay.com">Action</a></p>
     <div class="section-notice__footer">
         <button aria-label="Close notice" class="fake-link section-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="16" width="16">
+            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                 <use href="#icon-close-16"></use>
             </svg>
         </button>

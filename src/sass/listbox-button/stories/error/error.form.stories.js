@@ -6,7 +6,7 @@ export const enabled = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -15,25 +15,25 @@ export const enabled = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -54,7 +54,7 @@ export const invalid = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -63,25 +63,25 @@ export const invalid = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>

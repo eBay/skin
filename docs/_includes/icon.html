@@ -2,18 +2,18 @@
     {% include section-header.html name="icon" version=page.module_metadata.icon.ds-component.version %}
 
     <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
-    
+
     <h3>Base Icons Only</h3>
 
     Only base icons should be used. No state-based icons, such as disabled icons or even possibly an icon relaying an error state (likely red), should be used. Those state modifications on icons should be handled downstream using <span class="highlight">css</span> modifiers to allow for those variations.
-    
+
     <h3>General Markup Approach</h3>
     <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the
         browser's default 300x150 size.</p>
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Icon example" class="icon icon--information-24" height="24" width="24"
+            <svg aria-label="Icon example" class="icon icon--24" height="24" width="24"
                 role="img">
                 {% include symbol.html name="information-24" %}
             </svg>
@@ -21,7 +21,7 @@
     </div>
 
     {% highlight html %}
-    <svg class="icon icon--information-24" height="24" width="24">
+    <svg class="icon icon--24" height="24" width="24">
         <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
@@ -56,7 +56,7 @@
         assistive technology.</p>
 
     {% highlight html %}
-    <svg class="icon icon--information-24" height="24" width="24" aria-hidden="true">
+    <svg class="icon icon--24" height="24" width="24" aria-hidden="true">
         <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
@@ -68,10 +68,16 @@
             class="highlight">aria-label</span> for assistive technology.</p>
 
     {% highlight html %}
-    <svg class="icon icon--information-24" height="24" width="24" role="img" aria-label="Information">
+    <svg class="icon icon--24" height="24" width="24" role="img" aria-label="Information">
         <use href="#icon-information-24"></use>
     </svg>
     {% endhighlight %}
+
+    <h3>Icon Classes</h3>
+    <p>Each icon can have a class that corresponds to its width. For example, <span class="highlight">icon--24</span>
+        corresponds to the 24px width icon. These correspond with the size associated with each icon.</p>
+    <p>For colored icons use <span class="highlight">icon--24-colored</span>
+        These will set the height, and the width will align with the aspect ratio</p>
 
     <p>Icons have a name postfix that corresponds to the width of the icon. For example, "icon-information-24" corresponds to the information icon of the 24px width. Heights may differ depending on the icon.</p>
 
@@ -86,7 +92,7 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Disabled icon example" class="icon icon--chevron-right-24 icon--disabled"
+            <svg aria-label="Disabled icon example" class="icon icon--24 icon--disabled"
                 height="24" width="24" role="img">
                 {% include symbol.html name="chevron-right-24" %}
             </svg>
@@ -94,7 +100,7 @@
     </div>
 
     {% highlight html %}
-<svg class="icon icon--chevron-right-24 icon--disabled" height="24" width="24">
+<svg class="icon icon--24 icon--disabled" height="24" width="24">
     <use href="#icon-chevron-right-24"></use>
 </svg>
     {% endhighlight %}
@@ -104,14 +110,14 @@
 
     <div class="demo">
         <div class="demo__inner">
-            <svg aria-label="Disabled icon example" class="icon icon--mastercard-24-colored icon--disabled" height="24" width="24" role="img">
+            <svg aria-label="Disabled icon example" class="icon icon--24-colored icon--disabled" height="24" width="24" role="img">
                 {% include symbol.html name="mastercard-24-colored" %}
             </svg>
         </div>
     </div>
 
     {% highlight html %}
-<svg class="icon icon--mastercard-24-colored icon--disabled" height="24" width="24">
+<svg class="icon icon--24-colored icon--disabled" height="24" width="24">
     <use href="#icon-mastercard-24-colored"></use>
 </svg>
     {% endhighlight %}
@@ -123,7 +129,7 @@
 
         <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
             <div class="section-notice__header" id="section-notice-attention">
-                <svg class="icon icon--attention-filled-16" height="16" width="16" aria-label="Attention">
+                <svg class="icon icon--16" height="16" width="16" aria-label="Attention">
                     {% include symbol.html name="attention-filled-16" %}
                 </svg>
             </div>
@@ -136,5 +142,5 @@
         {% include icon-deprecated-list.html icon=site.data.icons %}
     {% endif %}
 
-    
+
 </div>

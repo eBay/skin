@@ -10,7 +10,7 @@ export const primaryCollapsed = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--primary btn--split-end" aria-haspopup="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -42,7 +42,7 @@ export const primaryExpanded = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--primary btn--split-end" aria-haspopup="true" aria-expanded="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -74,7 +74,7 @@ export const secondaryCollapsed = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--secondary btn--split-end" aria-haspopup="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -106,7 +106,7 @@ export const secondaryExpanded = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--secondary btn--split-end" aria-expanded="true" aria-haspopup="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -138,7 +138,7 @@ export const tertiaryCollapsed = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--tertiary btn--split-end" aria-haspopup="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -170,7 +170,7 @@ export const tertiaryExpanded = () => `
         </button>
         <span class="menu-button">
             <button class="btn btn--tertiary btn--split-end" aria-expanded="true" aria-haspopup="true" type="button">
-                <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+                <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>

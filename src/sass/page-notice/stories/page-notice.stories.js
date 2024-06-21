@@ -33,7 +33,7 @@ export const generalWithLink = () => `
 export const confirmationWithButton = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-16" height="16" width="16" role="img" aria-label="Confirmation">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Confirmation">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -49,7 +49,7 @@ export const confirmationWithButton = () => `
 export const confirmationWithLink = () => `
 <section class="page-notice page-notice--confirmation" role="region" aria-label="Confirmation">
     <div class="page-notice__header">
-        <svg class="icon icon--confirmation-filled-16" height="16" width="16" role="img" aria-label="Confirmation">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Confirmation">
             <use href="#icon-confirmation-filled-16"></use>
         </svg>
     </div>
@@ -65,7 +65,7 @@ export const confirmationWithLink = () => `
 export const attentionWithButton = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Attention">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
@@ -81,7 +81,7 @@ export const attentionWithButton = () => `
 export const attentionWithLink = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Attention">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
@@ -97,7 +97,7 @@ export const attentionWithLink = () => `
 export const informationWithButton = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -113,7 +113,7 @@ export const informationWithButton = () => `
 export const informationWithLink = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -129,7 +129,7 @@ export const informationWithLink = () => `
 export const InformationWithParagraph = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -145,7 +145,7 @@ export const InformationWithParagraph = () => `
 export const dismissableWithTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -156,7 +156,7 @@ export const dismissableWithTitle = () => `
     <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="14" width="14">
+            <svg aria-hidden="true" class="icon icon--16" height="14" width="14">
                 <use href="#icon-close-16"></use>
             </svg>
         </a>
@@ -167,7 +167,7 @@ export const dismissableWithTitle = () => `
 export const dismissableWithoutTitle = () => `
 <section class="page-notice page-notice--information" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -177,7 +177,7 @@ export const dismissableWithoutTitle = () => `
     <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="14" width="14">
+            <svg aria-hidden="true" class="icon icon--16" height="14" width="14">
                 <use href="#icon-close-16"></use>
             </svg>
         </a>
@@ -188,7 +188,7 @@ export const dismissableWithoutTitle = () => `
 export const formErrors = () => `
 <section class="page-notice page-notice--attention" role="region" aria-label="Attention">
     <div class="page-notice__header">
-        <svg class="icon icon--attention-filled-16" height="16" width="16" role="img" aria-label="Attention">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Attention">
             <use href="#icon-attention-filled-16"></use>
         </svg>
     </div>
@@ -202,7 +202,7 @@ export const formErrors = () => `
 export const textSpacing = () => `
 <section class="page-notice page-notice--information demo-a11y-text-spacing" role="region" aria-label="Information">
     <div class="page-notice__header">
-        <svg class="icon icon--information-filled-16" height="16" width="16" role="img" aria-label="Information">
+        <svg class="icon icon--16" height="16" width="16" role="img" aria-label="Information">
             <use href="#icon-information-filled-16"></use>
         </svg>
     </div>
@@ -213,7 +213,7 @@ export const textSpacing = () => `
     <p class="page-notice__cta"><a href="https://www.ebay.com">Opt in</a></p>
     <div class="page-notice__footer">
         <button aria-label="Dismiss notification" class="fake-link page-notice__dismiss">
-            <svg aria-hidden="true" class="icon icon--close-16" height="14" width="14">
+            <svg aria-hidden="true" class="icon icon--16" height="14" width="14">
                 <use href="#icon-close-16"></use>
             </svg>
         </a>

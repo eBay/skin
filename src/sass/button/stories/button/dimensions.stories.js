@@ -3,7 +3,7 @@ export default { title: "Skin/Button/Dimensions" };
 export const large = () => `
 <button type="button" class="btn btn--large">
     <span class="btn__cell">
-        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
+        <svg class="icon icon--16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Button</span>
     </span>
 </button>
@@ -12,7 +12,7 @@ export const large = () => `
 export const small = () => `
 <button type="button" class="btn btn--small">
     <span class="btn__cell">
-        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
+        <svg class="icon icon--16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Button</span>
     </span>
 </button>
