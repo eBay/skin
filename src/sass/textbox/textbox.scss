@@ -2,7 +2,10 @@
 @import "../mixins/private/token-mixins";
 
 .textbox {
-    @include color-token(textbox-foreground-color, color-background-secondary);
+    @include color-token(
+        textbox-foreground-color,
+        color-foreground-on-secondary
+    );
     @include background-color-token(
         textbox-background-color,
         color-background-secondary
@@ -14,12 +17,7 @@
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    @include color-token(
-        textbox-foreground-color,
-        color-foreground-on-secondary
-    );
-
-    display: flex;
+    display: inline-flex;
 
     /* to align with buttons and select, it needs same font-size */
     font-size: var(--font-size-default);
@@ -39,7 +37,7 @@
         .textbox--readonly,
         :has(> .textbox__control[readonly])
     ) {
-    outline: auto;
+    box-shadow: 0 0 0 0.5pt var(--color-stroke-strong);
     @include border-color-token(
         textbox-focus-border-color,
         color-stroke-strong
@@ -83,6 +81,7 @@
     background-color: transparent;
     border: none;
     color: inherit;
+    box-sizing: border-box;
 }
 
 textarea.textbox__control {
@@ -195,7 +194,7 @@ textarea.textbox__control {
     }
 }
 
-input.textbox__control--large {
+.textbox--large > input.textbox__control {
     height: 48px;
 }
 

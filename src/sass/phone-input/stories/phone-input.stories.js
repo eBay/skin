@@ -159,9 +159,9 @@ export const Large = () => `
         </div>
       </div>
     </span>
-    <span class="textbox">
+    <span class="textbox textbox--large">
       <span aria-hidden="true">+1</span>
-      <input class="textbox__control textbox__control--large" type="tel" aria-label="area code + phone number"
+      <input class="textbox__control" type="tel" aria-label="area code + phone number"
         autocomplete="tel-national" />
     </span>
   </span>`;

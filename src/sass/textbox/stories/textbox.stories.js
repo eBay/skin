@@ -80,7 +80,7 @@ export const prefix = () => `
 export const suffix = () => `
 <span class="textbox">
     <input class="textbox__control" type="text" placeholder="percentage" />
-    <span class="textbox">%</span>
+    <span>%</span>
 </span>
 `;
 
