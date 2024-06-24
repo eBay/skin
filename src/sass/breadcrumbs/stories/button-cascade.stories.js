@@ -6,19 +6,19 @@ export const color = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -35,19 +35,19 @@ export const fontSize = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -64,19 +64,19 @@ export const textSpacing = () => `
     <ul>
         <li>
             <button>ebay</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Cell Phones, Smart Watches &amp; Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <button>Smart Watch Accessories</button>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -94,19 +94,19 @@ export const RTL = () => `
         <ul>
             <li>
                 <button>ebay</button>
-                <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                     <use href="#icon-chevron-right-12"></use>
                 </svg>
             </li>
             <li>
                 <button>Cell Phones, Smart Watches &amp; Accessories</button>
-                <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                     <use href="#icon-chevron-right-12"></use>
                 </svg>
             </li>
             <li>
                 <button>Smart Watch Accessories</button>
-                <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                     <use href="#icon-chevron-right-12"></use>
                 </svg>
             </li>

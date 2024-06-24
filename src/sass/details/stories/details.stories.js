@@ -5,7 +5,7 @@ export const closed = () => `
     <summary class="details__summary">
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
-            <svg class="icon icon--chevron-down-12" aria-hidden="true">
+            <svg class="icon icon--12" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -19,7 +19,7 @@ export const open = () => `
     <summary class="details__summary">
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
-            <svg class="icon icon--chevron-down-12" aria-hidden="true">
+            <svg class="icon icon--12" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -33,7 +33,7 @@ export const textSpacing = () => `
     <summary class="details__summary">
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
-            <svg class="icon icon--chevron-down-12" aria-hidden="true">
+            <svg class="icon icon--12" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -47,7 +47,7 @@ export const centered = () => `
     <summary class="details__summary details__summary--center">
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
-            <svg class="icon icon--chevron-down-12" aria-hidden="true">
+            <svg class="icon icon--12" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -61,7 +61,7 @@ export const small = () => `
     <summary class="details__summary details__summary--small">
         <span class="details__label">Details</span>
         <span class="details__icon" hidden>
-            <svg class="icon icon--chevron-down-12" aria-hidden="true">
+            <svg class="icon icon--12" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>

@@ -4,7 +4,7 @@ export const collapsed = () => `
 <span class="combobox">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -25,7 +25,7 @@ export const expanded = () => `
 <span class="combobox combobox--expanded">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -46,7 +46,7 @@ export const textSpacing = () => `
 <span class="combobox combobox--expanded demo-a11y-text-spacing">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -67,7 +67,7 @@ export const disabled = () => `
 <span class="combobox">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="false" aria-haspopup="listbox" disabled />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -88,7 +88,7 @@ export const large = () => `
 <span class="combobox combobox--large combobox--expanded">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -109,7 +109,7 @@ export const longOptions = () => `
 <span class="combobox combobox--expanded">
     <span class="combobox__control">
         <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -131,7 +131,7 @@ export const actionable = () => `
     <span class="combobox__control">
         <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox1" />
         <button class="icon-btn icon-btn--actionable" type="button" aria-label="Expand Suggestions">
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </button>
@@ -157,7 +157,7 @@ export const RTL = () => `
     <span class="combobox combobox--expanded">
         <span class="combobox__control">
             <input class="pink-placeholder-text" name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -181,7 +181,7 @@ export const actionableRTL = () => `
         <span class="combobox__control combobox__control--actionable">
             <input placeholder="Combobox" role="combobox" type="text" aria-haspopup="listbox" aria-owns="listbox5" />
             <button class="icon-btn" type="button" aria-label="Expand Suggestions">
-                <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
@@ -208,7 +208,7 @@ export const inheritColour = () => `
     <span class="combobox combobox--expanded">
         <span class="combobox__control">
             <input class="pink-placeholder-text" name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -231,7 +231,7 @@ export const inheritFontSize = () => `
     <span class="combobox combobox--expanded">
         <span class="combobox__control">
             <input name="combobox-default" placeholder="Combobox" role="combobox" type="text" aria-expanded="true" aria-haspopup="listbox" />
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>

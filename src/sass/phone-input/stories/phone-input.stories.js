@@ -11,7 +11,7 @@ export const Default = () => `
               aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -25,7 +25,7 @@ export const Default = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -36,7 +36,7 @@ export const Default = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -47,7 +47,7 @@ export const Default = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -58,7 +58,7 @@ export const Default = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -69,7 +69,7 @@ export const Default = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -94,7 +94,7 @@ export const Large = () => `
               aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -108,7 +108,7 @@ export const Large = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -119,7 +119,7 @@ export const Large = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -130,7 +130,7 @@ export const Large = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -141,7 +141,7 @@ export const Large = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -152,7 +152,7 @@ export const Large = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -177,7 +177,7 @@ export const ReadOnly = () => `
               aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -191,7 +191,7 @@ export const ReadOnly = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -202,7 +202,7 @@ export const ReadOnly = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -213,7 +213,7 @@ export const ReadOnly = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -224,7 +224,7 @@ export const ReadOnly = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -235,7 +235,7 @@ export const ReadOnly = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -260,7 +260,7 @@ export const Disabled = () => `
               data-country-code="1" aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -274,7 +274,7 @@ export const Disabled = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -285,7 +285,7 @@ export const Disabled = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -296,7 +296,7 @@ export const Disabled = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -307,7 +307,7 @@ export const Disabled = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -318,7 +318,7 @@ export const Disabled = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -343,7 +343,7 @@ export const Error = () => `
               aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -357,7 +357,7 @@ export const Error = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -368,7 +368,7 @@ export const Error = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -379,7 +379,7 @@ export const Error = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -390,7 +390,7 @@ export const Error = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -401,7 +401,7 @@ export const Error = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -426,7 +426,7 @@ export const Fluid = () => `
               aria-label="Country: United States of America (+1)">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -440,7 +440,7 @@ export const Fluid = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -451,7 +451,7 @@ export const Fluid = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -462,7 +462,7 @@ export const Fluid = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -473,7 +473,7 @@ export const Fluid = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -484,7 +484,7 @@ export const Fluid = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -510,7 +510,7 @@ export const RTL = () => `
                 aria-label="Country: United States of America (+1)">
               </span>
             </span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-chevron-down-12"></use>
             </svg>
           </span>
@@ -524,7 +524,7 @@ export const RTL = () => `
                 <span>Albania</span>
                 <span>(+355)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -535,7 +535,7 @@ export const RTL = () => `
                 <span>India</span>
                 <span>(+91)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -546,7 +546,7 @@ export const RTL = () => `
                 <span>Saint Helena, Ascension and Tristan da Cunha</span>
                 <span>(+290)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -557,7 +557,7 @@ export const RTL = () => `
                 <span>United Kingdom</span>
                 <span>(+44)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -568,7 +568,7 @@ export const RTL = () => `
                 <span>United States of America</span>
                 <span>(+1)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -597,7 +597,7 @@ export const TextSpacing = () => `
               data-country-code="1">
             </span>
           </span>
-          <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+          <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
           </svg>
         </span>
@@ -612,7 +612,7 @@ export const TextSpacing = () => `
               <span>Albania</span>
               <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -624,7 +624,7 @@ export const TextSpacing = () => `
               <span>India</span>
               <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -636,7 +636,7 @@ export const TextSpacing = () => `
               <span>Saint Helena, Ascension and Tristan da Cunha</span>
               <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -648,7 +648,7 @@ export const TextSpacing = () => `
               <span>United Kingdom</span>
               <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -660,7 +660,7 @@ export const TextSpacing = () => `
               <span>United States of America</span>
               <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-tick-16"></use>
             </svg>
           </div>
@@ -690,7 +690,7 @@ export const overrideFontSize = () => `
                 data-country-code="1">
               </span>
             </span>
-            <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
               <use href="#icon-chevron-down-12"></use>
             </svg>
           </span>
@@ -705,7 +705,7 @@ export const overrideFontSize = () => `
                 <span>Albania</span>
                 <span>(+355)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -717,7 +717,7 @@ export const overrideFontSize = () => `
                 <span>India</span>
                 <span>(+91)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -729,7 +729,7 @@ export const overrideFontSize = () => `
                 <span>Saint Helena, Ascension and Tristan da Cunha</span>
                 <span>(+290)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -741,7 +741,7 @@ export const overrideFontSize = () => `
                 <span>United Kingdom</span>
                 <span>(+44)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>
@@ -753,7 +753,7 @@ export const overrideFontSize = () => `
                 <span>United States of America</span>
                 <span>(+1)</span>
               </span>
-              <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+              <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
                 <use href="#icon-tick-16"></use>
               </svg>
             </div>

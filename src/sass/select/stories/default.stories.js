@@ -7,7 +7,7 @@ export const defaultSelection = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -21,7 +21,7 @@ export const forcedSelection = () => `
        <option value="2">Option 2</option>
        <option value="3">Option 3</option>
    </select>
-   <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+   <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
        <use href="#icon-chevron-down-12"></use>
    </svg>
 </span>
@@ -34,7 +34,7 @@ export const disabled = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -47,7 +47,7 @@ export const fluid = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </div>
@@ -61,7 +61,7 @@ export const borderless = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -74,7 +74,7 @@ export const large = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -87,7 +87,7 @@ export const underline = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -100,7 +100,7 @@ export const invalid = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
@@ -113,7 +113,7 @@ export const textSpacing = () => `
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
     </select>
-    <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
         <use href="#icon-chevron-down-12"></use>
     </svg>
 </span>
