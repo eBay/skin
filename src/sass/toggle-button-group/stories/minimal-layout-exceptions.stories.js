@@ -1,8 +1,10 @@
-export default { title: "Skin/Toggle Button Group/Minimal Layout" };
+export default {
+    title: "Skin/Toggle Button Group/Minimal Layout/Layouts Exceptions",
+};
 
-export const _320container = () => `
+export const _320container3buttons = () => `
 <div style="width: 320px; border: 1px dashed orange;">
-    <div class="toggle-button-group">
+    <div class="toggle-button-group" data-columns-xs="3">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -72,9 +74,9 @@ export const _320container = () => `
 </div>
 `;
 
-export const _512container = () => `
+export const _512container2buttons = () => `
 <div style="width: 512px; border: 1px dashed orange;">
-    <div class="toggle-button-group">
+    <div class="toggle-button-group" data-columns-sm="2">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -144,9 +146,9 @@ export const _512container = () => `
 </div>
 `;
 
-export const _768container = () => `
+export const _768container3buttons = () => `
 <div style="width: 768px; border: 1px dashed orange;">
-    <div class="toggle-button-group">
+    <div class="toggle-button-group" data-columns-md="3">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
@@ -216,9 +218,9 @@ export const _768container = () => `
 </div>
 `;
 
-export const _1280container = () => `
+export const _1280container9buttons = () => `
 <div style="width: 1280px; border: 1px dashed orange;">
-    <div class="toggle-button-group">
+    <div class="toggle-button-group" data-columns-xl="9">
         <ul aria-label="Buttons">
             <li>
                 <button type="button" class="toggle-button" aria-pressed="false">
