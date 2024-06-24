@@ -6,7 +6,7 @@ export const collapsedUnselected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -15,25 +15,25 @@ export const collapsedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -48,7 +48,7 @@ export const expandedUnselected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">-</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -57,25 +57,25 @@ export const expandedUnselected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -90,7 +90,7 @@ export const collapsedSelected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -99,25 +99,25 @@ export const collapsedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -132,7 +132,7 @@ export const expandedSelected = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -141,25 +141,25 @@ export const expandedSelected = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -174,7 +174,7 @@ export const disabled = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -183,25 +183,25 @@ export const disabled = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -216,7 +216,7 @@ export const invalid = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -225,25 +225,25 @@ export const invalid = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -258,7 +258,7 @@ export const longOption = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Red with very very very long text</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -267,19 +267,19 @@ export const longOption = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Red with very very very long text</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -294,7 +294,7 @@ export const borderless = () => `
         <span class="btn__cell">
             <span class="btn__label">Quantity: </span>
             <span class="btn__text">1</span>
-            <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -303,19 +303,19 @@ export const borderless = () => `
         <div class="listbox-button__options" role="listbox" tabindex="0">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">1</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">2</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">3</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -330,7 +330,7 @@ export const floatingLabelSelected = () => `
         <span class="btn__cell">
             <span class="btn__floating-label">Color:</span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--12" height="10" width="14" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -339,25 +339,25 @@ export const floatingLabelSelected = () => `
         <div class="listbox-button__options" role="listbox" tabindex="0">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="10" width="14">
+                <svg class="icon icon--16" height="10" width="14">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
@@ -372,7 +372,7 @@ export const textSpacing = () => `
         <span class="btn__cell">
             <span class="btn__label">Color: </span>
             <span class="btn__text">Blue</span>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -381,25 +381,25 @@ export const textSpacing = () => `
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Blue</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Yellow</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Green</span>
-                <svg class="icon icon--tick-16" height="8" width="8">
+                <svg class="icon icon--16" height="8" width="8">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </div>

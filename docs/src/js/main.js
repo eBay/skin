@@ -82,7 +82,7 @@ document.getElementById('busy-button').addEventListener('click', function () {
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
-                <svg class="icon icon--spinner-24" height="24" width="24" aria-hidden="true" >
+                <svg class="icon icon--24" height="24" width="24" aria-hidden="true" >
                     <use href="static/icons.svg#icon-spinner-24"></use>
                 </svg>
             </span>
@@ -376,7 +376,6 @@ document.querySelectorAll('.infotip').forEach(function(widgetEl) {
 document.querySelectorAll('.infotip--js').forEach(function (widgetEl) {
     const popperTooltip = new PopperTooltip(widgetEl, 'infotip');
     if (!popperTooltip.isInitialized) { return; }
-    console.log('init', widgetEl)
 
     popperTooltip.host.addEventListener('click', () => {
         if (popperTooltip.isExpanded()) {
@@ -711,6 +710,25 @@ document.querySelectorAll('.toggle-button').forEach(function (elToggleButton) {
             toggleButton(elButton);
         }
     });
+
+    // Toggle Button Group Responsive Demos
+    const sToggleButtonGroupDemosSelector = '.toggle-button-group-responsive-demo'
+        , sRangeSelector = '.toggle-button-group-breakpoints-range'
+        , sRangeOutputSelector = '.toggle-button-group-breakpoints-output'
+        , sDemoContainerSelector = '.toggle-button-group-breakpoints-container'
+    ;
+    
+    document.querySelectorAll(sToggleButtonGroupDemosSelector).forEach(function (elToggleButtonGroupDemo) {
+        const elRange = elToggleButtonGroupDemo.querySelector(sRangeSelector)
+            , elOutput = elToggleButtonGroupDemo.querySelector(sRangeOutputSelector)
+            , elDemoBox = elToggleButtonGroupDemo.querySelector(sDemoContainerSelector)
+        ;
+
+        elRange.addEventListener('input', function (e) {
+            elOutput.textContent = e.target.value;
+            elDemoBox.style.width = `${e.target.value}px`;
+        });
+    });
 })();
 // CHARACTER-METER-COUNTER
 const debouncedKeydown = debounce(function (elInput, elMeterText) {
@@ -790,7 +808,7 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
                         ${sChipName}
                     </span>
                     <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-1-text">
-                        <svg class="icon icon--close-12" width="13" height="12" aria-hidden="true">
+                        <svg class="icon icon--12" width="13" height="12" aria-hidden="true">
                             <use href="#icon-close-12"></use>
                         </svg>
                     </button>

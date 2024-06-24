@@ -5,7 +5,7 @@ export const collapsed = () => `
     <button type="button" class="filter-menu-button__button">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -14,10 +14,10 @@ export const collapsed = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -25,10 +25,10 @@ export const collapsed = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -36,10 +36,10 @@ export const collapsed = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -56,7 +56,7 @@ export const expanded = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -65,10 +65,10 @@ export const expanded = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -76,10 +76,10 @@ export const expanded = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -87,10 +87,10 @@ export const expanded = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -107,7 +107,7 @@ export const pressed = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true" aria-pressed="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -116,10 +116,10 @@ export const pressed = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -127,10 +127,10 @@ export const pressed = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -138,10 +138,10 @@ export const pressed = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -158,7 +158,7 @@ export const disabled = () => `
     <button aria-expaned="true" type="button" class="filter-menu-button__button" disabled>
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -167,10 +167,10 @@ export const disabled = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -178,10 +178,10 @@ export const disabled = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -189,10 +189,10 @@ export const disabled = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -208,7 +208,7 @@ export const overflow = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -217,10 +217,10 @@ export const overflow = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -228,10 +228,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -239,10 +239,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -250,10 +250,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -261,10 +261,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -272,10 +272,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -283,10 +283,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -294,10 +294,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -305,10 +305,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -316,10 +316,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -327,10 +327,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -338,10 +338,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -349,10 +349,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -360,10 +360,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -371,10 +371,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -382,10 +382,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -393,10 +393,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -404,10 +404,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -415,10 +415,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -426,10 +426,10 @@ export const overflow = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -446,7 +446,7 @@ export const textSpacing = () => `
     <button type="button" class="filter-menu-button__button" aria-expanded="true">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -455,10 +455,10 @@ export const textSpacing = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -466,10 +466,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -477,10 +477,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -488,10 +488,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -499,10 +499,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -510,10 +510,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -521,10 +521,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -532,10 +532,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -543,10 +543,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -554,10 +554,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -565,10 +565,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -576,10 +576,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -587,10 +587,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -598,10 +598,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -609,10 +609,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -620,10 +620,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -631,10 +631,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -642,10 +642,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -653,10 +653,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -664,10 +664,10 @@ export const textSpacing = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -684,7 +684,7 @@ export const truncated = () => `
     <button aria-expanded="true" type="button" class="filter-menu-button__button">
         <span class="filter-menu-button__button-cell">
             <span class="filter-menu-button__button-text">Filter Menu Button with a lot of text that will truncate</span>
-            <svg class="icon icon--chevron-down-12" height="12" width="12">
+            <svg class="icon icon--12" height="12" width="12">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -693,10 +693,10 @@ export const truncated = () => `
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -704,10 +704,10 @@ export const truncated = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -715,10 +715,10 @@ export const truncated = () => `
             </div>
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
-                    <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-unchecked-18"></use>
                     </svg>
-                    <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                    <svg class="icon icon--18" height="18" width="18">
                         <use href="#icon-checkbox-checked-18"></use>
                     </svg>
                 </span>
@@ -736,7 +736,7 @@ export const RTL = () => `
         <button type="button" class="filter-menu-button__button" aria-expanded="true">
             <span class="filter-menu-button__button-cell">
                 <span class="filter-menu-button__button-text">Filter Menu Button</span>
-                <svg class="icon icon--chevron-down-12" height="12" width="12">
+                <svg class="icon icon--12" height="12" width="12">
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </span>
@@ -745,10 +745,10 @@ export const RTL = () => `
             <div class="filter-menu-button__items" role="menu">
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
-                        <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-unchecked-18"></use>
                         </svg>
-                        <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-checked-18"></use>
                         </svg>
                     </span>
@@ -756,10 +756,10 @@ export const RTL = () => `
                 </div>
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
-                        <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-unchecked-18"></use>
                         </svg>
-                        <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-checked-18"></use>
                         </svg>
                     </span>
@@ -767,10 +767,10 @@ export const RTL = () => `
                 </div>
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">
-                        <svg class="icon icon--checkbox-unchecked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-unchecked-18"></use>
                         </svg>
-                        <svg class="icon icon--checkbox-checked-18" height="18" width="18">
+                        <svg class="icon icon--18" height="18" width="18">
                             <use href="#icon-checkbox-checked-18"></use>
                         </svg>
                     </span>

@@ -3,7 +3,7 @@ export default { title: "Skin/Toggle Button/Gallery Layout" };
 export const iconTitleSubtitle = () => `
 <button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false">
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--on-the-way-16" height="64" width="64">
+        <svg aria-hidden="true" class="icon icon--16" height="64" width="64">
             <use href="#icon-on-the-way-16"></use>
         </svg>
     </span>
@@ -126,7 +126,7 @@ export const disabledImage = () => `
 export const disabledIcon = () => `
 <button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false" disabled>
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--on-the-way-16" height="64" width="64">
+        <svg aria-hidden="true" class="icon icon--16" height="64" width="64">
             <use href="#icon-on-the-way-16"></use>
         </svg>
     </span>
@@ -140,7 +140,7 @@ export const disabledIcon = () => `
 export const disabledIconColored = () => `
 <button type="button" class="toggle-button toggle-button--gallery-layout" aria-pressed="false" disabled>
     <span class="toggle-button__icon">
-        <svg aria-hidden="true" class="icon icon--mastercard-32-colored" height="64" width="64">
+        <svg aria-hidden="true" class="icon icon--32-colored" height="64" width="64">
             <use href="#icon-mastercard-32-colored"></use>
         </svg>
     </span>

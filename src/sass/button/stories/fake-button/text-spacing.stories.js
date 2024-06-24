@@ -6,7 +6,7 @@ export const textOnly = () =>
 export const iconAndText = () => `
 <a class="fake-btn demo-a11y-text-spacing" href="http://www.ebay.com">
     <span class="fake-btn__cell">
-        <svg class="icon icon--settings-16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
+        <svg class="icon icon--16" width="16" height="16"><use href="#icon-settings-16"></use></svg>
         <span>Fake Button</span>
     </span>
 </a>

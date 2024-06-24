@@ -102,7 +102,7 @@ export const select = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -119,7 +119,7 @@ export const selectInline = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -136,7 +136,7 @@ export const selectInlineDoubled = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -150,7 +150,7 @@ export const selectInlineDoubled = () => `
             <option value="item2">Pick Option 2</option>
             <option value="item3">Pick Option 3</option>
         </select>
-        <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
@@ -169,7 +169,7 @@ export const RTLSelectInline = () => `
                 <option value="item2">Pick Option 2</option>
                 <option value="item3">Pick Option 3</option>
             </select>
-            <svg class="icon icon--chevron-down-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
@@ -206,7 +206,7 @@ export const phoneInput = () => `
             <use href="#flag-us"></use>
             </svg>
         </span>
-        <svg class="icon icon--chevron-down-12" focusable="false" height="10" width="14" aria-hidden="true">
+        <svg class="icon icon--12" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-chevron-down-12"></use>
         </svg>
         </span>
@@ -221,7 +221,7 @@ export const phoneInput = () => `
             <span>Albania</span>
             <span>(+355)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-tick-16"></use>
             </svg>
         </div>
@@ -233,7 +233,7 @@ export const phoneInput = () => `
             <span>India</span>
             <span>(+91)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-tick-16"></use>
             </svg>
         </div>
@@ -245,7 +245,7 @@ export const phoneInput = () => `
             <span>Saint Helena, Ascension and Tristan da Cunha</span>
             <span>(+290)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-tick-16"></use>
             </svg>
         </div>
@@ -257,7 +257,7 @@ export const phoneInput = () => `
             <span>United Kingdom</span>
             <span>(+44)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-tick-16"></use>
             </svg>
         </div>
@@ -269,7 +269,7 @@ export const phoneInput = () => `
             <span>United States of America</span>
             <span>(+1)</span>
             </span>
-            <svg class="icon icon--tick-16" focusable="false" height="10" width="14" aria-hidden="true">
+            <svg class="icon icon--16" focusable="false" height="10" width="14" aria-hidden="true">
             <use href="#icon-tick-16"></use>
             </svg>
         </div>
