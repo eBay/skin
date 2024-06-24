@@ -44,7 +44,7 @@
 .lightbox-dialog__header {
     display: flex;
     flex-shrink: 0;
-    margin: var(--spacing-200) 0;
+    margin: var(--spacing-200) var(--spacing-200) 0;
     position: relative;
 }
 .lightbox-dialog__header h1,
@@ -239,6 +239,34 @@ button.icon-btn.lightbox-dialog__prev {
 
 [dir="rtl"] button.icon-btn.lightbox-dialog__prev .icon--chevron-left-16 {
     transform: rotate(180deg);
+}
+
+.lightbox-dialog--fullscreen .lightbox-dialog__window,
+.lightbox-dialog--large .lightbox-dialog__window {
+    align-self: center;
+    height: 70%;
+    margin: var(--spacing-100);
+    max-height: 95%;
+}
+
+@media (max-width: 512px) {
+    .lightbox-dialog--large .lightbox-dialog__window {
+        height: 95%;
+        max-height: 95%;
+        width: 100%;
+    }
+    .lightbox-dialog--fullscreen .lightbox-dialog__window {
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    .lightbox-dialog--fullscreen .lightbox-dialog__handle,
+    .lightbox-dialog--large .lightbox-dialog__handle {
+        display: none;
+    }
 }
 @media (min-width: 512px) {
     .lightbox-dialog__window {

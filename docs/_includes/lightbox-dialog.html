@@ -10,7 +10,6 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-default" type="button">Open Lightbox</button>
             <div aria-labelledby="dialog-title-default" aria-modal="true" class="lightbox-dialog" hidden id="lightbox-dialog-default" role="dialog">
                 <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
                     <div class="lightbox-dialog__header">
                         <h2 id="dialog-title-default" class="large-text-1 bold-text">Lightbox Dialog</h2>
                         <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -34,7 +33,6 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" hidden role="dialog">
     <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -85,7 +83,6 @@
     {% highlight html %}
 <div aria-labelledby="dialog-title" aria-modal="true" class="dialog dialog--no-mask" hidden role="dialog">
     <div class="lightbox-dialog__window lightbox-dialog__window--full">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__header">
             <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -109,63 +106,7 @@
 </div>
     {% endhighlight %}
 
-    <h3 id="lightbox-scrolling">Expanded Lightbox</h3>
-    <p>For small screens you can use <span class="highlight">.lightbox-dialog__window--expanded</span> class to expand the viewport. This is generally controlled by the handle.</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-expanded" type="button">Open Scrolling Lightbox Dialog</button>
-            <div aria-labelledby="dialog-title-expanded" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-expanded" role="dialog">
-                <div class="lightbox-dialog__window lightbox-dialog__window--expanded">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
-                    <div class="lightbox-dialog__header">
-                        <h2 id="dialog-title-expanded">Scrolling Lightbox Dialog</h2>
-                        <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
-                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-                                {% include symbol.html name="close-16" %}
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="lightbox-dialog__main">
-                        {% for number in (1...100) %}
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        {% endfor %}
-                        <p><a href="https://www.ebay.com">www.ebay.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% highlight html %}
-<div aria-labelledby="dialog-title" aria-modal="true" class="dialog dialog--no-mask" hidden role="dialog">
-    <div class="lightbox-dialog__window lightbox-dialog__window-expanded">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
-        <div class="lightbox-dialog__header">
-            <h2 id="dialog-title" class="large-text-1 bold-text">Heading</h2>
-            <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-                    <use href="#icon-close-16"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="lightbox-dialog__main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ... 1</p>
-            <p>Lorem ... 2</p>
-            <p>(you get the idea)</p>
-            <p>Lorem ... n</p>
-            <p><a href="https://www.ebay.com">www.ebay.com</a></p>
-        </div>
-    </div>
-</div>
-    {% endhighlight %}
-
-    <h3 id="lightbox-wide">Previous button in header Lightbox</h3>
+    <h3 id="lightbox-prev">Previous button in header Lightbox</h3>
     <p>If you want to add a previous button to the lightbox, add the icon button before the dialog heading tag.</p>
 
 
@@ -174,7 +115,67 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-prev-button" type="button">Open Lightbox</button>
             <div aria-labelledby="dialog-title-prev-button" aria-modal="true" class="lightbox-dialog" hidden id="lightbox-dialog-prev-button" role="dialog">
                 <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
+                    <div class="lightbox-dialog__header">
+                        <button aria-label="Go back" class="icon-btn lightbox-dialog__prev" type="button">
+                            <svg aria-hidden="true" class="icon icon--chevron-left-16" height="16" width="16">
+                                {% include symbol.html name="chevron-left-16" %}
+                            </svg>
+                        </button>
+                        <h2 id="dialog-title-prev-button" class="large-text-1 bold-text">Lightbox Dialog</h2>
+                        <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                {% include symbol.html name="close-16" %}
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="lightbox-dialog__main">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><a href="https://www.ebay.com">www.ebay.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" hidden role="dialog">
+    <div class="lightbox-dialog__window">
+        <div class="lightbox-dialog__header">
+            <button aria-label="Go back" class="icon-btn lightbox-dialog__prev" type="button">
+                <svg aria-hidden="true" class="icon icon--chevron-left-16" height="16" width="16">
+                    <use href="#icon-chevron-left-16"></use>
+                </svg>
+            </button>
+            <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
+            <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                    <use href="#icon-close-16"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="lightbox-dialog__main">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><a href="https://www.ebay.com">www.ebay.com</a></p>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
+
+    <h3 id="lightbox-wide">Wide Lightbox</h3>
+    <p>To have a wider lightbox add  <span class="highlight">lightbox-dialog--wide</span> to the dialog</p>
+    <p>On small screens, a wide lightbox will span almost the entire screen. This is the suggeested replacement for fullscreen dialog</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-wide" type="button">Open Lightbox</button>
+            <div aria-labelledby="dialog-title-wide" aria-modal="true" class="lightbox-dialog lightbox-dialog--wide" hidden id="lightbox-dialog-wide" role="dialog">
+                <div class="lightbox-dialog__window">
                     <div class="lightbox-dialog__header">
                         <button aria-label="Go back" class="icon-btn lightbox-dialog__prev" type="button">
                             <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
@@ -201,67 +202,14 @@
     </div>
 
     {% highlight html %}
-<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" hidden role="dialog">
+<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--wide" hidden role="dialog">
     <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__header">
             <button aria-label="Go back" class="icon-btn lightbox-dialog__prev" type="button">
                 <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
                     <use href="#icon-chevron-left-16"></use>
                 </svg>
             </button>
-            <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
-            <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
-                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-                    <use href="#icon-close-16"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="lightbox-dialog__main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p><a href="https://www.ebay.com">www.ebay.com</a></p>
-        </div>
-    </div>
-</div>
-    {% endhighlight %}
-
-    <h3 id="lightbox-wide">Wide Lightbox</h3>
-    <p>To have a wider lightbox add  <span class="highlight">lightbox-dialog--wide</span> to the dialog</p>
-
-    <div class="demo">
-        <div class="demo__inner">
-            <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-wide" type="button">Open Lightbox</button>
-            <div aria-labelledby="dialog-title-wide" aria-modal="true" class="lightbox-dialog lightbox-dialog--wide" hidden id="lightbox-dialog-wide" role="dialog">
-                <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
-                    <div class="lightbox-dialog__header">
-                        <h2 id="dialog-title-wide" class="large-text-1 bold-text">Lightbox Dialog</h2>
-                        <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
-                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-                                {% include symbol.html name="close-16" %}
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="lightbox-dialog__main">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p><a href="https://www.ebay.com">www.ebay.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% highlight html %}
-<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--wide" hidden role="dialog">
-    <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
-        <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
                 <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
@@ -288,7 +236,6 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-narrow" type="button">Open Lightbox</button>
             <div aria-labelledby="dialog-title-narrow" aria-modal="true" class="lightbox-dialog lightbox-dialog--narrow" hidden id="lightbox-dialog-narrow" role="dialog">
                 <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
                     <div class="lightbox-dialog__header">
                         <h2 id="dialog-title-narrow" class="large-text-1 bold-text">Lightbox Dialog</h2>
                         <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -312,7 +259,6 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--narrow" hidden role="dialog">
     <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -332,7 +278,56 @@
 </div>
     {% endhighlight %}
 
+    <h3 id="lightbox-wide">Large Lightbox</h3>
+    <p>To have a large lightbox add  <span class="highlight">lightbox-dialog--large</span> to the dialog</p>
+    <p>On small screens, a large lightbox will span almost the entire screen. This is the suggeested replacement for fullscreen dialog</p>
 
+    <div class="demo">
+        <div class="demo__inner">
+            <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-large" type="button">Open Lightbox</button>
+            <div aria-labelledby="dialog-title-large" aria-modal="true" class="lightbox-dialog lightbox-dialog--large" hidden id="lightbox-dialog-large" role="dialog">
+                <div class="lightbox-dialog__window">
+                    <div class="lightbox-dialog__header">
+                        <h2 id="dialog-title-large" class="large-text-1 bold-text">Lightbox Dialog</h2>
+                        <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                {% include symbol.html name="close-16" %}
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="lightbox-dialog__main">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><a href="https://www.ebay.com">www.ebay.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% highlight html %}
+<div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--large" hidden role="dialog">
+    <div class="lightbox-dialog__window">
+        <div class="lightbox-dialog__header">
+            <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
+            <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
+                <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                    <use href="#icon-close-16"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="lightbox-dialog__main">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><a href="https://www.ebay.com">www.ebay.com</a></p>
+        </div>
+    </div>
+</div>
+    {% endhighlight %}
 
     <h3 id="lightbox-transitioned">Transitioned Lightbox</h3>
     <p>Any lightbox can be transitioned in and out, using the <span class="highlight">lightbox-dialog__window--animate</span> and <span class="highlight">lightbox-dialog--mask-fade</span> modifiers. On large screens, animate will fade in and on small screens the panel will slide in from the bottom.</p>
@@ -343,7 +338,6 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-fade-0" type="button">Open Transitioned Lightbox</button>
             <div aria-labelledby="lightbox-dialog-fade-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden id="lightbox-dialog-fade-0" role="dialog">
                 <div class="lightbox-dialog__window lightbox-dialog__window--animate">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
                     <div class="lightbox-dialog__header">
                         <h2 id="lightbox-dialog-fade-title" class="large-text-1 bold-text">Transitioned Lightbox</h2>
                         <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -369,7 +363,6 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--mask-fade" hidden role="dialog">
     <div class="lightbox-dialog__window lightbox-dialog__window--animate">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -399,7 +392,6 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-footer" type="button">Open Lightbox Dialog with Footer</button>
             <div aria-labelledby="lightbox-dialog-footer-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--no-mask" hidden id="lightbox-dialog-footer" role="dialog">
                 <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
                     <div class="lightbox-dialog__header">
                         <h2 id="lightbox-dialog-footer-title" class="large-text-1 bold-text">Lightbox Dialog</h2>
                         <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -427,7 +419,6 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog" hidden role="dialog">
     <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="large-text-1 lightbox-dialog__header">
             <h2 class="large-text-1 bold-text" id="lightbox-dialog-title">Heading</h2>
             <button aria-label="Close dialog" class="icon-btn lightbox-dialog__close" type="button">
@@ -459,7 +450,6 @@
             <button class="btn btn--primary dialog-button" data-makeup-for="lightbox-dialog-expressive" type="button">Open Expressive Lightbox</button>
             <div aria-labelledby="dialog-title-default" aria-modal="true" class="lightbox-dialog lightbox-dialog--expressive" hidden id="lightbox-dialog-expressive" role="dialog">
                 <div class="lightbox-dialog__window">
-                    <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
                     <div class="lightbox-dialog__image" style="background-image:url({{page.static_dir}}/img/tb-landscape-pic.jpg)"></div>
                     <div class="lightbox-dialog__header">
                         <h2 id="dialog-title-default" class="large-text-1 bold-text">Lightbox Dialog</h2>
@@ -484,7 +474,6 @@
     {% highlight html %}
 <div aria-labelledby="lightbox-dialog-title" aria-modal="true" class="lightbox-dialog lightbox-dialog--expressive" hidden role="dialog">
     <div class="lightbox-dialog__window">
-        <button class="lightbox-dialog__handle" aria-label="Expand Dialog" type="button"></button>
         <div class="lightbox-dialog__image" style="background-image:url({{page.static_dir}}/img/tb-landscape-pic.jpg)"></div>
         <div class="lightbox-dialog__header">
             <h2 id="lightbox-dialog-title" class="large-text-1 bold-text">Heading</h2>
