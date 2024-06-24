@@ -82,7 +82,7 @@ document.getElementById('busy-button').addEventListener('click', function () {
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
-                <svg class="icon icon--spinner-24" height="24" width="24" aria-hidden="true" >
+                <svg class="icon icon--24" height="24" width="24" aria-hidden="true" >
                     <use href="static/icons.svg#icon-spinner-24"></use>
                 </svg>
             </span>
@@ -808,7 +808,7 @@ document.querySelectorAll('.field').forEach(function (elCharContainer) {
                         ${sChipName}
                     </span>
                     <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-1-text">
-                        <svg class="icon icon--close-12" width="13" height="12" aria-hidden="true">
+                        <svg class="icon icon--12" width="13" height="12" aria-hidden="true">
                             <use href="#icon-close-12"></use>
                         </svg>
                     </button>
