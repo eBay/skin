@@ -38,3 +38,19 @@ export const textSpacing = () => `
     </span>
 </span>
 `;
+
+export const range = () => `
+<span class="date-textbox">
+    <span class="textbox">
+        <input class="textbox__control" placeholder="YYYY-MM-DD" type="text" />
+    </span>
+    <span class="textbox">
+        <input class="textbox__control" placeholder="YYYY-MM-DD" type="text" />
+        <button class="icon-btn icon-btn--transparent" type="button" aria-label="Calendar">
+            <svg aria-hidden="true" class="icon icon--24" width="16" height="16">
+                <use href="#icon-calendar-24"></use>
+            </svg>
+        </button>
+    </span>
+</span>
+`;
