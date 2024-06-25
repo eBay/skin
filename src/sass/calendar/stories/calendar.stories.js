@@ -306,7 +306,7 @@ export const header = () => /* HTML */ `
                     aria-label="Previous Month - July 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-left-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-left-24"></use>
                     </svg>
                 </button>
@@ -316,7 +316,7 @@ export const header = () => /* HTML */ `
                     aria-label="Next Month - September 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-right-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-right-24"></use>
                     </svg>
                 </button>
@@ -516,7 +516,7 @@ export const textSpacing = () => `
                     aria-label="Previous Month - July 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-left-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-left-24"></use>
                     </svg>
                 </button>
@@ -526,7 +526,7 @@ export const textSpacing = () => `
                     aria-label="Next Month - September 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-right-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-right-24"></use>
                     </svg>
                 </button>
@@ -1003,7 +1003,7 @@ export const doubleWithHeader = () => /* HTML */ `
                     aria-label="Previous Month - July 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-left-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-left-24"></use>
                     </svg>
                 </button>
@@ -1014,7 +1014,7 @@ export const doubleWithHeader = () => /* HTML */ `
                     aria-label="Next Month - October 2019"
                     variant="icon"
                 >
-                    <svg class="icon icon--chevron-right-24">
+                    <svg class="icon icon--24">
                         <use href="#icon-chevron-right-24"></use>
                     </svg>
                 </button>

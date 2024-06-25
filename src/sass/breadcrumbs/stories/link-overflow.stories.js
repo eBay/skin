@@ -6,14 +6,14 @@ export const minimum = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
+                    <svg aria-hidden="true" class="icon icon--16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -34,7 +34,7 @@ export const minimum = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -51,14 +51,14 @@ export const collapsed = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
+                    <svg aria-hidden="true" class="icon icon--16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -79,13 +79,13 @@ export const collapsed = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Long Band Text Type 2</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -102,14 +102,14 @@ export const expanded = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="true" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
+                    <svg aria-hidden="true" class="icon icon--16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -127,13 +127,13 @@ export const expanded = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand1">Smart Watch Band Long Band Text Type 2</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
@@ -150,14 +150,14 @@ export const textSpacing = () => `
     <ul>
         <li>
             <a href="https://www.ebay.com/">ebay</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <span class="fake-menu-button">
                 <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
-                    <svg aria-hidden="true" class="icon icon--overflow-horizontal-16">
+                    <svg aria-hidden="true" class="icon icon--16">
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
@@ -178,13 +178,13 @@ export const textSpacing = () => `
                 </ul>
             </span>
 
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>
         <li>
             <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Long Band Text Type 2</a>
-            <svg class="icon icon--chevron-right-12" height="8" width="8" aria-hidden="true">
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
                 <use href="#icon-chevron-right-12"></use>
             </svg>
         </li>

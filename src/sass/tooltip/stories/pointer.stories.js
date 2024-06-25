@@ -94,7 +94,7 @@ function getPointerStyle(key) {
 export const top = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -116,7 +116,7 @@ export const top = () => `
 export const topLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -138,7 +138,7 @@ export const topLeft = () => `
 export const leftTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -160,7 +160,7 @@ export const leftTop = () => `
 export const left = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -182,7 +182,7 @@ export const left = () => `
 export const leftBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -204,7 +204,7 @@ export const leftBottom = () => `
 export const bottomLeft = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -226,7 +226,7 @@ export const bottomLeft = () => `
 export const bottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -248,7 +248,7 @@ export const bottom = () => `
 export const bottomRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -270,7 +270,7 @@ export const bottomRight = () => `
 export const rightBottom = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -292,7 +292,7 @@ export const rightBottom = () => `
 export const right = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -314,7 +314,7 @@ export const right = () => `
 export const rightTop = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>
@@ -336,7 +336,7 @@ export const rightTop = () => `
 export const topRight = () => `
 <span class="tooltip" style="margin-left: 100px; margin-top: 100px;">
     <button class="icon-btn tooltip__host" aria-describedby="tooltip-1" aria-expanded="true" aria-label="Info">
-        <svg class="icon icon--settings-24" height="16" width="16" aria-hidden="true">
+        <svg class="icon icon--24" height="16" width="16" aria-hidden="true">
             <use href="#icon-settings-24"></use>
         </svg>
     </button>

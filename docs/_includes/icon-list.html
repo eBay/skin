@@ -1,15 +1,16 @@
 <ul class="demo-icon-boxes">
-    {% for iconName in include.icon.list %}
-        {% if include.icon.largeDocs contains iconName %}
+    {% for iconItem in include.icon.list %}
+        {% if include.icon.largeDocs contains iconItem.name %}
             {% assign containerClass = "demo-icon-box demo-icon-box--large" %}
         {% else %}
             {% assign containerClass = "demo-icon-box" %}
         {% endif %}
+        {% assign iconClass = iconItem.name + include.icon.postfix %}
 
         <li class="{{ containerClass }}">
-            <span>{{ iconName }}</span>
-            <svg aria-hidden="true" class="{{ include.icon.prefix }} {{ include.icon.prefix }}--{{ iconName }}{{ include.icon.postfix }}" height="{{ include.icon.size | 24 }}" width="{{ include.icon.size | 24 }}"">
-                {% include symbol.html name=iconName file="icons" prefix=include.icon.prefix postfix=include.icon.postfix %}
+            <span>{{ iconItem.name }}</span>
+            <svg aria-hidden="true" class="{{ include.icon.prefix }} {{ include.icon.prefix }}--{{ iconItem.size }}" height="{{ iconItem.size | 24 }}" width="{{ iconItem.size | 24 }}"">
+                {% include symbol.html name=iconItem.name file="icons" prefix=include.icon.prefix postfix=include.icon.postfix %}
             </svg>
         </li>
     {% endfor %}

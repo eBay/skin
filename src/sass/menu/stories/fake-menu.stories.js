@@ -36,7 +36,7 @@ export const linksSelected = () => `
         <li>
             <a aria-current="page" class="fake-menu__item" href="http://www.ebay.com">
                 <span>Link 1</span>
-                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </a>
@@ -53,7 +53,7 @@ export const buttonsSelected = () => `
         <li>
             <button aria-current="page" class="fake-menu__item">
                 <span>Button 1</span>
-                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </button>
@@ -70,7 +70,7 @@ export const linksDisabled = () => `
         <li>
             <a aria-current="page" class="fake-menu__item">
                 <span>Link 1</span>
-                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </a>
@@ -87,7 +87,7 @@ export const buttonsDisabled = () => `
         <li>
             <button aria-current="page" class="fake-menu__item" disabled>
                 <span>Button 1</span>
-                <svg class="icon icon--tick-16" height="8" width="8" aria-hidden="true">
+                <svg class="icon icon--16" height="8" width="8" aria-hidden="true">
                     <use href="#icon-tick-16"></use>
                 </svg>
             </button>

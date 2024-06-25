@@ -159,6 +159,7 @@ button.icon-btn.lightbox-dialog__prev {
     }
 }
 
+// Deprecated
 .lightbox-dialog__handle {
     background-color: transparent;
     border: none;
@@ -182,6 +183,8 @@ button.icon-btn.lightbox-dialog__prev {
     width: 24px;
 }
 
+// Deprecated, remove next major
+// This is tied with handle, once we remove handle this needs to be removed
 .lightbox-dialog__window--expanded {
     height: 95%;
     max-height: 95%;
@@ -192,6 +195,41 @@ button.icon-btn.lightbox-dialog__prev {
         transform: rotate(180deg);
     }
 }
+
+.lightbox-dialog--fullscreen .lightbox-dialog__window,
+.lightbox-dialog--large .lightbox-dialog__window {
+    align-self: center;
+    margin: var(--spacing-100);
+    height: 70%;
+
+    // This is needed like this becuase max-height 100% would cause a scroll overflow
+    max-height: 95%;
+}
+
+@media (max-width: $_screen-size-SM) {
+    .lightbox-dialog--large .lightbox-dialog__window {
+        width: 100%;
+        height: 95%;
+
+        // This is needed like this becuase max-height 100% would cause a scroll overflow
+        max-height: 95%;
+    }
+
+    .lightbox-dialog--fullscreen .lightbox-dialog__window {
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    // Deprecated
+    .lightbox-dialog--fullscreen .lightbox-dialog__handle,
+    .lightbox-dialog--large .lightbox-dialog__handle {
+        display: none;
+    }
+}
 /* In order to prevent the margins to meet the ege of the page at medium screen sizes */
 @media (min-width: $_screen-size-SM) {
     .lightbox-dialog__window {
@@ -200,6 +238,7 @@ button.icon-btn.lightbox-dialog__prev {
         max-width: calc(88% - var(--spacing-400));
     }
 
+    // Deprecated
     .lightbox-dialog__handle {
         display: none;
     }

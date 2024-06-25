@@ -6,7 +6,7 @@ export const panelStart = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Left Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -30,7 +30,7 @@ export const RTL = () => `
             <div class="panel-dialog__header">
                 <h2 id="panel-title">Left Panel</h2>
                 <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                    <svg class="icon icon--close-16" aria-hidden="true">
+                    <svg class="icon icon--16" aria-hidden="true">
                         <use href="#icon-close-16"></use>
                     </svg>
                 </button>
@@ -54,7 +54,7 @@ export const panelEnd = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Right Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -77,7 +77,7 @@ export const panelEndWithFooter = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Right Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -123,7 +123,7 @@ export const panelScroll = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Scrolling Panel</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -164,7 +164,7 @@ export const panelScrollWithFooter = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Scrolling Panel with Footer</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
@@ -209,7 +209,7 @@ export const textSpacing = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Scrolling Panel with Footer</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
