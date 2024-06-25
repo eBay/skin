@@ -1,46 +1,59 @@
+/* Responsive Breakpoints */
+/* The first breakpoint simply indicates minimum support level. It should not be used with media queries. */
+/* Mobile-first means the default layout applies to mobile and there should be no mimimums even though */
+/* most mobile devices would be higher in screen width than the smallest viewport width. */
+/* The variables with underscores are to be considered constants. They can be read, but should not be modified. */
+/* TODO: remove these in next major version */
+/* secret size */
 .textbox {
-    align-items: center;
+    color: var(
+        --textbox-foreground-color,
+        var(--color-foreground-on-secondary)
+    );
     background-color: var(
         --textbox-background-color,
         var(--color-background-secondary)
     );
     border-color: var(--textbox-border-color, var(--color-stroke-default));
     border-radius: var(--textbox-border-radius, var(--border-radius-50));
+    align-items: center;
     border-style: solid;
     border-width: 1px;
     box-sizing: border-box;
-    color: var(
-        --textbox-foreground-color,
-        var(--color-foreground-on-secondary)
-    );
     display: inline-flex;
+    /* to align with buttons and select, it needs same font-size */
     font-size: var(--font-size-default);
-    gap: var(--spacing-100);
     position: relative;
-    width: -moz-fit-content;
     width: fit-content;
+    gap: var(--spacing-100);
 }
 .textbox button.icon-btn {
-    background-color: initial;
+    background-color: transparent;
     padding: 0;
 }
+
+/* `.textbox--focus` should be removed after full browser support for `:has` */
 .textbox--focus,
 .textbox:has(> .textbox__control:focus):not(
         .textbox--readonly,
         :has(> .textbox__control[readonly])
     ) {
+    box-shadow: 0 0 0 1px var(--color-stroke-strong);
+    border-color: var(--textbox-focus-border-color, var(--color-stroke-strong));
     background-color: var(
         --textbox-focus-background-color,
         var(--color-background-primary)
     );
-    border-color: var(--textbox-focus-border-color, var(--color-stroke-strong));
-    box-shadow: 0 0 0 0.5pt var(--color-stroke-strong);
 }
+
+/* `.textbox--readonly` should be removed after full browser support for `:has` */
 .textbox--readonly,
 .textbox:has(> .textbox__control[readonly]) {
-    background-color: initial;
+    background-color: transparent;
     border: none;
 }
+
+/* `.textbox--disabled` should be removed after full browser support for `:has` */
 .textbox--disabled,
 .textbox:has(> .textbox__control[disabled]) {
     border-color: var(
@@ -52,6 +65,8 @@
         var(--color-foreground-disabled)
     );
 }
+
+/* `.textbox--invalid` should be removed after full browser support for `:has` */
 .textbox--invalid,
 .textbox:has(> .textbox__control[aria-invalid="true"]) {
     border-color: var(
@@ -61,10 +76,10 @@
 }
 
 .textbox__control {
-    background-color: initial;
+    background-color: transparent;
     border: none;
-    box-sizing: border-box;
     color: inherit;
+    box-sizing: border-box;
 }
 
 textarea.textbox__control {
@@ -72,36 +87,33 @@ textarea.textbox__control {
     min-height: 200px;
     overflow: auto;
     padding: var(--spacing-200);
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
     resize: vertical;
     vertical-align: middle;
 }
 
 input.textbox__control {
     font-family: inherit;
-    padding: 0;
     vertical-align: middle;
+    padding: 0;
 }
 
 input.textbox__control:first-child:not([readonly]) {
-    -webkit-padding-start: var(--spacing-200);
     padding-inline-start: var(--spacing-200);
 }
 
 input.textbox__control:last-child:not([readonly]) {
-    -webkit-padding-end: var(--spacing-200);
     padding-inline-end: var(--spacing-200);
 }
 
 input.textbox__control,
 textarea.textbox__control {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     flex-grow: 1;
     font-size: 1em;
-    height: 40px;
-    margin: 0;
     outline: none;
+    height: 40px;
+    margin: 0; /* Remove the margin in Firefox and Safari. */
 }
 input.textbox__control[disabled],
 textarea.textbox__control[disabled] {
@@ -142,6 +154,30 @@ textarea.textbox__control[aria-invalid="true"] {
         var(--color-stroke-attention)
     );
 }
+input.textbox__control::-webkit-input-placeholder,
+textarea.textbox__control::-webkit-input-placeholder {
+    color: var(
+        --textbox-placeholder-color,
+        var(--color-foreground-on-secondary)
+    );
+    font-weight: 200;
+}
+input.textbox__control::-moz-placeholder,
+textarea.textbox__control::-moz-placeholder {
+    color: var(
+        --textbox-placeholder-color,
+        var(--color-foreground-on-secondary)
+    );
+    font-weight: 200;
+}
+input.textbox__control:-ms-input-placeholder,
+textarea.textbox__control:-ms-input-placeholder {
+    color: var(
+        --textbox-placeholder-color,
+        var(--color-foreground-on-secondary)
+    );
+    font-weight: 200;
+}
 input.textbox__control::placeholder,
 textarea.textbox__control::placeholder {
     color: var(--textbox-placeholder-color, var(--color-foreground-secondary));
@@ -153,35 +189,31 @@ textarea.textbox__control::placeholder {
     height: 48px;
 }
 
-.textbox .icon-btn > svg,
-.textbox > svg {
+.textbox > svg,
+.textbox .icon-btn > svg {
     color: var(--textbox-icon-color, var(--color-foreground-secondary));
     display: inline-flex;
     fill: var(--textbox-icon-color, var(--color-foreground-secondary));
-    height: 1lh;
     pointer-events: none;
     width: 14px;
+    height: 1lh;
 }
 
-.textbox > span:first-child,
-.textbox > svg:first-child {
-    -webkit-margin-start: var(--spacing-200);
+.textbox > svg:first-child,
+.textbox > span:first-child {
     margin-inline-start: var(--spacing-200);
 }
 
-.textbox > span:last-child,
-.textbox > svg:last-child {
-    -webkit-margin-end: var(--spacing-200);
+.textbox > svg:last-child,
+.textbox > span:last-child {
     margin-inline-end: var(--spacing-200);
 }
 
 .textbox .icon-btn:last-child {
-    -webkit-margin-start: calc(var(--spacing-100) * -1);
     margin-inline-start: calc(var(--spacing-100) * -1);
 }
 
 .textbox .icon-btn:first-child {
-    -webkit-margin-end: calc(var(--spacing-100) * -1);
     margin-inline-end: calc(var(--spacing-100) * -1);
 }
 
