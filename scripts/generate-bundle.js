@@ -169,7 +169,7 @@ class CssProcesser {
     }
 
     compileSASS(raw) {
-        const compilation = sass.compile(raw)
+        const compilation = sass.compile(raw);
         return compilation.css;
     }
 
