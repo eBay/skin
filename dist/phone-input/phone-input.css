@@ -5,9 +5,16 @@
 
 .phone-input button.btn {
     border-radius: 8px 0 0 8px;
+    border-right-style: none;
     min-width: 64px;
-    outline: none;
     padding-inline: var(--spacing-200) var(--spacing-100);
+}
+
+.phone-input button.btn:focus-visible {
+    border-right-style: solid;
+    box-shadow: 0 0 0 1px var(--color-stroke-strong);
+    outline: none;
+    z-index: 1;
 }
 
 .phone-input button.btn svg.icon:last-child {
@@ -48,50 +55,7 @@
 }
 
 .phone-input .textbox {
-    align-items: center;
-    background-color: var(
-        --textbox-background-color,
-        var(--color-background-secondary)
-    );
-    border-color: var(--textbox-border-color, var(--color-stroke-default));
     border-radius: 0 var(--border-radius-50) var(--border-radius-50) 0;
-    border-style: solid;
-    border-width: 1px;
-    color: var(--textbox-prefix-color, var(--color-foreground-primary));
-    display: inline-flex;
-    margin-left: -1px;
-    -webkit-padding-start: var(--spacing-100);
-    padding-inline-start: var(--spacing-100);
-}
-.phone-input > .textbox > input.textbox__control,
-.phone-input > .textbox > span:first-child {
-    padding-top: 2px;
-}
-
-.phone-input .textbox > input.textbox__control {
-    border: none;
-    height: 36px;
-    padding-inline: var(--spacing-50);
-}
-
-.phone-input .textbox > input.textbox__control:focus {
-    background-color: var(
-        --textbox-focus-background-color,
-        var(--color-background-secondary)
-    );
-    outline: none;
-}
-
-.phone-input button.btn:focus,
-.phone-input:not(.phone-input--readonly) .textbox:focus-within {
-    background-color: var(
-        --textbox-focus-background-color,
-        var(--color-background-secondary)
-    );
-    border-color: var(--textbox-focus-border-color, var(--color-stroke-strong));
-    box-shadow: 0 0 0 0.5pt var(--color-stroke-strong);
-    position: relative;
-    z-index: 1;
 }
 
 .phone-input--large {
@@ -99,8 +63,7 @@
 }
 
 .phone-input--fluid,
-.phone-input--fluid .textbox,
-.phone-input--fluid .textbox > input.textbox__control {
+.phone-input--fluid .textbox {
     width: 100%;
 }
 
@@ -116,11 +79,17 @@
     );
 }
 
-.phone-input--readonly input.textbox__control[readonly] {
+.phone-input.phone-input--readonly .textbox.textbox {
     background-color: var(
         --textbox-background-color,
         var(--color-background-secondary)
     );
+    border-color: var(--textbox-border-color, var(--color-stroke-default));
+    border-style: solid;
+    border-width: 1px;
+}
+
+.phone-input--readonly input.textbox__control[readonly] {
     color: var(--textbox-foreground-color, var(--color-foreground-secondary));
 }
 
@@ -143,7 +112,7 @@
     );
 }
 
-.phone-input--error .textbox {
+.phone-input.phone-input--error .textbox.textbox {
     border-color: var(
         --textbox-invalid-foreground-color,
         var(--color-stroke-attention)
@@ -168,9 +137,6 @@
     .phone-input .listbox-button__value span:first-of-type,
     .phone-input .listbox__value span:first-of-type {
         max-width: 50vw;
-    }
-    .phone-input .textbox > input.textbox__control {
-        max-width: 180px;
     }
 }
 [dir="rtl"] .phone-input button.btn {
