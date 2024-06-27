@@ -30,8 +30,6 @@ import Switch from 'makeup-switch';
 import LightboxDialog from 'makeup-lightbox-dialog';
 import AlertDialog from 'makeup-alert-dialog';
 import ConfirmDialog from 'makeup-confirm-dialog';
-import DrawerDialog from 'makeup-drawer-dialog';
-import FullscreenDialog from 'makeup-fullscreen-dialog';
 import InputDialog from 'makeup-input-dialog';
 import PanelDialog from 'makeup-panel-dialog';
 import SnackbarDialog from 'makeup-snackbar-dialog';
@@ -169,14 +167,10 @@ document.querySelectorAll('.dialog-button').forEach(function (el) {
         dialogWidget = new AlertDialog(dialogEl);
     } else if (dialogClassList.contains('lightbox-dialog--input')) {
         dialogWidget = new InputDialog(dialogEl);
-    } else if (dialogClassList.contains('fullscreen-dialog')) {
-        dialogWidget = new FullscreenDialog(dialogEl);
     } else if (dialogClassList.contains('snackbar-dialog')) {
         dialogWidget = new SnackbarDialog(dialogEl);
     } else if (dialogClassList.contains('toast-dialog')) {
         dialogWidget = new ToastDialog(dialogEl);
-    } else if (dialogClassList.contains('drawer-dialog')) {
-        dialogWidget = new DrawerDialog(dialogEl);
     } else if (dialogClassList.contains('panel-dialog')) {
         dialogWidget = new PanelDialog(dialogEl);
     } else if (dialogClassList.contains('lightbox-dialog')) {
@@ -717,7 +711,7 @@ document.querySelectorAll('.toggle-button').forEach(function (elToggleButton) {
         , sRangeOutputSelector = '.toggle-button-group-breakpoints-output'
         , sDemoContainerSelector = '.toggle-button-group-breakpoints-container'
     ;
-    
+
     document.querySelectorAll(sToggleButtonGroupDemosSelector).forEach(function (elToggleButtonGroupDemo) {
         const elRange = elToggleButtonGroupDemo.querySelector(sRangeSelector)
             , elOutput = elToggleButtonGroupDemo.querySelector(sRangeOutputSelector)
