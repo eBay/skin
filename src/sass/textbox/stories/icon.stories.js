@@ -88,8 +88,10 @@ export const fullyDecorated = () => `
     <span>$</span>
     <input class="textbox__control" type="text" placeholder="placeholder text" />
     <span>%</span>
-    <svg class="icon icon--mail-24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-mail-24"></use>
-    </svg>
+    <button class="icon-btn icon-btn--transparent icon-btn--small" type="button" aria-label="Mail">
+        <svg class="icon icon--mail-16" width="16" height="16" aria-hidden="true">
+            <use href="#icon-mail-16"></use>
+        </svg>
+    </button>
 </span>
 `;
