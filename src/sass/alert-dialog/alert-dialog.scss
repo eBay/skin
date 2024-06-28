@@ -1,0 +1,99 @@
+@import "../variables/variables";
+@import "../mixins/private/dialog-mixins";
+@import "../mixins/private/token-mixins";
+@import "../mixins/public/typography-mixins";
+
+.alert-dialog[role="alertdialog"] {
+    @include lightbox-dialog-base();
+}
+
+.alert-dialog__window {
+    @include lightbox-dialog-window();
+
+    margin-left: var(--spacing-200);
+    margin-right: var(--spacing-200);
+    padding: var(--spacing-200);
+    text-align: center;
+}
+
+.alert-dialog__title {
+    @include typography-large-1();
+
+    margin: 0;
+}
+
+.alert-dialog__main {
+    margin: var(--spacing-200) 0;
+    min-height: var(--spacing-200);
+
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.alert-dialog--show,
+.alert-dialog--hide {
+    &.alert-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.alert-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    .alert-dialog__window--fade {
+        transition: opacity 0.16s ease-out;
+    }
+}
+
+.alert-dialog--hide,
+.alert-dialog--show-init {
+    &.alert-dialog--hide,
+    &.alert-dialog--show-init {
+        display: flex;
+    }
+
+    &.alert-dialog--mask-fade,
+    &.alert-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-hide);
+    }
+
+    .alert-dialog__window--fade {
+        opacity: 0;
+    }
+}
+
+.alert-dialog--show,
+.alert-dialog--hide-init {
+    &.alert-dialog--show,
+    &.alert-dialog--hide-init {
+        display: flex;
+    }
+
+    &.alert-dialog--mask-fade,
+    &.alert-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-show);
+    }
+
+    .alert-dialog__window--fade {
+        opacity: 1;
+    }
+}
+
+@media (min-width: $_screen-size-MD) {
+    .alert-dialog__window {
+        @include lightbox-dialog-window-large();
+
+        max-width: calc(88% - var(--spacing-400));
+    }
+}
+
+@media (min-width: $_screen-size-LG) {
+    .alert-dialog__window {
+        max-width: var(--dialog-lightbox-max-width);
+    }
+}

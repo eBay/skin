@@ -1,0 +1,166 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+
+.phone-input,
+.phone-input .listbox-button {
+    display: inline-flex;
+}
+
+.phone-input button.btn {
+    border-radius: 8px 0 0 8px;
+    min-width: 64px;
+    padding-inline: var(--spacing-200) var(--spacing-100);
+    border-right-style: none;
+}
+
+.phone-input button.btn:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-stroke-strong);
+    border-right-style: solid;
+    z-index: 1;
+    outline: none;
+}
+
+.phone-input button.btn svg.icon:last-child {
+    margin-inline-start: var(--spacing-50);
+}
+
+.phone-input .listbox-button span.fflag,
+.phone-input .listbox-button svg.flag {
+    height: 18px;
+    width: 24px;
+}
+
+.phone-input .listbox-button__value,
+.phone-input .listbox__value {
+    display: inline-flex;
+
+    & svg {
+        margin-inline-end: var(--spacing-200);
+    }
+
+    & span {
+        margin-inline-end: var(--spacing-100);
+    }
+
+    & span:last-child {
+        color: var(--color-foreground-secondary);
+    }
+}
+
+.phone-input .listbox-button__value span:nth-of-type(1),
+.phone-input .listbox__value span:nth-of-type(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.phone-input .textbox {
+    border-radius: 0 var(--border-radius-50) var(--border-radius-50) 0;
+}
+
+.phone-input--large {
+    height: 48px;
+}
+
+.phone-input--fluid,
+.phone-input--fluid .textbox {
+    width: 100%;
+}
+
+.phone-input--readonly .listbox-button button[aria-disabled="true"],
+.phone-input--readonly .listbox-button button[disabled] {
+    @include border-color-token(textbox-border-color, color-stroke-default);
+}
+
+.phone-input--readonly .textbox span:first-child {
+    @include color-token(
+        textbox-disabled-foreground-color,
+        color-foreground-secondary
+    );
+}
+
+.phone-input.phone-input--readonly .textbox.textbox {
+    @include background-color-token(
+        textbox-background-color,
+        color-background-secondary
+    );
+    @include border-color-token(textbox-border-color, color-stroke-default);
+
+    border-style: solid;
+    border-width: 1px;
+}
+
+.phone-input--readonly input.textbox__control[readonly] {
+    @include color-token(textbox-foreground-color, color-foreground-secondary);
+}
+
+.phone-input--disabled span.fflag,
+.phone-input--disabled svg.flag {
+    filter: var(--color-icon-disabled-filter);
+}
+
+.phone-input--disabled .textbox {
+    @include border-color-token(
+        textbox-disabled-border-color,
+        color-background-disabled
+    );
+}
+
+.phone-input--disabled .textbox span:first-child {
+    @include color-token(
+        textbox-disabled-foreground-color,
+        color-foreground-disabled
+    );
+}
+
+.phone-input.phone-input--error .textbox.textbox {
+    @include border-color-token(
+        textbox-invalid-foreground-color,
+        color-stroke-attention
+    );
+    @include border-left-color-token(
+        textbox-border-color,
+        color-stroke-default
+    );
+}
+
+/* added to fix the floating label because of the z-index in :focus-within */
+.phone-input .floating-label .floating-label__label {
+    z-index: 2;
+}
+
+.phone-input .floating-label .textbox > span:first-child {
+    padding-bottom: 2px;
+    padding-top: 18px;
+}
+
+.phone-input .floating-label--large .textbox > span:first-child {
+    padding-bottom: 5px;
+    padding-top: 23px;
+}
+
+@media screen and (min-width: $_screen-size-XS) {
+    .phone-input .listbox-button__value span:nth-of-type(1),
+    .phone-input .listbox__value span:nth-of-type(1) {
+        max-width: 50vw;
+    }
+}
+
+[dir="rtl"] {
+    .phone-input button.btn {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .phone-input .textbox {
+        border-radius: var(--border-radius-50) 0 0 var(--border-radius-50);
+        /* input type='tel | number' by default starts from left to right in RTL mode */
+        direction: ltr;
+        margin-left: 0;
+        margin-right: -1px;
+    }
+
+    .phone-input .listbox-button__value span:last-child,
+    .phone-input .listbox__value span:last-child {
+        direction: ltr;
+    }
+}

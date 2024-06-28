@@ -1,0 +1,61 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+
+a.nav-link,
+a.standalone-link {
+    @include color-token(nav-link-foreground-color, color-foreground-primary);
+
+    text-decoration: none;
+
+    &:visited {
+        @include color-token(
+            link-foreground-color-default,
+            color-foreground-primary
+        );
+    }
+
+    &:hover {
+        @include color-token(
+            nav-link-foreground-hover-color,
+            color-foreground-secondary
+        );
+
+        text-decoration: underline;
+    }
+
+    &:not([href]),
+    &[aria-disabled="true"] {
+        @include color-token(
+            link-forground-color-disabled,
+            color-foreground-disabled
+        );
+
+        text-decoration: none;
+    }
+}
+
+button.fake-link {
+    background-color: transparent;
+    border: 0;
+    @include color-token(fake-link-foreground-color, color-foreground-primary);
+
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover {
+        @include color-token(
+            fake-link-foreground-color-hover,
+            color-foreground-secondary
+        );
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+        @include color-token(
+            fake-link-foreground-disabled-color,
+            color-foreground-disabled
+        );
+    }
+}

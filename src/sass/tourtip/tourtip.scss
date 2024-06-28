@@ -1,0 +1,166 @@
+@import "../variables/variables";
+@import "../mixins/private/bubble-mixins";
+@import "../mixins/private/token-mixins";
+
+.tourtip {
+    position: relative;
+}
+
+span.tourtip {
+    display: inline-block;
+}
+
+.tourtip__overlay {
+    @include bubble(border-radius-100);
+}
+
+.tourtip__mask {
+    @include bubble-mask(border-radius-100);
+    @include background-color-token(
+        tourtip-background-color,
+        color-background-elevated
+    );
+    @include color-token(tourtip-foreground-color, color-foreground-primary);
+}
+
+span.tourtip__mask {
+    display: block;
+}
+
+.tourtip__cell {
+    @include bubble-cell(var(--spacing-200));
+
+    flex-wrap: wrap;
+
+    a {
+        @include color-token(
+            tourtip-foreground-color,
+            color-foreground-primary
+        );
+
+        &:focus {
+            outline: 1px dashed currentColor;
+        }
+    }
+}
+
+.tourtip__content {
+    @include bubble-content();
+
+    flex-basis: 0;
+}
+
+button.tourtip__close {
+    @include bubble-close();
+
+    outline-offset: -2px;
+}
+
+.tourtip__pointer {
+    @include pointer-base();
+    @include background-color-token(
+        tourtip-background-color,
+        color-background-elevated
+    );
+}
+
+.tourtip__pointer--top-left {
+    @include pointer-top-left();
+}
+
+.tourtip__pointer--top {
+    @include pointer-top-center();
+}
+
+.tourtip__pointer--top-right {
+    @include pointer-top-right();
+}
+
+.tourtip__pointer--bottom-left {
+    @include pointer-bottom-left();
+}
+
+.tourtip__pointer--bottom {
+    @include pointer-bottom-center();
+}
+
+.tourtip__pointer--bottom-right {
+    @include pointer-bottom-right();
+}
+
+.tourtip__pointer--left {
+    @include pointer-left();
+}
+
+.tourtip__pointer--left-bottom {
+    @include pointer-left-bottom();
+}
+
+.tourtip__pointer--left-top {
+    @include pointer-left-top();
+}
+
+.tourtip__pointer--right {
+    @include pointer-right();
+}
+
+.tourtip__pointer--right-bottom {
+    @include pointer-right-bottom();
+}
+
+.tourtip__pointer--right-top {
+    @include pointer-right-top();
+}
+
+.tourtip__heading {
+    font-size: var(--font-size-large-1);
+    font-weight: bold;
+    margin: 0 0 var(--spacing-100);
+}
+
+span.tourtip__heading {
+    display: block;
+}
+
+.tourtip--expanded .tourtip__overlay {
+    display: block;
+}
+
+.tourtip__footer {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.tourtip__footer > button:not(:last-child),
+.tourtip__footer > a:not(:last-child) {
+    margin-right: 8px;
+}
+
+/* stylelint-disable no-descending-specificity */
+/* TODO need to remove this once we update fake-links/links to allow no underline and black text */
+.tourtip__footer > .fake-link,
+.tourtip__footer > a {
+    color: var(--color-foreground-primary);
+    text-decoration: none;
+
+    &:hover:not(:disabled) {
+        color: var(--color-foreground-primary);
+        text-decoration: underline;
+    }
+}
+/* stylelint-enable no-descending-specificity */
+
+.tourtip__index {
+    @include color-token(tourtip-index-color, color-foreground-secondary);
+
+    flex: 1;
+}
+
+@media (min-width: $_screen-size-SM) {
+    .tourtip__overlay {
+        @include bubble-large-screen();
+    }
+}

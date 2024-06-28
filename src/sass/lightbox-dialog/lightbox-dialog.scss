@@ -1,0 +1,279 @@
+@import "../variables/variables";
+@import "../mixins/private/dialog-mixins";
+@import "../mixins/private/token-mixins";
+
+:root {
+    --dialog-lightbox-wide-max-width: 896px;
+    --dialog-lightbox-narrow-max-width: 480px;
+}
+
+.lightbox-dialog[role="dialog"] {
+    @include lightbox-dialog-base();
+}
+
+.lightbox-dialog__window {
+    @include lightbox-dialog-window();
+}
+
+.lightbox-dialog__header {
+    @include dialog-header-content();
+}
+
+.lightbox-dialog__main {
+    @include dialog-body-content();
+
+    min-height: 18px;
+    overflow: auto;
+}
+
+.lightbox-dialog__footer {
+    @include dialog-footer-content();
+}
+
+.lightbox-dialog__image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--border-radius-100) var(--border-radius-100) 0 0;
+    height: 218px;
+    position: absolute;
+    width: 100%;
+}
+
+.lightbox-dialog--expressive .lightbox-dialog__window {
+    padding-bottom: var(--spacing-100);
+}
+
+.lightbox-dialog--expressive .lightbox-dialog__header > * {
+    margin-top: 218px;
+}
+
+.lightbox-dialog--expressive .lightbox-dialog__header {
+    margin: var(--spacing-300) var(--spacing-300) 0;
+}
+
+.lightbox-dialog--expressive .lightbox-dialog__main,
+.lightbox-dialog--expressive .lightbox-dialog__footer {
+    padding: var(--spacing-200) var(--spacing-300);
+}
+
+/* inherits from .icon-btn */
+/* Might need to see if icon-btn can support a small version */
+button.icon-btn.lightbox-dialog__prev,
+button.icon-btn.lightbox-dialog__close {
+    align-self: flex-start;
+    border: 0;
+    height: 32px;
+    min-width: 32px;
+    position: relative;
+    width: 32px;
+    z-index: 1;
+}
+
+button.icon-btn.lightbox-dialog__prev {
+    margin-inline-end: var(--spacing-200);
+}
+
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev,
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__close {
+    align-self: self-start;
+    margin: 0;
+}
+
+.lightbox-dialog--expressive button.icon-btn.lightbox-dialog__prev + * {
+    margin-left: -32px;
+}
+
+.lightbox-dialog__title {
+    &:not(:first-child) {
+        margin-left: var(--spacing-200);
+    }
+}
+
+.lightbox-dialog__title--center {
+    text-align: center;
+}
+
+.lightbox-dialog--show,
+.lightbox-dialog--hide {
+    &.lightbox-dialog--mask-fade {
+        transition: background-color 0.16s ease-out;
+    }
+
+    &.lightbox-dialog--mask-fade-slow {
+        transition: background-color 0.32s ease-out;
+    }
+
+    .lightbox-dialog__window--fade {
+        transition: opacity 0.16s ease-out;
+    }
+
+    .lightbox-dialog__window--animate {
+        transition:
+            opacity 0.16s ease-out,
+            transform 0.32s ease-out;
+    }
+}
+
+.lightbox-dialog--hide,
+.lightbox-dialog--show-init {
+    &.lightbox-dialog--hide,
+    &.lightbox-dialog--show-init {
+        display: flex;
+    }
+
+    &.lightbox-dialog--mask-fade,
+    &.lightbox-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-hide);
+    }
+
+    .lightbox-dialog__window--fade {
+        opacity: 0;
+    }
+
+    .lightbox-dialog__window--animate {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+.lightbox-dialog--show,
+.lightbox-dialog--hide-init {
+    &.lightbox-dialog--show,
+    &.lightbox-dialog--hide-init {
+        display: flex;
+    }
+
+    &.lightbox-dialog--mask-fade,
+    &.lightbox-dialog--mask-fade-slow {
+        background-color: var(--dialog-scrim-color-show);
+    }
+
+    .lightbox-dialog__window--fade {
+        opacity: 1;
+    }
+
+    .lightbox-dialog__window--animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Deprecated
+.lightbox-dialog__handle {
+    background-color: transparent;
+    border: none;
+    left: 0;
+    margin: -11px auto;
+    padding: 8px;
+    position: relative;
+    right: 0;
+    top: 11px;
+    z-index: 2;
+}
+
+/* Added :after class in order to increase parent hit box */
+.lightbox-dialog__handle::after {
+    @include background-color-token(dialog-handle-color, color-stroke-default);
+
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 24px;
+}
+
+// Deprecated, remove next major
+// This is tied with handle, once we remove handle this needs to be removed
+.lightbox-dialog__window--expanded {
+    height: 95%;
+    max-height: 95%;
+}
+
+[dir="rtl"] {
+    button.icon-btn.lightbox-dialog__prev .icon--16 {
+        transform: rotate(180deg);
+    }
+}
+
+.lightbox-dialog--fullscreen .lightbox-dialog__window,
+.lightbox-dialog--large .lightbox-dialog__window {
+    align-self: center;
+    margin: var(--spacing-100);
+    height: 70%;
+
+    // This is needed like this becuase max-height 100% would cause a scroll overflow
+    max-height: 95%;
+}
+
+@media (max-width: $_screen-size-SM) {
+    .lightbox-dialog--large .lightbox-dialog__window {
+        width: 100%;
+        height: 95%;
+
+        // This is needed like this becuase max-height 100% would cause a scroll overflow
+        max-height: 95%;
+    }
+
+    .lightbox-dialog--fullscreen .lightbox-dialog__window {
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    // Deprecated
+    .lightbox-dialog--fullscreen .lightbox-dialog__handle,
+    .lightbox-dialog--large .lightbox-dialog__handle {
+        display: none;
+    }
+}
+/* In order to prevent the margins to meet the ege of the page at medium screen sizes */
+@media (min-width: $_screen-size-SM) {
+    .lightbox-dialog__window {
+        @include lightbox-dialog-window-large();
+
+        max-width: calc(88% - var(--spacing-400));
+    }
+
+    // Deprecated
+    .lightbox-dialog__handle {
+        display: none;
+    }
+
+    .lightbox-dialog--narrow .lightbox-dialog__window {
+        max-width: var(--dialog-lightbox-narrow-max-width);
+    }
+
+    .lightbox-dialog__window .lightbox-dialog__footer {
+        @include dialog-footer-content-large();
+    }
+    .lightbox-dialog--show .lightbox-dialog__window--animate,
+    .lightbox-dialog--hide-init .lightbox-dialog__window--animate,
+    .lightbox-dialog--show-init .lightbox-dialog__window--animate,
+    .lightbox-dialog--hide .lightbox-dialog__window--animate {
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: $_screen-size-MD) {
+    .lightbox-dialog__window {
+        max-width: var(--dialog-lightbox-max-width);
+    }
+
+    .lightbox-dialog--wide .lightbox-dialog__window {
+        max-width: var(--dialog-lightbox-wide-max-width);
+    }
+
+    .lightbox-dialog--wide .lightbox-dialog__image {
+        height: 256px;
+    }
+
+    .lightbox-dialog--wide.lightbox-dialog--expressive
+        .lightbox-dialog__header
+        > * {
+        margin-top: 256px;
+    }
+}

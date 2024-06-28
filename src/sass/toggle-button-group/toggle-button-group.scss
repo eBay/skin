@@ -1,0 +1,342 @@
+@import "../variables/variables";
+
+// Recursive Mixin to build repetative class delcarations for explicit dev overrides for various breakpoints
+@mixin toggle-button-grid-templates($breakpoint, $repeatTo, $i: 1) {
+    @if $i <= $repeatTo {
+        .toggle-button-group[data-columns-#{$breakpoint}="#{$i}"] ul {
+            grid-template-columns: repeat($i, 1fr);
+        }
+
+        @include toggle-button-grid-templates($breakpoint, $repeatTo, ($i + 1));
+    }
+}
+
+:root {
+    // Respsonsive Toggle Button Prop Naming Convention:
+    // prefixes (--row-[prefix]):
+    //    min = minimal variation
+    //    list: list variation
+    //    gallery: gallery variation
+    // suffixes map with breakpoints:
+    //    - "min" indicates default (smallest screen)
+    //    - custom ones are called out
+    //    - all lowercase (i.e. "min")
+    //    - pixel values
+
+    // Minimal Layout (default)
+    --row-min-toggle-buttons-min: 2;
+    --row-min-toggle-buttons-xs: 4;
+    --row-min-toggle-buttons-sm: 5;
+    --row-min-toggle-buttons-md: 8;
+    --row-min-toggle-buttons-xl: 12;
+
+    // List Layout
+    --row-list-toggle-buttons-min: 1;
+    --row-list-toggle-buttons-xs: 1;
+    --row-list-toggle-buttons-sm: 2;
+    --row-list-toggle-buttons-md: 3;
+    --row-list-toggle-buttons-xl: 5;
+
+    // Gallery Layout
+    --row-gallery-toggle-buttons-min: 1;
+    --row-gallery-toggle-buttons-xs: 2;
+    --row-gallery-toggle-buttons-sm: 3;
+    --row-gallery-toggle-buttons-md: 4;
+    --row-gallery-toggle-buttons-xl: 6;
+}
+
+.toggle-button-group {
+    container: toggle-buttons-container / inline-size;
+}
+
+.toggle-button-group ul {
+    display: grid;
+    gap: var(--spacing-100);
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(var(--row-min-toggle-buttons-min), 1fr);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.toggle-button-group li {
+    display: inline-block;
+    min-height: var(--toggle-button-height-min);
+    width: 100%;
+}
+
+.toggle-button-group .toggle-button {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Layout Themes */
+.toggle-button-group--list-layout .toggle-button {
+    justify-content: left;
+    max-width: 100%;
+    min-width: auto;
+}
+
+.toggle-button-group--gallery-layout li {
+    max-width: 100%;
+}
+
+.toggle-button-group--gallery-layout .toggle-button {
+    flex-direction: column;
+    max-width: 100%;
+    min-width: auto;
+}
+
+.toggle-button-group--list-layout .toggle-button__image-container,
+.toggle-button-group--list-layout .toggle-button__content:not(:only-child) {
+    align-self: flex-start;
+}
+
+.toggle-button-group--gallery-layout .toggle-button {
+    justify-content: flex-start;
+}
+
+.toggle-button-group--gallery-layout .toggle-button__image,
+.toggle-button-group--gallery-layout .toggle-button__icon {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.toggle-button-group--gallery-layout
+    .toggle-button__icon
+    ~ .toggle-button__content,
+.toggle-button-group--gallery-layout
+    .toggle-button__image-container
+    ~ .toggle-button__content {
+    align-self: flex-start;
+}
+
+.toggle-button-group--gallery-layout .toggle-button__icon,
+.toggle-button-group--gallery-layout .toggle-button__image-container {
+    margin-bottom: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.toggle-button-group--gallery-layout .toggle-button__image-container {
+    padding-bottom: 60%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.toggle-button-group--gallery-layout .toggle-button__image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.toggle-button-group--gallery-layout .toggle-button__image-container img {
+    height: 100%;
+    max-height: 200px;
+    max-width: initial;
+}
+
+/* Responsive Layouts */
+// first, we define media queries as a fallback for browsers not supporting container queries
+@supports not (contain: inline-size) {
+    @media (min-width: $_screen-size-XS) {
+        // Responsive columns based on XS breakpoint per button type
+        .toggle-button-group ul {
+            grid-template-columns: repeat(
+                var(--row-min-toggle-buttons-xs),
+                1fr
+            );
+        }
+
+        .toggle-button-group--list-layout ul {
+            grid-template-columns: repeat(
+                var(--row-list-toggle-buttons-xs),
+                1fr
+            );
+        }
+
+        .toggle-button-group--gallery-layout ul {
+            grid-template-columns: repeat(
+                var(--row-gallery-toggle-buttons-xs),
+                1fr
+            );
+        }
+
+        // Explicit developer overrides for XS breakpoint for exception cases
+        @include toggle-button-grid-templates(xs, 16);
+    }
+
+    @media (min-width: $_screen-size-SM) {
+        // Responsive columns based on SM breakpoint per button type
+        .toggle-button-group ul {
+            grid-template-columns: repeat(
+                var(--row-min-toggle-buttons-sm),
+                1fr
+            );
+        }
+
+        .toggle-button-group--list-layout ul {
+            grid-template-columns: repeat(
+                var(--row-list-toggle-buttons-sm),
+                1fr
+            );
+        }
+
+        .toggle-button-group--gallery-layout ul {
+            grid-template-columns: repeat(
+                var(--row-gallery-toggle-buttons-sm),
+                1fr
+            );
+        }
+
+        // Explicit developer overrides for SM breakpoint for exception cases
+        @include toggle-button-grid-templates(sm, 16);
+    }
+
+    @media (min-width: $_screen-size-MD) {
+        // Responsive columns based on MD breakpoint per button type
+        .toggle-button-group ul {
+            grid-template-columns: repeat(
+                var(--row-min-toggle-buttons-md),
+                1fr
+            );
+        }
+
+        .toggle-button-group--list-layout ul {
+            grid-template-columns: repeat(
+                var(--row-list-toggle-buttons-md),
+                1fr
+            );
+        }
+
+        .toggle-button-group--gallery-layout ul {
+            grid-template-columns: repeat(
+                var(--row-gallery-toggle-buttons-md),
+                1fr
+            );
+        }
+
+        // Explicit developer overrides for MD breakpoint for exception cases
+        @include toggle-button-grid-templates(md, 16);
+    }
+
+    @media (min-width: $_screen-size-XL) {
+        // Responsive columns based on XL breakpoint per button type
+        .toggle-button-group ul {
+            grid-template-columns: repeat(
+                var(--row-min-toggle-buttons-xl),
+                1fr
+            );
+        }
+
+        .toggle-button-group--list-layout ul {
+            grid-template-columns: repeat(
+                var(--row-list-toggle-buttons-xl),
+                1fr
+            );
+        }
+
+        .toggle-button-group--gallery-layout ul {
+            grid-template-columns: repeat(
+                var(--row-gallery-toggle-buttons-xl),
+                1fr
+            );
+        }
+
+        // Explicit developer overrides for XL breakpoint for exception cases
+        @include toggle-button-grid-templates(xl, 16);
+    }
+}
+
+// For browsers that DO support container queries
+@container toggle-buttons-container (inline-size >= #{$_screen-size-XS}) {
+    // Responsive columns based on XS breakpoint per button type
+    .toggle-button-group ul {
+        grid-template-columns: repeat(var(--row-min-toggle-buttons-xs), 1fr);
+    }
+
+    .toggle-button-group--list-layout ul {
+        grid-template-columns: repeat(var(--row-list-toggle-buttons-xs), 1fr);
+    }
+
+    .toggle-button-group--gallery-layout ul {
+        grid-template-columns: repeat(
+            var(--row-gallery-toggle-buttons-xs),
+            1fr
+        );
+    }
+
+    // Explicit developer overrides for XS breakpoint for exception cases
+    @include toggle-button-grid-templates(xs, 16);
+}
+
+@container toggle-buttons-container (inline-size >= #{$_screen-size-SM}) {
+    // Responsive columns based on SM breakpoint per button type
+    .toggle-button-group ul {
+        grid-template-columns: repeat(var(--row-min-toggle-buttons-sm), 1fr);
+    }
+
+    .toggle-button-group--list-layout ul {
+        grid-template-columns: repeat(var(--row-list-toggle-buttons-sm), 1fr);
+    }
+
+    .toggle-button-group--gallery-layout ul {
+        grid-template-columns: repeat(
+            var(--row-gallery-toggle-buttons-sm),
+            1fr
+        );
+    }
+
+    // Explicit developer overrides for SM breakpoint for exception cases
+    @include toggle-button-grid-templates(sm, 16);
+}
+
+@container toggle-buttons-container (inline-size >= #{$_screen-size-MD}) {
+    // Responsive columns based on MD breakpoint per button type
+    .toggle-button-group ul {
+        grid-template-columns: repeat(var(--row-min-toggle-buttons-md), 1fr);
+    }
+
+    .toggle-button-group--list-layout ul {
+        grid-template-columns: repeat(var(--row-list-toggle-buttons-md), 1fr);
+    }
+
+    .toggle-button-group--gallery-layout ul {
+        grid-template-columns: repeat(
+            var(--row-gallery-toggle-buttons-md),
+            1fr
+        );
+    }
+
+    // Explicit developer overrides for MD breakpoint for exception cases
+    @include toggle-button-grid-templates(md, 16);
+}
+
+@container toggle-buttons-container (inline-size >= #{$_screen-size-XL}) {
+    // Responsive columns based on XL breakpoint per button type
+    .toggle-button-group ul {
+        grid-template-columns: repeat(var(--row-min-toggle-buttons-xl), 1fr);
+    }
+
+    .toggle-button-group--list-layout ul {
+        grid-template-columns: repeat(var(--row-list-toggle-buttons-xl), 1fr);
+    }
+
+    .toggle-button-group--gallery-layout ul {
+        grid-template-columns: repeat(
+            var(--row-gallery-toggle-buttons-xl),
+            1fr
+        );
+    }
+
+    // Explicit developer overrides for XL breakpoint for exception cases
+    @include toggle-button-grid-templates(xl, 16);
+}

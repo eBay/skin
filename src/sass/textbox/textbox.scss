@@ -1,0 +1,238 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+
+.textbox {
+    @include color-token(
+        textbox-foreground-color,
+        color-foreground-on-secondary
+    );
+    @include background-color-token(
+        textbox-background-color,
+        color-background-secondary
+    );
+    @include border-color-token(textbox-border-color, color-stroke-default);
+    @include border-radius-token(textbox-border-radius, border-radius-50);
+
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    display: inline-flex;
+
+    /* to align with buttons and select, it needs same font-size */
+    font-size: var(--font-size-default);
+    position: relative;
+    width: fit-content;
+    gap: var(--spacing-100);
+
+    button.icon-btn {
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+/* `.textbox--focus` should be removed after full browser support for `:has` */
+.textbox--focus,
+.textbox:has(> .textbox__control:focus):not(
+        .textbox--readonly,
+        :has(> .textbox__control[readonly])
+    ) {
+    box-shadow: 0 0 0 1px var(--color-stroke-strong);
+    @include border-color-token(
+        textbox-focus-border-color,
+        color-stroke-strong
+    );
+    @include background-color-token(
+        textbox-focus-background-color,
+        color-background-primary
+    );
+}
+
+/* `.textbox--readonly` should be removed after full browser support for `:has` */
+.textbox--readonly,
+.textbox:has(> .textbox__control[readonly]) {
+    background-color: transparent;
+    border: none;
+}
+
+/* `.textbox--disabled` should be removed after full browser support for `:has` */
+.textbox--disabled,
+.textbox:has(> .textbox__control[disabled]) {
+    @include border-color-token(
+        textbox-disabled-border-color,
+        color-background-disabled
+    );
+    @include color-token(
+        textbox-disabled-foreground-color,
+        color-foreground-disabled
+    );
+}
+
+/* `.textbox--invalid` should be removed after full browser support for `:has` */
+.textbox--invalid,
+.textbox:has(> .textbox__control[aria-invalid="true"]) {
+    @include border-color-token(
+        textbox-invalid-border-color,
+        color-stroke-attention
+    );
+}
+
+.textbox__control {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+textarea.textbox__control {
+    font-family: inherit;
+    min-height: 200px;
+    overflow: auto;
+    padding: var(--spacing-200);
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    resize: vertical;
+    vertical-align: middle;
+}
+
+input.textbox__control {
+    font-family: inherit;
+    vertical-align: middle;
+    padding: 0;
+}
+
+input.textbox__control:first-child:not([readonly]) {
+    padding-inline-start: var(--spacing-200);
+}
+
+input.textbox__control:last-child:not([readonly]) {
+    padding-inline-end: var(--spacing-200);
+}
+
+input.textbox__control,
+textarea.textbox__control {
+    appearance: none;
+    flex-grow: 1;
+    font-size: 1em;
+    outline: none;
+    height: 40px;
+    margin: 0; /* Remove the margin in Firefox and Safari. */
+
+    &[disabled] {
+        @include border-color-token(
+            textbox-disabled-border-color,
+            color-background-disabled
+        );
+        @include color-token(
+            textbox-disabled-foreground-color,
+            color-foreground-disabled
+        );
+
+        &::-webkit-input-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+
+        &::-moz-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+
+        &:-ms-input-placeholder {
+            @include color-token(
+                textbox-disabled-placeholder-color,
+                color-foreground-ghost
+            );
+        }
+    }
+
+    &[aria-invalid="true"] {
+        @include border-color-token(
+            textbox-invalid-foreground-color,
+            color-stroke-attention
+        );
+    }
+
+    &::-webkit-input-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &::-moz-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &:-ms-input-placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-on-secondary
+        );
+
+        font-weight: 200;
+    }
+
+    &::placeholder {
+        @include color-token(
+            textbox-placeholder-color,
+            color-foreground-secondary
+        );
+
+        font-weight: 200;
+        opacity: 1;
+    }
+}
+
+.textbox--large > input.textbox__control {
+    height: 48px;
+}
+
+.textbox > svg,
+.textbox .icon-btn > svg {
+    @include color-token(textbox-icon-color, color-foreground-secondary);
+
+    display: inline-flex;
+    @include fill-token(textbox-icon-color, color-foreground-secondary);
+
+    pointer-events: none;
+    width: 14px;
+    height: 1lh;
+}
+
+.textbox > svg:first-child,
+.textbox > span:first-child {
+    margin-inline-start: var(--spacing-200);
+}
+
+.textbox > svg:last-child,
+.textbox > span:last-child {
+    margin-inline-end: var(--spacing-200);
+}
+
+.textbox .icon-btn:last-child {
+    margin-inline-start: calc(var(--spacing-100) * -1);
+}
+
+.textbox .icon-btn:first-child {
+    margin-inline-end: calc(var(--spacing-100) * -1);
+}
+
+input.textbox__control[readonly]:focus,
+textarea.textbox__control[readonly]:focus {
+    text-decoration: underline;
+}
+
+.textbox--fluid {
+    width: 100%;
+}

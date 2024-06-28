@@ -1,0 +1,30 @@
+@import "./selection-list-mixins";
+
+@mixin menu-menuitem-base($component) {
+    @include selection-list-item-base();
+
+    @include border-color-token(
+        #{$component}-menuitem-border-color,
+        color-background-primary
+    );
+    @include color-token(
+        #{$component}-menuitem-foreground-color,
+        color-foreground-primary
+    );
+
+    &:hover {
+        background-color: var(--color-state-primary-hover);
+        @include color-token(
+            #{$component}-menuitem-hover-foreground-color,
+            color-foreground-primary
+        );
+    }
+
+    &:active {
+        font-weight: bold;
+    }
+}
+
+@mixin menu-menuitem-status() {
+    @include selection-list-item-status();
+}

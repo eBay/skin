@@ -1,0 +1,124 @@
+@mixin custom-property-token($property, $component-token, $product-token: "") {
+    @if $product-token != "" {
+        #{$property}: var(--#{$component-token}, var(--#{$product-token}));
+    } @else {
+        #{$property}: var(--#{$component-token});
+    }
+}
+
+@mixin background-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        background,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin background-color-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        background-color,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin background-image-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        background-image,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-bottom-left-radius-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-bottom-left-radius,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-bottom-right-radius-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-bottom-right-radius,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-top-left-radius-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-top-left-radius,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-top-right-radius-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-top-right-radius,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-radius-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-radius,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin box-shadow-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        box-shadow,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-color-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-color,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-left-color-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-left-color,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin border-right-color-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        border-right-color,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin color-token($component-token, $product-token: "") {
+    @include custom-property-token(color, $component-token, $product-token);
+}
+
+@mixin fill-token($component-token, $product-token: "") {
+    @include custom-property-token(fill, $component-token, $product-token);
+}
+
+@mixin outline-color-token($component-token, $product-token: "") {
+    @include custom-property-token(
+        outline-color,
+        $component-token,
+        $product-token
+    );
+}
+
+@mixin outline-token($width, $style, $component-token, $product-token: "") {
+    /* stylelint-disable-next-line custom-property-pattern */
+    outline: $width $style var(--#{$component-token}, var(--#{$product-token}));
+}

@@ -1,5 +1,25 @@
 # Skin Changelog
 
+## 18.0.0-next.0
+
+### Major Changes
+
+-   [#2346](https://github.com/eBay/skin/pull/2346) [`9eacce0`](https://github.com/eBay/skin/commit/9eacce09ed99edd4306e97632a1e5fbdc0ab68cd) Thanks [@agliga](https://github.com/agliga)! - refactor: removed all duplicate icon classes and added icon--{nn} classes
+
+-   [#2352](https://github.com/eBay/skin/pull/2352) [`c2e6002`](https://github.com/eBay/skin/commit/c2e6002eb919c6f0325ca11de925112a6a72b5c3) Thanks [@agliga](https://github.com/agliga)! - chore: removed deprecations
+
+-   [#2356](https://github.com/eBay/skin/pull/2356) [`7554ab4`](https://github.com/eBay/skin/commit/7554ab4c6f183d6d8ca898a09b39c5b6396f0d7a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - tokens: added tokens, colors, deprecations
+
+-   [#2345](https://github.com/eBay/skin/pull/2345) [`55291f6`](https://github.com/eBay/skin/commit/55291f659ace187d4b96707db84c4a54709182a2) Thanks [@ArtBlue](https://github.com/ArtBlue)! - toggle-button-group: reworked responsiveness and added equal button heights
+
+### Minor Changes
+
+-   [#2344](https://github.com/eBay/skin/pull/2344) [`d9792aa`](https://github.com/eBay/skin/commit/d9792aabe896c594daced5d6cb44ba8e124a7a1a) Thanks [@mikehobi](https://github.com/mikehobi)! - feat(donut-chart): new module
+
+### Patch Changes
+
+-   [#2348](https://github.com/eBay/skin/pull/2348) [`86621e8`](https://github.com/eBay/skin/commit/86621e86edc1bb419a143f964d3a63105ced0aeb) Thanks [@agliga](https://github.com/agliga)! - feat: added sass support and removed less support
+
 ## 17.5.0
 
 ### Minor Changes
