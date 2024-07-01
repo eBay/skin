@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.0.1
+
+### Patch Changes
+
+-   [#2361](https://github.com/eBay/skin/pull/2361) [`735ea66`](https://github.com/eBay/skin/commit/735ea66b32299793174f3eaa5fc04a1b444e3573) Thanks [@agliga](https://github.com/agliga)! - fix: added variables.less back into repo
+
 ## 18.0.0
 
 ### Major Changes
