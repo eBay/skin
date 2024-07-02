@@ -1,5 +1,21 @@
 # Skin Changelog
 
+## 18.0.2
+
+### Patch Changes
+
+-   [`322ca60`](https://github.com/eBay/skin/commit/322ca60aab969c8c99796037e5f7a07d0324abfb) Thanks [@agliga](https://github.com/agliga)! - generate-imports: added to skip bundles in top level imports
+
+-   [#2365](https://github.com/eBay/skin/pull/2365) [`9ed42b1`](https://github.com/eBay/skin/commit/9ed42b1656cc91c59d35864f62e27c318ce0fbdc) Thanks [@agliga](https://github.com/agliga)! - menu/menu-button: changed icon--tick-16 to be icon--16
+
+-   [`3eb9f02`](https://github.com/eBay/skin/commit/3eb9f027bb7226740f4e3fef17b3b372496b0fac) Thanks [@agliga](https://github.com/agliga)! - icons: added fit icon support
+
+## 18.0.1
+
+### Patch Changes
+
+-   [#2361](https://github.com/eBay/skin/pull/2361) [`735ea66`](https://github.com/eBay/skin/commit/735ea66b32299793174f3eaa5fc04a1b444e3573) Thanks [@agliga](https://github.com/agliga)! - fix: added variables.less back into repo
+
 ## 18.0.0
 
 ### Major Changes
