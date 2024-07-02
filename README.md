@@ -4,7 +4,7 @@
 
 > Pure CSS framework designed & developed by eBay for a branded, e-commerce marketplace.
 
-Please visit the [Skin website](https://ebay.github.io/skin) for all end-user documentation.
+Please visit the [Skin website](https://opensource.ebay.com/skin/) for all end-user documentation.
 
 ## License
 
@@ -12,7 +12,7 @@ Skin is [MIT](LICENSE) licensed.
 
 ## Install
 
-Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on our [CDN](https://ebay.github.io/skin#cdn).
+Skin is available as the `@ebay/skin` package on [NPM](https://www.npmjs.com/). Skin is also available on our [CDN](https://opensource.ebay.com/skin/#cdn).
 
 ## Versioning
 
@@ -28,7 +28,7 @@ More detailed insight into our versioning process can be found in our [contribut
 
 Please refer to our [releases](https://github.com/eBay/skin/releases) page to view the change log for current and past releases.
 
-Please refer to our [web archive](https://ebay.github.io/skin/archive/) for past examples and documentation.
+Please refer to our [web archive](https://opensource.ebay.com/skin/archive/) for past examples and documentation.
 
 ## Roadmap
 
