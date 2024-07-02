@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.1.0-next.0
+
+### Minor Changes
+
+-   [#2363](https://github.com/eBay/skin/pull/2363) [`6ca4100`](https://github.com/eBay/skin/commit/6ca4100f913ad2e4a65b9bb7cbec86ecd0e62164) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(utility): added image disabled utility class
+
 ## 18.0.2
 
 ### Patch Changes
