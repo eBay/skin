@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.0.3
+
+### Patch Changes
+
+-   [#2375](https://github.com/eBay/skin/pull/2375) [`e0d7948`](https://github.com/eBay/skin/commit/e0d79483ace2c1b62782d32fc8272b0a6eb07f68) Thanks [@agliga](https://github.com/agliga)! - star-rating: fixed variable to be parsed
+
 ## 18.0.2
 
 ### Patch Changes
