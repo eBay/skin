@@ -157,10 +157,21 @@ class GenerateImages {
             (config.deprecated === null ||
                 config.deprecated.indexOf(nameObj.simpleName) === -1);
 
+        const sizes = symbol.getAttribute("viewBox");
+
+        if (sizes === null) {
+            console.log("ERROR: viewbox dimensions missing from " + filename);
+            return;
+        }
+
+        const [, , width, height] = sizes.split(" ");
+
         if (isAllowedInDocs) {
             this.imageList.push({
                 name: nameObj.fullName,
                 size: nameObj.size,
+                height,
+                width,
             });
         }
         console.log("Processing SVG:", symbol, filename);
@@ -170,15 +181,6 @@ class GenerateImages {
         if (config.skip.indexOf(filename) > -1) {
             return;
         }
-        const sizes = symbol.getAttribute("viewBox");
-
-        if (sizes === null) {
-            console.log("ERROR: viewbox dimensions missing from " + filename);
-            return;
-        }
-
-        const [, , width, height] = sizes.split(" ");
-        const id = `${nameObj.prefix}-${nameObj.fullName}`;
     }
 
     async run() {
@@ -226,17 +228,17 @@ function stripName(name, mappedPrefix, mappedPostfix) {
     const matcher = new RegExp(
         `^((?:icon-|program-badge-|star-rating-)?)([\\w-]+?)((?:|-small))$`,
     );
-    const sizeMatcher = new RegExp(
-        `(?:${supportedSizes.join("|")})(?:-\\w+)?$`,
-    );
+    const sizeMatcher = new RegExp(`(${supportedSizes.join("|")})(?:-\\w+)?$`);
 
     const nameMatch = name.match(matcher);
     if (nameMatch) {
         const [, prefix, newName, postfix] = nameMatch;
         const sizeMatch = name.match(sizeMatcher);
         let size;
+        let rawSize;
         if (sizeMatch) {
             size = sizeMatch[0];
+            rawSize = sizeMatch[1];
         }
 
         const fullName = `${newName}${postfix}`;
@@ -245,6 +247,7 @@ function stripName(name, mappedPrefix, mappedPostfix) {
             name: newName,
             postfix,
             size,
+            rawSize,
             simpleName: prefix === "icon-" ? fullName : `${prefix}${fullName}`,
             fullName,
         };
