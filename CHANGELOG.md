@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.0.4
+
+### Patch Changes
+
+-   [#2377](https://github.com/eBay/skin/pull/2377) [`83fc78d`](https://github.com/eBay/skin/commit/83fc78d1a3d6bc3cdedec80ae320f9bc74d60959) Thanks [@LuLaValva](https://github.com/LuLaValva)! - Use older CSS syntax
+
 ## 18.0.3
 
 ### Patch Changes
