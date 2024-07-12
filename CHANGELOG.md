@@ -1,5 +1,13 @@
 # Skin Changelog
 
+## 18.0.5
+
+### Patch Changes
+
+-   [`f96054b`](https://github.com/eBay/skin/commit/f96054bd337d9bee1bcc7df94077656f7435aa31) Thanks [@agliga](https://github.com/agliga)! - icon: added 48-colored icon class
+
+-   [`7266c80`](https://github.com/eBay/skin/commit/7266c8039d3bdc0ec00023fc9a033df0c7c02a1a) Thanks [@agliga](https://github.com/agliga)! - chore: removed postcss config from published version
+
 ## 18.0.4
 
 ### Patch Changes
