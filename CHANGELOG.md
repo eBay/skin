@@ -1,5 +1,13 @@
 # Skin Changelog
 
+## 18.0.6
+
+### Patch Changes
+
+-   [`e5db3d4`](https://github.com/eBay/skin/commit/e5db3d438354a8c8467e461b985e8fffc3492bc7) Thanks [@agliga](https://github.com/agliga)! - fix: added icon-mixins.less file for backwards compatibility
+
+-   [`b13c9ed`](https://github.com/eBay/skin/commit/b13c9ed514fbc6d8ad4da06621a0f66cd4bc4201) Thanks [@agliga](https://github.com/agliga)! - button: swapped visited link with correct color
+
 ## 18.0.5
 
 ### Patch Changes
