@@ -1,0 +1,26 @@
+$ const metadata = input.metadata || {};
+$ let dsComponent = metadata['ds-component'] || {};
+$ if (dsComponent.length > 0) {
+    dsComponent = dsComponent[0];
+}
+<macro name="body">
+    <span class="secondary-text">@ebay/skin/</span>${input.name}
+    <if(input.beta === "true")>
+        <sup>BETA</sup>
+    </if>
+</macro>
+<div class="section-header">
+    <if(input.header === "h3")>
+        <h3>
+            <body/>
+        </h3>
+    </if>
+    <else>
+        <h2>
+            <body/>
+        </h2>
+    </else>
+    <span class="section-header__version">
+        DS v${dsComponent?.version || metadata.version}
+    </span>
+</div>

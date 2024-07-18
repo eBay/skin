@@ -1,0 +1,735 @@
+<div id="skeleton">
+    <!-- <section-header metadata=input.metadata name=input.name/> -->
+    <h2>
+        @ebay/skin/skeleton
+        <sup class="beta">
+            BETA
+        </sup>
+    </h2>
+    <p>
+        A skeleton is a graphical placeholder, reserving physical space in the page for content that is not yet available for the client to render. A skeleton can be considered as an alternative to the${" "}
+        <a href="#progress-spinner">
+            progress spinner
+        </a>
+         in many situations.
+    </p>
+    <p>
+        A skeleton is appropriate as a placeholder for content in cases where a service or action may be slow to resolve.
+    </p>
+    <p>
+        A skeleton is NOT appropriate as a placeholder for content if rendering that content or placeholder would cause unexpected page layout shift (see below for more details).
+    </p>
+
+    <section
+        class="section-notice section-notice--attention"
+        role="region"
+        aria-label="Attention"
+        aria-roledescription="Notice"
+    >
+        <div class="section-notice__header" id="section-notice-attention">
+            <svg
+                class="icon icon--16"
+                height="16"
+                width="16"
+                aria-label="Attention"
+            >
+                <icon-symbol name="attention-filled-16"/>
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <h3 class="section-notice__title">
+                Cumulative Layout Shift (CLS)
+            </h3>
+            <p>
+                It is the developer's responsibility to ensure the
+                <a href="https://web.dev/articles/cls">
+                    CLS metric
+                </a>
+                ${" "}of a page is not negatively impacted by the introduction of a skeleton placeholder;${" "}
+                <strong>
+                    a poor CLS score will occur whenever content shifts unexpectedly
+                </strong>
+                . Unexpected movement of page content usually happens because resources are loaded asynchronously or DOM elements get dynamically added to the page above existing content. Skeletons can help mask these problems${" "}
+                <em>if</em>
+                ${" "}they reserve the correct amount of physical space, but can compound the problem when they do not.
+            </p>
+        </div>
+    </section>
+
+    <p>
+        The
+        <a href="./skeleton-examples/skeleton">
+            skeleton examples page
+        </a>
+        ${" "}illustrates various techniques for implementing skeletons across some common loading scenarios.
+    </p>
+
+    <h3 id="skeleton-types">
+        Skeleton Types
+    </h3>
+    <table class="skeleton-table-colors">
+        <thead>
+            <tr>
+                <th>Skeleton</th>
+                <th>Default</th>
+                <th>On-Secondary</th>
+                <th>Purple</th>
+                <th>Green</th>
+                <th>Blue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="#skeleton-avatar">
+                        Avatar
+                    </a>
+                </td>
+                <td>
+                    <div class="skeleton" role="img" aria-label="loading">
+                        <div class="skeleton__avatar"/>
+                    </div>
+                </td>
+
+                <td>
+                    <div
+                        class="skeleton skeleton--on-secondary"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__avatar"/>
+                    </div>
+                </td>
+
+                <td>
+                    <div
+                        class="skeleton skeleton--purple"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__avatar"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--green"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__avatar"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--blue"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__avatar"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#skeleton-button">
+                        Button
+                    </a>
+                </td>
+                <td>
+                    <div class="skeleton" role="img" aria-label="loading">
+                        <div class="skeleton__button"/>
+                    </div>
+                </td>
+
+                <td>
+                    <div
+                        class="skeleton skeleton--on-secondary"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__button"/>
+                    </div>
+                </td>
+
+                <td>
+                    <div
+                        class="skeleton skeleton--purple"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__button"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--green"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__button"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--blue"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__button"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#skeleton-textbox">
+                        Textbox
+                    </a>
+                </td>
+                <td>
+                    <div class="skeleton" role="img" aria-label="loading">
+                        <div class="skeleton__textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--on-secondary"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--purple"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--green"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__textbox"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--blue"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__textbox"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#skeleton-image">
+                        Image
+                    </a>
+                </td>
+                <td>
+                    <div class="skeleton" role="img" aria-label="loading">
+                        <div
+                            class="skeleton__image"
+                            style="height: 50px; width: 50px;"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--on-secondary"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div
+                            class="skeleton__image"
+                            style="height: 50px; width: 50px;"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--purple"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div
+                            class="skeleton__image"
+                            style="height: 50px; width: 50px;"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--green"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div
+                            class="skeleton__image"
+                            style="height: 50px; width: 50px;"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--blue"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div
+                            class="skeleton__image"
+                            style="height: 50px; width: 50px;"
+                        />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#skeleton-text">
+                        Text
+                    </a>
+                </td>
+                <td>
+                    <div class="skeleton" role="img" aria-label="loading">
+                        <div class="skeleton__text"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--on-secondary"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__text"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--purple"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__text"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--green"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__text"/>
+                    </div>
+                </td>
+                <td>
+                    <div
+                        class="skeleton skeleton--blue"
+                        role="img"
+                        aria-label="loading"
+                    >
+                        <div class="skeleton__text"/>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        On large screens, skeleton loaders use a solid fill for background color; on small screens, a shimmer is applied.
+    </p>
+    <p>
+        The color can be changed to purple, green or blue by applying the appropriate modifier, e.g.${" "}
+        <span class="highlight">
+            skeleton--green
+        </span>
+        . View the
+        <a href="#skeleton-composite">
+            composite skeletons
+        </a>
+         examples for further details.
+    </p>
+
+    <h3 id="skeleton-avatar">
+        Avatar Skeleton
+    </h3>
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__avatar
+        </span>
+         class to create a skeleton placeholder for an avatar.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="skeleton" role="img" aria-label="loading">
+                <div class="skeleton__avatar"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading">
+    <div class="skeleton__avatar"></div>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-button">
+        Button Skeleton
+    </h3>
+
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__button
+        </span>
+         class to create a skeleton placeholder for the default button shape.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__button"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__button"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Use the
+        <span class="highlight">
+            small
+        </span>
+         modifier to match the shape of a small button.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__button skeleton__button--small"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__button skeleton__button--small"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Use the
+        <span class="highlight">
+            large
+        </span>
+         modifier to match the shape of a large button.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__button skeleton__button--large"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__button skeleton__button--large"></div>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-textbox">
+        Textbox Skeleton
+    </h3>
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__textbox
+        </span>
+         class to create a skeleton placeholder for a textbox.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__textbox"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__textbox"></div>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-image">
+        Image Skeleton
+    </h3>
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__image
+        </span>
+         class to create a skeleton placeholder for an image.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="skeleton" role="img" aria-label="loading">
+                <div
+                    class="skeleton__image"
+                    style="height: 50px; width: 50px;"
+                />
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading">
+    <div class="skeleton__image" style="height: 50px; width: 50px;"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Notice that the height and width must be set on the
+        <span class="highlight">
+            skeleton__image
+        </span>
+         element.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="skeleton" role="img" aria-label="loading">
+                <div
+                    class="skeleton__image"
+                    style="height: 200px; width: 200px;"
+                />
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading">
+    <div class="skeleton__image" style="height: 200px; width: 200px;"></div>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-text">
+        Text Block Skeleton
+    </h3>
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__text
+        </span>
+         class to create a skeleton for a single block of text.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__text"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__text skeleton__text--small"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__text--large
+        </span>
+         modifier to match the shape of a large block of text.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__text skeleton__text--large"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__text skeleton__text--large"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Use the
+        <span class="highlight">
+            skeleton__text--multiline
+        </span>
+         mofifier to create a skeleton for two lines of text.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton"
+                role="img"
+                aria-label="loading"
+                style="width: 200px;"
+            >
+                <div class="skeleton__text skeleton__text--multiline"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
+    <div class="skeleton__text skeleton__text--multiline"></div>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-composite">
+        Composite Skeleton
+    </h3>
+    <p>
+        Combinations of skeletons can form a custom placeholder for more complex content, such as a typical eCommerce item tile in the example below.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton skeleton--purple"
+                role="img"
+                aria-label="loading"
+                style="width: 225px;"
+            >
+                <div
+                    class="skeleton__image"
+                    style="width: 225px; height: 225px"
+                />
+                <div class="skeleton__text skeleton__text--multiline"/>
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton skeleton--purple" role="img" aria-label="loading" style="width: 225px;">
+    <div class="skeleton__image" style="width: 225px; height: 225px"></div>
+    <div class="skeleton__text skeleton__text--multiline"></div>
+  </div>
+  `
+    />
+
+    <p>
+        Here is a skeleton for a compact user profile. Notice that a
+        <span class="highlight">
+            div
+        </span>
+         tag can be replaced with a
+        <span class="highlight">
+            span
+        </span>
+         tag for inline-block layout of elements.
+    </p>
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="skeleton skeleton--blue"
+                role="img"
+                aria-label="loading"
+            >
+                <span class="skeleton__avatar"/>
+                <span
+                    class="skeleton__text skeleton__text--multiline"
+                    style="width: 200px; vertical-align: top;"
+                />
+            </div>
+        </div>
+    </div>
+    <highlight-code
+        type="html"
+        code=`
+  <div class="skeleton skeleton--blue" role="img" aria-label="loading">
+    <span class="skeleton__avatar"></span>
+    <span class="skeleton__text skeleton__text--multiline" style="width: 200px; vertical-align: top;"></span>
+  </div>
+  `
+    />
+
+    <h3 id="skeleton-variables">
+        Skeleton Variables
+        <sup>EXPERIMENTAL</sup>
+    </h3>
+    <p>
+        The following custom properties (aka CSS Variables) are available for component-level overrides and other general theming purposes.
+    </p>
+
+    <ul>
+        <li>--skeleton-background</li>
+    </ul>
+</div>
+export const metadata = {
+    "ds-component": {
+        name: "loading-skeleton",
+        status: "beta",
+        version: 1,
+    },
+};

@@ -1,5 +1,5 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Sample workflow for building and deploying a Site site to GitHub Pages
+name: Deploy Site with GitHub Pages dependencies preinstalled
 
 on:
   # Runs on pushes targeting the default branch
@@ -41,12 +41,8 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm i
-      - run: npm run build:ci
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
+      - run: npm run build
+      - run: npm run deploy
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
@@ -78,14 +74,8 @@ jobs:
         with:
           node-version: 18.x
           cache: npm
-      - name: Setup rubby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-        with:
-          ruby-version: '3.1'
       - name: Install dependencies
         run: npm i
-      - name: Install ruby dependencies
-        run: bundle install
       - name: Enter prerelease mode
         if: ${{ github.ref != 'refs/heads/master' }}
         run: npm run prerelease:start

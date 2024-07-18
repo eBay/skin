@@ -1,0 +1,173 @@
+<div id="chip">
+    <section-header metadata=input.metadata name=input.name/>
+
+    <p>A chip represents a descrete highlighted value.</p>
+
+    <h3 id="static-chip">
+        Static Chip
+    </h3>
+    <p>A static chip simply for informational purposes.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="chip">
+                <span class="chip__text">
+                    Football
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <highlight-code
+        type="html"
+        code=`
+<span class="chip">
+    <span class="chip__text">Football</span>
+</span>
+    `
+    />
+
+    <h3 id="interactive-chip">
+        Interactive Chip
+    </h3>
+    <p>An interactive chip has a delete button inside for chip removal.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <span class="chip">
+                <span id="chip-interactive-1-text" class="chip__text">
+                    Football
+                </span>
+                <button
+                    class="chip__button"
+                    type="button"
+                    aria-label="Remove"
+                    aria-describedby="chip-interactive-1-text"
+                >
+                    <svg
+                        class="icon icon--12"
+                        width="13"
+                        height="12"
+                        aria-hidden="true"
+                    >
+                        <icon-symbol name="close-12"/>
+                    </svg>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <highlight-code
+        type="html"
+        code=`
+<span class="chip">
+    <span id="chip-interactive-1-text" class="chip__text">Football</span>
+    <button class="chip__button" type="button" aria-label="Remove" aria-describedby="chip-interactive-1-text">
+        <svg class="icon icon--12" width="13" height="12" aria-hidden="true">
+            <use href="icons.svg#icon-close-12"></use>
+        </svg>
+    </button>
+</span>
+    `
+    />
+
+    <h3 id="chip-containers">
+        Chip Containers
+    </h3>
+    <p>
+        When chips appear next to each other in a set, spacing and positioning adjustments should be made on the container, and if necessary, margins adjusted as such. Please review design documentation and follow the guidance here for appropriate specifications.
+    </p>
+
+    <section
+        class="section-notice section-notice--attention"
+        role="region"
+        aria-label="Attention"
+        aria-roledescription="Notice"
+    >
+        <div class="section-notice__header" id="section-notice-attention">
+            <svg
+                class="icon icon--16"
+                height="16"
+                width="16"
+                aria-label="Attention"
+            >
+                <icon-symbol name="attention-filled-16"/>
+            </svg>
+        </div>
+        <div class="section-notice__main">
+            <h3 class="section-notice__title">
+                Note on Chips in Containers
+            </h3>
+            <p>
+                Chips have a display of
+                <span class="highlight">
+                    inline-flex
+                </span>
+                ${" "}so they will naturally inherit some native inline attributes. One of those is the implied white space between each one. Bear this mind when creating your container.
+            </p>
+        </div>
+    </section>
+
+    <p>
+        Here is an example of a container constrained to
+        <span class="highlight">
+            300px
+        </span>
+         (for vertical spacing demo reasons) that uses
+        <span class="highlight">
+            flex
+        </span>
+        ${" "}with wrapping to remove the whitespace and provide a clean set of chips (whitespace-free) within a container using the appropriate spacing conventions.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div
+                class="chip-container-demo-1"
+                style="width: 300px; display: flex; flex-wrap: wrap; padding: 8px; gap: 8px; background-color: lightsteelblue;"
+            >
+                <span class="chip">
+                    <span class="chip__text">
+                        Football
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Basketball
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Baseball
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Hockey
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Cricket
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Swimming
+                    </span>
+                </span>
+                <span class="chip">
+                    <span class="chip__text">
+                        Rugby
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+export const metadata = {
+    "ds-component": {
+        name: "chip",
+        version: "1.0.0",
+    },
+};
