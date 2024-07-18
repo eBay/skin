@@ -1,0 +1,26 @@
+<ul class="demo-flag-boxes">
+  $ const flagObj = input.flag.flags;
+  <for |flag| of=flagObj.list>
+    <li class="demo-flag-box">
+      <b>${flag.code}</b>
+      <svg class=`${flagObj.prefix} ${flagObj.prefix}--${flag.code}`
+        height="48" width="64">
+          <icon-symbol name=flag.code file="flags" prefix=flagObj.prefix postfix=flagObj.postfix />
+      </svg>
+      <span>${flag.name}</span>
+    </li>
+  </for>
+</ul>
+
+<!--
+  {% for flag in include.flag.list %}
+  <li class="demo-flag-box">
+    <b>{{flag.code}}</b>
+    <svg class="{{ include.flag.prefix }} {{ include.flag.prefix }}--{{ flag.code }}{{ include.flag.postfix }}"
+      height="48" width="64"">
+              {% include symbol.html name=flag.code file=" flags" prefix=include.flag.prefix
+      postfix=include.flag.postfix %} </svg>
+      <span>{{ flag.name }}</span>
+  </li>
+  {% endfor %}
+</ul> -->
