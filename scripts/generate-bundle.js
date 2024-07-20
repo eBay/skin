@@ -127,7 +127,7 @@ class CssProcesser {
             }
             return this.wrap(cssContents);
         }
-        return `@import (inline) "${file}";`;
+        return `@import "${file}";`;
     }
 
     processFiles(files) {
@@ -169,7 +169,7 @@ class CssProcesser {
     }
 
     compileSASS(raw) {
-        const compilation = sass.compile(raw);
+        const compilation = sass.compileString(raw);
         return compilation.css;
     }
 
