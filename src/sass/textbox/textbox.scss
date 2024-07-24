@@ -1,6 +1,11 @@
 @import "../variables/variables";
 @import "../mixins/private/token-mixins";
 
+:root {
+    --input-default-height: 40px;
+    --input-large-height: 48px;
+}
+
 .textbox {
     @include color-token(
         textbox-foreground-color,
@@ -197,8 +202,12 @@ textarea.textbox__control {
     height: 48px;
 }
 
-.textbox--large > input.textbox__control {
-    height: 48px;
+input.textbox__control {
+    height: calc(var(--input-default-height) - 2px);
+}
+
+.textbox--large input.textbox__control {
+    height: calc(var(--input-large-height) - 2px);
 }
 
 .textbox > svg,
