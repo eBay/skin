@@ -1,5 +1,15 @@
 # Skin Changelog
 
+## 18.0.7
+
+### Patch Changes
+
+-   [#2392](https://github.com/eBay/skin/pull/2392) [`781ee73`](https://github.com/eBay/skin/commit/781ee7333d23f8f92695626d57e0e9b26adef035) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(textbox): fixed large textbox height
+
+-   [#2390](https://github.com/eBay/skin/pull/2390) [`8cc2200`](https://github.com/eBay/skin/commit/8cc2200a90325307420500e7c1ecbc38bc878b2c) Thanks [@HenriqueLimas](https://github.com/HenriqueLimas)! - color-tokens: fix foreground and background attention colors
+
+-   [#2393](https://github.com/eBay/skin/pull/2393) [`6bb280c`](https://github.com/eBay/skin/commit/6bb280c3a4a711610af1f574a1318ff8e003c367) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(textbox): fixed textbox overlap
+
 ## 18.0.6
 
 ### Patch Changes
