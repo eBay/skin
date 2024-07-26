@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.0.8
+
+### Patch Changes
+
+-   [#2399](https://github.com/eBay/skin/pull/2399) [`328c541`](https://github.com/eBay/skin/commit/328c5410810c8bdf3fc92b0f4b490aa8645cf8b2) Thanks [@LuLaValva](https://github.com/LuLaValva)! - Remove source maps
+
 ## 18.0.7
 
 ### Patch Changes
