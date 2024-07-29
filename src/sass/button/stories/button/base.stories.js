@@ -37,6 +37,18 @@ export const busy = () => `
 </button>
 `;
 
+export const busyLarge = () => `
+<button class="btn btn--large" aria-label="Busy">
+    <span class="btn__cell">
+        <span class="progress-spinner">
+            <svg class="icon icon--24" aria-hidden="true">
+                <use href="#icon-spinner-24"></use>
+            </svg>
+        </span>
+    </span>
+</button>
+`;
+
 export const formBusy = () => `
 <button class="btn btn--form" aria-label="Busy">
     <span class="btn__cell">
