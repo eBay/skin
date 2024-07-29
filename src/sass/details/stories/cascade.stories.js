@@ -6,8 +6,8 @@ export const RTL = () => `
         <summary class="details__summary">
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
-                <svg class="icon icon--12" aria-hidden="true">
-                    <use href="#icon-chevron-down-12"></use>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"></use>
                 </svg>
             </span>
         </summary>
@@ -22,8 +22,8 @@ export const colour = () => `
         <summary class="details__summary">
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
-                <svg class="icon icon--12" aria-hidden="true">
-                    <use href="#icon-chevron-down-12"></use>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"></use>
                 </svg>
             </span>
         </summary>
@@ -38,8 +38,8 @@ export const fontSize = () => `
         <summary class="details__summary">
             <span class="details__label">Details</span>
             <span class="details__icon" hidden>
-                <svg class="icon icon--12" aria-hidden="true">
-                    <use href="#icon-chevron-down-12"></use>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"></use>
                 </svg>
             </span>
         </summary>

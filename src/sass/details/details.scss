@@ -6,10 +6,12 @@ summary.details__summary {
     box-sizing: border-box;
     @include color-token(
         details-summary-foreground-color,
-        color-foreground-accent
+        color-foreground-primary
     );
 
-    display: inline-block;
+    display: inline-flex;
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-bold);
     list-style-position: inside;
     list-style-type: none; /* Remove details marker for non-webkit */
     padding: 12px 8px;
@@ -26,12 +28,12 @@ summary.details__summary {
 
     &:hover,
     &:focus {
-        color: var(--color-state-accent-hover);
+        outline: 1;
     }
 }
 
 summary.details__summary--center {
-    text-align: center;
+    justify-content: center;
 }
 
 summary.details__summary--small {
@@ -45,7 +47,7 @@ span.details__icon {
 
 /* progressive enhancement - override hidden SVG */
 span.details__icon[hidden] {
-    display: inline-block;
+    display: inline-flex;
 }
 
 details.details[open] {
