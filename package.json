@@ -21,7 +21,7 @@
         "prebuild": "npm run clean",
         "prepublishOnly": "node scripts gen",
         "postpublish": "node scripts clean",
-        "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy",
+        "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy && node scripts/add-y-comments.js",
         "build:css": "npm run lint:sass && rimraf dist && npm run bundle:css && npm run postcss && prettier dist --write && npm run lint:css",
         "build:ci": "npm run build:css && npm run lint:js && npm run bundle && npm run copy",
         "build:jekyll": "node scripts/jekyll-config && bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
