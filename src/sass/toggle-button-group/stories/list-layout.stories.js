@@ -133,6 +133,132 @@ export const mixedContent = () => `
 </div>
 `;
 
+export const _minContainer = () => `
+<div style="width: 240px; border: 1px dashed orange;">
+    <div class="toggle-button-group toggle-button-group--list-layout">
+        <ul aria-label="Buttons">
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false">
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="toggle-button" aria-pressed="false"> 
+                    <span class="toggle-button__image-container">
+                        <span class="toggle-button__image">
+                            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="toggle-button__content">
+                        <span class="toggle-button__title">List Layout Title</span>
+                        <span class="toggle-button__subtitle">Subtitle</span>
+                    </span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+`;
+
 export const _320container = () => `
 <div style="width: 320px; border: 1px dashed orange;">
     <div class="toggle-button-group toggle-button-group--list-layout">

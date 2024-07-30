@@ -9,7 +9,7 @@
     --row-list-toggle-buttons-sm: 2;
     --row-list-toggle-buttons-md: 3;
     --row-list-toggle-buttons-xl: 5;
-    --row-gallery-toggle-buttons-min: 1;
+    --row-gallery-toggle-buttons-min: 2;
     --row-gallery-toggle-buttons-xs: 2;
     --row-gallery-toggle-buttons-sm: 3;
     --row-gallery-toggle-buttons-md: 4;
@@ -20,6 +20,30 @@
     container: toggle-buttons-container/inline-size;
 }
 
+@supports not (contain: inline-size) {
+    @media (max-width: 320px) {
+        .toggle-button-group[data-columns-min="1"] ul {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .toggle-button-group[data-columns-min="2"] ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .toggle-button-group[data-columns-min="3"] ul {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+@container toggle-buttons-container (inline-size < 320px) {
+    .toggle-button-group[data-columns-min="1"] ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .toggle-button-group[data-columns-min="2"] ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .toggle-button-group[data-columns-min="3"] ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 .toggle-button-group ul {
     display: grid;
     gap: var(--spacing-100);
@@ -43,10 +67,18 @@
     max-width: 100%;
     width: 100%;
 }
+.toggle-button-group--list-layout ul {
+    grid-template-columns: repeat(var(--row-list-toggle-buttons-min), 1fr);
+}
+
 .toggle-button-group--list-layout .toggle-button {
     justify-content: left;
     max-width: 100%;
     min-width: auto;
+}
+
+.toggle-button-group--gallery-layout ul {
+    grid-template-columns: repeat(var(--row-gallery-toggle-buttons-min), 1fr);
 }
 
 .toggle-button-group--gallery-layout li {
