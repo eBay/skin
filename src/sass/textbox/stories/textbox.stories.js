@@ -59,8 +59,8 @@ export const errorWithValue = () => `
 `;
 
 export const fluid = () => `
-<div class="textbox">
-    <input class="textbox__control textbox__control--fluid" type="text" placeholder="placeholder text" />
+<div class="textbox textbox--fluid">
+    <input class="textbox__control" type="text" placeholder="placeholder text" />
 </div>
 `;
 
