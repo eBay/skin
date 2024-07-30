@@ -2,13 +2,14 @@
 @import "../mixins/private/token-mixins";
 
 summary.details__summary {
-    align-items: center;
-    box-sizing: border-box;
+    @include border-radius-token(expand-btn-border-radius, border-radius-50);
     @include color-token(
         details-summary-foreground-color,
         color-foreground-primary
     );
 
+    align-items: center;
+    box-sizing: border-box;
     display: inline-flex;
     font-size: var(--font-size-default);
     font-weight: var(--font-weight-bold);
@@ -25,8 +26,14 @@ summary.details__summary {
         display: none;
     }
 
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
+        background-color: var(--color-state-secondary-hover);
+        outline: 1;
+    }
+
+    &:active {
+        background-color: var(--color-state-secondary-active);
         outline: 1;
     }
 }
