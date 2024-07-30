@@ -36,7 +36,6 @@ const getMainContent = (moduleId) => `
 
 const getMetadataContent = (moduleId) => `  ${moduleId}:
     ds-component: # module's relationship with the eBay Design System
-      group: # eBay Design System component group
       name: # eBay Design System component name
       version: # version of the eBay Design System component implemented in Skin
     status: # status, e.g. "beta", "deprecated", "in-progress"

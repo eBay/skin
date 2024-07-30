@@ -9,7 +9,7 @@
         "Andrew Gliga <agliga4@gmail.com>",
         "Arthur Khachatryan <arthurk55@gmail.com>"
     ],
-    "homepage": "https://ebay.github.io/skin/",
+    "homepage": "https://opensource.ebay.com/skin/",
     "repository": {
         "type": "git",
         "url": "https://github.com/eBay/skin"
@@ -22,7 +22,7 @@
         "prepublishOnly": "node scripts gen",
         "postpublish": "node scripts clean",
         "build": "npm run build:css && npm run lint:js && npm run bundle && npm run build:site && npm run copy",
-        "build:css": "npm run lint:sass && rimraf dist && npm run bundle:css && npm run postcss && prettier dist --write && npm run lint:css",
+        "build:css": "npm run lint:sass && rimraf dist && npm run bundle:css && npm run postcss && node scripts/add-y-comments.js && prettier dist --write && npm run lint:css",
         "build:ci": "npm run build:css && npm run lint:js && npm run bundle && npm run copy",
         "build:jekyll": "node scripts/jekyll-config && bundler exec jekyll build --incremental --config docs/_config.yml,docs/_config.localhost.yml",
         "build:site": "npm run copy:svgToDocs && npm run build:jekyll",
