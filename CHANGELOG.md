@@ -1,5 +1,29 @@
 # Skin Changelog
 
+## 18.1.0
+
+### Minor Changes
+
+-   [#2403](https://github.com/eBay/skin/pull/2403) [`a7757e5`](https://github.com/eBay/skin/commit/a7757e58f8f2fcca00f5925515779a492e30798d) Thanks [@agliga](https://github.com/agliga)! - details: updated design
+
+-   [#2402](https://github.com/eBay/skin/pull/2402) [`ba747cb`](https://github.com/eBay/skin/commit/ba747cbfa0585cd79c3f2df6251098aa517f2670) Thanks [@agliga](https://github.com/agliga)! - progress-spinner: fixed wobble
+
+-   [#2407](https://github.com/eBay/skin/pull/2407) [`2cbfe64`](https://github.com/eBay/skin/commit/2cbfe645fa0f0f06cc25ae042debb194e4ad6b71) Thanks [@agliga](https://github.com/agliga)! - feat(utility): added image disabled utility class
+
+-   [#2407](https://github.com/eBay/skin/pull/2407) [`ac4e7c0`](https://github.com/eBay/skin/commit/ac4e7c0e16c05e916069b73548bb8102d6e5241d) Thanks [@agliga](https://github.com/agliga)! - feat(icons): added and updated icons
+
+-   [#2409](https://github.com/eBay/skin/pull/2409) [`88d4f0e`](https://github.com/eBay/skin/commit/88d4f0e4a5f2cda3aeb9f5c55b0e11c5fdacae27) Thanks [@agliga](https://github.com/agliga)! - carousel: preserve /_!Y _/ comments
+
+-   [#2367](https://github.com/eBay/skin/pull/2367) [`923a83f`](https://github.com/eBay/skin/commit/923a83f4e796a2692bbaa7ca0c7ae7c1324e9f00) Thanks [@agliga](https://github.com/agliga)! - docs: updated urls to be opensource.ebay.com
+
+-   [#2406](https://github.com/eBay/skin/pull/2406) [`f151214`](https://github.com/eBay/skin/commit/f1512145fa8f67fa3d263df940858f85b9c6843c) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(toggle-button-group): fixed buttons per row and added min layout exceptions
+
+### Patch Changes
+
+-   [#2405](https://github.com/eBay/skin/pull/2405) [`d67e8ea`](https://github.com/eBay/skin/commit/d67e8ea906d40736e727c8d3547416f1ea5980ba) Thanks [@HenriqueLimas](https://github.com/HenriqueLimas)! - Use 100% width on input for fluid variant
+
+-   [#2373](https://github.com/eBay/skin/pull/2373) [`c09c885`](https://github.com/eBay/skin/commit/c09c885b914a23f1feb0aa12c2e78f3c9ef91255) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - docs: update Design System name mapping for modules
+
 ## 18.0.8
 
 ### Patch Changes
