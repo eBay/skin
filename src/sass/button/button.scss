@@ -28,6 +28,14 @@ button.btn[aria-disabled="true"] {
     );
 }
 
+a.fake-btn:not([href]),
+a.fake-btn[aria-disabled="true"] {
+    @include color-token(
+        link-foreground-color-disabled,
+        color-foreground-disabled
+    );
+}
+
 button.btn--borderless,
 a.fake-btn--borderless {
     border-color: transparent;
@@ -256,6 +264,10 @@ a.fake-btn--primary[aria-disabled="true"] {
         btn-primary-disabled-border-color,
         color-foreground-disabled
     );
+    @include color-token(
+        btn-primary-foreground-color,
+        color-foreground-on-accent
+    );
 }
 
 button.btn--secondary,
@@ -394,10 +406,15 @@ button.btn--tertiary[disabled],
 button.btn--tertiary[aria-disabled="true"]:not(
         [aria-live="polite"][aria-disabled="true"]
     ),
-a.fake-btn--tertiary:not([href]) {
+a.fake-btn--tertiary:not([href]),
+a.fake-btn--tertiary[aria-disabled="true"] {
     @include color-token(
         btn-tertiary-disabled-foreground-color,
         color-background-disabled
+    );
+    @include border-color-token(
+        expand-btn-disabled-border-color,
+        color-stroke-disabled
     );
 }
 
