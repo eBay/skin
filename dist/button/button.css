@@ -39,6 +39,14 @@ button.btn[disabled] {
     );
 }
 
+a.fake-btn:not([href]),
+a.fake-btn[aria-disabled="true"] {
+    color: var(
+        --link-foreground-color-disabled,
+        var(--color-foreground-disabled)
+    );
+}
+
 a.fake-btn--borderless,
 button.btn--borderless {
     border-color: transparent;
@@ -302,6 +310,10 @@ a.fake-btn--primary[aria-disabled="true"] {
         --btn-primary-disabled-border-color,
         var(--color-foreground-disabled)
     );
+    color: var(
+        --btn-primary-foreground-color,
+        var(--color-foreground-on-accent)
+    );
 }
 
 a.fake-btn--secondary,
@@ -433,10 +445,15 @@ button.btn--tertiary:not([disabled], [aria-disabled="true"]):active {
 }
 
 a.fake-btn--tertiary:not([href]),
+a.fake-btn--tertiary[aria-disabled="true"],
 button.btn--tertiary[aria-disabled="true"]:not(
         [aria-live="polite"][aria-disabled="true"]
     ),
 button.btn--tertiary[disabled] {
+    border-color: var(
+        --expand-btn-disabled-border-color,
+        var(--color-stroke-disabled)
+    );
     color: var(
         --btn-tertiary-disabled-foreground-color,
         var(--color-background-disabled)
