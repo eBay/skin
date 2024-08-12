@@ -8,7 +8,6 @@ import Prism from "prismjs";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
-
 static const languages = {
     js: Prism.languages.javascript,
     html: Prism.languages.html,
@@ -24,36 +23,20 @@ $ let parser = input.type || "html";
 $ if (parser === "js") {
     parser = "babel";
 }
-$ const promise = prettier.format(input.code.trim(), {
+$ const code = input.code || input.bodyCode || "";
+$ const promise = prettier.format(code.trim(), {
     parser,
     plugins: [
         prettierPluginBabel,
         prettierPluginEstree,
         prettierPluginHtml,
         prettierPluginYaml,
-        prettierPluginCss
+        prettierPluginCss,
     ],
 });
-// class {
-
-//     onMount() {
-
-//         if (typeof window !== "undefined") {
-
-//             }
-
-//             console.log(data);k
-
-//        }
-
-//     }
-
-// }
-
 
 <await(promise) client-reorder>
     <@then|output|>
-        <!-- Displays if promise resolves -->
         $ const html = Prism.highlight(
             output,
             languages[input.type],

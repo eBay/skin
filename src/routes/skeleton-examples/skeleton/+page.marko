@@ -11,11 +11,11 @@
 <p>This technique leverages the CSS <span class="highlight">:empty</span> pseudo-class, as documented in the article, <a href="https://dev.to/tigt/skeleton-screens-but-fast-48f1">"Skeleton screens, but fast"</a> by Taylor Hunt. This approach is highly performant, especially on devices with limited CPU resources.</p>
 <p>If an element is empty, then its <span class="highlight">:empty</span> selector matches, and the associated styles (i.e. the skeleton graphics) are applied. When the content is rendered, <span class="highlight">:empty</span> no longer matches, and the styles (our skeleton graphics) are removed. Marvellous!</p>
 <p>The HTML would look like this:</p>
-<highlight-code type="html" code=`
+<highlight-code type="html" >
 <div class="search-results-skeleton">
 <!-- this element will match :empty until content is inserted -->
 </div>
-`/>
+</highlight-code>
 
 <p>The CSS selector like so:</p>
 
@@ -23,7 +23,7 @@
 .search-results-skeleton:empty {
 /* app developer must write CSS to create skeleton graphics */
 }
-`/>
+`></highlight-code>
 
 <p><strong>NOTE:</strong> The <span class="highlight">:empty</span> pseudo-class considers elements with whitespace as not empty!</p>
 <p>The downside is that our <a href="../index.html#skeleton">skeleton classes</a> cannot be leveraged (in theory, LESS mixins could be provided) and <em>composite</em> skeletons (e.g. items tiles) may require some non-trivial use of CSS linear gradients for certain skeletons.</p>
@@ -33,7 +33,7 @@
 <h3 id="techniques-javascript">Technique 2: JavaScript</h3>
 <p>With JavaScript, we gain more flexibility and control over when and how the skeleton placeholder is replaced with the actual content. We can either remove the skeleton node from the DOM, as shown below.</p>
 
-<highlight-code type="html" code=`
+<highlight-code type="html" >
 <!-- Before -->
 <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
 <div class="skeleton__button"></div>
@@ -43,11 +43,11 @@
 <div>
 <p>content</p>
 </div>
-`/>
+</highlight-code>
 
 <p>Or we can simply hide the skeleton, using the <span class="highlight">hidden</span> property.</p>
 
-<highlight-code type="html" code=`
+<highlight-code type="html" >
 <!-- Before -->
 <div class="skeleton" role="img" aria-label="loading" style="width: 200px;">
 <div class="skeleton__button"></div>
@@ -60,7 +60,7 @@
 <div>
 <p>content</p>
 </div>
-`/>
+</highlight-code>
 
 <p>Notice that JavaScript also gives us the ability to add and remove ARIA roles, properties and states.</p>
 
