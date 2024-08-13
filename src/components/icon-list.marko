@@ -1,0 +1,22 @@
+<ul class="demo-icon-boxes">
+    <for|icon| of=input.list>
+        $ let containerClass = "demo-icon-box";
+        <if (input.icons.largeDocs.indexOf(icon.name) !== -1)>
+            $ containerClass = "demo-icon-box demo-icon-box--large";
+        </if>
+        $ const iconClass = `${icon.name}${icon.postfix || ''}`;
+
+        <li class=containerClass>
+            <span>${icon.name}</span>
+            <svg aria-hidden="true" class=[
+                input.icons.prefix,
+                `${input.icons.prefix}--${icon.size}`
+
+            ]
+             height=(icon.height | 24) width=(icon.width | 24)
+            >
+                <icon-symbol name=icon.name prefix=input.icons.prefix postfix=input.icons.postfix />
+            </svg>
+        </li>
+    </for>
+</ul>

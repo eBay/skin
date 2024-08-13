@@ -8,10 +8,15 @@ const svgFlagDir = path.resolve(currentDir, "src", "svg", "flag");
 const masterFlagPath = path.resolve(svgDir, "flags.svg");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const configFilePath = path.resolve(currentDir, "docs", "_data", "flags.yaml");
+const configFilePath = path.resolve(
+    currentDir,
+    "src",
+    "routes",
+    "_index",
+    "+meta.json",
+);
 const file = fs.readFileSync(configFilePath, "utf8");
-const YAML = require("yaml");
-const config = YAML.parse(file);
+const config = JSON.parse(file);
 const { html2xhtml } = require("./util");
 
 async function getFiles(dir) {

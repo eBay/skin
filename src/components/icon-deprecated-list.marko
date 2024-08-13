@@ -1,0 +1,40 @@
+<ul class="demo-icon-boxes demo-icon-boxes--deprecated">
+    <for|icon| of=input.icons.deprecated>
+        $ let containerClass = "demo-icon-box";
+        <if (input.icons.largeDocs.indexOf(icon.name) !== -1)>
+            $ const containerClass = "demo-icon-box demo-icon-box--large";
+        </if>
+        $ const iconClass = `${icon.name}${icon.postfix || ''}`;
+
+        <li class=containerClass>
+            <span>${icon.name}</span>
+            <svg aria-hidden="true" class=[
+                input.icons.prefix,
+                `${input.icons.prefix}--${icon.size}`
+
+            ]
+             height=(icon.height | 24) width=(icon.width | 24)
+            >
+                <icon-symbol name=icon.name prefix=input.icons.prefix postfix=input.icons.postfix />
+            </svg>
+        </li>
+    </for>
+</ul>
+
+
+<!-- <ul class="demo-icon-boxes demo-icon-boxes--deprecated">
+    {% for iconItem in include.icon.deprecated %}
+        {% if include.icon.largeDocs contains iconItem.name %}
+            {% assign containerClass = "demo-icon-box demo-icon-box--large" %}
+        {% else %}
+            {% assign containerClass = "demo-icon-box" %}
+        {% endif %}
+
+        <li class="{{ containerClass }}">
+            <span>{{ iconItem.name }}</span>
+            <svg aria-hidden="true" class="icon icon--{{ iconItem.size }}">
+                {% include symbol.html name=iconItem.name file="icons" prefix="icon" %}
+            </svg>
+        </li>
+    {% endfor %}
+</ul> -->

@@ -8,10 +8,15 @@ const masterIconPath = path.resolve(svgDir, "icons.svg");
 const jsdom = require("jsdom");
 const prettier = require("prettier");
 const { JSDOM } = jsdom;
-const configFilePath = path.resolve(currentDir, "docs", "_data", "icons.yaml");
+const configFilePath = path.resolve(
+    currentDir,
+    "src",
+    "routes",
+    "_index",
+    "+meta.json",
+);
 const file = fs.readFileSync(configFilePath, "utf8");
-const YAML = require("yaml");
-const config = YAML.parse(file);
+const config = JSON.parse(file);
 const { html2xhtml } = require("./util");
 const { query } = require("winston");
 const { size } = require("@floating-ui/dom");
@@ -153,9 +158,9 @@ class GenerateImages {
         const symbol = symbols.querySelector("svg");
         const nameObj = stripName(filename);
         const isAllowedInDocs =
-            config.skipDocs.indexOf(nameObj.simpleName) === -1 &&
-            (config.deprecated === null ||
-                config.deprecated.indexOf(nameObj.simpleName) === -1);
+            config.icons.skipDocs.indexOf(nameObj.simpleName) === -1 &&
+            (config.icons.deprecated === null ||
+                config.icons.deprecated.indexOf(nameObj.simpleName) === -1);
 
         const sizes = symbol.getAttribute("viewBox");
 
@@ -178,7 +183,7 @@ class GenerateImages {
         // Need to parse it before pushing
         this.masterList.push(this.processSymbolToSVG(symbol, filename));
 
-        if (config.skip.indexOf(filename) > -1) {
+        if (config.icons.skip.indexOf(filename) > -1) {
             return;
         }
     }
@@ -212,7 +217,7 @@ class GenerateImages {
         this.imageList.sort(sortMethodObj);
         config.icons.list = this.imageList;
 
-        await fs.promises.writeFile(configFilePath, YAML.stringify(config));
+        await fs.promises.writeFile(configFilePath, JSON.stringify(config));
 
         this.masterList.sort(sortMethod);
         this.masterList.forEach((symbol) => {

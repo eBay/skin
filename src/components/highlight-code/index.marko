@@ -1,0 +1,50 @@
+import * as prettier from "prettier/standalone";
+import * as prettierPluginBabel from "prettier/plugins/babel";
+import * as prettierPluginEstree from "prettier/plugins/estree";
+import * as prettierPluginHtml from "prettier/plugins/html";
+import * as prettierPluginYaml from "prettier/plugins/yaml";
+import * as prettierPluginCss from "prettier/plugins/postcss";
+import Prism from "prismjs";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-css";
+static const languages = {
+    js: Prism.languages.javascript,
+    html: Prism.languages.html,
+    json: Prism.languages.json,
+    css: Prism.languages.css,
+};
+static const languageMap = {
+    js: "javascript",
+    html: "html",
+    json: "json",
+};
+$ let parser = input.type || "html";
+$ if (parser === "js") {
+    parser = "babel";
+}
+$ const code = input.code || input.bodyCode || "";
+$ const promise = prettier.format(code.trim(), {
+    parser,
+    plugins: [
+        prettierPluginBabel,
+        prettierPluginEstree,
+        prettierPluginHtml,
+        prettierPluginYaml,
+        prettierPluginCss,
+    ],
+});
+
+<await(promise) client-reorder>
+    <@then|output|>
+        $ const html = Prism.highlight(
+            output,
+            languages[input.type],
+            languageMap[input.type],
+        );
+        <pre><code class=`language-${input.type || "html"}`>$!{html}</code></pre>
+    </@then>
+    <@catch|error|>
+        <pre><code class="language-plaintext">$!{error}</code></pre>
+    </@catch>
+</await>
