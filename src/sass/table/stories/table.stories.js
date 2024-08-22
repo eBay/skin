@@ -22,7 +22,7 @@ export const base = () => `
         </thead>
         <tbody>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -34,7 +34,7 @@ export const base = () => `
                 <td>4/1 - 4/5</td>
             </tr>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric">$89.85</td>
@@ -46,7 +46,7 @@ export const base = () => `
                 <td>4/11 - 4/15</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -58,7 +58,7 @@ export const base = () => `
                 <td>4/17 - 4/25</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -70,7 +70,7 @@ export const base = () => `
                 <td>4/9 - 4/11</td>
             </tr>
             <tr>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>
@@ -108,7 +108,7 @@ export const compact = () => `
         </thead>
         <tbody>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -120,7 +120,7 @@ export const compact = () => `
                 <td>4/1 - 4/5</td>
             </tr>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric" contenteditable="true">
@@ -134,7 +134,7 @@ export const compact = () => `
                 <td>4/11 - 4/15</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -146,7 +146,7 @@ export const compact = () => `
                 <td>4/17 - 4/25</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -158,7 +158,7 @@ export const compact = () => `
                 <td>4/9 - 4/11</td>
             </tr>
             <tr>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>
@@ -196,7 +196,7 @@ export const relaxed = () => `
         </thead>
         <tbody>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -208,7 +208,7 @@ export const relaxed = () => `
                 <td>4/1 - 4/5</td>
             </tr>
             <tr>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric" contenteditable="true">
@@ -222,7 +222,7 @@ export const relaxed = () => `
                 <td>4/11 - 4/15</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -234,7 +234,7 @@ export const relaxed = () => `
                 <td>4/17 - 4/25</td>
             </tr>
             <tr>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -246,7 +246,7 @@ export const relaxed = () => `
                 <td>4/9 - 4/11</td>
             </tr>
             <tr>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>

@@ -9,7 +9,7 @@ export const base = () => `
         <thead>
             <tr>
                 <th scope="col">
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
                 <th scope="col">Seller</th>
                 <th scope="col">Item</th>
@@ -26,9 +26,9 @@ export const base = () => `
         <tbody>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -41,9 +41,9 @@ export const base = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric" contenteditable="true">
@@ -58,9 +58,9 @@ export const base = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -73,9 +73,9 @@ export const base = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -88,9 +88,9 @@ export const base = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>
@@ -115,7 +115,7 @@ export const compact = () => `
         <thead>
             <tr>
                 <th scope="col">
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
                 <th scope="col">Seller</th>
                 <th scope="col">Item</th>
@@ -132,9 +132,9 @@ export const compact = () => `
         <tbody>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -147,9 +147,9 @@ export const compact = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric" contenteditable="true">
@@ -164,9 +164,9 @@ export const compact = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -179,9 +179,9 @@ export const compact = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -194,9 +194,9 @@ export const compact = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>
@@ -221,7 +221,7 @@ export const relaxed = () => `
         <thead>
             <tr>
                 <th scope="col">
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select all rows" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
                 <th scope="col">Seller</th>
                 <th scope="col">Item</th>
@@ -238,9 +238,9 @@ export const relaxed = () => `
         <tbody>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>Switch</td>
                 <td></td>
                 <td class="table__cell--numeric">$287.96</td>
@@ -253,9 +253,9 @@ export const relaxed = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Nintendo</td>
+                <th>Nintendo</th>
                 <td>SNES</td>
                 <td></td>
                 <td class="table__cell--numeric" contenteditable="true">
@@ -270,9 +270,9 @@ export const relaxed = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX 360</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -285,9 +285,9 @@ export const relaxed = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Microsoft</td>
+                <th>Microsoft</th>
                 <td>XBOX One</td>
                 <td></td>
                 <td class="table__cell--numeric">$499.99</td>
@@ -300,9 +300,9 @@ export const relaxed = () => `
             </tr>
             <tr>
                 <td>
-                    <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                    <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </td>
-                <td>Sony</td>
+                <th>Sony</th>
                 <td>Playstation 5</td>
                 <td></td>
                 <td class="table__cell--numeric">$519.99</td>
@@ -328,7 +328,7 @@ export const RTL = () => `
             <thead>
                 <tr>
                     <th scope="col">
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </th>
                     <th scope="col">Seller</th>
                     <th scope="col">Item</th>
@@ -345,9 +345,9 @@ export const RTL = () => `
             <tbody>
                 <tr>
                     <td>
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </td>
-                    <td>Nintendo</td>
+                    <th>Nintendo</th>
                     <td>Switch</td>
                     <td></td>
                     <td class="table__cell--numeric">$287.96</td>
@@ -360,9 +360,9 @@ export const RTL = () => `
                 </tr>
                 <tr>
                     <td>
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </td>
-                    <td>Nintendo</td>
+                    <th>Nintendo</th>
                     <td>SNES</td>
                     <td></td>
                     <td class="table__cell--numeric" contenteditable="true">
@@ -377,9 +377,9 @@ export const RTL = () => `
                 </tr>
                 <tr>
                     <td>
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </td>
-                    <td>Microsoft</td>
+                    <th>Microsoft</th>
                     <td>XBOX 360</td>
                     <td></td>
                     <td class="table__cell--numeric">$499.99</td>
@@ -392,9 +392,9 @@ export const RTL = () => `
                 </tr>
                 <tr>
                     <td>
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </td>
-                    <td>Microsoft</td>
+                    <th>Microsoft</th>
                     <td>XBOX One</td>
                     <td></td>
                     <td class="table__cell--numeric">$499.99</td>
@@ -407,9 +407,9 @@ export const RTL = () => `
                 </tr>
                 <tr>
                     <td>
-                        <span class="checkbox"><input aria-label="Default checkbox example" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
+                        <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </td>
-                    <td>Sony</td>
+                    <th>Sony</th>
                     <td>Playstation 5</td>
                     <td></td>
                     <td class="table__cell--numeric">$519.99</td>
