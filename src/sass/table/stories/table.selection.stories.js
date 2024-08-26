@@ -1,26 +1,23 @@
 export default { title: "Skin/Table/Selection" };
 
 export const base = () => `
-<div class="table table--mode-selection">
+<div class="table table--mode-selection" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">
+                <th>
                     <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
@@ -105,26 +102,23 @@ export const base = () => `
 `;
 
 export const compact = () => `
-<div class="table table--density-compact table--mode-selection">
+<div class="table table--density-compact table--mode-selection" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">
+                <th>
                     <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
@@ -211,26 +205,23 @@ export const compact = () => `
 `;
 
 export const relaxed = () => `
-<div class="table table--density-relaxed table--mode-selection">
+<div class="table table--density-relaxed table--mode-selection" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">
+                <th>
                     <span class="checkbox"><input aria-label="Select all rows" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                 </th>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
@@ -316,26 +307,23 @@ export const relaxed = () => `
 
 export const RTL = () => `
 <div dir="rtl">
-    <div class="table table--mode-selection">
+    <div class="table table--mode-selection" tabindex="0">
         <table>
-            <caption>
-                Video game consoles for sale.
-            </caption>
             <thead>
                 <tr>
-                    <th scope="col">
+                    <th>
                         <span class="checkbox"><input aria-label="Select row" class="checkbox__control" type="checkbox" name="checkbox-default"><span class="checkbox__icon" hidden=""><svg class="checkbox__unchecked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-unchecked-18"></use></svg><svg class="checkbox__checked" height="18" width="18" aria-hidden="true"><use href="#icon-checkbox-checked-18"></use></svg></span></span>
                     </th>
-                    <th scope="col">Seller</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Image</th>
-                    <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                    <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                    <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                    <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                    <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                    <th scope="col">Shipping</th>
-                    <th scope="col">Delivery</th>
+                    <th>Seller</th>
+                    <th>Item</th>
+                    <th>Image</th>
+                    <th class="table__cell table__cell--numeric">List Price</th>
+                    <th class="table__cell table__cell--numeric">Quantity Available</th>
+                    <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                    <th class="table__cell table__cell--numeric">Watchers</th>
+                    <th class="table__cell table__cell--numeric">Protection</th>
+                    <th>Shipping</th>
+                    <th>Delivery</th>
                 </tr>
             </thead>
             <tbody>

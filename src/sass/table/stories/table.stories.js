@@ -1,23 +1,20 @@
 export default { title: "Skin/Table" };
 
 export const base = () => `
-<div class="table">
+<div class="table" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
@@ -87,23 +84,20 @@ export const base = () => `
 `;
 
 export const compact = () => `
-<div class="table table--density-compact">
+<div class="table table--density-compact" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
@@ -175,23 +169,20 @@ export const compact = () => `
 `;
 
 export const relaxed = () => `
-<div class="table table--density-relaxed">
+<div class="table table--density-relaxed" tabindex="0">
     <table>
-        <caption>
-            Video game consoles for sale.
-        </caption>
         <thead>
             <tr>
-                <th scope="col">Seller</th>
-                <th scope="col">Item</th>
-                <th scope="col">Image</th>
-                <th scope="col" class="table__cell table__cell--numeric">List Price</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Available</th>
-                <th scope="col" class="table__cell table__cell--numeric">Quantity Sold</th>
-                <th scope="col" class="table__cell table__cell--numeric">Watchers</th>
-                <th scope="col" class="table__cell table__cell--numeric">Protection</th>
-                <th scope="col">Shipping</th>
-                <th scope="col">Delivery</th>
+                <th>Seller</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th class="table__cell table__cell--numeric">List Price</th>
+                <th class="table__cell table__cell--numeric">Quantity Available</th>
+                <th class="table__cell table__cell--numeric">Quantity Sold</th>
+                <th class="table__cell table__cell--numeric">Watchers</th>
+                <th class="table__cell table__cell--numeric">Protection</th>
+                <th>Shipping</th>
+                <th>Delivery</th>
             </tr>
         </thead>
         <tbody>
