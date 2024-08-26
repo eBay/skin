@@ -1,7 +1,7 @@
 export default { title: "Skin/Table/Selection" };
 
 export const base = () => `
-<div class="table table--mode-selection" tabindex="0">
+<div class="table table--mode-selection" role="group" aria-label="Video games for sale" tabindex="0">
     <table>
         <thead>
             <tr>
@@ -102,7 +102,7 @@ export const base = () => `
 `;
 
 export const compact = () => `
-<div class="table table--density-compact table--mode-selection" tabindex="0">
+<div class="table table--density-compact table--mode-selection" role="group" aria-label="Video games for sale" tabindex="0">
     <table>
         <thead>
             <tr>
@@ -205,7 +205,7 @@ export const compact = () => `
 `;
 
 export const relaxed = () => `
-<div class="table table--density-relaxed table--mode-selection" tabindex="0">
+<div class="table table--density-relaxed table--mode-selection" role="group" aria-label="Video games for sale" tabindex="0">
     <table>
         <thead>
             <tr>
@@ -307,7 +307,7 @@ export const relaxed = () => `
 
 export const RTL = () => `
 <div dir="rtl">
-    <div class="table table--mode-selection" tabindex="0">
+    <div class="table table--mode-selection" role="group" aria-label="Video games for sale" tabindex="0">
         <table>
             <thead>
                 <tr>
