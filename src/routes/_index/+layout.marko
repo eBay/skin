@@ -1,22 +1,4 @@
-<!-- <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A basic Marko app.">
-        <link rel="stylesheet" href="./custom-styles.css">
-        <title>${$global.meta.pageTitle || "Marko"}</title>
-    </head>
-    <body>
-        <${input.renderBody}/>
-    </body>
-</html> -->
-
-// import './main.js'
-<!-- $ if (typeof window !== 'undefined') { console.log(Prism), Prism.highlightAll() }; -->
 import {modules} from '../modules.marko';
-import path from 'path';
 
 <!doctype html>
 <html lang="en">
@@ -34,9 +16,9 @@ import path from 'path';
                     <div class="app-bar">
                         <h1 class="app-bar__title">${$global.meta.pageTitle}</h1>
                         <ul class="app-bar__links">
-                            <li><a href="{{ site.url }}/archive/index.html">v${$global.meta.version}</a></li>
+                            <li><a href="/archive/index.html">v${$global.meta.version}</a></li>
                             <li><a href="https://github.com/eBay/skin">GitHub</a></li>
-                            <li><a href="{{ site.url }}/storybook">Storybook</a></li>
+                            <li><a href="/storybook">Storybook</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,14 +28,14 @@ import path from 'path';
                     <span class="details__label">Modules</span>
                     <span class="details__icon" hidden>
                         <svg class="icon icon--16" aria-hidden="true">
-                            <!-- {% include symbol.html name="chevron-down-12" %} -->
+                            <icon-symbol name="chevron-down-12"/>
                         </svg>
                     </span>
                     <span class="modules-expander__tip">Use the links below &amp; the back button to navigate</span>
                 </summary>
 
                 <ul class="modules-expander__list">
-                    <!-- {% include module-list.html %} -->
+                    <module-list modules=modules/>
                 </ul>
             </details>
         </header>
@@ -73,13 +55,7 @@ import path from 'path';
 
                     <h2>Modules</h2>
                     <ul>
-                      <for|module| in=modules>
-                        $ const moduleName = path.basename(module, '.marko');
-                        $ const name = moduleName.replace(/-([a-z])/g, function (g) { return ` ${g[1].toUpperCase()}`; });
-                        $ const properName = name.charAt(0).toUpperCase() + name.slice(1);
-                        <li><a class="nav-link" href=`#${moduleName}`>${properName}</a></li>
-                      </for>
-                        <!-- {% include module-list.html %} -->
+                        <module-list modules=modules/>
                     </ul>
                 </nav>
                 <main>
@@ -87,7 +63,6 @@ import path from 'path';
                 </main>
                 <footer>
                     <hr />
-                    <!-- <p>Copyright &copy; {{ 'now' | date: "%Y" }} eBay, Inc. All rights reserved.</p> -->
                 </footer>
             </div>
         </div>

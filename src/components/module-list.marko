@@ -1,0 +1,9 @@
+import path from 'path';
+
+<for|mod| in=input.modules>
+    $ const moduleName = path.basename(mod, '.marko');
+    $ const name = moduleName.replace(/-([a-z])/g, function (g) { return ` ${g[1].toUpperCase()}`; });
+    $ const properName = name.charAt(0).toUpperCase() + name.slice(1);
+    <li><a class="nav-link" href=`#${moduleName}`>${properName}</a></li>
+</for>
+
