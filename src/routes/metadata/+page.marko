@@ -1,0 +1,21 @@
+import path from "path";
+import {modules} from '../modules.marko';
+
+$ const metad = {}
+
+$ for(let mod in modules) {
+    const moduleName = path.basename(mod, '.marko');
+    metad[moduleName] = modules[mod].metadata;
+}
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>${$global.meta.pageTitle}</title>
+    </head>
+
+    <body>
+        ${JSON.stringify(metad)}
+    </body>
+</html>
