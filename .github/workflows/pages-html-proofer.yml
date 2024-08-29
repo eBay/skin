@@ -20,17 +20,11 @@ jobs:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@master
           with:
-            node-version: '16.x'
+            node-version: '18.x'
         - run: npm i
-        - run: npm run build:ci
-        - uses: ruby/setup-ruby@v1
+        - run: npm run build
+        - run: npm run deploy:only
+        - uses: chabad360/htmlproofer@master
           with:
-            ruby-version: 3.1
-        - uses: actions/jekyll-build-pages@v1
-          with:
-            source: ./docs
-            destination: ./_site
-            token: ${{ secrets.GITHUB_TOKEN }}
-        - run: bundle config set --local without 'github-pages'
-        - run: bundle install
-        - run: bundle exec htmlproofer ./_site/index.html --disable_external --ignore_empty_alt --allow_hash_href --allow_missing_href
+            directory: "./_site"
+            arguments: --disable_external --ignore_empty_alt --allow_hash_href --allow_missing_href

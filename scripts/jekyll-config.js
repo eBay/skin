@@ -4,14 +4,12 @@
  */
 const fs = require("fs");
 const version = require("../package.json").version;
-const files = ["./docs/_config.yml"];
+const files = ["./src/routes/_index/+meta.json"];
 
 files.forEach((file) => {
-    const newContents = fs
-        .readFileSync(file, "utf8")
-        .replace(/version\:.*\n/gi, `version: ${version}\n`);
-
-    fs.writeFile(file, newContents, "utf8", (err) => {
+    const newFile = JSON.parse(fs.readFileSync(file, "utf8"));
+    newFile.version = version;
+    fs.writeFile(file, JSON.stringify(newFile), "utf8", (err) => {
         if (err) {
             return console.log(err);
         }

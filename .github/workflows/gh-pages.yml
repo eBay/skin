@@ -1,0 +1,96 @@
+# Sample workflow for building and deploying a Site site to GitHub Pages
+name: Deploy Site with GitHub Pages dependencies preinstalled
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master", "[1-9][0-9].*"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  discussions: write
+  issues: write
+  packages: write
+  id-token: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - uses: actions/setup-node@master
+        with:
+          node-version: '18.x'
+      - run: npm i
+      - run: npm run build
+      - run: npm run deploy
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+  release:
+    runs-on: ubuntu-latest
+    if: "${{ github.repository_owner == 'ebay' && github.event_name == 'push' }}"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+      - name: Install dependencies
+        run: npm i
+      - name: Enter prerelease mode
+        if: ${{ github.ref != 'refs/heads/master' }}
+        run: npm run prerelease:start
+      - name: Exit prerelease mode
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: npm run prerelease:end
+      - name: Release
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: npm run version
+          publish: npm run release
+          commit: "ci: release"
+          title: "ci: release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

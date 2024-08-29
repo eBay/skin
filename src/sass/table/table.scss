@@ -1,0 +1,70 @@
+@import "../variables/variables";
+
+:root {
+    /* these exclude the 16px padding for top/bottom */
+    --density-compact-cell-height: 36px;
+    --density-default-cell-height: 48px;
+    --density-relaxed-cell-height: 56px;
+}
+
+.table {
+    overflow-x: auto;
+    position: relative;
+}
+
+.table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    // explicit background is needed for sticky columns
+    background-color: var(--color-background-primary);
+    border-bottom: 1px solid var(--color-stroke-subtle);
+    box-sizing: border-box;
+    height: var(--density-default-cell-height);
+    max-width: 400px;
+    min-width: 124px;
+
+    // minimal padding to prevent text from touching the border
+    padding-block: var(--spacing-100);
+    padding-inline: var(--spacing-200);
+}
+
+.table__cell {
+    text-align: left;
+}
+
+.table__cell--numeric {
+    text-align: right;
+}
+
+.table [data-type="numeric"] {
+    text-align: right;
+}
+
+.table th:last-child,
+.table td:last-child {
+    padding-inline-end: 0;
+}
+
+.table--density-compact th,
+.table--density-compact td {
+    height: var(--density-compact-cell-height);
+}
+
+.table--density-relaxed th,
+.table--density-relaxed td {
+    height: var(--density-relaxed-cell-height);
+}
+
+.table--mode-selection th:first-child,
+.table--mode-selection td:first-child {
+    min-width: unset;
+}
+
+.table tbody th {
+    font-weight: normal;
+}
