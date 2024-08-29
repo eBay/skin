@@ -1,5 +1,23 @@
 # Skin Changelog
 
+## 18.2.0-next.0
+
+### Minor Changes
+
+-   [#2413](https://github.com/eBay/skin/pull/2413) [`da48437`](https://github.com/eBay/skin/commit/da48437ebc038efa07f210804c7e0804cea1aacd) Thanks [@saiponnada](https://github.com/saiponnada)! - fix(fake-button): updated disabled styles
+
+-   [#2415](https://github.com/eBay/skin/pull/2415) [`9d24641`](https://github.com/eBay/skin/commit/9d24641918147eea5408c91a67d217db02988441) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(education-notice): updated education background color
+
+-   [#2423](https://github.com/eBay/skin/pull/2423) [`632ccc2`](https://github.com/eBay/skin/commit/632ccc24654df15da66d75f666978617a144509f) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(table): new module
+
+-   [#2417](https://github.com/eBay/skin/pull/2417) [`ef0418a`](https://github.com/eBay/skin/commit/ef0418a90f63612b3de763b5ead94a5aa01d022e) Thanks [@agliga](https://github.com/agliga)! - feat: chnaged to use marko run instead of jekyll
+
+-   [#2414](https://github.com/eBay/skin/pull/2414) [`ab472df`](https://github.com/eBay/skin/commit/ab472df6ae5c1f4ed32a146eaba7074a32a29e5d) Thanks [@saiponnada](https://github.com/saiponnada)! - fix(docs): improved contrast on highlighted text
+
+### Patch Changes
+
+-   [#2420](https://github.com/eBay/skin/pull/2420) [`108f628`](https://github.com/eBay/skin/commit/108f628e649057421f25b2affc03f672026ad078) Thanks [@github-actions](https://github.com/apps/github-actions)! - menu-button: added direct selector to icons
+
 ## 18.1.0
 
 ### Minor Changes
