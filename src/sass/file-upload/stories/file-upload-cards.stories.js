@@ -7,7 +7,7 @@ import {
     uploadedDocumentWithTitleAndDescription as uploadedDocumentWithTitleAndDescriptionCard,
     uploadedWithOverflow as uploadedWithOverflowCard,
 } from "../../card/stories/card.stories";
-export default { title: "Skin/File Upload/Default/Cards" };
+export default { title: "Skin/File Upload/Cards" };
 
 export const base = () => `
     <div class="file-upload">

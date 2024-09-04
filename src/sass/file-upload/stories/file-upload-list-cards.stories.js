@@ -2,7 +2,7 @@ import {
     base as uploadedListCard,
     uploading as uploadingListCard,
 } from "../../list-card/stories/list-card.stories";
-export default { title: "Skin/File Upload/Default/List Cards" };
+export default { title: "Skin/File Upload/List Cards" };
 
 export const base = () => `
     <div class="file-upload">

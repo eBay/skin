@@ -1,4 +1,4 @@
-export default { title: "Skin/Card/Default" };
+export default { title: "Skin/Card" };
 
 export const base = () => `
     <div class="card">
