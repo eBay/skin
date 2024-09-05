@@ -1,24 +1,20 @@
 export default { title: "Skin/File Preview Card" };
 
 export const base = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content">
-                <svg class="image-placeholder" height="62" width="62" aria-hidden="true">
-                    <use href="#image-placeholder"></use>
-                </svg>
-            </div>
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content">
+            <svg class="image-placeholder" height="62" width="62" aria-hidden="true">
+                <use href="#image-placeholder"></use>
+            </svg>
         </div>
     </div>
 `;
 
 export const uploading = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content">
-                <progress class="progress-bar" value=60 max=100></progress>
-            </div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Cancel upload">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content">
+            <progress class="progress-bar file-preview-card__progress" value=60 max=100></progress>
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Cancel upload">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
@@ -28,12 +24,10 @@ export const uploading = () => `
 `;
 
 export const uploadingRTL = () => `
-    <div class="file-preview-card" dir="rtl">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content">
-                <progress class="progress-bar" value=60 max=100></progress>
-            </div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Cancel upload">
+    <div class="file-preview-card" style="height: 168px; width: 168px;" dir="rtl">
+        <div class="file-preview-card__content">
+            <progress class="progress-bar file-preview-card__progress" value=60 max=100></progress>
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Cancel upload">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
@@ -43,10 +37,9 @@ export const uploadingRTL = () => `
 `;
 
 export const uploadedSquareImage = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
@@ -56,10 +49,9 @@ export const uploadedSquareImage = () => `
 `;
 
 export const uploadedPortraitImage = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
@@ -69,10 +61,9 @@ export const uploadedPortraitImage = () => `
 `;
 
 export const uploadedLandscapeImage = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
@@ -82,15 +73,14 @@ export const uploadedLandscapeImage = () => `
 `;
 
 export const uploadedVideo = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <button class="icon-btn file-preview-card__label" type="button" aria-label="Cancel upload">
+            <button class="icon-btn file-preview-card__label" type="button" aria-label="Preview">
                 <svg class="icon icon--12" height="12" width="12" aria-hidden="true">
                     <use href="#icon-play-16"></use>
                 </svg>
@@ -101,15 +91,14 @@ export const uploadedVideo = () => `
 `;
 
 export const uploadedVideoRTL = () => `
-    <div class="file-preview-card" dir="rtl">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;" dir="rtl">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <button class="icon-btn file-preview-card__label" type="button" aria-label="Cancel upload">
+            <button class="icon-btn file-preview-card__label" type="button" aria-label="Preview">
                 <svg class="icon icon--12" height="12" width="12" aria-hidden="true">
                     <use href="#icon-play-16"></use>
                 </svg>
@@ -120,14 +109,16 @@ export const uploadedVideoRTL = () => `
 `;
 
 export const uploadedDocumentWithTitle = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
-            </button>        
+            </button>
+            <button class="icon-btn file-preview-card__label" type="button" aria-label="Preview">
+                <span>PDF</span>
+            </button>
         </div>
         <div class="file-preview-card__details">
             <span class="file-preview-card__details-title">certificate.pdf</span>
@@ -136,13 +127,15 @@ export const uploadedDocumentWithTitle = () => `
 `;
 
 export const uploadedDocumentWithTitleAndDescription = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
+            </button>
+            <button class="icon-btn file-preview-card__label" type="button" aria-label="Preview">
+                <span>PDF</span>
             </button>
         </div>
         <div class="file-preview-card__details">
@@ -153,13 +146,15 @@ export const uploadedDocumentWithTitleAndDescription = () => `
 `;
 
 export const uploadedDocumentWithTitleAndDescriptionRTL = () => `
-    <div class="file-preview-card" dir="rtl">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)"></div>
-            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;" dir="rtl">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png)">
+            <button class="icon-btn file-preview-card__action-menu" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
+            </button>
+            <button class="icon-btn file-preview-card__label" type="button" aria-label="Preview">
+                <span>PDF</span>
             </button>
         </div>
         <div class="file-preview-card__details">
@@ -170,10 +165,9 @@ export const uploadedDocumentWithTitleAndDescriptionRTL = () => `
 `;
 
 export const uploadedWithOverflow = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image file-preview-card__content--overflow" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__overflow-action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)">
+            <button class="icon-btn file-preview-card__overflow-action" type="button" aria-label="Open overflow">
                 <span>+15</span>
             </button>
         </div>
@@ -181,10 +175,9 @@ export const uploadedWithOverflow = () => `
 `;
 
 export const uploadedWithOverflowRTL = () => `
-    <div class="file-preview-card" dir="rtl">
-        <div class="file-preview-card__container">
-            <div class="file-preview-card__content file-preview-card__content--image file-preview-card__content--overflow" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)"></div>
-            <button class="icon-btn file-preview-card__overflow-action" type="button" aria-label="Open menu">
+    <div class="file-preview-card" style="height: 168px; width: 168px;" dir="rtl">
+        <div class="file-preview-card__content" style="background-image: url(https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg)">
+            <button class="icon-btn file-preview-card__overflow-action" type="button" aria-label="Open overflow">
                 <span>+15</span>
             </button>
         </div>

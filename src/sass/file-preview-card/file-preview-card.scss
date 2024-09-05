@@ -5,71 +5,50 @@
 .file-preview-card {
     display: flex;
     flex-direction: column;
-    width: $card-size-default;
-}
-
-.file-preview-card__container {
-    position: relative;
-    height: $card-size-default;
-}
-
-@media screen and (max-width: $_screen-size-MD) {
-    .file-preview-card {
-        width: $card-size-large;
-
-        .file-preview-card__container {
-            height: $card-size-large;
-        }
-    }
 }
 
 .file-preview-card__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: " . . action " " center center center " " label . . ";
     height: inherit;
     width: inherit;
-    justify-content: center;
-    align-items: center;
     box-sizing: border-box;
     background-color: var(--color-background-secondary, #f7f7f7);
     border-radius: var(--border-radius-100, 16px);
-    padding: var(--spacing-150, 12px);
-}
-
-.file-preview-card__content .progress-bar {
-    width: 100%;
-}
-
-.file-preview-card__content--image {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.file-preview-card__progress {
+    grid-area: center;
+    justify-self: center;
+    align-self: center;
 }
 
 .file-preview-card__content--overflow {
     opacity: 0.5;
 }
 
-.file-preview-card .file-preview-card__action {
-    @include bubble-close();
-
-    position: absolute;
-    top: var(--spacing-100, 8px);
-    right: var(--spacing-100, 8px);
-    margin: 0;
+.file-preview-card .file-preview-card__action-menu {
+    grid-area: action;
+    justify-self: end;
     background: var(--color-background-on-secondary, #fff);
+    margin: var(--spacing-100, 8px);
+    height: 32px;
+    width: 32px;
 }
 
 .file-preview-card__label.icon-btn {
-    @include bubble-close();
-
-    position: absolute;
+    grid-area: label;
+    align-self: end;
     display: flex;
     flex-direction: row;
-    left: var(--spacing-100, 8px);
-    bottom: var(--spacing-100, 8px);
     width: 55px;
     height: 20px;
-    margin: 0;
+    margin: var(--spacing-100, 8px);
     background: var(--color-background-on-secondary, #fff);
     align-items: center;
     gap: var(--spacing-50, 4px);
@@ -82,16 +61,15 @@
 }
 
 .file-preview-card .file-preview-card__overflow-action {
-    position: absolute;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
+    grid-area: center;
+    justify-self: center;
+    align-self: center;
     height: 40px;
     width: 40px;
     background-color: rgba(var(--color-background-strong-rgb), 0.5);
     font-size: var(--font-size-14);
     font-weight: 700;
     line-height: 20px;
-    vertical-align: middle;
     color: var(--color-foreground-on-strong, #fff);
 
     &:active,

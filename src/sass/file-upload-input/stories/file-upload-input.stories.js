@@ -4,7 +4,7 @@ export const base = () => `
     <div class="file-upload-input" tabindex="0">
         <label for="file-upload-input__input">
             <div class="file-upload-input__container">
-                <div class="file-upload-input__upload-icon-button">
+                <div class="file-upload-input__upload-icon">
                     <svg class="icon" aria-hidden="true">   
                         <use href="#icon-upload-24"></use>
                     </svg>
@@ -12,7 +12,7 @@ export const base = () => `
                 <div class="file-upload-input__content">
                     <div class="file-upload-input__content-header">Add files</div>
                     <div class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</div>
-                    <button class="fake-link file-upload-input__content__button" type="button">Browse files</button>
+                    <button class="fake-link file-upload-input__content__button" tabindex="0" type="button">Browse files</button>
                 </div>
             </div>
         </label>
@@ -32,7 +32,7 @@ export const RTL = () => `
                 <div class="file-upload-input__content">
                     <div class="file-upload-input__content-header">Add files</div>
                     <div class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</div>
-                    <button class="fake-link file-upload-input__content__button" type="button">Browse files</button>
+                    <button class="fake-link file-upload-input__content__button" tabindex="0" type="button">Browse files</button>
                 </div>
             </div>
         </label>
