@@ -21,11 +21,11 @@ export const base = () => `
 `;
 
 export const RTL = () => `
-    <div class="file-upload-input" tabindex="0" dir="rtl">
+ <div class="file-upload-input" tabindex="0" dir="rtl">
         <label for="file-upload-input__input">
             <div class="file-upload-input__container">
-                <div class="file-upload-input__upload-icon-button">
-                    <svg class="icon" height="24" width="24" aria-hidden="true">   
+                <div class="file-upload-input__upload-icon">
+                    <svg class="icon" aria-hidden="true">   
                         <use href="#icon-upload-24"></use>
                     </svg>
                 </div>

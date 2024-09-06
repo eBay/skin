@@ -1,49 +1,59 @@
-@import "../mixins/private/bubble-mixins";
 @import "../mixins/private/token-mixins";
 @import "../variables/variables";
 
 .file-preview-card {
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 .file-preview-card__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: " . . action " " center center center " " label . . ";
-    height: inherit;
-    width: inherit;
+    grid-template-areas: " . . menu-action " " . center-action . " " label . . ";
+    height: 100%;
+    width: 100%;
     box-sizing: border-box;
     background-color: var(--color-background-secondary, #f7f7f7);
     border-radius: var(--border-radius-100, 16px);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
-.file-preview-card__progress {
-    grid-area: center;
-    justify-self: center;
-    align-self: center;
+.file-preview-card__center {
+    grid-area: 1 / 1 / 4 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.file-preview-card__content--overflow {
+.file-preview-card__center > img {
+    height: 100%;
+    width: 100%;
+    border-radius: var(--border-radius-100, 16px);
+    object-fit: contain;
+}
+
+.file-preview-card__center--overflow {
     opacity: 0.5;
 }
 
-.file-preview-card .file-preview-card__action-menu {
-    grid-area: action;
+.file-preview-card .file-preview-card__menu-action {
+    grid-area: menu-action;
     justify-self: end;
+}
+
+.file-preview-card .file-preview-card__menu-action .icon-btn {
     background: var(--color-background-on-secondary, #fff);
     margin: var(--spacing-100, 8px);
     height: 32px;
     width: 32px;
 }
 
-.file-preview-card__label.icon-btn {
+.file-preview-card__label {
     grid-area: label;
     align-self: end;
+}
+
+.file-preview-card__label .icon-btn {
     display: flex;
     flex-direction: row;
     width: 55px;
@@ -60,10 +70,14 @@
     font-weight: 400;
 }
 
-.file-preview-card .file-preview-card__overflow-action {
-    grid-area: center;
+.file-preview-card .file-preview-card__center-action {
+    grid-area: center-action;
     justify-self: center;
     align-self: center;
+    z-index: 1;
+}
+
+.file-preview-card .file-preview-card__center-action .icon-btn {
     height: 40px;
     width: 40px;
     background-color: rgba(var(--color-background-strong-rgb), 0.5);
@@ -71,21 +85,21 @@
     font-weight: 700;
     line-height: 20px;
     color: var(--color-foreground-on-strong, #fff);
+}
 
-    &:active,
-    &:focus,
-    &:hover {
-        color: var(--color-foreground-primary, #191919);
-    }
+.file-preview-card .file-preview-card__center-action .icon-btn:active,
+.file-preview-card .file-preview-card__center-action .icon-btn:focus,
+.file-preview-card .file-preview-card__center-action .icon-btn:hover {
+    color: var(--color-foreground-primary, #191919);
+}
 
-    &:focus,
-    &:hover {
-        background-color: rgba(var(--color-state-secondary-hover-rgb), 0.5);
-    }
+.file-preview-card .file-preview-card__center-action .icon-btn:focus,
+.file-preview-card .file-preview-card__center-action .icon-btn:hover {
+    background-color: rgba(var(--color-state-secondary-hover-rgb), 0.5);
+}
 
-    &:active {
-        background-color: rgba(var(--color-state-secondary-active-rgb), 0.5);
-    }
+.file-preview-card .file-preview-card__center-action .icon-btn:active {
+    background-color: rgba(var(--color-state-secondary-active-rgb), 0.5);
 }
 
 .file-preview-card__details {
