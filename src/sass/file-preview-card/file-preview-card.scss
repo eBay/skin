@@ -1,21 +1,17 @@
 @import "../mixins/private/token-mixins";
 @import "../variables/variables";
 
-.file-preview-card {
-    height: 100%;
-    width: 100%;
-}
-
 .file-preview-card__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: " . . menu-action " " . center-action . " " label . . ";
-    height: 100%;
-    width: 100%;
+    min-width: 120px;
+    max-width: 396px;
     box-sizing: border-box;
     background-color: var(--color-background-secondary, #f7f7f7);
     border-radius: var(--border-radius-100, 16px);
+    aspect-ratio: 1/1;
 }
 
 .file-preview-card__center {
@@ -25,11 +21,21 @@
     align-items: center;
 }
 
-.file-preview-card__center > img {
+.file-preview-card__center img {
     height: 100%;
     width: 100%;
     border-radius: var(--border-radius-100, 16px);
     object-fit: contain;
+}
+
+.file-preview-card__center .progress-bar {
+    margin: 0 var(--spacing-200, 16px);
+}
+
+.file-preview-card__center .inline-notice--attention {
+    color: var(--foreground-attention, #d50b0b);
+    font-size: var(--font-size-12);
+    line-height: var(--spacing-200, 16px);
 }
 
 .file-preview-card__center--overflow {
