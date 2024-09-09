@@ -109,7 +109,6 @@ export const portraitWithCSSImageContainBackground = () => `
             </div>
         </div>
     </div>
-
 `;
 
 export const landscapeImage = () => `
@@ -179,7 +178,7 @@ export const videoRTL = () => `
     </div>
 `;
 
-export const generalDocument = () => `
+export const generalDoc = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__center">
@@ -203,7 +202,7 @@ export const generalDocument = () => `
     </div>
 `;
 
-export const portraitDocWithTitle = () => `
+export const portraitDoc = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__center">
@@ -225,7 +224,7 @@ export const portraitDocWithTitle = () => `
     </div>
 `;
 
-export const landscapeDocWithTitleAndDescription = () => `
+export const landscapeDoc = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__center">

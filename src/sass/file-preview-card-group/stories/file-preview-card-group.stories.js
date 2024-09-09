@@ -118,7 +118,7 @@ export const base = () => `
     </div>
 `;
 
-export const mixedTypes = () => `
+export const mixedTypesWithDetails = () => `
     <div class="file-preview-card-group">
         <ul aria-label="cards">
             <li>${portraitDocWithTitle()}</li>
