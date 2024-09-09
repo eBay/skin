@@ -119,29 +119,27 @@ const portraitDocWithTitle = () => `
 `;
 
 const landscapeDocWithTitleAndDescription = () => `
-    <div style="height: 168px; width: 168px;">
-        <div class="file-preview-card">
-            <div class="file-preview-card__content">
-                <div class="file-preview-card__center">
-                    <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png" alt="Image">
-                </div>
-                <div class="file-preview-card__menu-action">
-                    <button class="icon-btn" type="button" aria-label="Open menu">
-                        <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                            <use href="#icon-overflow-vertical-16"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="file-preview-card__label">
-                    <button class="icon-btn" type="button" aria-label="Preview">
-                        <span>PDF</span>
-                    </button>
-                </div>
+    <div class="file-preview-card">
+        <div class="file-preview-card__content">
+            <div class="file-preview-card__center">
+                <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-doc.png" alt="Image">
             </div>
-            <div class="file-preview-card__details">
-                <span class="file-preview-card__details-title">certificate.pdf</span>
-                <span class="file-preview-card__details-subtitle">English, German, Spanish, French, Polish, Dutch, Italian, Japanese, Portuguese, Arabic</span>
+            <div class="file-preview-card__menu-action">
+                <button class="icon-btn" type="button" aria-label="Open menu">
+                    <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-overflow-vertical-16"></use>
+                    </svg>
+                </button>
             </div>
+            <div class="file-preview-card__label">
+                <button class="icon-btn" type="button" aria-label="Preview">
+                    <span>PDF</span>
+                </button>
+            </div>
+        </div>
+        <div class="file-preview-card__details">
+            <span class="file-preview-card__details-title">certificate.pdf</span>
+            <span class="file-preview-card__details-subtitle">English, German, Spanish, French, Polish, Dutch, Italian, Japanese, Portuguese, Arabic</span>
         </div>
     </div>
 `;
