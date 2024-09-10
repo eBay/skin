@@ -11,7 +11,8 @@ fs.readFile(carouselCSS, "utf8", function (err, data) {
     const result = data
         .replace(
             /\@supports not (.|\n)+?\{/,
-            `@supports not /*!Y */
+            `/* autoprefixer: ignore next */
+@supports not /*!Y */
       (
             /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */
             (-ms-scroll-snap-coordinate: 0 0) or /*!Y */
@@ -20,7 +21,8 @@ fs.readFile(carouselCSS, "utf8", function (err, data) {
         )
         .replace(
             /\@supports \((.|\n)+?\{/,
-            `@supports (
+            `/* autoprefixer: ignore next */
+@supports (
     /*!Y */ (-webkit-scroll-snap-coordinate: 0 0) or /*!Y */
         (-ms-scroll-snap-coordinate: 0 0) or /*!Y */
         (scroll-snap-coordinate: 0 0) or /*!Y */ (scroll-snap-align: start)
