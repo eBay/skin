@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.2.2
+
+### Patch Changes
+
+-   [`99e82f5`](https://github.com/eBay/skin/commit/99e82f525aabe2d7827235ec3ce411b7157450a8) Thanks [@agliga](https://github.com/agliga)! - chore: added tokens folder to published code
+
 ## 18.2.1
 
 ### Patch Changes
