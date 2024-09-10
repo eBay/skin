@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.2.1
+
+### Patch Changes
+
+-   [#2436](https://github.com/eBay/skin/pull/2436) [`8c7b0ea`](https://github.com/eBay/skin/commit/8c7b0ea2e685be4d5e9b6324f365a893dcc8c275) Thanks [@agliga](https://github.com/agliga)! - chore: updated which files should be published
+
 ## 18.2.0
 
 ### Minor Changes
