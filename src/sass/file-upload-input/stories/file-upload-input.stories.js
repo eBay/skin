@@ -1,7 +1,8 @@
 export default { title: "Skin/File Upload Input" };
 
 export const base = () => `
-    <div class="file-upload-input" tabindex="0">
+    <div class="file-upload-input">
+        <input id="file-upload-input__input" class="file-upload-input__input" type="file" />
         <label for="file-upload-input__input">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
@@ -10,18 +11,18 @@ export const base = () => `
                     </svg>
                 </div>
                 <div class="file-upload-input__content">
-                    <div class="file-upload-input__content-header">Add files</div>
-                    <div class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</div>
-                    <button class="fake-link" tabindex="0" type="button">Browse files</button>
+                    <span class="file-upload-input__content-header">Add files</span>
+                    <span class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</span>
+                    <span class="file-upload-input__content-cta">Browse files</span>
                 </div>
             </div>
         </label>
-        <input id="file-upload-input__input" type="file" />
     </div>
 `;
 
 export const RTL = () => `
- <div class="file-upload-input" tabindex="0" dir="rtl">
+    <div class="file-upload-input" dir="rtl">
+        <input id="file-upload-input__input" class="file-upload-input__input" type="file" />
         <label for="file-upload-input__input">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
@@ -30,12 +31,11 @@ export const RTL = () => `
                     </svg>
                 </div>
                 <div class="file-upload-input__content">
-                    <div class="file-upload-input__content-header">Add files</div>
-                    <div class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</div>
-                    <button class="fake-link" type="button">Browse files</button>
+                    <span class="file-upload-input__content-header">Add files</span>
+                    <span class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</span>
+                    <span class="file-upload-input__content-cta">Browse files</span>
                 </div>
             </div>
         </label>
-        <input id="file-upload-input__input" type="file" />
     </div>
 `;

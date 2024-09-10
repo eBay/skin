@@ -109,7 +109,7 @@ const landscapeDocWithTitleAndDescription = () => `
 
 export const base = () => `
     <div class="file-preview-card-group">
-        <ul aria-label="cards">
+        <ul>
             <li>${squareImage()}</li>
             <li>${squareImage()}</li>
             <li>${squareImage()}</li>
@@ -120,7 +120,7 @@ export const base = () => `
 
 export const mixedTypesWithDetails = () => `
     <div class="file-preview-card-group">
-        <ul aria-label="cards">
+        <ul>
             <li>${portraitDocWithTitle()}</li>
             <li>${squareImage()}</li>
             <li>${portraitImage()}</li>
@@ -133,7 +133,7 @@ export const mixedTypesWithDetails = () => `
 
 export const RTL = () => `
     <div class="file-preview-card-group" dir="rtl">
-        <ul aria-label="cards">
+        <ul>
             <li>${portraitDocWithTitle()}</li>
             <li>${squareImage()}</li>
             <li>${portraitImage()}</li>
@@ -147,7 +147,7 @@ export const RTL = () => `
 export const _320container = () => `
     <div style="width: 320px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -160,7 +160,7 @@ export const _320container = () => `
 export const _512container = () => `
     <div style="width: 512px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -177,7 +177,7 @@ export const _512container = () => `
 export const _768container = () => `
     <div style="width: 768px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -196,7 +196,7 @@ export const _768container = () => `
 export const _1024container = () => `
     <div style="width: 1024px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -219,7 +219,7 @@ export const _1024container = () => `
 export const _1280container = () => `
     <div style="width: 1280px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -246,7 +246,7 @@ export const _1280container = () => `
 export const _1440container = () => `
     <div style="width: 1440px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -275,7 +275,7 @@ export const _1440container = () => `
 export const _1680container = () => `
     <div style="width: 1680px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
@@ -308,7 +308,7 @@ export const _1680container = () => `
 export const _1920container = () => `
     <div style="width: 1920px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
-            <ul aria-label="cards">
+            <ul>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>
                 <li>${squareImage()}</li>

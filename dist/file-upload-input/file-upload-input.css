@@ -1,9 +1,14 @@
 div.file-upload-input {
-    border-radius: var(--border-radius-100, 16px);
+    position: relative;
 }
 
-div.file-upload-input input {
-    display: none;
+input.file-upload-input__input[type="file"] {
+    border-radius: var(--border-radius-100, 16px);
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 div.file-upload-input__container {
@@ -13,7 +18,6 @@ div.file-upload-input__container {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-100, 8px);
-    margin-bottom: var(--spacing-200, 16px);
     min-width: -moz-fit-content;
     min-width: fit-content;
     padding: var(--spacing-200, 16px);
@@ -40,7 +44,7 @@ div.file-upload-input__content {
     flex-grow: 1;
 }
 
-div.file-upload-input__content-header {
+span.file-upload-input__content-header {
     color: var(--color-foreground-primary, #191919);
     font-size: var(--font-size-14);
     font-weight: 700;
@@ -48,12 +52,17 @@ div.file-upload-input__content-header {
     margin-bottom: 4px;
 }
 
-div.file-upload-input__content-subheader {
+span.file-upload-input__content-subheader {
     color: var(--color-foreground-secondary, #707070);
     font-size: var(--font-size-12);
     font-weight: 400;
     line-height: 16px;
     margin-bottom: var(--spacing-100, 8px);
+}
+
+span.file-upload-input__content-cta {
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
 }
 
 @media screen and (min-width: 768px) {
@@ -69,11 +78,11 @@ div.file-upload-input__content-subheader {
         height: 24px;
         width: 24px;
     }
-    div.file-upload-input__content-header {
+    span.file-upload-input__content-header {
         font-size: var(--font-size-16);
         line-height: 24px;
     }
-    div.file-upload-input__content-subheader {
+    span.file-upload-input__content-subheader {
         font-size: var(--font-size-14);
         line-height: 20px;
     }
