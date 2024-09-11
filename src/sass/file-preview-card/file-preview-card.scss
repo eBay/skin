@@ -12,27 +12,24 @@
         border-radius-100
     );
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: " . . menu-action " " . center-action . " " label . . ";
-    min-width: 120px;
-    max-width: 396px;
-    box-sizing: border-box;
-
     // Safari support in v15+ reviewed with team
     aspect-ratio: 1/1;
-
-    // needed for safari
-    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: " . . menu-action " " . center-action . " " label . . ";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     height: 100%;
+    max-width: 396px;
+    min-width: 120px;
+    width: 100%;
 }
 
 .file-preview-card__center {
-    grid-area: 1 / 1 / 4 / 4;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    grid-area: 1 / 1 / 4 / 4;
+    justify-content: center;
 }
 
 .file-preview-card__center img {
@@ -42,8 +39,8 @@
     );
 
     height: 100%;
-    width: 100%;
     object-fit: contain;
+    width: 100%;
 }
 
 .file-preview-card__center .inline-notice--attention {
@@ -71,14 +68,14 @@
         color-background-primary
     );
 
-    margin: var(--spacing-100, 8px);
     height: 32px;
+    margin: var(--spacing-100, 8px);
     width: 32px;
 }
 
 .file-preview-card__label {
-    grid-area: label;
     align-self: end;
+    grid-area: label;
 }
 
 .file-preview-card__label .icon-btn {
@@ -87,13 +84,13 @@
         color-background-primary
     );
 
+    align-items: center;
     display: flex;
     flex-direction: row;
-    width: 55px;
+    gap: var(--spacing-50, 4px);
     height: 20px;
     margin: var(--spacing-100, 8px);
-    align-items: center;
-    gap: var(--spacing-50, 4px);
+    width: 55px;
 }
 
 .file-preview-card__label-text {
@@ -107,9 +104,9 @@
 }
 
 .file-preview-card .file-preview-card__center-action {
+    align-self: center;
     grid-area: center-action;
     justify-self: center;
-    align-self: center;
     z-index: 1;
 }
 
@@ -119,12 +116,12 @@
         color-foreground-on-strong
     );
 
-    height: 40px;
-    width: 40px;
     background-color: rgba(var(--color-background-strong-rgb), 0.5);
     font-size: var(--font-size-14);
     font-weight: 700;
+    height: 40px;
     line-height: 20px;
+    width: 40px;
 }
 
 .file-preview-card .file-preview-card__center-action .icon-btn:active,

@@ -1,20 +1,32 @@
 div.file-upload-input {
-    position: relative;
+    display: grid;
+    grid-template-areas: "center";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+div.file-upload-input label[for="file-upload-input-1"] {
+    grid-area: center;
 }
 
 input.file-upload-input__input[type="file"] {
-    border-radius: var(--border-radius-100, 16px);
-    height: 100%;
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
+    grid-area: center;
+}
+
+div.file-upload-input__container,
+input.file-upload-input__input[type="file"] {
+    border-radius: var(
+        --file-upload-input-border-radius,
+        var(--border-radius-100)
+    );
 }
 
 div.file-upload-input__container {
-    background: var(--color-background-secondary, #f7f7f7);
-    border: 1px dashed var(--color-neutral-500, #8f8f8f);
-    border-radius: var(--border-radius-100, 16px);
+    background-color: var(
+        --file-upload-input-background-color,
+        var(--color-background-secondary)
+    );
+    border: 1px dashed;
     display: flex;
     flex-direction: row;
     gap: var(--spacing-100, 8px);
@@ -25,14 +37,20 @@ div.file-upload-input__container {
 
 div.file-upload-input__upload-icon {
     align-self: center;
-    background: var(--color-background-primary, #fff);
+    background-color: var(
+        --file-upload-input-upload-icon-background-color,
+        var(--color-background-primary)
+    );
     border-radius: 99px;
     max-height: 16px;
     padding: var(--spacing-200, 12px);
 }
 
 div.file-upload-input__upload-icon svg {
-    fill: var(--color-foreground-primary, #191919);
+    fill: var(
+        --file-upload-input-upload-icon-fill,
+        var(--color-foreground-primary)
+    );
     height: 16px;
     width: 16px;
 }
@@ -45,7 +63,10 @@ div.file-upload-input__content {
 }
 
 span.file-upload-input__content-header {
-    color: var(--color-foreground-primary, #191919);
+    color: var(
+        --file-upload-input-content-header-color,
+        var(--color-foreground-primary)
+    );
     font-size: var(--font-size-14);
     font-weight: 700;
     line-height: 20px;
@@ -53,7 +74,10 @@ span.file-upload-input__content-header {
 }
 
 span.file-upload-input__content-subheader {
-    color: var(--color-foreground-secondary, #707070);
+    color: var(
+        --file-upload-input-content-subheader-color,
+        var(--color-foreground-secondary)
+    );
     font-size: var(--font-size-12);
     font-weight: 400;
     line-height: 16px;
