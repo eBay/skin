@@ -4,24 +4,11 @@ export const uploading = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__center">    
-                <progress class="progress-bar" value="60" max="100"></progress>
-            </div>
-            <div class="file-preview-card__menu-action">
-                <button class="icon-btn" type="button" aria-label="Cancel upload">
-                    <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-close-16"></use>
+                <span class="progress-spinner progress-spinner--large" aria-label="Busy" role="img">
+                    <svg class="icon icon--30" aria-hidden="true">
+                        <use href="#icon-spinner-30"></use>
                     </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-`;
-
-export const uploadingRTL = () => `
-    <div style="height: 168px; width: 168px;">
-        <div class="file-preview-card" dir="rtl">
-            <div class="file-preview-card__center">    
-                <progress class="progress-bar" value="60" max="100"></progress>
+                </span>
             </div>
             <div class="file-preview-card__menu-action">
                 <button class="icon-btn" type="button" aria-label="Cancel upload">

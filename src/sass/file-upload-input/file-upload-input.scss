@@ -1,4 +1,5 @@
 @import "../variables/variables";
+@import "../mixins/private/token-mixins";
 
 div.file-upload-input {
     display: grid;
@@ -7,28 +8,49 @@ div.file-upload-input {
     grid-template-areas: "center";
 }
 
-div.file-upload-input label[for="file-upload-input__input"] {
+div.file-upload-input label[for="file-upload-input-1"] {
     grid-area: center;
 }
 
 input.file-upload-input__input[type="file"] {
+    @include border-radius-token(
+        file-upload-input-border-radius,
+        border-radius-100
+    );
+
     grid-area: center;
-    border-radius: var(--border-radius-100, 16px);
 }
 
 div.file-upload-input__container {
+    @include background-color-token(
+        file-upload-input-background-color,
+        color-background-secondary
+    );
+
+    @include border-radius-token(
+        file-upload-input-border-radius,
+        border-radius-100
+    );
+
+    @include border-color-token(
+        file-upload-input-border-color,
+        color-neutral-500
+    );
+
     display: flex;
     flex-direction: row;
-    background: var(--color-background-secondary, #f7f7f7);
-    border: 1px dashed var(--color-neutral-500, #8f8f8f);
-    border-radius: var(--border-radius-100, 16px);
+    border: 1px dashed;
     min-width: fit-content;
     padding: var(--spacing-200, 16px);
     gap: var(--spacing-100, 8px);
 }
 
 div.file-upload-input__upload-icon {
-    background: var(--color-background-primary, #fff);
+    @include background-color-token(
+        file-upload-input-upload-icon-background-color,
+        color-background-primary
+    );
+
     border-radius: 99px;
     align-self: center;
     padding: var(--spacing-200, 12px);
@@ -36,7 +58,11 @@ div.file-upload-input__upload-icon {
 }
 
 div.file-upload-input__upload-icon svg {
-    fill: var(--color-foreground-primary, #191919);
+    @include fill-token(
+        file-upload-input-upload-icon-fill,
+        color-foreground-primary
+    );
+
     width: 16px;
     height: 16px;
 }
@@ -49,7 +75,11 @@ div.file-upload-input__content {
 }
 
 span.file-upload-input__content-header {
-    color: var(--color-foreground-primary, #191919);
+    @include color-token(
+        file-upload-input-content-header-color,
+        color-foreground-primary
+    );
+
     font-weight: bold;
     font-size: var(--font-size-14);
     line-height: 20px;
@@ -57,7 +87,11 @@ span.file-upload-input__content-header {
 }
 
 span.file-upload-input__content-subheader {
-    color: var(--color-foreground-secondary, #707070);
+    @include color-token(
+        file-upload-input-content-subheader-color,
+        color-foreground-secondary
+    );
+
     font-weight: 400;
     font-size: var(--font-size-12);
     line-height: 16px;
