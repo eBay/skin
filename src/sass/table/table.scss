@@ -1,10 +1,40 @@
 @import "../variables/variables";
 
 :root {
+    --density-compact-padding: var(--spacing-150);
+    --density-default-padding: var(--spacing-150);
+    --density-relaxed-padding: var(--spacing-200);
     /* these exclude the 16px padding for top/bottom */
-    --density-compact-cell-height: 36px;
-    --density-default-cell-height: 48px;
-    --density-relaxed-cell-height: 56px;
+    --density-compact-cell-height: 64px;
+    --density-default-cell-height: 80px;
+    --density-relaxed-cell-height: 112px;
+    /* these are for image sizes in cells */
+    --density-compact-img-size: 40px;
+    --density-default-img-size: 56px;
+    --density-relaxed-img-size: 72px;
+    /* these are for image radii in cells */
+    --density-compact-img-radius: 4px;
+    --density-default-img-radius: 8px;
+    --density-relaxed-img-radius: 8px;
+    /* these are props that retain defaults, but can be overridden by modifiers */
+    --cell-height: var(--density-default-cell-height);
+    --cell-padding: var(--density-default-padding);
+    --cell-max-width: 400px;
+    --cell-min-width: 124px;
+    --img-size: var(--density-default-img-size);
+    --img-radius: var(--density-default-img-radius);
+}
+
+.table--density-compact {
+    --cell-height: var(--density-compact-cell-height);
+    --cell-padding: var(--density-compact-padding);
+    --img-size: var(--density-compact-img-size);
+}
+
+.table--density-relaxed {
+    --cell-height: var(--density-relaxed-cell-height);
+    --cell-padding: var(--density-relaxed-padding);
+    --img-size: var(--density-relaxed-img-size);
 }
 
 .table {
@@ -24,25 +54,49 @@
     background-color: var(--color-background-primary);
     border-bottom: 1px solid var(--color-stroke-subtle);
     box-sizing: border-box;
-    height: var(--density-default-cell-height);
-    max-width: 400px;
-    min-width: 124px;
+    height: var(--cell-height);
+    max-height: var(--cell-height);
+    max-width: var(--cell-max-width);
+    min-width: var(--cell-min-width);
 
     // minimal padding to prevent text from touching the border
-    padding-block: var(--spacing-100);
-    padding-inline: var(--spacing-200);
+    padding: var(--cell-padding);
 }
 
-.table__cell {
+.table th button {
+    font-weight: bold;
+}
+
+// last row shouldn't have a bottom border
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-cell {
     text-align: left;
 }
 
-.table__cell--numeric {
+.table-cell--numeric {
     text-align: right;
+}
+
+.table-cell--icon-action {
+    width: 64px;
+    text-align: center;
 }
 
 .table [data-type="numeric"] {
     text-align: right;
+}
+
+.table-cell img {
+    max-height: var(--img-size);
+    max-width: var(--img-size);
+}
+
+.table th[scope="row"] {
+    text-align: left;
 }
 
 .table th:last-child,
@@ -50,21 +104,89 @@
     padding-inline-end: 0;
 }
 
-.table--density-compact th,
-.table--density-compact td {
-    height: var(--density-compact-cell-height);
-}
-
-.table--density-relaxed th,
-.table--density-relaxed td {
-    height: var(--density-relaxed-cell-height);
-}
-
 .table--mode-selection th:first-child,
 .table--mode-selection td:first-child {
-    min-width: unset;
+    min-width: 48px;
+    text-align: center;
+    width: 48px;
 }
 
 .table tbody th {
     font-weight: normal;
+}
+
+.table thead button.btn {
+    padding: 0;
+    white-space: nowrap;
+}
+
+.table thead button.btn--borderless:focus {
+    outline-style: solid;
+}
+
+.table thead button.btn svg.icon {
+    margin-inline-start: 6px;
+}
+
+.table-cell__data {
+    line-height: var(--spacing-250);
+    max-width: 400px;
+    min-width: 124px;
+}
+
+.table-cell__data--secondary {
+    color: var(--color-foreground-secondary);
+    font-size: var(--font-size-12);
+    line-height: var(--spacing-200);
+}
+
+.table-cell__thumbnail {
+    align-items: center;
+    background-color: var(--color-background-tertiary);
+    border-radius: var(--img-radius);
+    display: flex;
+    flex-wrap: nowrap;
+    height: var(--img-size);
+    justify-content: center;
+    overflow: hidden; // to round square images
+    text-align: center;
+    width: var(--img-size);
+}
+
+.table-cell__layout {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-200);
+    height: var(--cell-height);
+}
+
+.table-cell__layout > * {
+    flex-shrink: 0;
+}
+
+.table-cell__multiline {
+    max-height: var(--cell-height);
+    max-width: calc(
+        var(--cell-max-width) - var(--cell-height) - var(--spacing-200)
+    );
+}
+
+.table-cell__layout .table-cell__multiline .table-cell__data {
+    margin-block-end: var(--spacing-50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-cell .textbox,
+.table-cell .textbox__control {
+    width: 100%;
+}
+
+.table-cell--numeric .textbox__control {
+    text-align: right;
+}
+
+.table-cell .signal {
+    white-space: nowrap;
 }
