@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "18.1.0",
+    "version": "18.2.0",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -19,8 +19,7 @@
         "preview": "marko-run preview",
         "start": "marko-run",
         "test": "npm run build:css",
-        "deploy": "npm run deploy:only && gh-pages --nojekyll -d ./_site",
-        "deploy:only": "node scripts/jekyll-config && BASE_URL=/skin/ marko-run build -o ./_site && npm run build:storybook",
+        "deploy": "node scripts/jekyll-config && BASE_URL=/skin/ marko-run build -o ./_site && npm run build:storybook && ncp docs/archive _site/archive && touch _site/.nojekyll",
         "prebuild": "npm run clean",
         "prepublishOnly": "node scripts gen",
         "postpublish": "node scripts clean",
@@ -68,6 +67,7 @@
         "@ebay/browserslist-config": "^2.9.0",
         "@floating-ui/dom": "^1.6.10",
         "@marko/run": "^0.4.5",
+        "@marko/run-adapter-static": "^0.1.7",
         "@percy/cli": "^1.29.2",
         "@percy/storybook": "^6.0.2",
         "@storybook/html": "^8.2.9",
@@ -114,6 +114,10 @@
         "mkdirp": "^3",
         "ncp": "^2",
         "npm-run-all": "^4",
+        "postcss": "^8.4.41",
+        "postcss-mixins": "^10.0.1",
+        "postcss-nested": "^6.2.0",
+        "postcss-simple-vars": "^7.0.1",
         "postcss-cli": "^11.0.0",
         "postcss-comment": "^2.0.0",
         "postcss-import": "^16.1.0",
@@ -159,13 +163,6 @@
     "lint-staged": {
         "*.{js,css,md,scss,json}": "prettier --write",
         "*.{css,scss}": "stylelint --config .stylelintrc"
-    },
-    "dependencies": {
-        "@marko/run": "^0.4.5",
-        "postcss": "^8.4.41",
-        "postcss-mixins": "^10.0.1",
-        "postcss-nested": "^6.2.0",
-        "postcss-simple-vars": "^7.0.1"
     },
     "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
