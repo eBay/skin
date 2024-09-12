@@ -22,6 +22,21 @@
     );
 }
 
+@mixin background-color-rgba-token(
+    $alpha,
+    $component-token,
+    $product-token: ""
+) {
+    @if $product-token != "" {
+        background-color: rgba(
+            var(--#{$component-token}, var(--#{$product-token})),
+            $alpha
+        );
+    } @else {
+        background-color: rgba(var(--#{$component-token}), $alpha);
+    }
+}
+
 @mixin background-image-token($component-token, $product-token: "") {
     @include custom-property-token(
         background-image,
