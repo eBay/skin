@@ -25,6 +25,10 @@ The viewbox given will be translated to the `width` and `height` that the icons 
 To properly setup the icon after it is placed in the `src/svg/icon` directory, run `node scripts genSVG` from the root of the skin project. This will properly setup the icon in docs, in the `icon.svg` bundle, and generate the CSS needed for the icon.
 Afterward, you should run `npm run build` in order to also copy all those files to `dist`.
 
+## Step 3 (only if needed): Add Icon to Skin Docs
+
+If the icon is new and does not show up in the Skin docs from the previous step(s), you'll need to run `npm run copy:svgToDocs` from the root of the skin project. This will add the icon to the docs and generate the necessary files for the icon to show up in the docs.
+
 ## Appendix
 
 ## Star-rating
