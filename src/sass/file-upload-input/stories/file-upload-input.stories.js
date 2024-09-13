@@ -3,7 +3,7 @@ export default { title: "Skin/File Upload Input" };
 export const base = () => `
     <div class="file-upload-input">
         <input id="file-upload-input-1" class="file-upload-input__input" type="file" multiple/>
-        <label for="file-upload-input-1">
+        <label for="file-upload-input-1" class="file-upload-input__label">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
                     <svg class="icon" aria-hidden="true">   
@@ -23,7 +23,7 @@ export const base = () => `
 export const RTL = () => `
     <div class="file-upload-input" dir="rtl">
         <input id="file-upload-input-1" class="file-upload-input__input" type="file" multiple/>
-        <label for="file-upload-input-1">
+        <label for="file-upload-input-1" class="file-upload-input__label">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
                     <svg class="icon" aria-hidden="true">   
