@@ -6,7 +6,10 @@ export const base = () => `
         <label for="file-upload-input-1" class="file-upload-input__label">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
-                    <svg class="icon" aria-hidden="true">   
+                    <svg class="icon file-upload-input__upload-icon-small" aria-hidden="true">   
+                        <use href="#icon-upload-16"></use>
+                    </svg>
+                    <svg class="icon file-upload-input__upload-icon-large" aria-hidden="true">   
                         <use href="#icon-upload-24"></use>
                     </svg>
                 </div>
@@ -26,7 +29,10 @@ export const RTL = () => `
         <label for="file-upload-input-1" class="file-upload-input__label">
             <div class="file-upload-input__container">
                 <div class="file-upload-input__upload-icon">
-                    <svg class="icon" aria-hidden="true">   
+                    <svg class="icon file-upload-input__upload-icon-small" aria-hidden="true">   
+                        <use href="#icon-upload-16"></use>
+                    </svg>
+                    <svg class="icon file-upload-input__upload-icon-large" aria-hidden="true">   
                         <use href="#icon-upload-24"></use>
                     </svg>
                 </div>
