@@ -8,10 +8,6 @@ div.file-upload-input {
     grid-template-rows: 1fr;
 }
 
-label.file-upload-input__label {
-    grid-area: center;
-}
-
 input.file-upload-input__input[type="file"] {
     @include border-radius-token(
         file-upload-input-border-radius,
@@ -41,8 +37,20 @@ div.file-upload-input__container {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-100, 8px);
+    grid-area: center;
     min-width: fit-content;
     padding: var(--spacing-200, 16px);
+}
+
+div.file-upload-input___container--dragged-over {
+    @include background-color-token(
+        file-upload-input-dragged-over-background-color,
+        color-background-tertiary
+    );
+}
+
+div.file-upload-input__container * {
+    pointer-events: none;
 }
 
 div.file-upload-input__upload-icon {

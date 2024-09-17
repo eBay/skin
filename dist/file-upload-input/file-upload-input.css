@@ -5,20 +5,13 @@ div.file-upload-input {
     grid-template-rows: 1fr;
 }
 
-label.file-upload-input__label {
-    grid-area: center;
-}
-
-input.file-upload-input__input[type="file"] {
-    grid-area: center;
-}
-
 div.file-upload-input__container,
 input.file-upload-input__input[type="file"] {
     border-radius: var(
         --file-upload-input-border-radius,
         var(--border-radius-100)
     );
+    grid-area: center;
 }
 
 div.file-upload-input__container {
@@ -33,6 +26,17 @@ div.file-upload-input__container {
     min-width: -moz-fit-content;
     min-width: fit-content;
     padding: var(--spacing-200, 16px);
+}
+
+div.file-upload-input___container--dragged-over {
+    background-color: var(
+        --file-upload-input-dragged-over-background-color,
+        var(--color-background-tertiary)
+    );
+}
+
+div.file-upload-input__container * {
+    pointer-events: none;
 }
 
 div.file-upload-input__upload-icon {
