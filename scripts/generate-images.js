@@ -162,6 +162,10 @@ class GenerateImages {
             (config.icons.deprecated === null ||
                 config.icons.deprecated.indexOf(nameObj.simpleName) === -1);
 
+        if (!symbol) {
+            console.log("ERROR: no symbol found in " + filename);
+            return;
+        }
         const sizes = symbol.getAttribute("viewBox");
 
         if (sizes === null) {
