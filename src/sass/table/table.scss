@@ -1,41 +1,24 @@
 @import "../variables/variables";
 
-:root {
-    --density-compact-padding: var(--spacing-150);
-    --density-default-padding: var(--spacing-150);
-    --density-relaxed-padding: var(--spacing-200);
-    /* these exclude the 16px padding for top/bottom */
-    --density-compact-cell-height: 64px;
-    --density-default-cell-height: 80px;
-    --density-relaxed-cell-height: 112px;
-    /* these are for image sizes in cells */
-    --density-compact-img-size: 40px;
-    --density-default-img-size: 56px;
-    --density-relaxed-img-size: 72px;
-    /* these are for image radii in cells */
-    --density-compact-img-radius: 4px;
-    --density-default-img-radius: 8px;
-    --density-relaxed-img-radius: 8px;
-    /* these are props that retain defaults, but can be overridden by modifiers */
-    --cell-height: var(--density-default-cell-height);
-    --cell-padding: var(--density-default-padding);
-    --cell-max-width: 400px;
-    --cell-min-width: 124px;
-    --img-size: var(--density-default-img-size);
-    --img-radius: var(--density-default-img-radius);
-}
-
-.table--density-compact {
-    --cell-height: var(--density-compact-cell-height);
-    --cell-padding: var(--density-compact-padding);
-    --img-size: var(--density-compact-img-size);
-}
-
-.table--density-relaxed {
-    --cell-height: var(--density-relaxed-cell-height);
-    --cell-padding: var(--density-relaxed-padding);
-    --img-size: var(--density-relaxed-img-size);
-}
+/* these exclude the top/bottom padding */
+$density-compact-cell-height: 64px;
+$density-default-cell-height: 80px;
+$density-relaxed-cell-height: 112px;
+/* these exclude the 16px padding for top/bottom */
+$density-compact-padding: $spacing-150;
+$density-default-padding: $spacing-150;
+$density-relaxed-padding: $spacing-200;
+/* these are for image sizes in cells */
+$density-compact-img-size: 40px;
+$density-default-img-size: 56px;
+$density-relaxed-img-size: 72px;
+/* these are for cell widths */
+$cell-max-width: 400px;
+$cell-min-width: 124px;
+/* these are for image radii in cells */
+$density-compact-img-radius: 4px;
+$density-default-img-radius: 8px;
+$density-relaxed-img-radius: 8px;
 
 .table {
     overflow-x: auto;
@@ -54,13 +37,27 @@
     background-color: var(--color-background-primary);
     border-bottom: 1px solid var(--color-stroke-subtle);
     box-sizing: border-box;
-    height: var(--cell-height);
-    max-height: var(--cell-height);
-    max-width: var(--cell-max-width);
-    min-width: var(--cell-min-width);
+    height: $density-default-cell-height;
+    max-height: $density-default-cell-height;
+    max-width: $cell-max-width;
+    min-width: $cell-min-width;
 
     // minimal padding to prevent text from touching the border
-    padding: var(--cell-padding);
+    padding: $density-default-padding;
+}
+
+.table--density-compact th,
+.table--density-compact td {
+    height: $density-compact-cell-height;
+    max-height: $density-compact-cell-height;
+    padding: $density-compact-padding;
+}
+
+.table--density-relaxed th,
+.table--density-relaxed td {
+    height: $density-relaxed-cell-height;
+    max-height: $density-relaxed-cell-height;
+    padding: $density-relaxed-padding;
 }
 
 .table th button {
@@ -82,8 +79,8 @@
 }
 
 .table-cell--icon-action {
-    width: 64px;
     text-align: center;
+    width: 64px;
 }
 
 .table [data-type="numeric"] {
@@ -91,8 +88,18 @@
 }
 
 .table-cell img {
-    max-height: var(--img-size);
-    max-width: var(--img-size);
+    max-height: $density-default-img-size;
+    max-width: $density-default-img-size;
+}
+
+.table--density-compact .table-cell img {
+    max-height: $density-compact-img-size;
+    max-width: $density-compact-img-size;
+}
+
+.table--density-relaxed .table-cell img {
+    max-height: $density-relaxed-img-size;
+    max-width: $density-relaxed-img-size;
 }
 
 .table th[scope="row"] {
@@ -143,14 +150,26 @@
 .table-cell__thumbnail {
     align-items: center;
     background-color: var(--color-background-tertiary);
-    border-radius: var(--img-radius);
+    border-radius: $density-default-img-radius;
     display: flex;
     flex-wrap: nowrap;
-    height: var(--img-size);
+    height: $density-default-img-size;
     justify-content: center;
     overflow: hidden; // to round square images
     text-align: center;
-    width: var(--img-size);
+    width: $density-default-img-size;
+}
+
+.table--density-compact .table-cell__thumbnail {
+    border-radius: $density-compact-img-radius;
+    height: $density-compact-img-size;
+    width: $density-compact-img-size;
+}
+
+.table--density-relaxed .table-cell__thumbnail {
+    border-radius: $density-relaxed-img-radius;
+    height: $density-relaxed-img-size;
+    width: $density-relaxed-img-size;
 }
 
 .table-cell__layout {
@@ -164,10 +183,18 @@
 }
 
 .table-cell__multiline {
-    max-height: var(--cell-height);
-    max-width: calc(
-        var(--cell-max-width) - var(--cell-height) - var(--spacing-200)
-    );
+    max-height: $density-default-cell-height;
+    max-width: $cell-max-width - $density-default-cell-height - $spacing-200;
+}
+
+.table--density-compact .table-cell__multiline {
+    max-height: $density-compact-cell-height;
+    max-width: $cell-max-width - $density-compact-cell-height - $spacing-200;
+}
+
+.table--density-relaxed .table-cell__multiline {
+    max-height: $density-relaxed-cell-height;
+    max-width: $cell-max-width - $density-relaxed-cell-height - $spacing-200;
 }
 
 .table-cell__layout .table-cell__multiline .table-cell__data {
