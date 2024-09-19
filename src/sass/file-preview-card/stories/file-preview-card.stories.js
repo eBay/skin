@@ -21,32 +21,6 @@ export const uploading = () => `
     </div>
 `;
 
-export const uploadError = () => `
-    <div style="height: 168px; width: 168px;">
-        <div class="file-preview-card">
-            <div class="file-preview-card__center">    
-                <div class="inline-notice inline-notice--attention">
-                    <span class="inline-notice__header">
-                        <svg class="icon--attention-filled icon icon--16" aria-hidden="true">
-                            <use href="#icon-attention-filled-16"></use>
-                        </svg>
-                    </span>
-                    <span class="inline-notice__main">
-                        <p>Upload failed</p>
-                    </span>
-                </div>
-            </div>
-            <div class="file-preview-card__menu-action">
-                <button class="icon-btn" type="button" aria-label="Cancel upload">
-                    <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-refresh-16"></use>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-`;
-
 export const squareImage = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
@@ -130,7 +104,7 @@ export const video = () => `
             </div>
             <div class="file-preview-card__label">
                 <button class="icon-btn" type="button" aria-label="Preview">
-                    <svg class="icon icon--12" height="12" width="12" aria-hidden="true">
+                    <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                         <use href="#icon-play-16"></use>
                     </svg>
                     <span class="file-preview-card__label-text">0:21</span>
@@ -155,7 +129,7 @@ export const videoRTL = () => `
             </div>
             <div class="file-preview-card__label">
                 <button class="icon-btn" type="button" aria-label="Preview">
-                    <svg class="icon icon--12" height="12" width="12" aria-hidden="true">
+                    <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                         <use href="#icon-play-16"></use>
                     </svg>
                     <span class="file-preview-card__label-text">0:21</span>
@@ -169,7 +143,7 @@ export const generalDoc = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__center">
-                <svg class="icon" height="40%" width="40%" aria-hidden="true">
+                <svg class="icon file-preview-card__general-icon" aria-hidden="true">
                     <use href="#icon-file-24"></use>
                 </svg>
             </div>

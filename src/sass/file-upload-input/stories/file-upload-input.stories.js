@@ -13,7 +13,7 @@ export const base = () => `
                 </svg>
             </div>
             <div class="file-upload-input__content">
-                <span class="file-upload-input__content-header">Add files</span>
+                <span class="file-upload-input__content-header">Drag and drop files</span>
                 <span class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</span>
                 <label for="file-upload-input-1">
                     <span class="file-upload-input__content-cta">Browse files</span>
@@ -36,7 +36,7 @@ export const draggedOver = () => `
                 </svg>
             </div>
             <div class="file-upload-input__content">
-                <span class="file-upload-input__content-header">Add files</span>
+                <span class="file-upload-input__content-header">Drag and drop files</span>
                 <span class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</span>
                 <label for="file-upload-input-1">
                     <span class="file-upload-input__content-cta">Browse files</span>
@@ -59,7 +59,7 @@ export const RTL = () => `
                 </svg>
             </div>
             <div class="file-upload-input__content">
-                <span class="file-upload-input__content-header">Add files</span>
+                <span class="file-upload-input__content-header">Drag and drop files</span>
                 <span class="file-upload-input__content-subheader">Up to 10MB per file in JPG, JPEG, PNG, MP4.</span>
                 <label for="file-upload-input-1">
                     <span class="file-upload-input__content-cta">Browse files</span>
