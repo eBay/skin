@@ -89,11 +89,11 @@ export const landscapeImage = () => `
     </div>
 `;
 
-export const video = () => `
+export const videoWithPreviewAction = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
             <div class="file-preview-card__body">
-                <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
+                <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" />
             </div>
             <div class="file-preview-card__menu-action">
                 <button class="icon-btn" type="button" aria-label="Open menu">
@@ -103,7 +103,7 @@ export const video = () => `
                 </button>
             </div>
             <div class="file-preview-card__preview-action">
-                <button class="icon-btn" type="button" aria-label="Preview">
+                <button class="icon-btn" type="button">
                     <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                         <use href="#icon-play-16"></use>
                     </svg>
@@ -118,7 +118,7 @@ export const videoRTL = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card" dir="rtl">
             <div class="file-preview-card__body">
-                <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
+                <video src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" />
             </div>
             <div class="file-preview-card__menu-action">
                 <button class="icon-btn" type="button" aria-label="Open menu">
@@ -128,7 +128,7 @@ export const videoRTL = () => `
                 </button>
             </div>
             <div class="file-preview-card__preview-action">
-                <button class="icon-btn" type="button" aria-label="Preview">
+                <button class="icon-btn" type="button">
                     <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                         <use href="#icon-play-16"></use>
                     </svg>
@@ -155,7 +155,7 @@ export const document = () => `
                 </button>
             </div>
             <div class="file-preview-card__preview-action">
-                <button class="icon-btn" type="button" aria-label="Preview">
+                <button class="icon-btn" type="button">
                     <span class="file-preview-card__preview-action-text">CSV</span>
                 </button>
             </div>
@@ -170,7 +170,7 @@ export const seeMore = () => `
                 <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
             </div>
             <div class="file-preview-card__body-action">
-                <button class="icon-btn" type="button" aria-label="See more">
+                <button class="icon-btn" type="button">
                     <span>+15</span>
                 </button>
             </div>
@@ -185,7 +185,7 @@ export const seeMoreRTL = () => `
                 <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
             </div>
             <div class="file-preview-card__body-action">
-                <button class="icon-btn" type="button" aria-label="See more">
+                <button class="icon-btn" type="button">
                     <span>+15</span>
                 </button>
             </div>

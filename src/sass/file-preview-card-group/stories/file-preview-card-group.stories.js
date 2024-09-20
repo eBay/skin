@@ -75,7 +75,7 @@ const docWithTitleAndDescription = () => `
             </button>
         </div>
         <div class="file-preview-card__preview-action">
-            <button class="icon-btn" type="button" aria-label="Preview">
+            <button class="icon-btn" type="button">
                 <span class="file-preview-card__preview-action-text">CSV</span>
             </button>
         </div>
