@@ -5,10 +5,7 @@ export const base = () => `
         <input id="file-upload-input-1" class="file-upload-input__input" type="file" multiple/>
         <div class="file-upload-input__container">
             <div class="file-upload-input__upload-icon">
-                <svg class="icon file-upload-input__upload-icon-small" aria-hidden="true">   
-                    <use href="#icon-upload-16"></use>
-                </svg>
-                <svg class="icon file-upload-input__upload-icon-large" aria-hidden="true">   
+                <svg class="icon" aria-hidden="true">   
                     <use href="#icon-upload-24"></use>
                 </svg>
             </div>
@@ -28,10 +25,7 @@ export const draggedOver = () => `
         <input id="file-upload-input-1" class="file-upload-input__input" type="file" multiple/>
         <div class="file-upload-input__container file-upload-input___container--dragged-over">
             <div class="file-upload-input__upload-icon">
-                <svg class="icon file-upload-input__upload-icon-small" aria-hidden="true">   
-                    <use href="#icon-upload-16"></use>
-                </svg>
-                <svg class="icon file-upload-input__upload-icon-large" aria-hidden="true">   
+                <svg class="icon" aria-hidden="true">   
                     <use href="#icon-upload-24"></use>
                 </svg>
             </div>
@@ -51,10 +45,7 @@ export const RTL = () => `
         <input id="file-upload-input-1" class="file-upload-input__input" type="file" multiple/>
         <div class="file-upload-input__container">
             <div class="file-upload-input__upload-icon">
-                <svg class="icon file-upload-input__upload-icon-small" aria-hidden="true">   
-                    <use href="#icon-upload-16"></use>
-                </svg>
-                <svg class="icon file-upload-input__upload-icon-large" aria-hidden="true">   
+                <svg class="icon" aria-hidden="true">   
                     <use href="#icon-upload-24"></use>
                 </svg>
             </div>

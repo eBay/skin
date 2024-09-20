@@ -1,25 +1,23 @@
 @import "../variables/variables";
 
-:root {
-    // Naming Convention:
-    // prefixes (--row-[prefix]):
-    //    card = card variation
-    // suffixes map with breakpoints:
-    //    - "min" indicates default (smallest screen)
-    //    - custom ones are called out
-    //    - all lowercase (i.e. "min")
-    //    - pixel values
+// Naming Convention:
+// prefixes ($_row-[prefix]):
+//    card = card variation
+// suffixes map with breakpoints:
+//    - "min" indicates default (smallest screen)
+//    - custom ones are called out
+//    - all lowercase (i.e. "min")
+//    - pixel values
 
-    // Minimal Layout (default)
-    --row-preview-cards-min: 2;
-    --row-preview-cards-sm: 4;
-    --row-preview-cards-md: 5;
-    --row-preview-cards-lg: 7;
-    --row-preview-cards-xl: 9;
-    --row-preview-cards-xl2: 10;
-    --row-preview-cards-xl3: 12;
-    --row-preview-cards-xl4: 14;
-}
+// Minimal Layout (default)
+$_row-preview-cards-min: 2;
+$_row-preview-cards-sm: 4;
+$_row-preview-cards-md: 5;
+$_row-preview-cards-lg: 7;
+$_row-preview-cards-xl: 9;
+$_row-preview-cards-xl2: 10;
+$_row-preview-cards-xl3: 12;
+$_row-preview-cards-xl4: 14;
 
 div.file-preview-card-group {
     container: file-preview-cards-container / inline-size;
@@ -27,8 +25,8 @@ div.file-preview-card-group {
 
 div.file-preview-card-group ul {
     display: grid;
-    gap: var(--spacing-100, 8px);
-    grid-template-columns: repeat(var(--row-preview-cards-min), 1fr);
+    gap: var(--spacing-100);
+    grid-template-columns: repeat($_row-preview-cards-min, 1fr);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -42,99 +40,99 @@ div.file-preview-card-group ul li {
 @supports not (contain: inline-size) {
     @media (min-width: $_screen-size-SM) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-100, 8px);
-            grid-template-columns: repeat(var(--row-preview-cards-sm), 1fr);
+            gap: var(--spacing-100);
+            grid-template-columns: repeat($_row-preview-cards-sm, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-MD) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-md), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-md, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-LG) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-lg), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-lg, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-XL) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-xl), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-xl, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-XL2) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-xl2), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-xl2, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-XL3) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-xl3), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-xl3, 1fr);
         }
     }
 
     @media (min-width: $_screen-size-XL4) {
         div.file-preview-card-group ul {
-            gap: var(--spacing-200, 16px);
-            grid-template-columns: repeat(var(--row-preview-cards-xl4), 1fr);
+            gap: var(--spacing-200);
+            grid-template-columns: repeat($_row-preview-cards-xl4, 1fr);
         }
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-SM}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-100, 8px);
-        grid-template-columns: repeat(var(--row-preview-cards-sm), 1fr);
+        gap: var(--spacing-100);
+        grid-template-columns: repeat($_row-preview-cards-sm, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-MD}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-md), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-md, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-LG}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-lg), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-lg, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-XL}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-xl), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-xl, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-XL2}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-xl2), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-xl2, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-XL3}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-xl3), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-xl3, 1fr);
     }
 }
 
 @container file-preview-cards-container (inline-size >= #{$_screen-size-XL4}) {
     div.file-preview-card-group ul {
-        gap: var(--spacing-200, 16px);
-        grid-template-columns: repeat(var(--row-preview-cards-xl4), 1fr);
+        gap: var(--spacing-200);
+        grid-template-columns: repeat($_row-preview-cards-xl4, 1fr);
     }
 }
