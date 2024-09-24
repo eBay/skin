@@ -6,7 +6,7 @@ export const base = () => `
         <thead>
             <tr>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -14,7 +14,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Item
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -22,7 +22,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Image
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -30,7 +30,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         List Price
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -38,7 +38,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Quantity Available
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -46,7 +46,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Orders
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -54,7 +54,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Watchers
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -62,7 +62,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Protection
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -70,7 +70,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>
@@ -78,7 +78,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Delivery
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -284,7 +284,7 @@ export const compact = () => `
         <thead>
             <tr>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -292,7 +292,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Item
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -300,7 +300,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Image
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -308,7 +308,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         List Price
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -316,7 +316,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Quantity Available
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -324,7 +324,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Orders
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -332,7 +332,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Watchers
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -340,7 +340,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Protection
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -348,7 +348,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>
@@ -356,7 +356,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Delivery
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -562,7 +562,7 @@ export const relaxed = () => `
         <thead>
             <tr>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -570,7 +570,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Item
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -578,7 +578,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Image
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -586,7 +586,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         List Price
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -594,7 +594,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Quantity Available
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -602,7 +602,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Orders
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -610,7 +610,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Watchers
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -618,7 +618,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell table-cell--numeric">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Protection
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
@@ -626,7 +626,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>
@@ -634,7 +634,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell">
-                    <button type="button" class="btn btn--borderless">
+                    <button type="button">
                         Delivery
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-12"></use>
