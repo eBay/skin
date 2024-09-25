@@ -63,7 +63,7 @@ const landscapeImage = () => `
 const docWithTitleAndDescription = () => `
     <div class="file-preview-card">
         <div class="file-preview-card__body">
-            <svg class="icon file-preview-card__general-icon" aria-hidden="true">
+            <svg class="icon file-preview-card__document-icon" aria-hidden="true">
                 <use href="#icon-file-24"></use>
             </svg>
         </div>
@@ -74,11 +74,11 @@ const docWithTitleAndDescription = () => `
                 </svg>
             </button>
         </div>
-        <div class="file-preview-card__preview-action">
+        <!-- <div class="file-preview-card__preview-action">
             <button class="icon-btn" type="button">
                 <span class="file-preview-card__preview-action-text">CSV</span>
             </button>
-        </div>
+        </div> -->
     </div>
     <div style="display: grid">
         <span style="color: var(--color-foreground-primary, #191919); font-size: var(--font-size-14); font-weight: 400; line-height: var(--spacing-250, 20px); margin-top: var(--spacing-100, 8px);">some.csv</span>
