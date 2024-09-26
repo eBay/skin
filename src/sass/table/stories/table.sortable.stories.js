@@ -1,4 +1,4 @@
-export default { title: "Skin/Table" };
+export default { title: "Skin/Table/Sortable" };
 
 export const base = () => `
 <div class="table" role="group" aria-label="Video games for sale" tabindex="0">
@@ -195,16 +195,86 @@ export const compact = () => `
     <table>
         <thead>
             <tr>
-                <th class="table-cell">Seller</th>
-                <th class="table-cell">Item</th>
-                <th class="table-cell">Status</th>
-                <th class="table-cell table-cell--numeric">List Price</th>
-                <th class="table-cell table-cell--numeric">Quantity Available</th>
-                <th class="table-cell">Orders</th>
-                <th class="table-cell table-cell--numeric">Watchers</th>
-                <th class="table-cell table-cell--numeric">Protection</th>
-                <th class="table-cell">Shipping</th>
-                <th class="table-cell">Delivery</th>
+                <th class="table-cell">
+                    <button type="button">
+                        Seller
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-down-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Item
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Status
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        List Price
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Quantity Available
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Orders
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Watchers
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Protection
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Shipping
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-up-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Delivery
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -385,16 +455,86 @@ export const relaxed = () => `
     <table>
         <thead>
             <tr>
-                <th class="table-cell">Seller</th>
-                <th class="table-cell">Item</th>
-                <th class="table-cell">Status</th>
-                <th class="table-cell table-cell--numeric">List Price</th>
-                <th class="table-cell table-cell--numeric">Quantity Available</th>
-                <th class="table-cell">Orders</th>
-                <th class="table-cell table-cell--numeric">Watchers</th>
-                <th class="table-cell table-cell--numeric">Protection</th>
-                <th class="table-cell">Shipping</th>
-                <th class="table-cell">Delivery</th>
+                <th class="table-cell">
+                    <button type="button">
+                        Seller
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-down-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Item
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Status
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        List Price
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Quantity Available
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Orders
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Watchers
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button">
+                        Protection
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Shipping
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-up-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button">
+                        Delivery
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
             </tr>
         </thead>
         <tbody>
