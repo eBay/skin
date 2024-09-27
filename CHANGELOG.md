@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.2.4
+
+### Patch Changes
+
+-   [`cb02ebc`](https://github.com/eBay/skin/commit/cb02ebc2ddcce3620579d4cca094d979dd59edd7) Thanks [@agliga](https://github.com/agliga)! - fix: added gh to ignore list
+
 ## 18.2.3
 
 ### Patch Changes
