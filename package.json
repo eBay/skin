@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "18.2.0",
+    "version": "18.2.4",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -14,6 +14,16 @@
         "type": "git",
         "url": "https://github.com/eBay/skin"
     },
+    "files": [
+        "dist",
+        "tokens",
+        "./*\\.{js,css,scss,less,json,mjs}",
+        "!.prettierrc.json",
+        "!webpack.config.js",
+        "!postcss.config.js",
+        "!vite.config.js",
+        "!webpack.config.js"
+    ],
     "scripts": {
         "prepare": "husky install",
         "preview": "marko-run preview",
@@ -35,7 +45,7 @@
         "lint:js": "eslint 'src/routes/main.js' > lint.log && eslint 'src/sass/**/stories/*.js' >> lint.log ",
         "format": "npx prettier --write .",
         "copy": "npm run copy:sassToDist && npm run copy:svgToDist && npm run copy:svgToDocs && npm run copy:tokensToDist",
-        "copy:sassToDist": "mkdirp dist/variables && ncp src/sass/variables dist/variables && mkdirp dist/mixins && ncp src/sass/mixins/public dist/mixins",
+        "copy:sassToDist": "mkdirp dist/variables && ncp src/sass/variables dist/variables && mkdirp dist/mixins && ncp src/sass/mixins/public dist/mixins && ncp src/sass/gh dist/gh",
         "copy:assetsToStorybook": "node scripts storybook-copy",
         "copy:svgToDist": "mkdirp dist/svg && ncp src/svg dist/svg",
         "copy:svgToDocs": "ncp src/svg src/routes/static && ncp src/svg/icons.svg src/components/master-icons.marko",

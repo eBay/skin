@@ -1,5 +1,31 @@
 # Skin Changelog
 
+## 18.2.4
+
+### Patch Changes
+
+-   [`cb02ebc`](https://github.com/eBay/skin/commit/cb02ebc2ddcce3620579d4cca094d979dd59edd7) Thanks [@agliga](https://github.com/agliga)! - fix: added gh to ignore list
+
+## 18.2.3
+
+### Patch Changes
+
+-   [#2452](https://github.com/eBay/skin/pull/2452) [`648554e`](https://github.com/eBay/skin/commit/648554ea476f5032b1a7a0ca274a773e98ac9e83) Thanks [@agliga](https://github.com/agliga)! - fix: gh-browser updated paths to point to dist
+
+-   [`31ff6e6`](https://github.com/eBay/skin/commit/31ff6e6a90e08d529ff9c3218ade8c3a4cfd5618) Thanks [@agliga](https://github.com/agliga)! - fix: added autoprefixer ignore to carousel
+
+## 18.2.2
+
+### Patch Changes
+
+-   [`99e82f5`](https://github.com/eBay/skin/commit/99e82f525aabe2d7827235ec3ce411b7157450a8) Thanks [@agliga](https://github.com/agliga)! - chore: added tokens folder to published code
+
+## 18.2.1
+
+### Patch Changes
+
+-   [#2436](https://github.com/eBay/skin/pull/2436) [`8c7b0ea`](https://github.com/eBay/skin/commit/8c7b0ea2e685be4d5e9b6324f365a893dcc8c275) Thanks [@agliga](https://github.com/agliga)! - chore: updated which files should be published
+
 ## 18.2.0
 
 ### Minor Changes
