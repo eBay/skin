@@ -1,5 +1,25 @@
 # Skin Changelog
 
+## 18.3.0
+
+### Minor Changes
+
+-   [#2441](https://github.com/eBay/skin/pull/2441) [`ed9a37a`](https://github.com/eBay/skin/commit/ed9a37a4d9bf4e2f050a8b222045d48aceed248a) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(lightbox): add divider over footer
+
+-   [#2435](https://github.com/eBay/skin/pull/2435) [`102ea39`](https://github.com/eBay/skin/commit/102ea39d6708f42a36ebaa03f667688672cb6e64) Thanks [@kentokage](https://github.com/kentokage)! - feat(file-upload): new module
+
+-   [#2446](https://github.com/eBay/skin/pull/2446) [`2ecde2f`](https://github.com/eBay/skin/commit/2ecde2f9adb5fb046404ee224a52ed044f2241a5) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): modified and added icons
+
+-   [#2440](https://github.com/eBay/skin/pull/2440) [`9ca9bd3`](https://github.com/eBay/skin/commit/9ca9bd3c8b969797189bb4b0fcc04ece37e632da) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(tourtip): improve contrast of tip container
+
+-   [#2442](https://github.com/eBay/skin/pull/2442) [`d330c82`](https://github.com/eBay/skin/commit/d330c82b06107040212c6920f4b297f9c3fb0005) Thanks [@saiponnada](https://github.com/saiponnada)! - docs(tokens): add primitive token disclaimer
+
+-   [#2449](https://github.com/eBay/skin/pull/2449) [`b2dfcf1`](https://github.com/eBay/skin/commit/b2dfcf1c360dd11b652c02a4e44dce28453f6798) Thanks [@saiponnada](https://github.com/saiponnada)! - fix(button): update focus outline and offset
+
+-   [#2448](https://github.com/eBay/skin/pull/2448) [`88c1091`](https://github.com/eBay/skin/commit/88c1091c4c4f58ba8e950ff94bb5182c3cd26134) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(icon-button): refactored and fixed focus
+
+-   [#2444](https://github.com/eBay/skin/pull/2444) [`5e59592`](https://github.com/eBay/skin/commit/5e59592ab993b33db82074ff375f2172c852e87d) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(table): added sorting, cell types, actions, and inputs
+
 ## 18.2.4
 
 ### Patch Changes
