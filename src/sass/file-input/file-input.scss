@@ -1,37 +1,28 @@
 @import "../variables/variables";
 @import "../mixins/private/token-mixins";
 
-div.file-upload-input {
+div.file-input {
     display: grid;
     grid-template-areas: "center";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
 
-input.file-upload-input__input[type="file"] {
-    @include border-radius-token(
-        file-upload-input-border-radius,
-        border-radius-100
-    );
+input.file-input__input[type="file"] {
+    @include border-radius-token(file-input-border-radius, border-radius-100);
 
     grid-area: center;
 }
 
-div.file-upload-input__container {
+div.file-input__container {
     @include background-color-token(
-        file-upload-input-background-color,
+        file-input-background-color,
         color-background-secondary
     );
 
-    @include border-radius-token(
-        file-upload-input-border-radius,
-        border-radius-100
-    );
+    @include border-radius-token(file-input-border-radius, border-radius-100);
 
-    @include border-color-token(
-        file-upload-input-border-color,
-        color-neutral-500
-    );
+    @include border-color-token(file-input-border-color, color-neutral-500);
 
     border: 1px dashed;
     display: flex;
@@ -43,16 +34,16 @@ div.file-upload-input__container {
     pointer-events: none;
 }
 
-div.file-upload-input___container--dragged-over {
+div.file-input___container--dragged-over {
     @include background-color-token(
-        file-upload-input-dragged-over-background-color,
+        file-input-dragged-over-background-color,
         color-background-tertiary
     );
 }
 
-div.file-upload-input__upload-icon {
+div.file-input__upload-icon {
     @include background-color-token(
-        file-upload-input-upload-icon-background-color,
+        file-input-upload-icon-background-color,
         color-background-primary
     );
 
@@ -61,17 +52,14 @@ div.file-upload-input__upload-icon {
     padding: var(--spacing-150);
 }
 
-div.file-upload-input__upload-icon svg {
-    @include fill-token(
-        file-upload-input-upload-icon-fill,
-        color-foreground-primary
-    );
+div.file-input__upload-icon svg {
+    @include fill-token(file-input-upload-icon-fill, color-foreground-primary);
 
     height: var(--spacing-300);
     width: var(--spacing-300);
 }
 
-div.file-upload-input__content {
+div.file-input__content {
     align-items: start;
     display: flex;
     flex-direction: column;
@@ -79,9 +67,9 @@ div.file-upload-input__content {
     justify-content: center;
 }
 
-span.file-upload-input__content-header {
+span.file-input__content-header {
     @include color-token(
-        file-upload-input-content-header-color,
+        file-input-content-header-color,
         color-foreground-primary
     );
 
@@ -91,9 +79,9 @@ span.file-upload-input__content-header {
     margin-block-end: var(--spacing-50);
 }
 
-span.file-upload-input__content-subheader {
+span.file-input__content-subheader {
     @include color-token(
-        file-upload-input-content-subheader-color,
+        file-input-content-subheader-color,
         color-foreground-secondary
     );
 
@@ -103,26 +91,26 @@ span.file-upload-input__content-subheader {
     margin-block-end: var(--spacing-100);
 }
 
-span.file-upload-input__content-cta {
+span.file-input__content-cta {
     text-decoration-line: underline;
 }
 
 @media screen and (min-width: $_screen-size-MD) {
-    div.file-upload-input__container {
+    div.file-input__container {
         gap: var(--spacing-300);
         padding: var(--spacing-300);
     }
 
-    div.file-upload-input__upload-icon {
+    div.file-input__upload-icon {
         padding: var(--spacing-300);
     }
 
-    span.file-upload-input__content-header {
+    span.file-input__content-header {
         font-size: var(--font-size-16);
         line-height: var(--spacing-300);
     }
 
-    span.file-upload-input__content-subheader {
+    span.file-input__content-subheader {
         font-size: var(--font-size-14);
         line-height: var(--spacing-250);
     }
