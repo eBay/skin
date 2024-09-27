@@ -18,9 +18,9 @@ span.tourtip {
     @include bubble-mask(border-radius-100);
     @include background-color-token(
         tourtip-background-color,
-        color-background-elevated
+        color-background-inverse
     );
-    @include color-token(tourtip-foreground-color, color-foreground-primary);
+    @include color-token(tourtip-foreground-color, color-foreground-on-inverse);
 }
 
 span.tourtip__mask {
@@ -35,7 +35,7 @@ span.tourtip__mask {
     a {
         @include color-token(
             tourtip-foreground-color,
-            color-foreground-primary
+            color-foreground-on-inverse
         );
 
         &:focus {
@@ -54,13 +54,20 @@ button.tourtip__close {
     @include bubble-close();
 
     outline-offset: -2px;
+
+    svg.icon {
+        @include fill-token(
+            tourtip-foreground-color,
+            color-foreground-on-inverse
+        );
+    }
 }
 
 .tourtip__pointer {
     @include pointer-base();
     @include background-color-token(
         tourtip-background-color,
-        color-background-elevated
+        color-background-inverse
     );
 }
 
@@ -134,28 +141,33 @@ span.tourtip__heading {
     width: 100%;
 }
 
+.tourtip__footer > button.btn--primary {
+    @include background-color-token(
+        tourtip-background-color,
+        color-foreground-on-inverse
+    );
+    @include color-token(tourtip-foreground-color, color-background-inverse);
+}
+
 .tourtip__footer > button:not(:last-child),
 .tourtip__footer > a:not(:last-child) {
-    margin-right: 8px;
+    margin-right: var(--spacing-200);
 }
 
 /* stylelint-disable no-descending-specificity */
 /* TODO need to remove this once we update fake-links/links to allow no underline and black text */
 .tourtip__footer > .fake-link,
 .tourtip__footer > a {
-    color: var(--color-foreground-primary);
+    color: var(--color-foreground-on-inverse);
     text-decoration: none;
 
     &:hover:not(:disabled) {
-        color: var(--color-foreground-primary);
+        color: var(--color-foreground-on-inverse);
         text-decoration: underline;
     }
 }
 /* stylelint-enable no-descending-specificity */
-
 .tourtip__index {
-    @include color-token(tourtip-index-color, color-foreground-secondary);
-
     flex: 1;
 }
 

@@ -18,11 +18,6 @@
 
     bottom: 0;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.28);
-    @include color-token(
-        toast-dialog-foreground-color,
-        color-foreground-on-information
-    );
-
     left: 0;
     max-height: 40vh;
     min-width: 320px;
@@ -32,6 +27,10 @@
     width: 100vw;
     will-change: opacity, transform;
     z-index: 2;
+    @include color-token(
+        toast-dialog-foreground-color,
+        color-foreground-on-information
+    );
 }
 
 .toast-dialog a {
@@ -85,17 +84,15 @@ button.toast-dialog__close {
     align-self: flex-start;
     border: 0;
     flex-shrink: 0;
+    margin-inline-start: auto;
+    padding: 0;
     @include color-token(
         toast-dialog-foreground-color,
         color-foreground-on-information
     );
-    /* margin: 0 0 0 auto; */
-    margin-inline-start: auto;
-    outline-offset: calc(var(--spacing-100) * -1);
-    padding: 0;
 
     &:focus {
-        outline: 1px dashed white;
+        outline: 2px solid var(--color-foreground-on-information);
     }
 
     &:hover,
@@ -141,18 +138,17 @@ button.toast-dialog__close > svg {
 
     button.btn--secondary {
         background-color: transparent;
+        font-weight: 700;
+        margin-inline-end: var(--spacing-100);
         @include color-token(
             toast-dialog-foreground-color,
             color-background-primary
         );
-
-        font-weight: 700;
-        margin-inline-end: var(--spacing-100);
     }
 
     button.btn--primary:focus,
     button.btn--secondary:focus {
-        outline: 1px dashed var(--color-foreground-on-information);
+        outline: 2px solid var(--color-foreground-on-information);
     }
 
     button.btn--primary:not([disabled]) {

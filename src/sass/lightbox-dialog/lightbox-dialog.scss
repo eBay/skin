@@ -28,6 +28,9 @@
 
 .lightbox-dialog__footer {
     @include dialog-footer-content();
+
+    border-top: 1px solid
+        var(--dialog-lightbox-separator-color, var(--color-stroke-subtle));
 }
 
 .lightbox-dialog__image {
@@ -199,8 +202,8 @@ button.icon-btn.lightbox-dialog__prev {
 .lightbox-dialog--fullscreen .lightbox-dialog__window,
 .lightbox-dialog--large .lightbox-dialog__window {
     align-self: center;
-    margin: var(--spacing-100);
     height: 70%;
+    margin: var(--spacing-100);
 
     // This is needed like this becuase max-height 100% would cause a scroll overflow
     max-height: 95%;
@@ -208,11 +211,11 @@ button.icon-btn.lightbox-dialog__prev {
 
 @media (max-width: $_screen-size-SM) {
     .lightbox-dialog--large .lightbox-dialog__window {
-        width: 100%;
         height: 95%;
 
         // This is needed like this becuase max-height 100% would cause a scroll overflow
         max-height: 95%;
+        width: 100%;
     }
 
     .lightbox-dialog--fullscreen .lightbox-dialog__window {
