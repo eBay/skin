@@ -166,7 +166,7 @@ export const document = () => `
 export const seeMore = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card">
-            <div class="file-preview-card__body file-preview-card__body--see-more">
+            <div class="file-preview-card__body file-preview-card__body--fade">
                 <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
             </div>
             <div class="file-preview-card__body-action">
@@ -181,7 +181,7 @@ export const seeMore = () => `
 export const seeMoreRTL = () => `
     <div style="height: 168px; width: 168px;">
         <div class="file-preview-card" dir="rtl">
-            <div class="file-preview-card__body file-preview-card__body--see-more">
+            <div class="file-preview-card__body file-preview-card__body--fade">
                 <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
             </div>
             <div class="file-preview-card__body-action">
