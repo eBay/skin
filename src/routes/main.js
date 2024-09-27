@@ -793,6 +793,33 @@ document.querySelectorAll(".toggle-button").forEach(function (elToggleButton) {
             });
         });
 })();
+// FILE-PREVIEW-CARD-GROUP
+(function () {
+    // Responsive Demos
+    const sFilePreviewCardGroupDemoSelector =
+            ".file-preview-card-group-responsive-demo",
+        sRangeSelector = ".file-preview-card-group-breakpoints-range",
+        sRangeOutputSelector = ".file-preview-card-group-breakpoints-output",
+        sDemoContainerSelector =
+            ".file-preview-card-group-breakpoints-container";
+    document
+        .querySelectorAll(sFilePreviewCardGroupDemoSelector)
+        .forEach(function (eFilePreviewCardGroupDemo) {
+            const elRange =
+                    eFilePreviewCardGroupDemo.querySelector(sRangeSelector),
+                elOutput =
+                    eFilePreviewCardGroupDemo.querySelector(
+                        sRangeOutputSelector,
+                    ),
+                elDemoBox = eFilePreviewCardGroupDemo.querySelector(
+                    sDemoContainerSelector,
+                );
+            elRange.addEventListener("input", function (e) {
+                elOutput.textContent = e.target.value;
+                elDemoBox.style.width = `${e.target.value}px`;
+            });
+        });
+})();
 // CHARACTER-METER-COUNTER
 const debouncedKeydown = debounce(function (elInput, elMeterText) {
     let ariaLive = "off";
