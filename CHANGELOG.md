@@ -1,5 +1,13 @@
 # Skin Changelog
 
+## 18.2.3
+
+### Patch Changes
+
+-   [#2452](https://github.com/eBay/skin/pull/2452) [`648554e`](https://github.com/eBay/skin/commit/648554ea476f5032b1a7a0ca274a773e98ac9e83) Thanks [@agliga](https://github.com/agliga)! - fix: gh-browser updated paths to point to dist
+
+-   [`31ff6e6`](https://github.com/eBay/skin/commit/31ff6e6a90e08d529ff9c3218ade8c3a4cfd5618) Thanks [@agliga](https://github.com/agliga)! - fix: added autoprefixer ignore to carousel
+
 ## 18.2.2
 
 ### Patch Changes
