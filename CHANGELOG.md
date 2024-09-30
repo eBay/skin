@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.3.2
+
+### Patch Changes
+
+-   [`477a4a0`](https://github.com/eBay/skin/commit/477a4a060ad322e56183caf4eb2dc5e72452e893) Thanks [@agliga](https://github.com/agliga)! - fix: reverted eek linting issue and fixed gh paths
+
 ## 18.3.1
 
 ### Patch Changes
