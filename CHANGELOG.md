@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.3.1
+
+### Patch Changes
+
+-   [`9bb257a`](https://github.com/eBay/skin/commit/9bb257a0137e4b1424af0d580bee4aac885bb2a3) Thanks [@agliga](https://github.com/agliga)! - fix: gh mixins path
+
 ## 18.3.0
 
 ### Minor Changes
