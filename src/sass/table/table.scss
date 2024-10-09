@@ -1,4 +1,5 @@
 @import "../variables/variables";
+@import "../mixins/public/utility-mixins";
 
 /* these exclude the top/bottom padding */
 $density-compact-cell-height: 64px;
@@ -21,9 +22,12 @@ $density-default-img-radius: 8px;
 $density-relaxed-img-radius: 8px;
 
 .table {
+    max-height: 90vh;
     overflow-x: auto;
     position: relative;
 }
+
+@include scrollbars-permanent(".table");
 
 .table table {
     border-collapse: collapse;
@@ -62,6 +66,34 @@ $density-relaxed-img-radius: 8px;
     height: $density-relaxed-cell-height;
     max-height: $density-relaxed-cell-height;
     padding: $density-relaxed-padding;
+}
+
+.table--frozen-header thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table--freeze-column-1 tr th:nth-child(-n + 1),
+.table--freeze-column-1 tr td:nth-child(-n + 1) {
+    left: 0;
+    position: sticky;
+}
+
+.table--freeze-column-2 tr th:nth-child(-n + 2),
+.table--freeze-column-2 tr td:nth-child(-n + 2) {
+    left: 0;
+    position: sticky;
+}
+
+.table--freeze-column-3 tr th:nth-child(-n + 3),
+.table--freeze-column-3 tr td:nth-child(-n + 3) {
+    left: 0;
+    position: sticky;
+}
+
+.table--full-height {
+    max-height: unset;
 }
 
 .table th button {
@@ -130,6 +162,11 @@ $density-relaxed-img-radius: 8px;
     min-width: 48px;
     text-align: center;
     width: 48px;
+}
+/* Not sure of downstream dev consumers' ability to utilize this.
+   Convert to long-hand if problematic. */
+.table--mode-selection tr:has(input:checked) :where(td, th) {
+    background-color: var(--color-background-secondary);
 }
 
 .table tbody th {
