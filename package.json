@@ -1,7 +1,7 @@
 {
     "name": "@ebay/skin",
     "description": "Skin - CSS modules that represent the brand eBay",
-    "version": "18.3.0",
+    "version": "18.3.2",
     "license": "MIT",
     "main": "./index.js",
     "maintainers": [
@@ -30,6 +30,7 @@
         "start": "marko-run",
         "test": "npm run build:css",
         "deploy": "node scripts/jekyll-config && BASE_URL=/skin/ marko-run build -o ./_site && npm run build:storybook && ncp docs/archive _site/archive && touch _site/.nojekyll",
+        "deploy:only": "node scripts/jekyll-config && marko-run build -o ./_site && npm run build:storybook && ncp docs/archive _site/archive && touch _site/.nojekyll",
         "prebuild": "npm run clean",
         "prepublishOnly": "node scripts gen",
         "postpublish": "node scripts clean",
