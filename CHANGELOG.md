@@ -1,5 +1,17 @@
 # Skin Changelog
 
+## 18.4.0-next.0
+
+### Minor Changes
+
+-   [#2461](https://github.com/eBay/skin/pull/2461) [`9d93be8`](https://github.com/eBay/skin/commit/9d93be8331f466f4282a13176d62c62b7783cad4) Thanks [@agliga](https://github.com/agliga)! - chore: removed unused storybook files (and percy workflow)
+
+-   [#2459](https://github.com/eBay/skin/pull/2459) [`dfe9615`](https://github.com/eBay/skin/commit/dfe9615a912c8616cf944c4e5d64f3a1884b4055) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): added and modified icons
+
+### Patch Changes
+
+-   [#2463](https://github.com/eBay/skin/pull/2463) [`a83ea89`](https://github.com/eBay/skin/commit/a83ea898466193fa54cb631aa15473afe5d7b30d) Thanks [@agliga](https://github.com/agliga)! - feat(eek): updated size
+
 ## 18.3.2
 
 ### Patch Changes
