@@ -141,18 +141,18 @@ export const action = () => `
         </li>
         <li>
             <div>
-                <span class="list__body">
+                <span class="list__body" id="switch-in-list">
                     Item 1 with an action
                 </span>
                 <span class="list__trailing">
                     <span class="switch">
                         <input
-                            aria-label="Checkbox switch demo"
+                            aria-labelledby="switch-in-list"
                             class="switch__control"
                             role="switch"
                             type="checkbox"
                             aria-checked="false"
-                        >
+                        />
                         <span class="switch__button"/>
                     </span>
                 </span>
