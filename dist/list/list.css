@@ -2,7 +2,13 @@
     max-width: 480px;
 }
 
-.list__item {
+.list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list ul li > * {
     align-items: center;
     background-color: var(
         --list-background-color,
@@ -29,35 +35,38 @@
     flex: 1;
 }
 
-.list a.list__item,
-.list button.list__item {
+.list li > a,
+.list li > button {
     border: none;
     text-align: left;
     text-decoration: none;
 }
 
-.list a.list__item:focus,
-.list a.list__item:hover,
-.list button.list__item:focus,
-.list button.list__item:hover {
-    background-color: var(
-        --list-background-hover-color,
-        var(--color-state-primary-hover)
-    );
+.list li > a:focus,
+.list li > a:hover,
+.list li > button:focus,
+.list li > button:hover {
     color: var(--color-foreground-on-primary);
 }
 
-.list a.list__item:active,
-.list button.list__item:active {
+.list li > a:active,
+.list li > a:focus,
+.list li > a:hover,
+.list li > button:active,
+.list li > button:focus,
+.list li > button:hover {
     background-color: var(
         --list-background-hover-color,
         var(--color-state-primary-hover)
     );
 }
 
-.list__divider {
+.list hr {
+    border: 0;
     border-top: 1px solid var(--color-stroke-subtle);
+    height: 1px;
     margin: 0 var(--spacing-200);
+    padding: 0;
 }
 
 [dir="rtl"] .list__leading {
@@ -68,7 +77,7 @@
     margin-left: inherit;
     margin-right: var(--spacing-200);
 }
-[dir="rtl"] .list a.list__item,
-[dir="rtl"] .list button.list__item {
+[dir="rtl"] .list li > a,
+[dir="rtl"] .list li > button {
     text-align: right;
 }
