@@ -13,22 +13,15 @@
         --file-preview-card-border-radius,
         var(--border-radius-100)
     );
-    box-sizing: border-box;
-    display: grid;
-    grid-template-areas: " . . action " " . counter . " " signal . . ";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    height: 100%;
+    display: flex;
     max-width: 396px;
+    min-height: 120px;
     min-width: 120px;
-    width: 100%;
+    position: relative;
 }
 
 .file-preview-card__asset {
-    align-self: center;
-    display: flex;
-    grid-area: 1/1/4/4;
-    justify-self: center;
+    margin: auto;
 }
 
 img.file-preview-card__asset,
@@ -53,10 +46,10 @@ video.file-preview-card__asset {
 }
 
 .icon-btn.file-preview-card__action {
-    grid-area: action;
     height: var(--spacing-400);
-    justify-self: end;
-    margin: var(--spacing-100);
+    position: absolute;
+    right: var(--spacing-100);
+    top: var(--spacing-100);
     width: var(--spacing-400);
     z-index: 1;
 }
@@ -68,35 +61,34 @@ video.file-preview-card__asset {
     );
 }
 
-.file-preview-card__label {
+.file-preview-card__info {
     align-items: center;
-    align-self: end;
     background-color: var(
-        --file-preview-card-signal-background-color,
+        --file-preview-card-info-background-color,
         var(--color-background-primary)
     );
     border-radius: 1em;
+    bottom: var(--spacing-100);
     display: flex;
     font-size: var(--font-size-12);
     font-weight: 400;
     gap: var(--spacing-50);
-    grid-area: signal;
-    margin: var(--spacing-100);
+    left: var(--spacing-100);
     padding: var(--spacing-50) var(--spacing-100);
+    position: absolute;
     z-index: 1;
 }
 
-.file-preview-card__label > .icon {
-    height: 1em;
-    width: 1em;
+.file-preview-card__info > .icon {
+    height: var(--spacing-150);
+    width: var(--spacing-150);
 }
 
-.file-preview-card__counter {
-    align-self: center;
+.file-preview-card__see-more {
     aspect-ratio: 1/1;
     background-color: rgba(
         var(
-            --file-preview-card-counter-background-color-rgb,
+            --file-preview-card-see-more-background-color-rgb,
             var(--color-background-strong-rgb)
         ),
         0.5
@@ -104,43 +96,45 @@ video.file-preview-card__asset {
     border: none;
     border-radius: 50%;
     color: var(
-        --file-preview-card-counter-color,
+        --file-preview-card-see-more-color,
         var(--color-foreground-on-strong)
     );
     font-family: inherit;
     font-size: var(--font-size-14);
     font-weight: 700;
-    grid-area: counter;
-    justify-self: center;
+    left: 50%;
     line-height: var(--spacing-250);
     padding: var(--spacing-100);
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
 }
 
-.file-preview-card__counter:active,
-.file-preview-card__counter:focus-visible,
-.file-preview-card__counter:hover {
+.file-preview-card__see-more:active,
+.file-preview-card__see-more:focus-visible,
+.file-preview-card__see-more:hover {
     color: var(
-        --file-preview-card-counter-interactive-color,
+        --file-preview-card-see-more-interactive-color,
         var(--color-foreground-primary)
     );
 }
 
-.file-preview-card__counter:focus-visible,
-.file-preview-card__counter:hover {
+.file-preview-card__see-more:focus-visible,
+.file-preview-card__see-more:hover {
     background-color: rgba(
         var(
-            --file-preview-card-counter-interactive-background-color-rgb,
+            --file-preview-card-see-more-interactive-background-color-rgb,
             var(--color-state-secondary-hover-rgb)
         ),
         0.5
     );
 }
 
-.file-preview-card__counter:active {
+.file-preview-card__see-more:active {
     background-color: rgba(
         var(
-            --file-preview-card-counter-interactive-active-background-color-rgb,
+            --file-preview-card-see-more-interactive-active-background-color-rgb,
             var(--color-state-secondary-active-rgb)
         ),
         0.5
