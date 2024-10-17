@@ -91,7 +91,7 @@ export const video = () => `
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <div class="file-preview-card__label">
+            <div class="file-preview-card__info">
                 <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                     <use href="#icon-play-16"></use>
                 </svg>
@@ -110,7 +110,7 @@ export const videoRTL = () => `
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <div class="file-preview-card__label">
+            <div class="file-preview-card__info">
                 <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
                     <use href="#icon-play-16"></use>
                 </svg>
@@ -131,7 +131,7 @@ export const document = () => `
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <div class="file-preview-card__label">
+            <div class="file-preview-card__info">
                 CSV
             </div>
         </div>
@@ -171,7 +171,7 @@ export const withDescription = () => `
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
-            <div class="file-preview-card__label">
+            <div class="file-preview-card__info">
                 CSV
             </div>
         </div>
