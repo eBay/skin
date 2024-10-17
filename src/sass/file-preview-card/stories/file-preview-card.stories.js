@@ -142,7 +142,7 @@ export const seeMore = () => `
     <div class="file-preview-card">
         <div class="file-preview-card__body">
             <img class="file-preview-card__asset file-preview-card__asset--fade" src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
-            <button class="file-preview-card__counter" type="button">
+            <button class="file-preview-card__see-more" type="button">
                 <span>+15</span>
             </button>
         </div>
@@ -153,7 +153,7 @@ export const seeMoreRTL = () => `
     <div class="file-preview-card">
         <div class="file-preview-card__body" dir="rtl">
             <img class="file-preview-card__asset file-preview-card__asset--fade" src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
-            <button class="file-preview-card__counter" type="button">
+            <button class="file-preview-card__see-more" type="button">
                 <span>+15</span>
             </button>
         </div>
