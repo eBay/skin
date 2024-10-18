@@ -1,98 +1,89 @@
 export default { title: "Skin/File Preview Card Group" };
 
 const squareImage = () => `
-    <div class="file-preview-card">
+    <li class="file-preview-card">
         <div class="file-preview-card__body">
-            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
-        </div>
-        <div class="file-preview-card__menu-action">
-            <button class="icon-btn" type="button" aria-label="Open menu">
+            <img class="file-preview-card__asset" src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-real-square-pic.jpg" alt="Image">
+            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
         </div>
-    </div>
+    </li>
 `;
 
 const portraitImage = () => `
-    <div class="file-preview-card">
+    <li class="file-preview-card">
         <div class="file-preview-card__body">
-            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="Image">
-        </div>
-        <div class="file-preview-card__menu-action">
-            <button class="icon-btn" type="button" aria-label="Open menu">
+            <img class="file-preview-card__asset" src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg" alt="Image">
+            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
         </div>
-    </div>
-`;
-
-const portraitWithCSSImageContainBackground = () => `
-    <div class="file-preview-card">
-        <div class="file-preview-card__body">
-            <span style="height: 100%; width: 100%; background-image: url('https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-profile-pic.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain;"></span>
-        </div>
-        <div class="file-preview-card__menu-action">
-            <button class="icon-btn" type="button" aria-label="Open menu">
-                <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-overflow-vertical-16"></use>
-                </svg>
-            </button>
-        </div>
-    </div>
+    </li>
 `;
 
 const landscapeImage = () => `
-    <div class="file-preview-card">
+    <li class="file-preview-card">
         <div class="file-preview-card__body">
-            <img src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg" alt="Image">
-        </div>
-        <div class="file-preview-card__menu-action">
-            <button class="icon-btn" type="button" aria-label="Open menu">
+            <img class="file-preview-card__asset" src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg" alt="Image">
+            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
         </div>
-    </div>
+    </li>
 `;
 
-const docWithTitleAndDescription = () => `
-    <div class="file-preview-card">
+const video = () => `
+    <li class="file-preview-card">
         <div class="file-preview-card__body">
-            <svg class="icon file-preview-card__document-icon" aria-hidden="true">
-                <use href="#icon-file-24"></use>
-            </svg>
-        </div>
-        <div class="file-preview-card__menu-action">
-            <button class="icon-btn" type="button" aria-label="Open menu">
+            <video class="file-preview-card__asset" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"></video>
+            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
                 <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
                     <use href="#icon-overflow-vertical-16"></use>
                 </svg>
             </button>
+            <div class="file-preview-card__info">
+                <svg class="icon icon--12 file-preview-card__video-icon" aria-hidden="true">
+                    <use href="#icon-play-16"></use>
+                </svg>
+                0:21
+            </div>
         </div>
-        <!-- <div class="file-preview-card__preview-action">
-            <button class="icon-btn" type="button">
-                <span class="file-preview-card__preview-action-text">CSV</span>
+    </li>
+`;
+
+const withDescription = () => `
+    <li class="file-preview-card">
+        <div class="file-preview-card__body">
+            <svg class="icon file-preview-card__asset" aria-hidden="true">
+                <use href="#icon-file-24"></use>
+            </svg>
+            <button class="icon-btn file-preview-card__action" type="button" aria-label="Open menu">
+                <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
+                    <use href="#icon-overflow-vertical-16"></use>
+                </svg>
             </button>
-        </div> -->
-    </div>
-    <div style="display: grid">
-        <span style="color: var(--color-foreground-primary, #191919); font-size: var(--font-size-14); font-weight: 400; line-height: var(--spacing-250, 20px); margin-top: var(--spacing-100, 8px);">some.csv</span>
-        <span style="color: var(--color-foreground-secondary, #707070); font-size: var(--font-size-12); font-weight: 400; line-height: var(--spacing-200, 16px); margin-top: var(--spacing-50, 4px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">English, German, Spanish, French, Polish, Dutch, Italian, Japanese, Portuguese, Arabic</span>
-    </div>
+            <div class="file-preview-card__info">
+                CSV
+            </div>
+        </div>
+        <div class="file-preview-card__footer">
+          <span>countries.csv</span>
+          <span>English, German, Spanish, French, Polish, Dutch, Italian, Japanese, Portuguese, Arabic</span>
+        </div>
+    </li>
 `;
 
 export const base = () => `
     <div class="file-preview-card-group">
         <ul>
-            <li>${squareImage()}</li>
-            <li>${squareImage()}</li>
-            <li>${squareImage()}</li>
-            <li>${squareImage()}</li>
+            ${squareImage().repeat(28)}
         </ul>
     </div>
 `;
@@ -100,11 +91,11 @@ export const base = () => `
 export const mixedTypesWithDetails = () => `
     <div class="file-preview-card-group">
         <ul>
-            <li>${docWithTitleAndDescription()}</li>
-            <li>${squareImage()}</li>
-            <li>${portraitImage()}</li>
-            <li>${portraitWithCSSImageContainBackground()}</li>
-            <li>${landscapeImage()}</li>
+            ${withDescription()}
+            ${squareImage()}
+            ${portraitImage()}
+            ${video()}
+            ${landscapeImage()}
         </ul>
     </div>
 `;
@@ -112,11 +103,11 @@ export const mixedTypesWithDetails = () => `
 export const RTL = () => `
     <div class="file-preview-card-group" dir="rtl">
         <ul>
-            <li>${docWithTitleAndDescription()}</li>
-            <li>${squareImage()}</li>
-            <li>${portraitImage()}</li>
-            <li>${portraitWithCSSImageContainBackground()}</li>
-            <li>${landscapeImage()}</li>
+            ${withDescription()}
+            ${squareImage()}
+            ${portraitImage()}
+            ${video()}
+            ${landscapeImage()}
         </ul>
     </div>
 `;
@@ -125,10 +116,7 @@ export const _320container = () => `
     <div style="width: 320px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -138,14 +126,7 @@ export const _512container = () => `
     <div style="width: 512px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -155,16 +136,7 @@ export const _768container = () => `
     <div style="width: 768px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -174,20 +146,7 @@ export const _1024container = () => `
     <div style="width: 1024px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -197,24 +156,7 @@ export const _1280container = () => `
     <div style="width: 1280px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -224,26 +166,7 @@ export const _1440container = () => `
     <div style="width: 1440px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -253,30 +176,7 @@ export const _1680container = () => `
     <div style="width: 1680px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>
@@ -286,34 +186,7 @@ export const _1920container = () => `
     <div style="width: 1920px; border: 1px dashed orange;">
         <div class="file-preview-card-group">
             <ul>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
-                <li>${squareImage()}</li>
+                ${squareImage().repeat(28)}
             </ul>
         </div>
     </div>

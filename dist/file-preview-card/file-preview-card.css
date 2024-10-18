@@ -1,4 +1,9 @@
 .file-preview-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-preview-card__body {
     aspect-ratio: 1/1;
     background-color: var(
         --file-preview-card-background-color,
@@ -8,26 +13,20 @@
         --file-preview-card-border-radius,
         var(--border-radius-100)
     );
-    box-sizing: border-box;
-    display: grid;
-    grid-template-areas: " . . menu-action " " . center-action . " " label . . ";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    height: 100%;
-    max-width: 396px;
-    min-width: 120px;
-    width: 100%;
-}
-
-.file-preview-card__body {
-    align-items: center;
     display: flex;
-    grid-area: 1/1/4/4;
-    justify-content: center;
+    max-width: 396px;
+    min-height: 120px;
+    min-width: 120px;
+    position: relative;
 }
 
-.file-preview-card__body img,
-.file-preview-card__body video {
+.file-preview-card__asset {
+    margin: auto;
+}
+
+img.file-preview-card__asset,
+video.file-preview-card__asset {
+    align-self: center;
     border-radius: var(
         --file-preview-card-border-radius,
         var(--border-radius-100)
@@ -37,125 +36,132 @@
     width: 100%;
 }
 
-.file-preview-card__body--fade {
+.file-preview-card__asset--fade {
     opacity: 0.5;
 }
 
-.file-preview-card__document-icon.icon {
+.file-preview-card__asset.icon {
     height: 40%;
     width: 40%;
 }
 
-.file-preview-card .file-preview-card__menu-action {
-    grid-area: menu-action;
-    justify-self: end;
+.icon-btn.file-preview-card__action {
+    height: var(--spacing-400);
+    position: absolute;
+    right: var(--spacing-100);
+    top: var(--spacing-100);
+    width: var(--spacing-400);
     z-index: 1;
 }
 
-.file-preview-card .file-preview-card__menu-action .icon-btn {
-    height: var(--spacing-400);
-    margin: var(--spacing-100);
-    width: var(--spacing-400);
+.file-preview-card__action:dir(rtl) {
+    left: var(--spacing-100);
+    right: auto;
 }
 
-.file-preview-card .file-preview-card__menu-action .icon-btn:not(:hover) {
+.icon-btn.file-preview-card__action:not(:hover) {
     background-color: var(
-        --file-preview-card-menu-action-background-color,
+        --file-preview-card-action-background-color,
         var(--color-background-primary)
     );
 }
 
-.file-preview-card__preview-action {
-    align-self: end;
-    grid-area: label;
-    z-index: 1;
-}
-
-.file-preview-card__preview-action .icon-btn {
+.file-preview-card__info {
     align-items: center;
     background-color: var(
-        --file-preview-card-label-background-color,
+        --file-preview-card-info-background-color,
         var(--color-background-primary)
     );
+    border-radius: 1em;
+    bottom: var(--spacing-100);
     display: flex;
-    flex-direction: row;
-    gap: var(--spacing-50);
-    height: var(--spacing-250);
-    margin: var(--spacing-100);
-    padding: var(--spacing-25) var(--spacing-100);
-    width: max-content;
-}
-
-.file-preview-card__preview-action-text {
-    color: var(
-        --file-preview-card-label-text-color,
-        var(--color-foreground-primary)
-    );
     font-size: var(--font-size-12);
     font-weight: 400;
+    gap: var(--spacing-50);
+    left: var(--spacing-100);
+    padding: var(--spacing-50) var(--spacing-100);
+    position: absolute;
+    z-index: 1;
 }
 
-.file-preview-card__video-icon.icon {
+.file-preview-card__info:dir(rtl) {
+    left: auto;
+    right: var(--spacing-100);
+}
+
+.file-preview-card__info > .icon {
     height: var(--spacing-150);
     width: var(--spacing-150);
 }
 
-.file-preview-card__body-action {
-    align-self: center;
-    grid-area: center-action;
-    justify-self: center;
-    z-index: 1;
-}
-
-.file-preview-card__body-action .icon-btn {
+.file-preview-card__see-more {
     aspect-ratio: 1/1;
     background-color: rgba(
         var(
-            --file-preview-card-center-action-background-color-rgb,
+            --file-preview-card-see-more-background-color-rgb,
             var(--color-background-strong-rgb)
         ),
         0.5
     );
+    border: none;
+    border-radius: 50%;
     color: var(
-        --file-preview-card-center-action-color,
+        --file-preview-card-see-more-color,
         var(--color-foreground-on-strong)
     );
+    font-family: inherit;
     font-size: var(--font-size-14);
     font-weight: 700;
-    height: -moz-fit-content;
-    height: fit-content;
+    left: 50%;
     line-height: var(--spacing-250);
     padding: var(--spacing-100);
-    width: -moz-fit-content;
-    width: fit-content;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
-.file-preview-card__body-action .icon-btn:active,
-.file-preview-card__body-action .icon-btn:focus,
-.file-preview-card__body-action .icon-btn:hover {
+.file-preview-card__see-more:active,
+.file-preview-card__see-more:focus-visible,
+.file-preview-card__see-more:hover {
     color: var(
-        --file-preview-card-center-action-interactive-color,
+        --file-preview-card-see-more-interactive-color,
         var(--color-foreground-primary)
     );
 }
 
-.file-preview-card__body-action .icon-btn:focus,
-.file-preview-card__body-action .icon-btn:hover {
+.file-preview-card__see-more:focus-visible,
+.file-preview-card__see-more:hover {
     background-color: rgba(
         var(
-            --file-preview-card-center-action-interactive-background-color-rgb,
+            --file-preview-card-see-more-interactive-background-color-rgb,
             var(--color-state-secondary-hover-rgb)
         ),
         0.5
     );
 }
 
-.file-preview-card__body-action .icon-btn:active {
+.file-preview-card__see-more:active {
     background-color: rgba(
         var(
-            --file-preview-card-center-action-interactive-active-background-color-rgb,
+            --file-preview-card-see-more-interactive-active-background-color-rgb,
             var(--color-state-secondary-active-rgb)
         ),
         0.5
     );
+}
+
+.file-preview-card__footer {
+    display: grid;
+}
+
+.file-preview-card__footer > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-preview-card__footer > :not(:first-child) {
+    color: var(--color-foreground-secondary);
+    font-size: var(--font-size-small);
 }
