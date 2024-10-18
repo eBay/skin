@@ -23,6 +23,7 @@ $ let parser = input.type || "html";
 $ if (parser === "js") {
     parser = "babel";
 }
+$ const height = input.height || 400; 
 $ const code = input.code || input.bodyCode || "";
 $ const promise = prettier.format(code.trim(), {
     parser,
@@ -49,3 +50,31 @@ $ const promise = prettier.format(code.trim(), {
         <pre><code class="language-plaintext">$!{error}</code></pre>
     </@catch>
 </await>
+
+<style>
+pre[class*=language-] {
+    max-height: ${height}px;
+    overflow: auto;
+}
+
+pre[class*=language-]::-webkit-scrollbar {
+    background-color: var(--color-code-scrollbar);
+    border-radius: 12px;
+}
+
+pre[class*=language-]::-webkit-scrollbar:vertical {
+    width: 6px;
+}
+
+pre[class*=language-]::-webkit-scrollbar:horizontal {
+    height: 6px;
+}
+
+pre[class*=language-]::-webkit-scrollbar-thumb {
+    background-color: var(--color-code-scrollbar-thumb);
+    border-color: transparent;
+    border-radius: 12px;
+    border-right-style: inset;
+    box-shadow: none;
+}
+</style>

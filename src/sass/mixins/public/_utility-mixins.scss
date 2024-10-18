@@ -60,3 +60,39 @@
 @mixin inline-flex-items-centered() {
     @include flex-items-centered(inline-flex);
 }
+
+@mixin scrollbars-permanent($target) {
+    #{$target} {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        /* stylelint-disable declaration-block-no-duplicate-properties */
+        -webkit-scroll-snap-type: mandatory;
+        -webkit-scroll-snap-type: x mandatory;
+        -ms-scroll-snap-type: mandatory;
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: proximity;
+        scroll-snap-type: x proximity;
+        /* stylelint-enable declaration-block-no-duplicate-properties */
+    }
+
+    #{$target}::-webkit-scrollbar {
+        background-color: var(--color-background-faint);
+        border-radius: 12px;
+    }
+
+    #{$target}::-webkit-scrollbar:vertical {
+        width: 6px;
+    }
+
+    #{$target}::-webkit-scrollbar:horizontal {
+        height: 6px;
+    }
+
+    #{$target}::-webkit-scrollbar-thumb {
+        background-color: var(--color-foreground-secondary);
+        border-color: transparent;
+        border-radius: 12px;
+        border-right-style: inset;
+        box-shadow: none;
+    }
+}
