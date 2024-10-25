@@ -1,5 +1,25 @@
 # Skin Changelog
 
+## 18.4.0-next.0
+
+### Minor Changes
+
+-   [#2462](https://github.com/eBay/skin/pull/2462) [`472b280`](https://github.com/eBay/skin/commit/472b280642b38d2c2718946464f9995f54d74738) Thanks [@github-actions](https://github.com/apps/github-actions)! - chore: removed unused storybook files (and percy workflow)
+
+-   [#2462](https://github.com/eBay/skin/pull/2462) [`6482514`](https://github.com/eBay/skin/commit/6482514ce5d96d1da5c57545a0a77643e452d612) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(table): added frozen header, frozen column, permanent scrollbars
+
+-   [#2473](https://github.com/eBay/skin/pull/2473) [`94f4201`](https://github.com/eBay/skin/commit/94f4201440c9b7c82e436c70d9b008cbc870b550) Thanks [@ArtBlue](https://github.com/ArtBlue)! - chore(table): added thead line for scrolling, reverted table contraint
+
+-   [#2462](https://github.com/eBay/skin/pull/2462) [`201018f`](https://github.com/eBay/skin/commit/201018fa0a53bba471886745bc3800d9c729dae1) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(icons): added and modified icons
+
+-   [#2462](https://github.com/eBay/skin/pull/2462) [`4d5fcdd`](https://github.com/eBay/skin/commit/4d5fcdd4020d468af7690d26d412cbb4df64b263) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(list): new component
+
+### Patch Changes
+
+-   [#2462](https://github.com/eBay/skin/pull/2462) [`0529ac5`](https://github.com/eBay/skin/commit/0529ac5f4984aa4e018db04863578b0685805640) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(eek): updated size
+
+-   [#2474](https://github.com/eBay/skin/pull/2474) [`67a224b`](https://github.com/eBay/skin/commit/67a224bfe1f66550bf5496e5570f53da27ddaccb) Thanks [@LuLaValva](https://github.com/LuLaValva)! - Add description to file preview card
+
 ## 18.3.2
 
 ### Patch Changes
