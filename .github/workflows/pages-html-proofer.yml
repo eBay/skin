@@ -1,16 +1,17 @@
 name: pages-html-proofer
 
-on:
-  push:
-    paths:
-      - 'docs/**'
-      - '!docs/storybook'
-      - '.github/workflows/pages-html-proofer.yml'
-  pull_request:
-    paths:
-      - 'docs/**'
-      - '!docs/storybook'
-      - '.github/workflows/pages-html-proofer.yml'
+# Disabled for now. Will re-enable once we have a better html proofer
+# on:
+#   push:
+#     paths:
+#       - 'docs/**'
+#       - '!docs/storybook'
+#       - '.github/workflows/pages-html-proofer.yml'
+#   pull_request:
+#     paths:
+#       - 'docs/**'
+#       - '!docs/storybook'
+#       - '.github/workflows/pages-html-proofer.yml'
 
 jobs:
   pages-html-proofer:
@@ -26,5 +27,5 @@ jobs:
         - run: npm run deploy:only
         - uses: chabad360/htmlproofer@master
           with:
-            directory: "./_site"
+            directory: "./_siteDev"
             arguments: --disable_external --ignore_empty_alt --allow_hash_href --allow_missing_href

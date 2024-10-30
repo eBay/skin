@@ -1,10 +1,35 @@
 .table {
     overflow-x: auto;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scroll-snap-type: proximity;
+    scroll-snap-type: x proximity;
+}
+
+.table::-webkit-scrollbar {
+    background-color: var(--color-background-faint);
+    border-radius: 12px;
+}
+
+.table::-webkit-scrollbar:vertical {
+    width: 6px;
+}
+
+.table::-webkit-scrollbar:horizontal {
+    height: 6px;
+}
+
+.table::-webkit-scrollbar-thumb {
+    background-color: var(--color-foreground-secondary);
+    border-color: transparent;
+    border-radius: 12px;
+    border-right-style: inset;
+    box-shadow: none;
 }
 
 .table table {
-    border-collapse: collapse;
+    border-collapse: initial;
     border-spacing: 0;
     width: 100%;
 }
@@ -39,8 +64,36 @@
     padding: 16px;
 }
 
+.table--frozen-header thead {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.table--freeze-column-1 tr td:nth-child(-n + 1),
+.table--freeze-column-1 tr th:nth-child(-n + 1),
+.table--freeze-column-2 tr td:nth-child(-n + 2),
+.table--freeze-column-2 tr th:nth-child(-n + 2),
+.table--freeze-column-3 tr td:nth-child(-n + 3),
+.table--freeze-column-3 tr th:nth-child(-n + 3) {
+    left: 0;
+    position: sticky;
+}
+
+.table--full-height {
+    max-height: unset;
+}
+
+.table--constrained-height {
+    max-height: 90vh;
+}
+
+.table th a,
 .table th button {
+    align-items: center;
+    display: flex;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .table tbody tr:last-child td,
@@ -101,6 +154,9 @@
     min-width: 48px;
     text-align: center;
     width: 48px;
+}
+.table--mode-selection tr:has(input:checked) :where(td, th) {
+    background-color: var(--color-background-secondary);
 }
 
 .table tbody th {
