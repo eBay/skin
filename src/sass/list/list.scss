@@ -6,13 +6,16 @@
     max-width: 480px;
 }
 
-.list ul {
+.list ul,
+.list ol {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.list ul li > * {
+.list ul li > *,
+.list ol li > *,
+.list fieldset > * {
     @include background-color-token(
         list-background-color,
         color-background-primary
@@ -39,6 +42,16 @@
 
 .list__body {
     flex: 1;
+}
+
+.list ol li {
+    counter-increment: item;
+}
+
+.list ol li > *::before {
+    content: counter(item) ".";
+    margin-inline-end: var(--spacing-200);
+    width: var(--spacing-300);
 }
 
 .list li > a,

@@ -2,12 +2,15 @@
     max-width: 480px;
 }
 
+.list ol,
 .list ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+.list fieldset > *,
+.list ol li > *,
 .list ul li > * {
     align-items: center;
     background-color: var(
@@ -34,6 +37,16 @@
 
 .list__body {
     flex: 1;
+}
+
+.list ol li {
+    counter-increment: item;
+}
+
+.list ol li > :before {
+    content: counter(item) ".";
+    margin-inline-end: var(--spacing-200);
+    width: var(--spacing-300);
 }
 
 .list li > a,
