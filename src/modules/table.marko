@@ -2253,6 +2253,468 @@ import tableLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
 </div>
     </highlight-code>
 
+    <h3>Table in Loading State</h3>
+
+    <p>
+        When a table is fetching data for sorting, filtering, or pagination, a loading state should be displayed to indicate that the table is in the process of loading. This can be achieved by adding the <span class="highlight">table--loading-state</span> class to the <span class="highlight">.table</span> element.
+    </p>
+
+    <p>
+        Additionally, in the loading state, the module should be inaccessible to the user. This can be achieved by adding the <span class="highlight">inert</span> attribute to the <span class="highlight">table</span> inside the module. Since <span class="highlight">inert</span> is not fully supported in older browsers, it is recommended to either use a polyfill or use <span class="highlight">JavaScript</span> to disable all interactive elements inside the table when in loading state. Elements that support <span class="highlight">disabled</span> should be disabled. Anchors should have their <span class="highlight">href</span> attributes removed.
+    </p>
+
+    <p>
+        Here are some other steps to manually ensure the module is inaccessible:
+        <ul>
+            <li>All interactive elements inside table should be forced to NOT be focusable.</li>
+            <li>The module container should be forced to be unscrollable.</li>
+            <li>The progress bar should be forced to gain focus.</li>
+            <li>All interactive elements inside the table should be disabled.</li>
+        </ul>
+    </p>
+
+    <p>
+        The loading state should be displayed until the data is fully loaded. In addition to the loading state being set on the table, a progress bar expressive should be added to relay the loading state both visually and for screen readers. The live examples that follow use <span class="highlight">aria-live="off"</span> to prevent the status element from proactively announcing new content. This is only for demo purposes, so that this documentation page does not overwhelm the viewer with example status updates. The <span class="highlight">aria-live</span> override should not be included in implementations of this pattern.
+    </p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
+                <table inert>
+                    <thead>
+                        <tr>
+                            <th class="table-cell" aria-sort="descending">
+                                <button type="button" aria-pressed="true" disabled>
+                                    Seller
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-down-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell">
+                                <button type="button" disabled>
+                                    Item
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell">
+                                <button type="button" disabled>
+                                    Status
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell table-cell--numeric">
+                                <button type="button" disabled>
+                                    List Price
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell table-cell--numeric">
+                                <button type="button" disabled>
+                                    Quantity Available
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell">
+                                <button type="button" disabled>
+                                    Orders
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell table-cell--numeric">
+                                <button type="button" disabled>
+                                    Watchers
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell table-cell--numeric">
+                                <button type="button" disabled>
+                                    Protection
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell" aria-sort="ascending">
+                                <button type="button" aria-pressed="true" disabled>
+                                    Shipping
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-up-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                            <th class="table-cell">
+                                <button type="button" disabled>
+                                    Delivery
+                                    <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                                        <use href="#icon-sort-12"></use>
+                                    </svg>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="table-cell">Nintendo</th>
+                            <td class="table-cell">
+                                <div class="table-cell__layout">
+                                    <div class="table-cell__thumbnail">
+                                        <img src=tableProfilePic alt="Nintendo Switch" />
+                                    </div>
+                                    <div class="table-cell__multiline">
+                                        <div class="table-cell__data">
+                                            Nintendo Switch Brand New Gaming System with Four Controllers
+                                        </div>
+                                        <div class="table-cell__data table-cell__data--secondary">
+                                            SKU : A43BTR5678  •  Quantity : 1
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell">
+                                <span class="signal signal--recent">Ready to Ship</span>
+                            </td>
+                            <td class="table-cell table-cell--numeric">$287.96</td>
+                            <td class="table-cell table-cell--numeric">300</td>
+                            <td class="table-cell">
+                                <div class="table__multiline">
+                                    <div class="table-cell__data">
+                                        <a>00-10542-89507</a>
+                                    </div>
+                                    <div class="table-cell__data table-cell__data--secondary">100</div>
+                                </div>
+                            </td>
+                            <td class="table-cell table-cell--numeric">95</td>
+                            <td class="table-cell table-cell--numeric">$17.99</td>
+                            <td class="table-cell">FREE</td>
+                            <td class="table-cell">4/1 - 4/5</td>
+                        </tr>
+                        <tr>
+                            <th class="table-cell">Nintendo</th>
+                            <td class="table-cell">
+                                <div class="table-cell__layout">
+                                    <div class="table-cell__thumbnail">
+                                        <img src=tableLandscapePic alt="Nintendo SNES" />
+                                    </div>
+                                    <div class="table-cell__multiline">
+                                        <div class="table-cell__data">
+                                            Nintendo SNES Brand New Gaming System with Four Controllers
+                                        </div>
+                                        <div class="table-cell__data table-cell__data--secondary">
+                                            SKU : A43BTR5678  •  Quantity : 1
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell">
+                                <span class="signal signal--recent">Ready to Ship</span>
+                            </td>
+                            <td class="table-cell table-cell--numeric">$89.85</td>
+                            <td class="table-cell table-cell--numeric">45</td>
+                            <td class="table-cell">
+                                <div class="table-cell__data">
+                                    <a>00-10542-89507</a>
+                                </div>
+                                <div class="table-cell__data table-cell__data--secondary">200</div>
+                            </td>
+                            <td class="table-cell table-cell--numeric">5</td>
+                            <td class="table-cell table-cell--numeric">$18.95</td>
+                            <td class="table-cell">FREE</td>
+                            <td class="table-cell">4/11 - 4/15</td>
+                        </tr>
+                        <tr>
+                            <th class="table-cell">Microsoft</th>
+                            <td class="table-cell">
+                                <div class="table-cell__layout">
+                                    <div class="table-cell__thumbnail">
+                                        <img src=tableSquarePic alt="Microsoft XBOX 360" />
+                                    </div>
+                                    <div class="table-cell__multiline">
+                                        <div class="table-cell__data">
+                                            Microsoft XBOX 360 Brand New Gaming System with Four Controllers
+                                        </div>
+                                        <div class="table-cell__data table-cell__data--secondary">
+                                            SKU : A43BTR5678  •  Quantity : 1
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell">
+                                <span class="signal signal--time-sensitive">Backorder</span>
+                            </td>
+                            <td class="table-cell table-cell--numeric">$499.99</td>
+                            <td class="table-cell table-cell--numeric">345</td>
+                            <td class="table-cell">
+                                <div class="table-cell__data">
+                                    <a>00-10542-89507</a>
+                                </div>
+                                <div class="table-cell__data table-cell__data--secondary">100</div>
+                            </td>
+                            <td class="table-cell table-cell--numeric">205</td>
+                            <td class="table-cell table-cell--numeric">$17.99</td>
+                            <td class="table-cell">FREE</td>
+                            <td class="table-cell">4/17 - 4/25</td>
+                        </tr>
+                        <tr>
+                            <th class="table-cell">Microsoft</th>
+                            <td class="table-cell">
+                                <div class="table-cell__layout">
+                                    <div class="table-cell__thumbnail">
+                                        <img src=tableProfilePic alt="Microsoft XBOX One" />
+                                    </div>
+                                    <div class="table-cell__multiline">
+                                        <div class="table-cell__data">
+                                            Microsoft XBOX One Brand New Gaming System with Four Controllers
+                                        </div>
+                                        <div class="table-cell__data table-cell__data--secondary">
+                                            SKU : A43BTR5678  •  Quantity : 1
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell">
+                                <span class="signal signal--time-neutral">Preparing</span>
+                            </td>
+                            <td class="table-cell table-cell--numeric">$499.99</td>
+                            <td class="table-cell table-cell--numeric">399</td>
+                            <td class="table-cell">
+                                <div class="table-cell__data">
+                                    <a>00-10542-89507</a>
+                                </div>
+                                <div class="table-cell__data table-cell__data--secondary">100</div>
+                            </td>
+                            <td class="table-cell table-cell--numeric">407</td>
+                            <td class="table-cell table-cell--numeric">$27.99</td>
+                            <td class="table-cell">FREE</td>
+                            <td class="table-cell">4/9 - 4/11</td>
+                        </tr>
+                        <tr>
+                            <th class="table-cell">Sony</th>
+                            <td class="table-cell">
+                                <div class="table-cell__layout">
+                                    <div class="table-cell__thumbnail">
+                                        <img src=tableLandscapePic alt="Sony Playstation 5" />
+                                    </div>
+                                    <div class="table-cell__multiline">
+                                        <div class="table-cell__data">
+                                            Sony Playstation 5 Brand New Gaming System with Four Controllers
+                                        </div>
+                                        <div class="table-cell__data table-cell__data--secondary">
+                                            SKU : A43BTR5678  •  Quantity : 1
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell">
+                                <span class="signal signal--trustworthy">Restocking</span>
+                            </td>
+                            <td class="table-cell table-cell--numeric">$519.99</td>
+                            <td class="table-cell table-cell--numeric">205</td>
+                            <td class="table-cell">
+                                <div class="table-cell__data">
+                                    <a>00-10542-89507</a>
+                                </div>
+                                <div class="table-cell__data table-cell__data--secondary">100</div>
+                            </td>
+                            <td class="table-cell table-cell--numeric">265</td>
+                            <td class="table-cell table-cell--numeric">$29.99</td>
+                            <td class="table-cell">FREE</td>
+                            <td class="table-cell">4/11 - 4/15</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="progress-bar-expressive" tabindex="0" aria-live="off">
+                    <div
+                        role="progressbar"
+                        aria-label="Loading..."
+                        class="progress-bar-expressive__progress"
+                    >
+                        <div class="progress-bar-expressive__lines">
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                            <div class="progress-bar-expressive__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <highlight-code type="html">
+<div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0" inert>
+    <table>
+        <thead>
+            <tr>
+                <th class="table-cell" aria-sort="descending">
+                    <button type="button" aria-pressed="true" disabled>
+                        Seller
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-down-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button" disabled>
+                        Item
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button" disabled>
+                        Status
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button" disabled>
+                        List Price
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button" disabled>
+                        Quantity Available
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button" disabled>
+                        Orders
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button" disabled>
+                        Watchers
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell table-cell--numeric">
+                    <button type="button" disabled>
+                        Protection
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell" aria-sort="descending">
+                    <button type="button" aria-pressed="true" disabled>
+                        Shipping
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-up-12"></use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="table-cell">
+                    <button type="button" disabled>
+                        Delivery
+                        <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
+                            <use href="#icon-sort-12"></use>
+                        </svg>
+                    </button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="table-cell">Nintendo</th>
+                <td class="table-cell">
+                    <div class="table-cell__layout">
+                        <div class="table-cell__thumbnail">
+                            <img src=tableProfilePic alt="Nintendo Switch" />
+                        </div>
+                        <div class="table-cell__multiline">
+                            <div class="table-cell__data">
+                                Nintendo Switch Brand New Gaming System with Four Controllers
+                            </div>
+                            <div class="table-cell__data table-cell__data--secondary">
+                                SKU : A43BTR5678  •  Quantity : 1
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="table-cell">
+                    <span class="signal signal--recent">Ready to Ship</span>
+                </td>
+                <td class="table-cell table-cell--numeric">$287.96</td>
+                <td class="table-cell table-cell--numeric">300</td>
+                <td class="table-cell">
+                    <div class="table__multiline">
+                        <div class="table-cell__data">
+                            <a>00-10542-89507</a>
+                        </div>
+                        <div class="table-cell__data table-cell__data--secondary">100</div>
+                    </div>
+                </td>
+                <td class="table-cell table-cell--numeric">95</td>
+                <td class="table-cell table-cell--numeric">$17.99</td>
+                <td class="table-cell">FREE</td>
+                <td class="table-cell">4/1 - 4/5</td>
+            </tr>
+            <puesdo-code-table-tr />
+            <puesdo-code-table-tr />
+            <puesdo-code-table-tr />
+            <puesdo-code-table-tr />
+        </tbody>
+    </table>
+    <div class="progress-bar-expressive">
+        <div
+            role="progressbar"
+            aria-label="Loading..."
+            class="progress-bar-expressive__progress"
+        >
+            <div class="progress-bar-expressive__lines">
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    </highlight-code>
+
     <h3>Table in Selection Mode</h3>
 
     <p>
