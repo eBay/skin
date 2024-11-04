@@ -2260,7 +2260,7 @@ import tableLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
     </p>
 
     <p>
-        Additionally, in the loading state, the module should be inaccessible to the user. This can be achieved by adding the <span class="highlight">inert</span> attribute to the <span class="highlight">table</span> inside the module. Since <span class="highlight">inert</span> is not fully supported in older browsers, it is recommended to either use a polyfill or use <span class="highlight">JavaScript</span> to disable all interactive elements inside the table when in loading state. Elements that support <span class="highlight">disabled</span> should be disabled. Anchors should have their <span class="highlight">href</span> attributes removed.
+        Additionally, in the loading state, the module should be inaccessible to the user. This can be achieved by setting <span class="highlight">tabindex="-1"</span> to the module container, and adding the <span class="highlight">inert</span> attribute to the <span class="highlight">table</span> inside the module. Since <span class="highlight">inert</span> is not fully supported in older browsers, it is recommended to either use a polyfill or use <span class="highlight">JavaScript</span> to disable all interactive elements inside the table when in loading state. Elements that support <span class="highlight">disabled</span> should be disabled. Anchors should have their <span class="highlight">href</span> attributes removed.
     </p>
 
     <p>
@@ -2279,7 +2279,7 @@ import tableLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
+            <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="-1">
                 <table inert>
                     <thead>
                         <tr>
@@ -2562,7 +2562,7 @@ import tableLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
     </div>
 
     <highlight-code type="html">
-<div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0" inert>
+<div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="-1" inert>
     <table>
         <thead>
             <tr>
