@@ -16,6 +16,7 @@ $density-relaxed-img-size: 72px;
 /* these are for cell widths */
 $cell-max-width: 400px;
 $cell-min-width: 124px;
+$frozen-column-max-width: 124px;
 /* these are for image radii in cells */
 $density-compact-img-radius: 4px;
 $density-default-img-radius: 8px;
@@ -76,18 +77,21 @@ $density-relaxed-img-radius: 8px;
 .table--freeze-column-1 tr th:nth-child(-n + 1),
 .table--freeze-column-1 tr td:nth-child(-n + 1) {
     left: 0;
+    max-width: $frozen-column-max-width;
     position: sticky;
 }
 
 .table--freeze-column-2 tr th:nth-child(-n + 2),
 .table--freeze-column-2 tr td:nth-child(-n + 2) {
     left: 0;
+    max-width: $frozen-column-max-width;
     position: sticky;
 }
 
 .table--freeze-column-3 tr th:nth-child(-n + 3),
 .table--freeze-column-3 tr td:nth-child(-n + 3) {
     left: 0;
+    max-width: $frozen-column-max-width;
     position: sticky;
 }
 
@@ -162,6 +166,33 @@ $density-relaxed-img-radius: 8px;
 .table th:last-child,
 .table td:last-child {
     padding-inline-end: 0;
+}
+
+.table--loading-state {
+    overflow: hidden;
+}
+
+.table--loading-state table {
+    opacity: 0.15;
+    user-select: none;
+}
+
+.table--loading-state img,
+.table--loading-state .signal {
+    filter: var(--color-media-disabled-filter);
+}
+
+.table--loading-state a {
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.table--loading-state .progress-bar-expressive {
+    bottom: calc(50%);
+    left: 0;
+    position: absolute;
+    right: 0;
 }
 
 .table--mode-selection th:first-child,
