@@ -3,6 +3,7 @@
 
 /* Calculate hypotenuse of a 28px square (for rotation). */
 /* Formula is: sqrt(pow(28px, 2) / 2) */
+/* Heights defined in this should not use variables. This is because they are specific to legal requirements and should not change */
 
 $eek-arrow-size: #{math.sqrt(392)}px;
 /* These are custom colors not part of ebay palette */
@@ -26,6 +27,10 @@ $eek-border-color: $eek-color;
     position: relative;
 }
 
+.eek--large {
+    height: 32px;
+}
+
 .eek__container {
     align-items: center;
     border: 1px solid $eek-color;
@@ -38,6 +43,10 @@ $eek-border-color: $eek-color;
     width: 9px;
 }
 
+.eek--large .icon--eek-arrow {
+    width: 12.5px;
+}
+
 .eek__arrow {
     overflow: hidden;
     width: 17px;
@@ -48,13 +57,11 @@ $eek-border-color: $eek-color;
     border-radius: 2px;
     content: "";
     display: block;
-    /* stylelint-disable-next-line number-max-precision */
     height: $eek-arrow-size;
     margin-top: 2.3px;
     position: relative;
     right: 12px;
     transform: rotate(45deg);
-    /* stylelint-disable-next-line number-max-precision */
     width: $eek-arrow-size;
 }
 
@@ -119,6 +126,10 @@ $eek-border-color: $eek-color;
         -0.5px -0.5px 0 $eek-color;
 }
 
+.eek--large .eek__rating {
+    font-size: 24px;
+}
+
 .eek__rating-range {
     align-items: center;
     background-color: $eek-background-color;
@@ -130,13 +141,28 @@ $eek-border-color: $eek-color;
     padding: 0 1px;
 }
 
+.eek--large .eek__rating-range {
+    height: 28px;
+}
+
 .eek__rating-range > .icon--eek-range-arrow {
     height: 6px;
     width: 5px;
 }
 
+.eek--large .eek__rating-range > .icon--eek-range-arrow {
+    height: 7px;
+    width: 6px;
+}
+
 .eek__rating-range > span {
     font-size: 8px;
+    height: 8px;
+}
+
+.eek--large .eek__rating-range > span {
+    font-size: 10px;
+    height: 10px;
 }
 
 /*
@@ -151,5 +177,15 @@ Changed a bit of styles there only in order to make it work
             -webkit-text-stroke: 0.5px;
             -webkit-text-stroke-color: $eek-color;
         }
+    }
+}
+
+[dir="rtl"] {
+    .eek .icon--eek-arrow {
+        transform: rotate(180deg);
+    }
+    .eek__container {
+        border-left: none;
+        border-right: 1px solid $eek-color;
     }
 }
