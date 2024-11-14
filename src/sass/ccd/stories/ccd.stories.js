@@ -1,7 +1,7 @@
 export default { title: "Skin/CCD" };
 
 export const withChargerAndUsb = () => `
-<div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. Fast charging USB PD">
+<div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. USB PD">
     <svg class="icon ccd__charger-icon">
         <use href="#icon-ccd-charger-included"/>
     </svg>
@@ -20,7 +20,7 @@ export const withChargerAndUsb = () => `
 `;
 
 export const withoutChargerAndUsb = () => `
-<div class="ccd" role="figure" aria-label="Charger not included. 1001 - 2000 watts. Fast charging USB PD">
+<div class="ccd" role="figure" aria-label="Charger not included. 1001 - 2000 watts. USB PD">
     <svg class="icon ccd__charger-icon">
         <use href="#icon-ccd-charger-not-included"/>
     </svg>
@@ -57,7 +57,7 @@ export const withChargerAndNoUsb = () => `
 `;
 
 export const withoutChargerAndNoUsb = () => `
-<div class="ccd" role="figure" aria-label="Charger not included. 1001 - 2000 watts. Fast charging USB PD">
+<div class="ccd" role="figure" aria-label="Charger not included. 1001 - 2000 watts. USB PD">
     <svg class="icon ccd__charger-icon">
         <use href="#icon-ccd-charger-not-included"/>
     </svg>
@@ -75,7 +75,7 @@ export const withoutChargerAndNoUsb = () => `
 `;
 
 export const withChargerAndLargeText = () => `
-<div class="ccd" role="figure" aria-label="Charger included. 1001.0003 - 2000.0005 watts. Fast charging USB PD">
+<div class="ccd" role="figure" aria-label="Charger included. 1001.0003 - 2000.0005 watts. USB PD">
     <svg class="icon ccd__charger-icon">
         <use href="#icon-ccd-charger-included"/>
     </svg>
@@ -95,7 +95,7 @@ export const withChargerAndLargeText = () => `
 
 export const rtl = () => `
 <div dir="rtl">
-    <div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. Fast charging USB PD">
+    <div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. USB PD">
         <svg class="icon ccd__charger-icon">
             <use href="#icon-ccd-charger-included"/>
         </svg>
@@ -115,7 +115,7 @@ export const rtl = () => `
 
 export const largerFontSize = () => `
 <div style="font-size:200%">
-    <div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. Fast charging USB PD">
+    <div class="ccd" role="figure" aria-label="Charger included. 1001 - 2000 watts. USB PD">
         <svg class="icon ccd__charger-icon">
             <use href="#icon-ccd-charger-included"/>
         </svg>
