@@ -329,3 +329,135 @@ export const withDivider = () => `
             </div>
         </div>
 `;
+
+export const withRadio = () => `
+<div class="list">
+    <fieldset>
+        <legend>Choose an Option</legend>
+        <div>
+            <span class="radio list__leading">
+                <input
+                    class="radio__control"
+                    id="list-radio-1"
+                    type="radio"
+                    value="1"
+                    name="list-radio-group"
+                >
+                <span class="radio__icon" hidden>
+                    <svg
+                        class="radio__unchecked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-unchecked-18"/>
+                    </svg>
+                    <svg
+                        class="radio__checked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-checked-18"/>
+                    </svg>
+                </span>
+            </span>
+            <label class="list__body" for="list-radio-1">
+                Option 1
+            </label>
+        </div>
+        <div>
+            <span class="radio list__leading">
+                <input
+                    class="radio__control"
+                    id="list-radio-2"
+                    type="radio"
+                    value="2"
+                    name="list-radio-group"
+                >
+                <span class="radio__icon" hidden>
+                    <svg
+                        class="radio__unchecked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-unchecked-18"/>
+                    </svg>
+                    <svg
+                        class="radio__checked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-checked-18"/>
+                    </svg>
+                </span>
+            </span>
+            <label class="list__body" for="list-radio-2">
+                Option 2
+            </label>
+        </div>
+        <div>
+            <span class="list__leading radio">
+                <input
+                    class="radio__control"
+                    id="list-radio-3"
+                    type="radio"
+                    value="3"
+                    name="list-radio-group"
+                >
+                <span class="radio__icon" hidden>
+                    <svg
+                        class="radio__unchecked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-unchecked-18"/>
+                    </svg>
+                    <svg
+                        class="radio__checked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-radio-checked-18"/>
+                    </svg>
+                </span>
+            </span>
+            <label class="list__body" for="list-radio-3">
+                Option 3
+            </label>
+        </div>
+    </fieldset>
+</div>
+`;
+
+export const orderedList = () => `
+    <div class="list">
+        <ol>
+            <li>
+                <div>
+                    <span class="list__body">
+                        Text 1
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="list__body">
+                        Text 2
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="list__body">
+                        Text 3
+                    </span>
+                </div>
+            </li>
+        </ol>
+    </div>
+`;
