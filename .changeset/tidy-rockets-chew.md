@@ -2,4 +2,4 @@
 "@ebay/skin": minor
 ---
 
-feat(details-group): new component
+feat(accordion): new component
