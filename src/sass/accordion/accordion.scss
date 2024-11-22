@@ -2,10 +2,16 @@
 @import "../mixins/private/token-mixins";
 
 ul.accordion {
-    list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
+}
+
+/*
+Safari does not recognize ordered or unordered lists as lists in the accessibility tree if they have a list-style value of none, unless the list is nested within the <nav> navigation element. This behavior is intentional and is not considered a bug. To work around this issue, use the use ::marker.
+*/
+ul.accordion ::marker {
+    font-size: 0;
 }
 
 ul.accordion li:not(:last-child) {
@@ -34,9 +40,6 @@ ul.accordion details .details__content {
 ul.accordion details[open] .details__content {
     opacity: 1;
     transform: scaleY(1);
-    transition:
-        opacity 250ms cubic-bezier(0.3, 0, 0, 1),
-        transform 250ms cubic-bezier(0.3, 0, 0, 1);
 }
 
 ul.accordion--large summary.details__summary {
