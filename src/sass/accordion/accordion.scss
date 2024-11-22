@@ -1,0 +1,66 @@
+@import "../variables/variables";
+@import "../mixins/private/token-mixins";
+
+ul.accordion {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/*
+Safari does not recognize ordered or unordered lists as lists in the accessibility tree if they have a list-style value of none, unless the list is nested within the <nav> navigation element. This behavior is intentional and is not considered a bug. To work around this issue, use the use ::marker.
+*/
+ul.accordion ::marker {
+    font-size: 0;
+}
+
+ul.accordion li:not(:last-child) {
+    border-bottom: 1px solid var(--color-stroke-subtle);
+}
+
+ul.accordion summary.details__summary {
+    border-radius: 0;
+    display: flex;
+    font-size: var(--font-size-medium);
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 12px 16px;
+}
+
+ul.accordion details .details__content {
+    margin: 0 16px 6px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition:
+        opacity 500ms cubic-bezier(0.3, 0, 0, 1),
+        transform 500ms cubic-bezier(0.3, 0, 0, 1);
+}
+
+ul.accordion details[open] .details__content {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+ul.accordion--large summary.details__summary {
+    font-size: var(--font-size-large-1);
+    min-height: 52px;
+}
+
+ul.accordion details svg.details__expand,
+ul.accordion details[open] svg.details__collapse {
+    display: block;
+}
+
+ul.accordion details[open] svg.details__expand,
+ul.accordion details svg.details__collapse {
+    display: none;
+}
+
+@media (prefers-reduced-motion) {
+    /* Remove animations */
+    ul.accordion details .details__content,
+    ul.accordion details[open] .details__content {
+        transition: none;
+    }
+}
