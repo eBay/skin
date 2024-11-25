@@ -434,30 +434,30 @@ export const withRadio = () => `
 </div>
 `;
 
-export const orderedList = () => `
-    <div class="list">
-        <ol>
-            <li>
-                <div>
-                    <span class="list__body">
-                        Text 1
-                    </span>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <span class="list__body">
-                        Text 2
-                    </span>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <span class="list__body">
-                        Text 3
-                    </span>
-                </div>
-            </li>
-        </ol>
-    </div>
-`;
+// export const orderedList = () => `
+//     <div class="list">
+//         <ol>
+//             <li>
+//                 <div>
+//                     <span class="list__body">
+//                         Text 1
+//                     </span>
+//                 </div>
+//             </li>
+//             <li>
+//                 <div>
+//                     <span class="list__body">
+//                         Text 2
+//                     </span>
+//                 </div>
+//             </li>
+//             <li>
+//                 <div>
+//                     <span class="list__body">
+//                         Text 3
+//                     </span>
+//                 </div>
+//             </li>
+//         </ol>
+//     </div>
+// `;
