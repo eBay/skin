@@ -14,10 +14,10 @@ export const RTL = () => `
                       Shipping and returns
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -36,10 +36,10 @@ export const RTL = () => `
                       Text wraps on small screen with this long text
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -58,10 +58,10 @@ export const RTL = () => `
                       Specifications
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -91,10 +91,10 @@ export const colour = () => `
                       Shipping and returns
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -113,10 +113,10 @@ export const colour = () => `
                       Text wraps on small screen with this long text
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -135,10 +135,10 @@ export const colour = () => `
                       Specifications
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -168,10 +168,10 @@ export const fontSize = () => `
                       Shipping and returns
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -190,10 +190,10 @@ export const fontSize = () => `
                       Text wraps on small screen with this long text
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
@@ -212,10 +212,10 @@ export const fontSize = () => `
                       Specifications
                   </span>
                   <span class="details__icon" hidden>
-                    <svg class="details__expand" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
                         <use href="#icon-add-16"/>
                     </svg>
-                    <svg class="details__collapse" height="16" width="16" aria-hidden="true">
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
                         <use href="#icon-remove-16"/>
                     </svg>
                 </span>
