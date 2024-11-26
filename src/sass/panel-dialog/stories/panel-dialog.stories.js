@@ -254,7 +254,7 @@ export const panelStartWithHeaderOverflow = () => `
         <div class="panel-dialog__header">
             <h2 id="panel-title">Left Panel with a title that's so long it wraps to the next line. No dialog should ever have a title this long.</h2>
             <button class="icon-btn panel-dialog__close" type="button" aria-label="Close Dialog">
-                <svg class="icon icon--close-16" aria-hidden="true">
+                <svg class="icon icon--16" aria-hidden="true">
                     <use href="#icon-close-16"></use>
                 </svg>
             </button>
