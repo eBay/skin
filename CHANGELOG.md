@@ -1,5 +1,23 @@
 # Skin Changelog
 
+## 18.5.0-next.0
+
+### Minor Changes
+
+-   [#2496](https://github.com/eBay/skin/pull/2496) [`66e73f8`](https://github.com/eBay/skin/commit/66e73f84f397c288c8fec0ce37d9ca2149bf50c7) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(filter-menu): added search header
+
+-   [#2480](https://github.com/eBay/skin/pull/2480) [`207c518`](https://github.com/eBay/skin/commit/207c518a6c5a7310b251d5c7cb2ce703381a1fa0) Thanks [@agliga](https://github.com/agliga)! - feat(eek): added large size and fixed regular arrow
+
+-   [#2481](https://github.com/eBay/skin/pull/2481) [`933fb74`](https://github.com/eBay/skin/commit/933fb7412619ba844a4157537ced1aa8e4b9120f) Thanks [@agliga](https://github.com/agliga)! - feat(list): added inremental list and radio fieldset in list
+
+-   [#2495](https://github.com/eBay/skin/pull/2495) [`cb7222a`](https://github.com/eBay/skin/commit/cb7222ae4e1609adf325b72865cf95f9976a3068) Thanks [@agliga](https://github.com/agliga)! - feat(ccd): new component
+
+-   [#2483](https://github.com/eBay/skin/pull/2483) [`fef21d3`](https://github.com/eBay/skin/commit/fef21d305816fe2b1851d4e6fe11b3c8a2ea3346) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(table): added loading state
+
+-   [#2497](https://github.com/eBay/skin/pull/2497) [`dfda4a0`](https://github.com/eBay/skin/commit/dfda4a079f2a6e2c3b2857815d522ecc37e76fca) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(accordion): new component
+
+-   [#2498](https://github.com/eBay/skin/pull/2498) [`2ff5317`](https://github.com/eBay/skin/commit/2ff53171734afaa42f97719d31d062e7ef2f6daa) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(filter-menu): fixed cascade
+
 ## 18.4.0
 
 ### Minor Changes
