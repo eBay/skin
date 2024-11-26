@@ -3,7 +3,6 @@ export default { title: "Skin/Accordion" };
 export const closed = () => `
 <ul
     class="accordion"
-    role="list"
     aria-roledescription="accordion"
 >
     <li>
@@ -13,13 +12,13 @@ export const closed = () => `
                     Shipping and returns
                 </span>
                 <span class="details__icon" hidden>
-                                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-add-16"/>
-                                </svg>
-                                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-remove-16"/>
-                                </svg>
-                            </span>
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-add-16"/>
+                    </svg>
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-remove-16"/>
+                    </svg>
+                </span>
             </summary>
             <div class="details__content">
                 <p>
@@ -35,13 +34,13 @@ export const closed = () => `
                     Text wraps on small screen with this long text
                 </span>
                 <span class="details__icon" hidden>
-                                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-add-16"/>
-                                </svg>
-                                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-remove-16"/>
-                                </svg>
-                            </span>
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-add-16"/>
+                    </svg>
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-remove-16"/>
+                    </svg>
+                </span>
             </summary>
             <div class="details__content">
                 <p>
@@ -57,13 +56,13 @@ export const closed = () => `
                     Specifications
                 </span>
                 <span class="details__icon" hidden>
-                                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-add-16"/>
-                                </svg>
-                                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                                    <use href="#icon-remove-16"/>
-                                </svg>
-                            </span>
+                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-add-16"/>
+                    </svg>
+                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
+                        <use href="#icon-remove-16"/>
+                    </svg>
+                </span>
             </summary>
             <div class="details__content">
                 <p>
@@ -78,7 +77,6 @@ export const closed = () => `
 export const open = () => `
 <ul
     class="accordion"
-    role="list"
     aria-roledescription="accordion"
 >
     <li>
@@ -153,7 +151,6 @@ export const open = () => `
 export const textSpacing = () => `
 <ul
     class="accordion demo-a11y-text-spacing"
-    role="list"
     aria-roledescription="accordion"
 >
     <li>
@@ -227,9 +224,8 @@ export const textSpacing = () => `
 
 export const large = () => `
 <ul
-  class="accordion accordion--large"
-  role="list"
-  aria-roledescription="accordion"
+    class="accordion accordion--large"
+    aria-roledescription="accordion"
 >
   <li>
       <details class="details">
@@ -302,9 +298,8 @@ export const large = () => `
 
 export const autoCollapse = () => `
 <ul
-  class="accordion"
-  role="list"
-  aria-roledescription="accordion"
+    class="accordion"
+    aria-roledescription="accordion"
 >
   <li>
       <details class="details" name="accordion-1">
