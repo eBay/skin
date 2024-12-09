@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 18.6.0-next.0
+
+### Minor Changes
+
+-   [#2504](https://github.com/eBay/skin/pull/2504) [`e4d7216`](https://github.com/eBay/skin/commit/e4d7216b6fde561410c2292c7aa69dbc17eba3e3) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): added new icons
+
 ## 18.5.0
 
 ### Minor Changes
