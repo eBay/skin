@@ -1,5 +1,17 @@
 # Skin Changelog
 
+## 18.6.0-next.0
+
+### Minor Changes
+
+-   [#2506](https://github.com/eBay/skin/pull/2506) [`b817c49`](https://github.com/eBay/skin/commit/b817c49dae4c65c07141388bac6ee24b840b1bf6) Thanks [@agliga](https://github.com/agliga)! - feat(floating-label): updated unselected color of label
+
+-   [#2509](https://github.com/eBay/skin/pull/2509) [`d7d80cc`](https://github.com/eBay/skin/commit/d7d80cc6524ed6b9b7536715d59ab9ac66ab52f7) Thanks [@agliga](https://github.com/agliga)! - fix(alert/confirm-dialog): changed alignment to left by default and right for footer
+
+-   [#2504](https://github.com/eBay/skin/pull/2504) [`e4d7216`](https://github.com/eBay/skin/commit/e4d7216b6fde561410c2292c7aa69dbc17eba3e3) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(icons): added new icons
+
+-   [#2508](https://github.com/eBay/skin/pull/2508) [`364355c`](https://github.com/eBay/skin/commit/364355c2d4af38e294b131766ef052dc46f4feee) Thanks [@agliga](https://github.com/agliga)! - docs(link): added disabled fake-link
+
 ## 18.5.0
 
 ### Minor Changes
