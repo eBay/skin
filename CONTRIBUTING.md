@@ -66,7 +66,7 @@ Here is a rough overview of steps required when contributing code to skin:
 
 ## Development Modes
 
-Skin can usually considered to be in one of two modes of development:
+Skin can usually be considered to be in one of two modes of development:
 
 1. Feature development mode (default)
 1. Refactoring/cleanup/breaking-changes mode
@@ -137,7 +137,7 @@ Here are some types of change that we consider as an incompatible API change:
 -   Change to HTML structure or attributes of module
 -   Change to CSS property that radically alters appearance and/or layout
 
-Typically we will try and add a deprecation note for a period of time before introducing any breaking API change. The creation of aliases can often help ease the transition from one API to another.
+Typically, we will try and add a deprecation note for a period of time before introducing any breaking API change. The creation of aliases can often help ease the transition from one API to another.
 
 ### New Functionality
 
@@ -179,7 +179,7 @@ A milestone branch will be deleted after it has been merged into `master`. There
 
 Every time we cut a new milestone branch, the package dependencies require updating.
 
-1. Ensure you are on the milestone branch and that the branch is up to date with latest from `master`
+1. Ensure you are on the milestone branch and that the branch is up-to-date with latest from `master`
 1. Run `npm install` to ensure your local node_modules are in sync with your `package-lock.json`
 1. Run `npm outdated`
 1. Go into `package.json` and update version numbers to the latest based on outdated. Pay attention to any major version updates as they may contain breaking changes!
@@ -232,7 +232,7 @@ Guidance for pull requests:
 -   Non-atomic commits should be squashed (i.e. "work in progress" type commits).
 -   Do not add any commit that leaves the code in a broken state.
 -   Pull request for a _feature_ must only contain changes related to the issue (NOTE: refactoring/cleanup type PRs are often exempt from this rule)
--   **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time consuming, as well as increasing risk of regression
+-   **Do not** be tempted to go fixing or refactoring unrelated issues. Doing so can make the code reviewer's job more difficult and/or time-consuming, as well as increasing risk of regression
 -   If you spot some other unrelated bug or code smell, please create a GitHub issue for it.
 -   After the pull request has been merged, your issue branch should be immediately deleted (by yourself or admin)
 
@@ -246,25 +246,25 @@ When contributing to Skin, please bear the following guidelines in mind:
 
 -   Ensure all markup adheres to our [accessibility patterns](https://ebay.gitbooks.io/mindpatterns/content/)
 -   Ensure all markup is valid HTML
--   Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwile tradeoff)
+-   Leverage ARIA roles, states and properties for styling hooks wherever possible. This safeguards against non-accessible markup (NOTE: this will increase specificity, but we accept this as a worthwhile trade off)
 -   Use BEM syntax for modifiers (double-dash) and nested classes (double-underscore)
 -   Use the `<svg>` tag for icons
 -   Never use the `<i>` tag for icons
 -   Harness CSS margin-collapse wherever possible.
 -   Most block-level modules will require margin top and bottom as a sensible default
--   Do not use presentational classnames, e.g. `.btn--green` should be `.btn--secondary` for example
--   Do not combine classes into a single classname, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
+-   Do not use presentational class names, e.g. `.btn--green` should be `.btn--secondary` for example
+-   Do not combine classes into a single class name, e.g. `btn-sec` should be `btn btn--sec`, this allows cascades without advanced attribute selectors or pre-processors
 -   Do not chain BEM modifiers (e.g. `.btn--large.btn--primary`). This is a code smell.
--   Do not use ambiguous or global classnames, e.g. `.large` should be `.btn--large`
+-   Do not use ambiguous or global class names, e.g. `.large` should be `.btn--large`
 -   Do not use class `.disabled` to disable buttons or form elements, use the HTML `disabled` property instead
 -   Do not wrap inputs with labels, use explicit labels instead (e.g. use the `for` and `id` attributes)
--   Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy url
+-   Do not use `href="#"` or `href="javascript"` in examples, use `href="http://www.ebay.com"` or any other dummy URL
 -   Every `<img>` tag must have an `alt` attribute, with **no** exceptions. The value can be an empty string for presentational images.
 -   Avoid naming conflicts with other grid systems (e.g. Bootstap Grids)
 -   Keep LESS pre-processor usage restricted to variables, mixins and basic nesting (see below). 9 times out of 10 advanced features of pre-processors can be avoided by using CSS properly.
--   Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in sub-optimal compiled CSS. Try and restrict nesting to pseudo selectors only (e.g. `:focus`, `::after`).
+-   Avoid too much nesting/indenting of LESS selectors as it can reduce human scan-ability of code and can also result in suboptimal compiled CSS. Try and restrict nesting to pseudo selectors only (e.g. `:focus`, `::after`).
 -   Avoid over specificity (unless required for accessibility safeguarding). The fewer rules required to check for a given element, the faster style resolution will be. This is the key to dramatically increasing performance.
-    [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
+    [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS](https://web.archive.org/web/20161029110643/https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS)
 -   Please do not commit commented out code to production.
 
 ## LESS API (deprecated)
@@ -273,7 +273,7 @@ In comparison to past versions, Skin now offers a very minimal public LESS API (
 
 ## Custom Property API
 
-Skin has a token based system that leverages CSS Custom Properties. The tokens are categorised into three levels:
+Skin has a token based system that leverages CSS Custom Properties. The tokens are categorized into three levels:
 
 -   core
 -   semantic
@@ -314,9 +314,9 @@ Obviously with great power, comes great responsibility.
 
 Every Skin module has full support for [dark mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
-Dark mode is powered by the [Custom Property API](#custom-property-api). When the "prefers-color-scheme" media query is satisfied, all semantic token values will be replaced, dynamically at runtime, with the values from the relevant tokens module (e.g. `evo-semantic-dark` or `evo-semantic-light`).
+Dark mode is powered by the [Custom Property API](#custom-property-api). When the "prefers-color-scheme" media query is satisfied, all semantic token values will be replaced, dynamically at runtime, with the values from the relevant tokens module (e.g.,`evo-semantic-dark` or `evo-semantic-light`).
 
-**NOTE:** the semantic dark mode tokens are **not** included by default. They must be explicitly bundled by the end user. This allows end users to opt-in to dark mode only when their base page is ready for it.
+**NOTE:** the semantic dark mode tokens are **not** included by default. They must be explicitly bundled by the end user. This allows end users to opt in to dark mode only when their base page is ready for it.
 
 ## Storybook
 
@@ -344,7 +344,7 @@ Internal contributors will need to set up to run Percy snapshots by adding the P
 
 This will allow internal contributors to run Percy snapshot tests.
 
-Snapshots will likely be ran by developers locally before pushing up changes. Once they are ran, Percy dashboard should be checked to ensure no unintended style changes have taken place. If there are unintended style changes that have occurred, those should be reverted/fixed. Once the set of new local changes is final and in scope with the changes related to the issue, the snapshot run will need to be marked as the canonical version against which future updates are compared.
+Snapshots will likely be run by developers locally before pushing up changes. Once they are run, Percy dashboard should be checked to ensure no unintended style changes have taken place. If there are unintended style changes that have occurred, those should be reverted/fixed. Once the set of new local changes is final and in scope with the changes related to the issue, the snapshot run will need to be marked as the canonical version against which future updates are compared.
 
 #### Build Modes
 
@@ -417,8 +417,8 @@ Please ensure your NPM registry is set correctly and that you are on the package
 
 A pre-release is always made from a milestone branch.
 
-1. Run `npm version prepatch`, `npm version preminor`, or `npm version premajor`. If you need to increment an existing prerelease use `npm version prerelease`. This command will automatically:
-    - update the version number in css build files
+1. Run `npm version prepatch`, `npm version preminor`, or `npm version premajor`. If you need to increment an existing pre-release use `npm version prerelease`. This command will automatically:
+    - update the version number in CSS build files
     - update the version number in `package.json`
     - commit all changes locally
     - create a Git tag
@@ -433,7 +433,7 @@ A final release is always made from the master branch.
 1. Merge the PR after approval (do not squash!)
 1. Switch to your local master branch and pull the changes from origin.
 1. Run `npm version patch`, `npm version minor`, or `npm version major`. This command will automatically:
-    - update the version number in css build files
+    - update the version number in CSS build files
     - update the version number in `package.json`
     - update the version number in Jekyll docs
     - commit all changes locally
@@ -459,7 +459,7 @@ Git tags to the rescue! Git tags allow us to go back to any moment in time that 
 
 1. Go to tags page: https://github.com/eBay/skin/tags
 1. Select the tag you'd like to go back in time to, e.g. https://github.com/eBay/skin/tree/v6.3.5
-1. Select the tag dropdown and create a new branch named accordingly, e.g `6.3.6`. This is the branch you will merge your PR to and do the release from.
+1. Select the tag dropdown and create a new branch named accordingly, e.g. `6.3.6`. This is the branch you will merge your PR to and do the release from.
 1. Create _another_ branch for your local dev work, e.g. `1723-textbox-fix`.
 1. Now follow the [release steps](#final-release) mentioned above, but substituting `master` branch for your release branch (e.g. `6.3.6`) and milestone branch for your dev branch (e.g. `1723-textbox-fix`). **IMPORTANT:** No changes should be pushed to master branch!
 1. Don't forget to publish your new git tag (e.g. `v6.3.6`)
@@ -470,6 +470,6 @@ Git tags to the rescue! Git tags allow us to go back to any moment in time that 
 The website archive under `/docs/archive` should be updated each time a minor or major release is published.
 
 1. In a local branch, checkout the tag of the previous version, e.g. `git checkout v10.7.5`
-1. Run `npm i`
-1. Run `npx marko-run build -o /docs/archive/v0.7.5`
-1. Create a pull request
+2. Run `npm i`
+3. Run `npx marko-run build -o /docs/archive/v0.7.5`
+4. Create a pull request
