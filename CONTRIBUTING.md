@@ -470,6 +470,6 @@ Git tags to the rescue! Git tags allow us to go back to any moment in time that 
 The website archive under `/docs/archive` should be updated each time a minor or major release is published.
 
 1. In a local branch, checkout the tag of the previous version, e.g. `git checkout v10.7.5`
-1. Run `npm i`
-1. Run `npx marko-run build -o /docs/archive/v0.7.5`
-1. Create a pull request
+2. Run `npm i`
+3. Run `npx marko-run build -o /docs/archive/v0.7.5`
+4. Create a pull request
