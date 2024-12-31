@@ -1,13 +1,19 @@
 import path from "path";
-import {modules} from '../modules.marko';
+import {components} from '../../components/components.marko';
 
-$ const metad = {}
+$ const metadata = {}
 
-$ for(let mod in modules) {
-    const moduleName = path.basename(mod, '.marko');
-    metad[moduleName] = modules[mod].metadata;
-}
+<for|key, comp| in=components>
+    $ const componentName = path.basename(comp, '.marko');
+    $ const name = componentName.replace(/-([a-z])/g, function (g) { return ` ${g[1].toUpperCase()}`; });
+    $ const rawName = name.charAt(0) + name.slice(1);
+    /* @TODO Fix this line to result in this structure:
+        "accordion":{"ds-component":{"name":"accordion","version":1}},"alert-dialog":{"ds-component":{"name":"dialog","version":2.1},"submodules":["button"]},"avatar":{"ds-component":{"name":"avatar","version":1}},"badge":{"ds-component":{"name":"badge","version":1.2}},"breadcrumbs":{"ds-component":{"name":"breadcrumb","version":1.2},"submodules":["icon"]},...
 
+    */
+    $ metadata[component] = components[rawName];
+    <!-- $ metadata[component] = components[rawName].metadata; -->
+</for>
 
 <!doctype html>
 <html lang="en">
@@ -16,6 +22,10 @@ $ for(let mod in modules) {
     </head>
 
     <body>
-        ${JSON.stringify(metad)}
+        <h2>Components</h2>
+        <p>${JSON.stringify(components)}</p>
+
+        <h2>Component Metadata</h2>
+        <p>${JSON.stringify(metadata)}</p>
     </body>
 </html>
