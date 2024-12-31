@@ -4,8 +4,6 @@
 
 button.btn,
 a.fake-btn {
-    @include btn-base();
-
     background-color: transparent;
     border-radius: var(--btn-border-radius, calc($button-height-regular / 2));
     color: inherit;
@@ -14,6 +12,8 @@ a.fake-btn {
     min-height: $button-height-regular;
     min-width: 88px;
     padding: $button-padding-vertical $button-padding-horizontal;
+
+    @include btn-base();
 }
 
 button.btn[disabled],
@@ -85,11 +85,11 @@ a.fake-btn--fluid {
 
 .btn__cell,
 .fake-btn__cell {
+    justify-content: center;
+
     @include btn-cell-base();
     @include btn-cell-fixed-height();
     @include btn-cell-truncated();
-
-    justify-content: center;
 }
 
 button.btn--form .btn__cell,
@@ -520,12 +520,12 @@ a.fake-btn--truncated {
 
 button.btn--large-truncated,
 a.fake-btn--large-truncated {
-    @include btn-truncate();
-
     font-size: var(--font-size-medium);
     height: $button-height-large;
     min-height: $button-height-large;
     padding: $button-padding-vertical-large $button-padding-horizontal;
+
+    @include btn-truncate();
 }
 
 button.btn--split-start,
