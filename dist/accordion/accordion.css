@@ -22,17 +22,6 @@ ul.accordion summary.details__summary {
 
 ul.accordion details .details__content {
     margin: 0 16px 6px;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition:
-        opacity 0.5s cubic-bezier(0.3, 0, 0, 1),
-        transform 0.5s cubic-bezier(0.3, 0, 0, 1);
-}
-
-ul.accordion details[open] .details__content {
-    opacity: 1;
-    transform: scaleY(1);
 }
 
 ul.accordion--large summary.details__summary {
@@ -49,7 +38,21 @@ ul.accordion details svg.details__collapse,
 ul.accordion details[open] svg.details__expand {
     display: none;
 }
-
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+    ul.accordion details .details__content {
+        height: 0;
+        overflow: clip;
+        transition:
+            height 0.5s cubic-bezier(0.3, 0, 0, 1),
+            content-visibility allow-discrete 0.5s cubic-bezier(0.3, 0, 0, 1);
+    }
+    ul.accordion details[open] .details__content {
+        height: auto;
+    }
+}
 @media (prefers-reduced-motion) {
     ul.accordion details .details__content,
     ul.accordion details[open] .details__content {

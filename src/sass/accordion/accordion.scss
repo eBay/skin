@@ -28,18 +28,8 @@ ul.accordion summary.details__summary {
 }
 
 ul.accordion details .details__content {
+    /* TODO: use pseudo class ::details-content once baseline support reached */
     margin: 0 16px 6px;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition:
-        opacity 500ms cubic-bezier(0.3, 0, 0, 1),
-        transform 500ms cubic-bezier(0.3, 0, 0, 1);
-}
-
-ul.accordion details[open] .details__content {
-    opacity: 1;
-    transform: scaleY(1);
 }
 
 ul.accordion--large summary.details__summary {
@@ -55,6 +45,25 @@ ul.accordion details[open] svg.details__collapse {
 ul.accordion details[open] svg.details__expand,
 ul.accordion details svg.details__collapse {
     display: none;
+}
+
+/* Implement transitions as a progressive enhancement on the browsers that support interpolate-size */
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    ul.accordion details .details__content {
+        height: 0;
+        overflow: clip;
+        transition:
+            height 500ms cubic-bezier(0.3, 0, 0, 1),
+            content-visibility 500ms cubic-bezier(0.3, 0, 0, 1) allow-discrete;
+    }
+
+    ul.accordion details[open] .details__content {
+        height: auto;
+    }
 }
 
 @media (prefers-reduced-motion) {
