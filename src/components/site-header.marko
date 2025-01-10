@@ -1,0 +1,106 @@
+import siteMeta from "./data/site.json" ;
+import {components} from './components.marko';
+
+<header>
+    <div class="page-grid-container">
+        <div class="page-grid">
+            <div class="app-bar">
+                <div class="top-bar">
+                    <button id="mobile-nav-toggle" class="app-bar-menu mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false"
+                    aria-controls="primaryNav">
+                        <div class="mobile-menu__icon">
+                            <svg class="icon icon-20 mobile-menu__open" height="18" width="18" aria-hidden="true">
+                                <use href="#icon-menu-20"></use>
+                            </svg>
+                            <svg class="icon icon-20 mobile-menu__close" height="18" width="18" aria-hidden="true">
+                                <use href="#icon-close-20"></use>
+                            </svg>
+                        </div>
+                    </button>
+                    <h1 class="app-bar__title">
+                        <anchor>${siteMeta.pageTitle}</anchor>
+                    </h1>
+                    <nav id="primary-nav" class="primary-nav" aria-label="Site navigation">
+                        <ul class="app-bar__links" role="menubar">
+                            <li><anchor role="menuitem" href="archive/index.html">Archive (v${siteMeta.version})</anchor></li>
+                            <li><a role="menuitem" href="https://github.com/eBay/skin">Repo</a></li>
+                            <li><a role="menuitem" href="/storybook">Storybook</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <details class="details modules-expander">
+        <summary class="details__summary">
+            <span class="details__label">Documentation</span>
+            <span class="details__icon" hidden>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <icon-symbol name="chevron-down-12"/>
+                </svg>
+            </span>
+        </summary>
+
+        <div class="details__content">
+            <nav class="components-nav" aria-labelledby="components-nav__title">
+                <h2 class="components-nav__title">CSS Components</h2>
+                <ul class="modules-expander__list" role="menubar">
+                    <components-list components=components/>
+                </ul>
+            </nav>
+
+            <nav class="examples-nav" aria-labelledby="examples-nav__title">
+                <h2 class="examples-nav__title">Guides</h2>
+                <ul class="modules-expander__list" role="menubar">
+                    <li>
+                        <anchor href="guide/page-grid" role="menuitem">Page Grid Use Guide</anchor>
+                    </li>
+
+                    <li>
+                        <anchor href="guide/skeleton" role="menuitem">Skeleton Use Guide</anchor>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </details>
+</header>
+
+<script>
+const navButton = document.getElementById("mobile-nav-toggle");
+const primaryNav = document.getElementById("primary-nav");
+const listItems = primaryNav.querySelectorAll("li a");
+
+function openNavigation() {
+    navButton.setAttribute("aria-expanded", "true");
+}
+
+function closeNavigation() {
+    navButton.setAttribute("aria-expanded", "false");
+}
+
+function toggleNavigation() {
+    const open = navButton.getAttribute("aria-expanded");
+    open === "false" ? openNavigation() : closeNavigation();
+}
+
+// This function closes an open primaryNav if a user tabs away from the last anchor element in the list. It is reliant on the ul container having a class to check whether the relatedTarget is within the primaryNav. If not, it will close.
+function handleBlur() {
+    const navList = event.currentTarget.closest(".app-bar__links");
+    if (!event.relatedTarget || !navList.contains(event.relatedTarget)) {
+        closeNavigation();
+    }
+}
+
+navButton.addEventListener("click", toggleNavigation);
+
+// add event to the last item in the nav list to trigger the primaryNav to close if the user tabs out of the primaryNav
+listItems[listItems.length - 1].addEventListener("blur", handleBlur);
+
+// Close the primaryNav if a user presses the escape key
+window.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+        navButton.focus();
+        closeNavigation();
+    }
+});
+</script>
