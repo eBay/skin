@@ -83,14 +83,14 @@ const debounce = (func, wait) => {
 };
 
 // BUSY BUTTON
-document.getElementById("busy-button").addEventListener("click", function () {
+document.getElementById("busy-button")?.addEventListener("click", function () {
     const button = this;
     button.setAttribute("aria-label", "Busy...");
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
                 <svg class="icon icon--24" height="24" width="24" aria-hidden="true" >
-                    <use href="static/icons.svg#icon-spinner-24"></use>
+                    <use href="#icon-spinner-24"></use>
                 </svg>
             </span>
         </span>
