@@ -11,7 +11,7 @@ export const enabled = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -59,7 +59,7 @@ export const invalid = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>

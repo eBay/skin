@@ -11,7 +11,7 @@ export const collapsedUnselected = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -53,7 +53,7 @@ export const expandedUnselected = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -95,7 +95,7 @@ export const collapsedSelected = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -137,7 +137,7 @@ export const expandedSelected = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -179,7 +179,7 @@ export const invalid = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>
@@ -221,7 +221,7 @@ export const longOption = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option" aria-selected="true">
                 <span class="listbox-button__value">Red with very very very long text</span>
@@ -257,7 +257,7 @@ export const borderless = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox" tabindex="0">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">1</span>
@@ -293,7 +293,7 @@ export const floatingLabelSelected = () => `
             </svg>
         </span>
     </button>
-    <div class="listbox-button__listbox">
+    <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox" tabindex="0">
             <div class="listbox-button__option" role="option">
                 <span class="listbox-button__value">Red</span>

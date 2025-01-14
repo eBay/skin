@@ -10,7 +10,7 @@ export const empty = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -37,7 +37,7 @@ export const fluid = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -95,7 +95,7 @@ export const prefilled = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -273,7 +273,7 @@ export const manyChips = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -331,7 +331,7 @@ export const expanded = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -389,7 +389,7 @@ export const textSpacing = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -447,7 +447,7 @@ export const disabledState = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>
@@ -505,7 +505,7 @@ export const errorState = () => `
                 <use href="#icon-chevron-down-16"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Soccer</span>

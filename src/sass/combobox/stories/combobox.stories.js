@@ -8,7 +8,7 @@ export const collapsed = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -29,7 +29,7 @@ export const expanded = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -50,7 +50,7 @@ export const textSpacing = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -71,7 +71,7 @@ export const disabled = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -92,7 +92,7 @@ export const large = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -113,7 +113,7 @@ export const longOptions = () => `
             <use href="#icon-chevron-down-12"></use>
         </svg>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
@@ -136,7 +136,7 @@ export const actionable = () => `
             </svg>
         </button>
     </span>
-    <div class="combobox__listbox">
+    <div class="combobox__listbox combobox__listbox--set-position">
         <div id="listbox1" class="combobox__options" role="listbox">
             <div class="combobox__option" role="option">
                 <span>Option 1</span>
@@ -161,7 +161,7 @@ export const RTL = () => `
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Option 1</span>
@@ -186,7 +186,7 @@ export const actionableRTL = () => `
                 </svg>
             </button>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox5" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Option 1</span>
@@ -212,7 +212,7 @@ export const inheritColour = () => `
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Option 1</span>
@@ -235,7 +235,7 @@ export const inheritFontSize = () => `
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </span>
-        <div class="combobox__listbox">
+        <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox1" class="combobox__options" role="listbox">
                 <div class="combobox__option" role="option">
                     <span>Option 1</span>
