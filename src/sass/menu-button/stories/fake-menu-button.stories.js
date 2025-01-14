@@ -10,7 +10,7 @@ export const links = () => `
             </svg>
         </span>
     </button>
-    <ul class="fake-menu-button__menu">
+    <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
         <li>
             <a class="fake-menu-button__item" href="http://www.ebay.com" aria-current="page">
                 <span>Link 1</span>
@@ -40,7 +40,7 @@ export const linksSelected = () => `
             </svg>
         </span>
     </button>
-    <ul class="fake-menu-button__menu">
+    <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
         <li>
         <a aria-current="page" class="fake-menu-button__item" href="http://www.ebay.com">
             <span>Link 1</span>
@@ -73,7 +73,7 @@ export const linksDisabled = () => `
             </svg>
         </span>
     </button>
-    <ul class="fake-menu-button__menu">
+    <ul class="fake-menu-button__menu fake-menu-button__menu--fix-width">
         <li>
         <a aria-current="page" class="fake-menu-button__item">
             <span>Link 1</span>
@@ -106,7 +106,7 @@ export const linksFixedWidth = () => `
             </svg>
         </span>
     </button>
-    <ul class="fake-menu-button__menu fake-menu-button__menu--fix-width">
+    <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
         <li>
             <a class="fake-menu-button__item" href="http://www.ebay.com" aria-current="page">
                 <span>Link 10000</span>

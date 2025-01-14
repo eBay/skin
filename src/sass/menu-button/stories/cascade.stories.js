@@ -11,7 +11,7 @@ export const RTL = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 10000</span>
@@ -39,7 +39,7 @@ export const colour = () => `
                 </svg>
             </span>
         </button>
-        <div class="menu-button__menu">
+        <div class="menu-button__menu menu-button__menu--set-position">
             <div class="menu-button__items" role="menu">
                 <div class="menu-button__item" role="menuitem" tabindex="0">
                     <span>Item 10000</span>
@@ -67,7 +67,7 @@ export const fontSize = () => `
                 </svg>
             </span>
         </button>
-        <div class="menu-button__menu">
+        <div class="menu-button__menu menu-button__menu--set-position">
             <div class="menu-button__items" role="menu">
                 <div class="menu-button__item" role="menuitemradio" tabindex="0" aria-checked="true">
                     <span>Item 10000</span>

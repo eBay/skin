@@ -16,7 +16,7 @@ export const Default = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -99,7 +99,7 @@ export const Large = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -182,7 +182,7 @@ export const ReadOnly = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -265,7 +265,7 @@ export const Disabled = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -348,7 +348,7 @@ export const Error = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -431,7 +431,7 @@ export const Fluid = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -515,7 +515,7 @@ export const RTL = () => `
             </svg>
           </span>
         </button>
-        <div class="listbox-button__listbox">
+        <div class="listbox-button__listbox listbox-button__listbox--set-position">
           <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
@@ -602,7 +602,7 @@ export const TextSpacing = () => `
           </svg>
         </span>
       </button>
-      <div class="listbox-button__listbox">
+      <div class="listbox-button__listbox listbox-button__listbox--set-position">
         <div class="listbox-button__options" role="listbox">
           <div class="listbox-button__option" role="option">
             <span class="listbox-button__value">
@@ -695,7 +695,7 @@ export const overrideFontSize = () => `
             </svg>
           </span>
         </button>
-        <div class="listbox-button__listbox">
+        <div class="listbox-button__listbox listbox-button__listbox--set-position">
           <div class="listbox-button__options" role="listbox">
             <div class="listbox-button__option" role="option">
               <span class="listbox-button__value">
