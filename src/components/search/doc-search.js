@@ -5,7 +5,7 @@ export function init(container) {
     docsearch({
         container,
         indexName: "skin",
-        appId: "R2IYF7ETH7",
-        apiKey: "599cec31baffa4868cae4e79f180729b",
+        appId: "4AG9MNELVM",
+        apiKey: "9b7a33ff8f0985b0f2b66e90c020b459",
     });
 }
