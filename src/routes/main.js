@@ -187,6 +187,23 @@ document.querySelectorAll(".expand-btn").forEach(function (el) {
     });
 });
 
+document.querySelectorAll(".date-textbox").forEach(function (el) {
+    const popperDropdown = new PopperDropdown(
+        el,
+        null,
+        ".date-textbox__popover",
+    );
+
+    el.querySelector("button").addEventListener("click", function () {
+        this.parentElement.nextElementSibling.toggleAttribute("hidden");
+        if (this.parentElement.nextElementSibling.hasAttribute("hidden")) {
+            popperDropdown.hide();
+        } else {
+            popperDropdown.show();
+        }
+    });
+});
+
 document.querySelectorAll(".filter-menu-button--form").forEach(function (el) {
     const popperDropdown = new PopperDropdown(
         el,
