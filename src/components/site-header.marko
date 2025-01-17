@@ -20,6 +20,93 @@ import {components} from './components.marko';
                     <h1 class="app-bar__title">
                         <anchor>${siteMeta.pageTitle}</anchor>
                     </h1>
+                    <div class="site-nav-mobile">
+
+                        <div class="tabs">
+                            <div class="tabs__items" role="tablist">
+                                <div
+                                aria-controls="default-tabpanel-1"
+                                aria-selected="true"
+                                class="tabs__item"
+                                id="default-tab-1"
+                                role="tab"
+                                >
+                                    <span>Main Navigation</span>
+                                </div>
+                                <div
+                                aria-controls="default-tabpanel-2"
+                                aria-selected="false"
+                                class="tabs__item"
+                                id="default-tab-2"
+                                role="tab"
+                                >
+                                    <span>CSS Components</span>
+                                </div>
+                                <div
+                                aria-controls="default-tabpanel-3"
+                                aria-selected="false"
+                                class="tabs__item"
+                                id="default-tab-3"
+                                role="tab"
+                                >
+                                    <span>Guides</span>
+                                </div>
+                            </div>
+                            <div class="tabs__content">
+                                <div
+                                aria-labelledby="default-tab-1"
+                                class="tabs__panel"
+                                id="default-tabpanel-1"
+                                role="tabpanel"
+                                >
+                                    <div class="tabs__cell">
+                                        <nav id="primary-nav-mobile" class="primary-nav-mobile" aria-label="Site navigation">
+                                            <ul class="app-bar__links" role="menubar">
+                                                <li><anchor role="menuitem" href="archive/index.html">Archive (v${siteMeta.version})</anchor></li>
+                                                <li><a role="menuitem" href="https://github.com/eBay/skin">Repo</a></li>
+                                                <li><a role="menuitem" href="/storybook">Storybook</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div
+                                aria-labelledby="default-tab-2"
+                                class="tabs__panel"
+                                hidden
+                                id="default-tabpanel-2"
+                                role="tabpanel"
+                                >
+                                    <div class="tabs__cell">
+                                        <nav class="components-nav" aria-label="CSS Components">
+                                            <ul class="modules-expander__list" role="menubar">
+                                                <components-list components=components/>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div
+                                aria-labelledby="default-tab-3"
+                                class="tabs__panel"
+                                hidden
+                                id="default-tabpanel-3"
+                                role="tabpanel"
+                                >
+                                    <div class="tabs__cell">
+                                        <nav class="examples-nav" aria-label="Guides">
+                                            <ul class="modules-expander__list" role="menubar">
+                                                <li>
+                                                    <anchor href="guide/page-grid" role="menuitem">Page Grid Use Guide</anchor>
+                                                </li>
+                                                <li>
+                                                    <anchor href="guide/skeleton" role="menuitem">Skeleton Use Guide</anchor>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <nav id="primary-nav" class="primary-nav" aria-label="Site navigation">
                         <ul class="app-bar__links" role="menubar">
                             <li><anchor role="menuitem" href="archive/index.html">Archive (v${siteMeta.version})</anchor></li>
@@ -31,51 +118,22 @@ import {components} from './components.marko';
             </div>
         </div>
     </div>
-    <details class="details modules-expander">
-        <summary class="details__summary">
-            <span class="details__label">Documentation</span>
-            <span class="details__icon" hidden>
-                <svg class="icon icon--16" aria-hidden="true">
-                    <icon-symbol name="chevron-down-12"/>
-                </svg>
-            </span>
-        </summary>
-
-        <div class="details__content">
-            <nav class="components-nav" aria-labelledby="components-nav__title">
-                <h2 id="components-nav__title" class="components-nav__title">CSS Components</h2>
-                <ul class="modules-expander__list" role="menubar">
-                    <components-list components=components/>
-                </ul>
-            </nav>
-
-            <nav class="examples-nav" aria-labelledby="examples-nav__title">
-                <h2 id="examples-nav__title" class="examples-nav__title">Guides</h2>
-                <ul class="modules-expander__list" role="menubar">
-                    <li>
-                        <anchor href="guide/page-grid" role="menuitem">Page Grid Use Guide</anchor>
-                    </li>
-
-                    <li>
-                        <anchor href="guide/skeleton" role="menuitem">Skeleton Use Guide</anchor>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </details>
 </header>
 
 <script>
+const elBody = document.querySelector("body");
 const navButton = document.getElementById("mobile-nav-toggle");
 const primaryNav = document.getElementById("primary-nav");
 const listItems = primaryNav.querySelectorAll("li a");
 
 function openNavigation() {
     navButton.setAttribute("aria-expanded", "true");
+    elBody.style.overflowY = "hidden";
 }
 
 function closeNavigation() {
     navButton.setAttribute("aria-expanded", "false");
+    elBody.style.overflowY = "auto";
 }
 
 function toggleNavigation() {
