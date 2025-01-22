@@ -8,13 +8,7 @@ const masterIconPath = path.resolve(svgDir, "icons.svg");
 const jsdom = require("jsdom");
 const prettier = require("prettier");
 const { JSDOM } = jsdom;
-const configFilePath = path.resolve(
-    currentDir,
-    "src",
-    "routes",
-    "_index",
-    "+meta.json",
-);
+const configFilePath = path.resolve(currentDir, "src", "routes", "icons.json");
 const file = fs.readFileSync(configFilePath, "utf8");
 const config = JSON.parse(file);
 const { html2xhtml } = require("./util");
