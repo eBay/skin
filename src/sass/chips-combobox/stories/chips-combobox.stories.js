@@ -6,9 +6,6 @@ export const empty = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -33,9 +30,6 @@ export const fluid = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -91,9 +85,6 @@ export const prefilled = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -269,9 +260,6 @@ export const manyChips = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -327,9 +315,6 @@ export const expanded = () => `
     <span class="combobox combobox--js combobox--expanded chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -385,9 +370,6 @@ export const textSpacing = () => `
     <span class="combobox combobox--js combobox--expanded chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -443,9 +425,6 @@ export const disabledState = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" disabled />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
@@ -501,9 +480,6 @@ export const errorState = () => `
     <span class="combobox combobox--js chips-combobox__combobox">
         <span class="combobox__control chips-combobox_combobox__control">
             <input id="chips-combobox-1-input" role="combobox" type="text" placeholder="Add Sport" aria-haspopup="listbox" aria-owns="listbox-chips-combobox-1" />
-            <svg class="icon icon--16" height="16" width="16" aria-hidden="true">
-                <use href="#icon-chevron-down-16"></use>
-            </svg>
         </span>
         <div class="combobox__listbox combobox__listbox--set-position">
             <div id="listbox-chips-combobox-1" class="combobox__options" role="listbox">
