@@ -1,0 +1,70 @@
+import siteMeta from "../../components/data/site.json" ;
+import {components} from '../../components/components.marko';
+
+style {
+    .page-sitemap {
+        nav {
+            margin-bottom: var(--spacing-400);
+        }
+
+        li {
+            margin-bottom: var(--spacing-200);
+        }
+
+        a.nav-link {
+            text-decoration: underline;
+        }
+
+        a.nav-link:visited,
+        a:visited {
+            color: revert;
+        }
+    }
+
+    .site-nav {
+        display: none;
+    }
+
+    main {
+        grid-area: 1 / 1 / span 1 / span 16;
+    }
+}
+
+<div class="page-sitemap">
+    <h1>Sitemap</h1>
+
+    <h2 id="sitemap-pages">Main Pages</h2>
+
+    <nav aria-labelledby="sitemap-pages">
+        <ul role="menubar">
+        <li><anchor role="menuitem" href="archive/index.html">Archive (v${siteMeta.version})</anchor></li>
+            <li><a role="menuitem" href="https://github.com/eBay/skin">Repo</a></li>
+            <li><a role="menuitem" href="/storybook">Storybook</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="sitemap-components">CSS Components</h2>
+
+    <nav aria-labelledby="sitemap-components">
+        <ul role="menubar">
+            <components-list components=components/>
+        </ul>
+    </nav>
+
+    <h2 id="sitemap-guides">Guides</h2>
+
+    <nav aria-labelledby="sitemap-guides">
+        <ul role="menubar">
+            <li>
+                <anchor href="guide/page-grid" role="menuitem">
+                Page Grid Use Guide</anchor>
+            </li>
+            <li>
+                <anchor href="guide/skeleton" role="menuitem">Skeleton Use Guide</anchor>
+            </li>
+            <li>
+                <anchor href="guide/animation" role="menuitem">Animation Guide</anchor>
+            </li>
+        </ul>
+    </nav>
+</div>
