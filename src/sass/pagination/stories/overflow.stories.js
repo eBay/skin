@@ -173,7 +173,7 @@ export const endMenuCollapsed = () => `
                             <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
-                    <ul class="fake-menu-button__menu">
+                    <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                         <li>
                             <a class="fake-menu-button__item" href="http://www.ebay.com">
                                 <span>6</span>
@@ -244,7 +244,7 @@ export const endMenuExpanded = () => `
                             <use href="#icon-overflow-horizontal-24"></use>
                         </svg>
                     </button>
-                    <ul class="fake-menu-button__menu">
+                    <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                         <li>
                             <a class="fake-menu-button__item" href="http://www.ebay.com">
                                 <span>6</span>

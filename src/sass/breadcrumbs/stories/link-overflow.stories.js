@@ -18,7 +18,7 @@ export const minimum = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
 
                     <div role="menu" class="fake-menu-button__items">
                         <div class="fake-menu-button__item" role="menuitem" tabindex="-1">
@@ -63,7 +63,7 @@ export const collapsed = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
 
                     <div role="menu" class="fake-menu-button__items">
                         <div class="fake-menu-button__item" role="menuitem" tabindex="-1">
@@ -114,7 +114,7 @@ export const expanded = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                     <li>
                         <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
                     </li>
@@ -162,7 +162,7 @@ export const textSpacing = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
 
                     <div role="menu" class="fake-menu-button__items">
                         <div class="fake-menu-button__item" role="menuitem" tabindex="-1">

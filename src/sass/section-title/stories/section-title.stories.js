@@ -48,7 +48,7 @@ export const overflow = () => `
                     <use href="#icon-overflow-vertical-24"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem"><span>Item 1</span></div>
                     <div class="menu-button__item" role="menuitem"><span>Item 2</span></div>
@@ -69,7 +69,7 @@ export const withFavorite = () => `
     <div class="section-title__info">
         <button class="icon-btn" type="button" aria-expanded="false" aria-label="Help">
             <svg aria-hidden="true" class="icon icon--16" width="16" height="14">
-                <use href="#icon-save-16"></use>
+                <use href="#icon-heart-16"></use>
             </svg>
         </button>
     </div>
@@ -85,7 +85,7 @@ export const withFavoriteAndLink = () => `
     <div class="section-title__info">
         <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
             <svg aria-hidden="true" class="icon icon--16" width="16" height="14">
-                <use href="#icon-save-16"></use>
+                <use href="#icon-heart-16"></use>
             </svg>
         </button>
     </div>
@@ -102,7 +102,7 @@ export const textSpacing = () => `
     <div class="section-title__info">
         <button class="icon-btn infotip__host" type="button" aria-expanded="false" aria-label="Help">
             <svg aria-hidden="true" class="icon icon--16" width="16" height="14">
-                <use href="#icon-save-16"></use>
+                <use href="#icon-heart-16"></use>
             </svg>
         </button>
     </div>

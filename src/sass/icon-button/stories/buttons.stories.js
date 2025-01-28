@@ -3,17 +3,17 @@ export default { title: "Skin/Icon Button/Buttons" };
 export const base = () => `
 <button class="icon-btn icon-btn--large" type="button" aria-label="Save">
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn" type="button" aria-label="Save">
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small" type="button" aria-label="Save">
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -45,17 +45,17 @@ export const baseSpinner = () => `
 export const baseDisabled = () => `
 <button class="icon-btn icon-btn--large" type="button" aria-label="Save" disabled>
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn" type="button" aria-label="Save" disabled>
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small" type="button" aria-label="Save" disabled>
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -63,17 +63,17 @@ export const baseDisabled = () => `
 export const primary = () => `
 <button class="icon-btn icon-btn--large icon-btn--primary" type="button" aria-label="Save">
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--primary" type="button" aria-label="Save">
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--primary" type="button" aria-label="Save">
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -105,17 +105,17 @@ export const primarySpinner = () => `
 export const primaryDisabled = () => `
 <button class="icon-btn icon-btn--large icon-btn--primary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--primary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--primary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -123,17 +123,17 @@ export const primaryDisabled = () => `
 export const secondary = () => `
 <button class="icon-btn icon-btn--large icon-btn--secondary" type="button" aria-label="Save">
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--secondary" type="button" aria-label="Save">
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--secondary" type="button" aria-label="Save">
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -165,17 +165,17 @@ export const secondarySpinner = () => `
 export const secondaryDisabled = () => `
 <button class="icon-btn icon-btn--large icon-btn--secondary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--secondary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--secondary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -183,17 +183,17 @@ export const secondaryDisabled = () => `
 export const tertiary = () => `
 <button class="icon-btn icon-btn--large icon-btn--tertiary" type="button" aria-label="Save">
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--tertiary" type="button" aria-label="Save">
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--tertiary" type="button" aria-label="Save">
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;
@@ -225,17 +225,17 @@ export const tertiarySpinner = () => `
 export const tertiaryDisabled = () => `
 <button class="icon-btn icon-btn--large icon-btn--tertiary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--24" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-24"></use>
+        <use href="#icon-heart-24"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--tertiary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--20" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-20"></use>
+        <use href="#icon-heart-20"></use>
     </svg>
 </button>
 <button class="icon-btn icon-btn--small icon-btn--tertiary" type="button" aria-label="Save" disabled>
     <svg class="icon icon--16" width="16" height="16" aria-hidden="true">
-        <use href="#icon-save-16"></use>
+        <use href="#icon-heart-16"></use>
     </svg>
 </button>
 `;

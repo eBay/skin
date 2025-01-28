@@ -33,7 +33,7 @@ export const iconTitleSubtitle = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false">
     <span class="toggle-button__icon">
         <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-            <use href="#icon-on-the-way-16"></use>
+            <use href="#icon-truck-16"></use>
         </svg>
     </span>
     <span class="toggle-button__content">
@@ -117,7 +117,7 @@ export const disabledIcon = () => `
 <button type="button" class="toggle-button toggle-button--list-layout" aria-pressed="false" disabled>
     <span class="toggle-button__icon">
         <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
-            <use href="#icon-on-the-way-16"></use>
+            <use href="#icon-truck-16"></use>
         </svg>
     </span>
     <span class="toggle-button__content">

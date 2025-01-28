@@ -18,7 +18,7 @@ export const minimum = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                     <li>
                         <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
                     </li>
@@ -60,7 +60,7 @@ export const collapsed = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                     <li>
                         <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
                     </li>
@@ -107,7 +107,7 @@ export const expanded = () => `
                         <use href="#icon-overflow-horizontal-16"></use>
                     </svg>
                 </button>
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                     <li>
                         <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
                     </li>
@@ -155,7 +155,7 @@ export const textSpacing = () => `
                     </svg>
                 </button>
 
-                <ul class="fake-menu-button__menu">
+                <ul class="fake-menu-button__menu fake-menu-button__menu--set-position">
                     <li>
                         <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
                     </li>
