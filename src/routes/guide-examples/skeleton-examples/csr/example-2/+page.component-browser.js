@@ -19,11 +19,11 @@ window.addEventListener("load", () => {
             document.querySelector("main").innerHTML += `
       <div class="items">
         <div>
-          <div class="image" style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg');"></div>
+          <div class="image" style="background-image: url('https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg');"></div>
           <p>Lorem ipsum dolor sit amet, consectetur...</p>
         </div>
         <div>
-          <div class="image" style="background-image: url('https://opensource.ebay.com/skin/static/img/tb-landscape-pic.jpg');"></div>
+          <div class="image" style="background-image: url('https://ir.ebaystatic.com/cr/v/c01/skin/docs/tb-landscape-pic.jpg');"></div>
           <p>Lorem ipsum dolor sit amet, consectetur...</p>
         </div>
       </div>
