@@ -1,5 +1,24 @@
 # Skin Changelog
 
+## 19.0.0
+
+### Major Changes
+
+- [#2540](https://github.com/eBay/skin/pull/2540) [`a21d879`](https://github.com/eBay/skin/commit/a21d879e6fb080b495c2d92fcc8e4cd9fb98f09e) Thanks [@agliga](https://github.com/agliga)! - chore: added comment to deprecated components about their removal
+
+- [#2536](https://github.com/eBay/skin/pull/2536) [`c479ee1`](https://github.com/eBay/skin/commit/c479ee1f8d99e12f65e1c8c3b0929c145e9108ad) Thanks [@agliga](https://github.com/agliga)! - chore: remove deprecations for next major version
+
+- [#2526](https://github.com/eBay/skin/pull/2526) [`93788e6`](https://github.com/eBay/skin/commit/93788e61c8d4e5fe75776f79c07d32dbbede25c6) Thanks [@saiponnada](https://github.com/saiponnada)! - fix(table): remove aria-pressed from table headings
+
+- [#2541](https://github.com/eBay/skin/pull/2541) [`529af17`](https://github.com/eBay/skin/commit/529af17d8b35d4f825b5e49ec57a1e6f43b89c14) Thanks [@agliga](https://github.com/agliga)! - feat(dropdowns): added floating-ui support
+  All dropdowns should be using floating-ui by default. In order to have the old non-floating ui positioning, use `--set-position` modifier on all dropdowns (such as `.menu-button__menu--set-position`)
+
+- [#2529](https://github.com/eBay/skin/pull/2529) [`5a5a45f`](https://github.com/eBay/skin/commit/5a5a45f19ebfacd91f937c5ce8ad7482b0dcdc6b) Thanks [@agliga](https://github.com/agliga)! - feat(floating-ui): added support in date-textbox
+
+- [#2528](https://github.com/eBay/skin/pull/2528) [`4265bed`](https://github.com/eBay/skin/commit/4265bed0dd9b9f9204af663f7dc6c64319c61ae8) Thanks [@agliga](https://github.com/agliga)! - feat(icons): added new icons and removed serveral icons
+
+- [#2537](https://github.com/eBay/skin/pull/2537) [`b6f7744`](https://github.com/eBay/skin/commit/b6f7744ce3212c02118ee256c97aa9f889610f56) Thanks [@LuLaValva](https://github.com/LuLaValva)! - feat(combobox): remove chevron from combobox
+
 ## 18.6.0
 
 ### Minor Changes
