@@ -1,0 +1,12 @@
+import path from 'path';
+import flags from "./data/flags.json"
+import icons from "./data/icons.json"
+
+static const componentFolders = import.meta.glob("../routes/_index/component/*/*.marko");
+
+static const components = Object.keys(componentFolders).map((filePath) => {
+    const parts = filePath.split('/');
+    return parts.slice(0, parts.length - 1).join('/');
+});
+
+export { components, flags, icons };

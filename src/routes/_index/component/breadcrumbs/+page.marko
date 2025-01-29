@@ -1,0 +1,240 @@
+<div id="breadcrumbs">
+    <section-header metadata=metadata/>
+
+    <p>Breadcrumbs are a navigational landmark that let the user discover their current position in the site hierarchy and provide a means to navigate upwards through that hierarchy.</p>
+    <p>Typically, the last breadcrumb is the current page, therefore that link's href attribute is not relevant and can be removed.</p>
+    <div class="demo">
+        <div class="demo__inner">
+            <nav aria-labelledby="breadcrumbs-heading-1" class="breadcrumbs" role="navigation">
+                <h2 id="breadcrumbs-heading-1" class="clipped">You are here</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.ebay.com/">ebay</a>
+                        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                            <icon-symbol name="chevron-right-12" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+                        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                            <icon-symbol name="chevron-right-12" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+                        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                            <icon-symbol name="chevron-right-12" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a aria-current="location">Smart Watch Bands</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <highlight-code type="html" >
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+    <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+    <ul>
+        <li>
+            <a href="https://www.ebay.com/">ebay</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a aria-current="location">Smart Watch Bands</a>
+        </li>
+    </ul>
+</nav>
+    </highlight-code>
+
+    <p>If the last breadcrumb is <em>not</em> the current page, then that link must have a valid href.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <nav aria-labelledby="breadcrumbs-heading-2" class="breadcrumbs" role="navigation">
+                <h2 id="breadcrumbs-heading-2" class="clipped">You are here</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.ebay.com/">ebay</a>
+                        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                            <icon-symbol name="chevron-right-12" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+                        <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                            <icon-symbol name="chevron-right-12" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <highlight-code type="html" >
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs" role="navigation">
+    <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+    <ul>
+        <li>
+            <a href="https://www.ebay.com/">ebay</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/rpp/cell-phone-pda">Cell Phones, Smart Watches &amp; Accessories</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">Smart Watch Accessories</a>
+        </li>
+    </ul>
+</nav>
+    </highlight-code>
+
+    <p>Anchor tags can be replaced with buttons if the hierarchy is not intended to be <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">deep linkable</a>. This is a rare &amp; unlikely scenario - therefore please exercise caution!</p>
+
+    <h3>Long Breadcrumbs with Overflows</h3>
+
+    <p>Long breadcrumbs can arise due to any combination of small screen sizes, large category names and language translations. In these situations the breadcrumbs will need to get an overflow treatment in the second node with an overflow button and menu items.</p>
+
+    <p>If there are 4 or more nodes for breadcrumbs, an overflow on node 2 should be used instead of various additional nodes between that node and the final one. The list of items in the overflow menu should include content from node 2 until last node minus 2 nodes so that there are always 4 nodes on screen including the overflow button node. You cannot show more than 3 breadcrumbs + overflow, or 4 breadcrumbs. The minimum amount to show is 1 leading item, overflow, and the current page you are on.</p>
+
+    <p>Additionally, to account for smaller screens, there is a maximum width limit on each node label. Please check the CSS for details (not specified here intentionally to avoid doc/code misalignment).</p>
+
+<div class="demo demo--maintain-boundary">
+    <div class="demo__inner">
+        <nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs breadcrumb--overflow" role="navigation">
+            <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+            <ul>
+                <li>
+                    <a href="https://www.ebay.com/">ebay</a>
+                    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                        <icon-symbol name="chevron-right-12" />
+                    </svg>
+                </li>
+                <li>
+                    <span class="fake-menu-button">
+                        <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
+                            <svg aria-hidden="true" class="icon icon--16">
+                                <icon-symbol name="overflow-horizontal-16" />
+                            </svg>
+                        </button>
+                        <ul class="fake-menu-button__menu">
+                            <li>
+                                <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda" >
+                                    Cell Phones, Smart Watches &amp; Accessories
+                                </a>
+                            </li>
+                            <li>
+                                <a class="fake-menu-button__item" href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">
+                                    Smart Watch Accessories
+                                </a>
+                            </li>
+                            <li>
+                                <a class="fake-menu-button__item" href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906">
+                                    Smart Watch Bands
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+
+                    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                        <icon-symbol name="chevron-right-12" />
+                    </svg>
+                </li>
+
+                <li>
+                    <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Long Band Text Type 2</a>
+                    <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                        <icon-symbol name="chevron-right-12" />
+                    </svg>
+                </li>
+                <li>
+                    <a aria-current="location">Current Band</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+    <highlight-code type="html" >
+<nav aria-labelledby="breadcrumbs-heading" class="breadcrumbs breadcrumb--overflow" role="navigation">
+    <h2 id="breadcrumbs-heading" class="clipped">You are here</h2>
+    <ul>
+        <li>
+            <a href="https://www.ebay.com/">ebay</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <span class="fake-menu-button">
+                <button class="fake-menu-button__button icon-btn" aria-expanded="false" aria-haspopup="true" aria-label="eBay Menu"  type="button">
+                    <svg aria-hidden="true" class="icon icon--16">
+                        <use href="#icon-overflow-horizontal-16"></use>
+                    </svg>
+                </button>
+                <ul class="fake-menu-button__menu">
+                    <li>
+                        <a class="fake-menu-button__item" href="https://www.ebay.com/rpp/cell-phone-pda" >
+                            Cell Phones, Smart Watches &amp; Accessories
+                        </a>
+                    </li>
+                    <li>
+                        <a class="fake-menu-button__item" href="https://www.ebay.com/b/Smart-Watch-Accessories/182064/bn_16565905">
+                            Smart Watch Accessories
+                        </a>
+                    </li>
+                    <li>
+                        <a class="fake-menu-button__item" href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906">
+                            Smart Watch Bands
+                        </a>
+                    </li>
+                </ul>
+            </span>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a href="https://www.ebay.com/b/Smart-Watch-Bands/182068/bn_16565906/Some-Random-Watch-Pand2">Smart Watch Band Long Band Text Type 2</a>
+            <svg class="icon icon--12" height="8" width="8" aria-hidden="true">
+                <use href="#icon-chevron-right-12"></use>
+            </svg>
+        </li>
+        <li>
+            <a aria-current="location">Current Band</a>
+        </li>
+    </ul>
+</nav>
+    </highlight-code>
+
+</div>
+export const metadata = {
+    component: "breadcrumbs",
+    "ds-component": {
+        "name": "breadcrumb",
+        "version": 1.2
+    },
+    submodules: ["icon"]
+};

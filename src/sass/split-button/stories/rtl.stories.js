@@ -14,7 +14,7 @@ export const primaryCollapsed = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -46,7 +46,7 @@ export const primaryExpanded = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -78,7 +78,7 @@ export const secondaryCollapsed = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -110,7 +110,7 @@ export const secondaryExpanded = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -142,7 +142,7 @@ export const tertiaryCollapsed = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>
@@ -174,7 +174,7 @@ export const tertiaryExpanded = () => `
                     <use href="#icon-chevron-down-12"></use>
                 </svg>
             </button>
-            <div class="menu-button__menu menu-button__menu--reverse">
+            <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
                 <div class="menu-button__items" role="menu">
                     <div class="menu-button__item" role="menuitem">
                         <span>Item 10000</span>

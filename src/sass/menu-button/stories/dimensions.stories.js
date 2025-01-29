@@ -10,7 +10,7 @@ export const fixedWidth = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu menu-button__menu--fix-width">
+    <div class="menu-button__menu menu-button__menu--fix-width menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <span>Menu Item 1 with a long string</span>

@@ -12,7 +12,7 @@ export const longTextCollapsed = () => `
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </button>
-        <div class="menu-button__menu menu-button__menu--reverse">
+        <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
             <div class="menu-button__items" role="menu">
                 <div class="menu-button__item" role="menuitem">
                     <span>Item 10000</span>
@@ -42,7 +42,7 @@ export const longTextExpanded = () => `
                 <use href="#icon-chevron-down-12"></use>
             </svg>
         </button>
-        <div class="menu-button__menu menu-button__menu--reverse">
+        <div class="menu-button__menu menu-button__menu--reverse menu-button__menu--set-position">
             <div class="menu-button__items" role="menu">
                 <div class="menu-button__item" role="menuitem">
                     <span>Item 10000</span>

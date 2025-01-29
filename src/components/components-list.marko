@@ -1,0 +1,11 @@
+import path from 'path';
+
+<for|key, comp| in=input.components>
+    $ const componentName = path.basename(comp, '.marko');
+    $ const name = componentName.replace(/-([a-z])/g, function (g) { return ` ${g[1].toUpperCase()}`; });
+    $ const properName = name.charAt(0).toUpperCase() + name.slice(1);
+    <li>
+        <anchor href=`component/${componentName}` class="nav-link" role="menuitem">${properName}</anchor>
+    </li>
+</for>
+

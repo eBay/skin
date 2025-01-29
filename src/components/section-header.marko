@@ -1,10 +1,32 @@
 $ const metadata = input.metadata || {};
+$ let skinComponent = metadata['component'] || {};
 $ let dsComponent = metadata['ds-component'] || {};
 $ if (dsComponent.length > 0) {
     dsComponent = dsComponent[0];
 }
+
+style {
+    .section-header {
+        display: flex;
+        margin: var(--spacing-200) 0 var(--spacing-200);
+    }
+
+    .section-header h1 {
+        font-size: var(--font-size-large-1);
+        margin: 0;
+    }
+
+    .section-header__version {
+        align-self: center;
+        background-color: var(--color-background-tertiary);
+        font-family: monospace, sans-serif, Helvetica;
+        font-size: var(--font-size-small);
+        margin-left: auto;
+        padding: 2px 4px;
+    }
+}
 <macro name="body">
-    <span class="secondary-text">@ebay/skin/</span>${input.name}
+    <span class="secondary-text">@ebay/skin/</span>${skinComponent}
     <if(input.beta === "true")>
         <sup>BETA</sup>
     </if>
@@ -18,10 +40,15 @@ $ if (dsComponent.length > 0) {
             <body/>
         </h3>
     </if>
-    <else>
+    <else-if(input.header === "h2")>
         <h2>
             <body/>
         </h2>
+    </else-if>
+    <else>
+        <h1>
+            <body/>
+        </h1>
     </else>
     <span class="section-header__version">
         DS v${dsComponent?.version || metadata.version}

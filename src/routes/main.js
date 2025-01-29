@@ -41,6 +41,7 @@ import {
     flip,
     computePosition,
     shift,
+    size,
     offset,
     arrow,
     inline,
@@ -82,15 +83,69 @@ const debounce = (func, wait) => {
     };
 };
 
+class PopperDropdown {
+    constructor(widgetEl, hostSelector, overlaySelector) {
+        this.el = widgetEl;
+        if (!hostSelector) {
+            this.host = widgetEl;
+        } else {
+            this.host = widgetEl.querySelector(hostSelector);
+        }
+        this.overlay = widgetEl.querySelector(overlaySelector);
+
+        if (this.host && this.overlay) {
+            this.isInitialized = true;
+        }
+    }
+
+    attachEvents() {
+        this.el.addEventListener("expander-expand", () => {
+            this.show();
+        });
+        this.el.addEventListener("expander-collapse", () => {
+            this.hide();
+        });
+    }
+
+    init() {
+        this.cleanup = autoUpdate(
+            this.host,
+            this.overlay,
+            this.update.bind(this),
+        );
+    }
+
+    update() {
+        if (this.isInitialized) {
+            computePosition(this.host, this.overlay, {
+                placement: "bottom-start",
+                middleware: [offset(4), flip(), shift()],
+            }).then(({ x, y }) => {
+                Object.assign(this.overlay.style, {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                });
+            });
+        }
+    }
+
+    show() {
+        this.init();
+    }
+    hide() {
+        if (this.cleanup) this.cleanup();
+    }
+}
+
 // BUSY BUTTON
-document.getElementById("busy-button").addEventListener("click", function () {
+document.getElementById("busy-button")?.addEventListener("click", function () {
     const button = this;
     button.setAttribute("aria-label", "Busy...");
     button.innerHTML = `
         <span class="btn__cell">
             <span class="progress-spinner" role="img" aria-label="Busy">
                 <svg class="icon icon--24" height="24" width="24" aria-hidden="true" >
-                    <use href="static/icons.svg#icon-spinner-24"></use>
+                    <use href="#icon-spinner-24"></use>
                 </svg>
             </span>
         </span>
@@ -132,17 +187,48 @@ document.querySelectorAll(".expand-btn").forEach(function (el) {
     });
 });
 
-document
-    .querySelectorAll(".filter-menu-button--form button")
-    .forEach(function (el) {
-        el.addEventListener("click", function () {
-            const isExpanded = this.getAttribute("aria-expanded") === "true";
-            this.setAttribute("aria-expanded", !isExpanded);
-        });
+document.querySelectorAll(".date-textbox").forEach(function (el) {
+    const popperDropdown = new PopperDropdown(
+        el,
+        null,
+        ".date-textbox__popover",
+    );
+
+    el.querySelector("button").addEventListener("click", function () {
+        this.parentElement.nextElementSibling.toggleAttribute("hidden");
+        if (this.parentElement.nextElementSibling.hasAttribute("hidden")) {
+            popperDropdown.hide();
+        } else {
+            popperDropdown.show();
+        }
     });
+});
+
+document.querySelectorAll(".filter-menu-button--form").forEach(function (el) {
+    const popperDropdown = new PopperDropdown(
+        el,
+        "button",
+        ".filter-menu-button__menu",
+    );
+    el.querySelector("button").addEventListener("click", function () {
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", !isExpanded);
+        if (isExpanded) {
+            popperDropdown.hide();
+        } else {
+            popperDropdown.show();
+        }
+    });
+});
 
 // FAKE MENU BUTTON
 document.querySelectorAll(".fake-menu-button").forEach(function (widgetEl) {
+    let popperDropdown = new PopperDropdown(
+        widgetEl,
+        "button",
+        ".fake-menu-button__menu",
+    );
+
     let hostSelector = ".icon-btn";
     if (widgetEl.querySelector(".expand-btn")) {
         hostSelector = ".expand-btn";
@@ -160,12 +246,21 @@ document.querySelectorAll(".fake-menu-button").forEach(function (widgetEl) {
             hostSelector,
         }),
     );
+    popperDropdown.attachEvents();
 });
 
 // COMBOBOX
 document.querySelectorAll(".combobox").forEach(function (widgetEl) {
     pageWidgets.push(new Combobox(widgetEl));
 
+    if (!widgetEl.parentElement.classList.contains("chips-combobox")) {
+        let popperDropdown = new PopperDropdown(
+            widgetEl,
+            "input",
+            ".combobox__listbox",
+        );
+        popperDropdown.attachEvents();
+    }
     widgetEl.addEventListener("makeup-combobox-change", logEvent);
 });
 
@@ -557,6 +652,12 @@ document.querySelectorAll(".listbox-button").forEach(function (widgetEl) {
         return;
     }
 
+    let popperDropdown = new PopperDropdown(
+        widgetEl,
+        "button",
+        ".listbox-button__listbox",
+    );
+
     const options = {
         autoSelect: widgetEl.dataset.makeupAutoSelect === "true",
         buttonLabelSelector: ".btn__text",
@@ -567,6 +668,7 @@ document.querySelectorAll(".listbox-button").forEach(function (widgetEl) {
 
     pageWidgets.push(new ListboxButton(widgetEl, options));
 
+    popperDropdown.attachEvents();
     widgetEl.addEventListener("makeup-listbox-button-change", (e) => {
         console.log(e.type, e.detail);
     });
@@ -585,6 +687,12 @@ document
 
         pageWidgets.push(new ListboxButton(widgetEl, options));
 
+        let popperDropdown = new PopperDropdown(
+            widgetEl,
+            "button",
+            ".listbox-button__listbox",
+        );
+
         widgetEl.addEventListener("makeup-listbox-button-change", (e) => {
             console.log(e.type, e.detail);
             const selectedOption = widgetEl.querySelector(
@@ -595,13 +703,23 @@ document
             ).textContent =
                 `+${selectedOption.querySelector("span.fflag")?.dataset.countryCode}`;
         });
+
+        popperDropdown.attachEvents();
     });
 
 document.querySelectorAll(".menu-button").forEach(function (widgetEl) {
+    const popperDropdown = new PopperDropdown(
+        widgetEl,
+        "button",
+        ".menu-button__menu",
+    );
+
     const widget = new MenuButton(widgetEl, {
         menuSelector: ".menu-button__menu",
         buttonTextSelector: `.btn__text`,
     });
+
+    popperDropdown.attachEvents();
 
     widget.menu.el.addEventListener("makeup-menu-select", logEvent);
     widget.menu.el.addEventListener("makeup-menu-change", logEvent);
@@ -614,9 +732,16 @@ document
             expandedClass: "filter-menu-button--expanded",
             menuSelector: ".filter-menu-button__menu",
         });
+        const popperDropdown = new PopperDropdown(
+            widgetEl,
+            "button",
+            ".filter-menu-button__menu",
+        );
 
         widget.menu.el.addEventListener("makeup-menu-select", logEvent);
         widget.menu.el.addEventListener("makeup-menu-change", logEvent);
+
+        popperDropdown.attachEvents();
     });
 
 document.querySelectorAll(".menu").forEach(function (widgetEl) {
@@ -859,6 +984,13 @@ document.querySelectorAll(".field").forEach(function (elCharContainer) {
     document
         .querySelectorAll(".chips-combobox")
         .forEach(function (elChipsCombobox) {
+            let popperDropdown = new PopperDropdown(
+                elChipsCombobox,
+                null,
+                ".combobox__listbox",
+            );
+            popperDropdown.attachEvents();
+
             const elChipsItems = elChipsCombobox.querySelector(
                     ".chips-combobox__items",
                 ),

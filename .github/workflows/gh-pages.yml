@@ -45,7 +45,9 @@ jobs:
       - run: npm run build
       - run: npm run deploy
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/public
 
   # Deployment job
   deploy:
@@ -63,7 +65,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
   release:
     runs-on: ubuntu-latest
     if: "${{ github.repository_owner == 'ebay' && github.event_name == 'push' }}"

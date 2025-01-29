@@ -1,0 +1,46 @@
+import flags from '../../../../components/data/flags.json';
+<div id="flag">
+  <section-header metadata=metadata/>
+
+  <p>The flag module is a bundle that provides full access to all the country flags via the <span
+      class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
+
+  <div class="demo">
+    <div class="demo__inner">
+      <svg class="flag flag--us" height="48" width="64">
+        <icon-symbol file="flags" prefix="flag" name="us" />
+      </svg>
+    </div>
+  </div>
+
+  <highlight-code type="html" >
+  <svg class="flag flag--us" height="48" width="64">
+    <use href="#flag-us"></use>
+  </svg>
+  </highlight-code>
+
+  <h3>Including an Flag</h3>
+  <p>A flag can be referenced from the <a
+      href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/flags.svg">flags svg</a> file. We also provide
+    individual flags as SVGs located in this <a
+      href="https://github.com/eBay/skin/tree/master/src/svg/flag">directory</a>. You can include these on your page as
+    raw SVGs as needed.</p>
+
+  <highlight-code type="html" >
+  <div hidden>
+    <svg class="flag flag--us" height="48" width="64">
+      <use href="#flag-us"></use>
+    </svg>
+  </div>
+  </highlight-code>
+  <p><strong>NOTE:</strong> the SVG tag does not support the <span class="highlight">hidden</span> attribute, hence a
+    hidden wrapper element is needed.</p>
+
+  <flag-list flag=flags/>
+</div>
+export const metadata = {
+    component: "flag",
+    "ds-component": {
+        version: 1
+    }
+};

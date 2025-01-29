@@ -1,0 +1,187 @@
+import iconJSON from '../../../../components/data/icons.json';
+<div id="icon">
+    <section-header metadata=metadata/>
+
+    <p>The icon module is a bundle that provides full access to the entire range of eBay iconography via the <span class="highlight">&lt;svg&gt;</span> and <span class="highlight">&lt;use&gt;</span> tags.</p>
+
+    <h3>Base Icons Only</h3>
+
+    Only base icons should be used. No state-based icons, such as disabled icons or even possibly an icon relaying an error state (likely red), should be used. Those state modifications on icons should be handled downstream using <span class="highlight">css</span> modifiers to allow for those variations.
+
+    <h3>General Markup Approach</h3>
+    <p>To avoid gigantic icons when in a non-CSS state, we use the SVG width and height attributes to override the
+        browser's default 300x150 size.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Icon example" class="icon icon--24" height="24" width="24"
+                role="img">
+                <icon-symbol name="information-24" />
+            </svg>
+        </div>
+    </div>
+
+    <highlight-code type="html" >
+<svg class="icon icon--24" height="24" width="24">
+    <use href="#icon-information-24"></use>
+</svg>
+    </highlight-code>
+
+    <p><strong>NOTE:</strong> Skin removes all pointer events on icons (via <span class="highlight">pointer-events:
+            none</span>) due to a bug in IE. To add events to these icons you should wrap them in another element and
+        attach your events there.</p>
+
+    <h3>Including an Icon</h3>
+    <p>An icon <a href="https://raw.githubusercontent.com/eBay/skin/master/src/svg/icons.svg">symbol</a> declaration can
+        be referenced from the same file or an <a href="#svg">external SVG</a> file. If in the same file, the symbol
+        must be stamped on the page inside of an SVG block.</p>
+    <p>We also provide individual icons as SVGs located in this <a href="https://github.com/eBay/skin/tree/master/src/svg/icon">directory</a>.
+        You can include these on your page as raw SVGs as needed.</p>
+
+    <highlight-code type="html" >
+<div hidden>
+    <svg>
+        <symbol id="icon-information-24" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C23.994 5.375 18.625.006 12 0Zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c-.006 5.52-4.48 9.994-10 10Zm-1-11a1 1 0 1 1 2 0v6a1 1 0 1 1-2 0v-6Zm1-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
+        </symbol>
+    </svg>
+</div>
+    </highlight-code>
+
+    <p><strong>NOTE:</strong> the SVG tag does not support the <span class="highlight">hidden</span> attribute, hence a
+        hidden wrapper element is needed.</p>
+
+    <h3>Presentational Icons</h3>
+    <p>A presentational icon provides no additional content, context or affordance to a page, section or widget.</p>
+    <p>Presentational icons require <span class="highlight">aria-hidden="true"</span>, in order to hide them from
+        assistive technology.</p>
+
+    <highlight-code type="html" >
+<svg class="icon icon--24" height="24" width="24" aria-hidden="true">
+    <use href="#icon-information-24"></use>
+</svg>
+    </highlight-code>
+
+    <h3>Non-Presentational Icons</h3>
+    <p>A non-presentational icon provides essential content, context or affordance to a page, section or widget.</p>
+
+    <p>Non-presentational icons require both <span class="highlight">role="img"</span> and an <span
+            class="highlight">aria-label</span> for assistive technology.</p>
+
+    <highlight-code type="html" >
+<svg class="icon icon--24" height="24" width="24" role="img" aria-label="Information">
+    <use href="#icon-information-24"></use>
+</svg>
+    </highlight-code>
+
+    <h3>Icon Classes</h3>
+    <p>Each icon can have a class that corresponds to its width. For example, <span class="highlight">icon--24</span>
+        corresponds to the 24px width icon. These correspond with the size associated with each icon.</p>
+    <p>For colored icons use <span class="highlight">icon--24-colored</span>
+        These will set the height, and the width will align with the aspect ratio</p>
+
+    <p>Icons have a name postfix that corresponds to the width of the icon. For example, "icon-information-24" corresponds to the information icon of the 24px width. Heights may differ depending on the icon.</p>
+    <icon-list icons=iconJSON.icons list=iconJSON.icons.list/>
+
+    <h3 id="icon-disabled">Disabled Icons</h3>
+    <p>Most icons can be given a disabled appearance by adding the <span class="highlight">icon--disabled</span>
+        modifier.</p>
+
+    <h4>Simple Icons</h4>
+    <p>Icons that are simple and have only a stroke/fill of a single color simply inherit <span class="highlight">color</span> and are disabled by inheriting that color as the stroke/fill.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Disabled icon example" class="icon icon--24 icon--disabled"
+                height="24" width="24" role="img">
+                <icon-symbol name="chevron-right-24" />
+            </svg>
+        </div>
+    </div>
+
+    <highlight-code type="html" >
+<svg class="icon icon--24 icon--disabled" height="24" width="24">
+    <use href="#icon-chevron-right-24"></use>
+</svg>
+    </highlight-code>
+
+    <h4>Filled Icons</h4>
+    <p>There are certain filled icons that show up black by default. In order to color these icons, apply the <span class="highlight">icon--{name}-filled</span> modifier.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Filled Icons" class="icon icon--16 icon--confirmation-filled"
+                height="16" width="16" role="img">
+                <icon-symbol name="confirmation-filled-16" />
+            </svg>
+            <svg aria-label="Filled Icons" class="icon icon--16 icon--attention-filled"
+                height="16" width="16" role="img">
+                <icon-symbol name="attention-filled-16" />
+            </svg>
+            <svg aria-label="Filled Icons" class="icon icon--16 icon--information-filled"
+                height="16" width="16" role="img">
+                <icon-symbol name="information-filled-16" />
+            </svg>
+        </div>
+    </div>
+
+    <highlight-code type="html" >
+<svg class="icon icon--16 icon--confirmation-filled" height="16" width="16">
+    <use href="#icon-confirmation-filled-16"></use>
+</svg>
+<svg class="icon icon--16 icon--attention-filled" height="16" width="16">
+    <use href="#icon-attention-filled-16"></use>
+</svg>
+<svg class="icon icon--16 icon--information-filled" height="16" width="16">
+    <use href="#icon-information-filled-16"></use>
+</svg>
+    </highlight-code>
+
+
+    <h4>Complex Icons</h4>
+    <p>Icons that are more complex and have multiple colors with a suffix of <span class="highlight">-colored</span> are grayscaled with an opacity.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <svg aria-label="Disabled icon example" class="icon icon--24-colored icon--disabled" height="24" width="24" role="img">
+                <icon-symbol name="mastercard-24-colored" />
+            </svg>
+        </div>
+    </div>
+
+    <highlight-code type="html" >
+<svg class="icon icon--24-colored icon--disabled" height="24" width="24">
+    <use href="#icon-mastercard-24-colored"></use>
+</svg>
+    </highlight-code>
+    $ const deprecatedIcons = iconJSON.icons?.deprecated || [];
+
+    <if(deprecatedIcons.length > 0)>
+        <h3>Deprecated Icons</h3>
+
+        <p>These deprecated icons have either been removed or renamed. We keep deprecated icon files around to allow some time for transitioning to new icons. Deprecated icon files and mentions in docs, however, get removed with the following major Skin versions.</p>
+
+        <section class="section-notice section-notice--attention" role="region" aria-label="Attention" aria-roledescription="Notice">
+            <div class="section-notice__header" id="section-notice-attention">
+                <svg class="icon icon--16" height="16" width="16" aria-label="Attention">
+                    <icon-symbol name="attention-filled-16" />
+                </svg>
+            </div>
+            <div class="section-notice__main">
+                <h3 class="section-notice__title">Do NOT Use These!</h3>
+                <p>The following icons have been deprecated. They will be deleted in the next major Skin version. To transition usage to the new icons, please refer to the icons above and/or refer to the icon transition spreadsheet.</p>
+            </div>
+        </section>
+
+        <icon-list icons=$global.meta.icons list=deprecatedIcons/>
+    </if>
+
+
+</div>
+export const metadata = {
+    component: "icon",
+    "ds-component": {
+        "name": "icon",
+        "version": 1.3
+    }
+};

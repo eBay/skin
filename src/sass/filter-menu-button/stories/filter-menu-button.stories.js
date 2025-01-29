@@ -10,7 +10,7 @@ export const collapsed = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -61,7 +61,7 @@ export const expanded = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -112,7 +112,7 @@ export const pressed = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -163,7 +163,7 @@ export const disabled = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -213,7 +213,7 @@ export const overflow = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -451,7 +451,7 @@ export const textSpacing = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -689,7 +689,7 @@ export const truncated = () => `
             </svg>
         </span>
     </button>
-    <div class="filter-menu-button__menu">
+    <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
         <div class="filter-menu-button__items" role="menu">
             <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                 <span class="filter-menu-button__checkbox">
@@ -741,7 +741,7 @@ export const RTL = () => `
                 </svg>
             </span>
         </button>
-        <div class="filter-menu-button__menu">
+        <div class="filter-menu-button__menu filter-menu-button__menu--set-position">
             <div class="filter-menu-button__items" role="menu">
                 <div class="filter-menu-button__item" role="menuitemcheckbox" aria-checked="false">
                     <span class="filter-menu-button__checkbox">

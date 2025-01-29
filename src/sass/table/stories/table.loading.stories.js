@@ -6,7 +6,7 @@ export const base = () => `
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -70,7 +70,7 @@ export const base = () => `
                     </button>
                 </th>
                 <th class="table-cell" aria-sort="ascending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>
@@ -288,7 +288,7 @@ export const compact = () => `
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -352,7 +352,7 @@ export const compact = () => `
                     </button>
                 </th>
                 <th class="table-cell" aria-sort="ascending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>
@@ -570,7 +570,7 @@ export const relaxed = () => `
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Seller
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-down-12"></use>
@@ -634,7 +634,7 @@ export const relaxed = () => `
                     </button>
                 </th>
                 <th class="table-cell" aria-sort="ascending">
-                    <button type="button" aria-pressed="true" disabled>
+                    <button type="button" disabled>
                         Shipping
                         <svg aria-hidden="true" class="icon icon--12" height="28" width="28">
                             <use href="#icon-sort-up-12"></use>

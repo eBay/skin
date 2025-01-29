@@ -1,0 +1,383 @@
+@import "../sass/variables/variables";
+
+header {
+    background-color: var(--color-background-accent);
+    box-shadow: var(--shadow-strong);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* HEADER */
+.app-bar {
+    align-items: center;
+    box-sizing: border-box;
+    color: var(--color-neutral-100);
+    /* display: flex; */
+    display: grid;
+    grid-area: 1 / 1 / span 1 / span 8;
+    /* justify-content: space-between; */
+    margin: 0 auto;
+    padding: var(--spacing-200) 0;
+    width: 100%;
+}
+
+.app-bar__title {
+    margin: 0;
+}
+
+.app-bar__title a,
+.app-bar__title a:visited {
+    color: var(--color-foreground-on-inverse);
+    text-decoration: none;
+}
+
+.app-bar__title a:hover {
+    text-decoration: underline;
+}
+
+.app-bar__links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-bar__links li:not(:last-child)::after {
+    content: "";
+    margin: 0 var(--spacing-100);
+}
+
+.app-bar__links a {
+    color: var(--color-foreground-primary);
+    display: inline-block;
+    padding-block: var(--spacing-150);
+    text-decoration: none;
+}
+
+.app-bar__links a:hover {
+    text-decoration: underline;
+}
+
+.app-bar__links a:focus {
+    outline: 1px auto var(--color-foreground-primary);
+}
+
+.app-bar__links a:visited {
+    color: var(--color-foreground-primary);
+}
+
+.top-bar {
+    align-items: center;
+    display: grid;
+    grid-template:
+        "leading content trailing"
+        "fullrow fullrow fullrow"
+        / 50px 1fr;
+}
+
+.app-bar-menu {
+    grid-area: leading;
+}
+
+.app-bar__title {
+    grid-area: content;
+}
+
+.site-nav-mobile {
+    background-color: var(--color-background-secondary);
+    box-sizing: border-box;
+    display: none;
+    grid-area: fullrow;
+    height: 100vh;
+    left: 0;
+    padding: 45px 16px 20px;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
+
+.site-nav-mobile a,
+.site-nav-mobile a:visited {
+    color: var(--color-foreground-accent);
+    display: inline-block;
+    line-height: 1.75em;
+    margin: 0 0 5px;
+    padding-block: initial;
+}
+
+.primary-nav:not(.footer-nav) {
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-stroke-subtle);
+    border-radius: 3px;
+    box-shadow: var(--shadow-subtle);
+    display: none;
+    font-size: var(--spacing-200);
+    grid-area: fullrow;
+    padding: var(--spacing-200);
+    position: absolute;
+    top: 3px;
+    width: 90%;
+    z-index: 1;
+}
+
+.primary-nav.footer-nav {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.primary-nav.footer-nav a,
+.primary-nav.footer-nav a:visited {
+    color: var(--color-foreground-secondary);
+}
+
+.primary-nav.footer-nav ul {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-nav.footer-nav ul li::marker {
+    content: "";
+    font-size: 0;
+}
+
+.components-nav .modules-expander__list {
+    column-count: initial;
+}
+
+.components-nav .modules-expander__list li {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+}
+
+.components-nav .modules-expander__list li a {
+    background-color: var(--color-background-tertiary);
+    border-radius: 10px;
+    color: var(--color-foreground-accent);
+    display: inline-block;
+    padding: 2px 6px;
+}
+
+.components-nav .modules-expander__list li a:visited {
+    color: var(--color-foreground-accent);
+}
+
+.components-nav .modules-expander__list li a::first-letter {
+    color: var(--color-foreground-accent);
+    font-weight: bold;
+}
+
+.secondary-nav li {
+    line-height: 1.25em;
+    margin-bottom: 0.75em;
+}
+
+.site-nav-mobile {
+    display: none;
+}
+
+.site-nav-mobile .tabs__items {
+    background-color: var(--color-background-tertiary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    transition: all 0.3s;
+}
+
+.site-nav-mobile div.tabs__item[role="tab"],
+.site-nav-mobile li.fake-tabs__item {
+    border-radius: 5px;
+    padding: 4px 8px;
+}
+
+.site-nav-mobile div.tabs__item[role="tab"]:first-child,
+.site-nav-mobile li.fake-tabs__item:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.site-nav-mobile div.tabs__item[role="tab"]:last-child,
+.site-nav-mobile li.fake-tabs__item:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.site-nav-mobile div.tabs__item[role="tab"][aria-selected="true"] {
+    background-color: var(--color-background-primary);
+    color: var(--color-foreground-accent);
+}
+
+.site-nav-mobile div.tabs__item[role="tab"][aria-selected="true"] > span::after,
+.site-nav-mobile li.fake-tabs__item > a[aria-current]::after {
+    background-color: transparent;
+}
+
+.site-nav-mobile
+    div.tabs__item[role="tab"]:not([aria-selected="true"]):focus
+    > span::after,
+.site-nav-mobile
+    div.tabs__item[role="tab"]:not([aria-selected="true"]):hover
+    > span::after,
+.site-nav-mobile li.fake-tabs__item > a:not([aria-current]):focus::after,
+.site-nav-mobile li.fake-tabs__item > a:not([aria-current]):hover::after {
+    background-color: transparent;
+}
+
+.site-nav-mobile div.tabs__item[role="tab"]:not(:last-child),
+.site-nav-mobile li.fake-tabs__item:not(:last-child) {
+    margin-inline-end: 0;
+}
+
+.site-nav-mobile .tabs__item svg.icon {
+    color: var(--color-foreground-accent);
+    margin-inline-end: 12px;
+}
+
+.site-nav-mobile .tabs__item:not([aria-selected="true"]) svg.icon {
+    color: var(--color-foreground-secondary);
+}
+
+.site-nav-mobile div.tabs__content {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.site-nav-mobile .tabs_item {
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 3px 6px;
+}
+
+.mobile-nav-toggle {
+    border: 1px solid var(--color-stroke-subtle);
+    border-radius: 2px;
+    height: 28px;
+    justify-items: center;
+    margin-top: 2px;
+    padding: 0;
+    position: static;
+    width: 28px;
+    z-index: 2;
+}
+
+.mobile-menu__icon {
+    align-items: center;
+    display: flex;
+    height: 28px;
+    justify-content: center;
+    width: 28px;
+}
+
+svg.icon.mobile-menu__close {
+    display: none;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] {
+    background-color: var(--color-background-primary);
+    color: var(--color-foreground-primary);
+}
+
+.mobile-nav-toggle svg.icon {
+    height: 18px;
+    width: 18px;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] svg.icon.mobile-menu__open {
+    display: none;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] ~ .site-nav-mobile {
+    display: block;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] svg.icon.mobile-menu__close {
+    display: block;
+}
+
+@media screen and (min-width: $_screen-size-SM) {
+    .app-bar {
+        grid-area: 1 / 1 / span 1 / span 16;
+    }
+
+    .modules-expander {
+        padding-left: 30px;
+    }
+}
+
+@media screen and (min-width: $_screen-size-MD) {
+    header {
+        box-shadow: none;
+        position: static;
+    }
+
+    .modules-expander {
+        display: none;
+    }
+
+    .app-bar {
+        grid-area: 1 / 1 / span 1 / span 16;
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .app-bar__title {
+        grid-area: leading;
+    }
+
+    .app-bar__links {
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        list-style-type: none;
+        margin-left: var(--spacing-100);
+    }
+
+    .app-bar__links a {
+        color: var(--color-foreground-on-inverse);
+        padding-block: 0;
+    }
+
+    .app-bar__links a:focus {
+        outline: 1px auto var(--color-foreground-on-inverse);
+    }
+
+    .app-bar__links a:visited {
+        color: var(--color-foreground-on-inverse);
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    .primary-nav:not(.footer-nav) {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        display: block;
+        font-size: inherit;
+        grid-area: trailing;
+        justify-self: right;
+        padding: 0;
+        position: static;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: $_screen-size-XL) {
+    #about dl {
+        column-count: 2;
+    }
+}
+
+@media screen and (min-width: $_screen-size-XL3) {
+    .app-bar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

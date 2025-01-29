@@ -10,7 +10,7 @@ export const collapsed = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <span>Item 10000</span>
@@ -36,7 +36,7 @@ export const disabled = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <span>Item 10000</span>
@@ -62,7 +62,7 @@ export const expanded = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 10000</span>
@@ -88,7 +88,7 @@ export const collapsedForm = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <span>Item 10000</span>
@@ -114,7 +114,7 @@ export const expandedForm = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 10000</span>
@@ -140,7 +140,7 @@ export const badged = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item menu-button__item--badged" role="menuitem" tabindex="0">
                 <span>Item 10000<span class="badge">2</span></span>
@@ -166,7 +166,7 @@ export const expandedDisabledItem = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div aria-disabled="true" class="menu-button__item" role="menuitem">
                 <span>Item 10000</span>
@@ -192,7 +192,7 @@ export const radioItems = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" tabindex="0" aria-checked="true">
                 <span>Item 10000</span>
@@ -227,7 +227,7 @@ export const radioItemsDisabledItem = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemradio" aria-checked="true" aria-disabled="true">
                 <span>Item 10000</span>
@@ -262,7 +262,7 @@ export const checkboxItems = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemcheckbox" tabindex="0" aria-checked="true">
                 <span>Item 10000</span>
@@ -297,7 +297,7 @@ export const checkboxItemsDisabledItem = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitemcheckbox" aria-checked="true" aria-disabled="true">
                 <span>Item 10000</span>
@@ -332,7 +332,7 @@ export const longOptionText = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 1 with a very very very long string</span>
@@ -358,7 +358,7 @@ export const menuIcons = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem">
                 <svg class="icon icon--24" aria-label="Settings" role="icon">
@@ -399,7 +399,7 @@ export const separator = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 10000</span>
@@ -426,7 +426,7 @@ export const textSpacing = () => `
             </svg>
         </span>
     </button>
-    <div class="menu-button__menu">
+    <div class="menu-button__menu menu-button__menu--set-position">
         <div class="menu-button__items" role="menu">
             <div class="menu-button__item" role="menuitem" tabindex="0">
                 <span>Item 1 with a very very very long string</span>
