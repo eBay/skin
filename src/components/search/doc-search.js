@@ -6,6 +6,6 @@ export function init(container) {
         container,
         indexName: "skin",
         appId: "4AG9MNELVM",
-        apiKey: "9b7a33ff8f0985b0f2b66e90c020b459",
+        apiKey: "398f02a5655ce918efcb965b5dc5bcd4",
     });
 }
