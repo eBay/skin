@@ -1,19 +1,12 @@
 import path from "path";
-import {components} from '../../components/components.marko';
+import {componentTemplate} from '../../components/components.marko';
 
 $ const metadata = {}
 
-<for|key, comp| in=components>
-    $ const componentName = path.basename(comp, '.marko');
-    $ const name = componentName.replace(/-([a-z])/g, function (g) { return ` ${g[1].toUpperCase()}`; });
-    $ const rawName = name.charAt(0) + name.slice(1);
-    /* @TODO Fix this line to result in this structure:
-        "accordion":{"ds-component":{"name":"accordion","version":1}},"alert-dialog":{"ds-component":{"name":"dialog","version":2.1},"submodules":["button"]},"avatar":{"ds-component":{"name":"avatar","version":1}},"badge":{"ds-component":{"name":"badge","version":1.2}},"breadcrumbs":{"ds-component":{"name":"breadcrumb","version":1.2},"submodules":["icon"]},...
-
-    */
-    $ metadata[component] = components[rawName];
-    <!-- $ metadata[component] = components[rawName].metadata; -->
-</for>
+$ for(let component in componentTemplate) {
+    const componentName = path.basename(path.dirname(component));
+    metadata[componentName] = componentTemplate[component].metadata;
+}
 
 <!doctype html>
 <html lang="en">
@@ -22,10 +15,6 @@ $ const metadata = {}
     </head>
 
     <body>
-        <h2>Components</h2>
-        <p>${JSON.stringify(components)}</p>
-
-        <h2>Component Metadata</h2>
         <p>${JSON.stringify(metadata)}</p>
     </body>
 </html>
