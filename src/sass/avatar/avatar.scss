@@ -1,4 +1,5 @@
 @import "../variables/variables";
+@import "../mixins/public/utility-mixins";
 
 /* These are temporary colors until we get the new palette */
 $_avatar-teal-foreground-color: #002a69;
@@ -19,11 +20,10 @@ $_avatar-magenta-foreground-color: #3e135f;
 $_avatar-magenta-background-color: #cc9ef0;
 
 .avatar {
+    @include image-treatment(50%, inline-flex);
+
     align-items: center;
-    background-color: $_avatar-teal-background-color;
     border-radius: 50%;
-    color: $_avatar-teal-foreground-color;
-    display: inline-flex;
     font-size: var(--font-size-large-2);
     font-weight: var(--font-weight-bold);
     height: 48px;
@@ -41,6 +41,10 @@ $_avatar-magenta-background-color: #cc9ef0;
     height: 48px;
     object-fit: cover;
     width: 48px;
+}
+
+.avatar--fit > img {
+    object-fit: contain;
 }
 
 .avatar--teal {

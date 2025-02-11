@@ -77,6 +77,29 @@ export const withImage = () => /* HTML */ `
     </div>
 `;
 
+export const withFitImage = () => /* HTML */ `
+    <div
+        class="avatar avatar--fit"
+        role="img"
+        aria-label="Profile picture - Elizabeth"
+    >
+        <img
+            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
+            alt=""
+        />
+    </div>
+    <div
+        class="avatar avatar--fit avatar--128"
+        role="img"
+        aria-label="Profile picture - Elizabeth"
+    >
+        <img
+            src="https://ir.ebaystatic.com/cr/v/c01/skin/docs/dog_profile_optimized.jpg"
+            alt=""
+        />
+    </div>
+`;
+
 export const signedOut = () => /* HTML */ `
     <div class="avatar" role="img" aria-label="Profile picture - Signed out">
         <svg class="icon" aria-hidden="true">
