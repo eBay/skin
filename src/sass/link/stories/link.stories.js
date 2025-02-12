@@ -29,6 +29,13 @@ export const nav = () =>
         Math.random() * Math.floor(1000),
     )}">Link 1</a></li>`;
 
+export const legal = () => `
+<a class="legal-link" href="https://www.ebay.com/urw/ZTE-AXON-7-Mini-32GB-Ion-Gold-Unlocked-Smartphone/product-reviews/230215749?_itm=222972816761">Link</a>
+`;
+
+export const legalFake = () =>
+    `<button class="fake-link legal-link" type="button">Button</button>`;
+
 export const textSpacing = () => `
 <a class="action-link demo-a11y-text-spacing" href="https://www.ebay.com/?r=${Math.floor(
     Math.random() * Math.floor(1000),

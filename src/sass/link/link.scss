@@ -3,14 +3,17 @@
 
 a.nav-link,
 a.standalone-link {
-    @include color-token(nav-link-foreground-color, color-foreground-primary);
+    @include color-token(
+        nav-link-foreground-color,
+        color-foreground-link-primary
+    );
 
     text-decoration: none;
 
     &:visited {
         @include color-token(
             link-foreground-color-default,
-            color-foreground-primary
+            color-foreground-link-primary
         );
     }
 
@@ -41,7 +44,10 @@ button.fake-link {
     font-size: inherit;
     padding: 0;
     text-decoration: underline;
-    @include color-token(fake-link-foreground-color, color-foreground-primary);
+    @include color-token(
+        fake-link-foreground-color,
+        color-foreground-link-primary
+    );
 
     &:hover {
         @include color-token(
@@ -55,6 +61,26 @@ button.fake-link {
         @include color-token(
             fake-link-foreground-disabled-color,
             color-foreground-disabled
+        );
+    }
+}
+
+a.legal-link,
+button.legal-link {
+    @include color-token(
+        legal-link-foreground-color,
+        color-foreground-link-legal
+    );
+
+    text-decoration: underline;
+
+    // At the moment there is no hover state for legal links.
+    // This is done so that the link does not inherit the hover and visited state defined in global
+    &:hover,
+    &:visited {
+        @include color-token(
+            legal-link-foreground-color,
+            color-foreground-link-legal
         );
     }
 }
