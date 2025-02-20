@@ -170,4 +170,52 @@ window.addEventListener("keyup", (e) => {
         closeNavigation();
     }
 });
+
+// Legacy links: Support incoming links from external sources which pointed to our pre-2025 single-page site
+// For example, redirects from /#menu-button-radio to /component/menu-button#menu-button-radio
+document.addEventListener("DOMContentLoaded", function() {
+    if (!location.hash) return;
+
+    // Don't redirect if we're already on a guide or component page (since all legacy links will be pointing to the site root)
+    if (location.pathname.includes("guide") || location.pathname.includes("component")) return;
+
+    // See if this matches an ID on the current page (if it does, obviously don't redirect)
+    let hash = location.hash.substring(1);
+    const id = document.getElementById(hash);
+    if (id) return;
+
+    // One-off non-component edge case: The #animation hash moved to a dedicated guide page
+    if (hash === "animation") {
+        location.href = "/guide/animation";
+        return;
+    }
+
+    // For safety, bail if this isn't strictly formatted correctly:
+    // - must be lowercase alphanumeric with dashes
+    // - no  leading/trailing dashes
+    // - the longest possible candidate ID (pagination-overflow-horizontal-24-control) is 41 chars
+    if (!/^[a-z0-9-]+$/.test(hash) || hash.startsWith("-") || hash.endsWith("-") || hash.length > 41) return;
+
+    // Normalize component edge cases where the legacy hash link was refactored later to match the component name (e.g. "tab" to "tabs")
+    hash = hash.replace(/^tab-/, "tabs-"); // Deep links under the "tabs" component (base "tabs" is unaffected)
+
+    // Starting from the right, chip away at the hash at each dash segment until we get a match from our components nav
+    // Note: We're going from longest to shortest since we don't want to mismatch a shorter component when we have a
+    // component with the same prefix (e.g. menu-button vs menu). Also, we have to do this since some hashes will be
+    // linking to a section within the page as well (e.g. menu-button-radio will exist on the menu-button component page).
+    let lastIndex = Infinity, partialHash = hash;
+    do {
+        partialHash = partialHash.substring(0, lastIndex);
+        const navEl = document.querySelector(`[role=menuitem][href*="/component/${partialHash}/"]`);
+        if (navEl) {
+            // Use suffix only if it differs from the original hash (otherwise its redundant and scrolls unnecessarily)
+            // Note: Using the normalized hash (not the original location.hash)
+            const suffix = hash !== partialHash ? `#${hash}` : "";
+
+            // Found match, so build final URL, redirect and bail
+            location.href = navEl.getAttribute("href") + suffix;
+            return;
+        }
+    } while ((lastIndex = partialHash.lastIndexOf("-")) !== -1);
+});
 </script>
