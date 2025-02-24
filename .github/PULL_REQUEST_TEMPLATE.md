@@ -21,6 +21,10 @@ Fixes #
 - [ ] I verify the build is in a non-broken state
 - [ ] I verify all changes are within scope of the linked issue
 
+<!-- For Markup Changes -->
+- [ ] I verify the markup will not be a breaking change (if not a major release)
+- [ ] I verify the MIND pattern for the component has been created/revised
+
 <!-- For CSS changes -->
 - [ ] I regenerated all CSS files under dist folder
 - [ ] I tested the UI in all supported browsers
