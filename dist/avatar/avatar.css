@@ -1,8 +1,6 @@
 .avatar {
     align-items: center;
-    background-color: #84b4fb;
     border-radius: 50%;
-    color: #002a69;
     display: inline-flex;
     font-size: var(--font-size-large-2);
     font-weight: var(--font-weight-bold);
@@ -10,7 +8,25 @@
     justify-content: center;
     line-height: 48px;
     overflow: hidden;
+    position: relative;
     width: 48px;
+}
+.avatar:after {
+    background: rgba(0, 0, 0, 0.05);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.avatar > img {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .avatar > svg {
@@ -22,6 +38,10 @@
     height: 48px;
     object-fit: cover;
     width: 48px;
+}
+
+.avatar--fit > img {
+    object-fit: contain;
 }
 
 .avatar--teal {

@@ -1,0 +1,784 @@
+style {
+    .layout-grid label {
+        margin-inline-start: 8px;
+    }
+}
+
+<div id="layout-grid">
+    <section-header metadata=metadata/>
+    <h1>Layout Grid</h1>
+
+    <p>A generic responsive layout grid for repeating UI elements in a container. These could be purely visual elements or interactive. This component will lay out repeating elements based on internal rules per device viewport breakpoint.</p>
+
+    <p>The elements will responsively shrink and stretch inside their container at any and all screen sizes.</p>
+
+    <p>We use <span class="highlight"> display: grid </span>
+    ${" "}to create a predefined allotted number of elements slots per breakpoint. We also use container queries to modify how many slots should be available per breakpoint. This allows elements to shrink/stretch the predefined number of items at each breakpoint with a fallback to media queries for unsupported browsers.</p>
+
+    <p>The responsive rules around how many elements appear on a single line before wrapping into a new line have all been predefined and baked into the component, so developers don't need to provide anything else to have a responsive layout of elements at various screen sizes.</p>
+
+    <h2 id="layout-grid-default-display-rules">Default Display Breakpoint Rules</h2>
+
+    <div class="table table--density-compact" role="group" aria-labelledby="layout-grid-default-display-rules" tabindex="0">
+        <table>
+            <thead>
+                <tr>
+                    <th class="table-cell">Breakpoint</th>
+                    <th class="table-cell">Container/Screen Widths</th>
+                    <th class="table-cell table-cell--numeric">Number of Columns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-cell">Min</td>
+                    <td class="table-cell">smallest/default</td>
+                    <td class="table-cell table-cell--numeric">1</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">XS</td>
+                    <td class="table-cell">320px</td>
+                    <td class="table-cell table-cell--numeric">2</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">SM</td>
+                    <td class="table-cell">512px</td>
+                    <td class="table-cell table-cell--numeric">3</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">MD</td>
+                    <td class="table-cell">768px</td>
+                    <td class="table-cell table-cell--numeric">4</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">LG</td>
+                    <td class="table-cell">1024px</td>
+                    <td class="table-cell table-cell--numeric">6</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">XL</td>
+                    <td class="table-cell">1280px</td>
+                    <td class="table-cell table-cell--numeric">8</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">XL2</td>
+                    <td class="table-cell">1440px</td>
+                    <td class="table-cell table-cell--numeric">10</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">XL3</td>
+                    <td class="table-cell">1680px</td>
+                    <td class="table-cell table-cell--numeric">12</td>
+                </tr>
+                <tr>
+                    <td class="table-cell">XL4</td>
+                    <td class="table-cell">1920px</td>
+                    <td class="table-cell table-cell--numeric">14</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Default Layouts with Radio Buttons</h2>
+
+    <p>Accessibility is baked in using a link to an on-screen text with the use of the <span class="highlight">aria-labelledby</span> attribute on the list container. This is used to provide a label for the list of items. This mehod should be used when there is on-screen text.</p>
+
+    <p>Here's an example of the default layout grid component used with radio buttons to create a more balanced layout than would result from simply an inline treatment.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <h3 id="layout-grid-my-radio-title">My Radio Buttons</h3>
+            <div class="layout-grid">
+                <ul aria-labelledby="layout-grid-my-radio-title">
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-1"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-1">Option 1</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-2"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-2">Option 2</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-3"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-3">Option 3</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-4"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-4">Option 4</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-5"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-5">Option 5</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-6"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-6">Option 6</label>
+                    </li>
+                    <li>
+                        <span class="radio">
+                            <input
+                                id="radio-default-7"
+                                aria-label="Default radio example"
+                                class="radio__control"
+                                type="radio"
+                                name="radio-default"
+                            >
+                            <span class="radio__icon" hidden>
+                                <svg
+                                    class="radio__unchecked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-unchecked-18"/>
+                                </svg>
+                                <svg
+                                    class="radio__checked"
+                                    height="18"
+                                    width="18"
+                                    aria-hidden="true"
+                                >
+                                    <icon-symbol name="radio-checked-18"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <label for="radio-default-7">Option 7</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <highlight-code type="html">
+<h3 id="layout-grid-my-radio-title">My Radio Buttons</h3>
+<div class="layout-grid">
+    <ul aria-labelledby="layout-grid-my-radio-title">
+        <li>
+            <span class="radio">
+                <input
+                    id="radio-default-1"
+                    aria-label="Default radio example"
+                    class="radio__control"
+                    type="radio"
+                    name="radio-default"
+                >
+                <span class="radio__icon" hidden>
+                    <svg
+                        class="radio__unchecked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <icon-symbol name="radio-unchecked-18"/>
+                    </svg>
+                    <svg
+                        class="radio__checked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <icon-symbol name="radio-checked-18"/>
+                    </svg>
+                </span>
+            </span>
+            <label for="radio-default-1">Option 1</label>
+        </li>
+        <li>
+            <span class="radio">
+                <input
+                    id="radio-default-2"
+                    aria-label="Default radio example"
+                    class="radio__control"
+                    type="radio"
+                    name="radio-default"
+                >
+                <span class="radio__icon" hidden>
+                    <svg
+                        class="radio__unchecked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <icon-symbol name="radio-unchecked-18"/>
+                    </svg>
+                    <svg
+                        class="radio__checked"
+                        height="18"
+                        width="18"
+                        aria-hidden="true"
+                    >
+                        <icon-symbol name="radio-checked-18"/>
+                    </svg>
+                </span>
+            </span>
+            <label for="radio-default-2">Option 2</label>
+        </li>
+        ...
+    </ul>
+</div>
+    </highlight-code>
+
+    <h2>Default Layouts with Buttons</h2>
+
+    <p>Here's an example of the default layout grid component used with buttons to create a more balanced layout than would result from simply an inline treatment.</p>
+
+    <p>Accessibility is baked in with the use of the <span class="highlight">aria-label</span> attribute on the list container. This is used to provide a label for the list of items. This mehod can be used when there is no on-screen text.</p>
+
+    <p>Here we're using fluid buttons to fill the available space in the layout grid.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="layout-grid">
+                <ul aria-label="List of options">
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <highlight-code type="html">
+<div class="layout-grid">
+    <ul aria-label="List of options">
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        ...
+    </ul>
+</div>
+    </highlight-code>
+
+    <h2>Custom Display Breakpoint Rules</h2>
+
+    <p>If you need to create custom display rules for how many items should appear per line at each breakpoint, you can override the default display rules by adding attributes to the layout grid container.</p>
+
+    <p>The attributes follow the format <span class="highlight">data-columns-[breakpoint]="[number]"</span> where <span class="highlight">[breakpoint]</span> is the breakpoint name and <span class="highlight">[number]</span> is the number of columns you want to display at that breakpoint.</p>
+
+    <h2>Custom Layouts with Buttons</h2>
+
+    <p>In this example, we're setting custom layout columns for various breakpoints. The default number of columns is 1, but we're setting it to 2. The default number of columns at the XS breakpoint is 2, but we're setting it to 3, so on and so forth. See the example code below for all the overrides. You may skip the breakpoints at which the default layout works for you.</p>
+
+    <div class="demo">
+        <div class="demo__inner">
+            <div class="layout-grid"
+                data-columns-min="2"
+                data-columns-xs="3"
+                data-columns-sm="4"
+                data-columns-md="6"
+                data-columns-lg="8"
+            >
+                <ul aria-label="List of options">
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                    <li>
+                        <button class="btn btn--fluid">Button</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <highlight-code type="html">
+<div class="layout-grid"
+    data-columns-min="2"
+    data-columns-xs="3"
+    data-columns-sm="4"
+    data-columns-md="6"
+    data-columns-lg="8"
+>
+    <ul aria-label="List of options">
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        ...
+    </ul>
+</div>
+    </highlight-code>
+
+    <h2>Custom Layouts with Lists</h2>
+
+    <p>In this example, we're creating a custom layout for the <span class="hightlight">list</span> component. Since <span class="hightlight">list</span> usually has a wider preferred layout, it may need more horizontal space. For that reason, we may want to use a custom layout for a group of <span class="hightlight">list</span> components.</p>
+
+    <p>See the list of <span class="hightlight">data-columns-[breakpoint]</span> attributes below for the custom layout. We've omitted custom breakpoint display rules that work well with the default rules.</p>
+
+    <div class="layout-grid"
+        data-columns-xs="2"
+        data-columns-md="3"
+        data-columns-lg="4"
+    >
+        <ul aria-label="List of options">
+            <li>
+                <h3>List 1</h3>
+                <div class="list">
+                    <ul>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-folder-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 1 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-file-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 2 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-key-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 3 </span>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3>List 2</h3>
+                <div class="list">
+                    <ul>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-folder-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 1 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-file-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 2 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-key-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 3 </span>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3>List 3</h3>
+                <div class="list">
+                    <ul>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-folder-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 1 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-file-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 2 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-key-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 3 </span>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3>List 4</h3>
+                <div class="list">
+                    <ul>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-folder-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 1 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-file-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 2 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-key-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 3 </span>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <h3>List 5</h3>
+                <div class="list">
+                    <ul>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-folder-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 1 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-file-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 2 </span>
+                        </div>
+                        </li>
+                        <li>
+                        <div>
+                            <span class="list__leading">
+                            <svg aria-hidden="true" class="icon icon--16" height="16" width="16">
+                                <use href="#icon-key-16" />
+                            </svg>
+                            </span>
+                            <span class="list__body"> Text 3 </span>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <highlight-code type="html">
+<div class="layout-grid"
+    data-columns-xs="2"
+    data-columns-md="3"
+    data-columns-lg="4"
+>
+    <ul aria-label="List of options">
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+        <li>
+            <button class="btn btn--fluid">Button</button>
+        </li>
+    </ul>
+</div>
+...
+</highlight-code>
+
+</div>
+
+export const metadata = {
+    component: "layout-grid",
+    "ds-component": {
+        name: "layout-grid",
+        version: "1.0.0",
+    },
+};
