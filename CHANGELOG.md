@@ -1,5 +1,31 @@
 # Skin Changelog
 
+## 19.1.0
+
+### Minor Changes
+
+- [#2562](https://github.com/eBay/skin/pull/2562) [`59d2e12`](https://github.com/eBay/skin/commit/59d2e1285ca259d224d5eb017669b4e6a2171e9e) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(tokens): added new motion tokens
+
+- [#2560](https://github.com/eBay/skin/pull/2560) [`36bec4d`](https://github.com/eBay/skin/commit/36bec4d989747744b8c81655aba0cd94bcdb85cc) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(tooltip): updated colors
+
+- [#2565](https://github.com/eBay/skin/pull/2565) [`abcb849`](https://github.com/eBay/skin/commit/abcb849ac64a2280bd16b246d4917d68620c2866) Thanks [@agliga](https://github.com/agliga)! - feat(avatar): added custom fit avatar
+
+- [#2556](https://github.com/eBay/skin/pull/2556) [`6f51583`](https://github.com/eBay/skin/commit/6f515835c71db040c5952499275a26c3280a20be) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(badge): added new border
+
+- [#2553](https://github.com/eBay/skin/pull/2553) [`c59f7e6`](https://github.com/eBay/skin/commit/c59f7e65cc615c9101d0b0164cfef3d5f94ec096) Thanks [@agliga](https://github.com/agliga)! - fix(list): swapped to use marker
+
+- [#2575](https://github.com/eBay/skin/pull/2575) [`89cdc3a`](https://github.com/eBay/skin/commit/89cdc3a397b69be2471ef6676d5c2db3772b1abf) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(marketsans): upgraded font implementing market sans v2
+
+- [#2566](https://github.com/eBay/skin/pull/2566) [`097513e`](https://github.com/eBay/skin/commit/097513e4db11b08fbea76d1407970b659951b249) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(layout-grid): added new component
+
+- [#2569](https://github.com/eBay/skin/pull/2569) [`2acf205`](https://github.com/eBay/skin/commit/2acf20576135a120f4b25015f9f98238edb8291d) Thanks [@agliga](https://github.com/agliga)! - feat(link): added legal link
+
+- [#2559](https://github.com/eBay/skin/pull/2559) [`cf2b10e`](https://github.com/eBay/skin/commit/cf2b10e17dbd4349c7ef07509161e8c4ee7e226a) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(tokens): updated attention stroke token
+
+### Patch Changes
+
+- [#2563](https://github.com/eBay/skin/pull/2563) [`1b316bd`](https://github.com/eBay/skin/commit/1b316bd425f70a2b046c453e0e7b5297992321c7) Thanks [@cordeliadillon](https://github.com/cordeliadillon)! - chore: update DS name mappings
+
 ## 19.0.0
 
 ### Major Changes
