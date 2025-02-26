@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 19.1.1
+
+### Patch Changes
+
+- [`091aa98`](https://github.com/eBay/skin/commit/091aa984caac53d647c73422b6c117f89aa07284) Thanks [@agliga](https://github.com/agliga)! - fix(dropdowns): added fixed support for floatingui strategy
+
 ## 19.1.0
 
 ### Minor Changes
