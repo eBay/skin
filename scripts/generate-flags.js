@@ -11,9 +11,9 @@ const { JSDOM } = jsdom;
 const configFilePath = path.resolve(
     currentDir,
     "src",
-    "routes",
-    "_index",
-    "+meta.json",
+    "components",
+    "data",
+    "site.json",
 );
 const file = fs.readFileSync(configFilePath, "utf8");
 const config = JSON.parse(file);
