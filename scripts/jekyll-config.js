@@ -4,7 +4,7 @@
  */
 const fs = require("fs");
 const version = require("../package.json").version;
-const files = ["./src/routes/_index/+meta.json"];
+const files = ["./src/components/data/site.json"];
 
 files.forEach((file) => {
     const newFile = JSON.parse(fs.readFileSync(file, "utf8"));
