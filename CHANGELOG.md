@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 19.1.2
+
+### Patch Changes
+
+- [#2586](https://github.com/eBay/skin/pull/2586) [`3dbaf75`](https://github.com/eBay/skin/commit/3dbaf75458621f3b7642d9b3b9b8bd29a495b410) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(market-sans): fix line-height for new font version
+
 ## 19.1.1
 
 ### Patch Changes
