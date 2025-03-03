@@ -12,11 +12,8 @@ export const closed = () => `
                     Shipping and returns
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -34,11 +31,8 @@ export const closed = () => `
                     Text wraps on small screen with this long text
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -56,11 +50,8 @@ export const closed = () => `
                     Specifications
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -86,11 +77,8 @@ export const open = () => `
                     Shipping and returns
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -108,11 +96,8 @@ export const open = () => `
                     Text wraps on small screen with this long text
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -130,11 +115,8 @@ export const open = () => `
                     Specifications
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -160,11 +142,8 @@ export const textSpacing = () => `
                     Shipping and returns
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -182,11 +161,8 @@ export const textSpacing = () => `
                     Text wraps on small screen with this long text
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -204,11 +180,8 @@ export const textSpacing = () => `
                     Specifications
                 </span>
                 <span class="details__icon" hidden>
-                    <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-add-16"/>
-                    </svg>
-                    <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                        <use href="#icon-remove-16"/>
+                    <svg class="icon icon--16" aria-hidden="true">
+                        <use href="#icon-chevron-down-16"/>
                     </svg>
                 </span>
             </summary>
@@ -234,11 +207,8 @@ export const large = () => `
                   Shipping and returns
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
@@ -256,11 +226,8 @@ export const large = () => `
                   Description
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
@@ -278,11 +245,8 @@ export const large = () => `
                   Specifications
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
@@ -308,11 +272,8 @@ export const autoCollapse = () => `
                   Shipping and returns
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
@@ -330,11 +291,8 @@ export const autoCollapse = () => `
                   Text wraps on small screen with this long text
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
@@ -352,11 +310,8 @@ export const autoCollapse = () => `
                   Specifications
               </span>
               <span class="details__icon" hidden>
-                <svg class="icon icon--16 details__expand" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-add-16"/>
-                </svg>
-                <svg class="icon icon--16 details__collapse" height="16" width="16" aria-hidden="true">
-                    <use href="#icon-remove-16"/>
+                <svg class="icon icon--16" aria-hidden="true">
+                    <use href="#icon-chevron-down-16"/>
                 </svg>
             </span>
           </summary>
