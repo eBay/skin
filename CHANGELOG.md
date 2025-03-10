@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 19.1.3
+
+### Patch Changes
+
+- [#2595](https://github.com/eBay/skin/pull/2595) [`cfb2b17`](https://github.com/eBay/skin/commit/cfb2b17fd7f18522896cbc1ecb44f993bc8214cf) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(page-grid): fixed layouts for print view and fixed examples
+
 ## 19.1.2
 
 ### Patch Changes
