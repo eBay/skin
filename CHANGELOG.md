@@ -1,5 +1,15 @@
 # Skin Changelog
 
+## 19.2.0-next.0
+
+### Minor Changes
+
+- [#2590](https://github.com/eBay/skin/pull/2590) [`53d8d48`](https://github.com/eBay/skin/commit/53d8d48d19fc3e85cb5f91b8357590d3e882231e) Thanks [@saiponnada](https://github.com/saiponnada)! - feat(accordion): update expansion icon
+
+- [#2589](https://github.com/eBay/skin/pull/2589) [`a76ba1e`](https://github.com/eBay/skin/commit/a76ba1e94b1eedaffa5fa7cbcf5d0bcba95e5bf6) Thanks [@agliga](https://github.com/agliga)! - feat(button): added animation to buttons
+
+- [#2588](https://github.com/eBay/skin/pull/2588) [`0bbe7cb`](https://github.com/eBay/skin/commit/0bbe7cb09ad4bfdbd43790e0fec9c316ba691cea) Thanks [@agliga](https://github.com/agliga)! - feat(eek): flipped EEK direction
+
 ## 19.1.1
 
 ### Patch Changes
