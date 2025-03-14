@@ -9,7 +9,7 @@ export default create({
     appBg: "#EEF8FF",
 
     // Brand assets
-    brandTitle: "eBayUI Core",
+    brandTitle: "Skin CSS Framework",
     brandUrl: "/",
     brandImage:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/1280px-EBay_logo.svg.png",

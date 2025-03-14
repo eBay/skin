@@ -1,7 +1,7 @@
 export default { title: "Skin/Snackbar Dialog/Font-Size" };
 
 export const noAction = () => `
-    <div style="font-size: 200%">
+    <div class="font-large">
         <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog">
             <div class="snackbar-dialog__window">
                 <div class="snackbar-dialog__main">
@@ -13,7 +13,7 @@ export const noAction = () => `
 `;
 
 export const action = () => `
-    <div style="font-size: 200%">
+    <div class="font-large">
         <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog">
             <div class="snackbar-dialog__window">
                 <div class="snackbar-dialog__main">
@@ -28,7 +28,7 @@ export const action = () => `
 `;
 
 export const actionAndDismiss = () => `
-    <div style="font-size: 200%">
+    <div class="font-large">
         <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog">
             <div class="snackbar-dialog__window">
                 <div class="snackbar-dialog__main">
@@ -44,7 +44,7 @@ export const actionAndDismiss = () => `
 `;
 
 export const actionsStacked = () => `
-    <div style="font-size: 200%">
+    <div class="font-large">
         <aside aria-label="Notification" aria-live="polite" aria-modal="false" class="snackbar-dialog" role="dialog">
             <div class="snackbar-dialog__window snackbar-dialog__window--column">
                 <div class="snackbar-dialog__main">

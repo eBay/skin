@@ -1,5 +1,17 @@
 # Skin Changelog
 
+## 19.1.3
+
+### Patch Changes
+
+- [#2595](https://github.com/eBay/skin/pull/2595) [`cfb2b17`](https://github.com/eBay/skin/commit/cfb2b17fd7f18522896cbc1ecb44f993bc8214cf) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(page-grid): fixed layouts for print view and fixed examples
+
+## 19.1.2
+
+### Patch Changes
+
+- [#2586](https://github.com/eBay/skin/pull/2586) [`3dbaf75`](https://github.com/eBay/skin/commit/3dbaf75458621f3b7642d9b3b9b8bd29a495b410) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(market-sans): fix line-height for new font version
+
 ## 19.1.1
 
 ### Patch Changes
