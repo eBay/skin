@@ -18,42 +18,57 @@
     grid-area: header;
 }
 
-.item-tile--list-view .item-tile__header {
-    max-width: 200px;
+.item-tile__header .file-preview-card__body a {
+    display: block;
+    width: 100%;
 }
 
 .item-tile__body {
     display: grid;
     grid-area: body;
     grid-template-areas:
-        "aligned-section-1"
-        "aligned-section-2"
-        "aligned-section-3";
+        "section-primary"
+        "section-secondary"
+        "section-tertiary";
     grid-template-rows: 25px 1fr 1fr;
 }
 
-.item-tile__aligned-section-1 {
+.item-tile--list-view .item-tile__header {
+    max-width: 200px;
+}
+
+.item-tile--list-view .item-tile__body {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-tile__section-primary {
     display: inline-block;
-    grid-area: aligned-section-1;
+    grid-area: section-primary;
     margin-block-end: var(--spacing-50);
 }
 
-.item-tile__aligned-section-1 .signal {
+.item-tile__section-primary .signal {
     margin: 0;
 }
 
-.item-tile__aligned-section-2 {
-    grid-area: aligned-section-2;
+.item-tile__section-secondary {
+    grid-area: section-secondary;
 }
 
-.item-tile__aligned-section-3 {
-    grid-area: aligned-section-3;
+.item-tile__section-tertiary {
+    grid-area: section-tertiary;
 }
 
 /* Each of the attributes is expected to be in its own <p> */
-.item-tile__aligned-section-3 p {
+.item-tile__section-tertiary p {
     margin-block-end: 0.2143em; /* 3px / 14px (base font) */
     margin-block-start: 0;
+}
+
+.item-tile__section-tertiary a {
+    color: var(--color-foreground-link-primary);
+    text-decoration: none;
 }
 
 .item-tile__title {
