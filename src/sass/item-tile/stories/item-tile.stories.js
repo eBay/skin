@@ -37,18 +37,14 @@ export const galleryView = () => `
             </div>
         </div>
         <div class="item-tile__section-tertiary">
-            <div class="item-tile__price">
+            <p>
                 $29.99 
                 <span class="clipped">Was: </span>
                 <s class="item-tile__list-price">$68.99</s>
-            </div>
-            <div class="item-tile__buy-links">
-                <div><a href="https://ebay.com">Buy it now</a></div>
-                <div>Free shipping</div>
-            </div>
-            <div class="item-tile__sponsored">
-                Sponsored
-            </div>
+            </p>
+            <p><a href="https://ebay.com">Buy it now</a></p>
+            <p>Free shipping</p>
+            <p>Sponsored</p>
         </div>
     </div>
 </div>
