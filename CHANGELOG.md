@@ -1,5 +1,17 @@
 # Skin Changelog
 
+## 19.2.0-next.0
+
+### Minor Changes
+
+- [#2598](https://github.com/eBay/skin/pull/2598) [`7ceff5e`](https://github.com/eBay/skin/commit/7ceff5e409f59ec47553f3a046a5c3f31eda0ccf) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(accordion): update expansion icon
+
+- [#2598](https://github.com/eBay/skin/pull/2598) [`bb7ba38`](https://github.com/eBay/skin/commit/bb7ba38fa8c1945c671c8342bf82e861c82dc241) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(icons): added new icons
+
+- [#2598](https://github.com/eBay/skin/pull/2598) [`f2f47a0`](https://github.com/eBay/skin/commit/f2f47a03df632cd0fd831e8ccb35614971377b2d) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(button): added animation to buttons
+
+- [#2598](https://github.com/eBay/skin/pull/2598) [`8eb94eb`](https://github.com/eBay/skin/commit/8eb94ebd1a2ae25e8fd19b2a858ff37f8675f8b0) Thanks [@github-actions](https://github.com/apps/github-actions)! - feat(eek): flipped EEK direction
+
 ## 19.1.3
 
 ### Patch Changes
