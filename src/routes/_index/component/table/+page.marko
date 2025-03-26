@@ -2257,7 +2257,32 @@ import imgLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
     </p>
 
     <p>
-        Additionally, in the loading state, the module should be inaccessible to the user. This can be achieved by setting <span class="highlight">tabindex="-1"</span> to the module container, and adding the <span class="highlight">inert</span> attribute to the <span class="highlight">table</span> inside the module. Since <span class="highlight">inert</span> is not fully supported in older browsers, it is recommended to either use a polyfill or use <span class="highlight">JavaScript</span> to disable all interactive elements inside the table when in loading state. Elements that support <span class="highlight">disabled</span> should be disabled. Anchors should have their <span class="highlight">href</span> attributes removed.
+        Additionally, in the loading state, the module should be inaccessible to the user. This can be achieved by adding the <span class="highlight">inert</span> attribute to the <span class="highlight">&lt;table&gt;</span> as well as <highlight>aria-hidden="true"</highlight>. Since <span class="highlight">inert</span> is not fully supported in older browsers, it is recommended to either use a polyfill or use <span class="highlight">JavaScript</span> to disable all interactive elements inside the table when in loading state. Elements that support <span class="highlight">disabled</span> should be disabled. Anchors should have their <span class="highlight">href</span> attributes removed.
+    </p>
+
+    <p>
+        <section
+            class="section-notice"
+            role="region"
+            aria-label="Information"
+            aria-roledescription="Notice"
+            >
+            <div class="section-notice__header" id="section-notice-information">
+                <svg
+                class="icon icon--16 icon--information-filled"
+                height="16"
+                width="16"
+                aria-label="Information"
+                >
+                <use href="#icon-information-filled-16" />
+                </svg>
+            </div>
+            <div class="section-notice__main">
+                <p>
+                    Anchors that need to have their <highlight>href</highlight> attributes removed during loading, may require those href attributes to be restored once the loading state is done. For example, table head anchors that do server-side sorting/filtering. A good way to make those links inaccessible is to rename <highlight>href</highlight> to some other attribute, such as <highlight>data-href</highlight> during loading, and then revert them all back to <highlight>href</highlight>  when loading state is complete.
+                </p>
+            </div>
+        </section>
     </p>
 
     <p>
@@ -2271,13 +2296,13 @@ import imgLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
     </p>
 
     <p>
-        The loading state should be displayed until the data is fully loaded. In addition to the loading state being set on the table, a progress bar expressive should be added to relay the loading state both visually and for screen readers. The live examples that follow use <span class="highlight">aria-live="off"</span> to prevent the status element from proactively announcing new content. This is only for demo purposes, so that this documentation page does not overwhelm the viewer with example status updates. The <span class="highlight">aria-live</span> override should not be included in implementations of this pattern.
+        The loading state should be displayed until the data is fully loaded. In addition to the loading state being set on the table, a progress bar expressive should be added to relay the loading state both visually and for screen readers. The progress bar expressive should be placed inside an a live region, such as <highlight>&lt;div role="status" aria-live="polite"&gt;&lt;/div&gt;</highlight>.
     </p>
 
     <div class="demo">
         <div class="demo__inner">
-            <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="-1">
-                <table inert>
+            <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
+                <table aria-hidden="true" inert>
                     <thead>
                         <tr>
                             <th class="table-cell" aria-sort="descending">
@@ -2532,25 +2557,27 @@ import imgLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
                         </tr>
                     </tbody>
                 </table>
-                <div class="progress-bar-expressive" tabindex="0" aria-live="off">
-                    <div
-                        role="progressbar"
-                        aria-label="Loading..."
-                        class="progress-bar-expressive__progress"
-                    >
-                        <div class="progress-bar-expressive__lines">
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
-                            <div class="progress-bar-expressive__line"></div>
+                <div role="status" aria-live="polite">
+                    <div class="progress-bar-expressive">
+                        <div
+                            role="progressbar"
+                            aria-label="Loading..."
+                            class="progress-bar-expressive__progress"
+                        >
+                            <div class="progress-bar-expressive__lines">
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                                <div class="progress-bar-expressive__line"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2559,8 +2586,8 @@ import imgLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
     </div>
 
     <highlight-code type="html">
-<div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="-1" inert>
-    <table>
+<div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
+    <table aria-hidden="true" inert>
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
@@ -2687,25 +2714,27 @@ import imgLandscapePic from "/src/routes/static/img/tb-landscape-pic.jpg";
             <puesdo-code-table-tr />
         </tbody>
     </table>
-    <div class="progress-bar-expressive">
-        <div
-            role="progressbar"
-            aria-label="Loading..."
-            class="progress-bar-expressive__progress"
-        >
-            <div class="progress-bar-expressive__lines">
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
-                <div class="progress-bar-expressive__line"></div>
+    <div role="status" aria-live="polite">
+        <div class="progress-bar-expressive">
+            <div
+                role="progressbar"
+                aria-label="Loading..."
+                class="progress-bar-expressive__progress"
+            >
+                <div class="progress-bar-expressive__lines">
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                    <div class="progress-bar-expressive__line"></div>
+                </div>
             </div>
         </div>
     </div>
