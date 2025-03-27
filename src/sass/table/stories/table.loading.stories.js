@@ -2,7 +2,7 @@ export default { title: "Skin/Table/Loading" };
 
 export const base = () => `
 <div class="table table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
-    <table>
+    <table aria-hidden="true" inert>
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
@@ -257,13 +257,14 @@ export const base = () => `
             </tr>
         </tbody>
     </table>
-    <div class="progress-bar-expressive" tabindex="0">
-        <div
-            role="progressbar"
-            aria-label="Loading..."
-            class="progress-bar-expressive__progress"
-        >
-            <div class="progress-bar-expressive__lines">
+    <div role="status" aria-live="polite">
+        <div class="progress-bar-expressive" tabindex="0">
+            <div
+                role="progressbar"
+                aria-label="Loading..."
+                class="progress-bar-expressive__progress"
+            >
+                <div class="progress-bar-expressive__lines">
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
@@ -276,6 +277,7 @@ export const base = () => `
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -284,7 +286,7 @@ export const base = () => `
 
 export const compact = () => `
 <div class="table table--density-compact table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
-    <table>
+    <table aria-hidden="true" inert>
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
@@ -539,13 +541,14 @@ export const compact = () => `
             </tr>
         </tbody>
     </table>
-    <div class="progress-bar-expressive" tabindex="0" aria-live="off">
-        <div
-            role="progressbar"
-            aria-label="Loading..."
-            class="progress-bar-expressive__progress"
-        >
-            <div class="progress-bar-expressive__lines">
+    <div role="status" aria-live="polite">
+        <div class="progress-bar-expressive" tabindex="0">
+            <div
+                role="progressbar"
+                aria-label="Loading..."
+                class="progress-bar-expressive__progress"
+            >
+                <div class="progress-bar-expressive__lines">
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
@@ -558,6 +561,7 @@ export const compact = () => `
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
                 <div class="progress-bar-expressive__line"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -566,7 +570,7 @@ export const compact = () => `
 
 export const relaxed = () => `
 <div class="table table--density-relaxed table--loading-state" role="group" aria-label="Video games for sale" tabindex="0">
-    <table>
+    <table aria-hidden="true" inert>
         <thead>
             <tr>
                 <th class="table-cell" aria-sort="descending">
@@ -821,25 +825,27 @@ export const relaxed = () => `
             </tr>
         </tbody>
     </table>
-    <div class="progress-bar-expressive" tabindex="0" aria-live="off">
-        <div
-            role="progressbar"
-            aria-label="Loading..."
-            class="progress-bar-expressive__progress"
-        >
-            <div class="progress-bar-expressive__lines">
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
-            <div class="progress-bar-expressive__line"></div>
+    <div role="status" aria-live="polite">
+        <div class="progress-bar-expressive" tabindex="0">
+            <div
+                role="progressbar"
+                aria-label="Loading..."
+                class="progress-bar-expressive__progress"
+            >
+                <div class="progress-bar-expressive__lines">
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                <div class="progress-bar-expressive__line"></div>
+                </div>
             </div>
         </div>
     </div>
