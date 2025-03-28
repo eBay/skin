@@ -27,6 +27,13 @@ ul.accordion summary.details__summary {
     padding: 12px 16px;
 }
 
+ul.accordion summary.details__summary span.details__icon svg {
+    @include fill-token(
+        details-secondary-foreground-color,
+        color-foreground-secondary
+    );
+}
+
 ul.accordion details .details__content {
     margin: 0 16px 6px;
     opacity: 0;
@@ -42,11 +49,7 @@ ul.accordion details[open] .details__content {
     transform: scaleY(1);
 }
 
-ul.accordion--large summary.details__summary {
-    font-size: var(--font-size-large-1);
-    min-height: 52px;
-}
-
+/* DEPRECATED: Remove next major */
 ul.accordion details svg.details__expand,
 ul.accordion details[open] svg.details__collapse {
     display: inline-block;
@@ -55,6 +58,11 @@ ul.accordion details[open] svg.details__collapse {
 ul.accordion details[open] svg.details__expand,
 ul.accordion details svg.details__collapse {
     display: none;
+}
+
+ul.accordion--large summary.details__summary {
+    font-size: var(--font-size-large-1);
+    min-height: 52px;
 }
 
 @media (prefers-reduced-motion) {
