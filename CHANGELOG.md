@@ -1,5 +1,23 @@
 # Skin Changelog
 
+## 19.2.0
+
+### Minor Changes
+
+- [#2615](https://github.com/eBay/skin/pull/2615) [`7ceff5e`](https://github.com/eBay/skin/commit/7ceff5e409f59ec47553f3a046a5c3f31eda0ccf) Thanks [@agliga](https://github.com/agliga)! - feat(accordion): update expansion icon
+
+- [#2610](https://github.com/eBay/skin/pull/2610) [`7351742`](https://github.com/eBay/skin/commit/73517427a0f0f4a5cdf4638bceab2e57284c72b4) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(link): updated legal link colors
+
+- [#2615](https://github.com/eBay/skin/pull/2615) [`bb7ba38`](https://github.com/eBay/skin/commit/bb7ba38fa8c1945c671c8342bf82e861c82dc241) Thanks [@agliga](https://github.com/agliga)! - feat(icons): added new icons
+
+- [#2615](https://github.com/eBay/skin/pull/2615) [`f2f47a0`](https://github.com/eBay/skin/commit/f2f47a03df632cd0fd831e8ccb35614971377b2d) Thanks [@agliga](https://github.com/agliga)! - feat(button): added animation to buttons
+
+- [#2603](https://github.com/eBay/skin/pull/2603) [`7bf9c1c`](https://github.com/eBay/skin/commit/7bf9c1c8677b788d529019fea2d2a78555089640) Thanks [@ArtBlue](https://github.com/ArtBlue)! - feat(item-tile,item-tile-group): created new components
+
+- [#2615](https://github.com/eBay/skin/pull/2615) [`8eb94eb`](https://github.com/eBay/skin/commit/8eb94ebd1a2ae25e8fd19b2a858ff37f8675f8b0) Thanks [@agliga](https://github.com/agliga)! - feat(eek): flipped EEK direction
+
+- [#2611](https://github.com/eBay/skin/pull/2611) [`cd2c041`](https://github.com/eBay/skin/commit/cd2c041c1d154dc98da7f5035a16a416b72fd91d) Thanks [@ArtBlue](https://github.com/ArtBlue)! - fix(table): a11y fixes for table loading state
+
 ## 19.1.3
 
 ### Patch Changes
