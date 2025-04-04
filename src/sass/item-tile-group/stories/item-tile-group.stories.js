@@ -1,12 +1,7 @@
 export default { title: "Skin/Item Tile Group" };
 
 export const galleryView = () => `
-<div class="item-tile-group layout-grid"
-    data-columns-min="2"
-    data-columns-md="3"
-    data-columns-lg="4"
-    data-columns-xl="5"
->
+<div class="item-tile-group layout-grid">
     <ul aria-label="Items for sale">
         <li>
             <div class="item-tile">
@@ -46,7 +41,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -95,7 +90,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -144,7 +139,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -193,7 +188,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -242,7 +237,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -291,7 +286,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -340,7 +335,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -389,7 +384,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -438,7 +433,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -487,7 +482,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -536,7 +531,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -585,7 +580,7 @@ export const galleryView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -601,10 +596,7 @@ export const galleryView = () => `
 `;
 
 export const listView = () => `
-<div class="item-tile-group item-tile-group--list-view layout-grid"
-    data-columns-min="1"
-    data-columns-xl="2"
->
+<div class="item-tile-group item-tile-group--list-view layout-grid">
     <ul aria-label="Items for sale">
         <li>
             <div class="item-tile item-tile--list-view">
@@ -644,7 +636,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -693,7 +685,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -742,7 +734,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -791,7 +783,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -840,7 +832,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -889,7 +881,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -938,7 +930,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -987,7 +979,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -1036,7 +1028,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -1085,7 +1077,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -1134,7 +1126,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
@@ -1183,7 +1175,7 @@ export const listView = () => `
                     </div>
                     <div class="item-tile__section-tertiary">
                         <p>
-                            $29.99 
+                            $29.99
                             <span class="clipped">Was: </span>
                             <s class="item-tile__list-price">$68.99</s>
                         </p>
