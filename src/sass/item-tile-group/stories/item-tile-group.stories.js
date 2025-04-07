@@ -2,7 +2,7 @@ export default { title: "Skin/Item Tile Group" };
 
 export const galleryView = () => `
 <div class="item-tile-group layout-grid">
-    <ul aria-label="Items for sale">
+    <ul>
         <li>
             <div class="item-tile">
                 <div class="item-tile__header">
@@ -597,7 +597,7 @@ export const galleryView = () => `
 
 export const listView = () => `
 <div class="item-tile-group item-tile-group--list-view layout-grid">
-    <ul aria-label="Items for sale">
+    <ul>
         <li>
             <div class="item-tile item-tile--list-view">
                 <div class="item-tile__header">
