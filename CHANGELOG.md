@@ -1,5 +1,11 @@
 # Skin Changelog
 
+## 19.3.0-next.0
+
+### Minor Changes
+
+- [#2621](https://github.com/eBay/skin/pull/2621) [`0041b82`](https://github.com/eBay/skin/commit/0041b8256b645f506a24e8990c0ec86462756931) Thanks [@agliga](https://github.com/agliga)! - feat(item-tile-group): add default layouts inside item-tile-group
+
 ## 19.2.0
 
 ### Minor Changes
